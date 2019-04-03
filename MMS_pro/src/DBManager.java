@@ -1,4 +1,5 @@
 import java.beans.Statement;
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,7 +13,7 @@ public class DBManager {
 		
 		try {
 			Class.forName("org.gjt.mm.mysql.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://서버이름:3306/스키마이름?useSSL=true&requireSSL=false", "사용자이름", "암호");
+			conn = DriverManager.getConnection("jdbc:mysql://gitmms.mysql.database.azure.com:3306/test?useSSL=true&requireSSL=false", "myadmin@gitmms", "admin123@");
 			System.out.println("DB 연결 성공 : " + conn);
 
 			
@@ -36,15 +37,16 @@ public class DBManager {
 			
 			/* 마지막 테스트 */
 //			String sql = "select * from test;";
-//			Statement stmt = conn.createStatement();
-//			ResultSet rs = stmt.executeQuery(sql);
-
+//			PreparedStatement pstmt = conn.prepareStatement(sql);
+//			ResultSet rs = pstmt.executeQuery(sql);
+//			
+//			
 //			while(rs.next()) {
-
+//
 //			System.out.print("testname : " + rs.getString("testname"));
 //			System.out.print(", testnum : " + rs.getInt("testnum"));
 //			System.out.println();
-
+//
 //			}
 
 			
