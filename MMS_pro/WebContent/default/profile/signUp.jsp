@@ -1,81 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="include/programmerHeader.jsp"%>
 <!DOCTYPE html>
-<html>
+
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<html lang="en">
+
 	<!-- begin::Head -->
 	<head>
-		<meta charset="utf-8" />
-		<title>PMMS | Dashboard</title>
-		<meta name="description" content="Updates and statistics">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-		<!--begin::Fonts -->
-		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
-		<script>
-			WebFont.load({
-				google: {
-					"families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"]
-				},
-				active: function() {
-					sessionStorage.fonts = true;
-				}
-			});
-		</script>
-
-		<!--end::Fonts -->
-
-		<!--begin::Page Vendors Styles(used by this page) -->
-		<link href="../assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
-
-		<!--end::Page Vendors Styles -->
-
-		<!--begin:: Global Mandatory Vendors -->
-		<link href="../assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
-
-		<!--end:: Global Mandatory Vendors -->
-
-		<!--begin:: Global Optional Vendors -->
-		<link href="../assets/vendors/general/tether/dist/css/tether.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/select2/dist/css/select2.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/nouislider/distribute/nouislider.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/summernote/dist/summernote.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/animate.css/animate.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/toastr/build/toastr.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/morris.js/morris.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/sweetalert2/dist/sweetalert2.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/socicon/css/socicon.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/custom/vendors/line-awesome/css/line-awesome.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/custom/vendors/flaticon/flaticon.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/custom/vendors/flaticon2/flaticon.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/custom/vendors/fontawesome5/css/all.min.css" rel="stylesheet" type="text/css" />
-
-		<!--end:: Global Optional Vendors -->
-
-		<!--begin::Global Theme Styles(used by all pages) -->
-		<link href="../assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
-
-		<!--end::Global Theme Styles -->
-
-		<!--begin::Layout Skins(used by all pages) -->
-		<link href="../assets/demo/default/skins/header/base/light.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/demo/default/skins/header/menu/light.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/demo/default/skins/brand/dark.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/demo/default/skins/aside/dark.css" rel="stylesheet" type="text/css" />
-
-		<!--end::Layout Skins -->
-		<link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
 	</head>
 
 	<!-- end::Head -->
@@ -88,8 +31,8 @@
 		<!-- begin:: Header Mobile -->
 		<div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
 			<div class="kt-header-mobile__logo">
-				<a href="index.jsp">
-					<img alt="Logo" src="../assets/media/logos/pmms-logo.png" />
+				<a href="index.html">
+					<img alt="Logo" src="../assets/media/logos/logo-light.png" />
 				</a>
 			</div>
 			<div class="kt-header-mobile__toolbar">
@@ -110,8 +53,8 @@
 					<!-- begin:: Aside -->
 					<div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
 						<div class="kt-aside__brand-logo">
-							<a href="index.jsp">
-								<img alt="Logo" src="../assets/media/logos/pmms-logo.png" />
+							<a href="index.html">
+								<img alt="Logo" src="../assets/media/logos/logo-light.png" />
 							</a>
 						</div>
 						<div class="kt-aside__brand-tools">
@@ -144,7 +87,7 @@
 					<div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper">
 						<div id="kt_aside_menu" class="kt-aside-menu " data-ktmenu-vertical="1" data-ktmenu-scroll="1" data-ktmenu-dropdown-timeout="500">
 							<ul class="kt-menu__nav ">
-								<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><a href="index.jsp" class="kt-menu__link "><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+								<li class="kt-menu__item " aria-haspopup="true"><a href="index.html" class="kt-menu__link "><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 													<polygon id="Bound" points="0 0 24 0 24 24 0 24" />
 													<path d="M12.9336061,16.072447 L19.36,10.9564761 L19.5181585,10.8312381 C20.1676248,10.3169571 20.2772143,9.3735535 19.7629333,8.72408713 C19.6917232,8.63415859 19.6104327,8.55269514 19.5206557,8.48129411 L12.9336854,3.24257445 C12.3871201,2.80788259 11.6128799,2.80788259 11.0663146,3.24257445 L4.47482784,8.48488609 C3.82645598,9.00054628 3.71887192,9.94418071 4.23453211,10.5925526 C4.30500305,10.6811601 4.38527899,10.7615046 4.47382636,10.8320511 L4.63,10.9564761 L11.0659024,16.0730648 C11.6126744,16.5077525 12.3871218,16.5074963 12.9336061,16.072447 Z" id="Shape" fill="#000000" fill-rule="nonzero" />
@@ -157,49 +100,47 @@
 								</li>
 								<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-													<polygon id="Shape" points="0 0 24 0 24 24 0 24" />
-													<path d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" id="Combined-Shape" fill="#000000" fill-rule="nonzero" opacity="0.3" />
-													<path d="M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" id="Mask-Copy" fill="#000000" fill-rule="nonzero" />
+													<rect id="bound" x="0" y="0" width="24" height="24" />
+													<path d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z" id="Combined-Shape" fill="#000000" opacity="0.3" />
+													<path d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z" id="Combined-Shape" fill="#000000" />
 												</g>
-											</svg></span><span class="kt-menu__link-text">프로필 관리</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+											</svg></span><span class="kt-menu__link-text">Subheaders</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 									<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 										<ul class="kt-menu__subnav">
-											<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">프로필 관리</span></span></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="components_base_tables.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">프로필 조회</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="components_base_buttons.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">자기소개서 등록</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="components_base_colors.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">보유 자격증 등록</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="components_base_button-group.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">포트폴리오 등록</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="components_calendar_basic.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">학력 등록</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="components_portlets_draggable.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">경력 등록</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="custom_faq_faq-v1.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">프로그래밍 언어 숙련도 등록</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="layout_subheader_toolbar.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">계정 설정</span></a></li>
+											<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Subheaders</span></span></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="layout_subheader_toolbar.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Toolbar Nav</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="layout_subheader_actions.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Actions Buttons</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="layout_subheader_tabbed.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Tabbed Nav</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="layout_subheader_classic.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Classic</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="layout_subheader_none.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">None</span></a></li>
 										</ul>
 									</div>
 								</li>
 								<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 													<rect id="bound" x="0" y="0" width="24" height="24" />
-													<path d="M8,3 L8,3.5 C8,4.32842712 8.67157288,5 9.5,5 L14.5,5 C15.3284271,5 16,4.32842712 16,3.5 L16,3 L18,3 C19.1045695,3 20,3.8954305 20,5 L20,21 C20,22.1045695 19.1045695,23 18,23 L6,23 C4.8954305,23 4,22.1045695 4,21 L4,5 C4,3.8954305 4.8954305,3 6,3 L8,3 Z" id="Combined-Shape" fill="#000000" opacity="0.3" />
-													<path d="M10.875,15.75 C10.6354167,15.75 10.3958333,15.6541667 10.2041667,15.4625 L8.2875,13.5458333 C7.90416667,13.1625 7.90416667,12.5875 8.2875,12.2041667 C8.67083333,11.8208333 9.29375,11.8208333 9.62916667,12.2041667 L10.875,13.45 L14.0375,10.2875 C14.4208333,9.90416667 14.9958333,9.90416667 15.3791667,10.2875 C15.7625,10.6708333 15.7625,11.2458333 15.3791667,11.6291667 L11.5458333,15.4625 C11.3541667,15.6541667 11.1145833,15.75 10.875,15.75 Z" id="check-path" fill="#000000" />
-													<path d="M11,2 C11,1.44771525 11.4477153,1 12,1 C12.5522847,1 13,1.44771525 13,2 L14.5,2 C14.7761424,2 15,2.22385763 15,2.5 L15,3.5 C15,3.77614237 14.7761424,4 14.5,4 L9.5,4 C9.22385763,4 9,3.77614237 9,3.5 L9,2.5 C9,2.22385763 9.22385763,2 9.5,2 L11,2 Z" id="Combined-Shape" fill="#000000" />
+													<path d="M7,3 L17,3 C19.209139,3 21,4.790861 21,7 C21,9.209139 19.209139,11 17,11 L7,11 C4.790861,11 3,9.209139 3,7 C3,4.790861 4.790861,3 7,3 Z M7,9 C8.1045695,9 9,8.1045695 9,7 C9,5.8954305 8.1045695,5 7,5 C5.8954305,5 5,5.8954305 5,7 C5,8.1045695 5.8954305,9 7,9 Z" id="Combined-Shape" fill="#000000" />
+													<path d="M7,13 L17,13 C19.209139,13 21,14.790861 21,17 C21,19.209139 19.209139,21 17,21 L7,21 C4.790861,21 3,19.209139 3,17 C3,14.790861 4.790861,13 7,13 Z M17,19 C18.1045695,19 19,18.1045695 19,17 C19,15.8954305 18.1045695,15 17,15 C15.8954305,15 15,15.8954305 15,17 C15,18.1045695 15.8954305,19 17,19 Z" id="Combined-Shape" fill="#000000" opacity="0.3" />
 												</g>
-											</svg></span><span class="kt-menu__link-text">프로젝트 접수 관리</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+											</svg></span><span class="kt-menu__link-text">General</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 									<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 										<ul class="kt-menu__subnav">
-											<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">프로젝트 접수 관리</span></span></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="custom_error_error-v1.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">프로젝트 찾기</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="components_extended_spinners.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">진행 중인 프로젝트 목록</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="components_extended_lists.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">완료한 프로젝트 목록</span></a></li>
+											<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">General</span></span></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="layout_general_minimized-aside.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Minimized Aside</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="layout_general_no-aside.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">No Aside</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="layout_general_empty-page.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Empty Page</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="layout_general_fixed-footer.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Fixed Footer</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="layout_general_no-header-menu.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">No Header Menu</span></a></li>
 										</ul>
 									</div>
 								</li>
 								<li class="kt-menu__item " aria-haspopup="true"><a target="_blank" href="https://keenthemes.com/metronic/preview/default/builder.html" class="kt-menu__link "><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 													<rect id="bound" x="0" y="0" width="24" height="24" />
-													<path d="M8,13.1668961 L20.4470385,11.9999863 L8,10.8330764 L8,5.77181995 C8,5.70108058 8.01501031,5.63114635 8.04403925,5.56663761 C8.15735832,5.31481744 8.45336217,5.20254012 8.70518234,5.31585919 L22.545552,11.5440255 C22.6569791,11.5941677 22.7461882,11.6833768 22.7963304,11.794804 C22.9096495,12.0466241 22.7973722,12.342628 22.545552,12.455947 L8.70518234,18.6841134 C8.64067359,18.7131423 8.57073936,18.7281526 8.5,18.7281526 C8.22385763,18.7281526 8,18.504295 8,18.2281526 L8,13.1668961 Z" id="Combined-Shape" fill="#000000" />
-													<path d="M4,16 L5,16 C5.55228475,16 6,16.4477153 6,17 C6,17.5522847 5.55228475,18 5,18 L4,18 C3.44771525,18 3,17.5522847 3,17 C3,16.4477153 3.44771525,16 4,16 Z M1,11 L5,11 C5.55228475,11 6,11.4477153 6,12 C6,12.5522847 5.55228475,13 5,13 L1,13 C0.44771525,13 6.76353751e-17,12.5522847 0,12 C-6.76353751e-17,11.4477153 0.44771525,11 1,11 Z M4,6 L5,6 C5.55228475,6 6,6.44771525 6,7 C6,7.55228475 5.55228475,8 5,8 L4,8 C3.44771525,8 3,7.55228475 3,7 C3,6.44771525 3.44771525,6 4,6 Z" id="Combined-Shape" fill="#000000" opacity="0.3" />
+													<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" id="Combined-Shape" fill="#000000" />
+													<rect id="Rectangle-Copy-2" fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519) " x="16.3255682" y="2.94551858" width="3" height="18" rx="1" />
 												</g>
-											</svg></span><span class="kt-menu__link-text">메세지 조회</span></a></li>
+											</svg></span><span class="kt-menu__link-text">Builder</span></a></li>
 								<li class="kt-menu__section ">
 									<h4 class="kt-menu__section-text">Components</h4>
 									<i class="kt-menu__section-icon flaticon-more-v2"></i>
@@ -326,10 +267,10 @@
 									<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 										<ul class="kt-menu__subnav">
 											<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Calendar</span></span></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="components_calendar_basic.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Basic Calendar</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="components_calendar_basic.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Basic Calendar</span></a></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="components_calendar_list-view.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">List Views</span></a></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="components_calendar_google.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Google Calendar</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="components_calendar_external-events.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">External Events</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="components_calendar_external-events.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">External Events</span></a></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="components_calendar_background-events.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Background Events</span></a></li>
 										</ul>
 									</div>
@@ -395,7 +336,7 @@
 									<h4 class="kt-menu__section-text">CRUD</h4>
 									<i class="kt-menu__section-icon flaticon-more-v2"></i>
 								</li>
-								<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+								<li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--open kt-menu__item--here" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 													<rect id="bound" x="0" y="0" width="24" height="24" />
 													<path d="M3,16 L5,16 C5.55228475,16 6,15.5522847 6,15 C6,14.4477153 5.55228475,14 5,14 L3,14 L3,12 L5,12 C5.55228475,12 6,11.5522847 6,11 C6,10.4477153 5.55228475,10 5,10 L3,10 L3,8 L5,8 C5.55228475,8 6,7.55228475 6,7 C6,6.44771525 5.55228475,6 5,6 L3,6 L3,4 C3,3.44771525 3.44771525,3 4,3 L10,3 C10.5522847,3 11,3.44771525 11,4 L11,19 C11,19.5522847 10.5522847,20 10,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,16 Z" id="Combined-Shape" fill="#000000" opacity="0.3" />
@@ -444,13 +385,13 @@
 													</ul>
 												</div>
 											</li>
-											<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Form Layouts</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+											<li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--open kt-menu__item--here" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Form Layouts</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 												<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 													<ul class="kt-menu__subnav">
 														<li class="kt-menu__item " aria-haspopup="true"><a href="crud_forms_layouts_default-forms.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Default Forms</span></a></li>
 														<li class="kt-menu__item " aria-haspopup="true"><a href="crud_forms_layouts_multi-column-forms.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Multi Column Forms</span></a></li>
 														<li class="kt-menu__item " aria-haspopup="true"><a href="crud_forms_layouts_action-bars.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Basic Action Bars</span></a></li>
-														<li class="kt-menu__item " aria-haspopup="true"><a href="crud_forms_layouts_sticky-action-bar.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Sticky Action Bar</span></a></li>
+														<li class="kt-menu__item  kt-menu__item--active" aria-haspopup="true"><a href="crud_forms_layouts_sticky-action-bar.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Sticky Action Bar</span></a></li>
 													</ul>
 												</div>
 											</li>
@@ -711,10 +652,10 @@
 						<div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper">
 							<div id="kt_header_menu" class="kt-header-menu kt-header-menu-mobile  kt-header-menu--layout-default ">
 								<ul class="kt-menu__nav ">
-									<li class="kt-menu__item  kt-menu__item--open kt-menu__item--here kt-menu__item--submenu kt-menu__item--rel kt-menu__item--open kt-menu__item--here kt-menu__item--active" data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-text">Pages</span></a>
+									<li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--rel kt-menu__item--active" data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-text">Pages</span></a>
 										<div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
 											<ul class="kt-menu__subnav">
-												<li class="kt-menu__item  kt-menu__item--active " aria-haspopup="true"><a href="index.jsp" class="kt-menu__link "><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+												<li class="kt-menu__item " aria-haspopup="true"><a href="index.html" class="kt-menu__link "><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 																	<rect id="bound" x="0" y="0" width="24" height="24" />
 																	<path d="M5.84026576,8 L18.1597342,8 C19.1999115,8 20.0664437,8.79732479 20.1528258,9.83390904 L20.8194924,17.833909 C20.9112219,18.9346631 20.0932459,19.901362 18.9924919,19.9930915 C18.9372479,19.9976952 18.8818364,20 18.8264009,20 L5.1735991,20 C4.0690296,20 3.1735991,19.1045695 3.1735991,18 C3.1735991,17.9445645 3.17590391,17.889153 3.18050758,17.833909 L3.84717425,9.83390904 C3.93355627,8.79732479 4.80008849,8 5.84026576,8 Z M10.5,10 C10.2238576,10 10,10.2238576 10,10.5 L10,11.5 C10,11.7761424 10.2238576,12 10.5,12 L13.5,12 C13.7761424,12 14,11.7761424 14,11.5 L14,10.5 C14,10.2238576 13.7761424,10 13.5,10 L10.5,10 Z" id="Combined-Shape" fill="#000000" />
@@ -923,7 +864,7 @@
 							<!--begin: Search -->
 
 							<!--begin: Search -->
-							<!-- <div class="kt-header__topbar-item kt-header__topbar-item--search dropdown" id="kt_quick_search_toggle">
+							<div class="kt-header__topbar-item kt-header__topbar-item--search dropdown" id="kt_quick_search_toggle">
 								<div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
 									<span class="kt-header__topbar-icon">
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
@@ -947,7 +888,7 @@
 										</div>
 									</div>
 								</div>
-							</div> -->
+							</div>
 
 							<!--end: Search -->
 
@@ -955,7 +896,7 @@
 
 							<!--begin: Notifications -->
 							<div class="kt-header__topbar-item dropdown">
-								<!-- <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="30px,0px" aria-expanded="true">
+								<div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="30px,0px" aria-expanded="true">
 									<span class="kt-header__topbar-icon kt-pulse kt-pulse--brand">
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -966,11 +907,11 @@
 										</svg> <span class="kt-pulse__ring"></span>
 									</span>
 
-									
+									<!--
                 Use dot badge instead of animated pulse effect: 
                 <span class="kt-badge kt-badge--dot kt-badge--notify kt-badge--sm kt-badge--brand"></span>
-           
-								</div> -->
+            -->
+								</div>
 								<div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-lg">
 									<form>
 
@@ -1743,32 +1684,44 @@
 					<!-- end:: Header -->
 					<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
 
-						<!-- begin:: Content Head -->
+						<!-- begin:: Subheader -->
 						<div class="kt-subheader   kt-grid__item" id="kt_subheader">
 							<div class="kt-subheader__main">
-								<h3 class="kt-subheader__title">Dashboard</h3>
-								<span class="kt-subheader__separator kt-subheader__separator--v"></span>
-								<span class="kt-subheader__desc">#XRS-45670</span>
-								<a href="#" class="btn btn-label-warning btn-bold btn-sm btn-icon-h kt-margin-l-10">
-									Add New
-								</a>
-								<div class="kt-input-icon kt-input-icon--right kt-subheader__search kt-hidden">
-									<input type="text" class="form-control" placeholder="Search order..." id="generalSearch">
-									<span class="kt-input-icon__icon kt-input-icon__icon--right">
-										<span><i class="flaticon2-search-1"></i></span>
-									</span>
+								<h3 class="kt-subheader__title">
+									Sticky Action Bar </h3>
+								<span class="kt-subheader__separator kt-hidden"></span>
+								<div class="kt-subheader__breadcrumbs">
+									<a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+									<span class="kt-subheader__breadcrumbs-separator"></span>
+									<a href="" class="kt-subheader__breadcrumbs-link">
+										Crud </a>
+									<span class="kt-subheader__breadcrumbs-separator"></span>
+									<a href="" class="kt-subheader__breadcrumbs-link">
+										Forms & Controls </a>
+									<span class="kt-subheader__breadcrumbs-separator"></span>
+									<a href="" class="kt-subheader__breadcrumbs-link">
+										Form Layouts </a>
+									<span class="kt-subheader__breadcrumbs-separator"></span>
+									<a href="" class="kt-subheader__breadcrumbs-link">
+										Sticky Action Bar </a>
+
+									<!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
 								</div>
 							</div>
 							<div class="kt-subheader__toolbar">
 								<div class="kt-subheader__wrapper">
-									<a href="#" class="btn kt-subheader__btn-secondary">Today</a>
-									<a href="#" class="btn kt-subheader__btn-secondary">Month</a>
-									<a href="#" class="btn kt-subheader__btn-secondary">Year</a>
 									<a href="#" class="btn kt-subheader__btn-daterange" id="kt_dashboard_daterangepicker" data-toggle="kt-tooltip" title="Select dashboard daterange" data-placement="left">
 										<span class="kt-subheader__btn-daterange-title" id="kt_dashboard_daterangepicker_title">Today</span>&nbsp;
 										<span class="kt-subheader__btn-daterange-date" id="kt_dashboard_daterangepicker_date">Aug 16</span>
-										<i class="flaticon2-calendar-1"></i>
-									</a>
+
+										<!--<i class="flaticon2-calendar-1"></i>-->
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon kt-svg-icon--sm">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect id="bound" x="0" y="0" width="24" height="24" />
+												<path d="M4.875,20.75 C4.63541667,20.75 4.39583333,20.6541667 4.20416667,20.4625 L2.2875,18.5458333 C1.90416667,18.1625 1.90416667,17.5875 2.2875,17.2041667 C2.67083333,16.8208333 3.29375,16.8208333 3.62916667,17.2041667 L4.875,18.45 L8.0375,15.2875 C8.42083333,14.9041667 8.99583333,14.9041667 9.37916667,15.2875 C9.7625,15.6708333 9.7625,16.2458333 9.37916667,16.6291667 L5.54583333,20.4625 C5.35416667,20.6541667 5.11458333,20.75 4.875,20.75 Z" id="check" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+												<path d="M2,11.8650466 L2,6 C2,4.34314575 3.34314575,3 5,3 L19,3 C20.6568542,3 22,4.34314575 22,6 L22,15 C22,15.0032706 21.9999948,15.0065399 21.9999843,15.009808 L22.0249378,15 L22.0249378,19.5857864 C22.0249378,20.1380712 21.5772226,20.5857864 21.0249378,20.5857864 C20.7597213,20.5857864 20.5053674,20.4804296 20.317831,20.2928932 L18.0249378,18 L12.9835977,18 C12.7263047,14.0909841 9.47412135,11 5.5,11 C4.23590829,11 3.04485894,11.3127315 2,11.8650466 Z M6,7 C5.44771525,7 5,7.44771525 5,8 C5,8.55228475 5.44771525,9 6,9 L15,9 C15.5522847,9 16,8.55228475 16,8 C16,7.44771525 15.5522847,7 15,7 L6,7 Z" id="Combined-Shape" fill="#000000" />
+											</g>
+										</svg> </a>
 									<div class="dropdown dropdown-inline" data-toggle="kt-tooltip" title="Quick actions" data-placement="left">
 										<a href="#" class="btn btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon kt-svg-icon--success kt-svg-icon--md">
@@ -1823,6 +1776,1428 @@
 							</div>
 						</div>
 
-						<!-- end:: Content Head -->
-</body>
+						<!-- end:: Subheader -->
+
+						<!-- begin:: Content -->
+						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
+							<div class="row">
+								<div class="col-lg-12">
+
+									<!--begin::Portlet-->
+									<div class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile" id="kt_page_portlet">
+										<div class="kt-portlet__head kt-portlet__head--lg">
+											<div class="kt-portlet__head-label">
+												<h3 class="kt-portlet__head-title">Sticky Form Actions <small>try to scroll the page</small></h3>
+											</div>
+											<div class="kt-portlet__head-toolbar">
+												<a href="#" class="btn btn-clean kt-margin-r-10">
+													<i class="la la-arrow-left"></i>
+													<span class="kt-hidden-mobile">Back</span>
+												</a>
+												<div class="btn-group">
+													<button type="button" class="btn btn-brand">
+														<i class="la la-check"></i>
+														<span class="kt-hidden-mobile">Save</span>
+													</button>
+													<button type="button" class="btn btn-brand dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													</button>
+													<div class="dropdown-menu dropdown-menu-right">
+														<ul class="kt-nav">
+															<li class="kt-nav__item">
+																<a href="#" class="kt-nav__link">
+																	<i class="kt-nav__link-icon flaticon2-reload"></i>
+																	<span class="kt-nav__link-text">Save & continue</span>
+																</a>
+															</li>
+															<li class="kt-nav__item">
+																<a href="#" class="kt-nav__link">
+																	<i class="kt-nav__link-icon flaticon2-power"></i>
+																	<span class="kt-nav__link-text">Save & exit</span>
+																</a>
+															</li>
+															<li class="kt-nav__item">
+																<a href="#" class="kt-nav__link">
+																	<i class="kt-nav__link-icon flaticon2-edit-interface-symbol-of-pencil-tool"></i>
+																	<span class="kt-nav__link-text">Save & edit</span>
+																</a>
+															</li>
+															<li class="kt-nav__item">
+																<a href="#" class="kt-nav__link">
+																	<i class="kt-nav__link-icon flaticon2-add-1"></i>
+																	<span class="kt-nav__link-text">Save & add new</span>
+																</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="kt-portlet__body">
+											<form class="kt-form" id="kt_form">
+												<div class="row">
+													<div class="col-xl-2"></div>
+													<div class="col-xl-8">
+														<div class="kt-section kt-section--first">
+															<div class="kt-section__body">
+																<h3 class="kt-section__title kt-section__title-lg">Customer Info:</h3>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">First Name</label>
+																	<div class="col-9">
+																		<input class="form-control" type="text" value="Nick">
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">Last Name</label>
+																	<div class="col-9">
+																		<input class="form-control" type="text" value="Watson">
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">Company Name</label>
+																	<div class="col-9">
+																		<input class="form-control" type="text" value="Loop Inc.">
+																		<span class="form-text text-muted">If you want your invoices addressed to a company. Leave blank to use your full name.</span>
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">Contact Phone</label>
+																	<div class="col-9">
+																		<div class="input-group">
+																			<div class="input-group-prepend"><span class="input-group-text"><i class="la la-phone"></i></span></div>
+																			<input type="text" class="form-control" value="+45678967456" placeholder="Phone" aria-describedby="basic-addon1">
+																		</div>
+																		<span class="form-text text-muted">We'll never share your email with anyone else.</span>
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">Email Address</label>
+																	<div class="col-9">
+																		<div class="input-group">
+																			<div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
+																			<input type="text" class="form-control" value="nick.watson@loop.com" placeholder="Email" aria-describedby="basic-addon1">
+																		</div>
+																	</div>
+																</div>
+																<div class="form-group form-group-last row">
+																	<label class="col-3 col-form-label">Company Site</label>
+																	<div class="col-9">
+																		<div class="input-group">
+																			<input type="text" class="form-control" placeholder="Username" value="loop">
+																			<div class="input-group-append"><span class="input-group-text">.com</span></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div>
+														<div class="kt-section">
+															<div class="kt-section__body">
+																<h3 class="kt-section__title kt-section__title-lg">Address Details:</h3>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">Country</label>
+																	<div class="col-9">
+																		<select class="form-control">
+																			<option value="AF">Afghanistan</option>
+																			<option value="AX">Åland Islands</option>
+																			<option value="AL">Albania</option>
+																			<option value="DZ">Algeria</option>
+																			<option value="AS">American Samoa</option>
+																			<option value="AD">Andorra</option>
+																			<option value="AO">Angola</option>
+																			<option value="AI">Anguilla</option>
+																			<option value="AQ">Antarctica</option>
+																			<option value="AG">Antigua and Barbuda</option>
+																			<option value="AR">Argentina</option>
+																			<option value="AM">Armenia</option>
+																			<option value="AW">Aruba</option>
+																			<option value="AU">Australia</option>
+																			<option value="AT">Austria</option>
+																			<option value="AZ">Azerbaijan</option>
+																			<option value="BS">Bahamas</option>
+																			<option value="BH">Bahrain</option>
+																			<option value="BD">Bangladesh</option>
+																			<option value="BB">Barbados</option>
+																			<option value="BY">Belarus</option>
+																			<option value="BE">Belgium</option>
+																			<option value="BZ">Belize</option>
+																			<option value="BJ">Benin</option>
+																			<option value="BM">Bermuda</option>
+																			<option value="BT">Bhutan</option>
+																			<option value="BO">Bolivia, Plurinational State of</option>
+																			<option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+																			<option value="BA">Bosnia and Herzegovina</option>
+																			<option value="BW">Botswana</option>
+																			<option value="BV">Bouvet Island</option>
+																			<option value="BR">Brazil</option>
+																			<option value="IO">British Indian Ocean Territory</option>
+																			<option value="BN">Brunei Darussalam</option>
+																			<option value="BG">Bulgaria</option>
+																			<option value="BF">Burkina Faso</option>
+																			<option value="BI">Burundi</option>
+																			<option value="KH">Cambodia</option>
+																			<option value="CM">Cameroon</option>
+																			<option value="CA">Canada</option>
+																			<option value="CV">Cape Verde</option>
+																			<option value="KY">Cayman Islands</option>
+																			<option value="CF">Central African Republic</option>
+																			<option value="TD">Chad</option>
+																			<option value="CL">Chile</option>
+																			<option value="CN">China</option>
+																			<option value="CX">Christmas Island</option>
+																			<option value="CC">Cocos (Keeling) Islands</option>
+																			<option value="CO">Colombia</option>
+																			<option value="KM">Comoros</option>
+																			<option value="CG">Congo</option>
+																			<option value="CD">Congo, the Democratic Republic of the</option>
+																			<option value="CK">Cook Islands</option>
+																			<option value="CR">Costa Rica</option>
+																			<option value="CI">Côte d'Ivoire</option>
+																			<option value="HR">Croatia</option>
+																			<option value="CU">Cuba</option>
+																			<option value="CW">Curaçao</option>
+																			<option value="CY">Cyprus</option>
+																			<option value="CZ">Czech Republic</option>
+																			<option value="DK">Denmark</option>
+																			<option value="DJ">Djibouti</option>
+																			<option value="DM">Dominica</option>
+																			<option value="DO">Dominican Republic</option>
+																			<option value="EC">Ecuador</option>
+																			<option value="EG">Egypt</option>
+																			<option value="SV">El Salvador</option>
+																			<option value="GQ">Equatorial Guinea</option>
+																			<option value="ER">Eritrea</option>
+																			<option value="EE">Estonia</option>
+																			<option value="ET">Ethiopia</option>
+																			<option value="FK">Falkland Islands (Malvinas)</option>
+																			<option value="FO">Faroe Islands</option>
+																			<option value="FJ">Fiji</option>
+																			<option value="FI">Finland</option>
+																			<option value="FR">France</option>
+																			<option value="GF">French Guiana</option>
+																			<option value="PF">French Polynesia</option>
+																			<option value="TF">French Southern Territories</option>
+																			<option value="GA">Gabon</option>
+																			<option value="GM">Gambia</option>
+																			<option value="GE">Georgia</option>
+																			<option value="DE">Germany</option>
+																			<option value="GH">Ghana</option>
+																			<option value="GI">Gibraltar</option>
+																			<option value="GR">Greece</option>
+																			<option value="GL">Greenland</option>
+																			<option value="GD">Grenada</option>
+																			<option value="GP">Guadeloupe</option>
+																			<option value="GU">Guam</option>
+																			<option value="GT">Guatemala</option>
+																			<option value="GG">Guernsey</option>
+																			<option value="GN">Guinea</option>
+																			<option value="GW">Guinea-Bissau</option>
+																			<option value="GY">Guyana</option>
+																			<option value="HT">Haiti</option>
+																			<option value="HM">Heard Island and McDonald Islands</option>
+																			<option value="VA">Holy See (Vatican City State)</option>
+																			<option value="HN">Honduras</option>
+																			<option value="HK">Hong Kong</option>
+																			<option value="HU">Hungary</option>
+																			<option value="IS">Iceland</option>
+																			<option value="IN">India</option>
+																			<option value="ID">Indonesia</option>
+																			<option value="IR">Iran, Islamic Republic of</option>
+																			<option value="IQ">Iraq</option>
+																			<option value="IE">Ireland</option>
+																			<option value="IM">Isle of Man</option>
+																			<option value="IL">Israel</option>
+																			<option value="IT">Italy</option>
+																			<option value="JM">Jamaica</option>
+																			<option value="JP">Japan</option>
+																			<option value="JE">Jersey</option>
+																			<option value="JO">Jordan</option>
+																			<option value="KZ">Kazakhstan</option>
+																			<option value="KE">Kenya</option>
+																			<option value="KI">Kiribati</option>
+																			<option value="KP">Korea, Democratic People's Republic of</option>
+																			<option value="KR">Korea, Republic of</option>
+																			<option value="KW">Kuwait</option>
+																			<option value="KG">Kyrgyzstan</option>
+																			<option value="LA">Lao People's Democratic Republic</option>
+																			<option value="LV">Latvia</option>
+																			<option value="LB">Lebanon</option>
+																			<option value="LS">Lesotho</option>
+																			<option value="LR">Liberia</option>
+																			<option value="LY">Libya</option>
+																			<option value="LI">Liechtenstein</option>
+																			<option value="LT">Lithuania</option>
+																			<option value="LU">Luxembourg</option>
+																			<option value="MO">Macao</option>
+																			<option value="MK">Macedonia, the former Yugoslav Republic of</option>
+																			<option value="MG">Madagascar</option>
+																			<option value="MW">Malawi</option>
+																			<option value="MY">Malaysia</option>
+																			<option value="MV">Maldives</option>
+																			<option value="ML">Mali</option>
+																			<option value="MT">Malta</option>
+																			<option value="MH">Marshall Islands</option>
+																			<option value="MQ">Martinique</option>
+																			<option value="MR">Mauritania</option>
+																			<option value="MU">Mauritius</option>
+																			<option value="YT">Mayotte</option>
+																			<option value="MX">Mexico</option>
+																			<option value="FM">Micronesia, Federated States of</option>
+																			<option value="MD">Moldova, Republic of</option>
+																			<option value="MC">Monaco</option>
+																			<option value="MN">Mongolia</option>
+																			<option value="ME">Montenegro</option>
+																			<option value="MS">Montserrat</option>
+																			<option value="MA">Morocco</option>
+																			<option value="MZ">Mozambique</option>
+																			<option value="MM">Myanmar</option>
+																			<option value="NA">Namibia</option>
+																			<option value="NR">Nauru</option>
+																			<option value="NP">Nepal</option>
+																			<option value="NL">Netherlands</option>
+																			<option value="NC">New Caledonia</option>
+																			<option value="NZ">New Zealand</option>
+																			<option value="NI">Nicaragua</option>
+																			<option value="NE">Niger</option>
+																			<option value="NG">Nigeria</option>
+																			<option value="NU">Niue</option>
+																			<option value="NF">Norfolk Island</option>
+																			<option value="MP">Northern Mariana Islands</option>
+																			<option value="NO">Norway</option>
+																			<option value="OM">Oman</option>
+																			<option value="PK">Pakistan</option>
+																			<option value="PW">Palau</option>
+																			<option value="PS">Palestinian Territory, Occupied</option>
+																			<option value="PA">Panama</option>
+																			<option value="PG">Papua New Guinea</option>
+																			<option value="PY">Paraguay</option>
+																			<option value="PE">Peru</option>
+																			<option value="PH">Philippines</option>
+																			<option value="PN">Pitcairn</option>
+																			<option value="PL">Poland</option>
+																			<option value="PT">Portugal</option>
+																			<option value="PR">Puerto Rico</option>
+																			<option value="QA">Qatar</option>
+																			<option value="RE">Réunion</option>
+																			<option value="RO">Romania</option>
+																			<option value="RU">Russian Federation</option>
+																			<option value="RW">Rwanda</option>
+																			<option value="BL">Saint Barthélemy</option>
+																			<option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+																			<option value="KN">Saint Kitts and Nevis</option>
+																			<option value="LC">Saint Lucia</option>
+																			<option value="MF">Saint Martin (French part)</option>
+																			<option value="PM">Saint Pierre and Miquelon</option>
+																			<option value="VC">Saint Vincent and the Grenadines</option>
+																			<option value="WS">Samoa</option>
+																			<option value="SM">San Marino</option>
+																			<option value="ST">Sao Tome and Principe</option>
+																			<option value="SA">Saudi Arabia</option>
+																			<option value="SN">Senegal</option>
+																			<option value="RS">Serbia</option>
+																			<option value="SC">Seychelles</option>
+																			<option value="SL">Sierra Leone</option>
+																			<option value="SG">Singapore</option>
+																			<option value="SX">Sint Maarten (Dutch part)</option>
+																			<option value="SK">Slovakia</option>
+																			<option value="SI">Slovenia</option>
+																			<option value="SB">Solomon Islands</option>
+																			<option value="SO">Somalia</option>
+																			<option value="ZA">South Africa</option>
+																			<option value="GS">South Georgia and the South Sandwich Islands</option>
+																			<option value="SS">South Sudan</option>
+																			<option value="ES">Spain</option>
+																			<option value="LK">Sri Lanka</option>
+																			<option value="SD">Sudan</option>
+																			<option value="SR">Suriname</option>
+																			<option value="SJ">Svalbard and Jan Mayen</option>
+																			<option value="SZ">Swaziland</option>
+																			<option value="SE">Sweden</option>
+																			<option value="CH">Switzerland</option>
+																			<option value="SY">Syrian Arab Republic</option>
+																			<option value="TW">Taiwan, Province of China</option>
+																			<option value="TJ">Tajikistan</option>
+																			<option value="TZ">Tanzania, United Republic of</option>
+																			<option value="TH">Thailand</option>
+																			<option value="TL">Timor-Leste</option>
+																			<option value="TG">Togo</option>
+																			<option value="TK">Tokelau</option>
+																			<option value="TO">Tonga</option>
+																			<option value="TT">Trinidad and Tobago</option>
+																			<option value="TN">Tunisia</option>
+																			<option value="TR">Turkey</option>
+																			<option value="TM">Turkmenistan</option>
+																			<option value="TC">Turks and Caicos Islands</option>
+																			<option value="TV">Tuvalu</option>
+																			<option value="UG">Uganda</option>
+																			<option value="UA">Ukraine</option>
+																			<option value="AE">United Arab Emirates</option>
+																			<option value="GB">United Kingdom</option>
+																			<option value="US" selected>United States</option>
+																			<option value="UM">United States Minor Outlying Islands</option>
+																			<option value="UY">Uruguay</option>
+																			<option value="UZ">Uzbekistan</option>
+																			<option value="VU">Vanuatu</option>
+																			<option value="VE">Venezuela, Bolivarian Republic of</option>
+																			<option value="VN">Viet Nam</option>
+																			<option value="VG">Virgin Islands, British</option>
+																			<option value="VI">Virgin Islands, U.S.</option>
+																			<option value="WF">Wallis and Futuna</option>
+																			<option value="EH">Western Sahara</option>
+																			<option value="YE">Yemen</option>
+																			<option value="ZM">Zambia</option>
+																			<option value="ZW">Zimbabwe</option>
+																		</select>
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">Address Line 1</label>
+																	<div class="col-9">
+																		<input class="form-control" type="text" value="District 6 1352 W. Olive Ave">
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">Address Line 2</label>
+																	<div class="col-9">
+																		<input class="form-control" type="text" value="Fresno 559-488-4020">
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">City</label>
+																	<div class="col-9">
+																		<input class="form-control" type="text" value="Polo Alto">
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">State / Province / Region</label>
+																	<div class="col-9">
+																		<input class="form-control" type="text" value="Los Angeles">
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">Zip / Postal Code</label>
+																	<div class="col-9">
+																		<input class="form-control" type="text" value="780456">
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label"></label>
+																	<div class="col-9">
+																		<div class="kt-checkbox-single">
+																			<label class="kt-checkbox">
+																				<input type="checkbox"> Use as shipping address.
+																				<span></span>
+																			</label>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div>
+														<div class="kt-section">
+															<div class="kt-section__body">
+																<h3 class="kt-section__title kt-section__title-lg">Account:</h3>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">Username</label>
+																	<div class="col-9">
+																		<div class="kt-spinner kt-spinner--sm kt-spinner--success kt-spinner--right kt-spinner--input">
+																			<input class="form-control" type="text" value="nick84">
+																		</div>
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">Email Address</label>
+																	<div class="col-9">
+																		<div class="input-group">
+																			<div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
+																			<input type="text" class="form-control" value="nick.watson@loop.com" placeholder="Email" aria-describedby="basic-addon1">
+																		</div>
+																		<span class="form-text text-muted">Email will not be publicly displayed. <a href="#" class="kt-link">Learn more</a>.</span>
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">Language</label>
+																	<div class="col-9">
+																		<select class="form-control">
+																			<option>Select Language...</option>
+																			<option value="id">Bahasa Indonesia - Indonesian</option>
+																			<option value="msa">Bahasa Melayu - Malay</option>
+																			<option value="ca">Català - Catalan</option>
+																			<option value="cs">Čeština - Czech</option>
+																			<option value="da">Dansk - Danish</option>
+																			<option value="de">Deutsch - German</option>
+																			<option value="en" selected="">English</option>
+																			<option value="en-gb">English UK - British English</option>
+																			<option value="es">Español - Spanish</option>
+																			<option value="eu">Euskara - Basque (beta)</option>
+																			<option value="fil">Filipino</option>
+																			<option value="fr">Français - French</option>
+																			<option value="ga">Gaeilge - Irish (beta)</option>
+																			<option value="gl">Galego - Galician (beta)</option>
+																			<option value="hr">Hrvatski - Croatian</option>
+																			<option value="it">Italiano - Italian</option>
+																			<option value="hu">Magyar - Hungarian</option>
+																			<option value="nl">Nederlands - Dutch</option>
+																			<option value="no">Norsk - Norwegian</option>
+																			<option value="pl">Polski - Polish</option>
+																			<option value="pt">Português - Portuguese</option>
+																			<option value="ro">Română - Romanian</option>
+																			<option value="sk">Slovenčina - Slovak</option>
+																			<option value="fi">Suomi - Finnish</option>
+																			<option value="sv">Svenska - Swedish</option>
+																			<option value="vi">Tiếng Việt - Vietnamese</option>
+																			<option value="tr">Türkçe - Turkish</option>
+																			<option value="el">Ελληνικά - Greek</option>
+																			<option value="bg">Български език - Bulgarian</option>
+																			<option value="ru">Русский - Russian</option>
+																			<option value="sr">Српски - Serbian</option>
+																			<option value="uk">Українська мова - Ukrainian</option>
+																			<option value="he">עִבְרִית - Hebrew</option>
+																			<option value="ur">اردو - Urdu (beta)</option>
+																			<option value="ar">العربية - Arabic</option>
+																			<option value="fa">فارسی - Persian</option>
+																			<option value="mr">मराठी - Marathi</option>
+																			<option value="hi">हिन्दी - Hindi</option>
+																			<option value="bn">বাংলা - Bangla</option>
+																			<option value="gu">ગુજરાતી - Gujarati</option>
+																			<option value="ta">தமிழ் - Tamil</option>
+																			<option value="kn">ಕನ್ನಡ - Kannada</option>
+																			<option value="th">ภาษาไทย - Thai</option>
+																			<option value="ko">한국어 - Korean</option>
+																			<option value="ja">日本語 - Japanese</option>
+																			<option value="zh-cn">简体中文 - Simplified Chinese</option>
+																			<option value="zh-tw">繁體中文 - Traditional Chinese</option>
+																		</select>
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">Time Zone</label>
+																	<div class="col-9">
+																		<select class="form-control">
+																			<option data-offset="-39600" value="International Date Line West">(GMT-11:00) International Date Line West</option>
+																			<option data-offset="-39600" value="Midway Island">(GMT-11:00) Midway Island</option>
+																			<option data-offset="-39600" value="Samoa">(GMT-11:00) Samoa</option>
+																			<option data-offset="-36000" value="Hawaii">(GMT-10:00) Hawaii</option>
+																			<option data-offset="-28800" value="Alaska">(GMT-08:00) Alaska</option>
+																			<option data-offset="-25200" value="Pacific Time (US &amp; Canada)">(GMT-07:00) Pacific Time (US &amp; Canada)</option>
+																			<option data-offset="-25200" value="Tijuana">(GMT-07:00) Tijuana</option>
+																			<option data-offset="-25200" value="Arizona">(GMT-07:00) Arizona</option>
+																			<option data-offset="-21600" value="Mountain Time (US &amp; Canada)">(GMT-06:00) Mountain Time (US &amp; Canada)</option>
+																			<option data-offset="-21600" value="Chihuahua">(GMT-06:00) Chihuahua</option>
+																			<option data-offset="-21600" value="Mazatlan">(GMT-06:00) Mazatlan</option>
+																			<option data-offset="-21600" value="Saskatchewan">(GMT-06:00) Saskatchewan</option>
+																			<option data-offset="-21600" value="Central America">(GMT-06:00) Central America</option>
+																			<option data-offset="-18000" value="Central Time (US &amp; Canada)">(GMT-05:00) Central Time (US &amp; Canada)</option>
+																			<option data-offset="-18000" value="Guadalajara">(GMT-05:00) Guadalajara</option>
+																			<option data-offset="-18000" value="Mexico City">(GMT-05:00) Mexico City</option>
+																			<option data-offset="-18000" value="Monterrey">(GMT-05:00) Monterrey</option>
+																			<option data-offset="-18000" value="Bogota">(GMT-05:00) Bogota</option>
+																			<option data-offset="-18000" value="Lima">(GMT-05:00) Lima</option>
+																			<option data-offset="-18000" value="Quito">(GMT-05:00) Quito</option>
+																			<option data-offset="-14400" value="Eastern Time (US &amp; Canada)">(GMT-04:00) Eastern Time (US &amp; Canada)</option>
+																			<option data-offset="-14400" value="Indiana (East)">(GMT-04:00) Indiana (East)</option>
+																			<option data-offset="-14400" value="Caracas">(GMT-04:00) Caracas</option>
+																			<option data-offset="-14400" value="La Paz">(GMT-04:00) La Paz</option>
+																			<option data-offset="-14400" value="Georgetown">(GMT-04:00) Georgetown</option>
+																			<option data-offset="-10800" value="Atlantic Time (Canada)">(GMT-03:00) Atlantic Time (Canada)</option>
+																			<option data-offset="-10800" value="Santiago">(GMT-03:00) Santiago</option>
+																			<option data-offset="-10800" value="Brasilia">(GMT-03:00) Brasilia</option>
+																			<option data-offset="-10800" value="Buenos Aires">(GMT-03:00) Buenos Aires</option>
+																			<option data-offset="-9000" value="Newfoundland">(GMT-02:30) Newfoundland</option>
+																			<option data-offset="-7200" value="Greenland">(GMT-02:00) Greenland</option>
+																			<option data-offset="-7200" value="Mid-Atlantic">(GMT-02:00) Mid-Atlantic</option>
+																			<option data-offset="-3600" value="Cape Verde Is.">(GMT-01:00) Cape Verde Is.</option>
+																			<option data-offset="0" value="Azores">(GMT) Azores</option>
+																			<option data-offset="0" value="Monrovia">(GMT) Monrovia</option>
+																			<option data-offset="0" value="UTC">(GMT) UTC</option>
+																			<option data-offset="3600" value="Dublin">(GMT+01:00) Dublin</option>
+																			<option data-offset="3600" value="Edinburgh">(GMT+01:00) Edinburgh</option>
+																			<option data-offset="3600" value="Lisbon">(GMT+01:00) Lisbon</option>
+																			<option data-offset="3600" value="London">(GMT+01:00) London</option>
+																			<option data-offset="3600" value="Casablanca">(GMT+01:00) Casablanca</option>
+																			<option data-offset="3600" value="West Central Africa">(GMT+01:00) West Central Africa</option>
+																			<option data-offset="7200" value="Belgrade">(GMT+02:00) Belgrade</option>
+																			<option data-offset="7200" value="Bratislava">(GMT+02:00) Bratislava</option>
+																			<option data-offset="7200" value="Budapest">(GMT+02:00) Budapest</option>
+																			<option data-offset="7200" value="Ljubljana">(GMT+02:00) Ljubljana</option>
+																			<option data-offset="7200" value="Prague">(GMT+02:00) Prague</option>
+																			<option data-offset="7200" value="Sarajevo">(GMT+02:00) Sarajevo</option>
+																			<option data-offset="7200" value="Skopje">(GMT+02:00) Skopje</option>
+																			<option data-offset="7200" value="Warsaw">(GMT+02:00) Warsaw</option>
+																			<option data-offset="7200" value="Zagreb">(GMT+02:00) Zagreb</option>
+																			<option data-offset="7200" value="Brussels">(GMT+02:00) Brussels</option>
+																			<option data-offset="7200" value="Copenhagen">(GMT+02:00) Copenhagen</option>
+																			<option data-offset="7200" value="Madrid">(GMT+02:00) Madrid</option>
+																			<option data-offset="7200" value="Paris">(GMT+02:00) Paris</option>
+																			<option data-offset="7200" value="Amsterdam">(GMT+02:00) Amsterdam</option>
+																			<option data-offset="7200" value="Berlin">(GMT+02:00) Berlin</option>
+																			<option data-offset="7200" value="Bern">(GMT+02:00) Bern</option>
+																			<option data-offset="7200" value="Rome">(GMT+02:00) Rome</option>
+																			<option data-offset="7200" value="Stockholm">(GMT+02:00) Stockholm</option>
+																			<option data-offset="7200" value="Vienna">(GMT+02:00) Vienna</option>
+																			<option data-offset="7200" value="Cairo">(GMT+02:00) Cairo</option>
+																			<option data-offset="7200" value="Harare">(GMT+02:00) Harare</option>
+																			<option data-offset="7200" value="Pretoria">(GMT+02:00) Pretoria</option>
+																			<option data-offset="10800" value="Bucharest">(GMT+03:00) Bucharest</option>
+																			<option data-offset="10800" value="Helsinki">(GMT+03:00) Helsinki</option>
+																			<option data-offset="10800" value="Kiev">(GMT+03:00) Kiev</option>
+																			<option data-offset="10800" value="Kyiv">(GMT+03:00) Kyiv</option>
+																			<option data-offset="10800" value="Riga">(GMT+03:00) Riga</option>
+																			<option data-offset="10800" value="Sofia">(GMT+03:00) Sofia</option>
+																			<option data-offset="10800" value="Tallinn">(GMT+03:00) Tallinn</option>
+																			<option data-offset="10800" value="Vilnius">(GMT+03:00) Vilnius</option>
+																			<option data-offset="10800" value="Athens">(GMT+03:00) Athens</option>
+																			<option data-offset="10800" value="Istanbul">(GMT+03:00) Istanbul</option>
+																			<option data-offset="10800" value="Minsk">(GMT+03:00) Minsk</option>
+																			<option data-offset="10800" value="Jerusalem">(GMT+03:00) Jerusalem</option>
+																			<option data-offset="10800" value="Moscow">(GMT+03:00) Moscow</option>
+																			<option data-offset="10800" value="St. Petersburg">(GMT+03:00) St. Petersburg</option>
+																			<option data-offset="10800" value="Volgograd">(GMT+03:00) Volgograd</option>
+																			<option data-offset="10800" value="Kuwait">(GMT+03:00) Kuwait</option>
+																			<option data-offset="10800" value="Riyadh">(GMT+03:00) Riyadh</option>
+																			<option data-offset="10800" value="Nairobi">(GMT+03:00) Nairobi</option>
+																			<option data-offset="10800" value="Baghdad">(GMT+03:00) Baghdad</option>
+																			<option data-offset="14400" value="Abu Dhabi">(GMT+04:00) Abu Dhabi</option>
+																			<option data-offset="14400" value="Muscat">(GMT+04:00) Muscat</option>
+																			<option data-offset="14400" value="Baku">(GMT+04:00) Baku</option>
+																			<option data-offset="14400" value="Tbilisi">(GMT+04:00) Tbilisi</option>
+																			<option data-offset="14400" value="Yerevan">(GMT+04:00) Yerevan</option>
+																			<option data-offset="16200" value="Tehran">(GMT+04:30) Tehran</option>
+																			<option data-offset="16200" value="Kabul">(GMT+04:30) Kabul</option>
+																			<option data-offset="18000" value="Ekaterinburg">(GMT+05:00) Ekaterinburg</option>
+																			<option data-offset="18000" value="Islamabad">(GMT+05:00) Islamabad</option>
+																			<option data-offset="18000" value="Karachi">(GMT+05:00) Karachi</option>
+																			<option data-offset="18000" value="Tashkent">(GMT+05:00) Tashkent</option>
+																			<option data-offset="19800" value="Chennai">(GMT+05:30) Chennai</option>
+																			<option data-offset="19800" value="Kolkata">(GMT+05:30) Kolkata</option>
+																			<option data-offset="19800" value="Mumbai">(GMT+05:30) Mumbai</option>
+																			<option data-offset="19800" value="New Delhi">(GMT+05:30) New Delhi</option>
+																			<option data-offset="19800" value="Sri Jayawardenepura">(GMT+05:30) Sri Jayawardenepura</option>
+																			<option data-offset="20700" value="Kathmandu">(GMT+05:45) Kathmandu</option>
+																			<option data-offset="21600" value="Astana">(GMT+06:00) Astana</option>
+																			<option data-offset="21600" value="Dhaka">(GMT+06:00) Dhaka</option>
+																			<option data-offset="21600" value="Almaty">(GMT+06:00) Almaty</option>
+																			<option data-offset="21600" value="Urumqi">(GMT+06:00) Urumqi</option>
+																			<option data-offset="23400" value="Rangoon">(GMT+06:30) Rangoon</option>
+																			<option data-offset="25200" value="Novosibirsk">(GMT+07:00) Novosibirsk</option>
+																			<option data-offset="25200" value="Bangkok">(GMT+07:00) Bangkok</option>
+																			<option data-offset="25200" value="Hanoi">(GMT+07:00) Hanoi</option>
+																			<option data-offset="25200" value="Jakarta">(GMT+07:00) Jakarta</option>
+																			<option data-offset="25200" value="Krasnoyarsk">(GMT+07:00) Krasnoyarsk</option>
+																			<option data-offset="28800" value="Beijing">(GMT+08:00) Beijing</option>
+																			<option data-offset="28800" value="Chongqing">(GMT+08:00) Chongqing</option>
+																			<option data-offset="28800" value="Hong Kong">(GMT+08:00) Hong Kong</option>
+																			<option data-offset="28800" value="Kuala Lumpur">(GMT+08:00) Kuala Lumpur</option>
+																			<option data-offset="28800" value="Singapore">(GMT+08:00) Singapore</option>
+																			<option data-offset="28800" value="Taipei">(GMT+08:00) Taipei</option>
+																			<option data-offset="28800" value="Perth">(GMT+08:00) Perth</option>
+																			<option data-offset="28800" value="Irkutsk">(GMT+08:00) Irkutsk</option>
+																			<option data-offset="28800" value="Ulaan Bataar">(GMT+08:00) Ulaan Bataar</option>
+																			<option data-offset="32400" value="Seoul">(GMT+09:00) Seoul</option>
+																			<option data-offset="32400" value="Osaka">(GMT+09:00) Osaka</option>
+																			<option data-offset="32400" value="Sapporo">(GMT+09:00) Sapporo</option>
+																			<option data-offset="32400" value="Tokyo">(GMT+09:00) Tokyo</option>
+																			<option data-offset="32400" value="Yakutsk">(GMT+09:00) Yakutsk</option>
+																			<option data-offset="34200" value="Darwin">(GMT+09:30) Darwin</option>
+																			<option data-offset="34200" value="Adelaide">(GMT+09:30) Adelaide</option>
+																			<option data-offset="36000" value="Canberra">(GMT+10:00) Canberra</option>
+																			<option data-offset="36000" value="Melbourne">(GMT+10:00) Melbourne</option>
+																			<option data-offset="36000" value="Sydney">(GMT+10:00) Sydney</option>
+																			<option data-offset="36000" value="Brisbane">(GMT+10:00) Brisbane</option>
+																			<option data-offset="36000" value="Hobart">(GMT+10:00) Hobart</option>
+																			<option data-offset="36000" value="Vladivostok">(GMT+10:00) Vladivostok</option>
+																			<option data-offset="36000" value="Guam">(GMT+10:00) Guam</option>
+																			<option data-offset="36000" value="Port Moresby">(GMT+10:00) Port Moresby</option>
+																			<option data-offset="36000" value="Solomon Is.">(GMT+10:00) Solomon Is.</option>
+																			<option data-offset="39600" value="Magadan">(GMT+11:00) Magadan</option>
+																			<option data-offset="39600" value="New Caledonia">(GMT+11:00) New Caledonia</option>
+																			<option data-offset="43200" value="Fiji">(GMT+12:00) Fiji</option>
+																			<option data-offset="43200" value="Kamchatka">(GMT+12:00) Kamchatka</option>
+																			<option data-offset="43200" value="Marshall Is.">(GMT+12:00) Marshall Is.</option>
+																			<option data-offset="43200" value="Auckland">(GMT+12:00) Auckland</option>
+																			<option data-offset="43200" value="Wellington">(GMT+12:00) Wellington</option>
+																			<option data-offset="46800" value="Nuku'alofa">(GMT+13:00) Nuku'alofa</option>
+																		</select>
+																	</div>
+																</div>
+																<div class="form-group form-group-last row">
+																	<label class="col-3 col-form-label">Communication</label>
+																	<div class="col-9">
+																		<div class="kt-checkbox-inline">
+																			<label class="kt-checkbox">
+																				<input type="checkbox" checked> Email
+																				<span></span>
+																			</label>
+																			<label class="kt-checkbox">
+																				<input type="checkbox" checked> SMS
+																				<span></span>
+																			</label>
+																			<label class="kt-checkbox">
+																				<input type="checkbox"> Phone
+																				<span></span>
+																			</label>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div>
+														<div class="kt-section kt-section--last">
+															<div class="kt-section__body">
+																<h3 class="kt-section__title kt-section__title-lg">Security:</h3>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">Login verification</label>
+																	<div class="col-9">
+																		<button type="button" class="btn btn-outline-primary btn-sm kt-margin-t-5 kt-margin-b-5">Setup login verification</button>
+																		<span class="form-text text-muted">
+																			After you log in, you will be asked for additional information to confirm your identity and protect your account from being compromised.
+																			<a href="#" class="kt-link">Learn more</a>.
+																		</span>
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">Password reset verification</label>
+																	<div class="col-9">
+																		<div class="kt-checkbox-single">
+																			<label class="kt-checkbox">
+																				<input type="checkbox"> Require personal information to reset your password.
+																				<span></span>
+																			</label>
+																		</div>
+																		<span class="form-text text-muted">
+																			For extra security, this requires you to confirm your email or phone number when you reset your password.
+																			<a href="#" class="kt-link">Learn more</a>.
+																		</span>
+																	</div>
+																</div>
+																<div class="form-group row kt-margin-t-10 kt-margin-b-10">
+																	<label class="col-3 col-form-label"></label>
+																	<div class="col-9">
+																		<button type="button" class="btn btn-outline-danger btn-sm kt-margin-t-5 kt-margin-b-5">Deactivate your account ?</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xl-2"></div>
+												</div>
+											</form>
+										</div>
+									</div>
+
+									<!--end::Portlet-->
+								</div>
+							</div>
+						</div>
+
+						<!-- end:: Content -->
+					</div>
+
+					<!-- begin:: Footer -->
+					<%@ include file="include/footer.jsp" %>
+
+					<!-- end:: Footer -->
+				</div>
+			</div>
+		</div>
+
+		<!-- end:: Page -->
+
+		<!-- begin::Quick Panel -->
+		<div id="kt_quick_panel" class="kt-quick-panel">
+			<a href="#" class="kt-quick-panel__close" id="kt_quick_panel_close_btn"><i class="flaticon2-delete"></i></a>
+			<div class="kt-quick-panel__nav">
+				<ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand  kt-notification-item-padding-x" role="tablist">
+					<li class="nav-item active">
+						<a class="nav-link active" data-toggle="tab" href="#kt_quick_panel_tab_notifications" role="tab">Notifications</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#kt_quick_panel_tab_logs" role="tab">Audit Logs</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#kt_quick_panel_tab_settings" role="tab">Settings</a>
+					</li>
+				</ul>
+			</div>
+			<div class="kt-quick-panel__content">
+				<div class="tab-content">
+					<div class="tab-pane fade show kt-scroll active" id="kt_quick_panel_tab_notifications" role="tabpanel">
+						<div class="kt-notification">
+							<a href="#" class="kt-notification__item">
+								<div class="kt-notification__item-icon">
+									<i class="flaticon2-line-chart kt-font-success"></i>
+								</div>
+								<div class="kt-notification__item-details">
+									<div class="kt-notification__item-title">
+										New order has been received
+									</div>
+									<div class="kt-notification__item-time">
+										2 hrs ago
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification__item">
+								<div class="kt-notification__item-icon">
+									<i class="flaticon2-box-1 kt-font-brand"></i>
+								</div>
+								<div class="kt-notification__item-details">
+									<div class="kt-notification__item-title">
+										New customer is registered
+									</div>
+									<div class="kt-notification__item-time">
+										3 hrs ago
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification__item">
+								<div class="kt-notification__item-icon">
+									<i class="flaticon2-chart2 kt-font-danger"></i>
+								</div>
+								<div class="kt-notification__item-details">
+									<div class="kt-notification__item-title">
+										Application has been approved
+									</div>
+									<div class="kt-notification__item-time">
+										3 hrs ago
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification__item">
+								<div class="kt-notification__item-icon">
+									<i class="flaticon2-image-file kt-font-warning"></i>
+								</div>
+								<div class="kt-notification__item-details">
+									<div class="kt-notification__item-title">
+										New file has been uploaded
+									</div>
+									<div class="kt-notification__item-time">
+										5 hrs ago
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification__item">
+								<div class="kt-notification__item-icon">
+									<i class="flaticon2-bar-chart kt-font-info"></i>
+								</div>
+								<div class="kt-notification__item-details">
+									<div class="kt-notification__item-title">
+										New user feedback received
+									</div>
+									<div class="kt-notification__item-time">
+										8 hrs ago
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification__item">
+								<div class="kt-notification__item-icon">
+									<i class="flaticon2-pie-chart-2 kt-font-success"></i>
+								</div>
+								<div class="kt-notification__item-details">
+									<div class="kt-notification__item-title">
+										System reboot has been successfully completed
+									</div>
+									<div class="kt-notification__item-time">
+										12 hrs ago
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification__item">
+								<div class="kt-notification__item-icon">
+									<i class="flaticon2-favourite kt-font-danger"></i>
+								</div>
+								<div class="kt-notification__item-details">
+									<div class="kt-notification__item-title">
+										New order has been placed
+									</div>
+									<div class="kt-notification__item-time">
+										15 hrs ago
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification__item kt-notification__item--read">
+								<div class="kt-notification__item-icon">
+									<i class="flaticon2-safe kt-font-primary"></i>
+								</div>
+								<div class="kt-notification__item-details">
+									<div class="kt-notification__item-title">
+										Company meeting canceled
+									</div>
+									<div class="kt-notification__item-time">
+										19 hrs ago
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification__item">
+								<div class="kt-notification__item-icon">
+									<i class="flaticon2-psd kt-font-success"></i>
+								</div>
+								<div class="kt-notification__item-details">
+									<div class="kt-notification__item-title">
+										New report has been received
+									</div>
+									<div class="kt-notification__item-time">
+										23 hrs ago
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification__item">
+								<div class="kt-notification__item-icon">
+									<i class="flaticon-download-1 kt-font-danger"></i>
+								</div>
+								<div class="kt-notification__item-details">
+									<div class="kt-notification__item-title">
+										Finance report has been generated
+									</div>
+									<div class="kt-notification__item-time">
+										25 hrs ago
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification__item">
+								<div class="kt-notification__item-icon">
+									<i class="flaticon-security kt-font-warning"></i>
+								</div>
+								<div class="kt-notification__item-details">
+									<div class="kt-notification__item-title">
+										New customer comment recieved
+									</div>
+									<div class="kt-notification__item-time">
+										2 days ago
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification__item">
+								<div class="kt-notification__item-icon">
+									<i class="flaticon2-pie-chart kt-font-warning"></i>
+								</div>
+								<div class="kt-notification__item-details">
+									<div class="kt-notification__item-title">
+										New customer is registered
+									</div>
+									<div class="kt-notification__item-time">
+										3 days ago
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="tab-pane fade kt-scroll" id="kt_quick_panel_tab_logs" role="tabpanel">
+						<div class="kt-notification-v2">
+							<a href="#" class="kt-notification-v2__item">
+								<div class="kt-notification-v2__item-icon">
+									<i class="flaticon-bell kt-font-brand"></i>
+								</div>
+								<div class="kt-notification-v2__itek-wrapper">
+									<div class="kt-notification-v2__item-title">
+										5 new user generated report
+									</div>
+									<div class="kt-notification-v2__item-desc">
+										Reports based on sales
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification-v2__item">
+								<div class="kt-notification-v2__item-icon">
+									<i class="flaticon2-box kt-font-danger"></i>
+								</div>
+								<div class="kt-notification-v2__itek-wrapper">
+									<div class="kt-notification-v2__item-title">
+										2 new items submited
+									</div>
+									<div class="kt-notification-v2__item-desc">
+										by Grog John
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification-v2__item">
+								<div class="kt-notification-v2__item-icon">
+									<i class="flaticon-psd kt-font-brand"></i>
+								</div>
+								<div class="kt-notification-v2__itek-wrapper">
+									<div class="kt-notification-v2__item-title">
+										79 PSD files generated
+									</div>
+									<div class="kt-notification-v2__item-desc">
+										Reports based on sales
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification-v2__item">
+								<div class="kt-notification-v2__item-icon">
+									<i class="flaticon2-supermarket kt-font-warning"></i>
+								</div>
+								<div class="kt-notification-v2__itek-wrapper">
+									<div class="kt-notification-v2__item-title">
+										$2900 worth producucts sold
+									</div>
+									<div class="kt-notification-v2__item-desc">
+										Total 234 items
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification-v2__item">
+								<div class="kt-notification-v2__item-icon">
+									<i class="flaticon-paper-plane-1 kt-font-success"></i>
+								</div>
+								<div class="kt-notification-v2__itek-wrapper">
+									<div class="kt-notification-v2__item-title">
+										4.5h-avarage response time
+									</div>
+									<div class="kt-notification-v2__item-desc">
+										Fostest is Barry
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification-v2__item">
+								<div class="kt-notification-v2__item-icon">
+									<i class="flaticon2-information kt-font-danger"></i>
+								</div>
+								<div class="kt-notification-v2__itek-wrapper">
+									<div class="kt-notification-v2__item-title">
+										Database server is down
+									</div>
+									<div class="kt-notification-v2__item-desc">
+										10 mins ago
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification-v2__item">
+								<div class="kt-notification-v2__item-icon">
+									<i class="flaticon2-mail-1 kt-font-brand"></i>
+								</div>
+								<div class="kt-notification-v2__itek-wrapper">
+									<div class="kt-notification-v2__item-title">
+										System report has been generated
+									</div>
+									<div class="kt-notification-v2__item-desc">
+										Fostest is Barry
+									</div>
+								</div>
+							</a>
+							<a href="#" class="kt-notification-v2__item">
+								<div class="kt-notification-v2__item-icon">
+									<i class="flaticon2-hangouts-logo kt-font-warning"></i>
+								</div>
+								<div class="kt-notification-v2__itek-wrapper">
+									<div class="kt-notification-v2__item-title">
+										4.5h-avarage response time
+									</div>
+									<div class="kt-notification-v2__item-desc">
+										Fostest is Barry
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="tab-pane kt-quick-panel__content-padding-x fade kt-scroll" id="kt_quick_panel_tab_settings" role="tabpanel">
+						<form class="kt-form">
+							<div class="kt-heading kt-heading--sm kt-heading--space-sm">Customer Care</div>
+							<div class="form-group form-group-xs row">
+								<label class="col-8 col-form-label">Enable Notifications:</label>
+								<div class="col-4 kt-align-right">
+									<span class="kt-switch kt-switch--success kt-switch--sm">
+										<label>
+											<input type="checkbox" checked="checked" name="quick_panel_notifications_1">
+											<span></span>
+										</label>
+									</span>
+								</div>
+							</div>
+							<div class="form-group form-group-xs row">
+								<label class="col-8 col-form-label">Enable Case Tracking:</label>
+								<div class="col-4 kt-align-right">
+									<span class="kt-switch kt-switch--success kt-switch--sm">
+										<label>
+											<input type="checkbox" name="quick_panel_notifications_2">
+											<span></span>
+										</label>
+									</span>
+								</div>
+							</div>
+							<div class="form-group form-group-last form-group-xs row">
+								<label class="col-8 col-form-label">Support Portal:</label>
+								<div class="col-4 kt-align-right">
+									<span class="kt-switch kt-switch--success kt-switch--sm">
+										<label>
+											<input type="checkbox" checked="checked" name="quick_panel_notifications_2">
+											<span></span>
+										</label>
+									</span>
+								</div>
+							</div>
+							<div class="kt-separator kt-separator--space-md kt-separator--border-dashed"></div>
+							<div class="kt-heading kt-heading--sm kt-heading--space-sm">Reports</div>
+							<div class="form-group form-group-xs row">
+								<label class="col-8 col-form-label">Generate Reports:</label>
+								<div class="col-4 kt-align-right">
+									<span class="kt-switch kt-switch--sm kt-switch--danger">
+										<label>
+											<input type="checkbox" checked="checked" name="quick_panel_notifications_3">
+											<span></span>
+										</label>
+									</span>
+								</div>
+							</div>
+							<div class="form-group form-group-xs row">
+								<label class="col-8 col-form-label">Enable Report Export:</label>
+								<div class="col-4 kt-align-right">
+									<span class="kt-switch kt-switch--sm kt-switch--danger">
+										<label>
+											<input type="checkbox" name="quick_panel_notifications_3">
+											<span></span>
+										</label>
+									</span>
+								</div>
+							</div>
+							<div class="form-group form-group-last form-group-xs row">
+								<label class="col-8 col-form-label">Allow Data Collection:</label>
+								<div class="col-4 kt-align-right">
+									<span class="kt-switch kt-switch--sm kt-switch--danger">
+										<label>
+											<input type="checkbox" checked="checked" name="quick_panel_notifications_4">
+											<span></span>
+										</label>
+									</span>
+								</div>
+							</div>
+							<div class="kt-separator kt-separator--space-md kt-separator--border-dashed"></div>
+							<div class="kt-heading kt-heading--sm kt-heading--space-sm">Memebers</div>
+							<div class="form-group form-group-xs row">
+								<label class="col-8 col-form-label">Enable Member singup:</label>
+								<div class="col-4 kt-align-right">
+									<span class="kt-switch kt-switch--sm kt-switch--brand">
+										<label>
+											<input type="checkbox" checked="checked" name="quick_panel_notifications_5">
+											<span></span>
+										</label>
+									</span>
+								</div>
+							</div>
+							<div class="form-group form-group-xs row">
+								<label class="col-8 col-form-label">Allow User Feedbacks:</label>
+								<div class="col-4 kt-align-right">
+									<span class="kt-switch kt-switch--sm kt-switch--brand">
+										<label>
+											<input type="checkbox" name="quick_panel_notifications_5">
+											<span></span>
+										</label>
+									</span>
+								</div>
+							</div>
+							<div class="form-group form-group-last form-group-xs row">
+								<label class="col-8 col-form-label">Enable Customer Portal:</label>
+								<div class="col-4 kt-align-right">
+									<span class="kt-switch kt-switch--sm kt-switch--brand">
+										<label>
+											<input type="checkbox" checked="checked" name="quick_panel_notifications_6">
+											<span></span>
+										</label>
+									</span>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- end::Quick Panel -->
+
+		<!-- begin::Scrolltop -->
+		<div id="kt_scrolltop" class="kt-scrolltop">
+			<i class="fa fa-arrow-up"></i>
+		</div>
+
+		<!-- end::Scrolltop -->
+
+		<!-- begin::Sticky Toolbar -->
+		<ul class="kt-sticky-toolbar" style="margin-top: 30px;">
+			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--success" id="kt_demo_panel_toggle" data-toggle="kt-tooltip" title="Check out more demos" data-placement="right">
+				<a href="#" class=""><i class="flaticon2-drop"></i></a>
+			</li>
+			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--brand" data-toggle="kt-tooltip" title="Layout Builder" data-placement="left">
+				<a href="https://keenthemes.com/metronic/preview/default/builder.html" target="_blank"><i class="flaticon2-gear"></i></a>
+			</li>
+			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--warning" data-toggle="kt-tooltip" title="Documentation" data-placement="left">
+				<a href="https://keenthemes.com/metronic/?page=docs" target="_blank"><i class="flaticon2-telegram-logo"></i></a>
+			</li>
+		</ul>
+
+		<!-- end::Sticky Toolbar -->
+
+		<!-- begin::Demo Panel -->
+		<div id="kt_demo_panel" class="kt-demo-panel">
+			<div class="kt-demo-panel__head">
+				<h3 class="kt-demo-panel__title">
+					Select A Demo
+
+					<!--<small>5</small>-->
+				</h3>
+				<a href="#" class="kt-demo-panel__close" id="kt_demo_panel_close"><i class="flaticon2-delete"></i></a>
+			</div>
+			<div class="kt-demo-panel__body">
+				<div class="kt-demo-panel__item kt-demo-panel__item--active">
+					<div class="kt-demo-panel__item-title">
+						Default
+					</div>
+					<div class="kt-demo-panel__item-preview">
+						<img src="../assets/media/demos/Demo-_Default.jpg" alt="" />
+						<div class="kt-demo-panel__item-preview-overlay">
+							<a href="../default/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
+						</div>
+					</div>
+				</div>
+				<div class="kt-demo-panel__item ">
+					<div class="kt-demo-panel__item-title">
+						Demo 2
+					</div>
+					<div class="kt-demo-panel__item-preview">
+						<img src="../assets/media/demos/Demo-2.jpg" alt="" />
+						<div class="kt-demo-panel__item-preview-overlay">
+							<a href="../demo2/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
+						</div>
+					</div>
+				</div>
+				<div class="kt-demo-panel__item ">
+					<div class="kt-demo-panel__item-title">
+						Demo 3
+					</div>
+					<div class="kt-demo-panel__item-preview">
+						<img src="../assets/media/demos/Demo-3.jpg" alt="" />
+						<div class="kt-demo-panel__item-preview-overlay">
+							<a href="../demo3/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
+						</div>
+					</div>
+				</div>
+				<div class="kt-demo-panel__item ">
+					<div class="kt-demo-panel__item-title">
+						Demo 4
+					</div>
+					<div class="kt-demo-panel__item-preview">
+						<img src="../assets/media/demos/Demo-4.jpg" alt="" />
+						<div class="kt-demo-panel__item-preview-overlay">
+							<a href="../demo4/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
+						</div>
+					</div>
+				</div>
+				<div class="kt-demo-panel__item ">
+					<div class="kt-demo-panel__item-title">
+						Demo 5
+					</div>
+					<div class="kt-demo-panel__item-preview">
+						<img src="../assets/media/demos/Demo-5.jpg" alt="" />
+						<div class="kt-demo-panel__item-preview-overlay">
+							<a href="../demo5/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
+						</div>
+					</div>
+				</div>
+				<div class="kt-demo-panel__item ">
+					<div class="kt-demo-panel__item-title">
+						Demo 6
+					</div>
+					<div class="kt-demo-panel__item-preview">
+						<img src="../assets/media/demos/Demo-6.jpg" alt="" />
+						<div class="kt-demo-panel__item-preview-overlay">
+							<a href="../demo6/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
+						</div>
+					</div>
+				</div>
+				<div class="kt-demo-panel__item ">
+					<div class="kt-demo-panel__item-title">
+						Demo 7
+					</div>
+					<div class="kt-demo-panel__item-preview">
+						<img src="../assets/media/demos/Demo-7.jpg" alt="" />
+						<div class="kt-demo-panel__item-preview-overlay">
+							<a href="../demo7/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
+						</div>
+					</div>
+				</div>
+				<div class="kt-demo-panel__item ">
+					<div class="kt-demo-panel__item-title">
+						Demo 8
+					</div>
+					<div class="kt-demo-panel__item-preview">
+						<img src="../assets/media/demos/Demo-8.jpg" alt="" />
+						<div class="kt-demo-panel__item-preview-overlay">
+							<a href="../demo8/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
+						</div>
+					</div>
+				</div>
+				<div class="kt-demo-panel__item ">
+					<div class="kt-demo-panel__item-title">
+						Demo 9
+					</div>
+					<div class="kt-demo-panel__item-preview">
+						<img src="../assets/media/demos/Demo-9.jpg" alt="" />
+						<div class="kt-demo-panel__item-preview-overlay">
+							<a href="../demo9/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
+						</div>
+					</div>
+				</div>
+				<div class="kt-demo-panel__item ">
+					<div class="kt-demo-panel__item-title">
+						Demo 10
+					</div>
+					<div class="kt-demo-panel__item-preview">
+						<img src="../assets/media/demos/Demo-10.jpg" alt="" />
+						<div class="kt-demo-panel__item-preview-overlay">
+							<a href="../demo10/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
+						</div>
+					</div>
+				</div>
+				<div class="kt-demo-panel__item ">
+					<div class="kt-demo-panel__item-title">
+						Demo 11
+					</div>
+					<div class="kt-demo-panel__item-preview">
+						<img src="../assets/media/demos/Demo-11.jpg" alt="" />
+						<div class="kt-demo-panel__item-preview-overlay">
+							<a href="../demo11/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
+						</div>
+					</div>
+				</div>
+				<div class="kt-demo-panel__item ">
+					<div class="kt-demo-panel__item-title">
+						Demo 12
+					</div>
+					<div class="kt-demo-panel__item-preview">
+						<img src="../assets/media/demos/Demo-12.jpg" alt="" />
+						<div class="kt-demo-panel__item-preview-overlay">
+							<a href="../demo12/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
+						</div>
+					</div>
+				</div>
+				<div class="kt-demo-panel__item ">
+					<div class="kt-demo-panel__item-title">
+						Demo 13
+					</div>
+					<div class="kt-demo-panel__item-preview">
+						<img src="../assets/media/demos/Demo-13.jpg" alt="" />
+						<div class="kt-demo-panel__item-preview-overlay">
+							<a href="#" class="btn btn-brand btn-elevate disabled">Coming soon</a>
+						</div>
+					</div>
+				</div>
+				<div class="kt-demo-panel__item ">
+					<div class="kt-demo-panel__item-title">
+						Demo 14
+					</div>
+					<div class="kt-demo-panel__item-preview">
+						<img src="../assets/media/demos/Demo-14.jpg" alt="" />
+						<div class="kt-demo-panel__item-preview-overlay">
+							<a href="#" class="btn btn-brand btn-elevate disabled">Coming soon</a>
+						</div>
+					</div>
+				</div>
+				<a href="" target="_blank" class="kt-demo-panel__purchase btn btn-brand btn-elevate btn-bold btn-upper">
+					Buy Metronic Now!
+				</a>
+			</div>
+		</div>
+
+		<!-- end::Demo Panel -->
+
+		<!-- begin::Global Config(global config for global JS sciprts) -->
+		<script>
+			var KTAppOptions = {
+				"colors": {
+					"state": {
+						"brand": "#5d78ff",
+						"dark": "#282a3c",
+						"light": "#ffffff",
+						"primary": "#5867dd",
+						"success": "#34bfa3",
+						"info": "#36a3f7",
+						"warning": "#ffb822",
+						"danger": "#fd3995"
+					},
+					"base": {
+						"label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
+						"shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
+					}
+				}
+			};
+		</script>
+
+		<!-- end::Global Config -->
+
+		<!--begin:: Global Mandatory Vendors -->
+		<script src="../assets/vendors/general/jquery/dist/jquery.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/popper.js/dist/umd/popper.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/js-cookie/src/js.cookie.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/moment/min/moment.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/tooltip.js/dist/umd/tooltip.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/perfect-scrollbar/dist/perfect-scrollbar.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/sticky-js/dist/sticky.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/wnumb/wNumb.js" type="text/javascript"></script>
+
+		<!--end:: Global Mandatory Vendors -->
+
+		<!--begin:: Global Optional Vendors -->
+		<script src="../assets/vendors/general/jquery-form/dist/jquery.form.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/block-ui/jquery.blockUI.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/custom/components/vendors/bootstrap-datepicker/init.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/custom/components/vendors/bootstrap-timepicker/init.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/bootstrap-maxlength/src/bootstrap-maxlength.js" type="text/javascript"></script>
+		<script src="../assets/vendors/custom/vendors/bootstrap-multiselectsplitter/bootstrap-multiselectsplitter.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/bootstrap-select/dist/js/bootstrap-select.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/bootstrap-switch/dist/js/bootstrap-switch.js" type="text/javascript"></script>
+		<script src="../assets/vendors/custom/components/vendors/bootstrap-switch/init.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/select2/dist/js/select2.full.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/ion-rangeslider/js/ion.rangeSlider.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/typeahead.js/dist/typeahead.bundle.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/handlebars/dist/handlebars.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/inputmask/dist/jquery.inputmask.bundle.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/inputmask/dist/inputmask/inputmask.date.extensions.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/inputmask/dist/inputmask/inputmask.numeric.extensions.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/nouislider/distribute/nouislider.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/owl.carousel/dist/owl.carousel.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/autosize/dist/autosize.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/clipboard/dist/clipboard.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/dropzone/dist/dropzone.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/summernote/dist/summernote.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/markdown/lib/markdown.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
+		<script src="../assets/vendors/custom/components/vendors/bootstrap-markdown/init.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/bootstrap-notify/bootstrap-notify.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/custom/components/vendors/bootstrap-notify/init.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/jquery-validation/dist/jquery.validate.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/jquery-validation/dist/additional-methods.js" type="text/javascript"></script>
+		<script src="../assets/vendors/custom/components/vendors/jquery-validation/init.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/toastr/build/toastr.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/raphael/raphael.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/morris.js/morris.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/chart.js/dist/Chart.bundle.js" type="text/javascript"></script>
+		<script src="../assets/vendors/custom/vendors/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/custom/vendors/jquery-idletimer/idle-timer.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/waypoints/lib/jquery.waypoints.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/counterup/jquery.counterup.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/es6-promise-polyfill/promise.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/sweetalert2/dist/sweetalert2.min.js" type="text/javascript"></script>
+		<script src="../assets/vendors/custom/components/vendors/sweetalert2/init.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/jquery.repeater/src/lib.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/jquery.repeater/src/jquery.input.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/jquery.repeater/src/repeater.js" type="text/javascript"></script>
+		<script src="../assets/vendors/general/dompurify/dist/purify.js" type="text/javascript"></script>
+
+		<!--end:: Global Optional Vendors -->
+
+		<!--begin::Global Theme Bundle(used by all pages) -->
+		<script src="../assets/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
+
+		<!--end::Global Theme Bundle -->
+
+		<!--begin::Global App Bundle(used by all pages) -->
+		<script src="../assets/app/bundle/app.bundle.js" type="text/javascript"></script>
+
+		<!--end::Global App Bundle -->
+	</body>
+
+	<!-- end::Body -->
 </html>
