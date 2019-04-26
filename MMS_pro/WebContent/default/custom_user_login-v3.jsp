@@ -110,11 +110,11 @@ License: You must have a valid license purchased only from themeforest(the above
 							</div>
 							<div class="kt-login__signin">
 								<div class="kt-login__head">
-									<h3 class="kt-login__title">Sign In To Admin</h3>
+									<h3 class="kt-login__title">Sign In</h3>
 								</div>
 								<form class="kt-form" action="">
 									<div class="input-group">
-										<input class="form-control" type="text" placeholder="Email" name="email" autocomplete="off">
+										<input class="form-control" type="text" placeholder="ID" name="email" autocomplete="off">
 									</div>
 									<div class="input-group">
 										<input class="form-control" type="password" placeholder="Password" name="password">
@@ -142,16 +142,59 @@ License: You must have a valid license purchased only from themeforest(the above
 								</div>
 								<form class="kt-form" action="">
 									<div class="input-group">
-										<input class="form-control" type="text" placeholder="Fullname" name="fullname">
+										<input class="form-control" type="text" placeholder="* FullName" name="name" autocomplete="off">
 									</div>
+									<div class="input-group">
+										<input class="form-control" type="text" placeholder="* ID" name="id" autocomplete="off">
+									</div>
+									<div class="input-group">
+										<input class="form-control" type="password" placeholder="* Password" name="password">
+									</div>
+									<div class="input-group">
+										<input class="form-control" type="password" placeholder="* Confirm Password" name="rpassword">
+									</div>
+									<div class="input-group">
+													<select class="form-control" id="exampleSelect1">
+														<option>초급 기능사</option>
+														<option>중급 기능사</option>
+														<option>고급 기능사</option>
+														<option>초급 기술자</option>
+														<option>중급 기술자</option>
+														<option>고급 기술자</option>
+														<option>특급 기술자</option>
+														<option>기술사</option>
+													</select>
+									</div>
+									<br>
+									<br>
+									<div class="kt-radio-inline">
+														<label class="kt-radio">
+															<input class="form-control" type="radio" name="gender" checked="checked"><p><span class="kt-font-bolder kt-font-brand">Male</span></p>
+															<span></span>
+														</label>
+														
+														<label class="kt-radio">
+															<input class="form-control" type="radio" name="gender"><p><span class="kt-font-bolder kt-font-danger">Female</span></p>
+															<span></span>
+														</label>
+													</div>
 									<div class="input-group">
 										<input class="form-control" type="text" placeholder="Email" name="email" autocomplete="off">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="password" placeholder="Password" name="password">
+										<input class="form-control" type="text" placeholder="Tel" name="tel" autocomplete="off" onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="password" placeholder="Confirm Password" name="rpassword">
+										<input class="form-control" type="text" placeholder="Address (Click Here)" id="juso" name="juso" autocomplete="off" onclick="postcode()">
+									</div>
+									<div class="input-group">
+										<input class="form-control" type="text" placeholder="Detail Address" id="extraJuso" name="extraJuso" autocomplete="off">
+									</div>
+									<div class="input-group">
+										<input class="form-control" type="text" placeholder="Bank" name="bank" autocomplete="off">
+									</div>
+									<div class="input-group">
+										<input class="form-control" type="text" placeholder="Bank Account" name="account" autocomplete="off" onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)">
 									</div>
 									<div class="row kt-login__extra">
 										<div class="col kt-align-left">
@@ -303,7 +346,74 @@ License: You must have a valid license purchased only from themeforest(the above
 		<script src="../assets/app/bundle/app.bundle.js" type="text/javascript"></script>
 
 		<!--end::Global App Bundle -->
+		
+		
 	</body>
 
 	<!-- end::Body -->
+	
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+	<!--Daum Postcode API  -->
+    function postcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                   
+                
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById("juso").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("extraJuso").focus();
+            }
+        }).open();
+    }
+    
+    <!--OnlyNumber  -->
+	function onlyNumber(event){
+		event = event || window.event;
+		var keyID = (event.which) ? event.which : event.keyCode;
+		if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+			return;
+		else
+			return false;
+	}
+	function removeChar(event) {
+		event = event || window.event;
+		var keyID = (event.which) ? event.which : event.keyCode;
+		if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+			return;
+		else
+			event.target.value = event.target.value.replace(/[^0-9]/g, "");
+	}
+    
+</script>
+
+	
 </html>
