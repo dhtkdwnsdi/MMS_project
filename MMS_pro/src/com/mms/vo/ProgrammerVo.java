@@ -5,24 +5,24 @@ public class ProgrammerVo {
  * @author LEE HAN
  * 
  */
-	String progNum;
-	String name;
-	String id;
-	String password;
-	String email;
-	String tel;
-	String photo;
-	String gender;
-	String birth;
-	String juso;
-	String extraJuso;
-	String bank;
-	String account;
-	String grant;
-	String introduce;
-	String introFile;
-	String grade;
-	String messageNum;
+	private String progNum;
+	private String name;
+	private String id;
+	private String password;
+	private String email;
+	private String tel;
+	private String photo;
+	private String gender;
+	private String birth;
+	private String juso;
+	private String extraJuso;
+	private String bank;
+	private String account;
+	private String grant;
+	private String introduce;
+	private String introFile;
+	private String grade;
+	private String messageNum;
 	public String getProgNum() {
 		return progNum;
 	}
@@ -139,6 +139,9 @@ public class ProgrammerVo {
 				+ grant + ", introduce=" + introduce + ", introFile=" + introFile + ", grade=" + grade + ", messageNum="
 				+ messageNum + "]";
 	}
+	
+	
+	
 	
 	
 	
