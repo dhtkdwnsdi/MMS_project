@@ -2,6 +2,7 @@ package com.mms.controller.action;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +18,8 @@ public class SignUpAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		String url = "login.jsp";
+		
 		String name = request.getParameter("name");
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
@@ -29,6 +31,7 @@ public class SignUpAction implements Action {
 		String extraJuso = request.getParameter("extraJuso");
 		String bank = request.getParameter("bank");
 		String account = request.getParameter("account");
+		
 		
 		ProgrammerVo progVo = new ProgrammerVo();
 		SignUpDAO signDao = SignUpDAO.getInstance();
@@ -44,8 +47,12 @@ public class SignUpAction implements Action {
 		progVo.setBank(bank);
 		progVo.setAccount(account);
 		
+		System.out.println("progVo: " + progVo);
+		
 		signDao.signUp(progVo);
 		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+		dispatcher.forward(request, response);
 		
 	}
 

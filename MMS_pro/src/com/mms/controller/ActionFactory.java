@@ -4,7 +4,6 @@ import com.mms.controller.action.Action;
 import com.mms.controller.action.MainAction;
 import com.mms.controller.action.SignUpAction;
 import com.mms.controller.action.careerFormAction;
-import com.mms.controller.action.idCheckAction;
 
 /**
  * request로 받아온 매개변수의 command의 값으로 각 기능을 수행할 액션을 분기하는 클래스 <br>
