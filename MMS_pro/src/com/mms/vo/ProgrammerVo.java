@@ -23,6 +23,11 @@ public class ProgrammerVo {
 	private String introFile;
 	private String grade;
 	private String messageNum;
+	
+	public ProgrammerVo() {
+
+	}
+	
 	public String getProgNum() {
 		return progNum;
 	}

@@ -102,7 +102,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="kt-portlet__head kt-portlet__head--lg">
 									<div class="kt-portlet__head-label">
 										<span class="kt-portlet__head-icon">
-											<i class="kt-font-brand flaticon2-line-chart"></i>
+											<i class="flaticon2-avatar"></i>
 										</span>
 										<h3 class="kt-portlet__head-title">
 											아이디 중복 검사
@@ -112,7 +112,6 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="kt-portlet__body">
 
 									<!--begin: Search Form -->
-									<form class="kt-form kt-form--fit kt-margin-b-20">
 										<div class="row kt-margin-b-20">
 											<div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
 												<input type="text" id="id" class="form-control kt-input" placeholder="ID" data-col-index="0">
@@ -121,15 +120,20 @@ License: You must have a valid license purchased only from themeforest(the above
 										<div class="kt-separator kt-separator--md kt-separator--dashed"></div>
 										<div class="row">
 											<div class="col-lg-12">
-												<button class="btn btn-primary btn-brand--icon" id="kt_search" style="float: right;" onclick="registerCheckFunction()">
+												<button class="btn btn-success btn-brand--icon" id="useButton" style="display: none;" onclick="setParent()">
 													<span>
+														<i class="flaticon2-plus"></i>
+														<span>Use</span>
+													</span>
+												</button>
+												<button class="btn btn-primary btn-brand--icon" style="float: right;" id="kt_search" onclick="registerCheckFunction()">
+														<span>
 														<i class="la la-search"></i>
 														<span>Search</span>
-													</span>
+														</span>
 												</button>
 											</div>
 										</div>
-									</form>
 								</div>
 							</div>
 						</div>
@@ -257,35 +261,41 @@ License: You must have a valid license purchased only from themeforest(the above
 		// userID 변수에 userID의 입력된 값을 가져오게 함
 
 		var id = $('#id').val();
-
+		
+		if(id == ""){
+			alert("아이디를 입력해주세요.");
+			$("#id").focus();
+		}
+		
 		$.ajax({
 
 			type: 'POST',  // GET or POST 전송방법 
 
-			url: 'prog?command=idCheck',  // 이쪽으로 보낸다(호출URL)
+			url: 'idcheck',  // 이쪽으로 보낸다(호출URL)
 
 			data: {id: id},  // userID 이름에 userID 데이터 값을 넣어서 보낸다
 
 			success: function(result){  // 만약 성공적으로 수행되었다면 result로 값반환
 
-				if(result == 1){  // id가 checkMessage인 것에 아래 텍스트 출력
+				if(result >= 1){  // id가 checkMessage인 것에 아래 텍스트 출력
+					alert("사용할 수 없는 아이디입니다.");
+					$("#id").val("");
+					$("#id").focus();
 
-					$('#checkMessage').html('사용할 수 있는 아이디입니다.');
-
-				} else {
-
-					$('#checkMessage').html('사용할 수 없는 아이디입니다.');
-
+				} else if(result == -1){
+					alert("사용할 수 있는 아이디입니다.");
+					$("#useButton").show();
 				}
-
-				// id 가 checkModal인 모달함수 실행시켜서 모달 실행시키기 위해
-
-				$('#checkModal').modal("show");
 
 			} 
 
 		})
 
 	}
+	
+	function setParent(){
+        opener.document.getElementById("id").value = document.getElementById("id").value;
+        window.close();
+   }
 </script>
 </html>

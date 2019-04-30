@@ -140,12 +140,12 @@ License: You must have a valid license purchased only from themeforest(the above
 									<h3 class="kt-login__title">Sign Up</h3>
 									<div class="kt-login__desc">Enter your details to create your account:</div>
 								</div>
-								<form class="kt-form" method="post" action="main?command=signUp">
+								<form class="kt-form" method="post" action="prog?command=signUp">
 									<div class="input-group">
 										<input class="form-control" type="text" placeholder="* FullName" name="name" autocomplete="off">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="text" placeholder="* ID (Click Here)" name="id" 
+										<input class="form-control" id="id" type="text" placeholder="* ID (Click Here)" name="id" 
 										autocomplete="off" readonly="readonly" onclick="openPopUp()">
 									</div>
 									<div class="input-group">
@@ -155,27 +155,27 @@ License: You must have a valid license purchased only from themeforest(the above
 										<input class="form-control" type="password" placeholder="* Confirm Password" name="rpassword">
 									</div>
 									<div class="input-group">
-													<select class="form-control" id="exampleSelect1">
-														<option>초급 기능사</option>
-														<option>중급 기능사</option>
-														<option>고급 기능사</option>
-														<option>초급 기술자</option>
-														<option>중급 기술자</option>
-														<option>고급 기술자</option>
-														<option>특급 기술자</option>
-														<option>기술사</option>
+													<select name="grade" class="form-control" id="exampleSelect1">
+														<option value="1">초급 기능사</option>
+														<option value="2">중급 기능사</option>
+														<option value="3">고급 기능사</option>
+														<option value="4">초급 기술자</option>
+														<option value="5">중급 기술자</option>
+														<option value="6">고급 기술자</option>
+														<option value="7">특급 기술자</option>
+														<option value="8">기술사</option>
 													</select>
 									</div>
 									<br>
 									<br>
 									<div class="kt-radio-inline">
 														<label class="kt-radio">
-															<input class="form-control" type="radio" name="gender" checked="checked"><p><span class="kt-font-bolder kt-font-brand">Male</span></p>
+															<input class="form-control" type="radio" name="gender" checked="checked" value="m"><p><span class="kt-font-bolder kt-font-brand">Male</span></p>
 															<span></span>
 														</label>
 														
 														<label class="kt-radio">
-															<input class="form-control" type="radio" name="gender"><p><span class="kt-font-bolder kt-font-danger">Female</span></p>
+															<input class="form-control" type="radio" name="gender" value="f"><p><span class="kt-font-bolder kt-font-danger">Female</span></p>
 															<span></span>
 														</label>
 													</div>
@@ -207,7 +207,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 									<div class="kt-login__actions">
-										<button id="kt_login_signup_submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Sign Up</button>&nbsp;&nbsp;
+										<button type="submit" id="kt_login_signup_submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Sign Up</button>&nbsp;&nbsp;
 										<button id="kt_login_signup_cancel" class="btn btn-light btn-elevate kt-login__btn-secondary">Cancel</button>
 									</div>
 								</form>
@@ -420,7 +420,7 @@ License: You must have a valid license purchased only from themeforest(the above
         window.name = "parentForm";
         // window.open("open할 window", "자식창 이름", "팝업창 옵션");
         window.open("signUpPopUp.jsp",
-                "childForm", "width=400, height=300, resizable = no, scrollbars = no");    
+                "childForm", "width=500, height=300, resizable = no, scrollbars = no");    
     }
 
 

@@ -2,6 +2,7 @@ package com.mms.controller;
 
 import com.mms.controller.action.Action;
 import com.mms.controller.action.MainAction;
+import com.mms.controller.action.SignUpAction;
 import com.mms.controller.action.careerFormAction;
 import com.mms.controller.action.idCheckAction;
 
@@ -34,11 +35,12 @@ public class ActionFactory {
 			action = new MainAction();
 
 		} 
-		else if(command.equals("idCheck")) {
-			action = new idCheckAction();
-		}
+		
 		else if(command.equals("careerForm")) {
 			action = new careerFormAction();
+		}
+		else if(command.equals("signUp")) {
+			action = new SignUpAction();
 		}
 		/**
 		 * @author OSJ
