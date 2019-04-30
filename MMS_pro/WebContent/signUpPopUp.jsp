@@ -19,8 +19,8 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- begin::Head -->
 	<head>
 		<meta charset="utf-8" />
-		<title>PMMS | Login</title>
-		<meta name="description" content="Login page example">
+		<title>Metronic | Advanced Search Examples</title>
+		<meta name="description" content="Advanced search datatables examples">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!--begin::Fonts -->
@@ -38,10 +38,10 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!--end::Fonts -->
 
-		<!--begin::Page Custom Styles(used by this page) -->
-		<link href="../assets/app/custom/login/login-v3.default.css" rel="stylesheet" type="text/css" />
+		<!--begin::Page Vendors Styles(used by this page) -->
+		<link href="../assets/vendors/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
 
-		<!--end::Page Custom Styles -->
+		<!--end::Page Vendors Styles -->
 
 		<!--begin:: Global Mandatory Vendors -->
 		<link href="../assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
@@ -96,152 +96,47 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Body -->
 	<body class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
+						<!-- begin:: Content -->
+						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
+							<div class="kt-portlet kt-portlet--mobile">
+								<div class="kt-portlet__head kt-portlet__head--lg">
+									<div class="kt-portlet__head-label">
+										<span class="kt-portlet__head-icon">
+											<i class="kt-font-brand flaticon2-line-chart"></i>
+										</span>
+										<h3 class="kt-portlet__head-title">
+											아이디 중복 검사
+										</h3>
+									</div>
+								</div>
+								<div class="kt-portlet__body">
 
-		<!-- begin:: Page -->
-		<div class="kt-grid kt-grid--ver kt-grid--root">
-			<div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v3 kt-login--signin" id="kt_login">
-				<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" style="background-image: url(../assets/media//bg/bg-3.jpg);">
-					<div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
-						<div class="kt-login__container">
-							<div class="kt-login__logo">
-								<a href="#">
-									<img src="../assets/media/logos/logo-5.png">
-								</a>
-							</div>
-							<div class="kt-login__signin">
-								<div class="kt-login__head">
-									<h3 class="kt-login__title">Sign In</h3>
-								</div>
-								<form class="kt-form" action="">
-									<div class="input-group">
-										<input class="form-control" type="text" placeholder="ID" name="email" autocomplete="off">
-									</div>
-									<div class="input-group">
-										<input class="form-control" type="password" placeholder="Password" name="password">
-									</div>
-									<div class="row kt-login__extra">
-										<div class="col">
-											<label class="kt-checkbox">
-												<input type="checkbox" name="remember"> Remember me
-												<span></span>
-											</label>
+									<!--begin: Search Form -->
+									<form class="kt-form kt-form--fit kt-margin-b-20">
+										<div class="row kt-margin-b-20">
+											<div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+												<input type="text" id="id" class="form-control kt-input" placeholder="ID" data-col-index="0">
+											</div>
 										</div>
-										<div class="col kt-align-right">
-											<a href="javascript:;" id="kt_login_forgot" class="kt-login__link">Forget Password ?</a>
+										<div class="kt-separator kt-separator--md kt-separator--dashed"></div>
+										<div class="row">
+											<div class="col-lg-12">
+												<button class="btn btn-primary btn-brand--icon" id="kt_search" style="float: right;" onclick="registerCheckFunction()">
+													<span>
+														<i class="la la-search"></i>
+														<span>Search</span>
+													</span>
+												</button>
+											</div>
 										</div>
-									</div>
-									<div class="kt-login__actions">
-										<button id="kt_login_signin_submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Sign In</button>
-									</div>
-								</form>
-							</div>
-							<div class="kt-login__signup">
-								<div class="kt-login__head">
-									<h3 class="kt-login__title">Sign Up</h3>
-									<div class="kt-login__desc">Enter your details to create your account:</div>
+									</form>
 								</div>
-								<form class="kt-form" method="post" action="main?command=signUp">
-									<div class="input-group">
-										<input class="form-control" type="text" placeholder="* FullName" name="name" autocomplete="off">
-									</div>
-									<div class="input-group">
-										<input class="form-control" type="text" placeholder="* ID (Click Here)" name="id" 
-										autocomplete="off" readonly="readonly" onclick="openPopUp()">
-									</div>
-									<div class="input-group">
-										<input class="form-control" type="password" placeholder="* Password" name="password">
-									</div>
-									<div class="input-group">
-										<input class="form-control" type="password" placeholder="* Confirm Password" name="rpassword">
-									</div>
-									<div class="input-group">
-													<select class="form-control" id="exampleSelect1">
-														<option>초급 기능사</option>
-														<option>중급 기능사</option>
-														<option>고급 기능사</option>
-														<option>초급 기술자</option>
-														<option>중급 기술자</option>
-														<option>고급 기술자</option>
-														<option>특급 기술자</option>
-														<option>기술사</option>
-													</select>
-									</div>
-									<br>
-									<br>
-									<div class="kt-radio-inline">
-														<label class="kt-radio">
-															<input class="form-control" type="radio" name="gender" checked="checked"><p><span class="kt-font-bolder kt-font-brand">Male</span></p>
-															<span></span>
-														</label>
-														
-														<label class="kt-radio">
-															<input class="form-control" type="radio" name="gender"><p><span class="kt-font-bolder kt-font-danger">Female</span></p>
-															<span></span>
-														</label>
-													</div>
-									<div class="input-group">
-										<input class="form-control" type="text" placeholder="Email" name="email" autocomplete="off">
-									</div>
-									<div class="input-group">
-										<input class="form-control" type="text" placeholder="Tel" name="tel" autocomplete="off" onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)">
-									</div>
-									<div class="input-group">
-										<input class="form-control" type="text" placeholder="Address (Click Here)" id="juso" name="juso" autocomplete="off" onclick="postcode()">
-									</div>
-									<div class="input-group">
-										<input class="form-control" type="text" placeholder="Detail Address" id="extraJuso" name="extraJuso" autocomplete="off">
-									</div>
-									<div class="input-group">
-										<input class="form-control" type="text" placeholder="Bank" name="bank" autocomplete="off">
-									</div>
-									<div class="input-group">
-										<input class="form-control" type="text" placeholder="Bank Account" name="account" autocomplete="off" onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)">
-									</div>
-									<div class="row kt-login__extra">
-										<div class="col kt-align-left">
-											<label class="kt-checkbox">
-												<input type="checkbox" name="agree">I Agree the <a href="#" class="kt-link kt-login__link kt-font-bold">terms and conditions</a>.
-												<span></span>
-											</label>
-											<span class="form-text text-muted"></span>
-										</div>
-									</div>
-									<div class="kt-login__actions">
-										<button id="kt_login_signup_submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Sign Up</button>&nbsp;&nbsp;
-										<button id="kt_login_signup_cancel" class="btn btn-light btn-elevate kt-login__btn-secondary">Cancel</button>
-									</div>
-								</form>
-							</div>
-							<div class="kt-login__forgot">
-								<div class="kt-login__head">
-									<h3 class="kt-login__title">Forgotten Password ?</h3>
-									<div class="kt-login__desc">Enter your email to reset your password:</div>
-								</div>
-								<form class="kt-form" action="">
-									<div class="input-group">
-										<input class="form-control" type="text" placeholder="Email" name="email" id="kt_email" autocomplete="off">
-									</div>
-									<div class="kt-login__actions">
-										<button id="kt_login_forgot_submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Request</button>&nbsp;&nbsp;
-										<button id="kt_login_forgot_cancel" class="btn btn-light btn-elevate kt-login__btn-secondary">Cancel</button>
-									</div>
-								</form>
-							</div>
-							<div class="kt-login__account">
-								<span class="kt-login__account-msg">
-									Don't have an account yet ?
-								</span>
-								&nbsp;&nbsp;
-								<a href="javascript:;" id="kt_login_signup" class="kt-login__account-link">Sign Up!</a>
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+
+						<!-- end:: Content -->
 
 		<!-- end:: Page -->
-
 		<!-- begin::Global Config(global config for global JS sciprts) -->
 		<script>
 			var KTAppOptions = {
@@ -338,8 +233,13 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!--end::Global Theme Bundle -->
 
+		<!--begin::Page Vendors(used by this page) -->
+		<script src="../assets/vendors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
+
+		<!--end::Page Vendors -->
+
 		<!--begin::Page Scripts(used by this page) -->
-		<script src="../assets/app/custom/login/login-general.js" type="text/javascript"></script>
+		<script src="../assets/app/custom/general/crud/datatables/search-options/advanced-search.js" type="text/javascript"></script>
 
 		<!--end::Page Scripts -->
 
@@ -347,84 +247,45 @@ License: You must have a valid license purchased only from themeforest(the above
 		<script src="../assets/app/bundle/app.bundle.js" type="text/javascript"></script>
 
 		<!--end::Global App Bundle -->
-		
-		
 	</body>
-
 	<!-- end::Body -->
-	
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script>
-	<!--Daum Postcode API  -->
-    function postcode() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                var addr = ''; // 주소 변수
-                var extraAddr = ''; // 참고항목 변수
+<script type="text/javascript">
 
-                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-                    addr = data.roadAddress;
-                } else { // 사용자가 지번 주소를 선택했을 경우(J)
-                    addr = data.jibunAddress;
-                }
+	function registerCheckFunction(){
 
-                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
-                if(data.userSelectedType === 'R'){
-                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                        extraAddr += data.bname;
-                    }
-                    // 건물명이 있고, 공동주택일 경우 추가한다.
-                    if(data.buildingName !== '' && data.apartment === 'Y'){
-                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                    }
-                   
-                
-                }
+		// userID 변수에 userID의 입력된 값을 가져오게 함
 
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById("juso").value = addr;
-                // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("extraJuso").focus();
-            }
-        }).open();
-    }
-    
-    <!--OnlyNumber  -->
-	function onlyNumber(event){
-		event = event || window.event;
-		var keyID = (event.which) ? event.which : event.keyCode;
-		if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
-			return;
-		else
-			return false;
+		var id = $('#id').val();
+
+		$.ajax({
+
+			type: 'POST',  // GET or POST 전송방법 
+
+			url: 'prog?command=idCheck',  // 이쪽으로 보낸다(호출URL)
+
+			data: {id: id},  // userID 이름에 userID 데이터 값을 넣어서 보낸다
+
+			success: function(result){  // 만약 성공적으로 수행되었다면 result로 값반환
+
+				if(result == 1){  // id가 checkMessage인 것에 아래 텍스트 출력
+
+					$('#checkMessage').html('사용할 수 있는 아이디입니다.');
+
+				} else {
+
+					$('#checkMessage').html('사용할 수 없는 아이디입니다.');
+
+				}
+
+				// id 가 checkModal인 모달함수 실행시켜서 모달 실행시키기 위해
+
+				$('#checkModal').modal("show");
+
+			} 
+
+		})
+
 	}
-	function removeChar(event) {
-		event = event || window.event;
-		var keyID = (event.which) ? event.which : event.keyCode;
-		if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
-			return;
-		else
-			event.target.value = event.target.value.replace(/[^0-9]/g, "");
-	}
-    
-	function openPopUp()
-    {
-        // window.name = "부모창 이름"; 
-        window.name = "parentForm";
-        // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-        window.open("signUpPopUp.jsp",
-                "childForm", "width=400, height=300, resizable = no, scrollbars = no");    
-    }
-
-
 </script>
-
-	
 </html>

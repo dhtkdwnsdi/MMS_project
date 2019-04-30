@@ -14,7 +14,7 @@ import com.mms.controller.action.Action;
 /**
  * Servlet implementation class ProgrammerServlet
  */
-@WebServlet("/programmer")
+@WebServlet("/prog")
 public class ProgrammerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,24 +31,23 @@ public class ProgrammerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String command = request.getParameter("command");
-		System.out.println("Programmer에서 요청을 받음을 확인 : " + command);
-
-		if (command == null) {
+		System.out.println("ProgrammerServlet에서 요청 받음을 확인: " + command);
+		
+		if(command == null) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("main.jsp");
 			dispatcher.forward(request, response);
-
-		} else if (command.equals("loginForm")) {
+		} else if(command.equals("loginForm")) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 			dispatcher.forward(request, response);
-
 		} else {
 			ActionFactory af = ActionFactory.getInstance();
 			Action action = af.getAction(command);
-
-			if (action != null) {
+			
+			if(action != null) {
 				action.execute(request, response);
 			}
 		}
+	
 	}
 
 	/**
