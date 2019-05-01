@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 	<!-- begin::Head -->
@@ -82,7 +85,7 @@
 
 	<!-- begin::Body -->
 	<body class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
-
+	
 		<!-- begin:: Page -->
 
 		<!-- begin:: Header Mobile -->
@@ -1644,7 +1647,7 @@
 								<div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="0px,0px">
 									<div class="kt-header__topbar-user">
 										<span class="kt-header__topbar-welcome kt-hidden-mobile">Hi,</span>
-										<span class="kt-header__topbar-username kt-hidden-mobile">Sean</span>
+										<span class="kt-header__topbar-username kt-hidden-mobile">${LoginUser.name}</span>
 										<img class="kt-hidden" alt="Pic" src="../assets/media/users/300_25.jpg" />
 
 										<!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
@@ -1726,7 +1729,7 @@
 											</div>
 										</a>
 										<div class="kt-notification__custom">
-											<a href="custom_user_login-v2.html" target="_blank" class="btn btn-label-brand btn-sm btn-bold">Sign Out</a>
+											<a href="main?command=logout" class="btn btn-label-brand btn-sm btn-bold">Sign Out</a>
 										</div>
 									</div>
 

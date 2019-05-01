@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 
 <!-- 
@@ -112,12 +114,26 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="kt-login__head">
 									<h3 class="kt-login__title">Sign In</h3>
 								</div>
-								<form class="kt-form" action="">
+								
+								<c:if test = "${message ne null}">
+									<div class="alert alert-info alert-dismissible" role="alert">
+									  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									  ${message}
+									</div>
+									</c:if>	
+									<c:if test = "${param.session eq 'no'}">
+									<div class="alert alert-warning alert-dismissible" role="alert">
+									  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									  세션이 만료되었습니다. 다시 로그인해주세요.
+									</div>
+								</c:if>
+								
+								<form class="kt-form" method="post" action="main?command=login" onsubmit="return validateLogin()">
 									<div class="input-group">
-										<input class="form-control" type="text" placeholder="ID" name="email" autocomplete="off">
+										<input class="form-control" type="text" placeholder="ID" name="id" autocomplete="off" id="id">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="password" placeholder="Password" name="password">
+										<input class="form-control" type="password" placeholder="Password" name="password" id="password">
 									</div>
 									<div class="row kt-login__extra">
 										<div class="col">
@@ -131,7 +147,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 									<div class="kt-login__actions">
-										<button id="kt_login_signin_submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Sign In</button>
+										<button type="submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Sign In</button>
 									</div>
 								</form>
 							</div>
@@ -140,7 +156,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<h3 class="kt-login__title">Sign Up</h3>
 									<div class="kt-login__desc">Enter your details to create your account:</div>
 								</div>
-								<form class="kt-form" method="post" action="prog?command=signUp">
+								<form class="kt-form" method="post" action="prog?command=signUp" onsubmit="return validate()">
 									<div class="input-group">
 										<input class="form-control" type="text" placeholder="* FullName" name="name" autocomplete="off" id="name">
 									</div>
@@ -168,8 +184,6 @@ License: You must have a valid license purchased only from themeforest(the above
 														<option value="8">기술사</option>
 													</select>
 									</div>
-									<br>
-									<br>
 									<div class="input-group">
 										<input class="form-control" type="text" placeholder="Email" name="email" autocomplete="off">
 									</div>
@@ -198,10 +212,11 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 									<div class="kt-login__actions">
-										<button type="submit"  class="btn btn-brand btn-elevate kt-login__btn-primary" onclick="validate()">Sign Up</button>&nbsp;&nbsp;
+										<button type="submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Sign Up</button>&nbsp;&nbsp;
 										<button id="kt_login_signup_cancel" class="btn btn-light btn-elevate kt-login__btn-secondary">Cancel</button>
 									</div>
 								</form>
+
 							</div>
 							<div class="kt-login__forgot">
 								<div class="kt-login__head">
@@ -418,7 +433,7 @@ License: You must have a valid license purchased only from themeforest(the above
     }
 
 	//비밀번호 확인 jquery
-    $(function(){
+$(function(){
         $("#alert-success").hide();
         $("#alert-danger").hide();
         $("input").keyup(function(){
@@ -434,36 +449,57 @@ License: You must have a valid license purchased only from themeforest(the above
                 }    
             }
             else{
-            	$("#alert-success").hide();
+                $("#alert-success").hide();
                 $("#alert-danger").hide();
             }
         });
     });
 
-	//유효성 검사
+	//회원가입 유효성 검사
 	function validate(){
-		var name = document.getElementById("name").value
+		var name = document.getElementById("name").value;
 		var id = document.getElementById("id").value;
 		var pass = document.getElementById("password").value;
 		var rpass = document.getElementById("rpassword").value;
 		if(name == ""){
 			alert("이름을 입력해주세요.");
-			name.focus();
+			document.getElementById("name").focus();
 			return false;
 		}
-		if(id == ""){
+		else if(id == ""){
 			alert("ID를 입력해주세요.");
-			id.focus();
+			document.getElementById("id").focus();
 			return false;
 		}
-		if(pass == "" && rpass == ""){
+		else if(pass == "" && rpass == ""){
 			alert("비밀번호를 입력해주세요.");
-			pass.focus();
+			document.getElementById("password").focus();
 			return false;
+		} 
+		else{
+			return true;
 		}
 	}
-
-
+	//로그인 유효성 검사
+	function validateLogin(){
+		var id = document.getElementById("id").value;
+		var pass = document.getElementById("password").value;
+		
+		if(id == ""){
+			alert("ID를 입력해주세요.");
+			document.getElementById("id").focus();
+			return false;
+		}
+		else if(pass == ""){
+			alert("비밀번호를 입력해주세요.");
+			document.getElementById("password").focus();
+			return false;
+		}
+		else{
+			return true;
+		}
+		
+	}
 </script>
 
 	
