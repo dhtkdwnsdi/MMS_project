@@ -70,8 +70,8 @@ public class SignUpDAO extends DBManager {
 	//회원 등록
 	public void signUp(ProgrammerVo progVo) {
 		String sql = "INSERT INTO tbl_programmer("
-				+ "	  NAME, ID, PASSWORD, EMAIL, TEL, GENDER, JUSO, EXTRAJUSO, BANK, ACCOUNT, GRADE)"
-				+ "	  VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "	  NAME, ID, PASSWORD, EMAIL, TEL, JUSO, EXTRAJUSO, BANK, ACCOUNT, GRADE)"
+				+ "	  VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -87,12 +87,11 @@ public class SignUpDAO extends DBManager {
 			pstmt.setString(3, progVo.getPassword());
 			pstmt.setString(4, progVo.getEmail());
 			pstmt.setString(5, progVo.getTel());
-			pstmt.setString(6, progVo.getGender());
-			pstmt.setString(7, progVo.getJuso());
-			pstmt.setString(8, progVo.getExtraJuso());
-			pstmt.setString(9, progVo.getBank());
-			pstmt.setString(10, progVo.getAccount());
-			pstmt.setString(11, progVo.getGrade());
+			pstmt.setString(6, progVo.getJuso());
+			pstmt.setString(7, progVo.getExtraJuso());
+			pstmt.setString(8, progVo.getBank());
+			pstmt.setString(9, progVo.getAccount());
+			pstmt.setString(10, progVo.getGrade());
 			
 			pstmt.executeUpdate();
 			

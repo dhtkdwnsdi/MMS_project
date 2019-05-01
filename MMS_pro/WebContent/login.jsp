@@ -140,20 +140,22 @@ License: You must have a valid license purchased only from themeforest(the above
 									<h3 class="kt-login__title">Sign Up</h3>
 									<div class="kt-login__desc">Enter your details to create your account:</div>
 								</div>
-								<form class="kt-form" method="post" action="prog?command=signUp">
+								<form class="kt-form" method="post" action="prog?command=signUp" onsubmit="validate()">
 									<div class="input-group">
-										<input class="form-control" type="text" placeholder="* FullName" name="name" autocomplete="off">
+										<input class="form-control" type="text" placeholder="* FullName" name="name" autocomplete="off" id="name">
 									</div>
 									<div class="input-group">
 										<input class="form-control" id="id" type="text" placeholder="* ID (Click Here)" name="id" 
 										autocomplete="off" readonly="readonly" onclick="openPopUp()">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="password" placeholder="* Password" name="password">
+										<input class="form-control" type="password" placeholder="* Password" name="password" id="password">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="password" placeholder="* Confirm Password" name="rpassword">
+										<input class="form-control" type="password" placeholder="* Confirm Password" name="rpassword" id="rpassword">
 									</div>
+									<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+									<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
 									<div class="input-group">
 													<select name="grade" class="form-control" id="exampleSelect1">
 														<option value="1">초급 기능사</option>
@@ -168,17 +170,6 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 									<br>
 									<br>
-									<div class="kt-radio-inline">
-														<label class="kt-radio">
-															<input class="form-control" type="radio" name="gender" checked="checked" value="m"><p><span class="kt-font-bolder kt-font-brand">Male</span></p>
-															<span></span>
-														</label>
-														
-														<label class="kt-radio">
-															<input class="form-control" type="radio" name="gender" value="f"><p><span class="kt-font-bolder kt-font-danger">Female</span></p>
-															<span></span>
-														</label>
-													</div>
 									<div class="input-group">
 										<input class="form-control" type="text" placeholder="Email" name="email" autocomplete="off">
 									</div>
@@ -396,7 +387,7 @@ License: You must have a valid license purchased only from themeforest(the above
         }).open();
     }
     
-    <!--OnlyNumber  -->
+    //숫자만 입력
 	function onlyNumber(event){
 		event = event || window.event;
 		var keyID = (event.which) ? event.which : event.keyCode;
@@ -405,6 +396,8 @@ License: You must have a valid license purchased only from themeforest(the above
 		else
 			return false;
 	}
+	
+	//문자 지우기
 	function removeChar(event) {
 		event = event || window.event;
 		var keyID = (event.which) ? event.which : event.keyCode;
@@ -414,6 +407,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			event.target.value = event.target.value.replace(/[^0-9]/g, "");
 	}
     
+	//팝업창 키우기
 	function openPopUp()
     {
         // window.name = "부모창 이름"; 
@@ -422,6 +416,52 @@ License: You must have a valid license purchased only from themeforest(the above
         window.open("signUpPopUp.jsp",
                 "childForm", "width=500, height=300, resizable = no, scrollbars = no");    
     }
+
+	//비밀번호 확인 jquery
+    $(function(){
+        $("#alert-success").hide();
+        $("#alert-danger").hide();
+        $("input").keyup(function(){
+            var pass=$("#password").val();
+            var rpass=$("#rpassword").val();
+            if(pass != "" && rpass != ""){
+                if(pass == rpass){
+                    $("#alert-success").show();
+                    $("#alert-danger").hide();
+                }else{
+                    $("#alert-success").hide();
+                    $("#alert-danger").show();
+                }    
+            }
+            else{
+            	$("#alert-success").hide();
+                $("#alert-danger").hide();
+            }
+        });
+    });
+
+	//유효성 검사
+	function validate(){
+		var name = document.getElementById("name").value
+		var id = document.getElementById("id").value;
+		var pass = document.getElementById("password").value;
+		var rpass = document.getElementById("rpassword").value;
+		if(name == ""){
+			alert("이름을 입력해주세요.");
+			name.focus();
+			return false;
+		}
+		if(id == ""){
+			alert("ID를 입력해주세요.");
+			id.focus();
+			return false;
+		}
+		if(pass == "" && rpass == ""){
+			alert("비밀번호를 입력해주세요.");
+			pass.focus();
+			return false;
+		}
+	}
 
 
 </script>

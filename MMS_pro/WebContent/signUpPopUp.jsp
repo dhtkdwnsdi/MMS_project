@@ -265,7 +265,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		if(id == ""){
 			alert("아이디를 입력해주세요.");
 			$("#id").focus();
-		}
+		} else{
 		
 		$.ajax({
 
@@ -281,7 +281,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					alert("사용할 수 없는 아이디입니다.");
 					$("#id").val("");
 					$("#id").focus();
-
+					$("#useButton").hide();
 				} else if(result == -1){
 					alert("사용할 수 있는 아이디입니다.");
 					$("#useButton").show();
@@ -290,7 +290,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			} 
 
 		})
-
+		}
 	}
 	
 	function setParent(){
