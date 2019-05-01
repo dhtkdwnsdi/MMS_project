@@ -1,8 +1,8 @@
 package com.mms.controller.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +18,7 @@ public class SignUpAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "login.jsp";
+//		String url = "login.jsp";
 		
 		String name = request.getParameter("name");
 		String id = request.getParameter("id");
@@ -47,12 +47,14 @@ public class SignUpAction implements Action {
 		progVo.setBank(bank);
 		progVo.setAccount(account);
 		
-		System.out.println("progVo: " + progVo);
-		
 		signDao.signUp(progVo);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
+		response.setContentType("text/html; charset=UTF-8;");
+		PrintWriter out = response.getWriter();
+		out.println("<script>alert('계정이 등록 되었습니다'); location.href='login.jsp';</script>");
+		
+//		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+//		dispatcher.forward(request, response);
 		
 	}
 

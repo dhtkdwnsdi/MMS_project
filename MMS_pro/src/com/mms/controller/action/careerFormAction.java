@@ -6,7 +6,11 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 
+ * @author LEE HAN
+ *
+ */
 public class careerFormAction implements Action{
 
 	@Override

@@ -10,6 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.mms.dao.SignUpDAO;
 
 /**
+ * 
+ * @author LEE HAN
+ * 
+ */
+
+/**
  * Servlet implementation class IdCheckServlet
  */
 @WebServlet("/idcheck")
