@@ -91,9 +91,8 @@ License: You must have a valid license purchased only from themeforest(the above
 											<label class="col-form-label col-lg-3 col-sm-12">대표 카테고리</label>
 											<div class="col-lg-4 col-md-9 col-sm-12">
 												<select class="form-control kt-selectpicker">
-													<option>Mustard</option>
-													<option>Ketchup</option>
-													<option>Relish</option>
+													<option>개발</option>
+													<option>디자인</option>
 												</select>
 											</div>
 											</div>
@@ -101,9 +100,27 @@ License: You must have a valid license purchased only from themeforest(the above
 											<label class="col-form-label col-lg-3 col-sm-12">세부 카테고리</label>
 											<div class="col-lg-4 col-md-9 col-sm-12">
 												<select class="form-control kt-selectpicker">
-													<option>Mustard</option>
-													<option>Ketchup</option>
-													<option>Relish</option>
+													<option>웹</option>
+													<option>애플리케이션</option>
+													<option>워드프레스</option>
+													<option>퍼블리싱</option>
+													<option>일반 소프트웨어</option>
+													<option>커머스, 쇼핑몰</option>
+													<option>게임</option>
+													<option>임베디드</option>
+													<option>기타</option>
+													<option>--------</option>
+													<option>웹</option>
+													<option>애플리케이션</option>
+													<option>제품</option>
+													<option>프레젠테이션</option>
+													<option>인쇄물</option>
+													<option>커머스, 쇼핑몰</option>
+													<option>로고</option>
+													<option>그래픽</option>
+													<option>영상</option>
+													<option>게임</option>
+													<option>기타</option>
 												</select>
 											</div>
 											</div>
@@ -111,9 +128,10 @@ License: You must have a valid license purchased only from themeforest(the above
 											<label class="col-form-label col-lg-3 col-sm-12">참여 형태</label>
 											<div class="col-lg-4 col-md-9 col-sm-12">
 												<select class="form-control kt-selectpicker">
-													<option>Mustard</option>
-													<option>Ketchup</option>
-													<option>Relish</option>
+													<option>주관</option>
+													<option>컨소시엄</option>
+													<option>하도급</option>
+													<option>기타</option>
 												</select>
 											</div>
 											</div>
@@ -131,9 +149,11 @@ License: You must have a valid license purchased only from themeforest(the above
 											<label class="col-form-label col-lg-3 col-sm-12">OS</label>
 											<div class="col-lg-4 col-md-9 col-sm-12">
 												<select class="form-control kt-selectpicker">
-													<option>Mustard</option>
-													<option>Ketchup</option>
-													<option>Relish</option>
+													<option>윈도우</option>
+													<option>리눅스</option>
+													<option>맥 OS</option>
+													<option>유닉스</option>
+													<option>안드로이드</option>
 												</select>
 											</div>
 											</div>
@@ -141,9 +161,21 @@ License: You must have a valid license purchased only from themeforest(the above
 											<label class="col-form-label col-lg-3 col-sm-12">DBMS</label>
 											<div class="col-lg-4 col-md-9 col-sm-12">
 												<select class="form-control kt-selectpicker">
-													<option>Mustard</option>
-													<option>Ketchup</option>
-													<option>Relish</option>
+													<option>오라클 데이터베이스</option>
+													<option>MySQL</option>
+													<option>MariaDB</option>
+													<option>Microsoft SQL Server</option>
+													<option>PostgreSQL</option>
+													<option>DB2</option>
+													<option>티베로</option>
+													<option>Cubrid</option>
+													<option>INFORMIX</option>
+													<option>ALTIBASE HDB</option>
+													<option>SQLite</option>
+													<option>XDM/RD</option>
+													<option>AIM</option>
+													<option>Firebird</option>
+													<option>MACHBASE</option>
 												</select>
 											</div>
 											</div>
@@ -151,9 +183,9 @@ License: You must have a valid license purchased only from themeforest(the above
 											<label class="col-form-label col-lg-3 col-sm-12">난이도</label>
 											<div class="col-lg-4 col-md-9 col-sm-12">
 												<select class="form-control kt-selectpicker">
-													<option>Mustard</option>
-													<option>Ketchup</option>
-													<option>Relish</option>
+													<option>상</option>
+													<option>중</option>
+													<option>하</option>
 												</select>
 											</div>
 											</div>
@@ -167,7 +199,7 @@ License: You must have a valid license purchased only from themeforest(the above
 													<label class="col-form-label col-lg-3 col-sm-12">프로젝트 시작 예정일</label>
 													<div class="col-lg-9 col-md-9 col-sm-12">
 														<div class="input-group date">
-															<input type="text" class="form-control" readonly placeholder="Select date" id="kt_datepicker_2_modal" />
+															<input type="text" class="form-control" readonly placeholder="Select date" id="kt_datepicker_1_validate" />
 															<div class="input-group-append">
 																<span class="input-group-text">
 																	<i class="la la-calendar-check-o"></i>
@@ -180,33 +212,32 @@ License: You must have a valid license purchased only from themeforest(the above
 													<label class="col-form-label col-lg-3 col-sm-12">프로젝트 종료 예정일</label>
 													<div class="col-lg-9 col-md-9 col-sm-12">
 														<div class="input-group date">
-															<input type="text" class="form-control" readonly placeholder="Select date" id="kt_datepicker_2_modal" />
-															<div class="input-group-append">
-																<span class="input-group-text">
-																	<i class="la la-calendar-check-o"></i>
-																</span>
-															</div>
-														</div>
+													<input type="text" class="form-control" placeholder="Top left" id="kt_datepicker_1_validate" />
+													<div class="input-group-append">
+														<span class="input-group-text">
+															<i class="la la-calendar-check-o"></i>
+														</span>
+													</div>
+												</div>
 													</div>
 												</div>
 												<div class="form-group row">
-													<label class="col-form-label col-lg-3 col-sm-12">프로젝트 모집 마감일</label>
+													<label class="col-form-label col-lg-3 col-sm-12">프로젝트 종료 예정일</label>
 													<div class="col-lg-9 col-md-9 col-sm-12">
 														<div class="input-group date">
-															<input type="text" class="form-control" readonly placeholder="Select date" id="kt_datepicker_2_modal" />
-															<div class="input-group-append">
-																<span class="input-group-text">
-																	<i class="la la-calendar-check-o"></i>
-																</span>
-															</div>
-														</div>
+													<input type="text" class="form-control" placeholder="Top left" id="kt_datepicker_1_validate" />
+													<div class="input-group-append">
+														<span class="input-group-text">
+															<i class="la la-calendar-check-o"></i>
+														</span>
+													</div>
+												</div>
 													</div>
 												</div>
 												<div class="form-group row">
 											<label class="col-form-label col-lg-3 col-sm-12">프로젝트 개요</label>
 											<div class="col-lg-7 col-md-9 col-sm-12">
 												<textarea name="markdown" class="form-control" data-provide="markdown" rows="10"></textarea>
-												<span class="form-text text-muted">Enter some markdown content</span>
 											</div>
 										</div>
 											<div class="kt-portlet__foot kt-portlet__foot--fit-x">
