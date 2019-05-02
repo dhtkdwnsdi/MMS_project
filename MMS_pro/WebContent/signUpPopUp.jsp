@@ -294,7 +294,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	}
 	
 	function setParent(){
-        opener.document.getElementById("id").value = document.getElementById("id").value;
+        opener.document.getElementById("signUpid").value = document.getElementById("id").value;
         window.close();
    }
 </script>

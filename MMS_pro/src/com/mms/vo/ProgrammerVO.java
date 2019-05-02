@@ -1,6 +1,6 @@
 package com.mms.vo;
 
-public class ProgrammerVo {
+public class ProgrammerVO {
 /**
  * @author LEE HAN
  * 
@@ -24,7 +24,7 @@ public class ProgrammerVo {
 	private String grade;
 	private String messageNum;
 	
-	public ProgrammerVo() {
+	public ProgrammerVO() {
 
 	}
 	

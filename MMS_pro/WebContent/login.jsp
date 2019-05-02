@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="false"%>
 <!DOCTYPE html>
 
 <!-- 
@@ -161,14 +162,14 @@ License: You must have a valid license purchased only from themeforest(the above
 										<input class="form-control" type="text" placeholder="* FullName" name="name" autocomplete="off" id="name">
 									</div>
 									<div class="input-group">
-										<input class="form-control" id="id" type="text" placeholder="* ID (Click Here)" name="id" 
+										<input class="form-control" id="signUpid" type="text" placeholder="* ID (Click Here)" name="id" 
 										autocomplete="off" readonly="readonly" onclick="openPopUp()">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="password" placeholder="* Password" name="password" id="password">
+										<input class="form-control" type="password" placeholder="* Password" name="password" id="password1">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="password" placeholder="* Confirm Password" name="rpassword" id="rpassword">
+										<input class="form-control" type="password" placeholder="* Confirm Password" name="rpassword" id="rpassword1">
 									</div>
 									<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
 									<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
@@ -437,8 +438,8 @@ $(function(){
         $("#alert-success").hide();
         $("#alert-danger").hide();
         $("input").keyup(function(){
-            var pass=$("#password").val();
-            var rpass=$("#rpassword").val();
+            var pass=$("#password1").val();
+            var rpass=$("#rpassword1").val();
             if(pass != "" && rpass != ""){
                 if(pass == rpass){
                     $("#alert-success").show();
@@ -458,9 +459,9 @@ $(function(){
 	//회원가입 유효성 검사
 	function validate(){
 		var name = document.getElementById("name").value;
-		var id = document.getElementById("id").value;
-		var pass = document.getElementById("password").value;
-		var rpass = document.getElementById("rpassword").value;
+		var id = document.getElementById("id1").value;
+		var pass = document.getElementById("password1").value;
+		var rpass = document.getElementById("rpassword1").value;
 		if(name == ""){
 			alert("이름을 입력해주세요.");
 			document.getElementById("name").focus();
@@ -468,12 +469,12 @@ $(function(){
 		}
 		else if(id == ""){
 			alert("ID를 입력해주세요.");
-			document.getElementById("id").focus();
+			document.getElementById("id1").focus();
 			return false;
 		}
 		else if(pass == "" && rpass == ""){
 			alert("비밀번호를 입력해주세요.");
-			document.getElementById("password").focus();
+			document.getElementById("password1").focus();
 			return false;
 		} 
 		else{

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.mms.dao.SignUpDAO;
-import com.mms.vo.ProgrammerVo;
+import com.mms.vo.ProgrammerVO;
 /**
  * 
  * @author LEE HAN
@@ -23,14 +23,14 @@ public class LoginAction implements Action{
 		String url = "main?command=main";
 		
 		
-		HttpSession session = request.getSession();		//서블릿이나 자바에서 세션을 다룰 때 사용한다.
+		HttpSession session = request.getSession();		// 서블릿이나 자바에서 세션을 다룰 때 사용한다.
 		
-		if(session.getAttribute("LoginUser") != null) {
+		if(session.getAttribute("LoginUser") != null) {		// 세션에 저장된 값이 있으면 실행.
 			RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 			dispatcher.forward(request, response);
 			
-		} else {
-			ProgrammerVo progVo = new ProgrammerVo();
+		} else {		// 세션에 저장된 값이 없으면 실행.
+			ProgrammerVO progVo = new ProgrammerVO();
 			SignUpDAO signDao = SignUpDAO.getInstance();
 			
 			progVo.setId(request.getParameter("id"));
@@ -40,8 +40,8 @@ public class LoginAction implements Action{
 			
 			switch(signDao.userCheck(progVo)) {
 				case 1:{
-						ProgrammerVo sessionVo = signDao.getProgInfo(progVo);
-						session.setAttribute("LoginUser", sessionVo);
+						ProgrammerVO sessionVo = signDao.getProgInfo(progVo);		// ProgrammerVo 타입인 sessionVo에 프로그래머 정보 넣기.
+						session.setAttribute("LoginUser", sessionVo);				// 변수 session에 sessionVo를 LoginUser로 설정.
 						System.out.println(sessionVo);
 						break;
 				}

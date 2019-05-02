@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
@@ -144,6 +144,7 @@
 					<!-- end:: Aside -->
 
 					<!-- begin:: Aside Menu -->
+				<c:if test="${LoginUser.grant eq '0'}">
 					<div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper">
 						<div id="kt_aside_menu" class="kt-aside-menu " data-ktmenu-vertical="1" data-ktmenu-scroll="1" data-ktmenu-dropdown-timeout="500">
 							<ul class="kt-menu__nav ">
@@ -699,6 +700,7 @@
 							</ul>
 						</div>
 					</div>
+					</c:if>
 
 					<!-- end:: Aside Menu -->
 				</div>
@@ -1646,8 +1648,8 @@
 							<div class="kt-header__topbar-item kt-header__topbar-item--user">
 								<div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="0px,0px">
 									<div class="kt-header__topbar-user">
-										<span class="kt-header__topbar-welcome kt-hidden-mobile">Hi,</span>
-										<span class="kt-header__topbar-username kt-hidden-mobile">${LoginUser.name}</span>
+										<span class="kt-header__topbar-welcome kt-hidden-mobile">안녕하세요.</span>
+										<span class="kt-header__topbar-username kt-hidden-mobile">${LoginUser.name} 님</span>
 										<img class="kt-hidden" alt="Pic" src="../assets/media/users/300_25.jpg" />
 
 										<!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
