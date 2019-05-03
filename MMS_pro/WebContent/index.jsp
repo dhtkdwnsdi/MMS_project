@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%-- <%@ page session="false"%> --%>
-<%@ include file="default/include/programmerHeader.jsp" %>
+<%@ include file="include/programmerHeader.jsp" %>
 <!DOCTYPE html>
 
 <!-- 
@@ -2715,7 +2715,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 					<!-- begin:: Footer -->
 					
-<%@include file="default/include/footer.jsp" %>
+<%@include file="include/footer.jsp" %>
 
 					<!-- end:: Footer -->
 				</div>

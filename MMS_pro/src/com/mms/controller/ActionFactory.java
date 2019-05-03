@@ -50,9 +50,6 @@ public class ActionFactory {
 		else if(command.equals("logout")) {
 			action = new LogoutAction();
 		}
-		else if(command.equals("main")) {
-			action = new MainAction();
-		}
 		/**
 		 * @author OSJ
 		 */
