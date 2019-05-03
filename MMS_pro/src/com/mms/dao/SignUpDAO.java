@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.mms.vo.AdminVO;
 import com.mms.vo.ProgrammerVO;
 
 import util.DBManager;

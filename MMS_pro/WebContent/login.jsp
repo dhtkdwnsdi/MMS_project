@@ -157,7 +157,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<h3 class="kt-login__title">Sign Up</h3>
 									<div class="kt-login__desc">Enter your details to create your account:</div>
 								</div>
-								<form class="kt-form" method="post" action="prog?command=signUp" onsubmit="return validate()">
+								<form class="kt-form" method="post" action="main?command=signUp" onsubmit="return validate()">
 									<div class="input-group">
 										<input class="form-control" type="text" placeholder="* FullName" name="name" autocomplete="off" id="name">
 									</div>
