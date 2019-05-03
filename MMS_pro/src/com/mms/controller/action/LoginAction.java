@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.mms.dao.SignUpDAO;
+import com.mms.vo.AdminVO;
 import com.mms.vo.ProgrammerVO;
 /**
  * 
@@ -35,10 +36,9 @@ public class LoginAction implements Action{
 			
 			progVo.setId(request.getParameter("id"));
 			progVo.setPassword(request.getParameter("password"));
-			
 			System.out.println(signDao.userCheck(progVo));
 			
-			switch(signDao.userCheck(progVo)) {
+				switch(signDao.userCheck(progVo)) {
 				case 1:{
 						ProgrammerVO sessionVo = signDao.getProgInfo(progVo);		// ProgrammerVo 타입인 sessionVo에 프로그래머 정보 넣기.
 						session.setAttribute("LoginUser", sessionVo);				// 변수 session에 sessionVo를 LoginUser로 설정.
@@ -57,7 +57,9 @@ public class LoginAction implements Action{
 				}
 				default : request.setAttribute("message", "오류가 발생했습니다.");
 				
-			}
+			} 
+				
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 			dispatcher.forward(request, response);
 			
