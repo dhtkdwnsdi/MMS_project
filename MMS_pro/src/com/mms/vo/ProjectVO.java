@@ -17,6 +17,7 @@ public class ProjectVO {
 		private String levelCode;
 		private String projFile;
 		private String progNum;
+		private String name;
 		public String getProjNum() {
 			return projNum;
 		}
@@ -107,14 +108,23 @@ public class ProjectVO {
 		public void setProgNum(String progNum) {
 			this.progNum = progNum;
 		}
+		
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
 		@Override
 		public String toString() {
 			return "ProjectVO [projNum=" + projNum + ", projName=" + projName + ", projCate=" + projCate
 					+ ", projDetailCate=" + projDetailCate + ", startDuedate=" + startDuedate + ", endDuedate="
 					+ endDuedate + ", deadline=" + deadline + ", contents=" + contents + ", partiFormCode="
 					+ partiFormCode + ", fwCode=" + fwCode + ", dbmsCode=" + dbmsCode + ", osCode=" + osCode
-					+ ", levelCode=" + levelCode + ", projFile=" + projFile + ", progNum=" + progNum + "]";
+					+ ", levelCode=" + levelCode + ", projFile=" + projFile + ", progNum=" + progNum + ", name="
+					+ name + "]";
 		}
+
 		
 		
 }

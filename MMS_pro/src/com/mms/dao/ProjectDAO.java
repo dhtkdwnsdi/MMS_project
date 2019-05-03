@@ -25,12 +25,56 @@ public class ProjectDAO extends DBManager {
 	      return instance;
 	   }
 	   
-	   //조회
-	/*
-	 * public List<ProjectVO> selectProject() {
-	 * 
-	 * }
-	 */
+	   
+	   //프로젝트 번호, 프로젝트 명, 카테고리, 프로젝트 마감일, 시작 예정일, 종료 예정일, 담당자 출력하는 메소드
+	   public List<ProjectVO> selectProject(){
+		   
+		   String sql = "select proj.proj_num, proj.proj_name, proj.proj_cate,"
+		   		+ "proj.proj_detail_cate, proj.start_duedate, proj.end_duedate, proj.deadline, prog.name"
+		   		+ "from pmms.tbl_project proj, pmms.tbl_programmer prog"
+		   		+ "where proj.prog_num = prog.prog_num";
+		   
+		   List<ProjectVO> list = new ArrayList<ProjectVO>();
+	       Connection conn = null;
+	       PreparedStatement pstmt = null;
+	       ResultSet rs = null;
+	        
+	       try {
+	            conn = getConnection();
+	            pstmt = conn.prepareStatement(sql);
+	            rs = pstmt.executeQuery();
+
+	            while (rs.next()) {
+	            	ProjectVO projVo = new ProjectVO();
+
+	            	projVo.setProjNum(rs.getString("projNum"));
+	            	projVo.setProjName(rs.getString("projName"));
+	            	projVo.setProjCate(rs.getString("projCate"));
+	            	projVo.setProjDetailCate(rs.getString("projDetailCate"));
+	            	projVo.setStartDuedate(rs.getString("startDuedate"));
+	            	projVo.setEndDuedate(rs.getString("endDuedate"));
+	            	projVo.setDeadline(rs.getString("deadline"));
+	            	projVo.setName(rs.getString("name"));
+	               list.add(projVo);
+	            }
+	            
+	         } catch (SQLException e) {
+	            
+	            e.printStackTrace();
+	            
+	         } finally {
+	        	 try {
+	                 if(pstmt != null)
+	                	 pstmt.close();
+	                 if(conn != null)
+	                    conn.close();
+	              } catch (Exception e) {
+	                 e.printStackTrace();
+	              }
+	         }
+	         
+	         return list;
+	   }
 	   
 	   //등록
 	   public void insertProject(ProjectVO pVo) {
@@ -41,11 +85,13 @@ public class ProjectDAO extends DBManager {
 		   		+ "dbms_code, os_code, level_code, proj_file, prog_num)"
 		   		+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		   
-		   Connection conn = getConnection();
-	       PreparedStatement pstmt;
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
 	       
 	       try {
 
+	    	    conn = DBManager.getConnection();
+	    	   
 	            pstmt = conn.prepareStatement(sql);
 
 	            //pstmt.setString(1, dVo.getDept_num());
