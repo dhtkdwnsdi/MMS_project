@@ -7,15 +7,19 @@ public class EduVO {
  * 
  * 
  */
-	
+	private String progNum;
 	private String eduNum;
 	private String eduCategory;
 	private String eduState;
 	private String schoolName;
 	private String enterDate;
 	private String graduateDate;
-	
-	
+	public String getProgNum() {
+		return progNum;
+	}
+	public void setProgNum(String progNum) {
+		this.progNum = progNum;
+	}
 	public String getEduNum() {
 		return eduNum;
 	}
@@ -53,10 +57,14 @@ public class EduVO {
 		this.graduateDate = graduateDate;
 	}
 	
+	@Override
 	public String toString() {
-		return "EduVO [eduNum=" + eduNum + ", eduCategory=" + eduCategory + ", eduState=" + eduState + ", schoolName=" + schoolName
-				+ ", enterDate=" + enterDate +  ", graduateDate=" + graduateDate + "]";
+		return "EduVO [progNum=" + progNum + ", eduNum=" + eduNum + ", eduCategory=" + eduCategory + ", eduState="
+				+ eduState + ", schoolName=" + schoolName + ", enterDate=" + enterDate + ", graduateDate="
+				+ graduateDate + "]";
 	}
+	
+	
 
 	
 

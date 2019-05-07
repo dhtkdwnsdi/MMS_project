@@ -81,6 +81,19 @@ License: You must have a valid license purchased only from themeforest(the above
 													</table>
 												</div>
 											<!--end::Section-->
+												<div class="kt-portlet__foot">
+												<div class="kt-form__actions kt-form__actions--right">
+													<div class="row">
+														<!-- <div class="col kt-align-left">
+															<button type="reset" class="btn btn-secondary">수정</button>
+															<button type="reset" class="btn btn-danger">삭제</button>
+														</div> -->
+														<div class="col kt-align-right">
+															<button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 									</form>
 									<!--end: Datatable -->
@@ -810,3 +823,27 @@ License: You must have a valid license purchased only from themeforest(the above
 	</body>
 
 	<!-- end::Body -->
+	
+	<script>
+function openPopUp()
+{
+    // window.name = "부모창 이름"; 
+      window.name = "parentForm";
+    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+      var width = "800"; 
+	  var height = "500"; 
+	  var top = (window.screen.height-height)/2; 
+	  var left = (window.screen.width-width)/2; 
+ 	  var url = "profile/eduRegisterForm.jsp"; 
+	  var title = "학력 정보 등록"; 
+	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+      window.open(url, title, status);
+
+
+  
+    /* window.open("memberUpdateForm.jsp",
+            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
+}
+</script>
+</html>

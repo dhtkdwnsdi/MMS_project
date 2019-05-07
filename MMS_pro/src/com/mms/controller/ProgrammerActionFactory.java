@@ -4,6 +4,7 @@ import com.mms.controller.action.Action;
 import com.mms.controller.action.CareerListFormAction;
 import com.mms.controller.action.CareerRegisterAction;
 import com.mms.controller.action.EduListFormAction;
+import com.mms.controller.action.EduRegisterAction;
 import com.mms.controller.action.MemberSetFormAction;
 import com.mms.controller.action.MemberUpdateAction;
 
@@ -59,6 +60,10 @@ public class ProgrammerActionFactory {
 			action = new EduListFormAction();
 		}
 		
+		else if(command.equals("eduRegister")) {
+			action = new EduRegisterAction();
+			
+		}
 		
 		
 		

@@ -76,8 +76,8 @@ public class EduDAO extends DBManager {
 
 	public void insertEdu(EduVO eduVo) {
 		String sql = "INSERT INTO tbl_edu("
-				+ "	  edu_num, EDU_CATEGORY, EDU_STATE, SCHOOL_NAME, ENTER_DATE, GRADUATE_DATE, PROG_NUM)"
-				+ "	  VALUES( ?, ?, ?, ?, ?, ?, ?)";
+				+ "	  EDU_CATEGORY, EDU_STATE, SCHOOL_NAME, ENTER_DATE, GRADUATE_DATE, PROG_NUM)"
+				+ "	  VALUES(?, ?, ?, ?, ?, ?)";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -93,6 +93,7 @@ public class EduDAO extends DBManager {
 			pstmt.setString(3, eduVo.getSchoolName());
 			pstmt.setString(4, eduVo.getEnterDate());
 			pstmt.setString(5, eduVo.getGraduateDate());
+			pstmt.setString(6, eduVo.getProgNum());
 
 			pstmt.executeUpdate();
 
