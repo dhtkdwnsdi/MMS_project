@@ -1,6 +1,7 @@
 package com.mms.controller;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.EduListFormAction;
 import com.mms.controller.action.MemberSetFormAction;
 import com.mms.controller.action.UpdateMemberAction;
 import com.mms.controller.action.careerListFormAction;
@@ -49,7 +50,9 @@ public class ProgrammerActionFactory {
 		 */
 		
 		
-		
+		else if(command.equals("eduListForm")) {
+			action = new EduListFormAction();
+		}
 		
 		
 		

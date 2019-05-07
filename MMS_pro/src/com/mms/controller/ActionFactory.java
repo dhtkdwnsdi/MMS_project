@@ -1,6 +1,7 @@
 package com.mms.controller;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.EduAction;
 import com.mms.controller.action.IdCheckAction;
 import com.mms.controller.action.LoginAction;
 import com.mms.controller.action.LoginFormAction;
@@ -50,6 +51,7 @@ public class ActionFactory {
 		else if(command.equals("idCheck")) {
 			action = new IdCheckAction();
 		}
+	
 		/**
 		 * @author OSJ
 		 */
