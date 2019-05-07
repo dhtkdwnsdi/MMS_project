@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author LEE HAN
  *
  */
-public class careerListFormAction implements Action{
+public class CareerListFormAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.mms.dao.SignUpDAO;
 import com.mms.vo.ProgrammerVO;
 
-public class UpdateMemberAction implements Action {
+public class MemberUpdateAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

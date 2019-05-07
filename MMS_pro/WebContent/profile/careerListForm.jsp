@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../include/programmerHeader.jsp" %>
+<%@ include file="../include/header.jsp" %>
 
 <!DOCTYPE html>
 
@@ -235,7 +235,7 @@ function openPopUp()
       window.name = "parentForm";
     // window.open("open할 window", "자식창 이름", "팝업창 옵션");
       var width = "800"; 
-	  var height = "500"; 
+	  var height = "555"; 
 	  var top = (window.screen.height-height)/2; 
 	  var left = (window.screen.width-width)/2; 
  	  var url = "profile/careerRegisterForm.jsp"; 

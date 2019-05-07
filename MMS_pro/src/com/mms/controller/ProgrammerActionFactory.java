@@ -1,10 +1,11 @@
 package com.mms.controller;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.CareerListFormAction;
+import com.mms.controller.action.CareerRegisterAction;
 import com.mms.controller.action.EduListFormAction;
 import com.mms.controller.action.MemberSetFormAction;
-import com.mms.controller.action.UpdateMemberAction;
-import com.mms.controller.action.careerListFormAction;
+import com.mms.controller.action.MemberUpdateAction;
 
 public class ProgrammerActionFactory {
 	private static ProgrammerActionFactory instance = new ProgrammerActionFactory();
@@ -30,15 +31,19 @@ public class ProgrammerActionFactory {
 			action = new MemberSetFormAction();
 			
 		}
-		else if (command.equals("updateMember")) {
-			action = new UpdateMemberAction();
+		else if (command.equals("memberUpdate")) {
+			action = new MemberUpdateAction();
 			
 		}
 		else if(command.equals("careerListForm")) {
-			action = new careerListFormAction();
+			action = new CareerListFormAction();
 			
 		}
-		
+		else if(command.equals("careerRegister")) {
+			action = new CareerRegisterAction();
+			
+		}
+
 		
 		
 		

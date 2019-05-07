@@ -98,7 +98,13 @@ License: You must have a valid license purchased only from themeforest(the above
 
 									<!--begin::Portlet-->
 									<div class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile" id="kt_page_portlet">
-										
+										<div class="kt-portlet__head kt-portlet__head--lg">
+											<div class="kt-portlet__head-label">
+												<h3 class="kt-portlet__head-title">
+												계정 정보 수정
+												</h3>
+											</div>
+										</div>
 										<div class="kt-portlet__body">
 											<form class="kt-form" id="kt_form" name="frm">
 											<input type="hidden" id="progNum" name="progNum" value="${LoginUser.progNum}">
@@ -107,7 +113,6 @@ License: You must have a valid license purchased only from themeforest(the above
 													<div class="col-xl-8">
 														<div class="kt-section kt-section--first">
 															<div class="kt-section__body">
-																<h3 class="kt-section__title kt-section__title-lg">계정 정보 수정</h3>
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">아이디</label>
 																	<div class="col-9">
@@ -363,7 +368,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 			type: 'POST',  // GET or POST 전송방법 
 
-			url: '/prog?command=updateMember',  // 이쪽으로 보낸다(호출URL)
+			url: '/prog?command=memberUpdate',  // 이쪽으로 보낸다(호출URL)
 
 			data: {id: id,
 				   password: password,

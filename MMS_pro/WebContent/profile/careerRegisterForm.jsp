@@ -104,7 +104,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								</div>
 								<div class="kt-portlet__body">
 											<form class="kt-form" id="kt_form">
-											<input type="hidden" name="progNum" value="${LoginUser.progNum}">
+											<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}">
 												<div class="row">
 													<div class="col-xl-2"></div>
 													<div class="col-xl-8">
@@ -116,31 +116,31 @@ License: You must have a valid license purchased only from themeforest(the above
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">회사 이름</label>
 																	<div class="col-9">
-																		<input class="form-control" type="text" value="" readonly="readonly">
+																		<input class="form-control" type="text" name="companyName" id="companyName">
 																	</div>
 																</div>
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">부서</label>
 																	<div class="col-9">
-																		<input class="form-control" type="text" value="" readonly="readonly">
+																		<input class="form-control" type="text" name="department" id="department">
 																	</div>
 																</div>
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">직책</label>
 																	<div class="col-9">
-																		<input class="form-control" type="text" value="" readonly="readonly">
+																		<input class="form-control" type="text" name="position" id="position">
 																	</div>
 																</div>
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">입사일</label>
 																	<div class="col-9">
-																		<input type="text" class="form-control" id="kt_datepicker_1" readonly="" placeholder="Select date">
+																		<input type="text" class="form-control" id="kt_datepicker_1" readonly="" name="joinDate">
 																	</div>
 																</div>
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">퇴사일</label>
 																	<div class="col-9">
-																		<input type="text" class="form-control" id="kt_datepicker_1" readonly="" placeholder="Select date">
+																		<input type="text" class="form-control" id="kt_datepicker_4_1" readonly="" name="retireDate">
 																	</div>
 																</div>
 															</div>
@@ -153,7 +153,7 @@ License: You must have a valid license purchased only from themeforest(the above
 															<button type="reset" class="btn btn-danger">삭제</button>
 														</div> -->
 														<div class="col kt-align-right">
-															<button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button>
+															<button type="button" class="btn btn-brand" onclick="registerCareer()">등록</button>
 														</div>
 													</div>
 												</div>
@@ -267,7 +267,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!--begin::Page Scripts(used by this page) -->
 		<script src="../assets/app/custom/general/crud/forms/widgets/bootstrap-datepicker.js" type="text/javascript"></script>
-
+		<script src="../assets/vendors/general/bootstrap-datepicker/js/locales/bootstrap-datepicker.ko.js" type="text/javascript"></script>
 		<!--end::Page Scripts -->
 
 		<!--begin::Global App Bundle(used by all pages) -->
@@ -275,6 +275,63 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!--end::Global App Bundle -->
 	</body>
+<script>
+// 경력 등록 AJAX
+function registerCareer(){
 
+	// userID 변수에 userID의 입력된 값을 가져오게 함
+	var progNum = $('#progNum').val();
+	var companyName = $('#companyName').val();
+	var department = $('#department').val();
+	var position = $('#position').val();
+	var joinDate = $('#kt_datepicker_1').val();
+	var retireDate = $('#kt_datepicker_4_1').val();
+	
+	if(companyName == ""){
+		alert("회사 명을 입력해주세요.");
+		$("#companyName").focus();
+	}
+	if(department == ""){
+		alert("부서를 입력해주세요.");
+		$("#department").focus();
+	}
+	if(position == ""){
+		alert("직책을 입력해주세요.");
+		$("#position").focus();
+	}
+	if(progNum == ""){
+		alert("잘못된 정보입니다.");
+		return false;
+	}
+	else{
+	
+	$.ajax({
+
+		type: 'POST',  // GET or POST 전송방법 
+
+		url: '/prog?command=careerRegister',  // 이쪽으로 보낸다(호출URL)
+
+		data: {companyName: companyName,
+			   department: department,
+			   position: position,
+			   joinDate: joinDate,
+			   retireDate: retireDate,
+			   progNum: progNum},  // userID 이름에 userID 데이터 값을 넣어서 보낸다
+
+		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
+			alert("등록 되었습니다.");
+			self.close();
+			opener.location.href = "/prog?command=careerListForm";
+		},
+		error: function(data){
+			alert("오류:: 다시 시도해주세요.");
+			return false;
+		}
+		 
+
+	})
+	}
+}
+</script>
 	<!-- end::Body -->
 </html>
