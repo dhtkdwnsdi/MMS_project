@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../include/programmerHeader.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="../include/header.jsp"%>
 <!DOCTYPE html>
 
 <!-- 
@@ -20,7 +20,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Head -->
 	<head>
-	<title>PMMS | 계정설정</title>
+		<title>Metronic | 계정 설정</title>
 	</head>
 
 	<!-- end::Head -->

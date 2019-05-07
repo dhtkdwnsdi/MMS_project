@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="include/header.jsp" %>
 <%-- <%@ page session="false"%> --%>
-<%@ include file="include/programmerHeader.jsp" %>
 <!DOCTYPE html>
 
 <!-- 
@@ -21,11 +21,11 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Head -->
 	<head>
-	<title>PMMS | Dashboard</title>
+	<title>Metronic | Dashboard</title>
 	</head>
 
-	<!-- end::Head -->
 
+	<!-- end::Head -->
 	<!-- begin::Body -->
 	<body class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
 						<!-- begin:: Content -->
