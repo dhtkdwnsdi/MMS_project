@@ -1,12 +1,13 @@
 package com.mms.controller;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.IdCheckAction;
 import com.mms.controller.action.LoginAction;
 import com.mms.controller.action.LoginFormAction;
 import com.mms.controller.action.LogoutAction;
 import com.mms.controller.action.MainAction;
 import com.mms.controller.action.SignUpAction;
-import com.mms.controller.action.careerFormAction;
+import com.mms.controller.action.careerListFormAction;
 
 /**
  * request로 받아온 매개변수의 command의 값으로 각 기능을 수행할 액션을 분기하는 클래스 <br>
@@ -37,10 +38,6 @@ public class ActionFactory {
 			action = new MainAction();
 
 		} 
-		
-		else if(command.equals("careerForm")) {
-			action = new careerFormAction();
-		}
 		else if(command.equals("signUp")) {
 			action = new SignUpAction();
 		}
@@ -49,6 +46,9 @@ public class ActionFactory {
 		}
 		else if(command.equals("logout")) {
 			action = new LogoutAction();
+		}
+		else if(command.equals("idCheck")) {
+			action = new IdCheckAction();
 		}
 		/**
 		 * @author OSJ

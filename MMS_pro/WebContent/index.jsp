@@ -21,6 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Head -->
 	<head>
+	<title>PMMS | Dashboard</title>
 	</head>
 
 	<!-- end::Head -->

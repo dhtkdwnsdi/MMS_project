@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../include/programmerHeader.jsp"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
 Author: KeenThemes
@@ -20,7 +18,73 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Head -->
 	<head>
-	<title>PMMS | 계정설정</title>
+		<meta charset="utf-8" />
+		<title>Metronic | 경력 등록</title>
+		<meta name="description" content="Bootstrap daterangepicker examples">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!--begin::Fonts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+		<script>
+			WebFont.load({
+				google: {
+					"families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"]
+				},
+				active: function() {
+					sessionStorage.fonts = true;
+				}
+			});
+		</script>
+
+		<!--end::Fonts -->
+
+		<!--begin:: Global Mandatory Vendors -->
+		<link href="../assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
+
+		<!--end:: Global Mandatory Vendors -->
+
+		<!--begin:: Global Optional Vendors -->
+		<link href="../assets/vendors/general/tether/dist/css/tether.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/select2/dist/css/select2.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/nouislider/distribute/nouislider.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/summernote/dist/summernote.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/animate.css/animate.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/toastr/build/toastr.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/morris.js/morris.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/sweetalert2/dist/sweetalert2.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/socicon/css/socicon.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/line-awesome/css/line-awesome.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/flaticon/flaticon.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/flaticon2/flaticon.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/fontawesome5/css/all.min.css" rel="stylesheet" type="text/css" />
+
+		<!--end:: Global Optional Vendors -->
+
+		<!--begin::Global Theme Styles(used by all pages) -->
+		<link href="../assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
+
+		<!--end::Global Theme Styles -->
+
+		<!--begin::Layout Skins(used by all pages) -->
+		<link href="../assets/demo/default/skins/header/base/light.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/demo/default/skins/header/menu/light.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/demo/default/skins/brand/dark.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/demo/default/skins/aside/dark.css" rel="stylesheet" type="text/css" />
+
+		<!--end::Layout Skins -->
+		<link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
 	</head>
 
 	<!-- end::Head -->
@@ -30,84 +94,53 @@ License: You must have a valid license purchased only from themeforest(the above
 
 						<!-- begin:: Content -->
 						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
-							<div class="row">
-								<div class="col-lg-12">
-
-									<!--begin::Portlet-->
-									<div class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile" id="kt_page_portlet">
-										<div class="kt-portlet__head kt-portlet__head--lg">
-											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">${LoginUser.name} 님의 계정 정보</h3>
-											</div>
-										</div>
-										<div class="kt-portlet__body">
+							<div class="kt-portlet kt-portlet--mobile">
+								<div class="kt-portlet__head kt-portlet__head--lg">
+									<div class="kt-portlet__head-label">
+										<h3 class="kt-portlet__head-title">
+											경력 등록
+										</h3>
+									</div>
+								</div>
+								<div class="kt-portlet__body">
 											<form class="kt-form" id="kt_form">
 											<input type="hidden" name="progNum" value="${LoginUser.progNum}">
 												<div class="row">
 													<div class="col-xl-2"></div>
 													<div class="col-xl-8">
 														<div class="kt-section kt-section--first">
+														
 															<div class="kt-section__body">
 																<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
 																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
 																<div class="form-group row">
-																	<label class="col-3 col-form-label">아이디</label>
+																	<label class="col-3 col-form-label">회사 이름</label>
 																	<div class="col-9">
-																		<input class="form-control" type="text" name="id" id="id" value="${LoginUser.id}" readonly="readonly">
+																		<input class="form-control" type="text" value="" readonly="readonly">
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label class="col-3 col-form-label">비밀번호</label>
+																	<label class="col-3 col-form-label">부서</label>
 																	<div class="col-9">
-																		<input class="form-control" type="password" name="password" id="password" value="${LoginUser.password}" readonly="readonly">
+																		<input class="form-control" type="text" value="" readonly="readonly">
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label class="col-3 col-form-label">이름</label>
+																	<label class="col-3 col-form-label">직책</label>
 																	<div class="col-9">
-																		<input class="form-control" type="text" name="name" id="name" value="${LoginUser.name}" readonly="readonly">
+																		<input class="form-control" type="text" value="" readonly="readonly">
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label class="col-3 col-form-label">주소</label>
+																	<label class="col-3 col-form-label">입사일</label>
 																	<div class="col-9">
-																		<input class="form-control" type="text" name="juso" id="juso" value="${LoginUser.juso}" readonly="readonly">
+																		<input type="text" class="form-control" id="kt_datepicker_1" readonly="" placeholder="Select date">
 																	</div>
 																</div>
 																<div class="form-group row">
-																	<label class="col-3 col-form-label">상세 주소</label>
+																	<label class="col-3 col-form-label">퇴사일</label>
 																	<div class="col-9">
-																		<input class="form-control" type="text" name="extraJuso" id="extraJuso" value="${LoginUser.extraJuso}" readonly="readonly">
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">이메일</label>
-																	<div class="col-9">
-																		<div class="input-group">
-																			<div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
-																			<input type="text" class="form-control" name="email" id="email" value="${LoginUser.email}" placeholder="Email" aria-describedby="basic-addon1" readonly="readonly">
-																		</div>
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">전화번호</label>
-																	<div class="col-9">
-																		<div class="input-group">
-																			<div class="input-group-prepend"><span class="input-group-text"><i class="la la-phone"></i></span></div>
-																			<input type="text" class="form-control" name="tel" id="tel" value="${LoginUser.tel}" placeholder="Phone" aria-describedby="basic-addon1" readonly="readonly">
-																		</div>
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">은행</label>
-																	<div class="col-9">
-																		<input class="form-control" type="text" name="bank" id="bank" value="${LoginUser.bank}" readonly="readonly">
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">계좌번호</label>
-																	<div class="col-9">
-																		<input class="form-control" type="text" name="account" id="account" value="${LoginUser.account}" readonly="readonly">
+																		<input type="text" class="form-control" id="kt_datepicker_1" readonly="" placeholder="Select date">
 																	</div>
 																</div>
 															</div>
@@ -120,7 +153,7 @@ License: You must have a valid license purchased only from themeforest(the above
 															<button type="reset" class="btn btn-danger">삭제</button>
 														</div> -->
 														<div class="col kt-align-right">
-															<button type="button" class="btn btn-brand" onclick="openPopUp()">수정</button>
+															<button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button>
 														</div>
 													</div>
 												</div>
@@ -130,34 +163,11 @@ License: You must have a valid license purchased only from themeforest(the above
 												</div>
 											</form>
 										</div>
-									</div>
-
-									<!--end::Portlet-->
-								</div>
 							</div>
 						</div>
 
 						<!-- end:: Content -->
-					</div>
-
-					<!-- begin:: Footer -->
-					
-					<%@ include file="../include/footer.jsp" %>
-
-					<!-- end:: Footer -->
-				</div>
-			</div>
-		</div>
-
 		<!-- end:: Page -->
-
-		<!-- begin::Scrolltop -->
-		<div id="kt_scrolltop" class="kt-scrolltop">
-			<i class="fa fa-arrow-up"></i>
-		</div>
-
-		<!-- end::Scrolltop -->
-
 
 		<!-- begin::Global Config(global config for global JS sciprts) -->
 		<script>
@@ -255,6 +265,11 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!--end::Global Theme Bundle -->
 
+		<!--begin::Page Scripts(used by this page) -->
+		<script src="../assets/app/custom/general/crud/forms/widgets/bootstrap-datepicker.js" type="text/javascript"></script>
+
+		<!--end::Page Scripts -->
+
 		<!--begin::Global App Bundle(used by all pages) -->
 		<script src="../assets/app/bundle/app.bundle.js" type="text/javascript"></script>
 
@@ -262,28 +277,4 @@ License: You must have a valid license purchased only from themeforest(the above
 	</body>
 
 	<!-- end::Body -->
-
-<script>
-//팝업 띄우기
-function openPopUp()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "1000"; 
-	  var height = "700"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/memberUpdateForm.jsp"; 
-	  var title = "계정 정보 수정"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
-
-      window.open(url, title, status);
-
-
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
-}
-</script>
 </html>

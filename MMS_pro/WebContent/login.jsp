@@ -429,7 +429,7 @@ License: You must have a valid license purchased only from themeforest(the above
         // window.name = "부모창 이름"; 
         window.name = "parentForm";
         // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-        window.open("signUpPopUp.jsp",
+        window.open("profile/signUpPopUp.jsp",
                 "childForm", "width=500, height=300, resizable = no, scrollbars = no");    
     }
 
