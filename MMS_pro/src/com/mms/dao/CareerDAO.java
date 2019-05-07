@@ -2,7 +2,9 @@ package com.mms.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.mms.vo.CareerVO;
 
@@ -52,6 +54,54 @@ public class CareerDAO extends DBManager {
 			}
 		}
 	}
+	
+	public ArrayList<CareerVO> careerList(String progNum){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM TBL_CAREER WHERE PROG_NUM = ?";
+		
+		ArrayList<CareerVO> list = new ArrayList<CareerVO>();
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, progNum);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				CareerVO cVo = new CareerVO();
+				
+				cVo.setCareerNum(rs.getString("CAREER_NUM"));
+				cVo.setCompanyName(rs.getString("COMPANY_NAME"));
+				cVo.setDepartment(rs.getString("DEPARTMENT"));
+				cVo.setPosition(rs.getString("POSITION"));
+				cVo.setJoinDate(rs.getString("JOIN_DATE"));
+				cVo.setRetireDate(rs.getString("RETIRE_DATE"));
+				cVo.setProgNum(rs.getString("PROG_NUM"));
+				
+				list.add(cVo);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		return list;
+		
+	}
+	
+	
 	
 	
 }
