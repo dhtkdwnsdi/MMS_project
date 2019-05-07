@@ -7,7 +7,8 @@ public class ProgrammerVO {
  */
 	private String progNum;
 	private String name;
-	private String id;
+	private String id
+	;
 	private String password;
 	private String email;
 	private String tel;

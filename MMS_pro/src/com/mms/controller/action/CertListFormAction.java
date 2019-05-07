@@ -1,35 +1,34 @@
 package com.mms.controller.action;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mms.dao.ProjectDAO;
-import com.mms.vo.ProjectVO;
+import com.mms.dao.CertDAO;
+import com.mms.vo.CertVO;
 
-public class ProjectListFormAction implements Action {
+public class CertListFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String url = "/project/projectList.jsp";
+		String url = "/admin/certList.jsp";
 		
-		ProjectDAO projectDao = ProjectDAO.getInstance();
+		CertDAO certDao = CertDAO.getInstance();
 		
-		List<ProjectVO> projectList = projectDao.selectProject();
+		ArrayList<CertVO> certList = (ArrayList<CertVO>) certDao.selectCert();
 		
-		request.setAttribute("projectList", projectList);
+		request.setAttribute("certList", certList);
 		
-		System.out.println(projectList);
-		
+		System.out.println(certList);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
+	    dispatcher.forward(request, response);
 	}
 
 }

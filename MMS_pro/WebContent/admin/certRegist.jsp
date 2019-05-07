@@ -80,59 +80,35 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 					</div>
 					<div class="kt-portlet__body">
-						<form class="kt-form" id="kt_form">
+						<form class="kt-form" id="kt_form" action="proj?command=certRegist" method="post">
 							<div class="row">
 								<div class="col-xl-2"></div>
 								<div class="col-xl-8">
 									<div class="kt-section kt-section--first">
 										<div class="kt-section__body">
-											<h3 class="kt-section__title kt-section__title-lg">보유
+											<h3 class="kt-section__title kt-section__title-lg">
 												자격증 등록</h3>
 											
 											<div class="form-group row">
-												<label class="col-form-label col-lg-3 col-sm-12">자격증명</label>
-												<div class="col-lg-9 col-md-9 col-sm-12">
-													<input class="form-control" type="text" disabled>
-												</div>
-												<button type="button"
-													class="input-group-text">
-													<i class="fa fa-search"></i>
-												</button>
-											</div>
-											
-											<div class="form-group row">
-												<label class="col-3 col-form-label">발급 기관</label>
+												<label class="col-3 col-form-label">자격증 명</label>
 												<div class="col-9">
-													<input class="form-control" type="text" disabled>
+													<input class="form-control" type="text" name="certName">
 												</div>
 											</div>
 											
 											<div class="form-group row">
-												<label class="col-form-label col-lg-3 col-sm-12">발행일자</label>
-												<div class="col-lg-9 col-md-9 col-sm-12">
-													<div class="input-group date">
-														<input type="text" class="form-control" readonly
-															placeholder="Select date" id="kt_datepicker_2_modal" />
-														<div class="input-group-append">
-															<span class="input-group-text"> <i
-																class="la la-calendar-check-o"></i>
-															</span>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-3 col-form-label">일련번호</label>
+												<label class="col-3 col-form-label">발행기관</label>
 												<div class="col-9">
-													<input class="form-control" type="text">
+													<input class="form-control" type="text" name="issueOrg">
 												</div>
 											</div>
+											
 											<div class="kt-portlet__foot kt-portlet__foot--fit-x">
 												<div class="kt-form__actions">
 													<div class="row">
 														<div class="col-lg-2"></div>
 														<div class="col-lg-10">
-															<button type="reset" class="btn btn-success">Submit</button>
+															<button type="submit" class="btn btn-success">등록</button>
 															<button type="reset" class="btn btn-secondary">Cancel</button>
 														</div>
 													</div>
@@ -142,7 +118,6 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 								</div>
-
 
 							</div>
 						</form>

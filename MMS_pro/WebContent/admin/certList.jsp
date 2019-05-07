@@ -43,14 +43,14 @@ License: You must have a valid license purchased only from themeforest(the above
 										<span class="kt-portlet__head-icon">
 										</span>
 										<h3 class="kt-portlet__head-title">
-											보유 자격증 목록
+											등록된 자격증 목록
 										</h3>
 									</div>
 								</div>
 
 											<!--begin::Section-->
 											<div class="kt-portlet__body">
-										<form action="prog?command=myCertDelete" method="post">
+										<form action="proj?command=myCertDelete" method="post">
 										<input type="hidden" name="progNum" value="${LoginUser.progNum}">
 											<div class="kt-section">
 												<div class="kt-section__content">
@@ -58,21 +58,17 @@ License: You must have a valid license purchased only from themeforest(the above
 														<thead>
 															<tr>
 																<th><b><input type="checkbox"></input></b></th>
-																<th><b>구분</b></th>
-																<th><b>발행처</b></th>
-																<th><b>발행일자</b></th>
-																<th><b>자격증번호</b></th>
+																<th><b>자격증명</b></th>
+																<th><b>발급기관</b></th>
 															</tr>
 														</thead>
 														
-														<c:forEach items="${myCertList}" var="MyCertVO">
+														<c:forEach items="${certList}" var="CertVO">
 														<tbody>
 															<tr>
-																<td><input type="checkbox" value="${MyCertVO.myCertNum}"></td>
-																<td>${MyCertVO.certName}</td>
-																<td>${MyCertVO.issueOrg}</td>
-																<td>${MyCertVO.issueDate}</td>
-																<td>${MyCertVO.certSerial}</td>
+																<td><input type="checkbox" value="${CertVO.certNum}"></td>
+																<td>${CertVO.certName}</td>
+																<td>${CertVO.issueOrg}</td>
 															</tr>
 														</tbody>
 														</c:forEach>
@@ -80,6 +76,11 @@ License: You must have a valid license purchased only from themeforest(the above
 												</div>
 											<!--end::Section-->
 										</div>
+												<div class="col-lg-2"></div>
+														<div class="col-lg-10">
+															<a href="proj?command=certRegistForm" class="btn btn-success">등록하기</a>
+															<button type="submit" class="btn btn-secondary">삭제하기</button>
+														</div>
 									</form>
 									<!--end: Datatable -->
 							</div>

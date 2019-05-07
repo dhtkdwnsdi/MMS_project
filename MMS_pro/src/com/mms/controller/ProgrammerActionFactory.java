@@ -2,6 +2,7 @@ package com.mms.controller;
 
 import com.mms.controller.action.Action;
 import com.mms.controller.action.MemberSetFormAction;
+import com.mms.controller.action.MyCertListFormAction;
 
 public class ProgrammerActionFactory {
 	private static ProgrammerActionFactory instance = new ProgrammerActionFactory();
@@ -43,12 +44,13 @@ public class ProgrammerActionFactory {
 		
 		
 		
-		
 		/**
 		 * @author OSJ
 		 */
 		
-		
+		else if(command.equals("myCertListForm")) {
+			action = new MyCertListFormAction();
+		}
 		
 		
 		
