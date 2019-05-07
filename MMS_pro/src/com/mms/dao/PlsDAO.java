@@ -27,7 +27,7 @@ public class PlsDAO extends DBManager {
 		return instance;
 	}
 	
-	public List<PlsVo> selectPls() {
+	public List<PlsVo> selectPls(String progNum) {
 		
 		String sql = "select s.pls_num"
 				+ "			, l.pl_name"

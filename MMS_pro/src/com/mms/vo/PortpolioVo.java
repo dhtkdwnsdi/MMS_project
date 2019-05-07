@@ -15,7 +15,8 @@ public class PortpolioVo {
 	private String portFile;
 	private String connectSkill;
 	private String rate;
-	private String progNum;
+	
+	
 	public String getPortNum() {
 		return portNum;
 	}
@@ -76,19 +77,17 @@ public class PortpolioVo {
 	public void setRate(String rate) {
 		this.rate = rate;
 	}
-	public String getProgNum() {
-		return progNum;
-	}
-	public void setProgNum(String progNum) {
-		this.progNum = progNum;
-	}
 	@Override
 	public String toString() {
 		return "PortpolioVo [portNum=" + portNum + ", subject=" + subject + ", portCate=" + portCate
 				+ ", portDetailCate=" + portDetailCate + ", portContents=" + portContents + ", portStartDate="
 				+ portStartDate + ", portEndDate=" + portEndDate + ", portFile=" + portFile + ", connectSkill="
-				+ connectSkill + ", rate=" + rate + ", progNum=" + progNum + "]";
+				+ connectSkill + ", rate=" + rate + "]";
 	}
+	
+	
+
+
 
 	
 	

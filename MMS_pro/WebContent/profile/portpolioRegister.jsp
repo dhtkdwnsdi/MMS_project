@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/programmerHeader.jsp"%>
+<%@ include file="../include/header.jsp"%>
 <!DOCTYPE html>
 
 <!-- 
@@ -45,14 +45,18 @@ License: You must have a valid license purchased only from themeforest(the above
 							</h3>
 						</div>
 						<div class="kt-portlet__head-toolbar">
-							<a href="#" class="btn btn-clean kt-margin-r-10"> <i
+
+							<a
+								href="prog?command=portpolioListForm&progNum=${LoginUser.progNum}"
+								class="btn btn-clean kt-margin-r-10"> <i
 								class="la la-arrow-left"></i> <span class="kt-hidden-mobile">Back</span>
 							</a>
 							<div class="btn-group">
-								<button type="button" class="btn btn-brand">
+								<button type="submit" class="btn btn-brand"
+									href="prog?command=portpolioListForm&progNum=${LoginUser.progNum}">
 									<i class="la la-check"></i> <span class="kt-hidden-mobile">Save</span>
 								</button>
-								<button type="button"
+								<!-- <button type="button"
 									class="btn btn-brand dropdown-toggle dropdown-toggle-split"
 									data-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="false"></button>
@@ -76,7 +80,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												class="kt-nav__link-text">Save & add new</span>
 										</a></li>
 									</ul>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
@@ -91,7 +95,8 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="form-group row">
 												<label class="col-3 col-form-label">제목</label>
 												<div class="col-9">
-													<input class="form-control" type="text" value="subject" id="subject">
+													<input class="form-control" type="text" value="subject"
+														id="subject">
 												</div>
 											</div>
 											<div class="form-group row">
@@ -108,7 +113,8 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="form-group row">
 												<label class="col-3 col-form-label">세부 카테고리</label>
 												<div class="col-4">
-													<select name="portDetailCate" class="form-control" id="portDetailCate">
+													<select name="portDetailCate" class="form-control"
+														id="portDetailCate">
 														<option value="">Select</option>
 														<option value="DC1">카테고리1</option>
 														<option value="DC2">카테고리2</option>
@@ -152,13 +158,14 @@ License: You must have a valid license purchased only from themeforest(the above
 											</div>
 											<label></label>
 											<div class="form-group form-group-last row">
-												<label class="col-form-label col-lg-3 col-sm-12">관련 기술</label>
+												<label class="col-form-label col-lg-3 col-sm-12">관련
+													기술</label>
 												<div class="col-lg-9 col-md-9 col-sm-12">
 													<textarea name="content" class="form-control"
 														data-provide="markdown" rows="3" id="connectSkill"></textarea>
 												</div>
-											</div>		
-											<label></label>								
+											</div>
+											<label></label>
 											<div class="form-group form-group-last row">
 												<label class="col-form-label col-lg-3 col-sm-12">내용</label>
 												<div class="col-lg-9 col-md-9 col-sm-12">
@@ -170,30 +177,33 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="form-group form-group-last row">
 												<label class="col-3 col-form-label">첨부파일</label>
 												<div class="col-lg-9 col-md-9 col-sm-12">
-												<div class="kt-dropzone dropzone m-dropzone--primary" action="inc/api/dropzone/upload.php" id="m-dropzone-two">
-													<div class="kt-dropzone__msg dz-message needsclick">
-														<h3 class="kt-dropzone__msg-title">Drop files here or click to upload.</h3>
-														<span class="kt-dropzone__msg-desc">Upload up to 10 files</span>
+													<div class="kt-dropzone dropzone m-dropzone--primary"
+														action="inc/api/dropzone/upload.php" id="m-dropzone-two">
+														<div class="kt-dropzone__msg dz-message needsclick">
+															<h3 class="kt-dropzone__msg-title">Drop files here
+																or click to upload.</h3>
+															<span class="kt-dropzone__msg-desc">Upload up to
+																10 files</span>
+														</div>
 													</div>
 												</div>
 											</div>
-											</div>
 										</div>
 									</div>
-									
-											
-											
-										</div>
-									</div>
-									</form>
-								</div>
-								<div class="col-xl-2"></div>
-							</div>
-					</div>
-				</div>
 
-				<!--end::Portlet-->
+
+
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-xl-2"></div>
+				</div>
 			</div>
+		</div>
+
+		<!--end::Portlet-->
+	</div>
 
 	<!-- end:: Content -->
 

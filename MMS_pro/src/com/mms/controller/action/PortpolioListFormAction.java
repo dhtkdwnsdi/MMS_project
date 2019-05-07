@@ -16,13 +16,17 @@ public class PortpolioListFormAction implements Action{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "/profile/portpolioList.jsp";
+		String url = "profile/portpolioList.jsp";
 		
 		PortpolioDAO portDao = PortpolioDAO.getInstance();
 		
-		String LoginUser = (String)request.getSession().getAttribute("LoginUser");
+		String progNum = request.getParameter("progNum");
 		
-		List<PortpolioVo> portpolioList = portDao.selectPortpolio(LoginUser);
+		/* String LoginUser = (String)request.getSession().getAttribute("LoginUser"); */
+		
+		System.out.println("progNum : " + progNum);
+		
+		List<PortpolioVo> portpolioList = portDao.selectPortpolio(progNum);
 		
 		request.setAttribute("portpolioList", portpolioList);
 		System.out.println(portpolioList);

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="../include/programmerHeader.jsp"%>
+<%@ include file="../include/header.jsp"%>
 <!DOCTYPE html>
 
 <!-- 
@@ -154,7 +154,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<div class="col-lg-4 col-md-9 col-sm-12">
 													<div class="input-group date">
 														<input type="text" class="form-control" readonly
-															placeholder="Select date" id="kt_datepicker_2" />
+															placeholder="Select date" id="kt_datepicker_1" />
 														<div class="input-group-append">
 															<span class="input-group-text"> <i
 																class="la la-calendar-check-o"></i>
@@ -168,7 +168,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<div class="col-lg-4 col-md-9 col-sm-12">
 													<div class="input-group date">
 														<input type="text" class="form-control" readonly
-															placeholder="Select date" id="endDate" />
+															placeholder="Select date" id="kt_datepicker_1" />
 														<div class="input-group-append">
 															<span class="input-group-text"> <i
 																class="la la-calendar-check-o"></i>
@@ -180,7 +180,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="form-group row">
 												<label class="col-3 col-form-label">참여율</label>
 												<div class="col-3">
-													<input class="form-control" type="text" value="%" id="rate">
+													<input class="form-control" type="text" value=${rate} id="rate">
 												</div>
 											</div>
 											<label></label>

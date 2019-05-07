@@ -15,7 +15,8 @@ public class PortpolioRegistAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url="";
+		
+		String url="/prog?command=portpolioListForm";
 		
 		//jsp에서 parameter가져오기
 		String portNum = request.getParameter("portNum");
