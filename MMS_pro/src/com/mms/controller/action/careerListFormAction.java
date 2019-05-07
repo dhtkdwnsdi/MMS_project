@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
  * @author LEE HAN
  *
  */
-public class careerFormAction implements Action{
+public class careerListFormAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url ="profile/careerForm.jsp";
+		String url ="profile/careerListForm.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

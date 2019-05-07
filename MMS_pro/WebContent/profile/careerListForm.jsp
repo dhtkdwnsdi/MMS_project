@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../include/programmerHeader.jsp"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="../include/programmerHeader.jsp" %>
+
 <!DOCTYPE html>
 
 <!-- 
@@ -20,15 +20,12 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Head -->
 	<head>
-	<title>PMMS | 계정설정</title>
+		<title>Metronic | 경력 등록</title>
 	</head>
-
 	<!-- end::Head -->
 
 	<!-- begin::Body -->
 	<body class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
-
-						<!-- begin:: Content -->
 						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
 							<div class="row">
 								<div class="col-lg-12">
@@ -37,81 +34,40 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile" id="kt_page_portlet">
 										<div class="kt-portlet__head kt-portlet__head--lg">
 											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">${LoginUser.name} 님의 계정 정보</h3>
+												<h3 class="kt-portlet__head-title">${LoginUser.name} 님의 경력 정보</h3>
 											</div>
 										</div>
 										<div class="kt-portlet__body">
-											<form class="kt-form" id="kt_form">
-											<input type="hidden" name="progNum" value="${LoginUser.progNum}">
-												<div class="row">
-													<div class="col-xl-2"></div>
-													<div class="col-xl-8">
-														<div class="kt-section kt-section--first">
-															<div class="kt-section__body">
-																<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
-																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">아이디</label>
-																	<div class="col-9">
-																		<input class="form-control" type="text" name="id" id="id" value="${LoginUser.id}" readonly="readonly">
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">비밀번호</label>
-																	<div class="col-9">
-																		<input class="form-control" type="password" name="password" id="password" value="${LoginUser.password}" readonly="readonly">
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">이름</label>
-																	<div class="col-9">
-																		<input class="form-control" type="text" name="name" id="name" value="${LoginUser.name}" readonly="readonly">
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">주소</label>
-																	<div class="col-9">
-																		<input class="form-control" type="text" name="juso" id="juso" value="${LoginUser.juso}" readonly="readonly">
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">상세 주소</label>
-																	<div class="col-9">
-																		<input class="form-control" type="text" name="extraJuso" id="extraJuso" value="${LoginUser.extraJuso}" readonly="readonly">
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">이메일</label>
-																	<div class="col-9">
-																		<div class="input-group">
-																			<div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
-																			<input type="text" class="form-control" name="email" id="email" value="${LoginUser.email}" placeholder="Email" aria-describedby="basic-addon1" readonly="readonly">
-																		</div>
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">전화번호</label>
-																	<div class="col-9">
-																		<div class="input-group">
-																			<div class="input-group-prepend"><span class="input-group-text"><i class="la la-phone"></i></span></div>
-																			<input type="text" class="form-control" name="tel" id="tel" value="${LoginUser.tel}" placeholder="Phone" aria-describedby="basic-addon1" readonly="readonly">
-																		</div>
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">은행</label>
-																	<div class="col-9">
-																		<input class="form-control" type="text" name="bank" id="bank" value="${LoginUser.bank}" readonly="readonly">
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">계좌번호</label>
-																	<div class="col-9">
-																		<input class="form-control" type="text" name="account" id="account" value="${LoginUser.account}" readonly="readonly">
-																	</div>
-																</div>
-															</div>
-														</div>
+
+											<!--begin::Section-->
+											<div class="kt-section">
+												<div class="kt-section__content">
+													<table class="table table-bordered table-hover">
+														<thead style="text-align: center;">
+															<tr>
+																<th>#</th>
+																<th style="font-weight: bold;">회사 명</th>
+																<th style="font-weight: bold;">부서</th>
+																<th style="font-weight: bold;">직책</th>
+																<th style="font-weight: bold;">입사일</th>
+																<th style="font-weight: bold;">퇴사일</th>
+															</tr>
+														</thead>
+														<tbody style="text-align: center;">
+															<tr>
+																<th scope="row">1</th>
+																<td>(주)유클리드소프트</td>
+																<td>경영지원실</td>
+																<td>대리</td>
+																<td>-</td>
+																<td>-</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+
+											<!--end::Section-->
 											<div class="kt-portlet__foot">
 												<div class="kt-form__actions kt-form__actions--right">
 													<div class="row">
@@ -120,34 +76,24 @@ License: You must have a valid license purchased only from themeforest(the above
 															<button type="reset" class="btn btn-danger">삭제</button>
 														</div> -->
 														<div class="col kt-align-right">
-															<button type="button" class="btn btn-brand" onclick="openPopUp()">수정</button>
+															<button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button>
 														</div>
 													</div>
 												</div>
 											</div>
-	 												</div>
-													<div class="col-xl-2"></div>
-												</div>
-											</form>
+											
 										</div>
 									</div>
-
-									<!--end::Portlet-->
-								</div>
-							</div>
-						</div>
-
-						<!-- end:: Content -->
+									
 					</div>
-
+				
+				</div>
+			</div>
 					<!-- begin:: Footer -->
 					
 					<%@ include file="../include/footer.jsp" %>
 
 					<!-- end:: Footer -->
-				</div>
-			</div>
-		</div>
 
 		<!-- end:: Page -->
 
@@ -157,6 +103,21 @@ License: You must have a valid license purchased only from themeforest(the above
 		</div>
 
 		<!-- end::Scrolltop -->
+
+		<!-- begin::Sticky Toolbar -->
+		<ul class="kt-sticky-toolbar" style="margin-top: 30px;">
+			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--success" id="kt_demo_panel_toggle" data-toggle="kt-tooltip" title="Check out more demos" data-placement="right">
+				<a href="#" class=""><i class="flaticon2-drop"></i></a>
+			</li>
+			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--brand" data-toggle="kt-tooltip" title="Layout Builder" data-placement="left">
+				<a href="https://keenthemes.com/metronic/preview/default/builder.html" target="_blank"><i class="flaticon2-gear"></i></a>
+			</li>
+			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--warning" data-toggle="kt-tooltip" title="Documentation" data-placement="left">
+				<a href="https://keenthemes.com/metronic/?page=docs" target="_blank"><i class="flaticon2-telegram-logo"></i></a>
+			</li>
+		</ul>
+
+		<!-- end::Sticky Toolbar -->
 
 
 		<!-- begin::Global Config(global config for global JS sciprts) -->
@@ -255,6 +216,11 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!--end::Global Theme Bundle -->
 
+		<!--begin::Page Scripts(used by this page) -->
+		<script src="../assets/app/custom/general/crud/forms/widgets/bootstrap-datepicker.js" type="text/javascript"></script>
+
+		<!--end::Page Scripts -->
+
 		<!--begin::Global App Bundle(used by all pages) -->
 		<script src="../assets/app/bundle/app.bundle.js" type="text/javascript"></script>
 
@@ -262,20 +228,18 @@ License: You must have a valid license purchased only from themeforest(the above
 	</body>
 
 	<!-- end::Body -->
-
 <script>
-//팝업 띄우기
 function openPopUp()
 {
     // window.name = "부모창 이름"; 
       window.name = "parentForm";
     // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "1000"; 
-	  var height = "700"; 
+      var width = "800"; 
+	  var height = "500"; 
 	  var top = (window.screen.height-height)/2; 
 	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/memberUpdateForm.jsp"; 
-	  var title = "계정 정보 수정"; 
+ 	  var url = "profile/careerRegisterForm.jsp"; 
+	  var title = "경력 정보 등록"; 
 	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
       window.open(url, title, status);

@@ -271,7 +271,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 			type: 'POST',  // GET or POST 전송방법 
 
-			url: 'idcheck',  // 이쪽으로 보낸다(호출URL)
+			url: '/main?command=idCheck',  // 이쪽으로 보낸다(호출URL)
 
 			data: {id: id},  // userID 이름에 userID 데이터 값을 넣어서 보낸다
 
@@ -287,7 +287,11 @@ License: You must have a valid license purchased only from themeforest(the above
 					$("#useButton").show();
 				}
 
-			} 
+			},
+			error: function(result){
+				alert("다시 시도해주세요.");
+				return false;
+			}
 
 		})
 		}

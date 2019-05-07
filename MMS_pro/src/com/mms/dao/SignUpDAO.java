@@ -28,7 +28,7 @@ public class SignUpDAO extends DBManager {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			conn = DBManager.getConnection();
+			conn = getConnection();
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -78,7 +78,7 @@ public class SignUpDAO extends DBManager {
 		
 		try {
 			
-			conn = DBManager.getConnection();
+			conn = getConnection();
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -317,6 +317,53 @@ public class SignUpDAO extends DBManager {
 //		return adminVo;
 //	
 //	}
+	
+	//user 수정 DAO
+	public void updateUser(ProgrammerVO progVo) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "UPDATE TBL_PROGRAMMER SET"
+				+ "	  ID = ?, PASSWORD = ?, NAME = ?,"
+				+ "	  JUSO = ?, EXTRAJUSO = ?, EMAIL = ?,"
+				+ "	  TEL = ?, BANK = ?, ACCOUNT = ?"
+				+ "   WHERE PROG_NUM = ?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, progVo.getId());
+			pstmt.setString(2, progVo.getPassword());
+			pstmt.setString(3, progVo.getName());
+			pstmt.setString(4, progVo.getJuso());
+			pstmt.setString(5, progVo.getExtraJuso());
+			pstmt.setString(6, progVo.getEmail());
+			pstmt.setString(7, progVo.getTel());
+			pstmt.setString(8, progVo.getBank());
+			pstmt.setString(9, progVo.getAccount());
+			pstmt.setString(10, progVo.getProgNum());
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}	finally {
+			
+			try {
+				if(pstmt != null) pstmt.close();
+				
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			
+			}
+		}
+		
+	}
 	
 	
 }
