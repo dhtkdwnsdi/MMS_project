@@ -16,7 +16,7 @@ public class CertRegistAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("regist action");
-		String url = "/proj?command=certListForm";
+		String url = "/prog?command=certListForm";
 		
 		CertVO certVo = new CertVO();
 		

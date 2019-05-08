@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../include/programmerHeader.jsp"%>
+<%@ include file="../include/header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 
@@ -50,7 +50,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 											<!--begin::Section-->
 											<div class="kt-portlet__body">
-										<form action="proj?command=myCertDelete" method="post">
+										<form action="prog?command=myCertDelete" method="post">
 										<input type="hidden" name="progNum" value="${LoginUser.progNum}">
 											<div class="kt-section">
 												<div class="kt-section__content">
@@ -78,7 +78,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 												<div class="col-lg-2"></div>
 														<div class="col-lg-10">
-															<a href="proj?command=certRegistForm" class="btn btn-success">등록하기</a>
+															<a href="prog?command=certRegistForm" class="btn btn-success">등록하기</a>
 															<button type="submit" class="btn btn-secondary">삭제하기</button>
 														</div>
 									</form>

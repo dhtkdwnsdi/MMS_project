@@ -20,10 +20,17 @@ public class MyCertListFormAction implements Action {
 		
 		MyCertDAO myCertDao = MyCertDAO.getInstance();
 		
-		String LoginUser = (String)request.getSession().getAttribute("LoginUser");
+		/* String progNum = request.getParameter("progNum"); */
 		
-
+		 String LoginUser = (String)request.getSession().getAttribute("LoginUser");
+		 
+		System.out.println("LoginUser : " + LoginUser);
+		
 		List<MyCertVO> myCertList = myCertDao.selectMyCert(LoginUser);
+		
+		System.out.println(
+
+				);
 		
 		request.setAttribute("myCertList", myCertList);
 		

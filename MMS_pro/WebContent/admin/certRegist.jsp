@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/programmerHeader.jsp"%>
+<%@ include file="../include/header.jsp"%>
 <!DOCTYPE html>
 
 <!-- 
@@ -80,7 +80,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 					</div>
 					<div class="kt-portlet__body">
-						<form class="kt-form" id="kt_form" action="proj?command=certRegist" method="post">
+						<form class="kt-form" id="kt_form" action="/prog?command=certRegist" method="post">
 							<div class="row">
 								<div class="col-xl-2"></div>
 								<div class="col-xl-8">

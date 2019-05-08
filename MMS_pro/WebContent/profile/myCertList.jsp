@@ -43,7 +43,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										<span class="kt-portlet__head-icon">
 										</span>
 										<h3 class="kt-portlet__head-title">
-											보유 자격증 목록
+											${LoginUser.name} 님의 보유 자격증 목록
 										</h3>
 									</div>
 								</div>
@@ -68,7 +68,7 @@ License: You must have a valid license purchased only from themeforest(the above
 														<c:forEach items="${myCertList}" var="MyCertVO">
 														<tbody>
 															<tr>
-																<td><input type="checkbox" value="${MyCertVO.myCertNum}"></td>
+																<td><input type="checkbox" value="${MyCertVO.myCertNum}" name="myCertNum"></td>
 																<td>${MyCertVO.certName}</td>
 																<td>${MyCertVO.issueOrg}</td>
 																<td>${MyCertVO.issueDate}</td>
@@ -79,6 +79,11 @@ License: You must have a valid license purchased only from themeforest(the above
 													</table>
 												</div>
 											<!--end::Section-->
+											<div class="col-lg-2"></div>
+														<div class="col-lg-10">
+															<a href="prog?command=certRegistForm" class="btn btn-success">등록하기</a>
+															<button type="submit" class="btn btn-secondary">삭제하기</button>
+														</div>
 										</div>
 									</form>
 									<!--end: Datatable -->
