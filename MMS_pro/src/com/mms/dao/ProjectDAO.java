@@ -25,107 +25,309 @@ public class ProjectDAO extends DBManager {
 	      return instance;
 	   }
 	   
-	   
-	   //프로젝트 번호, 프로젝트 명, 카테고리, 프로젝트 마감일, 시작 예정일, 종료 예정일, 담당자 출력하는 메소드
-	   public List<ProjectVO> selectProject(){
-		   
-		   String sql = "select proj.proj_num, proj.proj_name, proj.proj_cate,"
-		   		+ "proj.proj_detail_cate, proj.start_duedate, proj.end_duedate, proj.deadline, prog.name"
-		   		+ "from pmms.tbl_project proj, pmms.tbl_programmer prog"
-		   		+ "where proj.prog_num = prog.prog_num";
-		   
-		   List<ProjectVO> list = new ArrayList<ProjectVO>();
-	       Connection conn = null;
-	       PreparedStatement pstmt = null;
-	       ResultSet rs = null;
-	        
-	       try {
-	            conn = getConnection();
-	            pstmt = conn.prepareStatement(sql);
-	            rs = pstmt.executeQuery();
-
-	            while (rs.next()) {
-	            	ProjectVO projVo = new ProjectVO();
-
-	            	projVo.setProjNum(rs.getString("projNum"));
-	            	projVo.setProjName(rs.getString("projName"));
-	            	projVo.setProjCate(rs.getString("projCate"));
-	            	projVo.setProjDetailCate(rs.getString("projDetailCate"));
-	            	projVo.setStartDuedate(rs.getString("startDuedate"));
-	            	projVo.setEndDuedate(rs.getString("endDuedate"));
-	            	projVo.setDeadline(rs.getString("deadline"));
-	            	projVo.setName(rs.getString("name"));
-	               list.add(projVo);
-	            }
-	            
-	         } catch (SQLException e) {
-	            
-	            e.printStackTrace();
-	            
-	         } finally {
-	        	 try {
-	                 if(pstmt != null)
-	                	 pstmt.close();
-	                 if(conn != null)
-	                    conn.close();
-	              } catch (Exception e) {
-	                 e.printStackTrace();
-	              }
-	         }
-	         
-	         return list;
-	   }
-	   
-	   //등록
-	   public void insertProject(ProjectVO pVo) {
-		   
-		   String sql = "insert into pmms.tbl_project(porj_num,"
-		   		+ "porj_name, proj_cate, proj_detail_cate, start_duedate"
-		   		+ "end_duedate, deadline, contents, parti_form_code,fw_code"
-		   		+ "dbms_code, os_code, level_code, proj_file, prog_num)"
-		   		+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		   
+// 프로젝트 등록 메소드
+	   public void registerProject(ProjectVO pVo) {
 		   Connection conn = null;
 		   PreparedStatement pstmt = null;
-	       
-	       try {
-
-	    	    conn = DBManager.getConnection();
-	    	   
-	            pstmt = conn.prepareStatement(sql);
-
-	            //pstmt.setString(1, dVo.getDept_num());
-	            pstmt.setString(2, pVo.getProjName());
-	            pstmt.setString(3, pVo.getProjCate());
-	            pstmt.setString(4, pVo.getProjDetailCate());
-	            pstmt.setString(5, pVo.getStartDuedate());
-	            pstmt.setString(6, pVo.getEndDuedate());
-	            pstmt.setString(7, pVo.getDeadline());
-	            pstmt.setString(8, pVo.getContents());
-	            pstmt.setString(9, pVo.getPartiFormCode());
-	            pstmt.setString(10, pVo.getFwCode());
-	            pstmt.setString(11, pVo.getDbmsCode());
-	            pstmt.setString(12, pVo.getOsCode());
-	            pstmt.setString(13, pVo.getLevelCode());
-	            pstmt.setString(14, pVo.getProjFile());
-	            pstmt.setString(15, pVo.getProgNum());
-	            pstmt.executeUpdate();
-
-	         } catch (SQLException e) {
-	            e.printStackTrace();
-
-	         } finally {
-	             try {
-	                 if(pstmt != null)
-	                	 pstmt.close();
-	                 if(conn != null)
-	                    conn.close();
-	              } catch (Exception e) {
-	                 e.printStackTrace();
-	              }
-	              
-	           }
-	         
+		   
+		   String sql = "INSERT INTO TBL_PROJECT("
+		   		+ "		 PROJ_NAME"
+		   		+ ",	 PROJ_CATE"
+		   		+ ",	 PROJ_DETAIL_CATE"
+		   		+ ",	 START_DUEDATE"
+		   		+ ",	 END_DUEDATE"
+		   		+ ",	 DEADLINE"
+		   		+ ",	 CONTENTS"
+		   		+ ",	 PARTI_FORM_CODE"
+		   		+ ",	 FW_CODE"
+		   		+ ",	 DBMS_CODE"
+		   		+ ",	 OS_CODE"
+		   		+ ",	 LEVEL_CODE"
+		   		+ ",	 PROJ_FILE"
+		   		+ ",	 PROG_NUM)"
+		   		+ "		 VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   
+			   pstmt.setString(1, pVo.getProjName());
+			   pstmt.setString(2, pVo.getProjCate());
+			   pstmt.setString(3, pVo.getProjDetailCate());
+			   pstmt.setString(4, pVo.getStartDuedate());
+			   pstmt.setString(5, pVo.getEndDuedate());
+			   pstmt.setString(6, pVo.getDeadline());
+			   pstmt.setString(7, pVo.getContents());
+			   pstmt.setString(8, pVo.getPartiFormCode());
+			   pstmt.setString(9, pVo.getFwCode());
+			   pstmt.setString(10, pVo.getDbmsCode());
+			   pstmt.setString(11, pVo.getOsCode());
+			   pstmt.setString(12, pVo.getLevelCode());
+			   pstmt.setString(13, pVo.getProjFile());
+			   pstmt.setString(14, pVo.getProgNum());
+			   
+			   pstmt.executeUpdate();
+			   
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+			   
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		   
 	   }
+	   
+
+// 프로젝트 수정 메소드
+	   
+	   public void updateProject(ProjectVO pVo) {
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   
+		   String sql = "UPDATE TBL_PROJECT SET"
+		   		+ "		 PROJ_NAME = ?"
+		   		+ ",	 PROJ_CATE = ?"
+		   		+ ",	 PROJ_DETAIL_CATE = ?"
+		   		+ ",	 START_DUECATE = ?"
+		   		+ ",	 END_DEUDATE = ?"
+		   		+ ",     DEADLINE = ?"
+		   		+ ",	 CONTENTS = ?"
+		   		+ ",	 PARTI_FORM_CODE = ?"
+		   		+ ",	 FW_CODE = ?"
+		   		+ ",	 DBMS_CODE = ?"
+		   		+ ",	 OS_CODE = ?"
+		   		+ ",	 LEVEL_CODE = ?"
+		   		+ ",	 PROJ_FILE = ?"
+		   		+ "		 WHERE PROJ_NUM = ?";
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   
+			   pstmt.setString(1, pVo.getProjName());
+			   pstmt.setString(2, pVo.getProjCate());
+			   pstmt.setString(3, pVo.getProjDetailCate());
+			   pstmt.setString(4, pVo.getStartDuedate());
+			   pstmt.setString(5, pVo.getEndDuedate());
+			   pstmt.setString(6, pVo.getDeadline());
+			   pstmt.setString(7, pVo.getContents());
+			   pstmt.setString(8, pVo.getPartiFormCode());
+			   pstmt.setString(9, pVo.getFwCode());
+			   pstmt.setString(10, pVo.getDbmsCode());
+			   pstmt.setString(11, pVo.getOsCode());
+			   pstmt.setString(12, pVo.getLevelCode());
+			   pstmt.setString(13, pVo.getProjFile());
+			   pstmt.setString(14, pVo.getProjNum());
+			   
+			   pstmt.executeUpdate();
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+			   
+		   } finally {
+			   try {
+				   if(pstmt != null) pstmt.close();
+				   if(conn != null) conn.close();
+				   
+			   } catch (Exception e) {
+				   	e.printStackTrace();
+
+			   }
+		}
+		   
+	   }
+
+	   
+// 프로젝트 삭제 메소드
+	   
+	   public void deleteProject(String projNum) {
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   
+		   String sql = "DELETE FROM TBL_PROJECT WHERE PROJ_NUM = ?";
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   
+			   pstmt.setString(1, projNum);
+			   
+			   pstmt.executeUpdate();
+			   
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+
+		   } finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		   
+	   }
+	   
+
+// 프로젝트 리스트 메소드
+	   public ArrayList<ProjectVO> projectList(){
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   ResultSet rs = null;
+		   
+		   String sql = "SELECT * FROM TBL_PROJECT";
+		   ArrayList<ProjectVO> list = new ArrayList<ProjectVO>();
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   rs = pstmt.executeQuery();
+			   
+			   while(rs.next()) {
+				   ProjectVO pVo = new ProjectVO();
+				   pVo.setProjNum(rs.getString("PROJ_NUM"));
+				   pVo.setProjName(rs.getString("PROJ_NAME"));
+				   pVo.setProjCate(rs.getString("PROJ_CATE"));
+				   pVo.setProjDetailCate(rs.getString("PROJ_DETAIL_CATE"));
+				   pVo.setStartDuedate(rs.getString("START_DUEDATE"));
+				   pVo.setEndDuedate(rs.getString("END_DUEDATE"));
+				   pVo.setDeadline(rs.getString("DEADLINE"));
+				   pVo.setContents(rs.getString("CONTENTS"));
+				   pVo.setPartiFormCode(rs.getString("PARTI_FORM_CODE"));
+				   pVo.setFwCode(rs.getString("FW_CODE"));
+				   pVo.setDbmsCode(rs.getString("DBMS_CODE"));
+				   pVo.setOsCode(rs.getString("OS_CODE"));
+				   pVo.setLevelCode(rs.getString("LEVEL_CODE"));
+				   pVo.setProjFile(rs.getString("PROJ_FILE"));
+				   pVo.setProgNum(rs.getString("PROG_NUM"));
+				   
+				   list.add(pVo);
+			   }
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+		   
+		   } finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		   return list;
+	   }
+	   
+	   //프로젝트 번호, 프로젝트 명, 카테고리, 프로젝트 마감일, 시작 예정일, 종료 예정일, 담당자 출력하는 메소드
+//	   public List<ProjectVO> selectProject(){
+//		   
+//		   String sql = "select proj.proj_num, proj.proj_name, proj.proj_cate,"
+//		   		+ "proj.proj_detail_cate, proj.start_duedate, proj.end_duedate, proj.deadline, prog.name"
+//		   		+ "from pmms.tbl_project proj, pmms.tbl_programmer prog"
+//		   		+ "where proj.prog_num = prog.prog_num";
+//		   
+//		   List<ProjectVO> list = new ArrayList<ProjectVO>();
+//	       Connection conn = null;
+//	       PreparedStatement pstmt = null;
+//	       ResultSet rs = null;
+//	        
+//	       try {
+//	            conn = getConnection();
+//	            pstmt = conn.prepareStatement(sql);
+//	            rs = pstmt.executeQuery();
+//
+//	            while (rs.next()) {
+//	            	ProjectVO projVo = new ProjectVO();
+//
+//	            	projVo.setProjNum(rs.getString("projNum"));
+//	            	projVo.setProjName(rs.getString("projName"));
+//	            	projVo.setProjCate(rs.getString("projCate"));
+//	            	projVo.setProjDetailCate(rs.getString("projDetailCate"));
+//	            	projVo.setStartDuedate(rs.getString("startDuedate"));
+//	            	projVo.setEndDuedate(rs.getString("endDuedate"));
+//	            	projVo.setDeadline(rs.getString("deadline"));
+//	            	projVo.setName(rs.getString("name"));
+//	               list.add(projVo);
+//	            }
+//	            
+//	         } catch (SQLException e) {
+//	            
+//	            e.printStackTrace();
+//	            
+//	         } finally {
+//	        	 try {
+//	                 if(pstmt != null)
+//	                	 pstmt.close();
+//	                 if(conn != null)
+//	                    conn.close();
+//	              } catch (Exception e) {
+//	                 e.printStackTrace();
+//	              }
+//	         }
+//	         
+//	         return list;
+//	   }
+	   
+	   //등록
+//	   public void insertProject(ProjectVO pVo) {
+//		   
+//		   String sql = "insert into pmms.tbl_project(porj_num,"
+//		   		+ "porj_name, proj_cate, proj_detail_cate, start_duedate"
+//		   		+ "end_duedate, deadline, contents, parti_form_code,fw_code"
+//		   		+ "dbms_code, os_code, level_code, proj_file, prog_num)"
+//		   		+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+//		   
+//		   Connection conn = null;
+//		   PreparedStatement pstmt = null;
+//	       
+//	       try {
+//
+//	    	    conn = DBManager.getConnection();
+//	    	   
+//	            pstmt = conn.prepareStatement(sql);
+//
+//	            //pstmt.setString(1, dVo.getDept_num());
+//	            pstmt.setString(2, pVo.getProjName());
+//	            pstmt.setString(3, pVo.getProjCate());
+//	            pstmt.setString(4, pVo.getProjDetailCate());
+//	            pstmt.setString(5, pVo.getStartDuedate());
+//	            pstmt.setString(6, pVo.getEndDuedate());
+//	            pstmt.setString(7, pVo.getDeadline());
+//	            pstmt.setString(8, pVo.getContents());
+//	            pstmt.setString(9, pVo.getPartiFormCode());
+//	            pstmt.setString(10, pVo.getFwCode());
+//	            pstmt.setString(11, pVo.getDbmsCode());
+//	            pstmt.setString(12, pVo.getOsCode());
+//	            pstmt.setString(13, pVo.getLevelCode());
+//	            pstmt.setString(14, pVo.getProjFile());
+//	            pstmt.setString(15, pVo.getProgNum());
+//	            pstmt.executeUpdate();
+//
+//	         } catch (SQLException e) {
+//	            e.printStackTrace();
+//
+//	         } finally {
+//	             try {
+//	                 if(pstmt != null)
+//	                	 pstmt.close();
+//	                 if(conn != null)
+//	                    conn.close();
+//	              } catch (Exception e) {
+//	                 e.printStackTrace();
+//	              }
+//	              
+//	           }
+//	         
+//	   }
 	   
 }

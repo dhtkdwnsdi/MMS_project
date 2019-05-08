@@ -265,6 +265,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		if(id == ""){
 			alert("아이디를 입력해주세요.");
 			$("#id").focus();
+			return false;
 		} else{
 		
 		$.ajax({

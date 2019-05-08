@@ -55,11 +55,12 @@ public class CareerDAO extends DBManager {
 		}
 	}
 	
+	// List 뽑아오기
 	public ArrayList<CareerVO> careerList(String progNum){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM TBL_CAREER WHERE PROG_NUM = ?";
+		String sql = "SELECT * FROM TBL_CAREER WHERE PROG_NUM = ? ORDER BY CAREER_NUM DESC";
 		
 		ArrayList<CareerVO> list = new ArrayList<CareerVO>();
 		
@@ -98,6 +99,78 @@ public class CareerDAO extends DBManager {
 			}
 		}
 		return list;
+		
+	}
+	
+	// 경력 수정 메소드
+	public void updateCareer(CareerVO cVo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		
+		String sql = "UPDATE TBL_CAREER SET"
+				+ "	  COMPANY_NAME = ?"
+				+ ",  DEPARTMENT = ?"
+				+ ",  POSITION = ?"
+				+ ",  JOIN_DATE = ?"
+				+ ",  RETIRE_DATE = ?"
+				+ "   WHERE CAREER_NUM = ?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, cVo.getCompanyName());
+			pstmt.setString(2, cVo.getDepartment());
+			pstmt.setString(3, cVo.getPosition());
+			pstmt.setString(4, cVo.getJoinDate());
+			pstmt.setString(5, cVo.getRetireDate());
+			pstmt.setString(6, cVo.getCareerNum());
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		
+	}
+	
+	public void deleteCareer(String careerNum) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "DELETE FROM TBL_CAREER WHERE CAREER_NUM = ?";
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, careerNum);
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
+			
+		}
 		
 	}
 	

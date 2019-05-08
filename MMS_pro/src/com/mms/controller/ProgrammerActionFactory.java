@@ -1,12 +1,12 @@
 package com.mms.controller;
 
 import com.mms.controller.action.Action;
-import com.mms.controller.action.CareerListFormAction;
-import com.mms.controller.action.CareerRegisterAction;
 import com.mms.controller.action.EduListFormAction;
 import com.mms.controller.action.EduRegisterAction;
-import com.mms.controller.action.MemberSetFormAction;
-import com.mms.controller.action.MemberUpdateAction;
+import com.mms.controller.action.career.CareerListFormAction;
+import com.mms.controller.action.career.CareerRegisterAction;
+import com.mms.controller.action.member.MemberSetFormAction;
+import com.mms.controller.action.member.MemberUpdateAction;
 
 public class ProgrammerActionFactory {
 	private static ProgrammerActionFactory instance = new ProgrammerActionFactory();

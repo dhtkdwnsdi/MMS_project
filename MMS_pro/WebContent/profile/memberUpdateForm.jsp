@@ -116,7 +116,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">아이디</label>
 																	<div class="col-9">
-																		<input class="form-control" type="text" id="id" name="id" value="${LoginUser.id}">
+																		<input class="form-control" type="text" id="id" name="id" value="${LoginUser.id}" readonly="readonly">
 																	</div>
 																</div>
 																<div class="form-group row">
@@ -350,17 +350,21 @@ License: You must have a valid license purchased only from themeforest(the above
 		if(id == ""){
 			alert("아이디를 입력해주세요.");
 			$("#id").focus();
+			return false;
 		}
 		if(password == ""){
 			alert("비밀번호를 입력해주세요.");
 			$("#password").focus();
+			return false;
 		}
 		if(name == ""){
 			alert("이름을 입력해주세요.");
 			$("#name").focus();
+			return false;
 		}
 		if(progNum == ""){
 			alert("잘못된 정보입니다.");
+			return false;
 		}
 		else if(confirm("수정할 경우 재로그인이 필요합니다.\n정말로 수정하시겠습니까?")){
 		

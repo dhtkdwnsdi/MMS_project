@@ -2,12 +2,12 @@ package com.mms.controller;
 
 import com.mms.controller.action.Action;
 import com.mms.controller.action.EduAction;
-import com.mms.controller.action.IdCheckAction;
 import com.mms.controller.action.LoginAction;
 import com.mms.controller.action.LoginFormAction;
 import com.mms.controller.action.LogoutAction;
 import com.mms.controller.action.MainAction;
-import com.mms.controller.action.SignUpAction;
+import com.mms.controller.action.member.IdCheckAction;
+import com.mms.controller.action.member.SignUpAction;
 
 /**
  * request로 받아온 매개변수의 command의 값으로 각 기능을 수행할 액션을 분기하는 클래스 <br>

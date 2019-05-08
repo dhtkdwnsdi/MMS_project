@@ -290,14 +290,17 @@ function registerCareer(){
 	if(companyName == ""){
 		alert("회사 명을 입력해주세요.");
 		$("#companyName").focus();
+		return false;
 	}
 	if(department == ""){
 		alert("부서를 입력해주세요.");
 		$("#department").focus();
+		return false;
 	}
 	if(position == ""){
 		alert("직책을 입력해주세요.");
 		$("#position").focus();
+		return false;
 	}
 	if(progNum == ""){
 		alert("잘못된 정보입니다.");
