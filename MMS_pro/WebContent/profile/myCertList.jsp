@@ -81,7 +81,8 @@ License: You must have a valid license purchased only from themeforest(the above
 											<!--end::Section-->
 											<div class="col-lg-2"></div>
 														<div class="col-lg-10">
-															<a href="prog?command=certRegistForm" class="btn btn-success">등록하기</a>
+															<button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button>
+															<!-- <a href="prog?command=certRegistForm" class="btn btn-success">등록하기</a> -->
 															<button type="submit" class="btn btn-secondary">삭제하기</button>
 														</div>
 										</div>
@@ -812,6 +813,29 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!--end::Global App Bundle -->
 	</body>
+	
+	<script>
+	function openPopUp()
+	{
+	    // window.name = "부모창 이름"; 
+	      window.name = "parentForm";
+	    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+	      var width = "800"; 
+		  var height = "500"; 
+		  var top = (window.screen.height-height)/2; 
+		  var left = (window.screen.width-width)/2; 
+	 	  var url = "porg?command=myCertRegistForm.jsp"; 
+		  var title = "학력 정보 등록"; 
+		  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+	      window.open(url, title, status);
+
+
+	  
+	    /* window.open("memberUpdateForm.jsp",
+	            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
+	}
+	</script>
 
 	<!-- end::Body -->
 </html>
