@@ -1,4 +1,4 @@
-package com.mms.controller.action.member;
+package com.mms.controller.action;
 
 import java.io.IOException;
 
@@ -7,21 +7,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mms.controller.action.Action;
-/**
- * 
- * @author LEE HAN
- *
- */
-public class MemberSetFormAction implements Action {
+import com.mms.dao.SignUpDAO;
+
+public class IdCheckAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "profile/memberSet.jsp";
+
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
-		
+		String id = request.getParameter("id");
+		response.getWriter().write(new SignUpDAO().idCheck(id) + "");
 		
 	}
 

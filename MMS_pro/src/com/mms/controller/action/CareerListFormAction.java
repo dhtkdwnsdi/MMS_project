@@ -1,4 +1,4 @@
-package com.mms.controller.action.career;
+package com.mms.controller.action;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.mms.controller.action.Action;
 import com.mms.dao.CareerDAO;
 import com.mms.vo.CareerVO;
 import com.mms.vo.ProgrammerVO;
