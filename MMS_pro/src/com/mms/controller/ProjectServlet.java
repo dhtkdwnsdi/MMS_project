@@ -40,7 +40,7 @@ public class ProjectServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 			dispatcher.forward(request, response);
 		} else {
-			OSJActionFactory af = OSJActionFactory.getInstance();
+			ProjectActionFactory af = ProjectActionFactory.getInstance();
 			Action action = af.getAction(command);
 			
 			if(action != null) {
