@@ -238,8 +238,8 @@ function openPopUp()
     // window.name = "부모창 이름"; 
       window.name = "parentForm";
     // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "555"; 
+      var width = "1280"; 
+	  var height = "720"; 
 	  var top = (window.screen.height-height)/2; 
 	  var left = (window.screen.width-width)/2; 
  	  var url = "project/projectRegisterForm.jsp"; 

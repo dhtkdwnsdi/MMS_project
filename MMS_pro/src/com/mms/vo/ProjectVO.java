@@ -15,7 +15,7 @@ public class ProjectVO {
 	private String osCode;			// 운영체제 코드 (window, ..)
 	private String levelCode;		// 프로젝트 난이도 코드 (상, 중, 하)
 	private String projFile;		// 프로젝트 관련 첨부 파일
-	private String progNum;			// 프로그래머 번호, 담당자
+	private String progNum;			// 프로그래머 번호, 담당자	----	총 15개
 	
 	
 	public String getProjNum() {
