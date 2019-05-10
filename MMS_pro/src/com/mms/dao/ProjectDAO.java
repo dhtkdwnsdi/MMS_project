@@ -104,6 +104,7 @@ public class ProjectDAO extends DBManager {
 		   		+ ",	 OS_CODE = ?"
 		   		+ ",	 LEVEL_CODE = ?"
 		   		+ ",	 PROJ_FILE = ?"
+		   		+ ",	 PROJ_STAT = ?"
 		   		+ "		 WHERE PROJ_NUM = ?";
 		   
 		   try {
@@ -123,7 +124,8 @@ public class ProjectDAO extends DBManager {
 			   pstmt.setString(11, pVo.getOsCode());
 			   pstmt.setString(12, pVo.getLevelCode());
 			   pstmt.setString(13, pVo.getProjFile());
-			   pstmt.setString(14, pVo.getProjNum());
+			   pstmt.setString(14, pVo.getProjStat());
+			   pstmt.setString(15, pVo.getProjNum());
 			   
 			   pstmt.executeUpdate();
 		   } catch (SQLException e) {
@@ -176,13 +178,13 @@ public class ProjectDAO extends DBManager {
 	   }
 	   
 
-// 프로젝트 리스트 메소드
+// 프로젝트 전체 리스트 메소드
 	   public ArrayList<ProjectVO> projectList(){
 		   Connection conn = null;
 		   PreparedStatement pstmt = null;
 		   ResultSet rs = null;
 		   
-		   String sql = "SELECT * FROM TBL_PROJECT";
+		   String sql = "SELECT * FROM TBL_PROJECT ORDER BY PROJ_NUM DESC";
 		   ArrayList<ProjectVO> list = new ArrayList<ProjectVO>();
 		   
 		   try {
@@ -206,6 +208,7 @@ public class ProjectDAO extends DBManager {
 				   pVo.setOsCode(rs.getString("OS_CODE"));
 				   pVo.setLevelCode(rs.getString("LEVEL_CODE"));
 				   pVo.setProjFile(rs.getString("PROJ_FILE"));
+				   pVo.setProjStat(rs.getString("PROJ_STAT"));
 				   pVo.setProgNum(rs.getString("PROG_NUM"));
 				   
 				   list.add(pVo);
@@ -227,6 +230,82 @@ public class ProjectDAO extends DBManager {
 		   return list;
 	   }
 	   
+	   
+	// 프로젝트 해당 PM의 프로젝트 리스트 메소드,  내가 등록한 프로젝트만 보는 메소드
+	   public ArrayList<ProjectVO> myProjectList(String progNum){
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   ResultSet rs = null;
+		   
+		   String sql = "SELECT PJ.PROJ_NUM AS PROJ_NUM" + 
+		   		"	           ,PJ.PROJ_CATE AS PROJ_CATE" + 
+		   		"              ,PJ.PROJ_DETAIL_CATE AS PROJ_DETAIL_CATE"
+		   		+ "			   ,PJ.PROJ_NAME AS PROJ_NAME" + 
+		   		"              ,PJ.DEADLINE AS DEADLINE" + 
+		   		"              ,PJ.START_DUEDATE AS START_DUEDATE" + 
+		   		"              ,PJ.END_DUEDATE AS END_DUEDATE" + 
+		   		"              ,PG.NAME AS PROG_NAME" + 
+		   		"              ,PJ.PROJ_STAT AS PROJ_STAT"
+		   		+ "			   ,PJ.CONTENTS AS CONTENTS"
+		   		+ "			   ,PJ.PARTI_FORM_CODE AS PARTI_FORM_CODE"
+		   		+ "			   ,PJ.FW_CODE AS FW_CODE"
+		   		+ "			   ,PJ.DBMS_CODE AS DBMS_CODE"
+		   		+ "			   ,PJ.OS_CODE AS OS_CODE"
+		   		+ "			   ,PJ.LEVEL_CODE AS LEVEL_CODE"
+		   		+ "			   ,PJ.PROJ_FILE AS PROJ_FILE"
+		   		+ "			   ,PJ.PROG_NUM AS PROG_NUM" + 
+		   		"          FROM TBL_PROJECT PJ" + 
+		   		"			   ,TBL_PROGRAMMER PG" + 
+		   		"  		   WHERE PG.PROG_NUM = ?";
+		   
+		   ArrayList<ProjectVO> list = new ArrayList<ProjectVO>();
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   pstmt.setString(1, progNum);
+			   rs = pstmt.executeQuery();
+			   
+			   while(rs.next()) {
+				   ProjectVO pVo = new ProjectVO();
+				   pVo.setProjNum(rs.getString("PROJ_NUM"));
+				   pVo.setProjName(rs.getString("PROJ_NAME"));
+				   pVo.setProjCate(rs.getString("PROJ_CATE"));
+				   pVo.setProjDetailCate(rs.getString("PROJ_DETAIL_CATE"));
+				   pVo.setStartDuedate(rs.getString("START_DUEDATE"));
+				   pVo.setEndDuedate(rs.getString("END_DUEDATE"));
+				   pVo.setDeadline(rs.getString("DEADLINE"));
+				   pVo.setContents(rs.getString("CONTENTS"));
+				   pVo.setPartiFormCode(rs.getString("PARTI_FORM_CODE"));
+				   pVo.setFwCode(rs.getString("FW_CODE"));
+				   pVo.setDbmsCode(rs.getString("DBMS_CODE"));
+				   pVo.setOsCode(rs.getString("OS_CODE"));
+				   pVo.setLevelCode(rs.getString("LEVEL_CODE"));
+				   pVo.setProjFile(rs.getString("PROJ_FILE"));
+				   pVo.setProjStat(rs.getString("PROJ_STAT"));
+				   pVo.setProgName(rs.getString("PROG_NAME"));
+				   pVo.setProgNum(rs.getString("PROG_NUM"));
+				   
+				   list.add(pVo);
+			   }
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+		   
+		   } finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		   return list;
+	   }
+
+
 // 프로젝트 상세 보기 메소드
 	   public ProjectVO viewProject(String projNum) {
 		   Connection conn = null;
@@ -234,7 +313,26 @@ public class ProjectDAO extends DBManager {
 		   ResultSet rs = null;
 		   ProjectVO pVo = null;
 		   
-		   String sql = "SELECT * FROM TBL_PROJECT WHERE PROJ_NUM = ?";
+		   String sql = "SELECT PJ.PROJ_NUM AS PROJ_NUM" + 
+			   		"	           ,PJ.PROJ_CATE AS PROJ_CATE" + 
+			   		"              ,PJ.PROJ_DETAIL_CATE AS PROJ_DETAIL_CATE"
+			   		+ "			   ,PJ.PROJ_NAME AS PROJ_NAME" + 
+			   		"              ,PJ.DEADLINE AS DEADLINE" + 
+			   		"              ,PJ.START_DUEDATE AS START_DUEDATE" + 
+			   		"              ,PJ.END_DUEDATE AS END_DUEDATE" + 
+			   		"              ,PG.NAME AS PROG_NAME" + 
+			   		"              ,PJ.PROJ_STAT AS PROJ_STAT"
+			   		+ "			   ,PJ.CONTENTS AS CONTENTS"
+			   		+ "			   ,PJ.PARTI_FORM_CODE AS PARTI_FORM_CODE"
+			   		+ "			   ,PJ.FW_CODE AS FW_CODE"
+			   		+ "			   ,PJ.DBMS_CODE AS DBMS_CODE"
+			   		+ "			   ,PJ.OS_CODE AS OS_CODE"
+			   		+ "			   ,PJ.LEVEL_CODE AS LEVEL_CODE"
+			   		+ "			   ,PJ.PROJ_FILE AS PROJ_FILE"
+			   		+ "			   ,PJ.PROG_NUM AS PROG_NUM" + 
+			   		"          FROM TBL_PROJECT PJ" + 
+			   		"			   ,TBL_PROGRAMMER PG" + 
+			   		"  		   WHERE PJ.PROJ_NUM = ?";
 		   
 		   try {
 			   conn = getConnection();
@@ -259,6 +357,8 @@ public class ProjectDAO extends DBManager {
 				   pVo.setOsCode(rs.getString("OS_CODE"));
 				   pVo.setLevelCode(rs.getString("LEVEL_CODE"));
 				   pVo.setProjFile(rs.getString("PROJ_FILE"));
+				   pVo.setProjStat(rs.getString("PROJ_STAT"));
+				   pVo.setProgName(rs.getString("PROG_NAME"));
 				   pVo.setProgNum(rs.getString("PROG_NUM"));
 				   
 			   }

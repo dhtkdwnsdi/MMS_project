@@ -46,26 +46,30 @@ License: You must have a valid license purchased only from themeforest(the above
 														<thead style="text-align: center;">
 															<tr>
 																<th>#</th>
-																<th style="font-weight: bold;">프로젝트 명</th>
-																<th style="font-weight: bold;">모집 마감일</th>
-																<th style="font-weight: bold;">시작 예정일</th>
-																<th style="font-weight: bold;">종료 예정일</th>
 																<th style="font-weight: bold;">분류</th>
 																<th style="font-weight: bold;">세분류</th>
+																<th style="font-weight: bold;">프로젝트 명</th>
+																<th style="font-weight: bold;">신청 마감일</th>
+																<th style="font-weight: bold;">시작 예정일</th>
+																<th style="font-weight: bold;">종료 예정일</th>
 																<th style="font-weight: bold;">담당자</th>
+																<th style="font-weight: bold;">상태</th>
 															</tr>
 														</thead>
 														<tbody style="text-align: center;">
+														<c:forEach items="${list}" var="projVo" varStatus="listStat">
 															<tr>
-																<th scope="row">1</th>
-																<td>(주)유클리드소프트 인력관리시스템 프로젝트</td>
-																<td>2019-03-09</td>
-																<td>2019-03-04</td>
-																<td>2019-06-19</td>
-																<td>설계/개발</td>
-																<td>웹 기반 시스템</td>
-																<td>오상준</td>
+																<th scope="row">${listStat.count}<input type="hidden" name="projNum" value="${projVo.projNum}"></th>
+																<td>${projVo.projCate}</td>
+																<td>${projVo.projDetailCate}</td>
+																<td><a href="proj?command=projectViewForm&projNum=${projVo.projNum}">${projVo.projName}</a></td>
+																<td>${projVo.deadline}</td>
+																<td>${projVo.startDuedate}</td>
+																<td>${projVo.endDuedate}</td>
+																<td>${LoginUser.name}</td>
+																<td>${projVo.projStat}</td>
 															</tr>
+														</c:forEach>
 														</tbody>
 													</table>
 												</div>
@@ -238,8 +242,8 @@ function openPopUp()
     // window.name = "부모창 이름"; 
       window.name = "parentForm";
     // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "1280"; 
-	  var height = "720"; 
+      var width = "1030"; 
+	  var height = "700"; 
 	  var top = (window.screen.height-height)/2; 
 	  var left = (window.screen.width-width)/2; 
  	  var url = "project/projectRegisterForm.jsp"; 

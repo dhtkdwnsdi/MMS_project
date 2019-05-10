@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../include/header.jsp" %>
 <!DOCTYPE html>
 
 <!-- 
@@ -19,7 +20,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- begin::Head -->
 	<head>
 		<meta charset="utf-8" />
-		<title>PMMS | 프로젝트 등록</title>
+		<title>PMMS | 프로젝트 상세보기</title>
 		<meta name="description" content="Multi column form examples">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -124,12 +125,11 @@ font-weight: bold;
 												<div class="form-group row form-group-marginless kt-margin-t-20">
 													<div class="col-lg-6">
 														<label id="label1">프로젝트 명</label>
-														<input type="text" class="form-control" placeholder="프로젝트 명을 입력해주세요." name="projName" id="projName">
+														<input type="text" class="form-control" value="${projVo.projName}" name="projName" id="projName">
 													</div>
 													<div class="col-lg-6">
 														<label id="label1">담당자 명</label>
-														<input type="text" class="form-control" readonly="readonly" value="${LoginUser.name}">
-														<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}">
+														<input type="text" class="form-control" readonly="readonly" value="${projVo.progName}">
 													</div>
 												</div>
 												<!-- Start Divider -->
@@ -339,7 +339,11 @@ font-weight: bold;
 					</div>
 
 				</div>
+			<!-- begin:: Footer -->
+					
+					<%@ include file="../include/footer.jsp" %>
 
+			<!-- end:: Footer -->
 		<!-- end:: Page -->
 
 		<!-- begin::Scrolltop -->
