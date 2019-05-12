@@ -119,7 +119,7 @@ font-weight: bold;
 										</div>
 
 										<!--begin::Form-->
-										<form class="kt-form kt-form--label-right">
+										<form id="frm">
 											<div class="kt-portlet__body">
 												<div class="form-group row form-group-marginless kt-margin-t-20">
 													<div class="col-lg-6">
@@ -301,31 +301,28 @@ font-weight: bold;
 												</div>
 												<br>
 												<!-- End Divider -->
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-12">
+												<div class="form-group">
 														<label id="label1">첨부파일</label>
-														<div></div>
 														<div class="custom-file">
 															<input type="file" class="custom-file-input" name="projFile" id="projFile">
-															<label class="custom-file-label" for="customFile"></label>
+															<label class="custom-file-label" for="customFile" style="text-align: left;"></label>
 														</div>
-													</div>
 												</div>
 											</div>
+										</form>
 											<div class="kt-portlet__foot">
 												<div class="kt-form__actions">
 													<div class="row">
 														<div class="col-lg-6">
 														</div>
 														<div class="col-lg-6 kt-align-right">
-															<button type="button" class="btn btn-primary" onclick="registerProject()">저장</button>
+															<button type="button" class="btn btn-primary" id="submitBtn">저장</button>
 															<button type="button" class="btn btn-secondary" onclick="self.close()">취소</button>
 															<!-- <button type="reset" class="btn btn-danger">Delete</button> -->
 														</div>
 													</div>
 												</div>
 											</div>
-										</form>
 
 										<!--end::Form-->
 									</div>
@@ -558,7 +555,7 @@ function registerProject(){
 			type: 'POST',  // GET or POST 전송방법 
 
 			url: '/proj?command=projectRegister',  // 이쪽으로 보낸다(호출URL)
-
+		
 			data: {
 				projName: projName,
 				projCate: projCate,
@@ -590,5 +587,85 @@ function registerProject(){
 		})
 		} 
 	}
+
+$('#submitBtn').click(function(){
+	var projName = $('#projName').val();
+	var progNum = $('#progNum').val();
+	var partiFormCode = $('#partiFormCode').val();
+	var projCate = $('#projCate').val();
+	var projDetailCate = $('#projDetailCate').val();
+	var osCode = $('#osCode').val();
+	var fwCode = $('#fwCode').val();
+	var dbmsCode = $('#dbmsCode').val();
+	var levelCode = $('#levelCode').val();
+	var startDuedate = $('#startDuedate').val();
+	var endDuedate = $('#endDuedate').val();
+	var deadline = $('#deadline').val();
+	var contents = $('#contents').val();
+	var projFile = $('#projFile').val();
+	
+	if(projName == ""){
+		alert("프로젝트 명을 입력해주세요.");
+		$("#projName").focus();
+		return false;
+	}
+	if(partiFormCode == ""){
+		alert("참여형태를 선택해주세요.");
+		$("#partiFormCode").focus();
+		return false;
+	}
+	if(projCate == ""){
+		alert("분류를 선택해주세요.");
+		$("#projCate").focus();
+		return false;
+	}
+	if(projDetailCate == ""){
+		alert("세분류를 선택해주세요.");
+		$("#projDetailCate").focus();
+		return false;
+	}
+	if(osCode == ""){
+		alert("OS를 선택해주세요.");
+		$("#osCode").focus();
+		return false;
+	}
+	if(fwCode == ""){
+		alert("프레임워크를 선택해주세요.");
+		$("#fwCode").focus();
+		return false;
+	}
+	if(dbmsCode == ""){
+		alert("DBMS를 선택해주세요.");
+		$("#dbmsCode").focus();
+		return false;
+	}
+	if(levelCode == ""){
+		alert("프로젝트 난이도를 선택해주세요.");
+		$("#levelCode").focus();
+		return false;
+	}
+	if(deadline == ""){
+		alert("신청 마감일을 선택해주세요.");
+		$("#deadline").focus();
+		return false;
+	}
+	if(startDuedate == ""){
+		alert("시작 예정일을 선택해주세요.");
+		$("#startDuedate").focus();
+		return false;
+	}
+	if(endDuedate == ""){
+		alert("종료 예정일을 선택해주세요.");
+		$("#endDuedate").focus();
+		return false;
+	}
+	else{
+		$("#frm").attr("action", "/proj?command=projectRegister");
+		$("#frm").attr("method", "post");
+		$("#frm").attr("enctype", "multipart/form-data");
+		$("#frm").submit();
+	}
+	
+});
 </script>
 </html>

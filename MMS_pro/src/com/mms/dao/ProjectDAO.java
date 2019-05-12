@@ -256,7 +256,8 @@ public class ProjectDAO extends DBManager {
 		   		+ "			   ,PJ.PROG_NUM AS PROG_NUM" + 
 		   		"          FROM TBL_PROJECT PJ" + 
 		   		"			   ,TBL_PROGRAMMER PG" + 
-		   		"  		   WHERE PG.PROG_NUM = ?";
+		   		"  		   WHERE PG.PROG_NUM = ?"
+		   		+ "		   ORDER BY PJ.PROJ_NUM DESC";
 		   
 		   ArrayList<ProjectVO> list = new ArrayList<ProjectVO>();
 		   

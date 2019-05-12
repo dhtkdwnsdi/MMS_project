@@ -114,8 +114,16 @@ font-weight: bold;
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
 												<h3>
-												프로젝트 등록
+												프로젝트 상세조회
 												</h3>
+											</div>
+											<div class="kt-portlet__head-toolbar">
+												<div class="btn-group">
+													<button type="button" class="btn btn-success">
+														<i class="la la-check"></i>
+														<span class="kt-hidden-mobile">인력배치</span>
+													</button>
+												</div>
 											</div>
 										</div>
 
@@ -123,13 +131,17 @@ font-weight: bold;
 										<form class="kt-form kt-form--label-right">
 											<div class="kt-portlet__body">
 												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-6">
+													<div class="col-lg-4">
 														<label id="label1">프로젝트 명</label>
-														<input type="text" class="form-control" value="${projVo.projName}" name="projName" id="projName">
+														<input type="text" class="form-control" value="${projVo.projName}" name="projName" id="projName" disabled="disabled">
 													</div>
-													<div class="col-lg-6">
+													<div class="col-lg-4">
 														<label id="label1">담당자 명</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.progName}">
+														<input type="text" class="form-control" disabled="disabled" value="${projVo.progName}">
+													</div>
+													<div class="col-lg-4">
+														<label id="label1">프로젝트 상태</label>
+														<input type="text" class="form-control" disabled="disabled" value="${projVo.projStat}">
 													</div>
 												</div>
 												<!-- Start Divider -->
@@ -144,33 +156,15 @@ font-weight: bold;
 												<div class="form-group row form-group-marginless kt-margin-t-20">
 													<div class="col-lg-4">
 														<label id="label1">참여 형태</label>
-														<select class="form-control" name="partiFormCode" id="partiFormCode">
-															<option value="">선택</option>
-															<option value="주관">주관</option>
-															<option value="도급">도급</option>
-															<option value="하도급">하도급</option>
-															<option value="파견">파견</option>
-														</select>
+														<input type="text" class="form-control" disabled="disabled" value="${projVo.partiFormCode}">
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">분류</label>
-														<select class="form-control" name="projCate" id="projCate">
-															<option value="">선택</option>
-															<option value="설계">설계</option>
-															<option value="개발">개발</option>
-															<option value="디자인">디자인</option>
-															<option value="등등">등등</option>
-														</select>
+														<input type="text" class="form-control" disabled="disabled" value="${projVo.projCate}">
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">세분류</label>
-														<select class="form-control" name="projDetailCate" id="projDetailCate">
-															<option value="">선택</option>
-															<option value="웹">웹</option>
-															<option value="시스템">시스템</option>
-															<option value="앱">앱</option>
-															<option value="등등">등등</option>
-														</select>
+														<input type="text" class="form-control" disabled="disabled" value="${projVo.projDetailCate}">
 													</div>
 												</div>
 												<!-- Start Divider -->
@@ -185,64 +179,21 @@ font-weight: bold;
 												<div class="form-group row form-group-marginless kt-margin-t-20">
 													<div class="col-lg-6">
 														<label id="label1">OS 종류</label>
-														<select class="form-control" name="osCode" id="osCode">
-															<option value="">선택</option>
-															<option value="Windows">Windows</option>
-															<option value="Unix">Unix</option>
-															<option value="Linux">Linux</option>
-															<option value="등등">등등</option>
-														</select>
+														<input type="text" class="form-control" disabled="disabled" value="${projVo.osCode}">
 													</div>
 													<div class="col-lg-6">
 														<label id="label1">프레임워크 종류</label>
-														<select class="form-control" name="fwCode" id="fwCode">
-															<optgroup label="JAVA">
-																<option value="">선택</option>
-																<option value="Struts">Struts</option>
-																<option value="Spring">Spring</option>
-																<option value="전자정부 프레임워크">전자정부 프레임워크</option>
-															</optgroup>
-															<optgroup label="QRM">
-																<option value="">선택</option>
-																<option value="myBatis">myBatis</option>
-																<option value="Hibernate">Hibernate</option>
-															</optgroup>
-															<optgroup label="Javascript">
-																<option value="">선택</option>
-																<option value="AngularJS">AngularJS</option>
-																<option value="React">React</option>
-																<option value="polymer">polymer</option>
-																<option value="Ember">Ember</option>
-															</optgroup>
-															<optgroup label="FrontEnd">
-																<option value="">선택</option>
-																<option value="Bootstrap">Bootstrap</option>
-																<option value="React">React</option>
-																<option value="polymer">polymer</option>
-																<option value="Ember">Ember</option>
-															</optgroup>
-														</select>
+														<input type="text" class="form-control" disabled="disabled" value="${projVo.fwCode}">
 													</div>
 												</div>
 												<div class="form-group row form-group-marginless kt-margin-t-20">
 													<div class="col-lg-6">
 														<label id="label1">DBMS 종류</label>
-														<select class="form-control" name="dbmsCode" id="dbmsCode">
-															<option value="">선택</option>
-															<option value="Oracle">Oracle</option>
-															<option value="MySQL">MySQL</option>
-															<option value="MS SQL Server">MS SQL Server</option>
-															<option value="PostgreSQL">PostgreSQL</option>
-														</select>
+														<input type="text" class="form-control" disabled="disabled" value="${projVo.dbmsCode}">
 													</div>
 													<div class="col-lg-6">
 														<label id="label1">프로젝트 난이도</label>
-														<select class="form-control" name="levelCode" id="levelCode">
-															<option value="">선택</option>
-															<option value="상">상</option>
-															<option value="중">중</option>
-															<option value="하">하</option>
-														</select>
+														<input type="text" class="form-control" disabled="disabled" value="${projVo.levelCode}">
 													</div>
 												</div>
 												<!-- Start Divider -->
@@ -258,21 +209,21 @@ font-weight: bold;
 													<div class="col-lg-4">
 														<label id="label1">신청 마감일</label>
 														<div class="kt-input-icon">
-															<input type="text" class="form-control" placeholder="날짜를 설정해주세요." name="deadline" id="deadline" readonly="readonly">
+															<input type="text" class="form-control" value="${projVo.deadline}" name="deadline" id="deadline" disabled="disabled">
 															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
 														</div>
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">시작 예정일</label>
 														<div class="kt-input-icon">
-															<input type="text" class="form-control" placeholder="날짜를 설정해주세요." name="startDuedate" id="startDuedate" readonly="readonly">
+															<input type="text" class="form-control" value="${projVo.startDuedate}" name="startDuedate" id="startDuedate" disabled="disabled">
 															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
 														</div>
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">종료 예정일</label>
 														<div class="kt-input-icon">
-															<input type="text" class="form-control" placeholder="날짜를 설정해주세요." name="endDuedate" id="endDuedate" readonly="readonly">
+															<input type="text" class="form-control" value="${projVo.endDuedate}" name="endDuedate" id="endDuedate" disabled="disabled">
 															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
 														</div>
 													</div>
@@ -289,7 +240,7 @@ font-weight: bold;
 												<div class="form-group row form-group-marginless kt-margin-t-20">
 													<div class="col-lg-12">
 														<label id="label1">프로젝트 내용</label>
-														<textarea class="form-control" name="contents" id="contents" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 129px;"></textarea>
+														<textarea class="form-control" name="contents" id="contents" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 129px;" disabled="disabled">${projVo.contents}</textarea>
 													</div>
 												</div>
 												<!-- Start Divider -->
@@ -306,8 +257,8 @@ font-weight: bold;
 														<label id="label1">첨부파일</label>
 														<div></div>
 														<div class="custom-file">
-															<input type="file" class="custom-file-input" name="projFile" id="projFile">
-															<label class="custom-file-label" for="customFile"></label>
+															<input type="file" disabled="disabled" class="custom-file-input" name="projFile" id="projFile">
+															<label class="custom-file-label" for="customFile" style="text-align: left;">${projVo.projFile}</label>
 														</div>
 													</div>
 												</div>
@@ -318,8 +269,8 @@ font-weight: bold;
 														<div class="col-lg-6">
 														</div>
 														<div class="col-lg-6 kt-align-right">
-															<button type="button" class="btn btn-primary" onclick="registerProject()">저장</button>
-															<button type="button" class="btn btn-secondary" onclick="self.close()">취소</button>
+															<button type="button" class="btn btn-primary">수정</button>
+															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
 															<!-- <button type="reset" class="btn btn-danger">Delete</button> -->
 														</div>
 													</div>
@@ -475,9 +426,9 @@ font-weight: bold;
     });
 
     $(function() {
-        $("#startDuedate").datepicker();
+        /* $("#startDuedate").datepicker();
         $("#endDuedate").datepicker();
-        $("#deadline").datepicker();
+        $("#deadline").datepicker(); */
     });
 
     
@@ -594,5 +545,15 @@ function registerProject(){
 		})
 		} 
 	}
+	
+$(document).ready(
+		function() {
+			$('#cancel').on("click",function(event) {
+						self.location = "proj?command=projectListForm";
+					});
+			$('#newBtn').on("click", function(evt) {
+				self.location = "register";
+			});
+		});
 </script>
 </html>

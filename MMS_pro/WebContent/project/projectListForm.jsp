@@ -59,7 +59,7 @@ License: You must have a valid license purchased only from themeforest(the above
 														<tbody style="text-align: center;">
 														<c:forEach items="${list}" var="projVo" varStatus="listStat">
 															<tr>
-																<th scope="row">${listStat.count}<input type="hidden" name="projNum" value="${projVo.projNum}"></th>
+																<th scope="row">${listStat.count}<input type="hidden" name="projNum" id="projNum" value="${projVo.projNum}"></th>
 																<td>${projVo.projCate}</td>
 																<td>${projVo.projDetailCate}</td>
 																<td><a href="proj?command=projectViewForm&projNum=${projVo.projNum}">${projVo.projName}</a></td>
@@ -257,71 +257,5 @@ function openPopUp()
     /* window.open("memberUpdateForm.jsp",
             "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
 }
-
-function deleteCareer(){
-
-	// userID 변수에 userID의 입력된 값을 가져오게 함
-	var careerNum = $('#careerNum').val();
-	var companyName = $('#companyName').val();
-	var department = $('#department').val();
-	var position = $('#position').val();
-	var joinDate = $('#joinDate').val();
-	var retireDate = $('#retireDate').val();
-	
-	if(id == ""){
-		alert("아이디를 입력해주세요.");
-		$("#id").focus();
-		return false;
-	}
-	if(password == ""){
-		alert("비밀번호를 입력해주세요.");
-		$("#password").focus();
-		return false;
-	}
-	if(name == ""){
-		alert("이름을 입력해주세요.");
-		$("#name").focus();
-		return false;
-	}
-	if(progNum == ""){
-		alert("잘못된 정보입니다.");
-		return false;
-	}
-	else if(confirm("수정할 경우 재로그인이 필요합니다.\n정말로 수정하시겠습니까?")){
-	
-	$.ajax({
-
-		type: 'POST',  // GET or POST 전송방법 
-
-		url: '/prog?command=memberUpdate',  // 이쪽으로 보낸다(호출URL)
-
-		data: {id: id,
-			   password: password,
-			   name: name,
-			   juso: juso,
-			   extraJuso: extraJuso,
-			   email: email,
-			   tel: tel,
-			   bank: bank,
-			   account: account,
-			   progNum: progNum},  // userID 이름에 userID 데이터 값을 넣어서 보낸다
-
-		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
-			alert("수정 완료되었습니다.\n다시 로그인 해주세요.");
-			self.close();
-			opener.location.href = "/main?command=logout";
-		},
-		error: function(data){
-			alert("오류:: 다시 시도해주세요.");
-			return false;
-		}
-		 
-
-	})
-	} else{
-		return false;
-	}
-}
-
 </script>
 </html>

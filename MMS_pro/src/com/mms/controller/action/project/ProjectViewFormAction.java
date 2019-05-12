@@ -18,12 +18,10 @@ public class ProjectViewFormAction implements Action {
 		String url = "project/projectViewForm.jsp";
 		
 		String projNum = request.getParameter("projNum");
-		System.out.println(projNum);
 		ProjectVO projVo = new ProjectVO();
 		ProjectDAO pDao = ProjectDAO.getInstance();
 		
 		projVo = pDao.viewProject(projNum);
-		System.out.println(projVo);
 		request.setAttribute("projVo", projVo);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
