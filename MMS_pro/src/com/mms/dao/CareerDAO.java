@@ -172,6 +172,50 @@ public class CareerDAO extends DBManager {
 		
 	}
 	
+	//경력번호를 통해서 careerUpdate.jsp로 넘어가는 메소드
+	public CareerVO readCareer(String careerNum) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT CAREER_NUM, COMPANY_NAME, DEPARTMENT, POSITION, JOIN_DATE, RETIRE_DATE "
+				+ "     FROM TBL_CAREER WHERE CAREER_NUM = ? ";
+		
+		CareerVO careerVo = new CareerVO();
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, careerNum);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				careerVo.setCareerNum(rs.getString("CAREER_NUM"));
+				careerVo.setCompanyName(rs.getString("COMPANY_NAME"));
+				careerVo.setDepartment(rs.getString("DEPARTMENT"));
+				careerVo.setPosition(rs.getString("POSITION"));
+				careerVo.setJoinDate(rs.getString("JOIN_DATE"));
+				careerVo.setRetireDate(rs.getString("RETIRE_DATE"));
+				
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		return careerVo;
+	}
+	
 	
 	
 	

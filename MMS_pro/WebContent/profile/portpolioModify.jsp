@@ -92,7 +92,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="form-group row">
 												<label class="col-3 col-form-label">제목</label>
 												<div class="col-9">
-													<input class="form-control" type="text" value=${subject} id="subject">
+													<input class="form-control" type="text" value="${subject}" id="subject">
 												</div>
 											</div>
 											<div class="form-group row">
@@ -180,7 +180,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="form-group row">
 												<label class="col-3 col-form-label">참여율</label>
 												<div class="col-3">
-													<input class="form-control" type="text" value=${rate} id="rate">
+													<input class="form-control" type="text" value="${rate}" id="rate">
 												</div>
 											</div>
 											<label></label>
@@ -188,7 +188,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<label class="col-form-label col-lg-3 col-sm-12">관련 기술</label>
 												<div class="col-lg-9 col-md-9 col-sm-12">
 													<textarea name="content" class="form-control"
-														data-provide="markdown" rows="3" id="connectSkill" value=${connectSkill}></textarea>
+														data-provide="markdown" rows="3" id="connectSkill" value="${connectSkill}"></textarea>
 												</div>
 											</div>	
 											<label></label>									
@@ -196,14 +196,14 @@ License: You must have a valid license purchased only from themeforest(the above
 												<label class="col-form-label col-lg-3 col-sm-12">내용</label>
 												<div class="col-lg-9 col-md-9 col-sm-12">
 													<textarea name="content" class="form-control"
-														data-provide="markdown" rows="10" id="portContents" value=${portContents}></textarea>
+														data-provide="markdown" rows="10" id="portContents" value="${portContents}"></textarea>
 												</div>
 											</div>
 											<label></label>
 											<div class="form-group form-group-last row">
 												<label class="col-3 col-form-label">첨부파일</label>
 												<div class="col-lg-9 col-md-9 col-sm-12">
-												<div class="kt-dropzone dropzone m-dropzone--primary" action="inc/api/dropzone/upload.php" id="m-dropzone-two">
+												<div class="kt-dropzone dropzone m-dropzone--primary" action="inc/api/dropzone/upload.php" id="m-dropzone-two" value="${portFile}">
 													<div class="kt-dropzone__msg dz-message needsclick">
 														<h3 class="kt-dropzone__msg-title">Drop files here or click to upload.</h3>
 														<span class="kt-dropzone__msg-desc">Upload up to 10 files</span>

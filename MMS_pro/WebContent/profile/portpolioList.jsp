@@ -67,7 +67,7 @@ License: You must have a valid license purchased only from themeforest(the above
 														<tbody>
 															<tr>
 																<td><input type="checkbox" value="${PortpolioVo.portNum}"></td>
-																<td><a href="prog?command=portpolioModifyForm&port_num=${PortpolioVo.portNum}">${PortpolioVo.subject}</a></td>
+																<td><a href="prog?command=portpolioModify">${PortpolioVo.subject}</a></td>
 																<td>${PortpolioVo.portCate}</td>
 															</tr>
 														</tbody>

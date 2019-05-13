@@ -20,7 +20,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Head -->
 	<head>
-		<title>Metronic | 경력 등록</title>
+		<title>Metronic | 프로그래밍 언어 등록</title>
 	</head>
 	<!-- end::Head -->
 
@@ -34,10 +34,11 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile" id="kt_page_portlet">
 										<div class="kt-portlet__head kt-portlet__head--lg">
 											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">${LoginUser.name} 님의 경력 정보</h3>
+												<h3 class="kt-portlet__head-title">프로그래밍 언어</h3>
 											</div>
 										</div>
 										<div class="kt-portlet__body">
+										<form action="prog?command=plDelete" method="post">
 
 											<!--begin::Section-->
 											<div class="kt-section">
@@ -45,40 +46,22 @@ License: You must have a valid license purchased only from themeforest(the above
 													<table class="table table-bordered table-hover">
 														<thead style="text-align: center;">
 															<tr>
-																<th>#</th>
-																<th style="font-weight: bold;">회사 명</th>
-																<th style="font-weight: bold;">부서</th>
-																<th style="font-weight: bold;">직책</th>
-																<th style="font-weight: bold;">입사일</th>
-																<th style="font-weight: bold;">퇴사일</th>
+																<th style="font-weight: bold;">#</th>
+																<th style="font-weight: bold;">프로그래밍 언어 이름</th>
 																<th style="font-weight: bold;">관리</th>
 															</tr>
 														</thead>
 														<tbody style="text-align: center;">
-															<c:forEach items="${cList}" var="cVo" varStatus="listStat">
+															<c:forEach items="${plList}" var="plVo" varStatus="listStat">
 															<tr>
-																<th scope="row">${listStat.count} <input type="hidden" name="careerNum" id="careerNum" value="${cVo.careerNum}"></th>
-																<td>${cVo.companyName}</td>
-																<td>${cVo.department}</td>
-																<td>${cVo.position}</td>
-																
-																<c:if test="${!empty cVo.joinDate}">
-																<td>${cVo.joinDate}</td>
-																</c:if>
-																<c:if test="${!empty cVo.retireDate}">
-																<td>${cVo.retireDate}</td>
-																</c:if>
-																<c:if test="${empty cVo.joinDate}">
-																<td>-</td>
-																</c:if>
-																<c:if test="${empty cVo.retireDate}">
-																<td>-</td>
-																</c:if>
+																<%-- <th scope="row">${listStat.count} <input type="hidden" name="plNum" id="plNum" value="${plVo.plNum}"></th> --%>
+																<td>${plVo.plNum}</td>
+																<td>${plVo.plName}</td>
 																<td>
-																<a href="prog?command=careerUpdateFrom&careerNum=${cVo.careerNum}" onclick="openPopUp2()"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
-																<a href="prog?command=careerDelete&careerNum=${cVo.careerNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
+																<!-- <a href="#"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a> -->
+																<!-- <a href="prog?command=plDelete"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a> -->
 																<!-- <button type="button" class="btn btn-warning btn-sm">수정</button> -->
-																<!-- <button type="button" class="btn btn-danger btn-sm">삭제</button>	 -->
+																<button type="submit" class="btn btn-danger btn-sm">삭제</button>
 																</td>
 															</tr>
 															</c:forEach>
@@ -101,7 +84,7 @@ License: You must have a valid license purchased only from themeforest(the above
 													</div>
 												</div>
 											</div>
-											
+											</form>
 										</div>
 									</div>
 									
@@ -258,8 +241,8 @@ function openPopUp()
 	  var height = "555"; 
 	  var top = (window.screen.height-height)/2; 
 	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/careerRegisterForm.jsp"; 
-	  var title = "경력 정보 등록"; 
+ 	  var url = "profile/plRegister.jsp"; 
+	  var title = "프로그래밍 언어 등록"; 
 	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
       window.open(url, title, status);
@@ -270,36 +253,11 @@ function openPopUp()
             "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
 }
 
-function openPopUp()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "555"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/careerRegisterForm.jsp"; 
-	  var title = "경력 정보 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
-
-      window.open(url, title, status);
-
-
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
-}
-
-function deleteCareer(){
+function deletePl(){
 
 	// userID 변수에 userID의 입력된 값을 가져오게 함
-	var careerNum = $('#careerNum').val();
-	var companyName = $('#companyName').val();
-	var department = $('#department').val();
-	var position = $('#position').val();
-	var joinDate = $('#joinDate').val();
-	var retireDate = $('#retireDate').val();
+	var plNum = $('#plNum').val();
+	var plName = $('#plName').val();
 	
 	if(id == ""){
 		alert("아이디를 입력해주세요.");
@@ -320,38 +278,7 @@ function deleteCareer(){
 		alert("잘못된 정보입니다.");
 		return false;
 	}
-	else if(confirm("수정할 경우 재로그인이 필요합니다.\n정말로 수정하시겠습니까?")){
-	
-	$.ajax({
-
-		type: 'POST',  // GET or POST 전송방법 
-
-		url: '/prog?command=memberUpdate',  // 이쪽으로 보낸다(호출URL)
-
-		data: {id: id,
-			   password: password,
-			   name: name,
-			   juso: juso,
-			   extraJuso: extraJuso,
-			   email: email,
-			   tel: tel,
-			   bank: bank,
-			   account: account,
-			   progNum: progNum},  // userID 이름에 userID 데이터 값을 넣어서 보낸다
-
-		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
-			alert("수정 완료되었습니다.\n다시 로그인 해주세요.");
-			self.close();
-			opener.location.href = "/main?command=logout";
-		},
-		error: function(data){
-			alert("오류:: 다시 시도해주세요.");
-			return false;
-		}
-		 
-
-	})
-	} else{
+	else{
 		return false;
 	}
 }
