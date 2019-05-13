@@ -15,7 +15,7 @@ public class PlRegisterFormAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String url = "profile/plRegister.jsp";
+		String url = "admin/plRegister.jsp";
 		
 		System.out.println(url);
 		

@@ -257,8 +257,11 @@ font-weight: bold;
 														<label id="label1">첨부파일</label>
 														<div></div>
 														<div class="custom-file">
-															<input type="file" disabled="disabled" class="custom-file-input" name="projFile" id="projFile">
+															<input type="file" readonly="readonly" class="custom-file-input" name="projFile" id="projFile">
+														<a href="/proj?command=download&projFile=${projVo.projFile}">
 															<label class="custom-file-label" for="customFile" style="text-align: left;">${projVo.projFile}</label>
+														</a>
+														<input type="button" onclick="location.href='/proj?command=download&projFile=${projVo.projFile}'">
 														</div>
 													</div>
 												</div>

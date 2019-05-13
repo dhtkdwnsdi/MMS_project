@@ -19,7 +19,7 @@ public class PlListFormAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String url = "profile/plList.jsp";
+		String url = "admin/plList.jsp";
 		
 		PlDAO plDao = PlDAO.getInstance();
 		
