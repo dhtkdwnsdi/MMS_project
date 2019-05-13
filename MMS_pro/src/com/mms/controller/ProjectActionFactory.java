@@ -2,6 +2,8 @@ package com.mms.controller;
 
 import com.mms.controller.action.Action;
 import com.mms.controller.action.project.ProjectListFormAction;
+import com.mms.controller.action.project.ProjectRegisterAction;
+import com.mms.controller.action.project.ProjectViewFormAction;
 
 public class ProjectActionFactory {
 
@@ -22,6 +24,14 @@ public class ProjectActionFactory {
 			
 			if(command.equals("projectListForm")) {
 				action = new ProjectListFormAction();
+			}
+			else if(command.equals("projectRegister")) {
+				action = new ProjectRegisterAction();
+				
+			}
+			else if(command.equals("projectViewForm")) {
+				action = new ProjectViewFormAction();
+				
 			}
 			
 			return action;
