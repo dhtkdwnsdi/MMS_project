@@ -154,8 +154,9 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 			</div>
 			<div class="kt-portlet__body">
-				<form class="kt-form" id="kt_form">
-					<input type="hidden" name="progNum" value="${LoginUser.progNum}" id="progNum">
+				<form class="kt-form" id="kt_form" method="post" action="">
+					<input type="hidden" name="progNum" value="${LoginUser.progNum}"
+						id="progNum">
 					<div class="row">
 						<div class="col-xl-2"></div>
 						<div class="col-xl-8">
@@ -164,7 +165,6 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="kt-section__body">
 									<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
 																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
-
 
 									<div class="form-group row">
 										<label class="col-3 col-form-label">분류</label>
@@ -205,250 +205,248 @@ License: You must have a valid license purchased only from themeforest(the above
 												id="schoolName">
 										</div>
 									</div>
-									
-									
+
+
 
 
 									<div class="form-group row">
 										<label class="col-3 col-form-label">입학일</label>
 										<div class="col-9">
 											<input type="text" class="form-control" id="kt_datepicker_1"
-												readonly="" name="enterDate">
+												readonly name="enterDate">
 										</div>
 									</div>
 									<div class="form-group row">
 										<label class="col-3 col-form-label">졸업일</label>
 										<div class="col-9">
-											<input type="text" class="form-control" id="kt_datepicker_4_1" readonly="" name="graduateDate">
+											<input type="text" class="form-control"
+												id="kt_datepicker_4_1" readonly name="graduateDate">
 										</div>
 									</div>
 
 
-
-
-
 									<div class="col kt-align-right">
-										<button type="button" class="btn btn-brand"
+										<button type="submit" class="btn btn-brand"
 											onclick="registerEdu()">등록</button>
 										<a type="button" href="/prog?command=eduListForm"
 											class="btn btn-default">취소</a>
 									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</form>
 			</div>
+		</div>
+	</div>
 
-			<!-- end:: Content -->
-			<!-- end:: Page -->
+	<!-- end:: Content -->
+	<!-- end:: Page -->
 
-			<!-- begin::Global Config(global config for global JS sciprts) -->
-			<script>
-				var KTAppOptions = {
-					"colors" : {
-						"state" : {
-							"brand" : "#5d78ff",
-							"dark" : "#282a3c",
-							"light" : "#ffffff",
-							"primary" : "#5867dd",
-							"success" : "#34bfa3",
-							"info" : "#36a3f7",
-							"warning" : "#ffb822",
-							"danger" : "#fd3995"
-						},
-						"base" : {
-							"label" : [ "#c5cbe3", "#a1a8c3", "#3d4465",
-									"#3e4466" ],
-							"shape" : [ "#f0f3ff", "#d9dffa", "#afb4d4",
-									"#646c9a" ]
-						}
-					}
-				};
-			</script>
+	<!-- begin::Global Config(global config for global JS sciprts) -->
+	<script>
+		var KTAppOptions = {
+			"colors" : {
+				"state" : {
+					"brand" : "#5d78ff",
+					"dark" : "#282a3c",
+					"light" : "#ffffff",
+					"primary" : "#5867dd",
+					"success" : "#34bfa3",
+					"info" : "#36a3f7",
+					"warning" : "#ffb822",
+					"danger" : "#fd3995"
+				},
+				"base" : {
+					"label" : [ "#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466" ],
+					"shape" : [ "#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a" ]
+				}
+			}
+		};
+	</script>
 
-			<!-- end::Global Config -->
+	<!-- end::Global Config -->
 
-			<!--begin:: Global Mandatory Vendors -->
-			<script src="../assets/vendors/general/jquery/dist/jquery.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/popper.js/dist/umd/popper.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/bootstrap/dist/js/bootstrap.min.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/js-cookie/src/js.cookie.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/moment/min/moment.min.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/tooltip.js/dist/umd/tooltip.min.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/perfect-scrollbar/dist/perfect-scrollbar.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/sticky-js/dist/sticky.min.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/wnumb/wNumb.js"
-				type="text/javascript"></script>
+	<!--begin:: Global Mandatory Vendors -->
+	<script src="../assets/vendors/general/jquery/dist/jquery.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/popper.js/dist/umd/popper.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/bootstrap/dist/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/js-cookie/src/js.cookie.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/moment/min/moment.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/tooltip.js/dist/umd/tooltip.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/perfect-scrollbar/dist/perfect-scrollbar.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/sticky-js/dist/sticky.min.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/wnumb/wNumb.js"
+		type="text/javascript"></script>
 
-			<!--end:: Global Mandatory Vendors -->
+	<!--end:: Global Mandatory Vendors -->
 
-			<!--begin:: Global Optional Vendors -->
-			<script
-				src="../assets/vendors/general/jquery-form/dist/jquery.form.min.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/block-ui/jquery.blockUI.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/custom/components/vendors/bootstrap-datepicker/init.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/bootstrap-timepicker/js/bootstrap-timepicker.min.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/custom/components/vendors/bootstrap-timepicker/init.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/bootstrap-daterangepicker/daterangepicker.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/bootstrap-maxlength/src/bootstrap-maxlength.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/custom/vendors/bootstrap-multiselectsplitter/bootstrap-multiselectsplitter.min.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/bootstrap-select/dist/js/bootstrap-select.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/bootstrap-switch/dist/js/bootstrap-switch.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/custom/components/vendors/bootstrap-switch/init.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/select2/dist/js/select2.full.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/ion-rangeslider/js/ion.rangeSlider.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/typeahead.js/dist/typeahead.bundle.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/handlebars/dist/handlebars.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/inputmask/dist/jquery.inputmask.bundle.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/inputmask/dist/inputmask/inputmask.date.extensions.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/inputmask/dist/inputmask/inputmask.numeric.extensions.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/nouislider/distribute/nouislider.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/owl.carousel/dist/owl.carousel.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/autosize/dist/autosize.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/clipboard/dist/clipboard.min.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/dropzone/dist/dropzone.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/summernote/dist/summernote.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/markdown/lib/markdown.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/bootstrap-markdown/js/bootstrap-markdown.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/custom/components/vendors/bootstrap-markdown/init.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/bootstrap-notify/bootstrap-notify.min.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/custom/components/vendors/bootstrap-notify/init.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/jquery-validation/dist/jquery.validate.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/jquery-validation/dist/additional-methods.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/custom/components/vendors/jquery-validation/init.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/toastr/build/toastr.min.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/raphael/raphael.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/morris.js/morris.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/chart.js/dist/Chart.bundle.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/custom/vendors/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/custom/vendors/jquery-idletimer/idle-timer.min.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/waypoints/lib/jquery.waypoints.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/counterup/jquery.counterup.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/es6-promise-polyfill/promise.min.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/sweetalert2/dist/sweetalert2.min.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/custom/components/vendors/sweetalert2/init.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/jquery.repeater/src/lib.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/jquery.repeater/src/jquery.input.js"
-				type="text/javascript"></script>
-			<script
-				src="../assets/vendors/general/jquery.repeater/src/repeater.js"
-				type="text/javascript"></script>
-			<script src="../assets/vendors/general/dompurify/dist/purify.js"
-				type="text/javascript"></script>
+	<!--begin:: Global Optional Vendors -->
+	<script
+		src="../assets/vendors/general/jquery-form/dist/jquery.form.min.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/block-ui/jquery.blockUI.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/custom/components/vendors/bootstrap-datepicker/init.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/bootstrap-timepicker/js/bootstrap-timepicker.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/custom/components/vendors/bootstrap-timepicker/init.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/bootstrap-daterangepicker/daterangepicker.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/bootstrap-maxlength/src/bootstrap-maxlength.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/custom/vendors/bootstrap-multiselectsplitter/bootstrap-multiselectsplitter.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/bootstrap-select/dist/js/bootstrap-select.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/bootstrap-switch/dist/js/bootstrap-switch.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/custom/components/vendors/bootstrap-switch/init.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/select2/dist/js/select2.full.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/ion-rangeslider/js/ion.rangeSlider.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/typeahead.js/dist/typeahead.bundle.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/handlebars/dist/handlebars.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/inputmask/dist/jquery.inputmask.bundle.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/inputmask/dist/inputmask/inputmask.date.extensions.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/inputmask/dist/inputmask/inputmask.numeric.extensions.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/nouislider/distribute/nouislider.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/owl.carousel/dist/owl.carousel.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/autosize/dist/autosize.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/clipboard/dist/clipboard.min.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/dropzone/dist/dropzone.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/summernote/dist/summernote.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/markdown/lib/markdown.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/bootstrap-markdown/js/bootstrap-markdown.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/custom/components/vendors/bootstrap-markdown/init.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/bootstrap-notify/bootstrap-notify.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/custom/components/vendors/bootstrap-notify/init.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/jquery-validation/dist/jquery.validate.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/jquery-validation/dist/additional-methods.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/custom/components/vendors/jquery-validation/init.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/toastr/build/toastr.min.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/raphael/raphael.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/morris.js/morris.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/chart.js/dist/Chart.bundle.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/custom/vendors/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/custom/vendors/jquery-idletimer/idle-timer.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/waypoints/lib/jquery.waypoints.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/counterup/jquery.counterup.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/es6-promise-polyfill/promise.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/sweetalert2/dist/sweetalert2.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/custom/components/vendors/sweetalert2/init.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/jquery.repeater/src/lib.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/jquery.repeater/src/jquery.input.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/jquery.repeater/src/repeater.js"
+		type="text/javascript"></script>
+	<script src="../assets/vendors/general/dompurify/dist/purify.js"
+		type="text/javascript"></script>
 
-			<!--end:: Global Optional Vendors -->
+	<!--end:: Global Optional Vendors -->
 
-			<!--begin::Global Theme Bundle(used by all pages) -->
-			<script src="../assets/demo/default/base/scripts.bundle.js"
-				type="text/javascript"></script>
+	<!--begin::Global Theme Bundle(used by all pages) -->
+	<script src="../assets/demo/default/base/scripts.bundle.js"
+		type="text/javascript"></script>
 
-			<!--end::Global Theme Bundle -->
+	<!--end::Global Theme Bundle -->
 
-			<!--begin::Page Scripts(used by this page) -->
-			<script
-				src="../assets/app/custom/general/crud/forms/widgets/bootstrap-datepicker.js"
-				type="text/javascript"></script>
+	<!--begin::Page Scripts(used by this page) -->
+	<script
+		src="../assets/app/custom/general/crud/forms/widgets/bootstrap-datepicker.js"
+		type="text/javascript"></script>
 
-			<!--end::Page Scripts -->
+	<!--end::Page Scripts -->
 
-			<!--begin::Global App Bundle(used by all pages) -->
-			<script src="../assets/app/bundle/app.bundle.js"
-				type="text/javascript"></script>
+	<!--begin::Global App Bundle(used by all pages) -->
+	<script src="../assets/app/bundle/app.bundle.js" type="text/javascript"></script>
 
-			<!--end::Global App Bundle -->
+	<!--end::Global App Bundle -->
 </body>
 <script>
 	// 학력 등록 AJAX
@@ -481,11 +479,11 @@ License: You must have a valid license purchased only from themeforest(the above
 
 			$.ajax({
 
-				type: 'POST', // GET or POST 전송방법 
+				type : 'POST', // GET or POST 전송방법 
 
-				url: '/prog?command=eduRegister', // 이쪽으로 보낸다(호출URL)
+				url : '/prog?command=eduRegister', // 이쪽으로 보낸다(호출URL)
 
-				data: {
+				data : {
 					eduCategory : eduCategory,
 					eduState : eduState,
 					schoolName : schoolName,
@@ -494,12 +492,12 @@ License: You must have a valid license purchased only from themeforest(the above
 					progNum : progNum
 				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
 
-				success: function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
+				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
 					alert("등록 되었습니다.");
 					self.close();
 					opener.location.href = "/prog?command=eduListForm";
 				},
-				error: function(data) {
+				error : function(data) {
 					alert("오류:: 다시 시도해주세요.");
 					return false;
 				}
@@ -509,27 +507,29 @@ License: You must have a valid license purchased only from themeforest(the above
 	}
 </script>
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <script>
-    $.datepicker.setDefaults({
-        dateFormat: 'yy-mm-dd',
-        prevText: '이전 달',
-        nextText: '다음 달',
-        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-        showMonthAfterYear: true,
-        yearSuffix: '년'
-    });
+	$.datepicker.setDefaults({
+		dateFormat : 'yy-mm-dd',
+		prevText : '이전 달',
+		nextText : '다음 달',
+		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월',
+				'10월', '11월', '12월' ],
+		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월',
+				'9월', '10월', '11월', '12월' ],
+		dayNames : [ '일', '월', '화', '수', '목', '금', '토' ],
+		dayNamesShort : [ '일', '월', '화', '수', '목', '금', '토' ],
+		dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
+		showMonthAfterYear : true,
+		yearSuffix : '년'
+	});
 
-    $(function() {
-        $("#datepicker1").datepicker();
-    });
-
+	$(function() {
+		$("#datepicker1").datepicker();
+	});
 </script>
 <!-- end::Body -->
 </html>

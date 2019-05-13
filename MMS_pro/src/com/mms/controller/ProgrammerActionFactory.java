@@ -1,12 +1,14 @@
 package com.mms.controller;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.CareerDeleteAction;
 import com.mms.controller.action.CareerListFormAction;
 import com.mms.controller.action.CareerRegisterAction;
 import com.mms.controller.action.CertListFormAction;
 import com.mms.controller.action.CertRegistAction;
 import com.mms.controller.action.CertRegistFormAction;
 import com.mms.controller.action.CertSearchFormAction;
+import com.mms.controller.action.EduDeleteAction;
 import com.mms.controller.action.EduListFormAction;
 import com.mms.controller.action.EduRegisterAction;
 import com.mms.controller.action.MemberSetFormAction;
@@ -50,7 +52,10 @@ public class ProgrammerActionFactory {
 			action = new CareerRegisterAction();
 			
 		}
-
+		else if(command.equals("careerDelete")) {
+			action = new CareerDeleteAction();
+			
+		}
 		
 		
 		
@@ -68,6 +73,11 @@ public class ProgrammerActionFactory {
 		
 		else if(command.equals("eduRegister")) {
 			action = new EduRegisterAction();
+			
+		}
+		
+		else if(command.equals("eduDelete")) {
+			action = new EduDeleteAction();
 			
 		}
 		

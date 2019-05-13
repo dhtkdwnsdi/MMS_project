@@ -75,8 +75,8 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td>-</td>
 																</c:if>
 																<td>
-																<a href="#"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
-																<a href="#"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
+																<a href="prog?command=careerUpdate&careerNum=${cVo.careerNum}"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
+																<a href="prog?command=careerDelete&careerNum=${cVo.careerNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
 																<!-- <button type="button" class="btn btn-warning btn-sm">수정</button> -->
 																<!-- <button type="button" class="btn btn-danger btn-sm">삭제</button>	 -->
 																</td>

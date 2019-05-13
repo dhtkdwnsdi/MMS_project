@@ -57,27 +57,34 @@ License: You must have a valid license purchased only from themeforest(the above
 													<table class="table table-bordered">
 														<thead>
 															<tr>
-																<th><b><input type="checkbox"></input></b></th>
-																<th><b>분류</b></th>
-																<th><b>상태</b></th>
-																<th><b>학교명</b></th>
-																<th><b>입학일</b></th>
-																<th><b>졸업일</b></th>
+																<th>#></th>
+																<th style="font-weight: bold;">회사명</th>
+																<th style="font-weight: bold;">부서</th>
+																<th style="font-weight: bold;">직책</th>
+																<th style="font-weight: bold;">입사일</th>
+																<th style="font-weight: bold;">퇴사일</th>
+																<th style="font-weight: bold;">관리</th>
 															</tr>
 														</thead>
 														
-														<c:forEach items="${eduList}" var="EduVO">
-														<tbody>
+														<tbody style="text-align: center;">
+														<c:forEach items="${eduList}" var="eduVo" varStatus="listStat">
 															<tr>
-																<td><input type="checkbox" value="${EduVO.eduNum}"></td>
-																<td>${EduVO.eduCategory}</td>
-																<td>${EduVO.eduState}</td>
-																<td>${EduVO.schoolName}</td>
-																<td>${EduVO.enterDate}</td>
-																<td>${EduVO.graduateDate}</td>
+																<th scope="row">${listStat.count}
+																<input type="hidden" name="eduNum" id="eduNum" value="${eduVo.eduNum}"></th>
+																<td>${eduVo.eduCategory}</td>
+																<td>${eduVo.eduState}</td>
+																<td>${eduVo.schoolName}</td>
+																<td>${eduVo.enterDate}</td>
+																<td>${eduVo.graduateDate}</td>
+																<td>
+																<a href="prog?command=eduUpdate&eduNum=${eduVo.eduNum}">
+																<span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
+																<a href="prog?command=eduDelete&eduNum=${eduVo.eduNum}">
+																<span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a></td>
 															</tr>
-														</tbody>
 														</c:forEach>
+														</tbody>
 													</table>
 												</div>
 											<!--end::Section-->

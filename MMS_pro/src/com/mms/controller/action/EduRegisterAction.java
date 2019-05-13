@@ -16,6 +16,8 @@ public class EduRegisterAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		String url = "/prog?command=eduListForm";
+		
 		String progNum = request.getParameter("progNum");
 		String eduNum = request.getParameter("eduNum");
 		String eduCategory = request.getParameter("eduCategory");
@@ -42,6 +44,9 @@ public class EduRegisterAction implements Action {
 		System.out.println("eduVo : " + eduVo);
 		
 		eduDao.insertEdu(eduVo);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+        dispatcher.forward(request, response);
 		
 		
 	}

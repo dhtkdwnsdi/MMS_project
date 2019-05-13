@@ -1,7 +1,7 @@
 package com.mms.controller.action;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,7 +31,7 @@ public class CareerListFormAction implements Action{
 		
 		CareerDAO cDao = CareerDAO.getInstance();
 		
-		ArrayList<CareerVO> cList = cDao.careerList(progNum);
+		List<CareerVO> cList = cDao.careerList(progNum);
 		
 		request.setAttribute("cList", cList);
 		

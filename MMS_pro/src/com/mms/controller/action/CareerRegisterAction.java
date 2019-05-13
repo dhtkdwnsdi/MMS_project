@@ -2,6 +2,7 @@ package com.mms.controller.action;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,8 @@ public class CareerRegisterAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		String url = "/prog?command=careerListForm";
+		
 		String progNum = request.getParameter("progNum");
 		String companyName = request.getParameter("companyName");
 		String department = request.getParameter("department");
@@ -38,6 +41,9 @@ public class CareerRegisterAction implements Action {
 		System.out.println("cVo : " + cVo);
 		
 		cDao.insertCareer(cVo);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+        dispatcher.forward(request, response);
 		
 		
 	}

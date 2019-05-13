@@ -112,5 +112,32 @@ public class EduDAO extends DBManager {
 		}
 
 	}
+	
+	//학력 삭제하기
+	public void deleteEdu(String eduNum) {
+		String sql = "DELETE FROM TBL_EDU "
+				+ "    WHERE EDU_NUM = " + eduNum;
+
+		Connection conn = null;
+   		PreparedStatement pstmt =null;
+   		try {
+            conn = getConnection();
+            pstmt = conn.prepareStatement(sql);
+            
+            pstmt.executeUpdate();
+   		} catch (SQLException e) {
+   			e.printStackTrace();
+   		} finally {
+        	 try {
+                 if(pstmt != null)
+                	 pstmt.close();
+                 if(conn != null)
+                    conn.close();
+              } catch (Exception e) {
+                 e.printStackTrace();
+              }
+         }
+		
+	}
 
 }

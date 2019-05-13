@@ -145,32 +145,30 @@ public class CareerDAO extends DBManager {
 		
 	}
 	
+	//경력 삭제하기
 	public void deleteCareer(String careerNum) {
+		String sql = "DELETE FROM TBL_CAREER "
+				+ "    WHERE CAREER_NUM = " + careerNum;
+
 		Connection conn = null;
-		PreparedStatement pstmt = null;
-		
-		String sql = "DELETE FROM TBL_CAREER WHERE CAREER_NUM = ?";
-
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, careerNum);
-			pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-			
-		} finally {
-			try {
-				if(pstmt != null) pstmt.close();
-				if(conn != null) conn.close();
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-
-			}
-			
-		}
+   		PreparedStatement pstmt =null;
+   		try {
+            conn = getConnection();
+            pstmt = conn.prepareStatement(sql);
+            
+            pstmt.executeUpdate();
+   		} catch (SQLException e) {
+   			e.printStackTrace();
+   		} finally {
+        	 try {
+                 if(pstmt != null)
+                	 pstmt.close();
+                 if(conn != null)
+                    conn.close();
+              } catch (Exception e) {
+                 e.printStackTrace();
+              }
+         }
 		
 	}
 	
