@@ -38,7 +38,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div
 					class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
 					id="kt_page_portlet">
-					<div class="kt-portlet__head kt-portlet__head--lg">
+					<!-- <div class="kt-portlet__head kt-portlet__head--lg">
 						<div class="kt-portlet__head-label">
 							<h3 class="kt-portlet__head-title">
 								포트폴리오 작성 <small>try to scroll the page</small>
@@ -47,16 +47,16 @@ License: You must have a valid license purchased only from themeforest(the above
 						<div class="kt-portlet__head-toolbar">
 
 							<a
-								href="prog?command=portpolioListForm&progNum=${LoginUser.progNum}"
+								href="prog?command=portpolioListForm"
 								class="btn btn-clean kt-margin-r-10"> <i
 								class="la la-arrow-left"></i> <span class="kt-hidden-mobile">Back</span>
 							</a>
 							<div class="btn-group">
 								<button type="submit" class="btn btn-brand"
-									href="prog?command=portpolioListForm&progNum=${LoginUser.progNum}">
-									<i class="la la-check"></i> <span class="kt-hidden-mobile">Save</span>
+									href="prog?command=portpolioListForm">
+									<span class="kt-hidden-mobile">Save</span>
 								</button>
-								<!-- <button type="button"
+								<button type="button"
 									class="btn btn-brand dropdown-toggle dropdown-toggle-split"
 									data-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="false"></button>
@@ -80,10 +80,10 @@ License: You must have a valid license purchased only from themeforest(the above
 												class="kt-nav__link-text">Save & add new</span>
 										</a></li>
 									</ul>
-								</div> -->
+								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<div class="kt-portlet__body">
 						<form class="kt-form" id="kt_form">
 							<div class="row">
@@ -92,6 +92,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="kt-section kt-section--first">
 										<div class="kt-section__body">
 											<h3 class="kt-section__title kt-section__title-lg">포트폴리오</h3>
+											<input type="hidden" name="progNum" value="${LoginUser}">
 											<div class="form-group row">
 												<label class="col-3 col-form-label">제목</label>
 												<div class="col-9">
@@ -189,6 +190,13 @@ License: You must have a valid license purchased only from themeforest(the above
 												</div>
 											</div>
 										</div>
+										<div class="kt-portlet__foot">
+								<div class="col kt-align-right">
+									<button type="button" class="btn btn-brand"
+										onclick="registerPortpolio()">등록</button>
+									<button type="reset" class="btn btn-danger" href="prog?command=portpolioListForm">취소</button>
+								</div>
+								</div>
 									</div>
 
 
@@ -929,6 +937,68 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!--end::Global App Bundle -->
 </body>
+
+<script>
+// 경력 등록 AJAX
+function registerCareer(){
+
+	// userID 변수에 userID의 입력된 값을 가져오게 함
+	var progNum = $('#progNum').val();
+	var portNum = $('#portNum').val();
+	var subject = $('#subject').val();
+	var portCate = $('#portCate').val();
+	var portDetailCate = $('#portDetailCate').val();
+	var portStartDate = $('#kt_datepicker_1').val();
+	var portEndDate = $('#kt_datepicker_4_1').val();
+	var rate = $('#rate').val();
+	var connectSkill = $('#connectSkill').val();
+	var portContents = $('#portContents').val();
+	var portFile = $('#portFile').val();
+	
+	if(subject == ""){
+		alert("제목을 입력해주세요.");
+		$("#subject").focus();
+	}
+	if(progNum == ""){
+		alert("잘못된 정보입니다.");
+		return false;
+	}
+	else{
+	
+	$.ajax({
+
+		type: 'POST',  // GET or POST 전송방법 
+
+		url: '/prog?command=portpolioRegister',  // 이쪽으로 보낸다(호출URL)
+
+		data: {portNum: portNum,
+			   department: department,
+			   subject: subject,
+			   portCate: portCate,
+			   portDetailCate: portDetailCate,
+			   portStartDate: portStartDate,
+			   portEndDate: portEndDate,
+			   rate: rate,
+			   connectSkill: connectSkill,
+			   portContents: portContents,
+			   portFile: portFile,
+			   progNum: progNum},  // userID 이름에 userID 데이터 값을 넣어서 보낸다
+
+		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
+			alert("등록 되었습니다.");
+			self.close();
+			opener.location.href = "/prog?command=portpolioListForm";
+		},
+		error: function(data){
+			alert("오류:: 다시 시도해주세요.");
+			return false;
+		}
+		 
+
+	})
+	}
+}
+</script>
 
 <!-- end::Body -->
 </html>

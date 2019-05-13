@@ -1,4 +1,4 @@
-package com.mms.controller.action;
+package com.mms.controller.action.portpolio;
 
 import java.io.IOException;
 
@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mms.controller.action.Action;
 import com.mms.dao.PortpolioDAO;
 import com.mms.vo.PortpolioVo;
 
@@ -50,13 +51,19 @@ public class PortpolioRegistAction implements Action {
 		portVo.setSubject(subject);
 		portVo.setPortCate(portCate);
 		portVo.setPortDetailCate(portDetailCate);
-		portVo.setPortStartDate(portStartDate);
-		portVo.setPortEndDate(portEndDate);
+		if(portStartDate != "") {
+			portVo.setPortStartDate(portStartDate);
+		}
+		if(portEndDate != "") {
+			portVo.setPortEndDate(portEndDate);
+		}
 		portVo.setRate(rate);
 		portVo.setConnectSkill(connectSkill);
 		portVo.setPortContents(portContents);
 		portVo.setPortFile(portFile);
 		portVo.setProgNum(progNum);
+		
+		System.out.println("portVo : " + portVo);
 		
 		PortpolioDAO portDao = PortpolioDAO.getInstance();
 		

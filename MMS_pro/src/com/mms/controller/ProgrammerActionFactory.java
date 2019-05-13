@@ -15,6 +15,10 @@ import com.mms.controller.action.MemberSetFormAction;
 import com.mms.controller.action.MemberUpdateAction;
 import com.mms.controller.action.MyCertDeleteAction;
 import com.mms.controller.action.MyCertListFormAction;
+import com.mms.controller.action.pl.PlDeleteAction;
+import com.mms.controller.action.pl.PlListFormAction;
+import com.mms.controller.action.pl.PlRegisterAction;
+import com.mms.controller.action.pl.PlRegisterFormAction;
 
 public class ProgrammerActionFactory {
 	private static ProgrammerActionFactory instance = new ProgrammerActionFactory();
@@ -117,6 +121,18 @@ public class ProgrammerActionFactory {
 		/**
 		 * @author LYJ
 		 */
+		else if(command.equals("plListForm")) {
+			action = new PlListFormAction();
+		}
+		else if(command.equals("plDelete")) {
+			action = new PlDeleteAction();
+		}
+		else if(command.equals("plRegister")) {
+			action = new PlRegisterAction();
+		}
+		else if(command.equals("plRegisterForm")) {
+			action = new PlRegisterFormAction();
+		}
 		
 		
 		
