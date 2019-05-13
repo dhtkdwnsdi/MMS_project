@@ -15,6 +15,7 @@ import com.mms.controller.action.MemberSetFormAction;
 import com.mms.controller.action.MemberUpdateAction;
 import com.mms.controller.action.MyCertDeleteAction;
 import com.mms.controller.action.MyCertListFormAction;
+import com.mms.controller.action.PortpolioListFormAction;
 
 public class ProgrammerActionFactory {
 	private static ProgrammerActionFactory instance = new ProgrammerActionFactory();
@@ -110,7 +111,10 @@ public class ProgrammerActionFactory {
 			action = new MyCertDeleteAction();
 		}
 		
-		
+		//포트폴리오
+		else if(command.equals("portpolioListForm")) {
+			action = new PortpolioListFormAction();
+		}
 		
 		
 		
