@@ -4,6 +4,8 @@ import com.mms.controller.action.Action;
 import com.mms.controller.action.CareerDeleteAction;
 import com.mms.controller.action.CareerListFormAction;
 import com.mms.controller.action.CareerRegisterAction;
+import com.mms.controller.action.CareerUpdateAction;
+import com.mms.controller.action.CareerUpdateFormAction;
 import com.mms.controller.action.CertListFormAction;
 import com.mms.controller.action.CertRegistAction;
 import com.mms.controller.action.CertRegistFormAction;
@@ -15,6 +17,7 @@ import com.mms.controller.action.MemberSetFormAction;
 import com.mms.controller.action.MemberUpdateAction;
 import com.mms.controller.action.MyCertDeleteAction;
 import com.mms.controller.action.MyCertListFormAction;
+import com.mms.controller.action.PortpolioListFormAction;
 import com.mms.controller.action.pl.PlDeleteAction;
 import com.mms.controller.action.pl.PlListFormAction;
 import com.mms.controller.action.pl.PlRegisterAction;
@@ -60,8 +63,14 @@ public class ProgrammerActionFactory {
 			action = new CareerDeleteAction();
 			
 		}
-		
-		
+		else if(command.equals("careerUpdateFrom")) {
+			action = new CareerUpdateFormAction();
+			
+		}
+		else if(command.equals("careerUpdate")) {
+			action = new CareerUpdateAction();
+			
+		}
 		
 		
 		
@@ -114,7 +123,10 @@ public class ProgrammerActionFactory {
 			action = new MyCertDeleteAction();
 		}
 		
-		
+		//포트폴리오
+		else if(command.equals("portpolioListForm")) {
+			action = new PortpolioListFormAction();
+		}
 		
 		
 		

@@ -1,25 +1,126 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp" %>
 <!DOCTYPE html>
-
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <html lang="en">
 
 
 <head>
+<meta charset="utf-8" />
+<title>PMMS | 프로젝트 등록</title>
+<meta name="description" content="Multi column form examples">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<!--begin::Fonts -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+	WebFont.load({
+		google : {
+			"families" : [ "Poppins:300,400,500,600,700",
+					"Roboto:300,400,500,600,700" ]
+		},
+		active : function() {
+			sessionStorage.fonts = true;
+		}
+	});
+</script>
+
+<!--end::Fonts -->
+
+<!--begin:: Global Mandatory Vendors -->
+<link
+	href="../assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css"
+	rel="stylesheet" type="text/css" />
+
+<!--end:: Global Mandatory Vendors -->
+
+<!--begin:: Global Optional Vendors -->
+<link href="../assets/vendors/general/tether/dist/css/tether.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/select2/dist/css/select2.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/ion-rangeslider/css/ion.rangeSlider.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/nouislider/distribute/nouislider.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/dropzone/dist/dropzone.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/summernote/dist/summernote.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-markdown/css/bootstrap-markdown.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/animate.css/animate.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/toastr/build/toastr.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/morris.js/morris.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/sweetalert2/dist/sweetalert2.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/socicon/css/socicon.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/custom/vendors/line-awesome/css/line-awesome.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/custom/vendors/flaticon/flaticon.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/custom/vendors/flaticon2/flaticon.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/custom/vendors/fontawesome5/css/all.min.css"
+	rel="stylesheet" type="text/css" />
+
+<!--end:: Global Optional Vendors -->
+
+<!--begin::Global Theme Styles(used by all pages) -->
+<link href="../assets/demo/default/base/style.bundle.css"
+	rel="stylesheet" type="text/css" />
+
+<!--end::Global Theme Styles -->
+
+<!--begin::Layout Skins(used by all pages) -->
+<link href="../assets/demo/default/skins/header/base/light.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/demo/default/skins/header/menu/light.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/demo/default/skins/brand/dark.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/demo/default/skins/aside/dark.css"
+	rel="stylesheet" type="text/css" />
+
+<!--end::Layout Skins -->
+<link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
 </head>
 
 
@@ -28,76 +129,80 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin:: Page -->
 	<!-- begin:: Content -->
-	<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
-							<div class="kt-portlet kt-portlet--mobile">
-								<div class="kt-portlet__head kt-portlet__head--lg">
-									<div class="kt-portlet__head-label">
-										<h3 class="kt-portlet__head-title">
-											보유 자격증 등록
-										</h3>
+	<div class="kt-content  kt-grid__item kt-grid__item--fluid"
+		id="kt_content">
+		<div class="kt-portlet kt-portlet--mobile">
+			<div class="kt-portlet__head kt-portlet__head--lg">
+				<div class="kt-portlet__head-label">
+					<h3 class="kt-portlet__head-title">보유 자격증 등록</h3>
+				</div>
+			</div>
+			<div class="kt-portlet__body">
+				<form class="kt-form" id="kt_form" name="frm" method="post"
+					action="prog?command=myCertRegist">
+					<input type="hidden" name="progNum" id="progNum"
+						value="${LoginUser.progNum}">
+					<div class="row">
+						<div class="col-xl-2"></div>
+						<div class="col-xl-8">
+							<div class="kt-section kt-section--first">
+								<div class="kt-section__body">
+
+									<div class="form-group row">
+										<label class="col-3 col-form-label">자격증명</label> <input
+											name="certNum" class="form-control" type="hidden">
+										<div class="kt-input-icon kt-input-icon--right">
+											<input type="text" class="form-control" id="generalSearch"
+												name="certName" readonly> <span
+												class="kt-input-icon__icon kt-input-icon__icon--right">
+												<span><button type="button"
+														class="btn btn-outline-hover-danger btn-icon"
+														onClick="certNameCheck()" id="certNameCherck">
+														<i class="la la-search"></i>
+													</button></span>
+											</span>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-3 col-form-label">발급기관</label>
+										<div class="col-9">
+											<input class="form-control" type="text" name="issueOrg"
+												id="issueOrg">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-3 col-form-label">발행일자</label>
+										<div class="col-9">
+											<input type="text" class="form-control" id="kt_datepicker_1"
+												readonly name="issueDate">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-3 col-form-label">일련번호</label>
+										<div class="col-9">
+											<input class="form-control" type="text" name="certSerial"
+												id="certSerial">
+										</div>
 									</div>
 								</div>
-								<div class="kt-portlet__body">
-										<form class="kt-form" id="kt_form" name="frm" method="post" action="prog?command=myCertRegist">
-											<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}">
-												<div class="row">
-													<div class="col-xl-2"></div>
-													<div class="col-xl-8">
-														<div class="kt-section kt-section--first">
-															<div class="kt-section__body">
-																
-															<div class="form-group row">
-																<label class="col-3 col-form-label">자격증명</label>
-																	<input name="certNum" class="form-control" type="hidden">
-																<div class="kt-input-icon kt-input-icon--right">
-																	<input type="text" class="form-control" id="generalSearch" name="certName" readonly>
-																<span class="kt-input-icon__icon kt-input-icon__icon--right">
-																<span><button type="button" class="btn btn-outline-hover-danger btn-icon" onClick ="certNameCheck()" id="certNameCherck">
-																<i class="la la-search"></i></button></span>
-																</span>
-																</div>
-															</div>
-																
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">발급기관</label>
-																	<div class="col-9">
-																		<input class="form-control" type="text" name="issueOrg" id="issueOrg">
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">발행일자</label>
-																	<div class="col-9">
-																		<input type="text" class="form-control" id="kt_datepicker_1" readonly name="issueDate">
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">일련번호</label>
-																	<div class="col-9">
-																		<input class="form-control" type="text" name="certSerial" id="certSerial">
-																	</div>
-																</div>
-															</div>
-														</div>
-											<div class="kt-portlet__foot">
-												<div class="kt-form__actions kt-form__actions--right">
-													<div class="row">
-														<!-- <div class="col kt-align-left">
-															<button type="reset" class="btn btn-secondary">수정</button>
-															<button type="reset" class="btn btn-danger">삭제</button>
-														</div> -->
-														<div class="col kt-align-right">
-															<button type="submit" class="btn btn-brand">등록</button>
-														</div>
-													</div>
-												</div>
-											</div>
-	 												</div>
-													<div class="col-xl-2"></div>
-												</div>
-											</form>
+							</div>
+							<div class="kt-portlet__foot">
+								<div class="kt-form__actions kt-form__actions--right">
+									<div class="row">
+										<div class="col kt-align-right">
+											<button type="submit" class="btn btn-brand">등록</button>
 										</div>
+									</div>
+								</div>
 							</div>
 						</div>
+						<div class="col-xl-2"></div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
 	<!-- end:: Content -->
 
@@ -275,13 +380,14 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Global Config(global config for global JS sciprts) -->
 	<script>
-	
-		function certNameCheck(){
-			  var url = "/prog?command=certSearchForm"
-			  window.open(url, "_blank_1","toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=500, height=400");
-			
+		function certNameCheck() {
+			var url = "/prog?command=certSearchForm"
+			window
+					.open(url, "_blank_1",
+							"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=500, height=400");
+
 		}
-		
+
 		var KTAppOptions = {
 			"colors" : {
 				"state" : {

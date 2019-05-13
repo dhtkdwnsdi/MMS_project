@@ -57,12 +57,12 @@ License: You must have a valid license purchased only from themeforest(the above
 													<table class="table table-bordered">
 														<thead>
 															<tr>
-																<th>#></th>
-																<th style="font-weight: bold;">회사명</th>
-																<th style="font-weight: bold;">부서</th>
-																<th style="font-weight: bold;">직책</th>
-																<th style="font-weight: bold;">입사일</th>
-																<th style="font-weight: bold;">퇴사일</th>
+																<th>#</th>
+																<th style="font-weight: bold;">분류</th>
+																<th style="font-weight: bold;">상태</th>
+																<th style="font-weight: bold;">학교명</th>
+																<th style="font-weight: bold;">입학일</th>
+																<th style="font-weight: bold;">졸업일</th>
 																<th style="font-weight: bold;">관리</th>
 															</tr>
 														</thead>
