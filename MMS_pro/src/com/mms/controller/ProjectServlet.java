@@ -5,7 +5,6 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -136,7 +135,7 @@ public class ProjectServlet extends HttpServlet {
 						}
 
 
-					response.setHeader("Content-Disposition", "attachment; filename="+fileName);
+					response.setHeader("Content-Disposition","attachment; filename=" + fileName + ";");
 					FileInputStream fin = new java.io.FileInputStream(f);
 					BufferedInputStream bis = new BufferedInputStream(fin);
 					ServletOutputStream fout = response.getOutputStream();
