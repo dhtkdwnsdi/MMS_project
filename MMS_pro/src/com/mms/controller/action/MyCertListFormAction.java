@@ -34,10 +34,6 @@ public class MyCertListFormAction implements Action {
 		
 		List<MyCertVO> myCertList = myCertDao.selectMyCert(progNum);
 		
-		System.out.println(
-
-				);
-		
 		request.setAttribute("myCertList", myCertList);
 		
 		System.out.println(myCertList);

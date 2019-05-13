@@ -28,131 +28,83 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin:: Page -->
 	<!-- begin:: Content -->
-	<div class="kt-content  kt-grid__item kt-grid__item--fluid"
-		id="kt_content">
-		<div class="row">
-			<div class="col-lg-12">
-
-				<!--begin::Portlet-->
-				<div
-					class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
-					id="kt_page_portlet">
-					<div class="kt-portlet__head kt-portlet__head--lg">
-						<div class="kt-portlet__head-label">
-							<h3 class="kt-portlet__head-title">
-								Sticky Form Actions <small>try to scroll the page</small>
-							</h3>
-						</div>
-						<div class="kt-portlet__head-toolbar">
-							<a href="#" class="btn btn-clean kt-margin-r-10"> <i
-								class="la la-arrow-left"></i> <span class="kt-hidden-mobile">Back</span>
-							</a>
-							<div class="btn-group">
-								<button type="button" class="btn btn-brand">
-									<i class="la la-check"></i> <span class="kt-hidden-mobile">Save</span>
-								</button>
-								<button type="button"
-									class="btn btn-brand dropdown-toggle dropdown-toggle-split"
-									data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false"></button>
-								<div class="dropdown-menu dropdown-menu-right">
-									<ul class="kt-nav">
-										<li class="kt-nav__item"><a href="#" class="kt-nav__link">
-												<i class="kt-nav__link-icon flaticon2-reload"></i> <span
-												class="kt-nav__link-text">Save & continue</span>
-										</a></li>
-										<li class="kt-nav__item"><a href="#" class="kt-nav__link">
-												<i class="kt-nav__link-icon flaticon2-power"></i> <span
-												class="kt-nav__link-text">Save & exit</span>
-										</a></li>
-										<li class="kt-nav__item"><a href="#" class="kt-nav__link">
-												<i
-												class="kt-nav__link-icon flaticon2-edit-interface-symbol-of-pencil-tool"></i>
-												<span class="kt-nav__link-text">Save & edit</span>
-										</a></li>
-										<li class="kt-nav__item"><a href="#" class="kt-nav__link">
-												<i class="kt-nav__link-icon flaticon2-add-1"></i> <span
-												class="kt-nav__link-text">Save & add new</span>
-										</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="kt-portlet__body">
-						<form class="kt-form" id="kt_form">
-							<div class="row">
-								<div class="col-xl-2"></div>
-								<div class="col-xl-8">
-									<div class="kt-section kt-section--first">
-										<div class="kt-section__body">
-											<h3 class="kt-section__title kt-section__title-lg">보유
-												자격증 등록</h3>
-											
-											<div class="form-group row">
-												<label class="col-form-label col-lg-3 col-sm-12">자격증명</label>
-												<div class="col-lg-9 col-md-9 col-sm-12">
-													<input class="form-control" type="text" disabled>
-												</div>
-												<button type="button"
-													class="input-group-text">
-													<i class="fa fa-search"></i>
-												</button>
-											</div>
-											
-											<div class="form-group row">
-												<label class="col-3 col-form-label">발급 기관</label>
-												<div class="col-9">
-													<input class="form-control" type="text" disabled>
-												</div>
-											</div>
-											
-											<div class="form-group row">
-												<label class="col-form-label col-lg-3 col-sm-12">발행일자</label>
-												<div class="col-lg-9 col-md-9 col-sm-12">
-													<div class="input-group date">
-														<input type="text" class="form-control" readonly
-															placeholder="Select date" id="kt_datepicker_2_modal" />
-														<div class="input-group-append">
-															<span class="input-group-text"> <i
-																class="la la-calendar-check-o"></i>
-															</span>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-3 col-form-label">일련번호</label>
-												<div class="col-9">
-													<input class="form-control" type="text">
-												</div>
-											</div>
-											<div class="kt-portlet__foot kt-portlet__foot--fit-x">
-												<div class="kt-form__actions">
-													<div class="row">
-														<div class="col-lg-2"></div>
-														<div class="col-lg-10">
-															<button type="reset" class="btn btn-success">Submit</button>
-															<button type="reset" class="btn btn-secondary">Cancel</button>
-														</div>
-													</div>
-												</div>
-											</div>
-
-										</div>
+	<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
+							<div class="kt-portlet kt-portlet--mobile">
+								<div class="kt-portlet__head kt-portlet__head--lg">
+									<div class="kt-portlet__head-label">
+										<h3 class="kt-portlet__head-title">
+											보유 자격증 등록
+										</h3>
 									</div>
 								</div>
-
-
+								<div class="kt-portlet__body">
+											<form class="kt-form" id="kt_form">
+											<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}">
+												<div class="row">
+													<div class="col-xl-2"></div>
+													<div class="col-xl-8">
+														<div class="kt-section kt-section--first">
+															<div class="kt-section__body">
+																
+																<!-- <div class="form-group row">
+																	<label class="col-3 col-form-label">자격증명</label>
+																	<div class="col-lg-4 col-md-9 col-sm-12">
+																		<input class="form-control" type="text" name="certName" id="certName">
+																		<button type="button" class="btn btn-outline-hover-danger btn-icon"><i class="fa fa-search"></i></button>
+																	</div>
+																</div> -->
+															
+															<div class="form-group row">
+																<label class="col-3 col-form-label">자격증명</label>
+																<div class="kt-input-icon kt-input-icon--right">
+																<input type="text" class="form-control" disabled id="generalSearch" name="certName" id="certName">
+																<span class="kt-input-icon__icon kt-input-icon__icon--right">
+																<span><button type="button" class="btn btn-outline-hover-danger btn-icon" onClick ="certNameCheck()" id="certNameCherck">
+																<i class="la la-search"></i></button></span>
+																</span>
+																</div>
+															</div>
+																
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">발급기관</label>
+																	<div class="col-9">
+																		<input class="form-control" type="text" name="issueOrg" id="issueOrg">
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">발행일자</label>
+																	<div class="col-9">
+																		<input type="text" class="form-control" id="kt_datepicker_1" readonly name="issueDate">
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label class="col-3 col-form-label">일련번호</label>
+																	<div class="col-9">
+																		<input class="form-control" type="text" name="certSerial" id="certSerial">
+																	</div>
+																</div>
+															</div>
+														</div>
+											<div class="kt-portlet__foot">
+												<div class="kt-form__actions kt-form__actions--right">
+													<div class="row">
+														<!-- <div class="col kt-align-left">
+															<button type="reset" class="btn btn-secondary">수정</button>
+															<button type="reset" class="btn btn-danger">삭제</button>
+														</div> -->
+														<div class="col kt-align-right">
+															<button type="button" class="btn btn-brand" onclick="certNameCheck()">등록</button>
+														</div>
+													</div>
+												</div>
+											</div>
+	 												</div>
+													<div class="col-xl-2"></div>
+												</div>
+											</form>
+										</div>
 							</div>
-						</form>
-					</div>
-				</div>
-
-				<!--end::Portlet-->
-			</div>
-		</div>
-	</div>
+						</div>
 
 	<!-- end:: Content -->
 
@@ -496,25 +448,6 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- end::Scrolltop -->
 
-	<!-- begin::Sticky Toolbar -->
-	<ul class="kt-sticky-toolbar" style="margin-top: 30px;">
-		<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--success"
-			id="kt_demo_panel_toggle" data-toggle="kt-tooltip"
-			title="Check out more demos" data-placement="right"><a href="#"
-			class=""><i class="flaticon2-drop"></i></a></li>
-		<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--brand"
-			data-toggle="kt-tooltip" title="Layout Builder" data-placement="left">
-			<a
-			href="https://keenthemes.com/metronic/preview/default/builder.html"
-			target="_blank"><i class="flaticon2-gear"></i></a>
-		</li>
-		<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--warning"
-			data-toggle="kt-tooltip" title="Documentation" data-placement="left">
-			<a href="https://keenthemes.com/metronic/?page=docs" target="_blank"><i
-				class="flaticon2-telegram-logo"></i></a>
-		</li>
-	</ul>
-
 	<!-- end::Sticky Toolbar -->
 
 	<!-- begin::Demo Panel -->
@@ -679,6 +612,23 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Global Config(global config for global JS sciprts) -->
 	<script>
+	
+		function certNameCheck(){
+			// window.name = "부모창 이름"; 
+		      window.name = "parentForm";
+		    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+		      var width = "800"; 
+			  var height = "500"; 
+			  var top = (window.screen.height-height)/2; 
+			  var left = (window.screen.width-width)/2; 
+			  var url = "/prog?command=certSearchForm"
+		      var title = "학력 정보 등록"; 
+			  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+		      window.open(url, title, status);
+			
+		}
+		
 		var KTAppOptions = {
 			"colors" : {
 				"state" : {

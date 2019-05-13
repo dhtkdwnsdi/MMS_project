@@ -6,10 +6,12 @@ import com.mms.controller.action.CareerRegisterAction;
 import com.mms.controller.action.CertListFormAction;
 import com.mms.controller.action.CertRegistAction;
 import com.mms.controller.action.CertRegistFormAction;
+import com.mms.controller.action.CertSearchFormAction;
 import com.mms.controller.action.EduListFormAction;
 import com.mms.controller.action.EduRegisterAction;
 import com.mms.controller.action.MemberSetFormAction;
 import com.mms.controller.action.MemberUpdateAction;
+import com.mms.controller.action.MyCertDeleteAction;
 import com.mms.controller.action.MyCertListFormAction;
 
 public class ProgrammerActionFactory {
@@ -84,11 +86,18 @@ public class ProgrammerActionFactory {
 		else if(command.equals("certRegist")) {
 			action = new CertRegistAction();
 		}
+		else if(command.equals("certSearchForm")) {
+			action = new CertSearchFormAction();
+		}
+		
 		
 		
 		//보유 자격증
 		else if(command.equals("myCertListForm")) {
 			action = new MyCertListFormAction();
+		}
+		else if(command.equals("myCertDelete")) {
+			action = new MyCertDeleteAction();
 		}
 		
 		

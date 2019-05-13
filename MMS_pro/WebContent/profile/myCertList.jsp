@@ -71,8 +71,8 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td><input type="checkbox" value="${MyCertVO.myCertNum}" name="myCertNum"></td>
 																<td>${MyCertVO.certName}</td>
 																<td>${MyCertVO.issueOrg}</td>
-																<td>${MyCertVO.issueDate}</td>
-																<td>${MyCertVO.certSerial}</td>
+																<td><input type="text" class="form-control" id="kt_datepicker_1" readonly name="issueDate" value="${MyCertVO.issueDate}"></td>
+																<td><input class="form-control" type="text" name="certSerial" id="certSerial" value="${MyCertVO.certSerial}"></td>
 															</tr>
 														</tbody>
 														</c:forEach>
@@ -824,7 +824,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		  var height = "500"; 
 		  var top = (window.screen.height-height)/2; 
 		  var left = (window.screen.width-width)/2; 
-	 	  var url = "porg?command=myCertRegistForm.jsp"; 
+	 	  var url = "../profile/myCertRegist.jsp"; 
 		  var title = "학력 정보 등록"; 
 		  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
