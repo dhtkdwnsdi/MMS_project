@@ -111,7 +111,7 @@ public class ProjectServlet extends HttpServlet {
 			String path = "D:\\Project\\MMS_LH\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MMS_pro\\projectFile\\";
 			String fileName = request.getParameter("projFile");
 			String file = path + fileName;
-			
+			String fileType = fileName.substring(fileName.lastIndexOf(".")+1);
 			
 			File f = new File(file);
 			if(f.exists()) {
@@ -121,7 +121,21 @@ public class ProjectServlet extends HttpServlet {
 				int bytesRead;
 				
 				try {
-					response.setContentType("application/x-msdownload; charset=UTF-8");
+					if (fileType.equals("hwp")){
+						  response.setContentType("application/x-hwp");
+						} else if (fileType.equals("pdf")){
+						  response.setContentType("application/pdf");
+						} else if (fileType.equals("ppt") || fileType.equals("pptx")){
+						  response.setContentType("application/vnd.ms-powerpoint");
+						} else if (fileType.equals("doc") || fileType.equals("docx")){
+						  response.setContentType("application/msword");
+						} else if (fileType.equals("xls") || fileType.equals("xlsx")){
+						  response.setContentType("application/vnd.ms-excel");
+						} else {
+						  response.setContentType("application/octet-stream");
+						}
+
+
 					response.setHeader("Content-Disposition", "attachment; filename="+fileName);
 					FileInputStream fin = new java.io.FileInputStream(f);
 					BufferedInputStream bis = new BufferedInputStream(fin);
