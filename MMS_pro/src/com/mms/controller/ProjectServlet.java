@@ -1,10 +1,16 @@
 package com.mms.controller;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -41,9 +47,11 @@ public class ProjectServlet extends HttpServlet {
 		if(command == null) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("main.jsp");
 			dispatcher.forward(request, response);
+			
 		} else if(command.equals("loginForm")) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 			dispatcher.forward(request, response);
+			
 		} else if(command.equals("projectRegister")) {
 			
 			ServletContext context = getServletContext();
@@ -94,6 +102,54 @@ public class ProjectServlet extends HttpServlet {
 			request.setAttribute("pVo", pVo);
 			
 			new ProjectRegisterAction().execute(request, response);
+		} 
+		else if(command.equals("download")) {
+//			ServletContext context = getServletContext();
+//			System.out.println("context: " + context.getContextPath());
+			request.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html; charset=UTF-8");
+			String path = "D:\\Project\\MMS_LH\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MMS_pro\\projectFile\\";
+			String fileName = request.getParameter("projFile");
+			String file = path + fileName;
+			
+			
+			File f = new File(file);
+			if(f.exists()) {
+				
+				int filesize = (int)f.length();
+				byte buff[] = new byte[2048];
+				int bytesRead;
+				
+				try {
+					response.setContentType("application/x-msdownload; charset=UTF-8");
+					response.setHeader("Content-Disposition", "attachment; filename="+fileName);
+					FileInputStream fin = new java.io.FileInputStream(f);
+					BufferedInputStream bis = new BufferedInputStream(fin);
+					ServletOutputStream fout = response.getOutputStream();
+					BufferedOutputStream bos = new BufferedOutputStream(fout);
+					
+					while((bytesRead = bis.read(buff)) != -1) {
+						bos.write(buff, 0, bytesRead);
+						
+					}
+					bos.flush();
+					
+					fin.close();
+					fout.close();
+					bis.close();
+					bos.close();
+					
+				} catch (IOException e) {
+					response.setContentType("text/html; charset=UTF-8");
+					response.getWriter().println("Error : "+e.getMessage());
+					
+				}
+			} else {
+				response.setContentType("text/html; charset=UTF-8");
+				response.getWriter().println("File Not Found : " + file);
+				
+			}
+			
 		}
 		
 		
