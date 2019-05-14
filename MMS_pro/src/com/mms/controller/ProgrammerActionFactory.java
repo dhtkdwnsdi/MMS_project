@@ -15,6 +15,7 @@ import com.mms.controller.action.EduListFormAction;
 import com.mms.controller.action.EduRegisterAction;
 import com.mms.controller.action.EduUpdateAction;
 import com.mms.controller.action.EduUpdateFormAction;
+import com.mms.controller.action.IntroduceRegisterAction;
 import com.mms.controller.action.MemberSetFormAction;
 import com.mms.controller.action.MemberUpdateAction;
 import com.mms.controller.action.MyCertDeleteAction;
@@ -30,73 +31,62 @@ import com.mms.controller.action.pl.PlRegisterFormAction;
 
 public class ProgrammerActionFactory {
 	private static ProgrammerActionFactory instance = new ProgrammerActionFactory();
-	
+
 	private ProgrammerActionFactory() {
 		super();
 	}
-	
+
 	public static ProgrammerActionFactory getInstance() {
 		return instance;
 	}
-	
+
 	public Action getAction(String command) {
 		Action action = null;
-		
+
 		System.out.println("ProgrammerActionFactory : " + command);
-		
-		
+
 		/**
 		 * @author LEE HAN
 		 */
-		if(command.equals("memberSetForm")) {
+		if (command.equals("memberSetForm")) {
 			action = new MemberSetFormAction();
-			
-		}
-		else if (command.equals("memberUpdate")) {
+
+		} else if (command.equals("memberUpdate")) {
 			action = new MemberUpdateAction();
-			
-		}
-		else if(command.equals("careerListForm")) {
+
+		} else if (command.equals("careerListForm")) {
 			action = new CareerListFormAction();
-			
-		}
-		else if(command.equals("careerRegister")) {
+
+		} else if (command.equals("careerRegister")) {
 			action = new CareerRegisterAction();
-			
-		}
-		else if(command.equals("careerDelete")) {
+
+		} else if (command.equals("careerDelete")) {
 			action = new CareerDeleteAction();
-			
-		}
-		else if(command.equals("careerUpdateFrom")) {
+
+		} else if (command.equals("careerUpdateFrom")) {
 			action = new CareerUpdateFormAction();
-			
-		}
-		else if(command.equals("careerUpdate")) {
+
+		} else if (command.equals("careerUpdate")) {
 			action = new CareerUpdateAction();
-			
+
 		}
-		
-		
-		
-		
+
 		/**
 		 * @author PJH
 		 */
-		
-		
-		else if(command.equals("eduListForm")) {
+
+		else if (command.equals("eduListForm")) {
 			action = new EduListFormAction();
 		}
-		
-		else if(command.equals("eduRegister")) {
+
+		else if (command.equals("eduRegister")) {
 			action = new EduRegisterAction();
-			
+
 		}
-		
-		else if(command.equals("eduDelete")) {
+
+		else if (command.equals("eduDelete")) {
 			action = new EduDeleteAction();
-			
+
 		}
 		else if(command.equals("eduUpdateFrom")) {
 			action = new EduUpdateFormAction();
@@ -107,30 +97,30 @@ public class ProgrammerActionFactory {
 			
 		}
 		
+
+		else if (command.equals("introduceRegister")) {
+			action = new IntroduceRegisterAction();
+
+		}
+
 		/**
 		 * @author OSJ
 		 */
-		//자격증
-		else if(command.equals("certListForm")) {
+		// 자격증
+		else if (command.equals("certListForm")) {
 			action = new CertListFormAction();
-		}
-		else if(command.equals("certRegistForm")) {
+		} else if (command.equals("certRegistForm")) {
 			action = new CertRegistFormAction();
-		}
-		else if(command.equals("certRegist")) {
+		} else if (command.equals("certRegist")) {
 			action = new CertRegistAction();
-		}
-		else if(command.equals("certSearchForm")) {
+		} else if (command.equals("certSearchForm")) {
 			action = new CertSearchFormAction();
 		}
-		
-		
-		
-		//보유 자격증
-		else if(command.equals("myCertListForm")) {
+
+		// 보유 자격증
+		else if (command.equals("myCertListForm")) {
 			action = new MyCertListFormAction();
-		}
-		else if(command.equals("myCertDelete")) {
+		} else if (command.equals("myCertDelete")) {
 			action = new MyCertDeleteAction();
 		}
 		else if(command.equals("myCertRegist")) {
@@ -145,36 +135,28 @@ public class ProgrammerActionFactory {
 		
 		//포트폴리오
 		else if(command.equals("portpolioListForm")) {
+			
+		}
+
+		// 포트폴리오
+		else if (command.equals("portpolioListForm")) {
 			action = new PortpolioListFormAction();
 		}
-		
-		
-		
+
 		/**
 		 * @author LYJ
 		 */
-		else if(command.equals("plListForm")) {
+		else if (command.equals("plListForm")) {
 			action = new PlListFormAction();
-		}
-		else if(command.equals("plDelete")) {
+		} else if (command.equals("plDelete")) {
 			action = new PlDeleteAction();
-		}
-		else if(command.equals("plRegister")) {
+		} else if (command.equals("plRegister")) {
 			action = new PlRegisterAction();
-		}
-		else if(command.equals("plRegisterForm")) {
+		} else if (command.equals("plRegisterForm")) {
 			action = new PlRegisterFormAction();
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		return action;
 	}
-	
+
 }
