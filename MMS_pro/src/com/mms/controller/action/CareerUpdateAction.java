@@ -35,6 +35,7 @@ public class CareerUpdateAction implements Action {
 	request.setAttribute("retireDate", retireDate);
 	
 	CareerVO careerVo = new CareerVO();
+	
 	careerVo.setCareerNum(careerNum);
 	careerVo.setCompanyName(companyName);
 	careerVo.setDepartment(department);

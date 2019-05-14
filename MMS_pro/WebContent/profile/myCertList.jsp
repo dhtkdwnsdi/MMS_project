@@ -50,7 +50,7 @@ table, td, tr, th {
 
 			<!--begin::Section-->
 			<div class="kt-portlet__body">
-				<form action="prog?command=myCertDelete" method="post">
+				<form action="prog?command=myCertDelete" method="post" name="frm">
 					<input type="hidden" name="progNum" value="${LoginUser.progNum}">
 					<div class="kt-section">
 						<div class="kt-section__content">
@@ -75,14 +75,10 @@ table, td, tr, th {
 												value="${MyCertVO.myCertNum}"></th>
 											<td>${MyCertVO.certName}</td>
 											<td>${MyCertVO.issueOrg}</td>
-											<td><input type="text" class="form-control"
-												id="kt_datepicker_1" readonly name="issueDate"
-												value="${MyCertVO.issueDate}"></td>
-											<td><input class="form-control" type="text"
-												name="certSerial" id="certSerial"
-												value="${MyCertVO.certSerial}"></td>
+											<td>${MyCertVO.issueDate}</td>
+											<td>${MyCertVO.certSerial}</td>
 											<td><a
-												href="prog?command=myCertUpdate&myCertNum=${MyCertVO.myCertNum}"><span
+												href="prog?command=myCertUpdateForm&myCertNum=${MyCertVO.myCertNum}"><span
 													class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
 												<a
 												href="prog?command=myCertDelete&myCertNum=${MyCertVO.myCertNum}"><span
@@ -873,7 +869,7 @@ table, td, tr, th {
 		var height = "500";
 		var top = (window.screen.height - height) / 2;
 		var left = (window.screen.width - width) / 2;
-		var url = "../profile/myCertRegist.jsp";
+		var url = "../profile/myCertRegistForm.jsp";
 		var title = "학력 정보 등록";
 		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
 				+ width + ",height=" + height + ",top=" + top + ",left=" + left;

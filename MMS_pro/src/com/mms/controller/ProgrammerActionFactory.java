@@ -19,6 +19,9 @@ import com.mms.controller.action.MemberSetFormAction;
 import com.mms.controller.action.MemberUpdateAction;
 import com.mms.controller.action.MyCertDeleteAction;
 import com.mms.controller.action.MyCertListFormAction;
+import com.mms.controller.action.MyCertRegistAction;
+import com.mms.controller.action.MyCertUpdateAction;
+import com.mms.controller.action.MyCertUpdateFormAction;
 import com.mms.controller.action.PortpolioListFormAction;
 import com.mms.controller.action.pl.PlDeleteAction;
 import com.mms.controller.action.pl.PlListFormAction;
@@ -129,6 +132,15 @@ public class ProgrammerActionFactory {
 		}
 		else if(command.equals("myCertDelete")) {
 			action = new MyCertDeleteAction();
+		}
+		else if(command.equals("myCertRegist")) {
+			action = new MyCertRegistAction();
+		}
+		else if(command.equals("myCertUpdateForm")) {
+			action = new MyCertUpdateFormAction();
+		}
+		else if(command.equals("myCertUpdate")) {
+			action = new MyCertUpdateAction();
 		}
 		
 		//포트폴리오

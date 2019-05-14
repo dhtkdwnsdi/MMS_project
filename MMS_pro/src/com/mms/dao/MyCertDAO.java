@@ -104,4 +104,90 @@ public class MyCertDAO extends DBManager {
 	              }
 	         }
 	   	}
+	   	
+	   	
+	   	//보유 자격증을 등록하는 메소드
+	   	
+	   	
+	   	//보유 자격증 번호를 통해 myCertUpdateFor.jsp로 넘어가는 메소드
+	   	public MyCertVO readMyCert(String myCertNum) {
+	   		Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = "SELECT TBL_CERT.CERT_NAME"
+					+ "        , TBL_CERT.ISSUE_ORG"
+					+ "        , TBL_MY_CERT.ISSUE_DATE"
+					+ "        , TBL_MY_CERT.CERT_SERIAL"
+					+ "        , TBL_MY_CERT.MY_CERT_NUM"
+					+ "    FROM TBL_CERT, TBL_MY_CERT"
+					+ "   WHERE TBL_CERT.CERT_NUM = TBL_MY_CERT.CERT_NUM"
+					+ "     AND TBL_MY_CERT.MY_CERT_NUM = ? ";
+			
+			MyCertVO myCertVo = new MyCertVO();
+			
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, myCertNum);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					
+					myCertVo.setCertName(rs.getString("CERT_NAME"));
+					myCertVo.setIssueOrg(rs.getString("ISSUE_ORG"));
+					myCertVo.setIssueDate(rs.getString("ISSUE_DATE"));
+					myCertVo.setCertSerial(rs.getString("CERT_SERIAL"));
+					myCertVo.setMyCertNum(rs.getString("MY_CERT_NUM"));
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if(rs != null) rs.close();
+					if(pstmt != null) pstmt.close();
+					if(conn != null) conn.close();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+					
+				}
+			}
+			return myCertVo;
+		}
+	   	
+	   	//보유 자격증 수정 메소드
+	   	public void updateMyCert(MyCertVO myCertVo) {
+	   		Connection conn = null;
+			PreparedStatement pstmt = null;
+			
+			String sql = "UPDATE TBL_MY_CERT SET"
+					+ "   ISSUE_DATE = ?"
+					+ ",  CERT_SERIAL = ?"
+					+ "   WHERE MY_CERT_NUM = ? " ;
+			
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, myCertVo.getIssueDate());
+				pstmt.setString(2, myCertVo.getCertSerial());
+				pstmt.setString(3, myCertVo.getMyCertNum());
+				
+				pstmt.executeUpdate();
+	   	}
+			catch (SQLException e) {
+				e.printStackTrace();
+				
+			} finally {
+				try {
+					if(pstmt != null) pstmt.close();
+					if(conn != null) conn.close();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+					
+				}
+			}
+	   	}
 }

@@ -151,13 +151,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-4 order-1 order-xl-2 kt-align-right">
-						<a href="#" class="btn btn-default kt-hidden"> <i
-							class="la la-cart-plus"></i> New Order
-						</a>
-						<div
-							class="kt-separator kt-separator--border-dashed kt-separator--space-lg d-xl-none"></div>
-					</div>
 				</div>
 			</div>
 			<div class="kt-portlet__body">
@@ -168,8 +161,8 @@
 								<thead>
 									<tr>
 										<th><b>#</b></th>
-										<th><b>자격증명</b></th>
-										<th><b>발급기관</b></th>
+										<th style="font-weight: bold;">자격증명</th>
+										<th style="font-weight: bold;">발급기관</th>
 									</tr>
 								</thead>
 
@@ -177,11 +170,12 @@
 									<c:forEach items="${certList}" var="certVo"
 										varStatus="listStat">
 										<tr>
-											<td><input type="hidden" name="certNum"
-												value="${certVo.certNum}"> <a
-												onclick="return sendToParent()">${certVo.certNum}</a></td>
+											<th scope="row">
+											<input type="hidden" name="certNum"
+												value="${certVo.certNum}" id="certNum"> <a
+												onclick="return sendToParent()">${listStat.count}</a></th>
 											<td><input type="hidden" name=certName
-												value="${certVo.certName}"> <a
+												value="${certVo.certName}" id="certName"> <a
 												onclick="return sendToParent()">${certVo.certName}</a></td>
 											<td>${certVo.issueOrg}</td>
 										</tr>
