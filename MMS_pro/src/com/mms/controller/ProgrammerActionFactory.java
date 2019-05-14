@@ -13,6 +13,8 @@ import com.mms.controller.action.CertSearchFormAction;
 import com.mms.controller.action.EduDeleteAction;
 import com.mms.controller.action.EduListFormAction;
 import com.mms.controller.action.EduRegisterAction;
+import com.mms.controller.action.EduUpdateAction;
+import com.mms.controller.action.EduUpdateFormAction;
 import com.mms.controller.action.MemberSetFormAction;
 import com.mms.controller.action.MemberUpdateAction;
 import com.mms.controller.action.MyCertDeleteAction;
@@ -93,8 +95,14 @@ public class ProgrammerActionFactory {
 			action = new EduDeleteAction();
 			
 		}
-		
-		
+		else if(command.equals("eduUpdateFrom")) {
+			action = new EduUpdateFormAction();
+			
+		}
+		else if(command.equals("eduUpdate")) {
+			action = new EduUpdateAction();
+			
+		}
 		
 		/**
 		 * @author OSJ

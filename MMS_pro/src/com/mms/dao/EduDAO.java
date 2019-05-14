@@ -139,5 +139,97 @@ public class EduDAO extends DBManager {
          }
 		
 	}
+	
+	//학력번호를 통해서 eduUpdate.jsp로 넘어가는 메소드
+	public EduVO readEdu(String eduNum) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT EDU_NUM"
+				+ "        , EDU_CATEGORY"
+				+ "        , EDU_STATE"
+				+ "        , SCHOOL_NAME"
+				+ "        , ENTER_DATE"
+				+ "        , GRADUATE_DATE"
+				+ "    FROM TBL_EDU"
+				+ "   WHERE EDU_NUM = ? ";
+		
+		EduVO eduVo = new EduVO();
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, eduNum);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				eduVo.setEduNum(rs.getString("EDU_NUM"));
+				eduVo.setEduCategory(rs.getString("EDU_CATEGORY"));
+				eduVo.setEduState(rs.getString("EDU_STATE"));
+				eduVo.setSchoolName(rs.getString("SCHOOL_NAME"));
+				eduVo.setEnterDate(rs.getString("ENTER_DATE"));
+				eduVo.setGraduateDate(rs.getString("GRADUATE_DATE"));
+				
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		return eduVo;
+		
+	}
 
+	//학력 수정 메소드
+	public void updateEdu(EduVO eduVo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "UPDATE TBL_EDU SET"
+				+ "	  EDU_CATEGORY = ?"
+				+ ",  EDU_STATE = ?"
+				+ ",  SCHOOL_NAME = ?"
+				+ ",  ENTER_DATE = ?"
+				+ ",  GRADUATE_DATE = ?"
+				+ "   WHERE EDU_NUM = ?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, eduVo.getEduCategory());
+			pstmt.setString(2, eduVo.getEduState());
+			pstmt.setString(3, eduVo.getSchoolName());
+			pstmt.setString(4, eduVo.getEnterDate());
+			pstmt.setString(5, eduVo.getGraduateDate());
+			pstmt.setString(6, eduVo.getEduNum());
+			
+			pstmt.executeUpdate();
+	} catch (SQLException e) {
+	 	e.printStackTrace();
+		
+	} finally {
+		try {
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+	}
+	
+}
+	
 }
