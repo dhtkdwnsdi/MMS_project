@@ -30,437 +30,83 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- begin::Body -->
 <body
 	class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
+
 	<!-- begin:: Content -->
+
 	<div class="kt-content  kt-grid__item kt-grid__item--fluid"
 		id="kt_content">
-		<div class="row">
-			<div class="col-xl-6">
-				<!-- begin:: Content -->
-				<div class="kt-content  kt-grid__item kt-grid__item--fluid"
-					id="kt_content">
-					<!-- <div class="alert alert-light alert-elevate" role="alert">
-						<div class="alert-icon">
-							<i class="flaticon-warning kt-font-brand"></i>
-						</div>
-						<div class="alert-text">The Metronic Datatable allows
-							flexible customization of its rows cells by exposing datatable
-							and column schema object onto a callback function. In this
-							example we shown how you can customize specific cell appearance
-							using the datatable cell renderer callback function.</div>
-					</div> -->
-					<div class="kt-portlet kt-portlet--mobile">
-						<!-- <div class="kt-portlet__head kt-portlet__head--lg">
-							<div class="kt-portlet__head-label">
-								<span class="kt-portlet__head-icon"> <i
-									class="kt-font-brand flaticon2-line-chart"></i>
-								</span>
-								<h3 class="kt-portlet__head-title">포트폴리오</h3>
-							</div>
-							<div class="kt-portlet__head-toolbar">
-								<div class="kt-portlet__head-wrapper">
-									<a href="#" class="btn btn-clean btn-icon-sm"> <i
-										class="la la-long-arrow-left"></i> Back
-									</a> &nbsp;
-									<div class="dropdown dropdown-inline">
-										<button type="button" class="btn btn-brand btn-icon-sm"
-											data-toggle="dropdown" aria-haspopup="true"
-											aria-expanded="false">
-											<i class="flaticon2-plus"></i> Add New
-										</button>
-										<div class="dropdown-menu dropdown-menu-right">
-											<ul class="kt-nav">
-												<li class="kt-nav__section kt-nav__section--first"><span
-													class="kt-nav__section-text">Choose an action:</span></li>
-												<li class="kt-nav__item"><a href="#"
-													class="kt-nav__link"> <i
-														class="kt-nav__link-icon flaticon2-open-text-book"></i> <span
-														class="kt-nav__link-text">Reservations</span>
-												</a></li>
-												<li class="kt-nav__item"><a href="#"
-													class="kt-nav__link"> <i
-														class="kt-nav__link-icon flaticon2-calendar-4"></i> <span
-														class="kt-nav__link-text">Appointments</span>
-												</a></li>
-												<li class="kt-nav__item"><a href="#"
-													class="kt-nav__link"> <i
-														class="kt-nav__link-icon flaticon2-bell-alarm-symbol"></i>
-														<span class="kt-nav__link-text">Reminders</span>
-												</a></li>
-												<li class="kt-nav__item"><a href="#"
-													class="kt-nav__link"> <i
-														class="kt-nav__link-icon flaticon2-contract"></i> <span
-														class="kt-nav__link-text">Announcements</span>
-												</a></li>
-												<li class="kt-nav__item"><a href="#"
-													class="kt-nav__link"> <i
-														class="kt-nav__link-icon flaticon2-shopping-cart-1"></i> <span
-														class="kt-nav__link-text">Orders</span>
-												</a></li>
-												<li class="kt-nav__separator kt-nav__separator--fit"></li>
-												<li class="kt-nav__item"><a href="#"
-													class="kt-nav__link"> <i
-														class="kt-nav__link-icon flaticon2-rocket-1"></i> <span
-														class="kt-nav__link-text">Projects</span>
-												</a></li>
-												<li class="kt-nav__item"><a href="#"
-													class="kt-nav__link"> <i
-														class="kt-nav__link-icon flaticon2-chat-1"></i> <span
-														class="kt-nav__link-text">User Feedbacks</span>
-												</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> -->
-						<div class="kt-portlet__body">
-
-							<!--begin: Search Form -->
-							<!-- <div
-								class="kt-form kt-form--label-right kt-margin-t-20 kt-margin-b-10">
-								<div class="row align-items-center">
-									<div class="col-xl-8 order-2 order-xl-1">
-										<div class="row align-items-center">
-											<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
-												<div class="kt-input-icon kt-input-icon--left">
-													<input type="text" class="form-control"
-														placeholder="Search..." id="generalSearch"> <span
-														class="kt-input-icon__icon kt-input-icon__icon--left">
-														<span><i class="la la-search"></i></span>
-													</span>
-												</div>
-											</div>
-											<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
-														<div class="kt-form__group kt-form__group--inline">
-															<div class="kt-form__label">
-																<label>Status:</label>
-															</div>
-															<div class="kt-form__control">
-																<select class="form-control bootstrap-select" id="kt_form_status">
-																	<option value="">All</option>
-																	<option value="1">Pending</option>
-																	<option value="2">Delivered</option>
-																	<option value="3">Canceled</option>
-																	<option value="4">Success</option>
-																	<option value="5">Info</option>
-																	<option value="6">Danger</option>
-																</select>
-															</div>
-														</div>
-													</div>
-											<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
-														<div class="kt-form__group kt-form__group--inline">
-															<div class="kt-form__label">
-																<label>Type:</label>
-															</div>
-															<div class="kt-form__control">
-																<select class="form-control bootstrap-select" id="kt_form_type">
-																	<option value="">All</option>
-																	<option value="1">Online</option>
-																	<option value="2">Retail</option>
-																	<option value="3">Direct</option>
-																</select>
-															</div>
-														</div>
-													</div>
-										</div>
-									</div>
-									<div class="col-xl-4 order-1 order-xl-2 kt-align-right">
-										<a href="#" class="btn btn-default kt-hidden"> <i
-											class="la la-cart-plus"></i> New Order
-										</a>
-										<div
-											class="kt-separator kt-separator--border-dashed kt-separator--space-lg d-xl-none"></div>
-									</div>
-								</div>
-							</div> -->
-
-							<!-- end: Search Form -->
-						</div>
-						<div class="kt-portlet__body kt-portlet__body--fit">
-
-							<!--begin: Datatable -->
-							<div class="kt-content  kt-grid__item kt-grid__item--fluid"
-								id="kt_content">
-								<!-- <div class="alert alert-light alert-elevate" role="alert">
-									<div class="alert-icon">
-										<i class="flaticon-warning kt-font-brand"></i>
-									</div>
-									<div class="alert-text">The Metronic Datatable allows
-										flexible customization of its rows cells by exposing datatable
-										and column schema object onto a callback function. In this
-										example we shown how you can customize specific cell
-										appearance using the datatable cell renderer callback
-										function.</div>
-								</div> -->
-								<div class="kt-portlet kt-portlet--mobile">
-									<div class="kt-portlet__head kt-portlet__head--lg">
-										<div class="kt-portlet__head-label">
-											<span class="kt-portlet__head-icon"> <i
-												class="kt-font-brand flaticon2-line-chart"></i>
-											</span>
-											<h3 class="kt-portlet__head-title">프로그래밍 언어 숙련도</h3>
-										</div>
-										<div class="kt-portlet__head-toolbar">
-											<div class="kt-portlet__head-wrapper">
-												<a href="#" class="btn btn-clean btn-icon-sm"> <i
-													class="la la-long-arrow-left"></i> Back
-												</a> &nbsp;
-												<div class="dropdown dropdown-inline">
-													<button type="button" class="btn btn-brand btn-icon-sm"
-														data-toggle="dropdown" aria-haspopup="true"
-														aria-expanded="false">
-														<i class="flaticon2-plus"></i> Add New
-													</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="kt-portlet__body">
-
-										<!--begin: Search Form -->
-										<!-- <div
-											class="kt-form kt-form--label-right kt-margin-t-20 kt-margin-b-10">
-											<div class="row align-items-center">
-												<div class="col-xl-8 order-2 order-xl-1">
-													<div class="row align-items-center">
-														<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
-															<div class="kt-input-icon kt-input-icon--left">
-																<input type="text" class="form-control"
-																	placeholder="Search..." id="generalSearch"> <span
-																	class="kt-input-icon__icon kt-input-icon__icon--left">
-																	<span><i class="la la-search"></i></span>
-																</span>
-															</div>
-														</div>
-														<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
-															<div class="kt-form__group kt-form__group--inline">
-																<div class="kt-form__label">
-																	<label>Status:</label>
-																</div>
-																<div class="kt-form__control">
-																	<div class="dropdown bootstrap-select form-control">
-																		<select class="form-control bootstrap-select"
-																			id="kt_form_status" tabindex="-98">
-																			<option value="">All</option>
-																			<option value="1">Pending</option>
-																			<option value="2">Delivered</option>
-																			<option value="3">Canceled</option>
-																			<option value="4">Success</option>
-																			<option value="5">Info</option>
-																			<option value="6">Danger</option>
-																		</select>
-																		<button type="button"
-																			class="btn dropdown-toggle bs-placeholder btn-light"
-																			data-toggle="dropdown" role="button"
-																			data-id="kt_form_status" title="All">
-																			<div class="filter-option">
-																				<div class="filter-option-inner">
-																					<div class="filter-option-inner-inner">All</div>
-																				</div>
-																			</div>
-																		</button>
-																		<div class="dropdown-menu " role="combobox">
-																			<div class="inner show" role="listbox"
-																				aria-expanded="false" tabindex="-1">
-																				<ul class="dropdown-menu inner show"></ul>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-														<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
-															<div class="kt-form__group kt-form__group--inline">
-																<div class="kt-form__label">
-																	<label>Type:</label>
-																</div>
-																<div class="kt-form__control">
-																	<div class="dropdown bootstrap-select form-control">
-																		<select class="form-control bootstrap-select"
-																			id="kt_form_type" tabindex="-98">
-																			<option value="">All</option>
-																			<option value="1">Online</option>
-																			<option value="2">Retail</option>
-																			<option value="3">Direct</option>
-																		</select>
-																		<button type="button"
-																			class="btn dropdown-toggle bs-placeholder btn-light"
-																			data-toggle="dropdown" role="button"
-																			data-id="kt_form_type" title="All">
-																			<div class="filter-option">
-																				<div class="filter-option-inner">
-																					<div class="filter-option-inner-inner">All</div>
-																				</div>
-																			</div>
-																		</button>
-																		<div class="dropdown-menu " role="combobox">
-																			<div class="inner show" role="listbox"
-																				aria-expanded="false" tabindex="-1">
-																				<ul class="dropdown-menu inner show"></ul>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-4 order-1 order-xl-2 kt-align-right">
-													<a href="#" class="btn btn-default kt-hidden"> <i
-														class="la la-cart-plus"></i> New Order
-													</a>
-													<div
-														class="kt-separator kt-separator--border-dashed kt-separator--space-lg d-xl-none"></div>
-												</div>
-											</div>
-										</div> -->
-
-										<!--end: Search Form -->
-									</div>
-									<div class="kt-portlet__body kt-portlet__body--fit">
-
-										<!--begin: Datatable -->
-										<div
-											class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded"
-											id="column_rendering" style="">
-											<table class="kt-datatable__table"
-												style="display: block; min-height: 300px;">
-												<thead class="kt-datatable__head">
-													<tr class="kt-datatable__row" style="left: 0px;">
-														<th data-field="PortNum"
-															class="kt-datatable__cell--center kt-datatable__cell kt-datatable__cell--sort kt-datatable__cell--sorted"
-															data-sort="asc"><span style="width: 30px;">#<i
-																class="flaticon2-arrow-up"></i></span></th>
-														<th data-field="Subject"
-															class="kt-datatable__cell kt-datatable__cell--sort"><span
-															style="width: 134px;">제목</span></th>
-														<th data-field="Actions" data-autohide-disabled="false"
-															class="kt-datatable__cell kt-datatable__cell--sort">
-															<span style="width: 110px;">Actions</span>
-														</th>
-													</tr>
-												</thead>
-												<c:forEach items="${plsList}" var="PlsVo">
-												<tbody class="kt-datatable__body" style="">
-													<tr data-row="0" class="kt-datatable__row"
-														style="left: 0px;">
-														<td
-															class="kt-datatable__cell--sorted kt-datatable__cell--center kt-datatable__cell"
-															data-field="plsNum">${PlsVo.plsNum}
-														</td>
-														<td data-field="plNum" class="kt-datatable__cell">
-															${PlsVo.plNum}
-														</td>
-														<td data-field="profiency" class="kt-datatable__cell">
-															${PlsVo.profiency}
-														</td>
-														<td data-field="experience" class="kt-datatable__cell">
-															${PlsVo.experience}
-														</td>
-														<td data-field="Actions" data-autohide-disabled="false"
-															class="kt-datatable__cell"><span
-															style="overflow: visible; position: relative; width: 110px;">
-															<a title="Edit details"
-																class="btn btn-sm btn-clean btn-icon btn-icon-md" href="../profile/portpolioModify.jsp"> <i
-																	class="la la-edit"></i>
-															</a> 
-															<a title="Delete"
-																class="btn btn-sm btn-clean btn-icon btn-icon-md"> <i
-																	class="la la-trash"></i>
-															</a>
-														</span></td>
-													</tr>
-												</tbody>
-												</c:forEach>
-											</table>
-											<div class="kt-datatable__pager kt-datatable--paging-loaded">
-												<ul class="kt-datatable__pager-nav">
-													<li><a title="First"
-														class="kt-datatable__pager-link kt-datatable__pager-link--first kt-datatable__pager-link--disabled"
-														data-page="1" disabled="disabled"><i
-															class="flaticon2-fast-back"></i></a></li>
-													<li><a title="Previous"
-														class="kt-datatable__pager-link kt-datatable__pager-link--prev kt-datatable__pager-link--disabled"
-														data-page="1" disabled="disabled"><i
-															class="flaticon2-back"></i></a></li>
-													<li style=""></li>
-													<li style="display: none;"><input type="text"
-														class="kt-pager-input form-control" title="Page number"></li>
-													<li><a
-														class="kt-datatable__pager-link kt-datatable__pager-link-number kt-datatable__pager-link--active"
-														data-page="1" title="1">1</a></li>
-													<li><a
-														class="kt-datatable__pager-link kt-datatable__pager-link-number"
-														data-page="2" title="2">2</a></li>
-													<li><a
-														class="kt-datatable__pager-link kt-datatable__pager-link-number"
-														data-page="3" title="3">3</a></li>
-													<li><a
-														class="kt-datatable__pager-link kt-datatable__pager-link-number"
-														data-page="4" title="4">4</a></li>
-													<li><a
-														class="kt-datatable__pager-link kt-datatable__pager-link-number"
-														data-page="5" title="5">5</a></li>
-													<li></li>
-													<li><a title="Next"
-														class="kt-datatable__pager-link kt-datatable__pager-link--next"
-														data-page="2"><i class="flaticon2-next"></i></a></li>
-													<li><a title="Last"
-														class="kt-datatable__pager-link kt-datatable__pager-link--last"
-														data-page="35"><i class="flaticon2-fast-next"></i></a></li>
-												</ul>
-												<!-- <div class="kt-datatable__pager-info">
-													<div
-														class="dropdown bootstrap-select kt-datatable__pager-size"
-														style="width: 60px;">
-														<select class="selectpicker kt-datatable__pager-size"
-															title="Select page size" data-width="60px"
-															data-selected="10" tabindex="-98"><option
-																class="bs-title-option" value=""></option>
-															<option value="10">10</option>
-															<option value="20">20</option>
-															<option value="30">30</option>
-															<option value="50">50</option>
-															<option value="100">100</option></select>
-														<button type="button"
-															class="btn dropdown-toggle btn-light"
-															data-toggle="dropdown" role="button"
-															title="Select page size">
-															<div class="filter-option">
-																<div class="filter-option-inner">
-																	<div class="filter-option-inner-inner">10</div>
-																</div>
-															</div>
-														</button>
-														<div class="dropdown-menu " role="combobox">
-															<div class="inner show" role="listbox"
-																aria-expanded="false" tabindex="-1">
-																<ul class="dropdown-menu inner show"></ul>
-															</div>
-														</div>
-													</div>
-												</div> -->
-											</div>
-										</div>
-
-										<!--end: Datatable -->
-									</div>
-								</div>
-							</div>
-
-							<!--end: Datatable -->
-						</div>
-					</div>
+		<div class="kt-portlet kt-portlet--mobile">
+			<div class="kt-portlet__head kt-portlet__head--lg">
+				<div class="kt-portlet__head-label">
+					<span class="kt-portlet__head-icon"> </span>
+					<h3 class="kt-portlet__head-title">${LoginUser.name} 님의 프로그래밍
+						언어 숙련도 정보</h3>
 				</div>
-
-				<!-- end:: Content -->
 			</div>
 
-			<!-- begin:: Footer -->
-			<%@ include file="../include/footer.jsp"%>
-			<!-- end:: Footer -->
+			<!--begin::Section-->
+			<div class="kt-portlet__body">
+				<form action="prog?command=eduDelete" method="post">
+					<input type="hidden" name="progNum" value="${LoginUser.progNum}">
+					<div class="kt-section">
+						<div class="kt-section__content">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th style="font-weight: bold;">프로그래밍 언어 숙련도 번호</th>
+										<th style="font-weight: bold;">프로그래밍 언어 번호</th>
+										<th style="font-weight: bold;">프로그래머 번호</th>
+										<th style="font-weight: bold;">숙련도</th>
+										<th style="font-weight: bold;">경험</th>
+										<th style="font-weight: bold;">관리</th>
+									</tr>
+								</thead>
+
+								<tbody style="text-align: center;">
+									<c:forEach items="${plsList}" var="plsVo" varStatus="listStat">
+										<tr>
+											<th scope="row">${listStat.count}<input type="hidden"
+												name="plsNum" id="plsNum" value="${plsVo.plsNum}"></th>
+											<td>${plsVo.plsNum}</td>
+											<td>${plsVo.plNum}</td>
+											<td>${plsVo.progNum}</td>
+											<td>${plsVo.profiency}</td>
+											<td>${plsVo.experience}</td>
+											<td><a
+												href="prog?command=plsUpdate&plsNum=${plsVo.plsNum}"> <span
+													class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
+												<a href="prog?command=plsDelete&plsNum=${plsVo.plsNum}">
+													<span
+													class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span>
+											</a></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+						<!--end::Section-->
+						<div class="kt-portlet__foot">
+							<div class="kt-form__actions kt-form__actions--right">
+								<div class="row">
+									<div class="col kt-align-right">
+										<button type="button" class="btn btn-brand"
+											onclick="openPopUp()">등록</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+				<!--end: Datatable -->
+			</div>
 		</div>
+
+
+		<!-- begin:: Footer -->
+		<%@ include file="../include/footer.jsp"%>
+		<!-- end:: Footer -->
+	</div>
 	</div>
 	</div>
 
@@ -1184,4 +830,26 @@ License: You must have a valid license purchased only from themeforest(the above
 </body>
 
 <!-- end::Body -->
+	<script>
+function openPopUp()
+{
+    // window.name = "부모창 이름"; 
+      window.name = "parentForm";
+    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+      var width = "800"; 
+	  var height = "500"; 
+	  var top = (window.screen.height-height)/2; 
+	  var left = (window.screen.width-width)/2; 
+ 	  var url = "profile/plsRegister.jsp"; 
+	  var title = "프로그래밍 언어 숙련도 등록"; 
+	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+      window.open(url, title, status);
+
+
+  
+    /* window.open("memberUpdateForm.jsp",
+            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
+}
+</script>
 </html>

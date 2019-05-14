@@ -11,7 +11,7 @@ import com.mms.controller.action.Action;
 import com.mms.dao.PlsDAO;
 import com.mms.vo.PlsVo;
 
-public class PlsRegistAction implements Action{
+public class PlsRegisterAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,6 +26,10 @@ public class PlsRegistAction implements Action{
 		String experience = request.getParameter("experience");
 		String progNum	= request.getParameter("progNum");
 		
+		
+		PlsVo pVo = new PlsVo();
+		PlsDAO pDao = PlsDAO.getInstance();
+		
 		//parameter출력
 		System.out.println("plsNum : " + plsNum);
 		System.out.println("plNum : " + plNum);
@@ -33,7 +37,7 @@ public class PlsRegistAction implements Action{
 		System.out.println("experience : " + experience);
 		System.out.println("progNum : " + progNum);
 		
-		PlsVo pVo = new PlsVo();
+		
 		
 		pVo.setPlsNum(plsNum);
 		pVo.setPlNum(plNum);
@@ -41,7 +45,6 @@ public class PlsRegistAction implements Action{
 		pVo.setExperience(experience);
 		pVo.setProgNum(progNum);
 		
-		PlsDAO pDao = PlsDAO.getInstance();
 		
 		pDao.insertPls(pVo);
 		

@@ -10,9 +10,7 @@ import com.mms.controller.action.CertListFormAction;
 import com.mms.controller.action.CertRegistAction;
 import com.mms.controller.action.CertRegistFormAction;
 import com.mms.controller.action.CertSearchFormAction;
-import com.mms.controller.action.EduDeleteAction;
-import com.mms.controller.action.EduListFormAction;
-import com.mms.controller.action.EduRegisterAction;
+
 import com.mms.controller.action.EduUpdateAction;
 import com.mms.controller.action.EduUpdateFormAction;
 import com.mms.controller.action.GrantListFormAction;
@@ -26,10 +24,15 @@ import com.mms.controller.action.MyCertRegistAction;
 import com.mms.controller.action.MyCertUpdateAction;
 import com.mms.controller.action.MyCertUpdateFormAction;
 import com.mms.controller.action.PortpolioListFormAction;
+import com.mms.controller.action.edu.EduDeleteAction;
+import com.mms.controller.action.edu.EduListFormAction;
+import com.mms.controller.action.edu.EduRegisterAction;
 import com.mms.controller.action.pl.PlDeleteAction;
 import com.mms.controller.action.pl.PlListFormAction;
 import com.mms.controller.action.pl.PlRegisterAction;
 import com.mms.controller.action.pl.PlRegisterFormAction;
+import com.mms.controller.action.pls.PlsListFormAction;
+import com.mms.controller.action.pls.PlsRegisterAction;
 
 public class ProgrammerActionFactory {
 	private static ProgrammerActionFactory instance = new ProgrammerActionFactory();
@@ -77,33 +80,26 @@ public class ProgrammerActionFactory {
 		 * @author PJH
 		 */
 
+
 		else if (command.equals("eduListForm")) {
 			action = new EduListFormAction();
-		}
-
-		else if (command.equals("eduRegister")) {
+		}else if (command.equals("eduRegister")) {
 			action = new EduRegisterAction();
-
-		}
-
-		else if (command.equals("eduDelete")) {
+		}else if (command.equals("eduDelete")) {
 			action = new EduDeleteAction();
-
-		}
-		else if(command.equals("eduUpdateFrom")) {
-			action = new EduUpdateFormAction();
-			
-		}
-		else if(command.equals("eduUpdate")) {
+		}else if(command.equals("eduUpdateFrom")) {
+			action = new EduUpdateFormAction();	
+		}else if(command.equals("eduUpdate")) {
 			action = new EduUpdateAction();
-			
-		}
-		
-
-		else if (command.equals("introduceRegister")) {
+		}else if(command.equals("plsListForm")) {
+			action = new PlsListFormAction();
+		}else if(command.equals("plsRegister")) {
+			action = new PlsRegisterAction();	
+		}else if (command.equals("introduceRegister")) {
 			action = new IntroduceRegisterAction();
 
 		}
+
 
 		/**
 		 * @author OSJ

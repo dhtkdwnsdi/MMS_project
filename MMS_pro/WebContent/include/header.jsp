@@ -175,7 +175,7 @@
 											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=portpolioListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">포트폴리오 등록</span></a></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=eduListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">학력 등록</span></a></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=careerListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">경력 등록</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="custom_faq_faq-v1.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">프로그래밍 언어 숙련도 등록</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=plsListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">프로그래밍 언어 숙련도 등록</span></a></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=memberSetForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">계정 설정</span></a></li>
 										</ul>
 									</div>

@@ -9,17 +9,17 @@ public class PlsVo {
 	private String progNum;
 	private String profiency;
 	private String experience;
-	public String getPlsNum() {
-		return plsNum;
-	}
-	public void setPlsNum(String plsNum) {
-		this.plsNum = plsNum;
-	}
 	public String getPlNum() {
 		return plNum;
 	}
 	public void setPlNum(String plNum) {
-		this.plNum = plNum;
+		this.plsNum = plNum;
+	}
+	public String getPlsNum() {
+		return plNum;
+	}
+	public void setPlsNum(String plsNum) {
+		this.plsNum = plsNum;
 	}
 	public String getProgNum() {
 		return progNum;
