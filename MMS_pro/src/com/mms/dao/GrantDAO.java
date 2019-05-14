@@ -56,7 +56,7 @@ public class GrantDAO extends DBManager{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update tbl_programmer set grant = ? where prog_num = ?";
+		String sql = "update tbl_programmer pg set pg.grant = ? where pg.prog_num = ?";
 		
 		try {
 			conn = getConnection();

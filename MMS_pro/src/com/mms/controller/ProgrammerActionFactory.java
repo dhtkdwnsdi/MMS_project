@@ -15,6 +15,8 @@ import com.mms.controller.action.EduListFormAction;
 import com.mms.controller.action.EduRegisterAction;
 import com.mms.controller.action.EduUpdateAction;
 import com.mms.controller.action.EduUpdateFormAction;
+import com.mms.controller.action.GrantListFormAction;
+import com.mms.controller.action.GrantModifyAction;
 import com.mms.controller.action.IntroduceRegisterAction;
 import com.mms.controller.action.MemberSetFormAction;
 import com.mms.controller.action.MemberUpdateAction;
@@ -154,6 +156,10 @@ public class ProgrammerActionFactory {
 			action = new PlRegisterAction();
 		} else if (command.equals("plRegisterForm")) {
 			action = new PlRegisterFormAction();
+		} else if (command.equals("grantListForm")) {
+			action = new GrantListFormAction();
+		} else if (command.equals("grantModify")) {
+			action = new GrantModifyAction();
 		}
 
 		return action;
