@@ -173,10 +173,10 @@
 											<th scope="row">
 											<input type="hidden" name="certNum"
 												value="${certVo.certNum}" id="certNum"> <a
-												onclick="return sendToParent()">${listStat.count}</a></th>
+												onclick="sendToParent()">${listStat.count}</a></th>
 											<td><input type="hidden" name=certName
 												value="${certVo.certName}" id="certName"> <a
-												onclick="return sendToParent()">${certVo.certName}</a></td>
+												onclick="sendToParent()">${certVo.certName}</a></td>
 											<td>${certVo.issueOrg}</td>
 										</tr>
 									</c:forEach>
@@ -255,9 +255,9 @@
 <!-- begin::Global Config(global config for global JS sciprts) -->
 <script>
 	function sendToParent() {
-		window.opener.document.frm.certNum.value = document.frm.certNum.value;
-		window.opener.document.frm.certName.value = document.frm.certName.value;
-		self.close();
+		document.getElementById("certNum").value = opener.document.getElementById("certNum").value;
+		document.getElementById("certName").value = opener.document.getElementById("certName").value;
+		window.close();
 
 	}
 

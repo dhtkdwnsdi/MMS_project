@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 
 <!DOCTYPE html>
 <!-- 
@@ -122,12 +123,12 @@ License: You must have a valid license purchased only from themeforest(the above
 
 									<div class="form-group row">
 										<label class="col-3 col-form-label">자격증명</label> 
-										<input name="certNum" class="form-control" type="hidden" id="certNum">
+										<input type="hidden" name="certNum" class="form-control" id="certNum">
 										<div class="kt-input-icon kt-input-icon--right">
 											<input type="text" class="form-control" id="certName" name="certName" readonly> 
 											<span class="kt-input-icon__icon kt-input-icon__icon--right">
 												<span>
-												<button type="button" class="btn btn-outline-hover-danger btn-icon" onClick="certNameCheck()" id="certNameCherck">
+												<button type="button" class="btn btn-outline-hover-danger btn-icon" onClick="openPopUp2()" id="certNameCherck">
 														<i class="la la-search"></i>
 												</button>
 												</span>
@@ -183,12 +184,30 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Global Config(global config for global JS sciprts) -->
 	<script>
-	function certNameCheck() {
+	function openPopUp2() {
+		// window.name = "부모창 이름"; 
+		window.name = "childForm";
+		// window.open("open할 window", "자식창 이름", "팝업창 옵션");
+		var width = "500";
+		var height = "300";
+		var top = (window.screen.height - height) / 2;
+		var left = (window.screen.width - width) / 2;
+		var url = "/prog?command=certSearchForm";
+		var title = "자격증 검색";
+		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
+
+		window.open(url, title, status);
+
+		
+	}
+	
+	/* function certNameCheck() {
 		var url = "/prog?command=certSearchForm"
 		window.open(url, "_blank_1",
 						"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=500, height=400");
 
-	}
+	} */
 	
 	
 	

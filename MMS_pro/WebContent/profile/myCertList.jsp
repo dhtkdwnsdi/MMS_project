@@ -870,7 +870,7 @@ table, td, tr, th {
 		var top = (window.screen.height - height) / 2;
 		var left = (window.screen.width - width) / 2;
 		var url = "../profile/myCertRegistForm.jsp";
-		var title = "학력 정보 등록";
+		var title = "보유 자격증 등록";
 		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
 				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
 

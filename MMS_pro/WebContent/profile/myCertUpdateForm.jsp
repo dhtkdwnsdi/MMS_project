@@ -111,8 +111,8 @@ License: You must have a valid license purchased only from themeforest(the above
 			</div>
 			<div class="kt-portlet__body">
 				<form class="kt-form" id="kt_form" method="post" name="frm" action="/prog?command=myCertUpdate">
-					<input type="hidden" name="progNum" value="${LoginUser.progNum}"
-						id="progNum">
+					<input type="hidden" name="progNum" value="${LoginUser.progNum}" id="progNum">
+					<input name="myCertNum" id="myCertNum" type="hidden" value="${myCertVo.myCertNum }">
 					<div class="row">
 						<div class="col-xl-2"></div>
 						<div class="col-xl-8">

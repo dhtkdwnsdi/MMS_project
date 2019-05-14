@@ -259,7 +259,7 @@ function openPopUp()
 	  var top = (window.screen.height-height)/2; 
 	  var left = (window.screen.width-width)/2; 
  	  var url = "profile/careerRegisterForm.jsp"; 
-	  var title = "경력 정보 등록"; 
+	  var title = "childForm"; 
 	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
       window.open(url, title, status);

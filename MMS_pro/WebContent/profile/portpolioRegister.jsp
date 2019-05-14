@@ -35,55 +35,8 @@ License: You must have a valid license purchased only from themeforest(the above
 			<div class="col-lg-12">
 
 				<!--begin::Portlet-->
-				<div
-					class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
+				<div class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
 					id="kt_page_portlet">
-					<!-- <div class="kt-portlet__head kt-portlet__head--lg">
-						<div class="kt-portlet__head-label">
-							<h3 class="kt-portlet__head-title">
-								포트폴리오 작성 <small>try to scroll the page</small>
-							</h3>
-						</div>
-						<div class="kt-portlet__head-toolbar">
-
-							<a
-								href="prog?command=portpolioListForm"
-								class="btn btn-clean kt-margin-r-10"> <i
-								class="la la-arrow-left"></i> <span class="kt-hidden-mobile">Back</span>
-							</a>
-							<div class="btn-group">
-								<button type="submit" class="btn btn-brand"
-									href="prog?command=portpolioListForm">
-									<span class="kt-hidden-mobile">Save</span>
-								</button>
-								<button type="button"
-									class="btn btn-brand dropdown-toggle dropdown-toggle-split"
-									data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false"></button>
-								<div class="dropdown-menu dropdown-menu-right">
-									<ul class="kt-nav">
-										<li class="kt-nav__item"><a href="#" class="kt-nav__link">
-												<i class="kt-nav__link-icon flaticon2-reload"></i> <span
-												class="kt-nav__link-text">Save & continue</span>
-										</a></li>
-										<li class="kt-nav__item"><a href="#" class="kt-nav__link">
-												<i class="kt-nav__link-icon flaticon2-power"></i> <span
-												class="kt-nav__link-text">Save & exit</span>
-										</a></li>
-										<li class="kt-nav__item"><a href="#" class="kt-nav__link">
-												<i
-												class="kt-nav__link-icon flaticon2-edit-interface-symbol-of-pencil-tool"></i>
-												<span class="kt-nav__link-text">Save & edit</span>
-										</a></li>
-										<li class="kt-nav__item"><a href="#" class="kt-nav__link">
-												<i class="kt-nav__link-icon flaticon2-add-1"></i> <span
-												class="kt-nav__link-text">Save & add new</span>
-										</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div> -->
 					<div class="kt-portlet__body">
 						<form class="kt-form" id="kt_form">
 							<div class="row">
@@ -92,7 +45,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="kt-section kt-section--first">
 										<div class="kt-section__body">
 											<h3 class="kt-section__title kt-section__title-lg">포트폴리오</h3>
-											<input type="hidden" name="progNum" value="${LoginUser}">
+											<input type="hidden" name="progNum" value="${LoginUser.progNum}">
 											<div class="form-group row">
 												<label class="col-3 col-form-label">제목</label>
 												<div class="col-9">
@@ -104,7 +57,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<label class="col-3 col-form-label">카테고리</label>
 												<div class="col-4">
 													<select name="portCate" class="form-control" id="portCate">
-														<option value="">Select</option>
+														<option value="">--선택--</option>
 														<option value="C1">카테고리1</option>
 														<option value="C2">카테고리2</option>
 														<option value="C3">카테고리3</option>
@@ -116,7 +69,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<div class="col-4">
 													<select name="portDetailCate" class="form-control"
 														id="portDetailCate">
-														<option value="">Select</option>
+														<option value="">--선택--</option>
 														<option value="DC1">카테고리1</option>
 														<option value="DC2">카테고리2</option>
 														<option value="DC3">카테고리3</option>

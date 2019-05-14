@@ -26,12 +26,14 @@ public class MyCertUpdateAction implements Action {
 		
 		MyCertVO myCertVo = new MyCertVO();
 		
-		myCertVo.setCertNum(myCertNum);
+		myCertVo.setMyCertNum(myCertNum);
 		myCertVo.setIssueDate(issueDate);
 		myCertVo.setCertSerial(certSerial);
 		
 		MyCertDAO myCertDao = MyCertDAO.getInstance();
 		myCertDao.updateMyCert(myCertVo);
+		
+		System.out.println(myCertVo);
 		
 		new MyCertListFormAction().execute(request, response);
 	}
