@@ -3,6 +3,8 @@ package com.mms.controller;
 import com.mms.controller.action.Action;
 import com.mms.controller.action.project.ProjectListFormAction;
 import com.mms.controller.action.project.ProjectRegisterAction;
+import com.mms.controller.action.project.ProjectUpdateAction;
+import com.mms.controller.action.project.ProjectUpdateFormAction;
 import com.mms.controller.action.project.ProjectViewFormAction;
 
 public class ProjectActionFactory {
@@ -33,7 +35,13 @@ public class ProjectActionFactory {
 				action = new ProjectViewFormAction();
 				
 			}
-			
+			else if(command.equals("projectUpdateForm")) {
+				action = new ProjectUpdateFormAction();
+			}
+			else if(command.equals("projectUpdate")) {
+				action = new ProjectUpdateAction();
+				
+			}
 			return action;
 		}
 		

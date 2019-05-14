@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
 import com.mms.controller.action.project.ProjectRegisterAction;
+import com.mms.controller.action.project.ProjectUpdateAction;
 import com.mms.vo.ProjectVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -101,6 +102,68 @@ public class ProjectServlet extends HttpServlet {
 			request.setAttribute("pVo", pVo);
 			
 			new ProjectRegisterAction().execute(request, response);
+		} else if(command.equals("projectUpdate")) {
+			
+			ServletContext context = getServletContext();
+			System.out.println("context: " + context.getContextPath());
+			
+			String path = context.getRealPath("projectFile");
+			
+			String encType = "UTF-8";
+			int sizeLimit = 20 * 1024 * 1024;
+			
+			MultipartRequest multi = new MultipartRequest(request, path, sizeLimit, encType, new DefaultFileRenamePolicy());
+			
+			String projName = multi.getParameter("projName");
+			String projCate = multi.getParameter("projCate");
+			String projDetailCate = multi.getParameter("projDetailCate");
+			String startDuedate = multi.getParameter("startDuedate");
+			String endDuedate = multi.getParameter("endDuedate");
+			String deadline = multi.getParameter("deadline");
+			String contents = multi.getParameter("contents");
+			String partiFormCode = multi.getParameter("partiFormCode");
+			String fwCode = multi.getParameter("fwCode");
+			String dbmsCode = multi.getParameter("dbmsCode");
+			String osCode = multi.getParameter("osCode");
+			String levelCode = multi.getParameter("levelCode");
+			String projFile = multi.getFilesystemName("projFile");
+			String projStat = multi.getParameter("projStat");
+			String projNum = multi.getParameter("projNum");
+			
+			String prevProjFile = multi.getParameter("prevProjFile");
+			String filePath = path + "\\" + prevProjFile;
+			
+			System.out.println(filePath);
+			
+			File f = new File(filePath);
+			if(f.exists()) {
+				f.delete();
+			}
+			
+			ProjectVO pVo = new ProjectVO();
+			pVo.setProjName(projName);
+			pVo.setProjCate(projCate);
+			pVo.setProjDetailCate(projDetailCate);
+			pVo.setStartDuedate(startDuedate);
+			pVo.setEndDuedate(endDuedate);
+			pVo.setDeadline(deadline);
+			pVo.setContents(contents);
+			pVo.setPartiFormCode(partiFormCode);
+			pVo.setFwCode(fwCode);
+			pVo.setDbmsCode(dbmsCode);
+			pVo.setOsCode(osCode);
+			pVo.setLevelCode(levelCode);
+			pVo.setProjFile(projFile);
+			pVo.setProjStat(projStat);
+			pVo.setProjNum(projNum);
+			
+			System.out.println("path: " + path);
+			System.out.println("fileName: " + projFile);
+			System.out.println("pVo: " + pVo);
+			
+			request.setAttribute("pVo", pVo);
+			
+			new ProjectUpdateAction().execute(request, response);
 		} 
 		else if(command.equals("download")) {
 //			ServletContext context = getServletContext();
