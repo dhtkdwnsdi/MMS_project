@@ -42,7 +42,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 					</div>
 					<div class="kt-portlet__body">
-						<form method="post" action="prog?command=grantModify">
+						<form method="post">
 							<!--begin::Section-->
 							<div class="kt-section">
 								<div class="kt-section__content">
@@ -52,28 +52,36 @@ License: You must have a valid license purchased only from themeforest(the above
 												<th style="font-weight: bold;">번호</th>
 												<th style="font-weight: bold;">이름</th>
 												<th style="font-weight: bold;">권한</th>
+												<th style="font-weight: bold;">관리</th>
 											</tr>
 										</thead>
 										<tbody style="text-align: center;">
-											<c:forEach items="${gList}" var="pVo">
+											<c:forEach items="${gList}" var="pVo" varStatus="listStat">
 												<tr>
-													<td>${pVo.progNum}<input type="hidden" name="progNum"
-														id="progNum" value="${pVo.progNum}"></td>
+													<th scope="row">${listStat.count}
+													<input type="hidden" id="index" value="${listStat.index}">
+													<input type="hidden" name="progNum" id="progNum" value="${pVo.progNum}"></th>
 													<td>${pVo.name}</td>
 													<td>
 														<div class="col-4">
 															<select name="grant" class="form-control" id="grant">
-																<c:if test="${grant == '0' }">
-																<option value="0" selected="selected">일반 사용자</option>
-																<option value="1">PM</option>
+																<c:if test="${pVo.grant == '0' }">
+																	<option value="0" selected="selected">일반 사용자</option>
+																	<option value="1">PM</option>
 																</c:if>
-																
-																<c:if test="${grant == '1' }">
-																<option value="0">일반 사용자</option>
-																<option value="1" selected="selected">PM</option>
+
+																<c:if test="${pVo.grant == '1' }">
+																	<option value="0">일반 사용자</option>
+																	<option value="1" selected="selected">PM</option>
 																</c:if>
 															</select>
 														</div>
+													</td>
+													<td>
+														<button type="button" class="btn btn-secondary"
+															onclick="updateGrant()">수정</button> 
+													<%-- <a href="prog?command=grantModify&progNum=${pVo.progNum}&grant=${pVo.grant}"><span
+													class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a> --%>
 													</td>
 												</tr>
 											</c:forEach>
@@ -83,7 +91,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							</div>
 
 							<!--end::Section-->
-							<div class="kt-portlet__foot">
+							<!-- <div class="kt-portlet__foot">
 								<div class="kt-form__actions kt-form__actions--right">
 									<div class="row">
 										<div class="col kt-align-left">
@@ -92,7 +100,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</form>
 					</div>
 				</div>
@@ -346,52 +354,37 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- end::Body -->
 <script>
-	function openPopUp() {
-		// window.name = "부모창 이름"; 
-		window.name = "parentForm";
-		// window.open("open할 window", "자식창 이름", "팝업창 옵션");
-		var width = "800";
-		var height = "555";
-		var top = (window.screen.height - height) / 2;
-		var left = (window.screen.width - width) / 2;
-		var url = "profile/plRegister.jsp";
-		var title = "프로그래밍 언어 등록";
-		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
-				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
-
-		window.open(url, title, status);
-
-		/* window.open("memberUpdateForm.jsp",
-		        "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */
-	}
-
-	function deletePl() {
+	function updateGrant() {
 
 		// userID 변수에 userID의 입력된 값을 가져오게 함
-		var plNum = $('#plNum').val();
-		var plName = $('#plName').val();
+		var index = $('#index').val();
+		/* var progNum = $('#progNum'+index).val(); */
+		var progNum = document.getElementsByName("progNum")[index].value;
+		var grant = $('#grant').val();
+		alert(progNum);
 
-		if (id == "") {
-			alert("아이디를 입력해주세요.");
-			$("#id").focus();
-			return false;
-		}
-		if (password == "") {
-			alert("비밀번호를 입력해주세요.");
-			$("#password").focus();
-			return false;
-		}
-		if (name == "") {
-			alert("이름을 입력해주세요.");
-			$("#name").focus();
-			return false;
-		}
-		if (progNum == "") {
-			alert("잘못된 정보입니다.");
-			return false;
-		} else {
-			return false;
-		}
+		$.ajax({
+
+			type : 'POST', // GET or POST 전송방법 
+
+			url : '/prog?command=grantModify', // 이쪽으로 보낸다(호출URL)
+
+			data : {
+				progNum : progNum,
+				grant : grant,
+			}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
+
+			success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
+				alert("수정 되었습니다.");
+				location.href = "/prog?command=grantListForm";
+			},
+			error : function(data) {
+				alert("오류:: 다시 시도해주세요.");
+				return false;
+			}
+
+		})
+
 	}
 </script>
 </html>

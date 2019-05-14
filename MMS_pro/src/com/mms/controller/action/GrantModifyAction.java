@@ -18,20 +18,27 @@ public class GrantModifyAction implements Action{
 String url = "/prog?command=grantListForm";
 		
 		String progNum = request.getParameter("progNum");
-		String name = request.getParameter("name");
+//		request.setAttribute("progNum",progNum);
+		//String name = request.getParameter("name");
 		String grant = request.getParameter("grant");
+//		request.setAttribute("grant", grant);
 		
 		ProgrammerVO pVo = new ProgrammerVO();
 		
 		pVo.setProgNum(progNum);
-		pVo.setName(name);
+		//pVo.setName(name);
 		pVo.setGrant(grant);
 		
-		System.out.println("grantmodifyaction");
+		System.out.println("grant : " + grant);
+		System.out.println("progNum : " + progNum);
 		
 		GrantDAO gDao = GrantDAO.getInstance();
 		
 		gDao.updateGrant(pVo);
+		
+		System.out.println(pVo);
+		
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
