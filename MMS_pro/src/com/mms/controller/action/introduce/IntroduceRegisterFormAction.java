@@ -1,4 +1,4 @@
-package com.mms.controller.action;
+package com.mms.controller.action.introduce;
 
 import java.io.IOException;
 

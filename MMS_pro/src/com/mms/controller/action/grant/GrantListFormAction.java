@@ -1,36 +1,35 @@
-package com.mms.controller.action;
+package com.mms.controller.action.grant;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mms.controller.action.Action;
 import com.mms.dao.GrantDAO;
 import com.mms.vo.ProgrammerVO;
 
-public class GrantUpdateFormAction implements Action{
+public class GrantListFormAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "admin/grantUpdate.jsp";
+		
+		String url = "admin/grantList.jsp";
 		
 		GrantDAO gDao = GrantDAO.getInstance();
 		
-		String progNum = request.getParameter("progNum");
+		List<ProgrammerVO> gList = gDao.selectGrant();
 		
-		request.setAttribute("progNum", progNum);
-		
-		ProgrammerVO pVo = gDao.readGrant(progNum);
-		
-		request.setAttribute("pVo", pVo);
-		
-		System.out.println(pVo);
+		request.setAttribute("gList", gList);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
+	
+	
 
 }

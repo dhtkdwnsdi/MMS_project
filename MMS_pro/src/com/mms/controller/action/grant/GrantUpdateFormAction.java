@@ -1,4 +1,4 @@
-package com.mms.controller.action;
+package com.mms.controller.action.grant;
 
 import java.io.IOException;
 
@@ -7,27 +7,28 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mms.dao.CareerDAO;
-import com.mms.vo.CareerVO;
+import com.mms.controller.action.Action;
+import com.mms.dao.GrantDAO;
+import com.mms.vo.ProgrammerVO;
 
-public class CareerUpdateFormAction implements Action {
+public class GrantUpdateFormAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "profile/careerUpdateForm.jsp";
+		String url = "admin/grantUpdate.jsp";
 		
-		CareerDAO careerDao = CareerDAO.getInstance();
+		GrantDAO gDao = GrantDAO.getInstance();
 		
-		String careerNum = request.getParameter("careerNum");
+		String progNum = request.getParameter("progNum");
 		
-		request.setAttribute("careerNum", careerNum);
+		request.setAttribute("progNum", progNum);
 		
-		CareerVO careerVo = careerDao.readCareer(careerNum);
+		ProgrammerVO pVo = gDao.readGrant(progNum);
 		
-		request.setAttribute("careerVo", careerVo);
+		request.setAttribute("pVo", pVo);
 		
-		System.out.println(careerVo);	
+		System.out.println(pVo);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

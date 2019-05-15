@@ -1,4 +1,4 @@
-package com.mms.controller.action;
+package com.mms.controller.action.cert;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,15 +8,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mms.controller.action.Action;
 import com.mms.dao.CertDAO;
 import com.mms.vo.CertVO;
 
-public class CertSearchFormAction implements Action {
+public class CertListFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "/profile/searchCertName.jsp";
+		
+		String url = "/admin/certList.jsp";
 		
 		CertDAO certDao = CertDAO.getInstance();
 		
