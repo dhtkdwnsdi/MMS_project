@@ -230,6 +230,80 @@ public class ProjectDAO extends DBManager {
 		   return list;
 	   }
 	   
+	   // 프로젝트 신청 리스트 - 모집만 띄우기
+	   public ArrayList<ProjectVO> projectApplyList(){
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   ResultSet rs = null;
+		   
+		   String sql = "SELECT PJ.PROJ_NUM AS PROJ_NUM" + 
+			   		"	           ,PJ.PROJ_CATE AS PROJ_CATE" + 
+			   		"              ,PJ.PROJ_DETAIL_CATE AS PROJ_DETAIL_CATE"
+			   		+ "			   ,PJ.PROJ_NAME AS PROJ_NAME" + 
+			   		"              ,PJ.DEADLINE AS DEADLINE" + 
+			   		"              ,PJ.START_DUEDATE AS START_DUEDATE" + 
+			   		"              ,PJ.END_DUEDATE AS END_DUEDATE" + 
+			   		"              ,PG.NAME AS PROG_NAME" + 
+			   		"              ,PJ.PROJ_STAT AS PROJ_STAT"
+			   		+ "			   ,PJ.CONTENTS AS CONTENTS"
+			   		+ "			   ,PJ.PARTI_FORM_CODE AS PARTI_FORM_CODE"
+			   		+ "			   ,PJ.FW_CODE AS FW_CODE"
+			   		+ "			   ,PJ.DBMS_CODE AS DBMS_CODE"
+			   		+ "			   ,PJ.OS_CODE AS OS_CODE"
+			   		+ "			   ,PJ.LEVEL_CODE AS LEVEL_CODE"
+			   		+ "			   ,PJ.PROJ_FILE AS PROJ_FILE"
+			   		+ "			   ,PJ.PROG_NUM AS PROG_NUM" + 
+			   		"          FROM TBL_PROJECT PJ" + 
+			   		"			   ,TBL_PROGRAMMER PG" + 
+			   		"  		   WHERE PG.PROG_NUM = PJ.PROG_NUM"
+			   		+ "			 AND PJ.PROJ_STAT LIKE '%모집%'"
+			   		+ "		   ORDER BY PJ.PROJ_NUM DESC";
+		   ArrayList<ProjectVO> list = new ArrayList<ProjectVO>();
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   rs = pstmt.executeQuery();
+			   
+			   while(rs.next()) {
+				   ProjectVO pVo = new ProjectVO();
+				   pVo.setProjNum(rs.getString("PROJ_NUM"));
+				   pVo.setProjName(rs.getString("PROJ_NAME"));
+				   pVo.setProjCate(rs.getString("PROJ_CATE"));
+				   pVo.setProjDetailCate(rs.getString("PROJ_DETAIL_CATE"));
+				   pVo.setStartDuedate(rs.getString("START_DUEDATE"));
+				   pVo.setEndDuedate(rs.getString("END_DUEDATE"));
+				   pVo.setDeadline(rs.getString("DEADLINE"));
+				   pVo.setContents(rs.getString("CONTENTS"));
+				   pVo.setPartiFormCode(rs.getString("PARTI_FORM_CODE"));
+				   pVo.setFwCode(rs.getString("FW_CODE"));
+				   pVo.setDbmsCode(rs.getString("DBMS_CODE"));
+				   pVo.setOsCode(rs.getString("OS_CODE"));
+				   pVo.setLevelCode(rs.getString("LEVEL_CODE"));
+				   pVo.setProjFile(rs.getString("PROJ_FILE"));
+				   pVo.setProjStat(rs.getString("PROJ_STAT"));
+				   pVo.setProgNum(rs.getString("PROG_NUM"));
+				   pVo.setProgName(rs.getString("PROG_NAME"));
+				   
+				   list.add(pVo);
+			   }
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+		   
+		   } finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		   return list;
+	   }
+	   
 	   
 	// 프로젝트 해당 PM의 프로젝트 리스트 메소드,  내가 등록한 프로젝트만 보는 메소드
 	   public ArrayList<ProjectVO> myProjectList(String progNum){
@@ -257,6 +331,7 @@ public class ProjectDAO extends DBManager {
 		   		"          FROM TBL_PROJECT PJ" + 
 		   		"			   ,TBL_PROGRAMMER PG" + 
 		   		"  		   WHERE PG.PROG_NUM = ?"
+		   		+ "			 AND PG.PROG_NUM = PJ.PROG_NUM"
 		   		+ "		   ORDER BY PJ.PROJ_NUM DESC";
 		   
 		   ArrayList<ProjectVO> list = new ArrayList<ProjectVO>();
@@ -333,7 +408,8 @@ public class ProjectDAO extends DBManager {
 			   		+ "			   ,PJ.PROG_NUM AS PROG_NUM" + 
 			   		"          FROM TBL_PROJECT PJ" + 
 			   		"			   ,TBL_PROGRAMMER PG" + 
-			   		"  		   WHERE PJ.PROJ_NUM = ?";
+			   		"  		   WHERE PJ.PROJ_NUM = ?"
+			   		+ "			 AND PJ.PROG_NUM = PG.PROG_NUM";
 		   
 		   try {
 			   conn = getConnection();

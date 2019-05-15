@@ -1,6 +1,7 @@
 package com.mms.controller.action.project;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,18 +12,16 @@ import com.mms.controller.action.Action;
 import com.mms.dao.ProjectDAO;
 import com.mms.vo.ProjectVO;
 
-public class ProjectViewFormAction implements Action {
+public class ProjectApplyListFormAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "project/projectViewForm.jsp";
+		String url = "project/projectApplyListForm.jsp";
 		
-		String projNum = request.getParameter("projNum");
-		ProjectVO projVo = new ProjectVO();
 		ProjectDAO pDao = ProjectDAO.getInstance();
-		
-		projVo = pDao.viewProject(projNum);
-		request.setAttribute("projVo", projVo);
+		ArrayList<ProjectVO> list = new ArrayList<ProjectVO>();
+		list = pDao.projectApplyList();
+		request.setAttribute("list", list);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

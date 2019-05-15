@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
 <!-- 
@@ -119,10 +120,12 @@ font-weight: bold;
 											</div>
 											<div class="kt-portlet__head-toolbar">
 												<div class="btn-group">
+												<c:if test="${LoginUser.progNum eq projVo.progNum}">
 													<button type="button" class="btn btn-success">
 														<i class="la la-check"></i>
 														<span class="kt-hidden-mobile">인력배치</span>
 													</button>
+												</c:if>
 												</div>
 											</div>
 										</div>
@@ -133,6 +136,7 @@ font-weight: bold;
 												<div class="form-group row form-group-marginless kt-margin-t-20">
 													<div class="col-lg-4">
 														<label id="label1">프로젝트 명</label>
+														<input type="hidden" id="projNum" value="${projVo.projNum}">
 														<input type="text" class="form-control" value="${projVo.projName}" name="projName" id="projName" readonly="readonly">
 													</div>
 													<div class="col-lg-4">
@@ -269,8 +273,10 @@ font-weight: bold;
 														<div class="col-lg-6">
 														</div>
 														<div class="col-lg-6 kt-align-right">
+															<c:if test="${LoginUser.progNum eq projVo.progNum}">
 															<button type="button" class="btn btn-primary" onclick="location.href='/proj?command=projectUpdateForm&projNum=${projVo.projNum}'">수정</button>
-															<button type="button" class="btn btn-danger" onclick="location.href='/proj?command=projectDelete&projNum=${projVo.projNum}'">삭제</button>
+															<button type="button" class="btn btn-danger" id="delete">삭제</button>
+															</c:if>
 															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
 														</div>
 													</div>
@@ -435,10 +441,20 @@ font-weight: bold;
 $(document).ready(
 		function() {
 			$('#cancel').on("click",function(event) {
-						self.location = "proj?command=projectListForm";
+						self.location = "proj?command=projectApplyListForm";
 					});
-			$('#newBtn').on("click", function(evt) {
-				self.location = "register";
+			$('#delete').on("click", function(evt) {
+				
+				var confirmStat = confirm("삭제하시겠습니까?");
+				
+				if(confirmStat == true){
+					var projNum = $('#projNum').val();
+					alert("삭제되었습니다.");
+					self.location = "proj?command=projectDelete&projNum="+projNum;	
+				} else{
+					return false;
+				}
+				
 			});
 		});
 </script>

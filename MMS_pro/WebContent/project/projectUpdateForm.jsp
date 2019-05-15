@@ -573,7 +573,7 @@ font-weight: bold;
 														</div>
 														<div class="col-lg-6 kt-align-right">
 															<button type="button" class="btn btn-primary" onclick="updateProject()">저장</button>
-															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
+															<button type="button" class="btn btn-secondary" id="cancel">취소</button>
 														</div>
 													</div>
 												</div>
@@ -850,7 +850,8 @@ function updateProject(){
 $(document).ready(
 		function() {
 			$('#cancel').on("click",function(event) {
-						self.location = "proj?command=projectListForm";
+						var projNum = $('#projNum').val();
+						self.location = "proj?command=projectRegisterViewForm&projNum="+projNum;
 					});
 			$('#newBtn').on("click", function(evt) {
 				self.location = "register";

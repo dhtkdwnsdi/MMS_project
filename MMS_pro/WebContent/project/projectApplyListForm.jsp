@@ -20,7 +20,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Head -->
 	<head>
-		<title>PMMS | 프로젝트 등록</title>
+		<title>PMMS | 프로젝트 신청</title>
 	</head>
 	<!-- end::Head -->
 
@@ -34,7 +34,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile" id="kt_page_portlet">
 										<div class="kt-portlet__head kt-portlet__head--lg">
 											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">프로젝트 등록</h3>
+												<h3 class="kt-portlet__head-title">프로젝트 신청</h3>
 											</div>
 										</div>
 										<div class="kt-portlet__body">
@@ -54,20 +54,25 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">종료 예정일</th>
 																<th style="font-weight: bold;">담당자</th>
 																<th style="font-weight: bold;">상태</th>
+																<th style="font-weight: bold;">접수</th>
 															</tr>
 														</thead>
 														<tbody style="text-align: center;">
 														<c:forEach items="${list}" var="projVo" varStatus="listStat">
 															<tr>
-																<th scope="row">${listStat.count}<input type="hidden" name="projNum" id="projNum" value="${projVo.projNum}"></th>
+																<th scope="row">${listStat.count}
+																<input type="hidden" name="projNum" id="projNum" value="${projVo.projNum}">
+																</th>
 																<td>${projVo.projCate}</td>
 																<td>${projVo.projDetailCate}</td>
-																<td><a href="proj?command=projectViewForm&projNum=${projVo.projNum}">${projVo.projName}</a></td>
+																<td><a href="proj?command=projectApplyViewForm&projNum=${projVo.projNum}">${projVo.projName}</a>
+																</td>
 																<td>${projVo.deadline}</td>
 																<td>${projVo.startDuedate}</td>
 																<td>${projVo.endDuedate}</td>
-																<td>${LoginUser.name}</td>
+																<td>${projVo.progName}</td>
 																<td>${projVo.projStat}</td>
+																<td><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">신청</span></td>
 															</tr>
 														</c:forEach>
 														</tbody>
