@@ -20,7 +20,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Head -->
 	<head>
-		<title>Metronic | 경력 등록</title>
+		<title>Metronic | 프로그래밍 언어 숙련도 등록</title>
 	</head>
 	<!-- end::Head -->
 
@@ -34,7 +34,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile" id="kt_page_portlet">
 										<div class="kt-portlet__head kt-portlet__head--lg">
 											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">${LoginUser.name} 님의 경력 정보</h3>
+												<h3 class="kt-portlet__head-title">${LoginUser.name} 님의 프로그래밍 언어 숙련도 정보</h3>
 											</div>
 										</div>
 										<div class="kt-portlet__body">
@@ -53,15 +53,15 @@ License: You must have a valid license purchased only from themeforest(the above
 															</tr>
 														</thead>
 														<tbody style="text-align: center;">
-															<c:forEach items="$plsList}" var="plsVo" varStatus="listStat">
+															<c:forEach items="${plsList}" var="plsVo" varStatus="listStat">
 															<tr>
 																<th scope="row">${listStat.count} <input type="hidden" name="plsNum" id="plsNum" value="${plsVo.plsNum}"></th>
 																<td><input type="hidden" value="${plsVo.plNum}" name="plNum" id="plNum" >${plsVo.plName}</td>
 																<td>${plsVo.profiency}</td>
 																<td>${plsVo.experience}</td>
 																<td>
-																<a href="prog?command=careerUpdateFrom&careerNum=${cVo.careerNum}" onclick="openPopUp2()"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
-																<a href="prog?command=careerDelete&careerNum=${cVo.careerNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
+																<a href="prog?command=plsUpdateFrom&careerNum=${plsVo.plsNum}" onclick="openPopUp2()"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
+																<a href="prog?command=careerDelete&careerNum=${plsVo.plsNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
 																</td>
 															</tr>
 															</c:forEach>
@@ -259,7 +259,7 @@ function openPopUp()
 	  var top = (window.screen.height-height)/2; 
 	  var left = (window.screen.width-width)/2; 
  	  var url = "profile/careerRegisterForm.jsp"; 
-	  var title = "경력 정보 등록"; 
+	  var title = "프로그래밍 언어 숙련도 정보 등록"; 
 	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
       window.open(url, title, status);

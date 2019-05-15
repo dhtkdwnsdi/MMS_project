@@ -1,6 +1,7 @@
 package com.mms.controller.action.pls;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -18,11 +19,11 @@ public class PlsListFormAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("액션 연결");
 		// java에서 세션을 이용할 때 꼭 작성.
 		HttpSession session = request.getSession();     
 				
-		String url = "profile/plsList.jsp";
+		String url = "profile/plsListForm.jsp";
 
 		// 현재 세션의 ProgrammerVO 타입인 LoginUser를 pVo에 대입
 		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser"); 
@@ -32,7 +33,7 @@ public class PlsListFormAction implements Action{
 		
 		PlsDAO plsDao = PlsDAO.getInstance();
 
-		List<PlsVO> plsList = plsDao.selectPls(progNum);
+		ArrayList<PlsVO> plsList = plsDao.selectPls(progNum);
 		
 		
 		request.setAttribute("plsList", plsList);

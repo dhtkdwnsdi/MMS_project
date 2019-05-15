@@ -10,6 +10,11 @@ public class PlsVO {
 	private String progNum;
 	private String profiency;
 	private String experience;
+	
+	public PlsVO() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public String getPlNum() {
 		return plNum;
 	}

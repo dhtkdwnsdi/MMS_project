@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import com.mms.vo.PlsVO;
 
@@ -24,8 +23,10 @@ public class PlsDAO extends DBManager {
 	}
 
 	// 프로그래밍 언어숙련도 목록 가져오기
-	public List<PlsVO> selectPls(String progNum) {
+	public ArrayList<PlsVO> selectPls(String progNum) {
 
+		ArrayList<PlsVO> list = new ArrayList<PlsVO>();
+		
 		String sql = "SELECT PLS.PLS_NUM"
 				+ "         ,PL.PL_NUM"
 				+ "			,PL.PL_NAME"
@@ -35,7 +36,6 @@ public class PlsDAO extends DBManager {
 				+ "	   WHERE PLS.PL_NUM = PL.PL_NUM"
 				+ "		 AND PLS.PROG_NUM = " + progNum ;
 
-		List<PlsVO> list = new ArrayList<PlsVO>();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -49,11 +49,11 @@ public class PlsDAO extends DBManager {
 			while (rs.next()) {
 				PlsVO pVo = new PlsVO();
 				
-				pVo.setPlsNum(rs.getString("plsNum"));
-				pVo.setPlNum(rs.getString("plNum"));
-				pVo.setPlNum(rs.getString("plName"));
-				pVo.setProfiency(rs.getString("profiency"));
-				pVo.setExperience(rs.getString("experience"));
+				pVo.setPlsNum(rs.getString("PLS_NUM"));
+				pVo.setPlNum(rs.getString("PL_NUM"));
+				pVo.setPlNum(rs.getString("PL_NAME"));
+				pVo.setProfiency(rs.getString("PROFIENCY"));
+				pVo.setExperience(rs.getString("EXPERIENCE"));
 
 				list.add(pVo);
 			}
@@ -61,6 +61,8 @@ public class PlsDAO extends DBManager {
 			e.printStackTrace();
 		} finally {
 			try {
+				if(rs != null) 
+					rs.close();
 				if (pstmt != null)
 					pstmt.close();
 				if (conn != null)
