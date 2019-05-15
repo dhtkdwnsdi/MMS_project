@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
 import com.mms.dao.PlsDAO;
-import com.mms.vo.PlsVo;
+import com.mms.vo.PlsVO;
 
 public class PlsRegisterAction implements Action{
 
@@ -27,7 +27,7 @@ public class PlsRegisterAction implements Action{
 		String progNum	= request.getParameter("progNum");
 		
 		
-		PlsVo pVo = new PlsVo();
+		PlsVO pVo = new PlsVO();
 		PlsDAO pDao = PlsDAO.getInstance();
 		
 		//parameter출력

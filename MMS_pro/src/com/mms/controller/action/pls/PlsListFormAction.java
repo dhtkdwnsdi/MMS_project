@@ -11,25 +11,32 @@ import javax.servlet.http.HttpSession;
 
 import com.mms.controller.action.Action;
 import com.mms.dao.PlsDAO;
-import com.mms.vo.PlsVo;
+import com.mms.vo.PlsVO;
 import com.mms.vo.ProgrammerVO;
 
 public class PlsListFormAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
 		
-		String url = "/profile/plsListForm.jsp";
-		
-		PlsDAO pDao = PlsDAO.getInstance();
+		// java에서 세션을 이용할 때 꼭 작성.
+		HttpSession session = request.getSession();     
+				
+		String url = "profile/plsList.jsp";
 
-		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser");
+		// 현재 세션의 ProgrammerVO 타입인 LoginUser를 pVo에 대입
+		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser"); 
+				
+		// pVo의 셋팅된 progNum을 가져와서 progNum 변수에 대입
 		String progNum = pVo.getProgNum();
 		
-		List<PlsVo> plsList = pDao.selectPls(progNum);
+		PlsDAO plsDao = PlsDAO.getInstance();
+
+		List<PlsVO> plsList = plsDao.selectPls(progNum);
+		
 		
 		request.setAttribute("plsList", plsList);
+		
 		System.out.println(plsList);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);

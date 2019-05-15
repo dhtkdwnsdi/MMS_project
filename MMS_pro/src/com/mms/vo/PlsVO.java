@@ -1,11 +1,12 @@
 package com.mms.vo;
 
-public class PlsVo {
+public class PlsVO {
 /*
  * @author YUJIN
  */
 	private String plsNum;
 	private String plNum;
+	private String plName;
 	private String progNum;
 	private String profiency;
 	private String experience;
@@ -20,6 +21,12 @@ public class PlsVo {
 	}
 	public void setPlsNum(String plsNum) {
 		this.plsNum = plsNum;
+	}
+	public String getPlName() {
+		return plName;
+	}
+	public void setPlName(String plName) {
+		this.plName = plName;
 	}
 	public String getProgNum() {
 		return progNum;
@@ -41,9 +48,11 @@ public class PlsVo {
 	}
 	@Override
 	public String toString() {
-		return "PlsVo [plsNum=" + plsNum + ", plNum=" + plNum + ", progNum=" + progNum + ", profiency=" + profiency
-				+ ", experience=" + experience + "]";
+		return "PlsVo [plsNum=" + plsNum + ", plNum=" + plNum + ", plName=" + plName + ", progNum=" + progNum
+				+ ", profiency=" + profiency + ", experience=" + experience + "]";
 	}
+	
+	
 	
 	
 }

@@ -19,7 +19,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- begin::Head -->
 <head>
 <meta charset="utf-8" />
-<title>Metronic | 프로그래밍 언어 숙련도 등록</title>
+<title>Metronic | 프로그래밍 언어 등록</title>
 <meta name="description" content="Bootstrap daterangepicker examples">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -143,8 +143,6 @@ License: You must have a valid license purchased only from themeforest(the above
 	class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
 
 	<!-- begin:: Content -->
-
-
 	<div class="kt-content  kt-grid__item kt-grid__item--fluid"
 		id="kt_content">
 		<div class="kt-portlet kt-portlet--mobile">
@@ -154,51 +152,81 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 			</div>
 			<div class="kt-portlet__body">
-				<form class="kt-form" id="kt_form" method="post" action="">
-					<input type="hidden" name="progNum" value="${LoginUser.progNum}"
-						id="progNum">
+				<form class="kt-form" id="kt_form">
+					<input type="hidden" name="progNum" id="progNum"
+						value="${LoginUser.progNum}">
 					<div class="row">
 						<div class="col-xl-2"></div>
 						<div class="col-xl-8">
 							<div class="kt-section kt-section--first">
 
 								<div class="kt-section__body">
-
-
+									<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
+																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
 									<div class="form-group row">
-										<label class="col-3 col-form-label" align="center">숙련도
-											(급)</label>
-										<div class="col-3">
-											<input class="form-control" type="text" name="profiency"
-												id="profiency">
+										<label class="col-3 col-form-label">프로그래밍 언어명</label> <input
+											type="hidden" name="plNum" class="form-control"
+											id="plNum">
+										<div class="kt-input-icon kt-input-icon--right">
+											<input type="text" class="form-control" id="plName"
+												name="plName" readonly> <span
+												class="kt-input-icon__icon kt-input-icon__icon--right">
+												<span>
+													<button type="button"
+														class="btn btn-outline-hover-danger btn-icon"
+														onClick="openPopUp2()" id="plNameCherck">
+														<i class="la la-search"></i>
+													</button>
+											</span>
+											</span>
 										</div>
 									</div>
 
 
-
+									
 									<div class="form-group row">
-										<label class="col-3 col-form-label" align="center">경험
-											(연차)</label>
-										<div class="col-3">
+										<label class="col-3 col-form-label">숙련도</label>
+										<div class="col-9">
+											<select class="form-control" id="profiency" name="profiency">
+												<option value='' selected>--선택--</option>
+												<option value="초급">초급</option>
+												<option value="중급">중급</option>
+												<option value="고급">고급</option>
+												<option value="특급">특급</option>
+											</select>
+										</div>
+									</div>
+									
+									
+									
+									
+									<div class="form-group row">
+										<label class="col-3 col-form-label">직책(연차)</label>
+										<div class="col-9">
 											<input class="form-control" type="text" name="experience"
 												id="experience">
 										</div>
 									</div>
-
-
-
-									<div class="col kt-align-right">
-										<button type="submit" class="btn btn-brand"
-											onclick="registerPls()">등록</button>
-										<a type="button" href="/prog?command=plsListForm"
-											class="btn btn-default">취소</a>
-									</div>
-
-
-
+									
+									
 								</div>
 							</div>
+							
+							
+							<div class="kt-portlet__foot">
+								<div class="kt-form__actions kt-form__actions--right">
+									<div class="row">
+
+										<div class="col kt-align-right">
+											<button type="button" class="btn btn-brand"
+												onclick="registerPls()">등록</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							
 						</div>
+						<div class="col-xl-2"></div>
 					</div>
 				</form>
 			</div>
@@ -405,7 +433,9 @@ License: You must have a valid license purchased only from themeforest(the above
 	<script
 		src="../assets/app/custom/general/crud/forms/widgets/bootstrap-datepicker.js"
 		type="text/javascript"></script>
-
+	<script
+		src="../assets/vendors/general/bootstrap-datepicker/js/locales/bootstrap-datepicker.ko.js"
+		type="text/javascript"></script>
 	<!--end::Page Scripts -->
 
 	<!--begin::Global App Bundle(used by all pages) -->
@@ -413,25 +443,16 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!--end::Global App Bundle -->
 </body>
- <script>
-	// 프로그래밍 언어 등록 AJAX
+<script>
+	// 경력 등록 AJAX
 	function registerPls() {
 
 		// userID 변수에 userID의 입력된 값을 가져오게 함
-		var plsNum = $('#plsNum').val();
-		var plNum = $('#plNum').val();
 		var progNum = $('#progNum').val();
-		var profiency = $('#profiency').val();
-		var experience = $('#experience').val();
-		
-		if (profiency == "") {
-			alert("숙련도를 입력해주세요.");
-			$("#profiency").focus();
-		}
-		if (experience == "") {
-			alert("경험 입력해주세요.");
-			$("#experience").focus();
-		}
+		var companyName = $('#plNum').val();
+		var department = $('#profiency').val();
+		var position = $('#experience').val();
+
 		
 		if (progNum == "") {
 			alert("잘못된 정보입니다.");
@@ -445,10 +466,10 @@ License: You must have a valid license purchased only from themeforest(the above
 				url : '/prog?command=plsRegister', // 이쪽으로 보낸다(호출URL)
 
 				data : {
+					progNum : progNum,
+					plNum : plNum,
 					profiency : profiency,
 					experience : experience,
-					
-					progNum : progNum
 				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
 
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
@@ -464,12 +485,31 @@ License: You must have a valid license purchased only from themeforest(the above
 			})
 		}
 	}
-</script> 
+</script>
 
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+<script>
+	$.datepicker.setDefaults({
+		dateFormat : 'yy-mm-dd',
+		prevText : '이전 달',
+		nextText : '다음 달',
+		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월',
+				'10월', '11월', '12월' ],
+		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월',
+				'9월', '10월', '11월', '12월' ],
+		dayNames : [ '일', '월', '화', '수', '목', '금', '토' ],
+		dayNamesShort : [ '일', '월', '화', '수', '목', '금', '토' ],
+		dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
+		showMonthAfterYear : true,
+		yearSuffix : '년'
+	});
 
+	$(function() {
+		$("#datepicker1").datepicker();
+	});
+</script>
 <!-- end::Body -->
 </html>
