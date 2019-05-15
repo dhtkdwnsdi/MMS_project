@@ -241,7 +241,7 @@ function openPopUp()
 	  var height = "555"; 
 	  var top = (window.screen.height-height)/2; 
 	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/plRegister.jsp"; 
+ 	  var url = "admin/plRegister.jsp"; 
 	  var title = "프로그래밍 언어 등록"; 
 	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
