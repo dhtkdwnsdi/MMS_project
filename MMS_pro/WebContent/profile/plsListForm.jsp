@@ -258,7 +258,7 @@ function openPopUp()
 	  var height = "555"; 
 	  var top = (window.screen.height-height)/2; 
 	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/careerRegisterForm.jsp"; 
+ 	  var url = "profile/plsRegisterForm.jsp"; 
 	  var title = "프로그래밍 언어 숙련도 정보 등록"; 
 	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
