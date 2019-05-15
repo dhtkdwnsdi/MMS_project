@@ -1,6 +1,7 @@
 package com.mms.controller;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.project.ProjectDeleteAction;
 import com.mms.controller.action.project.ProjectListFormAction;
 import com.mms.controller.action.project.ProjectRegisterAction;
 import com.mms.controller.action.project.ProjectUpdateAction;
@@ -40,6 +41,10 @@ public class ProjectActionFactory {
 			}
 			else if(command.equals("projectUpdate")) {
 				action = new ProjectUpdateAction();
+				
+			}
+			else if(command.equals("projectDelete")) {
+				action = new ProjectDeleteAction();
 				
 			}
 			return action;

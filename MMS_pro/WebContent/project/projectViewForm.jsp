@@ -270,8 +270,8 @@ font-weight: bold;
 														</div>
 														<div class="col-lg-6 kt-align-right">
 															<button type="button" class="btn btn-primary" onclick="location.href='/proj?command=projectUpdateForm&projNum=${projVo.projNum}'">수정</button>
+															<button type="button" class="btn btn-danger" onclick="location.href='/proj?command=projectDelete&projNum=${projVo.projNum}'">삭제</button>
 															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
-															<!-- <button type="reset" class="btn btn-danger">Delete</button> -->
 														</div>
 													</div>
 												</div>
