@@ -51,7 +51,7 @@ public class PlsDAO extends DBManager {
 				
 				pVo.setPlsNum(rs.getString("PLS_NUM"));
 				pVo.setPlNum(rs.getString("PL_NUM"));
-				pVo.setPlNum(rs.getString("PL_NAME"));
+				pVo.setPlName(rs.getString("PL_NAME"));
 				pVo.setProfiency(rs.getString("PROFIENCY"));
 				pVo.setExperience(rs.getString("EXPERIENCE"));
 
@@ -195,11 +195,11 @@ public class PlsDAO extends DBManager {
 	// delete
 	   public void deletePls(String plsNum) {
 		   String sql = "DELETE FROM TBL_PLS"
-					+    "  WHERE PLS_NUM = " +plsNum;
+					+    "WHERE PLS_NUM = " +plsNum;
 
 		      Connection conn = null;
-		         PreparedStatement pstmt =null;
-		         try {
+		      PreparedStatement pstmt =null;
+		      try {
 		            conn = getConnection();
 		            pstmt = conn.prepareStatement(sql);
 		            
