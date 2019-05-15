@@ -77,4 +77,39 @@ public class GrantDAO extends DBManager{
 			}
 		}
 	}
+	
+	//
+	public ProgrammerVO readGrant(String progNum) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "Select prog_num, name, grant from tbl_programmer where prog_num = ?";
+		
+		ProgrammerVO pVo = new ProgrammerVO();
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, progNum);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				pVo.setProgNum(rs.getString("prog_num"));
+				pVo.setName(rs.getString("name"));
+				pVo.setGrant(rs.getString("grant"));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return pVo;
+	}
 }

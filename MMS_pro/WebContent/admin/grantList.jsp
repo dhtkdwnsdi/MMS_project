@@ -60,26 +60,16 @@ License: You must have a valid license purchased only from themeforest(the above
 												<tr>
 													<th scope="row">${listStat.count}
 													<input type="hidden" id="index" value="${listStat.index}">
-													<input type="hidden" name="progNum" id="progNum" value="${pVo.progNum}"></th>
+													<input type="hidden" name="progNum" id="progNum" value="${pVo.progNum}">
+													<input type="hidden" name="name" id="name" value="${pVo.name}">
+													<input type="hidden" name="grant" id="grant" value="${pVo.grant}">
+													</th>
 													<td>${pVo.name}</td>
-													<td>
-														<div class="col-4">
-															<select name="grant" class="form-control" id="grant">
-																<c:if test="${pVo.grant == '0' }">
-																	<option value="0" selected="selected">일반 사용자</option>
-																	<option value="1">PM</option>
-																</c:if>
-
-																<c:if test="${pVo.grant == '1' }">
-																	<option value="0">일반 사용자</option>
-																	<option value="1" selected="selected">PM</option>
-																</c:if>
-															</select>
-														</div>
-													</td>
+													<td><c:if test="${pVo.grant == '0' }">일반사용자</c:if>
+														<c:if test="${pVo.grant == '1' }">PM</c:if></td>
 													<td>
 														<button type="button" class="btn btn-secondary"
-															onclick="updateGrant()">수정</button> 
+															onclick="openPopUp()">수정</button> 
 													<%-- <a href="prog?command=grantModify&progNum=${pVo.progNum}&grant=${pVo.grant}"><span
 													class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a> --%>
 													</td>
@@ -354,36 +344,22 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- end::Body -->
 <script>
-	function updateGrant() {
+	function openPopUp() {
+		
+		var width = "800"; 
+		var height = "500"; 
+		var top = (window.screen.height-height)/2; 
+		var left = (window.screen.width-width)/2; 
+	 	var url = "admin/grantUpdate.jsp"; 
+		var title = "권한 수정"; 
+		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
-		// userID 변수에 userID의 입력된 값을 가져오게 함
-		var index = $('#index').val();
-		/* var progNum = $('#progNum'+index).val(); */
-		var progNum = document.getElementsByName("progNum")[index].value;
-		var grant = $('#grant').val();
-		alert(progNum);
-
-		$.ajax({
-
-			type : 'POST', // GET or POST 전송방법 
-
-			url : '/prog?command=grantModify', // 이쪽으로 보낸다(호출URL)
-
-			data : {
-				progNum : progNum,
-				grant : grant,
-			}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
-
-			success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
-				alert("수정 되었습니다.");
-				location.href = "/prog?command=grantListForm";
-			},
-			error : function(data) {
-				alert("오류:: 다시 시도해주세요.");
-				return false;
-			}
-
-		})
+	   	var winObject = window.open(url, title, status);
+	    
+	   	winObject.document.getElementById("progNum").value = document.getElementById("progNum").value;
+	   	winObject.document.getElementById("name").value = document.getElementById("name").value;
+	   	winObject.document.getElementById("grant").value = document.getElementById("grant").value;
+	   	
 
 	}
 </script>
