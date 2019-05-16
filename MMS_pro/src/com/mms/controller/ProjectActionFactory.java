@@ -1,6 +1,7 @@
 package com.mms.controller;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.project.ProjectApplyFormAction;
 import com.mms.controller.action.project.ProjectApplyListFormAction;
 import com.mms.controller.action.project.ProjectApplyViewFormAction;
 import com.mms.controller.action.project.ProjectDeleteAction;
@@ -55,6 +56,11 @@ public class ProjectActionFactory {
 			}
 			else if(command.equals("projectApplyViewForm")) {
 				action = new ProjectApplyViewFormAction();
+				
+			}
+			else if(command.equals("projectApplyFormAction")) {
+				action = new ProjectApplyFormAction();
+				
 			}
 			return action;
 		}

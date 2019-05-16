@@ -122,9 +122,7 @@ font-weight: bold;
 												<div class="btn-group">
 													<button type="button" class="btn btn-success">
 														<i class="la la-check"></i>
-														<c:if test="${LoginUser.progNum eq projVo.progNum}">
-														<span class="kt-hidden-mobile">인력배치</span>
-														</c:if>
+														인력배치
 													</button>
 												</div>
 											</div>
@@ -273,10 +271,8 @@ font-weight: bold;
 														<div class="col-lg-6">
 														</div>
 														<div class="col-lg-6 kt-align-right">
-															<c:if test="${LoginUser.progNum eq projVo.progNum}">
 															<button type="button" class="btn btn-primary" onclick="location.href='/proj?command=projectUpdateForm&projNum=${projVo.projNum}'">수정</button>
 															<button type="button" class="btn btn-danger" id="delete">삭제</button>
-															</c:if>
 															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
 														</div>
 													</div>

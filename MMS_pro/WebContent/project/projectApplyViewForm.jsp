@@ -118,16 +118,6 @@ font-weight: bold;
 												프로젝트 상세조회
 												</h3>
 											</div>
-											<div class="kt-portlet__head-toolbar">
-												<div class="btn-group">
-												<c:if test="${LoginUser.progNum eq projVo.progNum}">
-													<button type="button" class="btn btn-success">
-														<i class="la la-check"></i>
-														<span class="kt-hidden-mobile">인력배치</span>
-													</button>
-												</c:if>
-												</div>
-											</div>
 										</div>
 
 										<!--begin::Form-->
@@ -273,10 +263,9 @@ font-weight: bold;
 														<div class="col-lg-6">
 														</div>
 														<div class="col-lg-6 kt-align-right">
-															<c:if test="${LoginUser.progNum eq projVo.progNum}">
-															<button type="button" class="btn btn-primary" onclick="location.href='/proj?command=projectUpdateForm&projNum=${projVo.projNum}'">수정</button>
-															<button type="button" class="btn btn-danger" id="delete">삭제</button>
-															</c:if>
+															<button type="button" class="btn btn-success" id="applyBtn">
+																참여 신청
+															</button>
 															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
 														</div>
 													</div>
@@ -443,6 +432,7 @@ $(document).ready(
 			$('#cancel').on("click",function(event) {
 						self.location = "proj?command=projectApplyListForm";
 					});
+			
 			$('#delete').on("click", function(evt) {
 				
 				var confirmStat = confirm("삭제하시겠습니까?");
@@ -455,6 +445,17 @@ $(document).ready(
 					return false;
 				}
 				
+			});
+			
+			$('#applyBtn').on("click", function(event) {
+				  var width = "500"; 
+				  var height = "500"; 
+				  var top = (window.screen.height-height)/2; 
+				  var left = (window.screen.width-width)/2; 
+			 	  var url = "project/projectApplyForm.jsp"; 
+				  var title = "프로젝트 신청"; 
+				  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+				  window.open(url, title, status);
 			});
 		});
 </script>
