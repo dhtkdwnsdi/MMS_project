@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../include/header.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
 <!-- 
@@ -19,8 +21,8 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- begin::Head -->
 	<head>
 		<meta charset="utf-8" />
-		<title>PMMS | 프로젝트 참여신청</title>
-		<meta name="description" content="Base form control examples">
+		<title>Metronic | Tabbed Portlets</title>
+		<meta name="description" content="Tabbed portlet examples">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!--begin::Fonts -->
@@ -98,73 +100,112 @@ License: You must have a valid license purchased only from themeforest(the above
 			<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
 
 
-					<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
+
 						<!-- begin:: Content -->
 						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
 							<div class="row">
-								<div class="col-md-12">
+								<div class="col-xl-12">
 
 									<!--begin::Portlet-->
-									<div class="kt-portlet">
+									<div class="kt-portlet kt-portlet--tabs">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
 												<h3 class="kt-portlet__head-title">
-													프로젝트 참여신청
+													내 프로젝트 신청내역
 												</h3>
 											</div>
+											<div class="kt-portlet__head-toolbar">
+												<ul class="nav nav-tabs nav-tabs-bold nav-tabs-line   nav-tabs-line-right nav-tabs-line-brand" role="tablist">
+													<li class="nav-item">
+														<a class="nav-link active" data-toggle="tab" href="#kt_portlet_tab_1_1" role="tab">
+															승인대기
+														</a>
+													</li>
+													<li class="nav-item">
+														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_2" role="tab">
+															전체리스트
+														</a>
+													</li>
+													<!-- <li class="nav-item">
+														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab">
+															Settings
+														</a>
+													</li> -->
+												</ul>
+											</div>
 										</div>
-
-										<!--begin::Form-->
-										<form class="kt-form kt-form--label-right">
-											<div class="kt-portlet__body">
-												<div class="form-group ">
-													<label>프로젝트 명</label>
-													<div class="input-group">
-														<input type="hidden" id="projNum" name="projNum" value="${pVo.projNum}">
-														<input type="text" class="form-control" aria-describedby="basic-addon1" disabled="disabled" value="${pVo.projName}">
-													</div>
+										<div class="kt-portlet__body">
+											<div class="tab-content">
+												<div class="tab-pane active" id="kt_portlet_tab_1_1">
+													<table class="table table-bordered table-hover">
+			                                          <thead style="text-align: center;">
+			                                             <tr>
+			                                                <th>#</th>
+			                                                <th style="font-weight: bold;">프로젝트 명</th>
+			                                                <th style="font-weight: bold;">담당자</th>
+			                                                <th style="font-weight: bold;">지원직무</th>
+			                                                <th style="font-weight: bold;">상태</th>
+			                                                <th style="font-weight: bold;">관리</th>
+			                                             </tr>
+			                                          </thead>
+			                                          <tbody style="text-align: center;">
+			                                          <c:forEach items="${myApplyList}" var="aVo" varStatus="listStat">
+			                                             <tr>
+			                                                <th scope="row">${listStat.count}</th>
+			                                                <td>
+			                                                ${aVo.projName}
+			                                                <!-- <a href="proj?command=projectApplyViewForm&projNum=${aVo.projNum}">${aVo.projName}</a> -->
+			                                                </td>
+			                                                <td></td>
+			                                                <td>${aVo.applyPosition}</td>
+			                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">${aVo.applyStat}</span></td>
+			                                                <td>
+			                                                <span class="kt-badge kt-badge--danger kt-badge--inline">신청 취소</span>
+			                                                </td>
+			                                             </tr>
+			                                          </c:forEach>
+			                                          </tbody>
+                                       				</table>
 												</div>
-												<div class="form-group ">
-													<input type="hidden" id="progNum" name="progNum" value="${LoginUser.progNum}">
-													<label>이름</label>
-													<div class="input-group">
-														<input type="text" class="form-control" value="${LoginUser.name}" disabled="disabled" aria-describedby="basic-addon1">
-													</div>
+												<div class="tab-pane" id="kt_portlet_tab_1_2">
+													<table class="table table-bordered table-hover">
+			                                          <thead style="text-align: center;">
+			                                             <tr>
+			                                                <th>#</th>
+			                                                <th style="font-weight: bold;">프로젝트 명</th>
+			                                                <th style="font-weight: bold;">담당자</th>
+			                                                <th style="font-weight: bold;">지원직무</th>
+			                                                <th style="font-weight: bold;">상태</th>
+			                                                <!-- <th style="font-weight: bold;">접수</th> -->
+			                                             </tr>
+			                                          </thead>
+			                                          <tbody style="text-align: center;">
+			                                          <c:forEach items="${myApplyList}" var="aVo" varStatus="listStat">
+			                                             <tr>
+			                                                <th scope="row">${listStat.count}</th>
+			                                                <td>
+			                                                ${aVo.projName}
+			                                                <!-- <a href="proj?command=projectApplyViewForm&projNum=${aVo.projNum}">${aVo.projName}</a> -->
+			                                                </td>
+			                                                <td></td>
+			                                                <td>${aVo.applyPosition}</td>
+			                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">${aVo.applyStat}</span></td>
+			                                                <!-- <td>
+			                                                <span class="kt-badge kt-badge--success kt-badge--inline">신청 취소</span>
+			                                                </td> -->
+			                                             </tr>
+			                                          </c:forEach>
+			                                          </tbody>
+                                       				</table>
 												</div>
-												<div class="form-group ">
-													<label>지원 직무</label>
-													<div class="input-group">
-														<select name="applyPosition" class="form-control" id="applyPosition">
-															<option value="">선택</option>
-															<option value="Front-End">Front-End</option>
-															<option value="Back-End">Back-End</option>
-															<option value="Full Stack">Full Stack</option>
-														</select>
-													</div>
-												</div>
-												
+												<!-- <div class="tab-pane" id="kt_portlet_tab_1_3">
+													Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
+												</div> -->
 											</div>
-											<div class="kt-portlet__foot">
-												<div class="kt-form__actions">
-													<div class="row">
-														<div class="col-lg-6">
-														</div>
-														<div class="col-lg-6 kt-align-right">
-															<button type="button" class="btn btn-success" id="applyBtn" onclick="registerApplyStmt()">
-																참여 신청
-															</button>
-															<button type="button" class="btn btn-secondary" id="cancel">취소</button>
-														</div>
-													</div>
-												</div>
-											</div>
-										</form>
-
-										<!--end::Form-->
+										</div>
 									</div>
 
 									<!--end::Portlet-->
-
 								</div>
 							</div>
 						</div>
@@ -172,10 +213,37 @@ License: You must have a valid license purchased only from themeforest(the above
 						<!-- end:: Content -->
 					</div>
 
+					<!-- begin:: Footer -->
+					
+					<%@ include file="../include/footer.jsp" %>
+
+					<!-- end:: Footer -->
 				</div>
-			</div>
 
 		<!-- end:: Page -->
+
+
+		<!-- begin::Scrolltop -->
+		<div id="kt_scrolltop" class="kt-scrolltop">
+			<i class="fa fa-arrow-up"></i>
+		</div>
+
+		<!-- end::Scrolltop -->
+
+		<!-- begin::Sticky Toolbar -->
+		<ul class="kt-sticky-toolbar" style="margin-top: 30px;">
+			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--success" id="kt_demo_panel_toggle" data-toggle="kt-tooltip" title="Check out more demos" data-placement="right">
+				<a href="#" class=""><i class="flaticon2-drop"></i></a>
+			</li>
+			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--brand" data-toggle="kt-tooltip" title="Layout Builder" data-placement="left">
+				<a href="https://keenthemes.com/metronic/preview/default/builder.html" target="_blank"><i class="flaticon2-gear"></i></a>
+			</li>
+			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--warning" data-toggle="kt-tooltip" title="Documentation" data-placement="left">
+				<a href="https://keenthemes.com/metronic/?page=docs" target="_blank"><i class="flaticon2-telegram-logo"></i></a>
+			</li>
+		</ul>
+
+		<!-- end::Sticky Toolbar -->
 
 
 		<!-- begin::Global Config(global config for global JS sciprts) -->
@@ -281,46 +349,4 @@ License: You must have a valid license purchased only from themeforest(the above
 	</body>
 
 	<!-- end::Body -->
-	
-<script>
-function registerApplyStmt(){
-
-	
-	// userID 변수에 userID의 입력된 값을 가져오게 함
-	var projNum = $('#projNum').val();
-	var progNum = $('#progNum').val();
-	var applyPosition = $('#applyPosition').val();
-	
-	if(applyPosition == ""){
-		alert("지원직무를 선택해주세요.");
-		$("#applyPosition").focus();
-		return false;
-	}
-	else {
-	$.ajax({
-		
-		type: 'POST',  // GET or POST 전송방법 
-		url: '/proj?command=applyStmtRegister',  // 이쪽으로 보낸다(호출URL)
-		
-		data: {
-			projNum : projNum,
-			progNum : progNum,
-			applyPosition : applyPosition
-		},  
-
-		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
-			alert("신청되었습니다.");
-			self.close();
-			opener.location.href = "/proj?command=projectApplyListForm";
-		},
-		error: function(data){
-			alert("오류:: 다시 시도해주세요.");
-			return false;
-		}
-		 
-
-	})
-	} 
-}
-</script>
 </html>

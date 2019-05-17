@@ -1,6 +1,8 @@
 package com.mms.controller;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.project.ApplyStmtRegisterAction;
+import com.mms.controller.action.project.MyApplyStmtListFormAction;
 import com.mms.controller.action.project.ProjectApplyFormAction;
 import com.mms.controller.action.project.ProjectApplyListFormAction;
 import com.mms.controller.action.project.ProjectApplyViewFormAction;
@@ -61,6 +63,13 @@ public class ProjectActionFactory {
 			else if(command.equals("projectApplyFormAction")) {
 				action = new ProjectApplyFormAction();
 				
+			}
+			else if(command.equals("applyStmtRegister")) {
+				action = new ApplyStmtRegisterAction();
+				
+			}
+			else if(command.equals("myApplyStmtListForm")) {
+				action = new MyApplyStmtListFormAction();
 			}
 			return action;
 		}

@@ -88,9 +88,9 @@ License: You must have a valid license purchased only from themeforest(the above
 															<button type="reset" class="btn btn-secondary">수정</button>
 															<button type="reset" class="btn btn-danger">삭제</button>
 														</div> -->
-														<div class="col kt-align-right">
+														<!-- <div class="col kt-align-right">
 															<button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button>
-														</div>
+														</div> -->
 													</div>
 												</div>
 											</div>
