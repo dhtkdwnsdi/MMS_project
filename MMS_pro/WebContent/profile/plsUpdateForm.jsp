@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="../include/header.jsp"%>
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
 Author: KeenThemes
@@ -20,666 +18,220 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- begin::Head -->
 <head>
+<meta charset="utf-8" />
+<title>Metronic | 프로그래밍 언어 등록</title>
+<meta name="description" content="Bootstrap daterangepicker examples">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!--begin::Fonts -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+	WebFont.load({
+		google : {
+			"families" : [ "Poppins:300,400,500,600,700",
+					"Roboto:300,400,500,600,700" ]
+		},
+		active : function() {
+			sessionStorage.fonts = true;
+		}
+	});
+</script>
+
+<!--end::Fonts -->
+
+<!--begin:: Global Mandatory Vendors -->
+<link
+	href="../assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css"
+	rel="stylesheet" type="text/css" />
+
+<!--end:: Global Mandatory Vendors -->
+
+<!--begin:: Global Optional Vendors -->
+<link href="../assets/vendors/general/tether/dist/css/tether.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/select2/dist/css/select2.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/ion-rangeslider/css/ion.rangeSlider.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/nouislider/distribute/nouislider.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/dropzone/dist/dropzone.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/summernote/dist/summernote.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-markdown/css/bootstrap-markdown.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/animate.css/animate.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/toastr/build/toastr.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/morris.js/morris.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/sweetalert2/dist/sweetalert2.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/socicon/css/socicon.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/custom/vendors/line-awesome/css/line-awesome.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/custom/vendors/flaticon/flaticon.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/custom/vendors/flaticon2/flaticon.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/custom/vendors/fontawesome5/css/all.min.css"
+	rel="stylesheet" type="text/css" />
+
+<!--end:: Global Optional Vendors -->
+
+<!--begin::Global Theme Styles(used by all pages) -->
+<link href="../assets/demo/default/base/style.bundle.css"
+	rel="stylesheet" type="text/css" />
+
+<!--end::Global Theme Styles -->
+
+<!--begin::Layout Skins(used by all pages) -->
+<link href="../assets/demo/default/skins/header/base/light.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/demo/default/skins/header/menu/light.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/demo/default/skins/brand/dark.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/demo/default/skins/aside/dark.css"
+	rel="stylesheet" type="text/css" />
+
+<!--end::Layout Skins -->
+<link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
 </head>
 
 <!-- end::Head -->
 
-<!--crud_forms_layouts_sticky-action-bar.html  -->
-
 <!-- begin::Body -->
 <body
 	class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
+
 	<!-- begin:: Content -->
 	<div class="kt-content  kt-grid__item kt-grid__item--fluid"
 		id="kt_content">
-		<div class="row">
-			<div class="col-lg-12">
+		<div class="kt-portlet kt-portlet--mobile">
+			<div class="kt-portlet__head kt-portlet__head--lg">
+				<div class="kt-portlet__head-label">
+					<h3 class="kt-portlet__head-title">프로그래밍 언어 숙련도 수정</h3>
+				</div>
+			</div>
+			<div class="kt-portlet__body">
+				<form class="kt-form" id="kt_form" method="post" action="prog?command=plsUpdate">
+					<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}">
+					<input type="hidden" name="plsNum" id="plsNum" value="${plsVo.plsNum }">
+					<div class="row">
+						<div class="col-xl-2"></div>
+						<div class="col-xl-8">
+							<div class="kt-section kt-section--first">
 
-				<!--begin::Portlet-->
-				<div
-					class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
-					id="kt_page_portlet">
-					<div class="kt-portlet__head kt-portlet__head--lg">
-						<div class="kt-portlet__head-label">
-							<h3 class="kt-portlet__head-title">
-								프로그래밍 언어 숙련도 <small>try to scroll the page</small>
-							</h3>
-						</div>
-						<div class="kt-portlet__head-toolbar">
-							<a href="#" class="btn btn-clean kt-margin-r-10"> <i
-								class="la la-arrow-left"></i> <span class="kt-hidden-mobile">Back</span>
-							</a>
-							<div class="btn-group">
-								<button type="button" class="btn btn-brand">
-									<i class="la la-check"></i> <span class="kt-hidden-mobile">Save</span>
-								</button>
-								<button type="button"
-									class="btn btn-brand dropdown-toggle dropdown-toggle-split"
-									data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false"></button>
-								<div class="dropdown-menu dropdown-menu-right">
-									<ul class="kt-nav">
-										<li class="kt-nav__item"><a href="#" class="kt-nav__link">
-												<i class="kt-nav__link-icon flaticon2-reload"></i> <span
-												class="kt-nav__link-text">Save & continue</span>
-										</a></li>
-										<li class="kt-nav__item"><a href="#" class="kt-nav__link">
-												<i class="kt-nav__link-icon flaticon2-power"></i> <span
-												class="kt-nav__link-text">Save & exit</span>
-										</a></li>
-										<li class="kt-nav__item"><a href="#" class="kt-nav__link">
-												<i
-												class="kt-nav__link-icon flaticon2-edit-interface-symbol-of-pencil-tool"></i>
-												<span class="kt-nav__link-text">Save & edit</span>
-										</a></li>
-										<li class="kt-nav__item"><a href="#" class="kt-nav__link">
-												<i class="kt-nav__link-icon flaticon2-add-1"></i> <span
-												class="kt-nav__link-text">Save & add new</span>
-										</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="kt-portlet__body">
-						<form class="kt-form" id="kt_form">
-							<div class="row">
-								<div class="col-xl-2"></div>
-								<div class="col-xl-8">
-									<div class="kt-section kt-section--first">
-										<div class="kt-section__body">
-											<h3 class="kt-section__title kt-section__title-lg">프로그래밍 언어 숙련도</h3>
-											<div class="form-group row">
-												<label class="col-3 col-form-label">#</label>
-												<div class="col-9">
-													<input class="form-control" type="text" value=${plsNum} id="plsNum">
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-3 col-form-label">프로그래밍 언어</label>
-												<div class="col-4">
-													<select name="plNum" class="form-control" id="plNum">
-														<c:if test="${plNum == 1}">
-														<option value="">Select</option>
-														<option value="1" selected="selected">C</option>
-														<option value="2">C++</option>
-														<option value="3">JAVA</option>
-														</c:if>
-													</select>
-													
-													<select name="plNum" class="form-control" id="plNum">
-														<c:if test="${plNum == 2}">
-														<option value="">Select</option>
-														<option value="1">C</option>
-														<option value="2" selected="selected">C++</option>
-														<option value="3">JAVA</option>
-														</c:if>
-													</select>
-													
-													<select name="plNum" class="form-control" id="plNum">
-														<c:if test="${plNum == 3}">
-														<option value="">Select</option>
-														<option value="1">C</option>
-														<option value="2">C++</option>
-														<option value="3" selected="selected">JAVA</option>
-														</c:if>
-													</select>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-3 col-form-label">숙련도</label>
-												<div class="col-9">
-													<input class="form-control" type="text" value=${profiency} id="profiency">
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-lg-3 col-sm-12">경험</label>
-												<div class="col-9">
-													<input class="form-control" type="text" value=${experience} id="experience">
-												</div>
-											</div>
+								<div class="kt-section__body">
+									<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
+																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
+									<div class="form-group row">
+										<label class="col-3 col-form-label">프로그래밍 언어명</label>
+										<div class="kt-input-icon kt-input-icon--right">
+											<input type="hidden" class="form-control" id="plNum" name="plNum"  value="${plsVo.plNum }"> 
+											<input type="text" class="form-control" id="plName" name="plName" readonly="readonly" value="${plsVo.plName }"> 
+											<span class="kt-input-icon__icon kt-input-icon__icon--right">
+												<span>
+													<button type="button"
+														class="btn btn-outline-hover-danger btn-icon"
+														onClick="openPopUp2()" id="plNameCherck">
+														<i class="la la-search"></i>
+													</button>
+											</span>
+											</span>
+										</div>
+									</div>
+
+
+									
+									<div class="form-group row">
+										<label class="col-3 col-form-label">숙련도</label>
+										<div class="col-9">
+											<select class="form-control" id="profiency" name="profiency">
+												<option value="${plsVo.profiency }" selected>${plsVo.profiency }</option>
+												<option value="초급">초급</option>
+												<option value="중급">중급</option>
+												<option value="고급">고급</option>
+												<option value="특급">특급</option>
+											</select>
 										</div>
 									</div>
 									
-											
-											
+									
+									
+									
+									<div class="form-group row">
+										<label class="col-3 col-form-label">직책(연차)</label>
+										<div class="col-9">
+											<input class="form-control" type="text" name="experience"
+												id="experience" value="${plsVo.experience }">
 										</div>
 									</div>
-									</form>
+									
+									
 								</div>
-								<div class="col-xl-2"></div>
 							</div>
-					</div>
-				</div>
+							
+							
+							<div class="kt-portlet__foot">
+								<div class="kt-form__actions kt-form__actions--right">
+									<div class="row">
 
-				<!--end::Portlet-->
+										<div class="col kt-align-right">
+											<button type="submit" class="btn btn-brand">수정</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						<div class="col-xl-2"></div>
+					</div>
+				</form>
 			</div>
+		</div>
+	</div>
 
 	<!-- end:: Content -->
-
-	<!-- begin:: Footer -->
-	<%@ include file="../include/footer.jsp"%>
-	<!-- end:: Footer -->
-
 	<!-- end:: Page -->
-
-	<!-- begin::Quick Panel -->
-	<div id="kt_quick_panel" class="kt-quick-panel">
-		<a href="#" class="kt-quick-panel__close"
-			id="kt_quick_panel_close_btn"><i class="flaticon2-delete"></i></a>
-		<div class="kt-quick-panel__nav">
-			<ul
-				class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand  kt-notification-item-padding-x"
-				role="tablist">
-				<li class="nav-item active"><a class="nav-link active"
-					data-toggle="tab" href="#kt_quick_panel_tab_notifications"
-					role="tab">Notifications</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="tab"
-					href="#kt_quick_panel_tab_logs" role="tab">Audit Logs</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="tab"
-					href="#kt_quick_panel_tab_settings" role="tab">Settings</a></li>
-			</ul>
-		</div>
-		<div class="kt-quick-panel__content">
-			<div class="tab-content">
-				<div class="tab-pane fade show kt-scroll active"
-					id="kt_quick_panel_tab_notifications" role="tabpanel">
-					<div class="kt-notification">
-						<a href="#" class="kt-notification__item">
-							<div class="kt-notification__item-icon">
-								<i class="flaticon2-line-chart kt-font-success"></i>
-							</div>
-							<div class="kt-notification__item-details">
-								<div class="kt-notification__item-title">New order has
-									been received</div>
-								<div class="kt-notification__item-time">2 hrs ago</div>
-							</div>
-						</a> <a href="#" class="kt-notification__item">
-							<div class="kt-notification__item-icon">
-								<i class="flaticon2-box-1 kt-font-brand"></i>
-							</div>
-							<div class="kt-notification__item-details">
-								<div class="kt-notification__item-title">New customer is
-									registered</div>
-								<div class="kt-notification__item-time">3 hrs ago</div>
-							</div>
-						</a> <a href="#" class="kt-notification__item">
-							<div class="kt-notification__item-icon">
-								<i class="flaticon2-chart2 kt-font-danger"></i>
-							</div>
-							<div class="kt-notification__item-details">
-								<div class="kt-notification__item-title">Application has
-									been approved</div>
-								<div class="kt-notification__item-time">3 hrs ago</div>
-							</div>
-						</a> <a href="#" class="kt-notification__item">
-							<div class="kt-notification__item-icon">
-								<i class="flaticon2-image-file kt-font-warning"></i>
-							</div>
-							<div class="kt-notification__item-details">
-								<div class="kt-notification__item-title">New file has been
-									uploaded</div>
-								<div class="kt-notification__item-time">5 hrs ago</div>
-							</div>
-						</a> <a href="#" class="kt-notification__item">
-							<div class="kt-notification__item-icon">
-								<i class="flaticon2-bar-chart kt-font-info"></i>
-							</div>
-							<div class="kt-notification__item-details">
-								<div class="kt-notification__item-title">New user feedback
-									received</div>
-								<div class="kt-notification__item-time">8 hrs ago</div>
-							</div>
-						</a> <a href="#" class="kt-notification__item">
-							<div class="kt-notification__item-icon">
-								<i class="flaticon2-pie-chart-2 kt-font-success"></i>
-							</div>
-							<div class="kt-notification__item-details">
-								<div class="kt-notification__item-title">System reboot has
-									been successfully completed</div>
-								<div class="kt-notification__item-time">12 hrs ago</div>
-							</div>
-						</a> <a href="#" class="kt-notification__item">
-							<div class="kt-notification__item-icon">
-								<i class="flaticon2-favourite kt-font-danger"></i>
-							</div>
-							<div class="kt-notification__item-details">
-								<div class="kt-notification__item-title">New order has
-									been placed</div>
-								<div class="kt-notification__item-time">15 hrs ago</div>
-							</div>
-						</a> <a href="#"
-							class="kt-notification__item kt-notification__item--read">
-							<div class="kt-notification__item-icon">
-								<i class="flaticon2-safe kt-font-primary"></i>
-							</div>
-							<div class="kt-notification__item-details">
-								<div class="kt-notification__item-title">Company meeting
-									canceled</div>
-								<div class="kt-notification__item-time">19 hrs ago</div>
-							</div>
-						</a> <a href="#" class="kt-notification__item">
-							<div class="kt-notification__item-icon">
-								<i class="flaticon2-psd kt-font-success"></i>
-							</div>
-							<div class="kt-notification__item-details">
-								<div class="kt-notification__item-title">New report has
-									been received</div>
-								<div class="kt-notification__item-time">23 hrs ago</div>
-							</div>
-						</a> <a href="#" class="kt-notification__item">
-							<div class="kt-notification__item-icon">
-								<i class="flaticon-download-1 kt-font-danger"></i>
-							</div>
-							<div class="kt-notification__item-details">
-								<div class="kt-notification__item-title">Finance report
-									has been generated</div>
-								<div class="kt-notification__item-time">25 hrs ago</div>
-							</div>
-						</a> <a href="#" class="kt-notification__item">
-							<div class="kt-notification__item-icon">
-								<i class="flaticon-security kt-font-warning"></i>
-							</div>
-							<div class="kt-notification__item-details">
-								<div class="kt-notification__item-title">New customer
-									comment recieved</div>
-								<div class="kt-notification__item-time">2 days ago</div>
-							</div>
-						</a> <a href="#" class="kt-notification__item">
-							<div class="kt-notification__item-icon">
-								<i class="flaticon2-pie-chart kt-font-warning"></i>
-							</div>
-							<div class="kt-notification__item-details">
-								<div class="kt-notification__item-title">New customer is
-									registered</div>
-								<div class="kt-notification__item-time">3 days ago</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="tab-pane fade kt-scroll" id="kt_quick_panel_tab_logs"
-					role="tabpanel">
-					<div class="kt-notification-v2">
-						<a href="#" class="kt-notification-v2__item">
-							<div class="kt-notification-v2__item-icon">
-								<i class="flaticon-bell kt-font-brand"></i>
-							</div>
-							<div class="kt-notification-v2__itek-wrapper">
-								<div class="kt-notification-v2__item-title">5 new user
-									generated report</div>
-								<div class="kt-notification-v2__item-desc">Reports based
-									on sales</div>
-							</div>
-						</a> <a href="#" class="kt-notification-v2__item">
-							<div class="kt-notification-v2__item-icon">
-								<i class="flaticon2-box kt-font-danger"></i>
-							</div>
-							<div class="kt-notification-v2__itek-wrapper">
-								<div class="kt-notification-v2__item-title">2 new items
-									submited</div>
-								<div class="kt-notification-v2__item-desc">by Grog John</div>
-							</div>
-						</a> <a href="#" class="kt-notification-v2__item">
-							<div class="kt-notification-v2__item-icon">
-								<i class="flaticon-psd kt-font-brand"></i>
-							</div>
-							<div class="kt-notification-v2__itek-wrapper">
-								<div class="kt-notification-v2__item-title">79 PSD files
-									generated</div>
-								<div class="kt-notification-v2__item-desc">Reports based
-									on sales</div>
-							</div>
-						</a> <a href="#" class="kt-notification-v2__item">
-							<div class="kt-notification-v2__item-icon">
-								<i class="flaticon2-supermarket kt-font-warning"></i>
-							</div>
-							<div class="kt-notification-v2__itek-wrapper">
-								<div class="kt-notification-v2__item-title">$2900 worth
-									producucts sold</div>
-								<div class="kt-notification-v2__item-desc">Total 234 items
-								</div>
-							</div>
-						</a> <a href="#" class="kt-notification-v2__item">
-							<div class="kt-notification-v2__item-icon">
-								<i class="flaticon-paper-plane-1 kt-font-success"></i>
-							</div>
-							<div class="kt-notification-v2__itek-wrapper">
-								<div class="kt-notification-v2__item-title">4.5h-avarage
-									response time</div>
-								<div class="kt-notification-v2__item-desc">Fostest is
-									Barry</div>
-							</div>
-						</a> <a href="#" class="kt-notification-v2__item">
-							<div class="kt-notification-v2__item-icon">
-								<i class="flaticon2-information kt-font-danger"></i>
-							</div>
-							<div class="kt-notification-v2__itek-wrapper">
-								<div class="kt-notification-v2__item-title">Database
-									server is down</div>
-								<div class="kt-notification-v2__item-desc">10 mins ago</div>
-							</div>
-						</a> <a href="#" class="kt-notification-v2__item">
-							<div class="kt-notification-v2__item-icon">
-								<i class="flaticon2-mail-1 kt-font-brand"></i>
-							</div>
-							<div class="kt-notification-v2__itek-wrapper">
-								<div class="kt-notification-v2__item-title">System report
-									has been generated</div>
-								<div class="kt-notification-v2__item-desc">Fostest is
-									Barry</div>
-							</div>
-						</a> <a href="#" class="kt-notification-v2__item">
-							<div class="kt-notification-v2__item-icon">
-								<i class="flaticon2-hangouts-logo kt-font-warning"></i>
-							</div>
-							<div class="kt-notification-v2__itek-wrapper">
-								<div class="kt-notification-v2__item-title">4.5h-avarage
-									response time</div>
-								<div class="kt-notification-v2__item-desc">Fostest is
-									Barry</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div
-					class="tab-pane kt-quick-panel__content-padding-x fade kt-scroll"
-					id="kt_quick_panel_tab_settings" role="tabpanel">
-					<form class="kt-form">
-						<div class="kt-heading kt-heading--sm kt-heading--space-sm">Customer
-							Care</div>
-						<div class="form-group form-group-xs row">
-							<label class="col-8 col-form-label">Enable Notifications:</label>
-							<div class="col-4 kt-align-right">
-								<span class="kt-switch kt-switch--success kt-switch--sm">
-									<label> <input type="checkbox" checked="checked"
-										name="quick_panel_notifications_1"> <span></span>
-								</label>
-								</span>
-							</div>
-						</div>
-						<div class="form-group form-group-xs row">
-							<label class="col-8 col-form-label">Enable Case Tracking:</label>
-							<div class="col-4 kt-align-right">
-								<span class="kt-switch kt-switch--success kt-switch--sm">
-									<label> <input type="checkbox"
-										name="quick_panel_notifications_2"> <span></span>
-								</label>
-								</span>
-							</div>
-						</div>
-						<div class="form-group form-group-last form-group-xs row">
-							<label class="col-8 col-form-label">Support Portal:</label>
-							<div class="col-4 kt-align-right">
-								<span class="kt-switch kt-switch--success kt-switch--sm">
-									<label> <input type="checkbox" checked="checked"
-										name="quick_panel_notifications_2"> <span></span>
-								</label>
-								</span>
-							</div>
-						</div>
-						<div
-							class="kt-separator kt-separator--space-md kt-separator--border-dashed"></div>
-						<div class="kt-heading kt-heading--sm kt-heading--space-sm">Reports</div>
-						<div class="form-group form-group-xs row">
-							<label class="col-8 col-form-label">Generate Reports:</label>
-							<div class="col-4 kt-align-right">
-								<span class="kt-switch kt-switch--sm kt-switch--danger">
-									<label> <input type="checkbox" checked="checked"
-										name="quick_panel_notifications_3"> <span></span>
-								</label>
-								</span>
-							</div>
-						</div>
-						<div class="form-group form-group-xs row">
-							<label class="col-8 col-form-label">Enable Report Export:</label>
-							<div class="col-4 kt-align-right">
-								<span class="kt-switch kt-switch--sm kt-switch--danger">
-									<label> <input type="checkbox"
-										name="quick_panel_notifications_3"> <span></span>
-								</label>
-								</span>
-							</div>
-						</div>
-						<div class="form-group form-group-last form-group-xs row">
-							<label class="col-8 col-form-label">Allow Data
-								Collection:</label>
-							<div class="col-4 kt-align-right">
-								<span class="kt-switch kt-switch--sm kt-switch--danger">
-									<label> <input type="checkbox" checked="checked"
-										name="quick_panel_notifications_4"> <span></span>
-								</label>
-								</span>
-							</div>
-						</div>
-						<div
-							class="kt-separator kt-separator--space-md kt-separator--border-dashed"></div>
-						<div class="kt-heading kt-heading--sm kt-heading--space-sm">Memebers</div>
-						<div class="form-group form-group-xs row">
-							<label class="col-8 col-form-label">Enable Member singup:</label>
-							<div class="col-4 kt-align-right">
-								<span class="kt-switch kt-switch--sm kt-switch--brand"> <label>
-										<input type="checkbox" checked="checked"
-										name="quick_panel_notifications_5"> <span></span>
-								</label>
-								</span>
-							</div>
-						</div>
-						<div class="form-group form-group-xs row">
-							<label class="col-8 col-form-label">Allow User Feedbacks:</label>
-							<div class="col-4 kt-align-right">
-								<span class="kt-switch kt-switch--sm kt-switch--brand"> <label>
-										<input type="checkbox" name="quick_panel_notifications_5">
-										<span></span>
-								</label>
-								</span>
-							</div>
-						</div>
-						<div class="form-group form-group-last form-group-xs row">
-							<label class="col-8 col-form-label">Enable Customer
-								Portal:</label>
-							<div class="col-4 kt-align-right">
-								<span class="kt-switch kt-switch--sm kt-switch--brand"> <label>
-										<input type="checkbox" checked="checked"
-										name="quick_panel_notifications_6"> <span></span>
-								</label>
-								</span>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- end::Quick Panel -->
-
-	<!-- begin::Scrolltop -->
-	<div id="kt_scrolltop" class="kt-scrolltop">
-		<i class="fa fa-arrow-up"></i>
-	</div>
-
-	<!-- end::Scrolltop -->
-
-	<!-- begin::Sticky Toolbar -->
-	<ul class="kt-sticky-toolbar" style="margin-top: 30px;">
-		<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--success"
-			id="kt_demo_panel_toggle" data-toggle="kt-tooltip"
-			title="Check out more demos" data-placement="right"><a href="#"
-			class=""><i class="flaticon2-drop"></i></a></li>
-		<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--brand"
-			data-toggle="kt-tooltip" title="Layout Builder" data-placement="left">
-			<a
-			href="https://keenthemes.com/metronic/preview/default/builder.html"
-			target="_blank"><i class="flaticon2-gear"></i></a>
-		</li>
-		<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--warning"
-			data-toggle="kt-tooltip" title="Documentation" data-placement="left">
-			<a href="https://keenthemes.com/metronic/?page=docs" target="_blank"><i
-				class="flaticon2-telegram-logo"></i></a>
-		</li>
-	</ul>
-
-	<!-- end::Sticky Toolbar -->
-
-	<!-- begin::Demo Panel -->
-	<div id="kt_demo_panel" class="kt-demo-panel">
-		<div class="kt-demo-panel__head">
-			<h3 class="kt-demo-panel__title">
-				Select A Demo
-
-				<!--<small>5</small>-->
-			</h3>
-			<a href="#" class="kt-demo-panel__close" id="kt_demo_panel_close"><i
-				class="flaticon2-delete"></i></a>
-		</div>
-		<div class="kt-demo-panel__body">
-			<div class="kt-demo-panel__item kt-demo-panel__item--active">
-				<div class="kt-demo-panel__item-title">Default</div>
-				<div class="kt-demo-panel__item-preview">
-					<img src="../assets/media/demos/Demo-_Default.jpg" alt="" />
-					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="../default/index.html" class="btn btn-brand btn-elevate "
-							target="_blank">Preview</a>
-					</div>
-				</div>
-			</div>
-			<div class="kt-demo-panel__item ">
-				<div class="kt-demo-panel__item-title">Demo 2</div>
-				<div class="kt-demo-panel__item-preview">
-					<img src="../assets/media/demos/Demo-2.jpg" alt="" />
-					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="../demo2/index.html" class="btn btn-brand btn-elevate "
-							target="_blank">Preview</a>
-					</div>
-				</div>
-			</div>
-			<div class="kt-demo-panel__item ">
-				<div class="kt-demo-panel__item-title">Demo 3</div>
-				<div class="kt-demo-panel__item-preview">
-					<img src="../assets/media/demos/Demo-3.jpg" alt="" />
-					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="../demo3/index.html" class="btn btn-brand btn-elevate "
-							target="_blank">Preview</a>
-					</div>
-				</div>
-			</div>
-			<div class="kt-demo-panel__item ">
-				<div class="kt-demo-panel__item-title">Demo 4</div>
-				<div class="kt-demo-panel__item-preview">
-					<img src="../assets/media/demos/Demo-4.jpg" alt="" />
-					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="../demo4/index.html" class="btn btn-brand btn-elevate "
-							target="_blank">Preview</a>
-					</div>
-				</div>
-			</div>
-			<div class="kt-demo-panel__item ">
-				<div class="kt-demo-panel__item-title">Demo 5</div>
-				<div class="kt-demo-panel__item-preview">
-					<img src="../assets/media/demos/Demo-5.jpg" alt="" />
-					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="../demo5/index.html" class="btn btn-brand btn-elevate "
-							target="_blank">Preview</a>
-					</div>
-				</div>
-			</div>
-			<div class="kt-demo-panel__item ">
-				<div class="kt-demo-panel__item-title">Demo 6</div>
-				<div class="kt-demo-panel__item-preview">
-					<img src="../assets/media/demos/Demo-6.jpg" alt="" />
-					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="../demo6/index.html" class="btn btn-brand btn-elevate "
-							target="_blank">Preview</a>
-					</div>
-				</div>
-			</div>
-			<div class="kt-demo-panel__item ">
-				<div class="kt-demo-panel__item-title">Demo 7</div>
-				<div class="kt-demo-panel__item-preview">
-					<img src="../assets/media/demos/Demo-7.jpg" alt="" />
-					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="../demo7/index.html" class="btn btn-brand btn-elevate "
-							target="_blank">Preview</a>
-					</div>
-				</div>
-			</div>
-			<div class="kt-demo-panel__item ">
-				<div class="kt-demo-panel__item-title">Demo 8</div>
-				<div class="kt-demo-panel__item-preview">
-					<img src="../assets/media/demos/Demo-8.jpg" alt="" />
-					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="../demo8/index.html" class="btn btn-brand btn-elevate "
-							target="_blank">Preview</a>
-					</div>
-				</div>
-			</div>
-			<div class="kt-demo-panel__item ">
-				<div class="kt-demo-panel__item-title">Demo 9</div>
-				<div class="kt-demo-panel__item-preview">
-					<img src="../assets/media/demos/Demo-9.jpg" alt="" />
-					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="../demo9/index.html" class="btn btn-brand btn-elevate "
-							target="_blank">Preview</a>
-					</div>
-				</div>
-			</div>
-			<div class="kt-demo-panel__item ">
-				<div class="kt-demo-panel__item-title">Demo 10</div>
-				<div class="kt-demo-panel__item-preview">
-					<img src="../assets/media/demos/Demo-10.jpg" alt="" />
-					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="../demo10/index.html" class="btn btn-brand btn-elevate "
-							target="_blank">Preview</a>
-					</div>
-				</div>
-			</div>
-			<div class="kt-demo-panel__item ">
-				<div class="kt-demo-panel__item-title">Demo 11</div>
-				<div class="kt-demo-panel__item-preview">
-					<img src="../assets/media/demos/Demo-11.jpg" alt="" />
-					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="../demo11/index.html" class="btn btn-brand btn-elevate "
-							target="_blank">Preview</a>
-					</div>
-				</div>
-			</div>
-			<div class="kt-demo-panel__item ">
-				<div class="kt-demo-panel__item-title">Demo 12</div>
-				<div class="kt-demo-panel__item-preview">
-					<img src="../assets/media/demos/Demo-12.jpg" alt="" />
-					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="../demo12/index.html" class="btn btn-brand btn-elevate "
-							target="_blank">Preview</a>
-					</div>
-				</div>
-			</div>
-			<div class="kt-demo-panel__item ">
-				<div class="kt-demo-panel__item-title">Demo 13</div>
-				<div class="kt-demo-panel__item-preview">
-					<img src="../assets/media/demos/Demo-13.jpg" alt="" />
-					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="#" class="btn btn-brand btn-elevate disabled">Coming
-							soon</a>
-					</div>
-				</div>
-			</div>
-			<div class="kt-demo-panel__item ">
-				<div class="kt-demo-panel__item-title">Demo 14</div>
-				<div class="kt-demo-panel__item-preview">
-					<img src="../assets/media/demos/Demo-14.jpg" alt="" />
-					<div class="kt-demo-panel__item-preview-overlay">
-						<a href="#" class="btn btn-brand btn-elevate disabled">Coming
-							soon</a>
-					</div>
-				</div>
-			</div>
-			<a href="" target="_blank"
-				class="kt-demo-panel__purchase btn btn-brand btn-elevate btn-bold btn-upper">
-				Buy Metronic Now! </a>
-		</div>
-	</div>
-
-	<!-- end::Demo Panel -->
 
 	<!-- begin::Global Config(global config for global JS sciprts) -->
 	<script>
@@ -874,11 +426,61 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!--end::Global Theme Bundle -->
 
+	<!--begin::Page Scripts(used by this page) -->
+	<script
+		src="../assets/app/custom/general/crud/forms/widgets/bootstrap-datepicker.js"
+		type="text/javascript"></script>
+	<script
+		src="../assets/vendors/general/bootstrap-datepicker/js/locales/bootstrap-datepicker.ko.js"
+		type="text/javascript"></script>
+	<!--end::Page Scripts -->
+
 	<!--begin::Global App Bundle(used by all pages) -->
 	<script src="../assets/app/bundle/app.bundle.js" type="text/javascript"></script>
 
 	<!--end::Global App Bundle -->
 </body>
+<script>
+	// 경력 등록 AJAX
+	function updatePls() {
 
+		// userID 변수에 userID의 입력된 값을 가져오게 함
+		var progNum = $('#progNum').val();
+		var plsNum = $('#plsNum').val();
+		var plNum = $('#plNum').val();
+		var profiency = $('#profiency').val();
+		var experience = $('#experience').val();
+		
+		if (progNum == "") {
+			alert("잘못된 정보입니다.");
+			return false;
+		}
+	}
+</script>
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+<script>
+	$.datepicker.setDefaults({
+		dateFormat : 'yy-mm-dd',
+		prevText : '이전 달',
+		nextText : '다음 달',
+		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월',
+				'10월', '11월', '12월' ],
+		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월',
+				'9월', '10월', '11월', '12월' ],
+		dayNames : [ '일', '월', '화', '수', '목', '금', '토' ],
+		dayNamesShort : [ '일', '월', '화', '수', '목', '금', '토' ],
+		dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
+		showMonthAfterYear : true,
+		yearSuffix : '년'
+	});
+
+	$(function() {
+		$("#datepicker1").datepicker();
+	});
+</script>
 <!-- end::Body -->
 </html>

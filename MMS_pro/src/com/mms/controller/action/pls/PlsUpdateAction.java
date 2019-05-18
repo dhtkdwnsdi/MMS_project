@@ -10,25 +10,37 @@ import com.mms.controller.action.Action;
 import com.mms.dao.PlsDAO;
 import com.mms.vo.PlsVO;
 
-public class PlsDeleteAction implements Action {
+public class PlsUpdateAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		String plsNum = request.getParameter("plsNum");
+		request.setAttribute("plsNum", plsNum);
+		
+		String plNum = request.getParameter("plNum");
+		request.setAttribute("plNum", plNum);
+		
+		String profiency = request.getParameter("profiency");
+		request.setAttribute("profiency", profiency);
+		
+		String experience = request.getParameter("experience");
+		request.setAttribute("experience", experience);
+		
 		PlsVO plsVo = new PlsVO();
 		
-		String plsNum = request.getParameter("plsNum");
-		
-		System.out.println(plsNum);
-		
 		plsVo.setPlsNum(plsNum);
+		plsVo.setPlNum(plNum);
+		plsVo.setProfiency(profiency);
+		plsVo.setExperience(experience);
 		
 		PlsDAO plsDao = PlsDAO.getInstance();
 		
-		plsDao.deletePls(plsNum);
+		plsDao.updatePls(plsVo);
 		
 		new PlsListFormAction().execute(request, response);
+		
 		
 	}
 
