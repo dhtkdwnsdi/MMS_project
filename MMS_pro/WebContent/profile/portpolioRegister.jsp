@@ -31,139 +31,139 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- begin:: Content -->
 	<div class="kt-content  kt-grid__item kt-grid__item--fluid"
 		id="kt_content">
-		<div class="row">
-			<div class="col-lg-12">
-
-				<!--begin::Portlet-->
-				<div class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
-					id="kt_page_portlet">
-					<div class="kt-portlet__body">
-						<form class="kt-form" id="kt_form">
-							<div class="row">
-								<div class="col-xl-2"></div>
-								<div class="col-xl-8">
-									<div class="kt-section kt-section--first">
-										<div class="kt-section__body">
-											<h3 class="kt-section__title kt-section__title-lg">포트폴리오</h3>
-											<input type="hidden" name="progNum" value="${LoginUser.progNum}">
-											<div class="form-group row">
-												<label class="col-3 col-form-label">제목</label>
-												<div class="col-9">
-													<input class="form-control" type="text" value="subject"
-														id="subject">
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-3 col-form-label">카테고리</label>
-												<div class="col-4">
-													<select name="portCate" class="form-control" id="portCate">
-														<option value="">--선택--</option>
-														<option value="C1">카테고리1</option>
-														<option value="C2">카테고리2</option>
-														<option value="C3">카테고리3</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-3 col-form-label">세부 카테고리</label>
-												<div class="col-4">
-													<select name="portDetailCate" class="form-control"
-														id="portDetailCate">
-														<option value="">--선택--</option>
-														<option value="DC1">카테고리1</option>
-														<option value="DC2">카테고리2</option>
-														<option value="DC3">카테고리3</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-lg-3 col-sm-12">시작일</label>
-												<div class="col-lg-4 col-md-9 col-sm-12">
-													<div class="input-group date">
-														<input type="text" class="form-control" readonly
-															placeholder="Select date" id="kt_datepicker_2" />
-														<div class="input-group-append">
-															<span class="input-group-text"> <i
-																class="la la-calendar-check-o"></i>
-															</span>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-lg-3 col-sm-12">종료일</label>
-												<div class="col-lg-4 col-md-9 col-sm-12">
-													<div class="input-group date">
-														<input type="text" class="form-control" readonly
-															placeholder="Select date" id="endDate" />
-														<div class="input-group-append">
-															<span class="input-group-text"> <i
-																class="la la-calendar-check-o"></i>
-															</span>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-3 col-form-label">참여율</label>
-												<div class="col-3">
-													<input class="form-control" type="text" value="%" id="rate">
-												</div>
-											</div>
-											<label></label>
-											<div class="form-group form-group-last row">
-												<label class="col-form-label col-lg-3 col-sm-12">관련
-													기술</label>
-												<div class="col-lg-9 col-md-9 col-sm-12">
-													<textarea name="content" class="form-control"
-														data-provide="markdown" rows="3" id="connectSkill"></textarea>
-												</div>
-											</div>
-											<label></label>
-											<div class="form-group form-group-last row">
-												<label class="col-form-label col-lg-3 col-sm-12">내용</label>
-												<div class="col-lg-9 col-md-9 col-sm-12">
-													<textarea name="content" class="form-control"
-														data-provide="markdown" rows="10" id="portContents"></textarea>
-												</div>
-											</div>
-											<label></label>
-											<div class="form-group form-group-last row">
-												<label class="col-3 col-form-label">첨부파일</label>
-												<div class="col-lg-9 col-md-9 col-sm-12">
-													<div class="kt-dropzone dropzone m-dropzone--primary"
-														action="inc/api/dropzone/upload.php" id="m-dropzone-two">
-														<div class="kt-dropzone__msg dz-message needsclick">
-															<h3 class="kt-dropzone__msg-title">Drop files here
-																or click to upload.</h3>
-															<span class="kt-dropzone__msg-desc">Upload up to
-																10 files</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="kt-portlet__foot">
-								<div class="col kt-align-right">
-									<button type="button" class="btn btn-brand"
-										onclick="registerPortpolio()">등록</button>
-									<button type="reset" class="btn btn-danger" href="prog?command=portpolioListForm">취소</button>
-								</div>
-								</div>
-									</div>
-
-
-
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="col-xl-2"></div>
+		<div class="kt-portlet kt-portlet--mobile">
+			<div class="kt-portlet__head kt-portlet__head--lg">
+				<div class="kt-portlet__head-label">
+					<span class="kt-portlet__head-icon"> </span>
+					<h3 class="kt-portlet__head-title">${LoginUser.name}님의포트폴리오 목록</h3>
 				</div>
 			</div>
-		</div>
 
-		<!--end::Portlet-->
+			<!--begin::Portlet-->
+			
+			<div
+				class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
+				id="kt_page_portlet">
+				<div class="kt-portlet__body" align="center">
+					<form class="kt-form" id="kt_form">
+						<div class="row">
+							<div class="col-xl-2"></div>
+							<div class="col-xl-8">
+								<div class="kt-section kt-section--first">
+									<div class="kt-section__body">
+										<div class="form-group row">
+											<label class="col-3 col-form-label">제목</label>
+											<div class="col-5">
+												<input class="form-control" type="text" value="subject"
+													id="subject">
+											</div>
+										</div>
+										<div class="form-group row"> 
+											<label class="col-3 col-form-label">카테고리</label>
+											<div class="col-4">
+												<select name="portCate" class="form-control" id="portCate">
+													<option value="">--선택--</option>
+													<option value="C1">개발</option>
+													<option value="C2">디자인</option>
+
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-3 col-form-label">세부 카테고리</label>
+											<div class="col-4">
+												<select name="portDetailCate" class="form-control"
+													id="portDetailCate">
+													<option value="">--선택--</option>
+													<option value="DC1">웹</option>
+													<option value="DC2">어플리케이션</option>
+													<option value="DC3">컨소시엄</option>
+													<option value="DC3">워드프레스</option>
+													<option value="DC3">퍼블리싱</option>
+													<option value="DC3">일반 소프트웨어</option>
+													<option value="DC3">커머스, 쇼핑몰</option>
+													<option value="DC3">게임</option>
+													<option value="DC3">임베디드</option>
+													<option value="DC3">기타</option>
+
+
+												</select>
+											</div>
+										</div>
+
+
+										<div class="form-group row">
+											<label class="col-3 col-form-label">시작일</label>
+											<div class="col-4">
+												<input type="text" class="form-control" id="kt_datepicker_1"
+													readonly name="portStartDate">
+											</div>
+										</div>
+
+
+
+										<div class="form-group row">
+											<label class="col-3 col-form-label">종료일</label>
+											<div class="col-4">
+												<input type="text" class="form-control" id="kt_datepicker_4_1"
+													readonly name="portEndDate">
+											</div>
+										</div>
+
+
+
+										<div class="form-group row">
+											<label class="col-3 col-form-label">참여율</label>
+											<div class="col-3">
+												<input class="form-control" type="text" value="%" id="rate">
+											</div>
+										</div>
+										<label></label>
+										<div class="form-group form-group-last row">
+											<label class="col-1 col-form-label">관련기술 </label>
+											<textarea style="width: 600px; height: 120px;"
+												class="form-control" id="exampleTextarea"></textarea>
+										</div>
+
+										<label></label>
+										<div class="form-group form-group-last row">
+											<label class="col-1 col-form-label">내용 </label>
+											<textarea style="width: 600px; height: 120px;"
+												class="form-control" id="exampleTextarea"></textarea>
+										</div>
+
+										<label></label>
+										<div class="form-group form-group-last row">
+											<label class="col-3 col-form-label">첨부파일</label>
+											<div class="col-lg-6 col-md-6 col-sm-6">
+												<input type="file" class="custom-file-input" name="projFile"
+													id="projFile"> <label class="custom-file-label"
+													for="customFile" style="text-align: left;"></label>
+											</div>
+										</div>
+									</div>
+									<div class="kt-portlet__foot">
+										<div class="col kt-align-right">
+											<button type="button" class="btn btn-brand"
+												onclick="registerPortpolio()">등록</button>
+											<button type="reset" class="btn btn-danger"
+												href="prog?command=portpolioListForm">취소</button>
+										</div>
+									</div>
+								</div>
+
+
+
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-xl-2"></div>
+			</div>
+		</div>
+	</div>
+
+	<!--end::Portlet-->
 	</div>
 
 	<!-- end:: Content -->
@@ -885,73 +885,102 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!--end::Global Theme Bundle -->
 
+	<!--begin::Page Scripts(used by this page) -->
+	<script
+		src="../assets/app/custom/general/crud/forms/widgets/bootstrap-datepicker.js"
+		type="text/javascript"></script>
+
+	<!--end::Page Scripts -->
+
 	<!--begin::Global App Bundle(used by all pages) -->
 	<script src="../assets/app/bundle/app.bundle.js" type="text/javascript"></script>
 
 	<!--end::Global App Bundle -->
 </body>
-
 <script>
-// 경력 등록 AJAX
-function registerCareer(){
+	// 경력 등록 AJAX
+	function registerCareer() {
 
-	// userID 변수에 userID의 입력된 값을 가져오게 함
-	var progNum = $('#progNum').val();
-	var portNum = $('#portNum').val();
-	var subject = $('#subject').val();
-	var portCate = $('#portCate').val();
-	var portDetailCate = $('#portDetailCate').val();
-	var portStartDate = $('#kt_datepicker_1').val();
-	var portEndDate = $('#kt_datepicker_4_1').val();
-	var rate = $('#rate').val();
-	var connectSkill = $('#connectSkill').val();
-	var portContents = $('#portContents').val();
-	var portFile = $('#portFile').val();
-	
-	if(subject == ""){
-		alert("제목을 입력해주세요.");
-		$("#subject").focus();
-	}
-	if(progNum == ""){
-		alert("잘못된 정보입니다.");
-		return false;
-	}
-	else{
-	
-	$.ajax({
+		// userID 변수에 userID의 입력된 값을 가져오게 함
+		var progNum = $('#progNum').val();
+		var portNum = $('#portNum').val();
+		var subject = $('#subject').val();
+		var portCate = $('#portCate').val();
+		var portDetailCate = $('#portDetailCate').val();
+		var portStartDate = $('#kt_datepicker_1').val();
+		var portEndDate = $('#kt_datepicker_4_1').val();
+		var rate = $('#rate').val();
+		var connectSkill = $('#connectSkill').val();
+		var portContents = $('#portContents').val();
+		var portFile = $('#portFile').val();
 
-		type: 'POST',  // GET or POST 전송방법 
-
-		url: '/prog?command=portpolioRegister',  // 이쪽으로 보낸다(호출URL)
-
-		data: {portNum: portNum,
-			   department: department,
-			   subject: subject,
-			   portCate: portCate,
-			   portDetailCate: portDetailCate,
-			   portStartDate: portStartDate,
-			   portEndDate: portEndDate,
-			   rate: rate,
-			   connectSkill: connectSkill,
-			   portContents: portContents,
-			   portFile: portFile,
-			   progNum: progNum},  // userID 이름에 userID 데이터 값을 넣어서 보낸다
-
-		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
-			alert("등록 되었습니다.");
-			self.close();
-			opener.location.href = "/prog?command=portpolioListForm";
-		},
-		error: function(data){
-			alert("오류:: 다시 시도해주세요.");
-			return false;
+		if (subject == "") {
+			alert("제목을 입력해주세요.");
+			$("#subject").focus();
 		}
-		 
+		if (progNum == "") {
+			alert("잘못된 정보입니다.");
+			return false;
+		} else {
 
-	})
+			$.ajax({
+
+				type : 'POST', // GET or POST 전송방법 
+
+				url : '/prog?command=portpolioRegister', // 이쪽으로 보낸다(호출URL)
+
+				data : {
+					portNum : portNum,
+					department : department,
+					subject : subject,
+					portCate : portCate,
+					portDetailCate : portDetailCate,
+					portStartDate : portStartDate,
+					portEndDate : portEndDate,
+					rate : rate,
+					connectSkill : connectSkill,
+					portContents : portContents,
+					portFile : portFile,
+					progNum : progNum
+				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
+
+				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
+					alert("등록 되었습니다.");
+					self.close();
+					opener.location.href = "/prog?command=portpolioListForm";
+				},
+				error : function(data) {
+					alert("오류:: 다시 시도해주세요.");
+					return false;
+				}
+
+			})
+		}
 	}
-}
 </script>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+<script>
+	$.datepicker.setDefaults({
+		dateFormat : 'yy-mm-dd',
+		prevText : '이전 달',
+		nextText : '다음 달',
+		monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월',
+				'10월', '11월', '12월' ],
+		monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월',
+				'9월', '10월', '11월', '12월' ],
+		dayNames : [ '일', '월', '화', '수', '목', '금', '토' ],
+		dayNamesShort : [ '일', '월', '화', '수', '목', '금', '토' ],
+		dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
+		showMonthAfterYear : true,
+		yearSuffix : '년'
+	});
 
+	$(function() {
+		$("#datepicker1").datepicker();
+	});
+</script>
 <!-- end::Body -->
 </html>
