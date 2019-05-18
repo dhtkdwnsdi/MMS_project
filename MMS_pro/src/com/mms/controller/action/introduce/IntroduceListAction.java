@@ -1,7 +1,6 @@
 package com.mms.controller.action.introduce;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,13 +22,13 @@ public class IntroduceListAction implements Action {
 		String url ="profile/introduceList.jsp";
 		
 		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser");  // 현재 세션의 ProgrammerVO 타입인 LoginUser를 pVo에 대입
-		String progNum = pVo.getProgNum();		// pVo의 셋팅된 progNum을 가져와서 progNum 변수에 대입
+		String id = pVo.getId();		// pVo의 셋팅된 progNum을 가져와서 progNum 변수에 대입
 		
 		IntroduceDAO progDao = IntroduceDAO.getInstance();
 		
-		List<ProgrammerVO> introList = progDao.introduceList(progNum);
+		ProgrammerVO progVo = progDao.readIntroduce(id);
 		
-		request.setAttribute("introList", introList);
+		request.setAttribute("progVo", progVo);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

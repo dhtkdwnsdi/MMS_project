@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import com.mms.vo.ProgrammerVO;
 
@@ -18,56 +17,39 @@ public class IntroduceDAO extends DBManager {
 		return instance;
 	}
 	
-	//자기소개서 리스트 출력
-	public ArrayList<ProgrammerVO> introduceList(String progNum){
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		String sql = "SELECT INTRODUCE1"
-				+ "			,INTRODUCE2"
-				+ "         ,INTRODUCE3"
-				+ "         ,INTRODUCE4"
-				+ "         ,INTRO_FILE"
-				+ "     FROM TBL_PROGRAMMER"
-				+ "    WHERE PROG_NUM = ?"; 
-		
-		ArrayList<ProgrammerVO> list = new ArrayList<ProgrammerVO>();
-		
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, progNum);
-			rs = pstmt.executeQuery();
-	
-		while(rs.next()) {	
-			ProgrammerVO progVo = new ProgrammerVO();
-			
-			progVo.setIntroduce1(rs.getString("introduce1"));
-			progVo.setIntroduce2(rs.getString("introduce2"));
-			progVo.setIntroduce3(rs.getString("introduce3"));
-			progVo.setIntroduce4(rs.getString("introduce4"));
-			progVo.setIntroFile(rs.getString("introFile"));
-	
-			list.add(progVo);
-		}
-		
-		}catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if(rs != null) rs.close();
-				if(pstmt != null) pstmt.close();
-				if(conn != null) conn.close();
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-				
-			}
-		}
-		return list;
-		
-	}
+	/*
+	 * //자기소개서 리스트 출력 public ArrayList<ProgrammerVO> introduceList(String progNum){
+	 * Connection conn = null; PreparedStatement pstmt = null; ResultSet rs = null;
+	 * 
+	 * String sql = "SELECT INTRODUCE1" + "			,INTRODUCE2" +
+	 * "         ,INTRODUCE3" + "         ,INTRODUCE4" + "         ,INTRO_FILE" +
+	 * "     FROM TBL_PROGRAMMER" + "    WHERE PROG_NUM = ?";
+	 * 
+	 * ArrayList<ProgrammerVO> list = new ArrayList<ProgrammerVO>();
+	 * 
+	 * try { conn = getConnection(); pstmt = conn.prepareStatement(sql);
+	 * pstmt.setString(1, progNum); rs = pstmt.executeQuery();
+	 * 
+	 * while(rs.next()) { ProgrammerVO progVo = new ProgrammerVO();
+	 * 
+	 * progVo.setIntroduce1(rs.getString("introduce1"));
+	 * progVo.setIntroduce2(rs.getString("introduce2"));
+	 * progVo.setIntroduce3(rs.getString("introduce3"));
+	 * progVo.setIntroduce4(rs.getString("introduce4"));
+	 * progVo.setIntroFile(rs.getString("introFile"));
+	 * 
+	 * list.add(progVo); }
+	 * 
+	 * }catch (SQLException e) { e.printStackTrace(); } finally { try { if(rs !=
+	 * null) rs.close(); if(pstmt != null) pstmt.close(); if(conn != null)
+	 * conn.close();
+	 * 
+	 * } catch (Exception e) { e.printStackTrace();
+	 * 
+	 * } } return list;
+	 * 
+	 * }
+	 */
 	
 	// 자기소개서 등록
 	public void insertIntroduce(ProgrammerVO pVo) {
@@ -146,7 +128,54 @@ public class IntroduceDAO extends DBManager {
 		}
 	
 	}
-	
+	//자기소개서 읽기
+	public ProgrammerVO readIntroduce(String id) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT INTRODUCE1"
+				+ "			,INTRODUCE2"
+				+ "         ,INTRODUCE3"
+				+ "         ,INTRODUCE4"
+				+ "         ,INTRO_FILE"
+				+ "     FROM TBL_PROGRAMMER"
+				+ "    WHERE ID = ?"; 
+		
+		ProgrammerVO progVo = new ProgrammerVO();
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+		
+				while(rs.next()) {
+				
+					progVo.setIntroduce1(rs.getString("INTRODUCE1"));
+					progVo.setIntroduce2(rs.getString("INTRODUCE2"));
+					progVo.setIntroduce3(rs.getString("INTRODUCE3"));
+					progVo.setIntroduce4(rs.getString("INTRODUCE4"));
+					progVo.setIntroFile(rs.getString("INTRO_FILE"));
+				
+				
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		return progVo;
+	}
 
 	
 	

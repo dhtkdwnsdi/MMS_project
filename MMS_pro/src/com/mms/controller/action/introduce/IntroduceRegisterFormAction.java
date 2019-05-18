@@ -7,18 +7,29 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class IntroduceRegisterFormAction {
+import com.mms.controller.action.Action;
+import com.mms.dao.IntroduceDAO;
+import com.mms.vo.ProgrammerVO;
 
+public class IntroduceRegisterFormAction implements Action{
+
+	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String url ="profile/introduceRegisterForm.jsp";
 		
+		IntroduceDAO progDao = IntroduceDAO.getInstance();
+
+		String id = request.getParameter("id");	
 		
-		String url = "/profile/introduceRegisterForm.jsp";
+		request.setAttribute("id", id);
 		
-		System.out.println(url);
+		ProgrammerVO progVo = progDao.readIntroduce(id);
+		
+		request.setAttribute("progVo", progVo);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 		
-	}
-	
+}
 }

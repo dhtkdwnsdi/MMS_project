@@ -20,7 +20,7 @@ import com.mms.controller.action.grant.GrantListFormAction;
 import com.mms.controller.action.grant.GrantUpdateAction;
 import com.mms.controller.action.grant.GrantUpdateFormAction;
 import com.mms.controller.action.introduce.IntroduceListAction;
-import com.mms.controller.action.introduce.IntroduceRegisterAction;
+import com.mms.controller.action.introduce.IntroduceRegisterFormAction;
 import com.mms.controller.action.memberSet.MemberSetFormAction;
 import com.mms.controller.action.memberSet.MemberUpdateAction;
 import com.mms.controller.action.myCert.MyCertDeleteAction;
@@ -100,8 +100,8 @@ public class ProgrammerActionFactory {
 			action = new PlsRegisterAction();	
 		}else if(command.equals("plsDelete")) {
 			action = new PlsDeleteAction();	
-		}else if (command.equals("introduceRegister")) {
-			action = new IntroduceRegisterAction();
+		}else if (command.equals("introduceRegisterForm")) {
+			action = new IntroduceRegisterFormAction();
 		}else if (command.equals("intorduceList")) {
 			action = new IntroduceListAction();
 		}
@@ -110,9 +110,6 @@ public class ProgrammerActionFactory {
 		/**
 		 * @author OSJ
 		 */
-		else if (command.equals("introduceList")) {
-			action = new IntroduceListAction();
-		} 
 		// 자격증
 		else if (command.equals("certListForm")) {
 			action = new CertListFormAction();
