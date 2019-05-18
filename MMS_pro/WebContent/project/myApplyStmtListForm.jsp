@@ -353,7 +353,7 @@ function deleteApplyStmt(applyStmtNum){
 	var applyStmtNum = applyStmtNum;
 	
 	if(confirm("신청 취소하시겠습니까?") == true){
-		location.href = "/proj?command=applyStmtDelete";
+		location.href = "/proj?command=applyStmtDelete&applyStmtNum="+applyStmtNum;
 		alert("취소되었습니다.");
 	}
 	else{

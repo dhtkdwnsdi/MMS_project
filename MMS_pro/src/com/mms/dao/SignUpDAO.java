@@ -250,7 +250,10 @@ public class SignUpDAO extends DBManager {
 				progVo.setBank(rs.getString("BANK"));
 				progVo.setAccount(rs.getString("ACCOUNT"));
 				progVo.setGrant(rs.getString("GRANT"));
-				progVo.setIntroduce(rs.getString("INTRODUCE"));
+				progVo.setIntroduce1(rs.getString("INTRODUCE1"));
+				progVo.setIntroduce2(rs.getString("INTRODUCE2"));
+				progVo.setIntroduce3(rs.getString("INTRODUCE3"));
+				progVo.setIntroduce4(rs.getString("INTRODUCE4"));
 				progVo.setIntroFile(rs.getString("INTRO_FILE"));
 				progVo.setGrade(rs.getString("GRADE"));
 				progVo.setBirth(rs.getString("BIRTH"));
