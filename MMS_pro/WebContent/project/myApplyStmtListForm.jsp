@@ -118,12 +118,12 @@ License: You must have a valid license purchased only from themeforest(the above
 												<ul class="nav nav-tabs nav-tabs-bold nav-tabs-line   nav-tabs-line-right nav-tabs-line-brand" role="tablist">
 													<li class="nav-item">
 														<a class="nav-link active" data-toggle="tab" href="#kt_portlet_tab_1_1" role="tab">
-															승인대기
+															전체리스트
 														</a>
 													</li>
 													<li class="nav-item">
 														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_2" role="tab">
-															전체리스트
+															승인대기
 														</a>
 													</li>
 													<!-- <li class="nav-item">
@@ -149,18 +149,20 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                             </tr>
 			                                          </thead>
 			                                          <tbody style="text-align: center;">
-			                                          <c:forEach items="${myApplyList}" var="aVo" varStatus="listStat">
+			                                          <c:forEach items="${myApplyAllList}" var="aVo" varStatus="listStat">
 			                                             <tr>
 			                                                <th scope="row">${listStat.count}</th>
-			                                                <td>
-			                                                ${aVo.projName}
-			                                                <!-- <a href="proj?command=projectApplyViewForm&projNum=${aVo.projNum}">${aVo.projName}</a> -->
-			                                                </td>
-			                                                <td></td>
+			                                                <td>${aVo.projName}</td>
+			                                                <td>${aVo.progName}</td>
 			                                                <td>${aVo.applyPosition}</td>
 			                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">${aVo.applyStat}</span></td>
 			                                                <td>
-			                                                <span class="kt-badge kt-badge--danger kt-badge--inline">신청 취소</span>
+			                                                <c:if test="${aVo.applyStat eq '승인대기' }">
+			                                                <span class="kt-badge kt-badge--danger kt-badge--inline" onclick="deleteApplyStmt('${aVo.applyStmtNum}')">신청 취소</span>
+			                                               	</c:if>
+			                                               	<c:if test="${aVo.applyStat ne '승인대기' }">
+			                                               	-
+			                                               	</c:if>
 			                                                </td>
 			                                             </tr>
 			                                          </c:forEach>
@@ -176,23 +178,20 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                                <th style="font-weight: bold;">담당자</th>
 			                                                <th style="font-weight: bold;">지원직무</th>
 			                                                <th style="font-weight: bold;">상태</th>
-			                                                <!-- <th style="font-weight: bold;">접수</th> -->
+			                                                <th style="font-weight: bold;">관리</th>
 			                                             </tr>
 			                                          </thead>
 			                                          <tbody style="text-align: center;">
-			                                          <c:forEach items="${myApplyList}" var="aVo" varStatus="listStat">
+			                                          <c:forEach items="${myApplyWaitList}" var="aVo" varStatus="listStat">
 			                                             <tr>
 			                                                <th scope="row">${listStat.count}</th>
-			                                                <td>
-			                                                ${aVo.projName}
-			                                                <!-- <a href="proj?command=projectApplyViewForm&projNum=${aVo.projNum}">${aVo.projName}</a> -->
-			                                                </td>
-			                                                <td></td>
+			                                                <td>${aVo.projName}</td>
+			                                                <td>${aVo.progName}</td>
 			                                                <td>${aVo.applyPosition}</td>
 			                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">${aVo.applyStat}</span></td>
-			                                                <!-- <td>
-			                                                <span class="kt-badge kt-badge--success kt-badge--inline">신청 취소</span>
-			                                                </td> -->
+			                                                <td>
+			                                                <span class="kt-badge kt-badge--danger kt-badge--inline" onclick="deleteApplyStmt('${aVo.applyStmtNum}')">신청 취소</span>
+			                                                </td>
 			                                             </tr>
 			                                          </c:forEach>
 			                                          </tbody>
@@ -349,4 +348,18 @@ License: You must have a valid license purchased only from themeforest(the above
 	</body>
 
 	<!-- end::Body -->
+<script>
+function deleteApplyStmt(applyStmtNum){
+	var applyStmtNum = applyStmtNum;
+	
+	if(confirm("신청 취소하시겠습니까?") == true){
+		location.href = "/proj?command=applyStmtDelete";
+		alert("취소되었습니다.");
+	}
+	else{
+		return false;
+	}
+	
+}
+</script>
 </html>

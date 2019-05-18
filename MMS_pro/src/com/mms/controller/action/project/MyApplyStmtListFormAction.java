@@ -26,8 +26,12 @@ public class MyApplyStmtListFormAction implements Action {
 		String progNum = pVo.getProgNum();
 		
 		ApplyStmtDAO aDao = ApplyStmtDAO.getInstance();
-		ArrayList<ApplyStmtVO> myApplyList = aDao.myApplyStmtList(progNum);
-		request.setAttribute("myApplyList", myApplyList);
+		ArrayList<ApplyStmtVO> myApplyAllList = aDao.myApplyStmtAllList(progNum);
+		request.setAttribute("myApplyAllList", myApplyAllList);
+		
+		ArrayList<ApplyStmtVO> myApplyWaitList = aDao.myApplyStmtWaitList(progNum);
+		request.setAttribute("myApplyWaitList", myApplyWaitList);
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

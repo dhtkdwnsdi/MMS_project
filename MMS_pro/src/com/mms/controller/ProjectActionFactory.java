@@ -1,6 +1,7 @@
 package com.mms.controller;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.project.ApplyStmtDeleteAction;
 import com.mms.controller.action.project.ApplyStmtRegisterAction;
 import com.mms.controller.action.project.MyApplyStmtListFormAction;
 import com.mms.controller.action.project.ProjectApplyFormAction;
@@ -70,6 +71,9 @@ public class ProjectActionFactory {
 			}
 			else if(command.equals("myApplyStmtListForm")) {
 				action = new MyApplyStmtListFormAction();
+			}
+			else if(command.equals("applyStmtDelete")) {
+				action = new ApplyStmtDeleteAction();
 			}
 			return action;
 		}
