@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../include/header.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
 <!-- 
@@ -19,8 +21,8 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- begin::Head -->
 	<head>
 		<meta charset="utf-8" />
-		<title>PMMS | 프로젝트 등록</title>
-		<meta name="description" content="Multi column form examples">
+		<title>Metronic | Tabbed Portlets</title>
+		<meta name="description" content="Tabbed portlet examples">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!--begin::Fonts -->
@@ -89,12 +91,6 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- end::Head -->
 
-<style>
-#label1 {
-font-weight: bold;
-}
-</style>
-
 	<!-- begin::Body -->
 	<body class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
 
@@ -103,228 +99,110 @@ font-weight: bold;
 		<div class="kt-grid kt-grid--hor kt-grid--root">
 			<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
 
+
+
 						<!-- begin:: Content -->
 						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
 							<div class="row">
-								<div class="col-lg-12">
+								<div class="col-xl-12">
 
 									<!--begin::Portlet-->
-									<div class="kt-portlet">
+									<div class="kt-portlet kt-portlet--tabs">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
-												<h3>
-												프로젝트 등록
+												<h3 class="kt-portlet__head-title">
+													내 프로젝트 신청내역
 												</h3>
 											</div>
+											<div class="kt-portlet__head-toolbar">
+												<ul class="nav nav-tabs nav-tabs-bold nav-tabs-line   nav-tabs-line-right nav-tabs-line-brand" role="tablist">
+													<li class="nav-item">
+														<a class="nav-link active" data-toggle="tab" href="#kt_portlet_tab_1_1" role="tab">
+															승인대기
+														</a>
+													</li>
+													<li class="nav-item">
+														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_2" role="tab">
+															전체리스트
+														</a>
+													</li>
+													<!-- <li class="nav-item">
+														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab">
+															Settings
+														</a>
+													</li> -->
+												</ul>
+											</div>
 										</div>
-
-										<!--begin::Form-->
-										<form method="POST" enctype="multipart/form-data" id="frm">
-											<div class="kt-portlet__body">
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-6">
-														<label id="label1">프로젝트 명</label>
-														<input type="text" class="form-control" placeholder="프로젝트 명을 입력해주세요." name="projName" id="projName">
-													</div>
-													<div class="col-lg-6">
-														<label id="label1">담당자 명</label>
-														<input type="text" class="form-control" readonly="readonly" value="${LoginUser.name}">
-														<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}">
-													</div>
+										<div class="kt-portlet__body">
+											<div class="tab-content">
+												<div class="tab-pane active" id="kt_portlet_tab_1_1">
+													<table class="table table-bordered table-hover">
+			                                          <thead style="text-align: center;">
+			                                             <tr>
+			                                                <th>#</th>
+			                                                <th style="font-weight: bold;">프로젝트 명</th>
+			                                                <th style="font-weight: bold;">담당자</th>
+			                                                <th style="font-weight: bold;">지원직무</th>
+			                                                <th style="font-weight: bold;">상태</th>
+			                                                <th style="font-weight: bold;">관리</th>
+			                                             </tr>
+			                                          </thead>
+			                                          <tbody style="text-align: center;">
+			                                          <c:forEach items="${myApplyList}" var="aVo" varStatus="listStat">
+			                                             <tr>
+			                                                <th scope="row">${listStat.count}</th>
+			                                                <td>
+			                                                ${aVo.projName}
+			                                                <!-- <a href="proj?command=projectApplyViewForm&projNum=${aVo.projNum}">${aVo.projName}</a> -->
+			                                                </td>
+			                                                <td></td>
+			                                                <td>${aVo.applyPosition}</td>
+			                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">${aVo.applyStat}</span></td>
+			                                                <td>
+			                                                <span class="kt-badge kt-badge--danger kt-badge--inline">신청 취소</span>
+			                                                </td>
+			                                             </tr>
+			                                          </c:forEach>
+			                                          </tbody>
+                                       				</table>
 												</div>
-												<!-- Start Divider -->
-												<br><br>
-												<div class="kt-section__content kt-section__content--solid">
-													<div class="kt-divider">
-														<span></span>
-													</div>
+												<div class="tab-pane" id="kt_portlet_tab_1_2">
+													<table class="table table-bordered table-hover">
+			                                          <thead style="text-align: center;">
+			                                             <tr>
+			                                                <th>#</th>
+			                                                <th style="font-weight: bold;">프로젝트 명</th>
+			                                                <th style="font-weight: bold;">담당자</th>
+			                                                <th style="font-weight: bold;">지원직무</th>
+			                                                <th style="font-weight: bold;">상태</th>
+			                                                <!-- <th style="font-weight: bold;">접수</th> -->
+			                                             </tr>
+			                                          </thead>
+			                                          <tbody style="text-align: center;">
+			                                          <c:forEach items="${myApplyList}" var="aVo" varStatus="listStat">
+			                                             <tr>
+			                                                <th scope="row">${listStat.count}</th>
+			                                                <td>
+			                                                ${aVo.projName}
+			                                                <!-- <a href="proj?command=projectApplyViewForm&projNum=${aVo.projNum}">${aVo.projName}</a> -->
+			                                                </td>
+			                                                <td></td>
+			                                                <td>${aVo.applyPosition}</td>
+			                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">${aVo.applyStat}</span></td>
+			                                                <!-- <td>
+			                                                <span class="kt-badge kt-badge--success kt-badge--inline">신청 취소</span>
+			                                                </td> -->
+			                                             </tr>
+			                                          </c:forEach>
+			                                          </tbody>
+                                       				</table>
 												</div>
-												<br>
-												<!-- End Divider -->
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-4">
-														<label id="label1">참여 형태</label>
-														<select class="form-control" name="partiFormCode" id="partiFormCode">
-															<option value="">선택</option>
-															<option value="주관">주관</option>
-															<option value="도급">도급</option>
-															<option value="하도급">하도급</option>
-															<option value="파견">파견</option>
-														</select>
-													</div>
-													<div class="col-lg-4">
-														<label id="label1">분류</label>
-														<select class="form-control" name="projCate" id="projCate">
-															<option value="">선택</option>
-															<option value="설계">설계</option>
-															<option value="개발">개발</option>
-															<option value="디자인">디자인</option>
-															<option value="등등">등등</option>
-														</select>
-													</div>
-													<div class="col-lg-4">
-														<label id="label1">세분류</label>
-														<select class="form-control" name="projDetailCate" id="projDetailCate">
-															<option value="">선택</option>
-															<option value="웹">웹</option>
-															<option value="시스템">시스템</option>
-															<option value="앱">앱</option>
-															<option value="등등">등등</option>
-														</select>
-													</div>
-												</div>
-												<!-- Start Divider -->
-												<br><br>
-												<div class="kt-section__content kt-section__content--solid">
-													<div class="kt-divider">
-														<span></span>
-													</div>
-												</div>
-												<br>
-												<!-- End Divider -->
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-6">
-														<label id="label1">OS 종류</label>
-														<select class="form-control" name="osCode" id="osCode">
-															<option value="">선택</option>
-															<option value="Windows">Windows</option>
-															<option value="Unix">Unix</option>
-															<option value="Linux">Linux</option>
-															<option value="등등">등등</option>
-														</select>
-													</div>
-													<div class="col-lg-6">
-														<label id="label1">프레임워크 종류</label>
-														<select class="form-control" name="fwCode" id="fwCode">
-															<optgroup label="JAVA">
-																<option value="">선택</option>
-																<option value="Struts">Struts</option>
-																<option value="Spring">Spring</option>
-																<option value="전자정부 프레임워크">전자정부 프레임워크</option>
-															</optgroup>
-															<optgroup label="QRM">
-																<option value="">선택</option>
-																<option value="myBatis">myBatis</option>
-																<option value="Hibernate">Hibernate</option>
-															</optgroup>
-															<optgroup label="Javascript">
-																<option value="">선택</option>
-																<option value="AngularJS">AngularJS</option>
-																<option value="React">React</option>
-																<option value="polymer">polymer</option>
-																<option value="Ember">Ember</option>
-															</optgroup>
-															<optgroup label="FrontEnd">
-																<option value="">선택</option>
-																<option value="Bootstrap">Bootstrap</option>
-																<option value="React">React</option>
-																<option value="polymer">polymer</option>
-																<option value="Ember">Ember</option>
-															</optgroup>
-														</select>
-													</div>
-												</div>
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-6">
-														<label id="label1">DBMS 종류</label>
-														<select class="form-control" name="dbmsCode" id="dbmsCode">
-															<option value="">선택</option>
-															<option value="Oracle">Oracle</option>
-															<option value="MySQL">MySQL</option>
-															<option value="MS SQL Server">MS SQL Server</option>
-															<option value="PostgreSQL">PostgreSQL</option>
-														</select>
-													</div>
-													<div class="col-lg-6">
-														<label id="label1">프로젝트 난이도</label>
-														<select class="form-control" name="levelCode" id="levelCode">
-															<option value="">선택</option>
-															<option value="상">상</option>
-															<option value="중">중</option>
-															<option value="하">하</option>
-														</select>
-													</div>
-												</div>
-												<!-- Start Divider -->
-												<br><br>
-												<div class="kt-section__content kt-section__content--solid">
-													<div class="kt-divider">
-														<span></span>
-													</div>
-												</div>
-												<br>
-												<!-- End Divider -->
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-4">
-														<label id="label1">신청 마감일</label>
-														<div class="kt-input-icon">
-															<input type="text" class="form-control" placeholder="날짜를 설정해주세요." name="deadline" id="deadline" readonly="readonly">
-															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
-														</div>
-													</div>
-													<div class="col-lg-4">
-														<label id="label1">시작 예정일</label>
-														<div class="kt-input-icon">
-															<input type="text" class="form-control" placeholder="날짜를 설정해주세요." name="startDuedate" id="startDuedate" readonly="readonly">
-															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
-														</div>
-													</div>
-													<div class="col-lg-4">
-														<label id="label1">종료 예정일</label>
-														<div class="kt-input-icon">
-															<input type="text" class="form-control" placeholder="날짜를 설정해주세요." name="endDuedate" id="endDuedate" readonly="readonly">
-															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
-														</div>
-													</div>
-												</div>
-												<!-- Start Divider -->
-												<br><br>
-												<div class="kt-section__content kt-section__content--solid">
-													<div class="kt-divider">
-														<span></span>
-													</div>
-												</div>
-												<br>
-												<!-- End Divider -->
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-12">
-														<label id="label1">프로젝트 내용</label>
-														<textarea class="form-control" name="contents" id="contents" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 129px;"></textarea>
-													</div>
-												</div>
-												<!-- Start Divider -->
-												<br><br>
-												<div class="kt-section__content kt-section__content--solid">
-													<div class="kt-divider">
-														<span></span>
-													</div>
-												</div>
-												<br>
-												<!-- End Divider -->
-												<div class="form-group">
-														<label id="label1">첨부파일</label>
-														<div class="custom-file">
-															<input type="file" class="custom-file-input" name="projFile" id="projFile">
-															<label class="custom-file-label" for="customFile" style="text-align: left;"></label>
-														</div>
-												</div>
+												<!-- <div class="tab-pane" id="kt_portlet_tab_1_3">
+													Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
+												</div> -->
 											</div>
-											<div class="kt-portlet__foot">
-												<div class="kt-form__actions">
-													<div class="row">
-														<div class="col-lg-6">
-														</div>
-														<div class="col-lg-6 kt-align-right">
-															<button type="button" class="btn btn-primary" id="submitBtn" onclick="registerProject()">저장</button>
-															<button type="button" class="btn btn-secondary" onclick="self.close()">취소</button>
-															<!-- <button type="reset" class="btn btn-danger">Delete</button> -->
-														</div>
-													</div>
-												</div>
-											</div>
-
-										</form>
-										<!--end::Form-->
+										</div>
 									</div>
 
 									<!--end::Portlet-->
@@ -335,15 +213,37 @@ font-weight: bold;
 						<!-- end:: Content -->
 					</div>
 
+					<!-- begin:: Footer -->
+					
+					<%@ include file="../include/footer.jsp" %>
+
+					<!-- end:: Footer -->
 				</div>
 
 		<!-- end:: Page -->
+
 
 		<!-- begin::Scrolltop -->
 		<div id="kt_scrolltop" class="kt-scrolltop">
 			<i class="fa fa-arrow-up"></i>
 		</div>
+
 		<!-- end::Scrolltop -->
+
+		<!-- begin::Sticky Toolbar -->
+		<ul class="kt-sticky-toolbar" style="margin-top: 30px;">
+			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--success" id="kt_demo_panel_toggle" data-toggle="kt-tooltip" title="Check out more demos" data-placement="right">
+				<a href="#" class=""><i class="flaticon2-drop"></i></a>
+			</li>
+			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--brand" data-toggle="kt-tooltip" title="Layout Builder" data-placement="left">
+				<a href="https://keenthemes.com/metronic/preview/default/builder.html" target="_blank"><i class="flaticon2-gear"></i></a>
+			</li>
+			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--warning" data-toggle="kt-tooltip" title="Documentation" data-placement="left">
+				<a href="https://keenthemes.com/metronic/?page=docs" target="_blank"><i class="flaticon2-telegram-logo"></i></a>
+			</li>
+		</ul>
+
+		<!-- end::Sticky Toolbar -->
 
 
 		<!-- begin::Global Config(global config for global JS sciprts) -->
@@ -446,140 +346,7 @@ font-weight: bold;
 		<script src="../assets/app/bundle/app.bundle.js" type="text/javascript"></script>
 
 		<!--end::Global App Bundle -->
-		<script src="../assets/app/custom/general/crud/forms/widgets/select2.js" type="text/javascript"></script>
 	</body>
 
 	<!-- end::Body -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-<script>
-    $.datepicker.setDefaults({
-        dateFormat: 'yy-mm-dd',
-        prevText: '이전 달',
-        nextText: '다음 달',
-        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-        showMonthAfterYear: true,
-        yearSuffix: '년'
-    });
-
-    $(function() {
-        $("#startDuedate").datepicker();
-        $("#endDuedate").datepicker();
-        $("#deadline").datepicker();
-    });
-
-    
-function registerProject(){
-
-		
-		// userID 변수에 userID의 입력된 값을 가져오게 함
-		var projName = $('#projName').val();
-		var progNum = $('#progNum').val();
-		var partiFormCode = $('#partiFormCode').val();
-		var projCate = $('#projCate').val();
-		var projDetailCate = $('#projDetailCate').val();
-		var osCode = $('#osCode').val();
-		var fwCode = $('#fwCode').val();
-		var dbmsCode = $('#dbmsCode').val();
-		var levelCode = $('#levelCode').val();
-		var startDuedate = $('#startDuedate').val();
-		var endDuedate = $('#endDuedate').val();
-		var deadline = $('#deadline').val();
-		var contents = $('#contents').val();
-		var projFile = $('#projFile').val();
-		
-		
-		if(projName == ""){
-			alert("프로젝트 명을 입력해주세요.");
-			$("#projName").focus();
-			return false;
-		}
-		if(partiFormCode == ""){
-			alert("참여형태를 선택해주세요.");
-			$("#partiFormCode").focus();
-			return false;
-		}
-		if(projCate == ""){
-			alert("분류를 선택해주세요.");
-			$("#projCate").focus();
-			return false;
-		}
-		if(projDetailCate == ""){
-			alert("세분류를 선택해주세요.");
-			$("#projDetailCate").focus();
-			return false;
-		}
-		if(osCode == ""){
-			alert("OS를 선택해주세요.");
-			$("#osCode").focus();
-			return false;
-		}
-		if(fwCode == ""){
-			alert("프레임워크를 선택해주세요.");
-			$("#fwCode").focus();
-			return false;
-		}
-		if(dbmsCode == ""){
-			alert("DBMS를 선택해주세요.");
-			$("#dbmsCode").focus();
-			return false;
-		}
-		if(levelCode == ""){
-			alert("프로젝트 난이도를 선택해주세요.");
-			$("#levelCode").focus();
-			return false;
-		}
-		if(deadline == ""){
-			alert("신청 마감일을 선택해주세요.");
-			$("#deadline").focus();
-			return false;
-		}
-		if(startDuedate == ""){
-			alert("시작 예정일을 선택해주세요.");
-			$("#startDuedate").focus();
-			return false;
-		}
-		if(endDuedate == ""){
-			alert("종료 예정일을 선택해주세요.");
-			$("#endDuedate").focus();
-			return false;
-		}
-		
-		else {
-			var form = $("#frm")[0];
-			var data = new FormData(form);
-		$.ajax({
-			
-			type: 'POST',  // GET or POST 전송방법 
-			enctype: 'multipart/form-data',
-			url: '/proj?command=projectRegister',  // 이쪽으로 보낸다(호출URL)
-			
-			processData: false, 
-	        contentType: false,
-		
-			data: data,  
-			cache: false,
-			timeout: 600000,
-
-			success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
-				alert("등록되었습니다.");
-				self.close();
-				opener.location.href = "/proj?command=projectRegisterListForm";
-			},
-			error: function(data){
-				alert("오류:: 다시 시도해주세요.");
-				return false;
-			}
-			 
-
-		})
-		} 
-	}
-
-</script>
 </html>

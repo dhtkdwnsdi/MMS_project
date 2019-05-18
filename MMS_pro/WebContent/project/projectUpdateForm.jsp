@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
 <!-- 
@@ -136,11 +137,36 @@ font-weight: bold;
 													<div class="col-lg-4">
 														<label id="label1">프로젝트 상태</label>
 														<select class="form-control" name="projStat" id="projStat">
-															<option value="">선택</option>
-															<option value="모집">모집</option>
-															<option value="진행">진행</option>
-															<option value="종료">종료</option>
-															<option value="보류">보류</option>
+															<c:choose>
+																<c:when test="${projVo.projStat eq '모집'}">
+																	<option value="">선택</option>
+																	<option value="모집" selected="selected">모집</option>
+																	<option value="진행">진행</option>
+																	<option value="종료">종료</option>
+																	<option value="보류">보류</option>
+																</c:when>
+																<c:when test="${projVo.projStat eq '진행'}">
+																	<option value="">선택</option>
+																	<option value="모집">모집</option>
+																	<option value="진행" selected="selected">진행</option>
+																	<option value="종료">종료</option>
+																	<option value="보류">보류</option>
+																</c:when>
+																<c:when test="${projVo.projStat eq '종료'}">
+																	<option value="">선택</option>
+																	<option value="모집">모집</option>
+																	<option value="진행">진행</option>
+																	<option value="종료" selected="selected">종료</option>
+																	<option value="보류">보류</option>
+																</c:when>
+																<c:when test="${projVo.projStat eq '보류'}">
+																	<option value="">선택</option>
+																	<option value="모집">모집</option>
+																	<option value="진행">진행</option>
+																	<option value="종료">종료</option>
+																	<option value="보류" selected="selected">보류</option>
+																</c:when>
+															</c:choose>
 														</select>
 													</div>
 												</div>
@@ -157,31 +183,106 @@ font-weight: bold;
 													<div class="col-lg-4">
 														<label id="label1">참여 형태</label>
 														<select class="form-control" name="partiFormCode" id="partiFormCode">
-															<option value="">선택</option>
-															<option value="주관">주관</option>
-															<option value="도급">도급</option>
-															<option value="하도급">하도급</option>
-															<option value="파견">파견</option>
+															<c:choose>
+																<c:when test="${projVo.partiFormCode eq '주관'}">
+																	<option value="">선택</option>
+																	<option value="주관" selected="selected">주관</option>
+																	<option value="도급">도급</option>
+																	<option value="하도급">하도급</option>
+																	<option value="파견">파견</option>
+																</c:when>
+																<c:when test="${projVo.partiFormCode eq '도급'}">
+																	<option value="">선택</option>
+																	<option value="주관">주관</option>
+																	<option value="도급" selected="selected">도급</option>
+																	<option value="하도급">하도급</option>
+																	<option value="파견">파견</option>
+																</c:when>
+																<c:when test="${projVo.partiFormCode eq '하도급'}">
+																	<option value="">선택</option>
+																	<option value="주관">주관</option>
+																	<option value="도급">도급</option>
+																	<option value="하도급" selected="selected">하도급</option>
+																	<option value="파견">파견</option>
+																</c:when>
+																<c:when test="${projVo.partiFormCode eq '파견'}">
+																	<option value="">선택</option>
+																	<option value="주관">주관</option>
+																	<option value="도급">도급</option>
+																	<option value="하도급">하도급</option>
+																	<option value="파견" selected="selected">파견</option>
+																</c:when>
+															</c:choose>
 														</select>
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">분류</label>
 														<select class="form-control" name="projCate" id="projCate">
-															<option value="">선택</option>
-															<option value="설계">설계</option>
-															<option value="개발">개발</option>
-															<option value="디자인">디자인</option>
-															<option value="등등">등등</option>
+															<c:choose>
+																<c:when test="${projVo.projCate eq '설계'}">
+																	<option value="">선택</option>
+																	<option value="설계" selected="selected">설계</option>
+																	<option value="개발">개발</option>
+																	<option value="디자인">디자인</option>
+																	<option value="등등">등등</option>
+																</c:when>
+																<c:when test="${projVo.projCate eq '개발'}">	
+																	<option value="">선택</option>
+																	<option value="설계">설계</option>
+																	<option value="개발" selected="selected">개발</option>
+																	<option value="디자인">디자인</option>
+																	<option value="등등">등등</option>
+																</c:when>
+																<c:when test="${projVo.projCate eq '디자인'}">
+																	<option value="">선택</option>
+																	<option value="설계">설계</option>
+																	<option value="개발">개발</option>
+																	<option value="디자인" selected="selected">디자인</option>
+																	<option value="등등">등등</option>
+																</c:when>
+																<c:when test="${projVo.projCate eq '등등'}">
+																	<option value="">선택</option>
+																	<option value="설계">설계</option>
+																	<option value="개발">개발</option>
+																	<option value="디자인">디자인</option>
+																	<option value="등등" selected="selected">등등</option>
+																</c:when>
+															</c:choose>
 														</select>
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">세분류</label>
 														<select class="form-control" name="projDetailCate" id="projDetailCate">
-															<option value="">선택</option>
-															<option value="웹">웹</option>
-															<option value="시스템">시스템</option>
-															<option value="앱">앱</option>
-															<option value="등등">등등</option>
+														<c:choose>
+															<c:when test="${projVo.projDetailCate eq '웹'}">
+																<option value="">선택</option>
+																<option value="웹" selected="selected">웹</option>
+																<option value="시스템">시스템</option>
+																<option value="앱">앱</option>
+																<option value="등등">등등</option>
+															</c:when>
+															<c:when test="${projVo.projDetailCate eq '시스템'}">
+																<option value="">선택</option>
+																<option value="웹">웹</option>
+																<option value="시스템" selected="selected">시스템</option>
+																<option value="앱">앱</option>
+																<option value="등등">등등</option>
+															</c:when>
+															<c:when test="${projVo.projDetailCate eq '앱'}">
+																<option value="">선택</option>
+																<option value="웹">웹</option>
+																<option value="시스템">시스템</option>
+																<option value="앱" selected="selected">앱</option>
+																<option value="등등">등등</option>
+															</c:when>
+															<c:when test="${projVo.projDetailCate eq '등등'}">
+																<option value="">선택</option>
+																<option value="웹">웹</option>
+																<option value="시스템">시스템</option>
+																<option value="앱">앱</option>
+																<option value="등등" selected="selected">등등</option>
+															</c:when>
+														</c:choose>
 														</select>
 													</div>
 												</div>
@@ -198,40 +299,140 @@ font-weight: bold;
 													<div class="col-lg-6">
 														<label id="label1">OS 종류</label>
 														<select class="form-control" name="osCode" id="osCode">
-															<option value="">선택</option>
-															<option value="Windows">Windows</option>
-															<option value="Unix">Unix</option>
-															<option value="Linux">Linux</option>
-															<option value="등등">등등</option>
+															<c:choose>
+																<c:when test="${projVo.osCode eq 'Windows'}">
+																	<option value="">선택</option>
+																	<option value="Windows" selected="selected">Windows</option>
+																	<option value="Unix">Unix</option>
+																	<option value="Linux">Linux</option>
+																	<option value="등등">등등</option>
+																</c:when>
+																<c:when test="${projVo.osCode eq 'Unix'}">
+																	<option value="">선택</option>
+																	<option value="Windows">Windows</option>
+																	<option value="Unix" selected="selected">Unix</option>
+																	<option value="Linux">Linux</option>
+																	<option value="등등">등등</option>
+																</c:when>
+																<c:when test="${projVo.osCode eq 'Linux'}">
+																	<option value="">선택</option>
+																	<option value="Windows">Windows</option>
+																	<option value="Unix">Unix</option>
+																	<option value="Linux" selected="selected">Linux</option>
+																	<option value="등등">등등</option>
+																</c:when>
+																<c:when test="${projVo.osCode eq '등등'}">
+																	<option value="">선택</option>
+																	<option value="Windows">Windows</option>
+																	<option value="Unix">Unix</option>
+																	<option value="Linux">Linux</option>
+																	<option value="등등" selected="selected">등등</option>
+																</c:when>	
+															</c:choose>
 														</select>
 													</div>
 													<div class="col-lg-6">
 														<label id="label1">프레임워크 종류</label>
 														<select class="form-control" name="fwCode" id="fwCode">
 															<optgroup label="JAVA">
-																<option value="">선택</option>
-																<option value="Struts">Struts</option>
-																<option value="Spring">Spring</option>
-																<option value="전자정부 프레임워크">전자정부 프레임워크</option>
+															<c:choose>
+																<c:when test="${projVo.fwCode eq 'Struts'}">
+																	<option value="">선택</option>
+																	<option value="Struts" selected="selected">Struts</option>
+																	<option value="Spring">Spring</option>
+																	<option value="전자정부 프레임워크">전자정부 프레임워크</option>
+																</c:when>
+																<c:when test="${projVo.fwCode eq 'Spring'}">
+																	<option value="">선택</option>
+																	<option value="Struts">Struts</option>
+																	<option value="Spring" selected="selected">Spring</option>
+																	<option value="전자정부 프레임워크">전자정부 프레임워크</option>
+																</c:when>
+																<c:when test="${projVo.fwCode eq '전자정부 프레임워크'}">
+																	<option value="">선택</option>
+																	<option value="Struts">Struts</option>
+																	<option value="Spring">Spring</option>
+																	<option value="전자정부 프레임워크" selected="selected">전자정부 프레임워크</option>
+																</c:when>
+															</c:choose>
 															</optgroup>
 															<optgroup label="QRM">
-																<option value="">선택</option>
-																<option value="myBatis">myBatis</option>
-																<option value="Hibernate">Hibernate</option>
+															<c:choose>
+																<c:when test="${projVo.fwCode eq 'myBatis'}">
+																	<option value="">선택</option>
+																	<option value="myBatis" selected="selected">myBatis</option>
+																	<option value="Hibernate">Hibernate</option>
+																</c:when>
+																<c:when test="${projVo.fwCode eq 'Hibernate'}">
+																	<option value="">선택</option>
+																	<option value="myBatis">myBatis</option>
+																	<option value="Hibernate" selected="selected">Hibernate</option>
+																</c:when>
+															</c:choose>	
 															</optgroup>
 															<optgroup label="Javascript">
-																<option value="">선택</option>
-																<option value="AngularJS">AngularJS</option>
-																<option value="React">React</option>
-																<option value="polymer">polymer</option>
-																<option value="Ember">Ember</option>
+															<c:choose>
+																<c:when test="${projVo.fwCode eq 'AngularJS'}">
+																	<option value="">선택</option>
+																	<option value="AngularJS" selected="selected">AngularJS</option>
+																	<option value="React">React</option>
+																	<option value="polymer">polymer</option>
+																	<option value="Ember">Ember</option>
+																</c:when>
+																<c:when test="${projVo.fwCode eq 'React'}">
+																	<option value="">선택</option>
+																	<option value="AngularJS">AngularJS</option>
+																	<option value="React" selected="selected">React</option>
+																	<option value="polymer">polymer</option>
+																	<option value="Ember">Ember</option>
+																</c:when>
+																<c:when test="${projVo.fwCode eq 'polymer'}">
+																	<option value="">선택</option>
+																	<option value="AngularJS">AngularJS</option>
+																	<option value="React">React</option>
+																	<option value="polymer" selected="selected">polymer</option>
+																	<option value="Ember">Ember</option>
+																</c:when>
+																<c:when test="${projVo.fwCode eq 'Ember'}">
+																	<option value="">선택</option>
+																	<option value="AngularJS">AngularJS</option>
+																	<option value="React">React</option>
+																	<option value="polymer">polymer</option>
+																	<option value="Ember" selected="selected">Ember</option>
+																</c:when>
+															</c:choose>	
 															</optgroup>
 															<optgroup label="FrontEnd">
-																<option value="">선택</option>
-																<option value="Bootstrap">Bootstrap</option>
-																<option value="React">React</option>
-																<option value="polymer">polymer</option>
-																<option value="Ember">Ember</option>
+															<c:choose>
+																<c:when test="${projVo.fwCode eq 'Bootstrap'}">
+																	<option value="">선택</option>
+																	<option value="Bootstrap" selected="selected">Bootstrap</option>
+																	<option value="React">React</option>
+																	<option value="polymer">polymer</option>
+																	<option value="Ember">Ember</option>
+																</c:when>
+																<c:when test="${projVo.fwCode eq 'React'}">
+																	<option value="">선택</option>
+																	<option value="Bootstrap">Bootstrap</option>
+																	<option value="React" selected="selected">React</option>
+																	<option value="polymer">polymer</option>
+																	<option value="Ember">Ember</option>
+																</c:when>
+																<c:when test="${projVo.fwCode eq 'polymer'}">
+																	<option value="">선택</option>
+																	<option value="Bootstrap">Bootstrap</option>
+																	<option value="React">React</option>
+																	<option value="polymer" selected="selected">polymer</option>
+																	<option value="Ember">Ember</option>
+																</c:when>
+																<c:when test="${projVo.fwCode eq 'Ember'}">
+																	<option value="">선택</option>
+																	<option value="Bootstrap">Bootstrap</option>
+																	<option value="React">React</option>
+																	<option value="polymer">polymer</option>
+																	<option value="Ember" selected="selected">Ember</option>
+																</c:when>
+															</c:choose>	
 															</optgroup>
 														</select>
 													</div>
@@ -240,20 +441,61 @@ font-weight: bold;
 													<div class="col-lg-6">
 														<label id="label1">DBMS 종류</label>
 														<select class="form-control" name="dbmsCode" id="dbmsCode">
-															<option value="">선택</option>
-															<option value="Oracle">Oracle</option>
-															<option value="MySQL">MySQL</option>
-															<option value="MS SQL Server">MS SQL Server</option>
-															<option value="PostgreSQL">PostgreSQL</option>
+														<c:choose>
+																<c:when test="${projVo.dbmsCode eq 'Oracle'}">
+																	<option value="">선택</option>
+																	<option value="Oracle" selected="selected">Oracle</option>
+																	<option value="MySQL">MySQL</option>
+																	<option value="MS SQL Server">MS SQL Server</option>
+																	<option value="PostgreSQL">PostgreSQL</option>
+																</c:when>
+																<c:when test="${projVo.dbmsCode eq 'MySQL'}">
+																	<option value="">선택</option>
+																	<option value="Oracle">Oracle</option>
+																	<option value="MySQL" selected="selected">MySQL</option>
+																	<option value="MS SQL Server">MS SQL Server</option>
+																	<option value="PostgreSQL">PostgreSQL</option>
+																</c:when>
+																<c:when test="${projVo.dbmsCode eq 'MS SQL Server'}">
+																	<option value="">선택</option>
+																	<option value="Oracle">Oracle</option>
+																	<option value="MySQL">MySQL</option>
+																	<option value="MS SQL Server" selected="selected">MS SQL Server</option>
+																	<option value="PostgreSQL">PostgreSQL</option>
+																</c:when>
+																<c:when test="${projVo.dbmsCode eq 'PostgreSQL'}">
+																	<option value="">선택</option>
+																	<option value="Oracle">Oracle</option>
+																	<option value="MySQL">MySQL</option>
+																	<option value="MS SQL Server">MS SQL Server</option>
+																	<option value="PostgreSQL" selected="selected">PostgreSQL</option>
+																</c:when>
+														</c:choose>
 														</select>
 													</div>
 													<div class="col-lg-6">
 														<label id="label1">프로젝트 난이도</label>
 														<select class="form-control" name="levelCode" id="levelCode">
-															<option value="">선택</option>
-															<option value="상">상</option>
-															<option value="중">중</option>
-															<option value="하">하</option>
+															<c:choose>
+																<c:when test="${projVo.levelCode eq '상'}">
+																	<option value="">선택</option>	
+																	<option value="상" selected="selected">상</option>
+																	<option value="중">중</option>
+																	<option value="하">하</option>
+																</c:when>
+																<c:when test="${projVo.levelCode eq '중'}">
+																	<option value="">선택</option>	
+																	<option value="상">상</option>
+																	<option value="중" selected="selected">중</option>
+																	<option value="하">하</option>
+																</c:when>
+																<c:when test="${projVo.levelCode eq '하'}">	
+																	<option value="">선택</option>	
+																	<option value="상">상</option>
+																	<option value="중">중</option>
+																	<option value="하" selected="selected">하</option>
+																</c:when>	
+															</c:choose>		
 														</select>
 													</div>
 												</div>
@@ -314,12 +556,14 @@ font-weight: bold;
 												<br>
 												<!-- End Divider -->
 												<div class="form-group">
-														<label id="label1">첨부파일</label>
-														<div class="custom-file">
-															<input type="file" class="custom-file-input" name="projFile" id="projFile">
-															<label class="custom-file-label" for="customFile" style="text-align: left;">
-															</label>
-														</div>
+													<label>첨부파일</label>
+													<div></div>
+													<div class="custom-file">
+														<input type="file" name="projFile" id="projFile">
+														<!-- <input type="file" class="custom-file-input" id="projFile" name="projFile">
+														<label class="custom-file-label" for="customFile" style="text-align: left;">
+														</label> -->
+													</div>	
 												</div>
 											</div>
 											<div class="kt-portlet__foot">
@@ -329,8 +573,7 @@ font-weight: bold;
 														</div>
 														<div class="col-lg-6 kt-align-right">
 															<button type="button" class="btn btn-primary" onclick="updateProject()">저장</button>
-															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
-															<!-- <button type="reset" class="btn btn-danger">Delete</button> -->
+															<button type="button" class="btn btn-secondary" id="cancel">취소</button>
 														</div>
 													</div>
 												</div>
@@ -607,7 +850,8 @@ function updateProject(){
 $(document).ready(
 		function() {
 			$('#cancel').on("click",function(event) {
-						self.location = "proj?command=projectListForm";
+						var projNum = $('#projNum').val();
+						self.location = "proj?command=projectRegisterViewForm&projNum="+projNum;
 					});
 			$('#newBtn').on("click", function(evt) {
 				self.location = "register";

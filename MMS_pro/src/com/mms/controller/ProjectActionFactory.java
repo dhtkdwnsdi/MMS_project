@@ -1,11 +1,17 @@
 package com.mms.controller;
 
 import com.mms.controller.action.Action;
-import com.mms.controller.action.project.ProjectListFormAction;
+import com.mms.controller.action.project.ApplyStmtRegisterAction;
+import com.mms.controller.action.project.MyApplyStmtListFormAction;
+import com.mms.controller.action.project.ProjectApplyFormAction;
+import com.mms.controller.action.project.ProjectApplyListFormAction;
+import com.mms.controller.action.project.ProjectApplyViewFormAction;
+import com.mms.controller.action.project.ProjectDeleteAction;
+import com.mms.controller.action.project.ProjectRegisterListFormAction;
 import com.mms.controller.action.project.ProjectRegisterAction;
 import com.mms.controller.action.project.ProjectUpdateAction;
 import com.mms.controller.action.project.ProjectUpdateFormAction;
-import com.mms.controller.action.project.ProjectViewFormAction;
+import com.mms.controller.action.project.ProjectRegisterViewFormAction;
 
 public class ProjectActionFactory {
 
@@ -24,15 +30,15 @@ public class ProjectActionFactory {
 
 			System.out.println("ActionFactory : " + command);
 			
-			if(command.equals("projectListForm")) {
-				action = new ProjectListFormAction();
+			if(command.equals("projectRegisterListForm")) {
+				action = new ProjectRegisterListFormAction();
 			}
 			else if(command.equals("projectRegister")) {
 				action = new ProjectRegisterAction();
 				
 			}
-			else if(command.equals("projectViewForm")) {
-				action = new ProjectViewFormAction();
+			else if(command.equals("projectRegisterViewForm")) {
+				action = new ProjectRegisterViewFormAction();
 				
 			}
 			else if(command.equals("projectUpdateForm")) {
@@ -41,6 +47,29 @@ public class ProjectActionFactory {
 			else if(command.equals("projectUpdate")) {
 				action = new ProjectUpdateAction();
 				
+			}
+			else if(command.equals("projectDelete")) {
+				action = new ProjectDeleteAction();
+				
+			}
+			else if(command.equals("projectApplyListForm")) {
+				action = new ProjectApplyListFormAction();
+				
+			}
+			else if(command.equals("projectApplyViewForm")) {
+				action = new ProjectApplyViewFormAction();
+				
+			}
+			else if(command.equals("projectApplyFormAction")) {
+				action = new ProjectApplyFormAction();
+				
+			}
+			else if(command.equals("applyStmtRegister")) {
+				action = new ApplyStmtRegisterAction();
+				
+			}
+			else if(command.equals("myApplyStmtListForm")) {
+				action = new MyApplyStmtListFormAction();
 			}
 			return action;
 		}

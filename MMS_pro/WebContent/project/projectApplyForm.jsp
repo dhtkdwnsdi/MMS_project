@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
 <!-- 
@@ -20,103 +18,164 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Head -->
 	<head>
-		<title>Metronic | 프로그래밍 언어 숙련도 등록</title>
+		<meta charset="utf-8" />
+		<title>PMMS | 프로젝트 참여신청</title>
+		<meta name="description" content="Base form control examples">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!--begin::Fonts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+		<script>
+			WebFont.load({
+				google: {
+					"families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"]
+				},
+				active: function() {
+					sessionStorage.fonts = true;
+				}
+			});
+		</script>
+
+		<!--end::Fonts -->
+
+		<!--begin:: Global Mandatory Vendors -->
+		<link href="../assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
+
+		<!--end:: Global Mandatory Vendors -->
+
+		<!--begin:: Global Optional Vendors -->
+		<link href="../assets/vendors/general/tether/dist/css/tether.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/select2/dist/css/select2.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/nouislider/distribute/nouislider.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/summernote/dist/summernote.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/animate.css/animate.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/toastr/build/toastr.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/morris.js/morris.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/sweetalert2/dist/sweetalert2.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/socicon/css/socicon.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/line-awesome/css/line-awesome.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/flaticon/flaticon.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/flaticon2/flaticon.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/fontawesome5/css/all.min.css" rel="stylesheet" type="text/css" />
+
+		<!--end:: Global Optional Vendors -->
+
+		<!--begin::Global Theme Styles(used by all pages) -->
+		<link href="../assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
+
+		<!--end::Global Theme Styles -->
+
+		<!--begin::Layout Skins(used by all pages) -->
+		<link href="../assets/demo/default/skins/header/base/light.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/demo/default/skins/header/menu/light.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/demo/default/skins/brand/dark.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/demo/default/skins/aside/dark.css" rel="stylesheet" type="text/css" />
+
+		<!--end::Layout Skins -->
+		<link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
 	</head>
+
 	<!-- end::Head -->
 
 	<!-- begin::Body -->
 	<body class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
+
+		<!-- begin:: Page -->
+
+		<div class="kt-grid kt-grid--hor kt-grid--root">
+			<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
+
+
+					<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
+						<!-- begin:: Content -->
 						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
 							<div class="row">
-								<div class="col-lg-12">
+								<div class="col-md-12">
 
 									<!--begin::Portlet-->
-									<div class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile" id="kt_page_portlet">
-										<div class="kt-portlet__head kt-portlet__head--lg">
+									<div class="kt-portlet">
+										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">${LoginUser.name} 님의 프로그래밍 언어 숙련도 정보</h3>
+												<h3 class="kt-portlet__head-title">
+													프로젝트 참여신청
+												</h3>
 											</div>
 										</div>
-										<div class="kt-portlet__body">
 
-											<!--begin::Section-->
-											<div class="kt-section">
-												<div class="kt-section__content">
-													<table class="table table-bordered table-hover">
-														<thead style="text-align: center;">
-															<tr>
-																<th style="font-weight: bold;">#</th>
-																<th style="font-weight: bold;">프로그래밍 언어명</th>
-																<th style="font-weight: bold;">숙련도</th>
-																<th style="font-weight: bold;">경험(연차)</th>
-																<th style="font-weight: bold;">관리</th>
-															</tr>
-														</thead>
-														<tbody style="text-align: center;">
-															<c:forEach items="${plsList}" var="PlsVo" varStatus="listStat">
-															<tr>
-																<th scope="row">${listStat.count} <input type="hidden" name="plsNum" id="plsNum" value="${PlsVo.plsNum}"></th>
-																<td>${PlsVo.plName}</td>
-																<td>${PlsVo.profiency}</td>
-																<td>${PlsVo.experience}</td>
-																<td>
-																<a href="prog?command=plsUpdateFrom&plsNum=${PlsVo.plsNum}" onclick="openPopUp2()"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
-																<a href="prog?command=plsDelete&plsNum=${PlsVo.plsNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
-																</td>
-															</tr>
-															</c:forEach>
-														</tbody>
-													</table>
+										<!--begin::Form-->
+										<form class="kt-form kt-form--label-right">
+											<div class="kt-portlet__body">
+												<div class="form-group ">
+													<label>프로젝트 명</label>
+													<div class="input-group">
+														<input type="hidden" id="projNum" name="projNum" value="${pVo.projNum}">
+														<input type="text" class="form-control" aria-describedby="basic-addon1" disabled="disabled" value="${pVo.projName}">
+													</div>
 												</div>
+												<div class="form-group ">
+													<input type="hidden" id="progNum" name="progNum" value="${LoginUser.progNum}">
+													<label>이름</label>
+													<div class="input-group">
+														<input type="text" class="form-control" value="${LoginUser.name}" disabled="disabled" aria-describedby="basic-addon1">
+													</div>
+												</div>
+												<div class="form-group ">
+													<label>지원 직무</label>
+													<div class="input-group">
+														<select name="applyPosition" class="form-control" id="applyPosition">
+															<option value="">선택</option>
+															<option value="Front-End">Front-End</option>
+															<option value="Back-End">Back-End</option>
+															<option value="Full Stack">Full Stack</option>
+														</select>
+													</div>
+												</div>
+												
 											</div>
-
-											<!--end::Section-->
 											<div class="kt-portlet__foot">
-												<div class="kt-form__actions kt-form__actions--right">
+												<div class="kt-form__actions">
 													<div class="row">
-														<div class="col kt-align-right">
-															<button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button>
+														<div class="col-lg-6">
+														</div>
+														<div class="col-lg-6 kt-align-right">
+															<button type="button" class="btn btn-success" id="applyBtn" onclick="registerApplyStmt()">
+																참여 신청
+															</button>
+															<button type="button" class="btn btn-secondary" id="cancel">취소</button>
 														</div>
 													</div>
 												</div>
 											</div>
-											
-										</div>
+										</form>
+
+										<!--end::Form-->
 									</div>
-									
+
+									<!--end::Portlet-->
+
+								</div>
+							</div>
+						</div>
+
+						<!-- end:: Content -->
 					</div>
-				
+
 				</div>
 			</div>
-					<!-- begin:: Footer -->
-					
-					<%@ include file="../include/footer.jsp" %>
-
-					<!-- end:: Footer -->
 
 		<!-- end:: Page -->
-
-		<!-- begin::Scrolltop -->
-		<div id="kt_scrolltop" class="kt-scrolltop">
-			<i class="fa fa-arrow-up"></i>
-		</div>
-
-		<!-- end::Scrolltop -->
-
-		<!-- begin::Sticky Toolbar -->
-		<ul class="kt-sticky-toolbar" style="margin-top: 30px;">
-			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--success" id="kt_demo_panel_toggle" data-toggle="kt-tooltip" title="Check out more demos" data-placement="right">
-				<a href="#" class=""><i class="flaticon2-drop"></i></a>
-			</li>
-			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--brand" data-toggle="kt-tooltip" title="Layout Builder" data-placement="left">
-				<a href="https://keenthemes.com/metronic/preview/default/builder.html" target="_blank"><i class="flaticon2-gear"></i></a>
-			</li>
-			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--warning" data-toggle="kt-tooltip" title="Documentation" data-placement="left">
-				<a href="https://keenthemes.com/metronic/?page=docs" target="_blank"><i class="flaticon2-telegram-logo"></i></a>
-			</li>
-		</ul>
-
-		<!-- end::Sticky Toolbar -->
 
 
 		<!-- begin::Global Config(global config for global JS sciprts) -->
@@ -215,11 +274,6 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!--end::Global Theme Bundle -->
 
-		<!--begin::Page Scripts(used by this page) -->
-		<script src="../assets/app/custom/general/crud/forms/widgets/bootstrap-datepicker.js" type="text/javascript"></script>
-
-		<!--end::Page Scripts -->
-
 		<!--begin::Global App Bundle(used by all pages) -->
 		<script src="../assets/app/bundle/app.bundle.js" type="text/javascript"></script>
 
@@ -227,101 +281,37 @@ License: You must have a valid license purchased only from themeforest(the above
 	</body>
 
 	<!-- end::Body -->
+	
 <script>
-function openPopUp()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "555"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/plsRegisterForm.jsp"; 
-	  var title = "childForm"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+function registerApplyStmt(){
 
-      window.open(url, title, status);
-
-
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
-}
-
-function openPopUp()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "555"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/plsRegisterForm.jsp"; 
-	  var title = "프로그래밍 언어 숙련도 정보 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
-
-      window.open(url, title, status);
-
-
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
-}
-
-function deleteCareer(){
-
+	
 	// userID 변수에 userID의 입력된 값을 가져오게 함
-	var careerNum = $('#careerNum').val();
-	var companyName = $('#companyName').val();
-	var department = $('#department').val();
-	var position = $('#position').val();
-	var joinDate = $('#joinDate').val();
-	var retireDate = $('#retireDate').val();
+	var projNum = $('#projNum').val();
+	var progNum = $('#progNum').val();
+	var applyPosition = $('#applyPosition').val();
 	
-	if(id == ""){
-		alert("아이디를 입력해주세요.");
-		$("#id").focus();
+	if(applyPosition == ""){
+		alert("지원직무를 선택해주세요.");
+		$("#applyPosition").focus();
 		return false;
 	}
-	if(password == ""){
-		alert("비밀번호를 입력해주세요.");
-		$("#password").focus();
-		return false;
-	}
-	if(name == ""){
-		alert("이름을 입력해주세요.");
-		$("#name").focus();
-		return false;
-	}
-	if(progNum == ""){
-		alert("잘못된 정보입니다.");
-		return false;
-	}
-	else if(confirm("수정할 경우 재로그인이 필요합니다.\n정말로 수정하시겠습니까?")){
-	
+	else {
 	$.ajax({
-
+		
 		type: 'POST',  // GET or POST 전송방법 
-
-		url: '/prog?command=memberUpdate',  // 이쪽으로 보낸다(호출URL)
-
-		data: {id: id,
-			   password: password,
-			   name: name,
-			   juso: juso,
-			   extraJuso: extraJuso,
-			   email: email,
-			   tel: tel,
-			   bank: bank,
-			   account: account,
-			   progNum: progNum},  // userID 이름에 userID 데이터 값을 넣어서 보낸다
+		url: '/proj?command=applyStmtRegister',  // 이쪽으로 보낸다(호출URL)
+		
+		data: {
+			projNum : projNum,
+			progNum : progNum,
+			applyPosition : applyPosition
+		},  
 
 		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
-			alert("수정 완료되었습니다.\n다시 로그인 해주세요.");
+			alert("신청되었습니다.");
 			self.close();
-			opener.location.href = "/main?command=logout";
+			opener.location.href = "/proj?command=projectApplyListForm";
 		},
 		error: function(data){
 			alert("오류:: 다시 시도해주세요.");
@@ -330,10 +320,7 @@ function deleteCareer(){
 		 
 
 	})
-	} else{
-		return false;
-	}
+	} 
 }
-
 </script>
 </html>

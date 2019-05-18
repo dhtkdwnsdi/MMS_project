@@ -20,7 +20,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Head -->
 	<head>
-		<title>Metronic | 프로그래밍 언어 숙련도 등록</title>
+		<title>PMMS | 프로젝트 신청</title>
 	</head>
 	<!-- end::Head -->
 
@@ -34,37 +34,47 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile" id="kt_page_portlet">
 										<div class="kt-portlet__head kt-portlet__head--lg">
 											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">${LoginUser.name} 님의 프로그래밍 언어 숙련도 정보</h3>
+												<h3 class="kt-portlet__head-title">프로젝트 신청</h3>
 											</div>
 										</div>
 										<div class="kt-portlet__body">
-
 											<!--begin::Section-->
 											<div class="kt-section">
 												<div class="kt-section__content">
 													<table class="table table-bordered table-hover">
 														<thead style="text-align: center;">
 															<tr>
-																<th style="font-weight: bold;">#</th>
-																<th style="font-weight: bold;">프로그래밍 언어명</th>
-																<th style="font-weight: bold;">숙련도</th>
-																<th style="font-weight: bold;">경험(연차)</th>
-																<th style="font-weight: bold;">관리</th>
+																<th>#</th>
+																<th style="font-weight: bold;">분류</th>
+																<th style="font-weight: bold;">세분류</th>
+																<th style="font-weight: bold;">프로젝트 명</th>
+																<th style="font-weight: bold;">신청 마감일</th>
+																<th style="font-weight: bold;">시작 예정일</th>
+																<th style="font-weight: bold;">종료 예정일</th>
+																<th style="font-weight: bold;">담당자</th>
+																<th style="font-weight: bold;">상태</th>
+																<th style="font-weight: bold;">접수</th>
 															</tr>
 														</thead>
 														<tbody style="text-align: center;">
-															<c:forEach items="${plsList}" var="PlsVo" varStatus="listStat">
+														<c:forEach items="${list}" var="projVo" varStatus="listStat">
 															<tr>
-																<th scope="row">${listStat.count} <input type="hidden" name="plsNum" id="plsNum" value="${PlsVo.plsNum}"></th>
-																<td>${PlsVo.plName}</td>
-																<td>${PlsVo.profiency}</td>
-																<td>${PlsVo.experience}</td>
+																<th scope="row">${listStat.count}
+																</th>
+																<td>${projVo.projCate}</td>
+																<td>${projVo.projDetailCate}</td>
+																<td><a href="proj?command=projectApplyViewForm&projNum=${projVo.projNum}">${projVo.projName}</a>
+																</td>
+																<td>${projVo.deadline}</td>
+																<td>${projVo.startDuedate}</td>
+																<td>${projVo.endDuedate}</td>
+																<td>${projVo.progName}</td>
+																<td>${projVo.projStat}</td>
 																<td>
-																<a href="prog?command=plsUpdateFrom&plsNum=${PlsVo.plsNum}" onclick="openPopUp2()"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
-																<a href="prog?command=plsDelete&plsNum=${PlsVo.plsNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
+																<span class="kt-badge kt-badge--success kt-badge--inline" onclick="openApplyPop('${projVo.projNum}')">신청</span>
 																</td>
 															</tr>
-															</c:forEach>
+														</c:forEach>
 														</tbody>
 													</table>
 												</div>
@@ -74,9 +84,13 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="kt-portlet__foot">
 												<div class="kt-form__actions kt-form__actions--right">
 													<div class="row">
-														<div class="col kt-align-right">
+														<!-- <div class="col kt-align-left">
+															<button type="reset" class="btn btn-secondary">수정</button>
+															<button type="reset" class="btn btn-danger">삭제</button>
+														</div> -->
+														<!-- <div class="col kt-align-right">
 															<button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button>
-														</div>
+														</div> -->
 													</div>
 												</div>
 											</div>
@@ -103,20 +117,6 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!-- end::Scrolltop -->
 
-		<!-- begin::Sticky Toolbar -->
-		<ul class="kt-sticky-toolbar" style="margin-top: 30px;">
-			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--success" id="kt_demo_panel_toggle" data-toggle="kt-tooltip" title="Check out more demos" data-placement="right">
-				<a href="#" class=""><i class="flaticon2-drop"></i></a>
-			</li>
-			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--brand" data-toggle="kt-tooltip" title="Layout Builder" data-placement="left">
-				<a href="https://keenthemes.com/metronic/preview/default/builder.html" target="_blank"><i class="flaticon2-gear"></i></a>
-			</li>
-			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--warning" data-toggle="kt-tooltip" title="Documentation" data-placement="left">
-				<a href="https://keenthemes.com/metronic/?page=docs" target="_blank"><i class="flaticon2-telegram-logo"></i></a>
-			</li>
-		</ul>
-
-		<!-- end::Sticky Toolbar -->
 
 
 		<!-- begin::Global Config(global config for global JS sciprts) -->
@@ -233,12 +233,12 @@ function openPopUp()
     // window.name = "부모창 이름"; 
       window.name = "parentForm";
     // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "555"; 
+      var width = "1030"; 
+	  var height = "700"; 
 	  var top = (window.screen.height-height)/2; 
 	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/plsRegisterForm.jsp"; 
-	  var title = "childForm"; 
+ 	  var url = "project/projectRegisterForm.jsp"; 
+	  var title = "프로젝트 등록"; 
 	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
       window.open(url, title, status);
@@ -249,90 +249,20 @@ function openPopUp()
             "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
 }
 
-function openPopUp()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "555"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/plsRegisterForm.jsp"; 
-	  var title = "프로그래밍 언어 숙련도 정보 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+function openApplyPop(projNum){
+	var projNum = projNum;
+    var width = "500"; 
+	var height = "440"; 
+	var top = (window.screen.height-height)/2; 
+	var left = (window.screen.width-width)/2; 
+	var url = "/proj?command=projectApplyFormAction&projNum="+projNum; 
+	var title = "프로젝트 신청"; 
+	var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
-      window.open(url, title, status);
-
-
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
-}
-
-function deleteCareer(){
-
-	// userID 변수에 userID의 입력된 값을 가져오게 함
-	var careerNum = $('#careerNum').val();
-	var companyName = $('#companyName').val();
-	var department = $('#department').val();
-	var position = $('#position').val();
-	var joinDate = $('#joinDate').val();
-	var retireDate = $('#retireDate').val();
-	
-	if(id == ""){
-		alert("아이디를 입력해주세요.");
-		$("#id").focus();
-		return false;
-	}
-	if(password == ""){
-		alert("비밀번호를 입력해주세요.");
-		$("#password").focus();
-		return false;
-	}
-	if(name == ""){
-		alert("이름을 입력해주세요.");
-		$("#name").focus();
-		return false;
-	}
-	if(progNum == ""){
-		alert("잘못된 정보입니다.");
-		return false;
-	}
-	else if(confirm("수정할 경우 재로그인이 필요합니다.\n정말로 수정하시겠습니까?")){
-	
-	$.ajax({
-
-		type: 'POST',  // GET or POST 전송방법 
-
-		url: '/prog?command=memberUpdate',  // 이쪽으로 보낸다(호출URL)
-
-		data: {id: id,
-			   password: password,
-			   name: name,
-			   juso: juso,
-			   extraJuso: extraJuso,
-			   email: email,
-			   tel: tel,
-			   bank: bank,
-			   account: account,
-			   progNum: progNum},  // userID 이름에 userID 데이터 값을 넣어서 보낸다
-
-		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
-			alert("수정 완료되었습니다.\n다시 로그인 해주세요.");
-			self.close();
-			opener.location.href = "/main?command=logout";
-		},
-		error: function(data){
-			alert("오류:: 다시 시도해주세요.");
-			return false;
-		}
-		 
-
-	})
-	} else{
-		return false;
-	}
+    
+    window.open(url, title, status);
+    
+    
 }
 
 </script>
