@@ -54,8 +54,8 @@ License: You must have a valid license purchased only from themeforest(the above
 														<tbody style="text-align: center;">
 															<c:forEach items="${plList}" var="plVo" varStatus="listStat">
 															<tr>
-																<%-- <th scope="row">${listStat.count} <input type="hidden" name="plNum" id="plNum" value="${plVo.plNum}"></th> --%>
-																<td>${plVo.plNum}<input type="hidden" name="plNum" id="plNum" value="${plVo.plNum}"></td>
+																<th scope="row">${listStat.count} <input type="hidden" name="plNum" id="plNum" value="${plVo.plNum}"></th>
+																<%-- <td>${plVo.plNum}<input type="hidden" name="plNum" id="plNum" value="${plVo.plNum}"></td> --%>
 																<td>${plVo.plName}</td>
 																<td>
 																<!-- <a href="#"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a> -->

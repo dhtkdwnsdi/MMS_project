@@ -8,19 +8,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
+import com.mms.dao.CertDAO;
+import com.mms.vo.CertVO;
 
-public class CertRegistFormAction implements Action {
+public class CertDeleteAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String url = "prog?command=certListForm";
 		
-		String url = "admin/certRegist.jsp";
+		CertVO certVo = new CertVO();
 		
-		System.out.println(url);
-	      
-	    RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-	    dispatcher.forward(request, response);
+		String certNum = request.getParameter("certNum");
+		certVo.setCertNum(certNum);
+		
+		CertDAO certDao = CertDAO.getInstance();
+		
+		certDao.deleteCert(certNum);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+		dispatcher.forward(request, response);
 	}
 
 }

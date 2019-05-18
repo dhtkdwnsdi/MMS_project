@@ -6,6 +6,7 @@ import com.mms.controller.action.career.CareerListFormAction;
 import com.mms.controller.action.career.CareerRegisterAction;
 import com.mms.controller.action.career.CareerUpdateAction;
 import com.mms.controller.action.career.CareerUpdateFormAction;
+import com.mms.controller.action.cert.CertDeleteAction;
 import com.mms.controller.action.cert.CertListFormAction;
 import com.mms.controller.action.cert.CertRegistAction;
 import com.mms.controller.action.cert.CertRegistFormAction;
@@ -160,6 +161,8 @@ public class ProgrammerActionFactory {
 			action = new GrantUpdateAction();
 		} else if (command.equals("grantUpdateForm")) {
 			action = new GrantUpdateFormAction();
+		} else if (command.equals("certDelete")) {
+			action = new CertDeleteAction();
 		}
 
 		return action;
