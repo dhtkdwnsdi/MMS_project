@@ -87,7 +87,7 @@ table, td, tr, th {
 									</div>
 
 									<label></label><label></label>
-									<div class="form-group form-group-last row">
+									<div class="form-group form-group-last row"> 
 										<label class="col-3 col-form-label">계획·포부 </label>
 										<textarea style="width: 740px; height: 120px;"
 											class="form-control" id="exampleTextarea"></textarea>
