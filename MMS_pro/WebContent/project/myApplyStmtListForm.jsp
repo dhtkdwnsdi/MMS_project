@@ -155,7 +155,17 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                                <td>${aVo.projName}</td>
 			                                                <td>${aVo.progName}</td>
 			                                                <td>${aVo.applyPosition}</td>
-			                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">${aVo.applyStat}</span></td>
+			                                                <td>
+			                                                <c:if test="${aVo.applyStat eq '승인대기' }">
+			                                                <span class="kt-badge kt-badge--warning kt-badge--inline">${aVo.applyStat}</span>
+			                                                </c:if>
+			                                                <c:if test="${aVo.applyStat eq '승인' }">
+			                                                <span class="kt-badge kt-badge--success kt-badge--inline">${aVo.applyStat}</span>
+			                                                </c:if>
+			                                                <c:if test="${aVo.applyStat eq '거절' }">
+			                                                <span class="kt-badge kt-badge--danger kt-badge--inline">${aVo.applyStat}</span>
+			                                                </c:if>
+			                                                </td>
 			                                                <td>
 			                                                <c:if test="${aVo.applyStat eq '승인대기' }">
 			                                                <span class="kt-badge kt-badge--danger kt-badge--inline" onclick="deleteApplyStmt('${aVo.applyStmtNum}')">신청 취소</span>

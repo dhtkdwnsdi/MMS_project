@@ -1,7 +1,9 @@
 package com.mms.controller;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.project.ApplyStmtAcceptAction;
 import com.mms.controller.action.project.ApplyStmtDeleteAction;
+import com.mms.controller.action.project.ApplyStmtDenyAction;
 import com.mms.controller.action.project.ApplyStmtRegisterAction;
 import com.mms.controller.action.project.MyApplyStmtListFormAction;
 import com.mms.controller.action.project.ProjectApplyAcceptFormAction;
@@ -82,6 +84,14 @@ public class ProjectActionFactory {
 			}
 			else if(command.equals("projectApplyAcceptForm")) {
 				action = new ProjectApplyAcceptFormAction();
+				
+			}
+			else if(command.equals("applyAccept")) {
+				action = new ApplyStmtAcceptAction();
+				
+			}
+			else if(command.equals("applyDeny")) {
+				action = new ApplyStmtDenyAction();
 				
 			}
 			return action;

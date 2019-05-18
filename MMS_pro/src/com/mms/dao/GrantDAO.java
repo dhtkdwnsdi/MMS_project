@@ -83,7 +83,7 @@ public class GrantDAO extends DBManager{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "Select prog_num, name, grant from tbl_programmer where prog_num = ?";
+		String sql = "Select pg.prog_num, pg.name, pg.grant from tbl_programmer pg where prog_num = ?";
 		
 		ProgrammerVO pVo = new ProgrammerVO();
 		
@@ -93,11 +93,12 @@ public class GrantDAO extends DBManager{
 			pstmt.setString(1, progNum);
 			rs = pstmt.executeQuery();
 			
-			while(rs.next()) {
+			if(rs.next()) {
 				
 				pVo.setProgNum(rs.getString("prog_num"));
 				pVo.setName(rs.getString("name"));
 				pVo.setGrant(rs.getString("grant"));
+				
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();

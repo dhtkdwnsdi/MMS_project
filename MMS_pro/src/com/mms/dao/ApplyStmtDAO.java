@@ -68,7 +68,7 @@ public class ApplyStmtDAO extends DBManager {
 				" WHERE PJ.PROG_NUM = PG.PROG_NUM" + 
 				"   AND PJ.PROJ_NUM = AP.PROJ_NUM"
 				+ " AND AP.PROG_NUM = ?"
-				+ " ORDER BY APPLY_STMT_NUM DESC";
+				+ " ORDER BY AP.APPLY_STMT_NUM DESC";
 		
 		try {
 			conn = getConnection();
@@ -129,7 +129,7 @@ public class ApplyStmtDAO extends DBManager {
 				"   AND PJ.PROJ_NUM = AP.PROJ_NUM"
 				+ " AND AP.PROG_NUM = ?"
 				+ "	AND AP.APPLY_STAT LIKE '%승인대기%'"
-				+ " ORDER BY APPLY_STMT_NUM DESC";
+				+ " ORDER BY AP.APPLY_STMT_NUM DESC";
 		
 		try {
 			conn = getConnection();
@@ -170,6 +170,60 @@ public class ApplyStmtDAO extends DBManager {
 		return list;
 	}
 	
+	// PM 접수 승인 리스트
+	public ArrayList<ApplyStmtVO> applyAcceptList(String progNum){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<ApplyStmtVO> list = new ArrayList<ApplyStmtVO>();
+		
+		String sql = " SELECT AP.APPLY_STMT_NUM AS APPLY_STMT_NUM" + 
+				"	 		, PJ.PROJ_NAME AS PROJ_NAME" + 
+				"    		, PG.NAME AS PROG_NAME" + 
+				"   	 FROM TBL_PROJECT PJ" + 
+				"           , TBL_APPLY_STMT AP" + 
+				"           , TBL_PROGRAMMER PG" + 
+				"  WHERE PJ.PROJ_NUM = AP.PROJ_NUM" + 
+				"    AND AP.PROG_NUM = PG.PROG_NUM" + 
+				"    AND PJ.PROG_NUM = ?"
+				+ "  AND AP.APPLY_STAT LIKE '%승인대기%'"
+				+ "  ORDER BY AP.APPLY_STMT_NUM DESC";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, progNum);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ApplyStmtVO aVo = new ApplyStmtVO();
+				
+				aVo.setApplyStmtNum(rs.getString("APPLY_STMT_NUM"));
+				aVo.setProjName(rs.getString("PROJ_NAME"));
+				aVo.setProgName(rs.getString("PROG_NAME"));
+				
+				list.add(aVo);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) rs.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+			
+		}
+		return list;
+		
+	}
 	
 	// 신청 취소 메소드
 	public void deleteApplyStmt(String applyStmtNum) {
@@ -195,6 +249,64 @@ public class ApplyStmtDAO extends DBManager {
 			} catch (Exception e) {
 				e.printStackTrace();
 
+			}
+		}
+	}
+	
+	// 프로젝트 접수 승인
+	public void acceptApply(String applyStmtNum) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "UPDATE TBL_APPLY_STMT SET APPLY_STAT = '승인' WHERE APPLY_STMT_NUM = ?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, applyStmtNum);
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+	}
+	
+	// 프로젝트 접수 거절
+	public void denyApply(String applyStmtNum) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "UPDATE TBL_APPLY_STMT SET APPLY_STAT = '거절' WHERE APPLY_STMT_NUM = ?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, applyStmtNum);
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
 			}
 		}
 	}

@@ -18,14 +18,12 @@ public class GrantUpdateAction implements Action {
 		// TODO Auto-generated method stub
 
 		String progNum = request.getParameter("progNum");
-		String name = request.getParameter("name");
 		String grant = request.getParameter("grant");
 
 
 		ProgrammerVO pVo = new ProgrammerVO();
 
 		pVo.setProgNum(progNum);
-		pVo.setName(name);
 		pVo.setGrant(grant);
 
 		System.out.println("grant : " + grant);
@@ -37,7 +35,6 @@ public class GrantUpdateAction implements Action {
 
 		System.out.println(pVo);
 
-		new GrantListFormAction().execute(request, response);
 	}
 
 }

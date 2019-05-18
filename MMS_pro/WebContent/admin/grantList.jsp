@@ -69,7 +69,7 @@ License: You must have a valid license purchased only from themeforest(the above
 														<c:if test="${pVo.grant == '1' }">PM</c:if></td>
 													<td>
 														<button type="button" class="btn btn-secondary"
-															onclick="openPopUp()">수정</button> 
+															onclick="openPopUp('${pVo.progNum}')">수정</button> 
 													<%-- <a href="prog?command=grantModify&progNum=${pVo.progNum}&grant=${pVo.grant}"><span
 													class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a> --%>
 													</td>
@@ -344,22 +344,19 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- end::Body -->
 <script>
-	function openPopUp() {
+	function openPopUp(progNum) {
+		var progNum = progNum;
 		
 		var width = "800"; 
 		var height = "500"; 
 		var top = (window.screen.height-height)/2; 
 		var left = (window.screen.width-width)/2; 
-	 	var url = "admin/grantUpdate.jsp"; 
+	 	var url = "/prog?command=grantUpdateForm&progNum="+progNum; 
 		var title = "권한 수정"; 
 		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
 	   	var winObject = window.open(url, title, status);
 	    
-	   	winObject.document.getElementById("progNum").value = document.getElementById("progNum").value;
-	   	winObject.document.getElementById("name").value = document.getElementById("name").value;
-	   	winObject.document.getElementById("grant").value = document.getElementById("grant").value;
-	   	
 
 	}
 </script>
