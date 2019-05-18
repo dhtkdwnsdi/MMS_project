@@ -29,7 +29,7 @@ public class CertDAO extends DBManager {
 	// 등록된 자격증 출력하는 메소드
 	public List<CertVO> selectCert() {
 		String sql = "select cert_num as certNum" + "        , cert_name as certName"
-				+ "        , issue_org as issueOrg" + "	    from tbl_cert";
+				+ "        , issue_org as issueOrg" + "	    from tbl_cert order by cert_num desc";
 
 		List<CertVO> certList = new ArrayList<CertVO>();
 

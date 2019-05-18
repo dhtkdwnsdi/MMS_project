@@ -66,11 +66,14 @@ table, td, tr, th {
 								<c:forEach items="${certList}" var="CertVo" varStatus="listStat">
 									<tbody>
 										<tr>
-											<td scope="row">${listStat.count}<input type="hidden" name="certNum" id="certNum" value="${CertVo.certNum}"></td>
+											<td scope="row">${listStat.count}<input type="hidden"
+												name="certNum" id="certNum" value="${CertVo.certNum}"></td>
 											<td>${CertVo.certName}</td>
 											<td>${CertVo.issueOrg}</td>
-											<td><button type="submit" class="btn btn-danger btn-sm">삭제</button>
-												</td>
+											<td><a
+												href="prog?command=certDelete&certNum=${CertVo.certNum}"> <span
+													class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
+											</td>
 										</tr>
 									</tbody>
 								</c:forEach>
@@ -864,6 +867,5 @@ table, td, tr, th {
 		/* window.open("memberUpdateForm.jsp",
 		        "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */
 	}
-
 </script>
 </html>
