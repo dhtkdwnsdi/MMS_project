@@ -15,7 +15,7 @@ public class CertRegistFormAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String url = "/admin/certRegist.jsp";
+		String url = "admin/certRegist.jsp";
 		
 		System.out.println(url);
 	      

@@ -26,16 +26,16 @@ public class PlDAO extends DBManager{
 		
 		String sql = "select * from tbl_pl order by pl_num desc";
 		
-		List<PlVO> list = new ArrayList<PlVO>();
+		//List<PlVO> list = new ArrayList<PlVO>();
 		
 		Connection conn = null;
-		PreparedStatement st = null;
+		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try {
 			conn = getConnection();
-			st = conn.prepareStatement(sql);
-			rs = st.executeQuery();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				PlVO plVo = new PlVO();
@@ -48,6 +48,14 @@ public class PlDAO extends DBManager{
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();
+				if(conn != null)
+					conn.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
 			
 		}return plList;
 	}
@@ -58,7 +66,7 @@ public class PlDAO extends DBManager{
 		String sql = "insert into tbl_pl(pl_num, pl_name) values(pl_num, ?)";
 		
 		Connection conn = getConnection();
-		PreparedStatement pstmt;
+		PreparedStatement pstmt = null;
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -68,18 +76,26 @@ public class PlDAO extends DBManager{
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();
+				if(conn != null)
+					conn.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 			
 		}
 	}
 	
 	//삭제
-	public int deletePl(String plNum) {
+	public void deletePl(String plNum) {
 		
 		
 		String sql = "delete from tbl_pl where pl_num=?";
 		
 		Connection conn = null;
-		PreparedStatement pstmt;
+		PreparedStatement pstmt = null;
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -90,7 +106,15 @@ public class PlDAO extends DBManager{
 			
 		}catch(SQLException e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();
+				if(conn != null)
+					conn.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
-		return 0;
 	}
 }
