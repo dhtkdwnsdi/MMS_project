@@ -2,10 +2,13 @@ package com.mms.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import com.mms.vo.CareerVO;
 import com.mms.vo.EduVO;
-
+import com.mms.vo.ProgrammerVO;
 
 import util.DBManager;
 
@@ -20,47 +23,32 @@ public class ProgrammerDAO extends DBManager {
 		return instance;
 	}
 	
-	
-	//학력 등록
-	public void insertEdu(EduVO eduVo) {
-		String sql = "INSERT INTO tbl_programmer("
-				+ "	   EDUCATEGORY, EDUSTATE, EDUSCHOOLNAME, EDUENTERDATE, EDUGRADEATEDATE)"
-				+ "	  VALUES(?, ?, ?, ?, ?, ?)";
-		
+	// 자기소개서 list띄우기
+	public ArrayList<ProgrammerVO> coverLetterList(String progNum){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT INTRODUCE1"
+				+ "			,INTRODUCE2"
+				+ "         ,INTRODUCE3"
+				+ "         ,INTRODUCE4"
+				+ "         ,INTRO_FILE"
+				+ "     FROM TBL_PROGRAMMER"
+				+ "    WHERE PROG_NUM = ?"; 
+		
+		ArrayList<CareerVO> list = new ArrayList<CareerVO>();
 		
 		try {
-			
-			conn = DBManager.getConnection();
-			
+			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, progNum);
+			rs = pstmt.executeQuery();
+	
+		while(rs.next()) {	
+			ProgrammerVO progVo = new ProgrammerVO();
 			
-			
-			pstmt.setString(1, eduVo.getEduCategory());
-			pstmt.setString(2, eduVo.getEduState());
-			pstmt.setString(3, eduVo.getSchoolName());
-			pstmt.setString(4, eduVo.getEnterDate());
-			pstmt.setString(5, eduVo.getGraduateDate());
-		
-			
-			pstmt.executeUpdate();
-			
-		}	catch (SQLException e) {
-				e.printStackTrace();
-		}	finally {
-			try {
-				if(pstmt != null)
-					pstmt.close();
-				if(conn != null)
-					conn.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-		}
-		
-	}
+			progVo.setIn
 	
 	
 	

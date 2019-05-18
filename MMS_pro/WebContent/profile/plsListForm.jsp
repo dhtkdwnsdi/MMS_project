@@ -53,15 +53,19 @@ License: You must have a valid license purchased only from themeforest(the above
 															</tr>
 														</thead>
 														<tbody style="text-align: center;">
-															<c:forEach items="${plsList}" var="PlsVo" varStatus="listStat">
+															<c:forEach items="${plsList}" var="plsVo" varStatus="listStat">
 															<tr>
-																<th scope="row">${listStat.count} <input type="hidden" name="plsNum" id="plsNum" value="${PlsVo.plsNum}"></th>
-																<td>${PlsVo.plName}</td>
-																<td>${PlsVo.profiency}</td>
-																<td>${PlsVo.experience}</td>
+																<th scope="row">${listStat.count}
+																<input type="hidden" name="plsNum" id="plsNum" value="${plsVo.plsNum}">
+																</th>
 																<td>
-																<a href="prog?command=plsUpdateFrom&plsNum=${PlsVo.plsNum}" onclick="openPopUp2()"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
-																<a href="prog?command=plsDelete&plsNum=${PlsVo.plsNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
+																<input type="hidden" name="plNum" id="plNum" value="${plsVo.plNum}">
+																${plsVo.plName}</td>
+																<td>${plsVo.profiency}</td>
+																<td>${plsVo.experience}</td>
+																<td>
+																<a href="prog?command=plsUpdateFrom&plsNum=${plsVo.plsNum}" onclick="openPopUp2()"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
+																<a href="prog?command=plsDelete&plsNum=${plsVo.plsNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
 																</td>
 															</tr>
 															</c:forEach>
@@ -249,91 +253,7 @@ function openPopUp()
             "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
 }
 
-function openPopUp()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "555"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/plsRegisterForm.jsp"; 
-	  var title = "프로그래밍 언어 숙련도 정보 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
-      window.open(url, title, status);
-
-
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
-}
-
-function deleteCareer(){
-
-	// userID 변수에 userID의 입력된 값을 가져오게 함
-	var careerNum = $('#careerNum').val();
-	var companyName = $('#companyName').val();
-	var department = $('#department').val();
-	var position = $('#position').val();
-	var joinDate = $('#joinDate').val();
-	var retireDate = $('#retireDate').val();
-	
-	if(id == ""){
-		alert("아이디를 입력해주세요.");
-		$("#id").focus();
-		return false;
-	}
-	if(password == ""){
-		alert("비밀번호를 입력해주세요.");
-		$("#password").focus();
-		return false;
-	}
-	if(name == ""){
-		alert("이름을 입력해주세요.");
-		$("#name").focus();
-		return false;
-	}
-	if(progNum == ""){
-		alert("잘못된 정보입니다.");
-		return false;
-	}
-	else if(confirm("수정할 경우 재로그인이 필요합니다.\n정말로 수정하시겠습니까?")){
-	
-	$.ajax({
-
-		type: 'POST',  // GET or POST 전송방법 
-
-		url: '/prog?command=memberUpdate',  // 이쪽으로 보낸다(호출URL)
-
-		data: {id: id,
-			   password: password,
-			   name: name,
-			   juso: juso,
-			   extraJuso: extraJuso,
-			   email: email,
-			   tel: tel,
-			   bank: bank,
-			   account: account,
-			   progNum: progNum},  // userID 이름에 userID 데이터 값을 넣어서 보낸다
-
-		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
-			alert("수정 완료되었습니다.\n다시 로그인 해주세요.");
-			self.close();
-			opener.location.href = "/main?command=logout";
-		},
-		error: function(data){
-			alert("오류:: 다시 시도해주세요.");
-			return false;
-		}
-		 
-
-	})
-	} else{
-		return false;
-	}
-}
 
 </script>
 </html>

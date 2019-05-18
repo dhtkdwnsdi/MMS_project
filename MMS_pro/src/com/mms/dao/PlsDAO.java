@@ -28,6 +28,7 @@ public class PlsDAO extends DBManager {
 		ArrayList<PlsVO> list = new ArrayList<PlsVO>();
 		
 		String sql = "SELECT PLS.PLS_NUM"
+				+ "			,PL.PL_NUM"
 				+ "			,PL.PL_NAME"
 				+ "			,PLS.PROFIENCY"
 				+ "			,PLS.EXPERIENCE"
@@ -50,6 +51,7 @@ public class PlsDAO extends DBManager {
 				PlsVO plsVo = new PlsVO();
 				
 				plsVo.setPlsNum(rs.getString("PLS_NUM"));
+				plsVo.setPlNum(rs.getString("PL_NUM"));
 				plsVo.setPlName(rs.getString("PL_NAME"));
 				plsVo.setProfiency(rs.getString("PROFIENCY"));
 				plsVo.setExperience(rs.getString("EXPERIENCE"));
@@ -82,10 +84,17 @@ public class PlsDAO extends DBManager {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "Select * from tbl_pls where pls_num=?";
+		String sql = "SELECT PLS.PLS_NUM"
+				+ "        , PL.PL_NUM"
+				+ "        , PL.PL_NAME"
+				+ "        , PLS.PROFIENCY"
+				+ "        , PLS.EXPERIENCE "
+				+ "     FROM TBL_PLS PLS, TBL_PL PL"
+				+ "    WHERE PL.PL_NUM = PLS.PL_NUM"
+				+ "      AND PLS_NUM = ?";
 
 		
-		PlsVO pVo = new PlsVO();
+		PlsVO plsVo = new PlsVO();
 
 		try {
 			conn = getConnection();
@@ -94,11 +103,11 @@ public class PlsDAO extends DBManager {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				pVo.setPlsNum(rs.getString("PLS_NUM"));
-				pVo.setPlNum(rs.getString("PL_NUM"));
-				pVo.setProfiency(rs.getString("profiency"));
-				pVo.setExperience(rs.getString("experience"));
-				pVo.setProgNum(rs.getString("prog_Num"));
+				plsVo.setPlsNum(rs.getString("PLS_NUM"));
+				plsVo.setPlNum(rs.getString("PL_NUM"));
+				plsVo.setPlName(rs.getString("PL_NAME"));
+				plsVo.setProfiency(rs.getString("PROFIENCY"));
+				plsVo.setExperience(rs.getString("EXPERIENCE"));
 
 			}
 		} catch (SQLException e) {
@@ -113,7 +122,7 @@ public class PlsDAO extends DBManager {
 			}
 
 		}
-		return pVo;
+		return plsVo;
 	}
 
 	// insert
@@ -161,10 +170,10 @@ public class PlsDAO extends DBManager {
 		PreparedStatement pstmt = null;
 
 		String sql = "update tbl_pls set" 
-		       + "    pl_num=?" 
-		       + ",   profiency=?" 
-		       + ",   experience=?" 
-		       + "    where pls_num=?";
+		       + "    pl_num = ?" 
+		       + ",   profiency = ?" 
+		       + ",   experience = ?" 
+		       + "    where pls_num = ?";
 
 		try {
 			conn = getConnection();
@@ -194,7 +203,7 @@ public class PlsDAO extends DBManager {
 	// delete
 	   public void deletePls(String plsNum) {
 		   String sql = "DELETE FROM TBL_PLS"
-					+    "WHERE PLS_NUM = " +plsNum;
+					+   " WHERE PLS_NUM = " + plsNum;
 
 		      Connection conn = null;
 		      PreparedStatement pstmt =null;

@@ -67,7 +67,8 @@ public class ApplyStmtDAO extends DBManager {
 				"          , TBL_APPLY_STMT AP" + 
 				" WHERE PJ.PROG_NUM = PG.PROG_NUM" + 
 				"   AND PJ.PROJ_NUM = AP.PROJ_NUM"
-				+ " AND AP.PROG_NUM = ?";
+				+ " AND AP.PROG_NUM = ?"
+				+ " ORDER BY APPLY_STMT_NUM DESC";
 		
 		try {
 			conn = getConnection();
@@ -108,7 +109,7 @@ public class ApplyStmtDAO extends DBManager {
 		return list;
 	}
 	
-	// 신청 대기 리스트
+	// 내 프로젝트 신청 대기 리스트
 	public ArrayList<ApplyStmtVO> myApplyStmtWaitList(String progNum){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -127,7 +128,8 @@ public class ApplyStmtDAO extends DBManager {
 				" WHERE PJ.PROG_NUM = PG.PROG_NUM" + 
 				"   AND PJ.PROJ_NUM = AP.PROJ_NUM"
 				+ " AND AP.PROG_NUM = ?"
-				+ "	AND AP.APPLY_STAT LIKE '%승인대기%'";
+				+ "	AND AP.APPLY_STAT LIKE '%승인대기%'"
+				+ " ORDER BY APPLY_STMT_NUM DESC";
 		
 		try {
 			conn = getConnection();

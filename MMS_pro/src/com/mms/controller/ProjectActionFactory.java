@@ -4,6 +4,7 @@ import com.mms.controller.action.Action;
 import com.mms.controller.action.project.ApplyStmtDeleteAction;
 import com.mms.controller.action.project.ApplyStmtRegisterAction;
 import com.mms.controller.action.project.MyApplyStmtListFormAction;
+import com.mms.controller.action.project.ProjectApplyAcceptFormAction;
 import com.mms.controller.action.project.ProjectApplyFormAction;
 import com.mms.controller.action.project.ProjectApplyListFormAction;
 import com.mms.controller.action.project.ProjectApplyViewFormAction;
@@ -33,6 +34,7 @@ public class ProjectActionFactory {
 			
 			if(command.equals("projectRegisterListForm")) {
 				action = new ProjectRegisterListFormAction();
+				
 			}
 			else if(command.equals("projectRegister")) {
 				action = new ProjectRegisterAction();
@@ -44,6 +46,7 @@ public class ProjectActionFactory {
 			}
 			else if(command.equals("projectUpdateForm")) {
 				action = new ProjectUpdateFormAction();
+				
 			}
 			else if(command.equals("projectUpdate")) {
 				action = new ProjectUpdateAction();
@@ -71,9 +74,15 @@ public class ProjectActionFactory {
 			}
 			else if(command.equals("myApplyStmtListForm")) {
 				action = new MyApplyStmtListFormAction();
+				
 			}
 			else if(command.equals("applyStmtDelete")) {
 				action = new ApplyStmtDeleteAction();
+				
+			}
+			else if(command.equals("projectApplyAcceptForm")) {
+				action = new ProjectApplyAcceptFormAction();
+				
 			}
 			return action;
 		}
