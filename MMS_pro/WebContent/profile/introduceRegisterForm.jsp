@@ -62,125 +62,45 @@ table, td, tr, th {
 								<div class="kt-portlet__body">
 
 
+									<label></label>
+									<div class="form-group form-group-last row">
 
+										<label class="col-3 col-form-label">성장과정 </label>
 
-									<div class="kt-portlet__body">
-										<div class="form-group row">
-											<label class="col-form-label col-lg-3 col-sm-12">자기소개</label>
-											<div class="col-lg-9 col-md-9 col-sm-12">
-												<div class="md-editor" id="1557735214903">
-													<div class="md-header btn-toolbar">
-														<div class="btn-group">
-															<button class="btn-default btn-sm btn" type="button"
-																title="Bold" tabindex="-1"
-																data-provider="bootstrap-markdown"
-																data-handler="bootstrap-markdown-cmdBold"
-																data-hotkey="Ctrl+B">
-																<span class="fa fa-bold"></span>
-															</button>
-															<button class="btn-default btn-sm btn" type="button"
-																title="Italic" tabindex="-1"
-																data-provider="bootstrap-markdown"
-																data-handler="bootstrap-markdown-cmdItalic"
-																data-hotkey="Ctrl+I">
-																<span class="fa fa-italic"></span>
-															</button>
-															<button class="btn-default btn-sm btn" type="button"
-																title="Heading" tabindex="-1"
-																data-provider="bootstrap-markdown"
-																data-handler="bootstrap-markdown-cmdHeading"
-																data-hotkey="Ctrl+H">
-																<span class="fa fa-heading"></span>
-															</button>
-														</div>
-														<div class="btn-group">
-															<button class="btn-default btn-sm btn" type="button"
-																title="URL/Link" tabindex="-1"
-																data-provider="bootstrap-markdown"
-																data-handler="bootstrap-markdown-cmdUrl"
-																data-hotkey="Ctrl+L">
-																<span class="fa fa-link"></span>
-															</button>
-															<button class="btn-default btn-sm btn" type="button"
-																title="Image" tabindex="-1"
-																data-provider="bootstrap-markdown"
-																data-handler="bootstrap-markdown-cmdImage"
-																data-hotkey="Ctrl+G">
-																<span class="fa fa-image"></span>
-															</button>
-														</div>
-														<div class="btn-group">
-															<button class="btn-default btn-sm btn" type="button"
-																title="Unordered List" tabindex="-1"
-																data-provider="bootstrap-markdown"
-																data-handler="bootstrap-markdown-cmdList"
-																data-hotkey="Ctrl+U">
-																<span class="fa fa-list"></span>
-															</button>
-															<button class="btn-default btn-sm btn" type="button"
-																title="Ordered List" tabindex="-1"
-																data-provider="bootstrap-markdown"
-																data-handler="bootstrap-markdown-cmdListO"
-																data-hotkey="Ctrl+O">
-																<span class="fa fa-list-ol"></span>
-															</button>
-															<button class="btn-default btn-sm btn" type="button"
-																title="Code" tabindex="-1"
-																data-provider="bootstrap-markdown"
-																data-handler="bootstrap-markdown-cmdCode"
-																data-hotkey="Ctrl+K">
-																<span class="fa fa-code"></span>
-															</button>
-															<button class="btn-default btn-sm btn" type="button"
-																title="Quote" tabindex="-1"
-																data-provider="bootstrap-markdown"
-																data-handler="bootstrap-markdown-cmdQuote"
-																data-hotkey="Ctrl+Q">
-																<span class="fa fa-quote-left"></span>
-															</button>
-														</div>
-														<div class="btn-group">
-															<button class="btn-sm btn btn-primary" type="button"
-																title="Preview" tabindex="-1"
-																data-provider="bootstrap-markdown"
-																data-handler="bootstrap-markdown-cmdPreview"
-																data-hotkey="Ctrl+P" data-toggle="button">
-																<span class="fa fa-search"></span> Preview
-															</button>
-														</div>
-														<div class="md-controls">
-															<a class="md-control md-control-fullscreen" href="#"><span
-																class="fa fa-expand"></span></a>
-														</div>
-													</div>
-													<textarea name="content" class="form-control md-input"
-														data-provide="markdown" rows="10" style="resize: none;"></textarea>
-													<div class="md-fullscreen-controls">
-														<a href="#" class="exit-fullscreen"
-															title="Exit fullscreen"><span class="fa fa-compress"></span></a>
-													</div>
-												</div>
-											</div>
-										</div>
+										<textarea style="width: 740px; height: 120px;"
+											class="form-control" id="exampleTextarea"></textarea>
+									</div>
 
+									<label></label><label></label>
+									<div class="form-group form-group-last row">
+										<label class="col-3 col-form-label">장점·단점</label>
+										<textarea style="width: 740px; height: 120px;"
+											class="form-control" id="exampleTextarea"></textarea>
 									</div>
 
 
+									<label></label><label></label>
+									<div class="form-group form-group-last row">
+										<label class="col-3 col-form-label">취미·특기</label>
+										<textarea style="width: 740px; height: 120px;"
+											class="form-control" id="exampleTextarea"></textarea>
+									</div>
+
+									<label></label><label></label>
+									<div class="form-group form-group-last row"> 
+										<label class="col-3 col-form-label">계획·포부 </label>
+										<textarea style="width: 740px; height: 120px;"
+											class="form-control" id="exampleTextarea"></textarea>
+									</div>
 
 
+									<label></label><label></label>
 									<div class="form-group form-group-last row">
 										<label class="col-3 col-form-label">첨부파일</label>
-										<div class="col-lg-9 col-md-9 col-sm-12">
-											<div
-												class="kt-dropzone dropzone m-dropzone--primary dz-clickable"
-												action="inc/api/dropzone/upload.php" id="m-dropzone-two">
-												<div class="kt-dropzone__msg dz-message needsclick">
-													<h3 class="kt-dropzone__msg-title">Drop files here or
-														click to upload.</h3>
-													<span class="kt-dropzone__msg-desc">Upload up to 10
-														files</span>
-												</div>
-											</div>
+										<div class="col-lg-6 col-md-6 col-sm-6">
+											<input type="file" class="custom-file-input" name="projFile"
+												id="projFile"> <label class="custom-file-label"
+												for="customFile" style="text-align: left;"></label>
 										</div>
 									</div>
 
@@ -193,7 +113,7 @@ table, td, tr, th {
 												<div class="col-lg-6"></div>
 												<div class="col-lg-6 kt-align-right">
 													<button type="button" class="btn btn-primary">등록</button>
-													<button type="button" class="btn btn-secondary" id="cancel">목록</button>
+													<button type="button" class="btn btn-secondary" id="cancel">수정</button>
 												</div>
 											</div>
 										</div>
