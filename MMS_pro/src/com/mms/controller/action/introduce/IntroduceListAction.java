@@ -1,4 +1,4 @@
-package com.mms.controller.action;
+package com.mms.controller.action.introduce;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,10 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.mms.dao.ProgrammerDAO;
+import com.mms.controller.action.Action;
+import com.mms.dao.IntroduceDAO;
 import com.mms.vo.ProgrammerVO;
 
-public class CoverLetterAction implements Action {
+public class IntroduceListAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,11 +25,11 @@ public class CoverLetterAction implements Action {
 		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser");  // 현재 세션의 ProgrammerVO 타입인 LoginUser를 pVo에 대입
 		String progNum = pVo.getProgNum();		// pVo의 셋팅된 progNum을 가져와서 progNum 변수에 대입
 		
-		ProgrammerDAO progDao = ProgrammerDAO.getInstance();
+		IntroduceDAO progDao = IntroduceDAO.getInstance();
 		
-		List<ProgrammerVO> clList = progDao.coverLetterList(progNum);
+		List<ProgrammerVO> introList = progDao.introduceList(progNum);
 		
-		request.setAttribute("clList", clList);
+		request.setAttribute("introList", introList);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.mms.vo.CareerVO;
-import com.mms.vo.EduVO;
 import com.mms.vo.ProgrammerVO;
 
 import util.DBManager;
@@ -37,7 +35,7 @@ public class ProgrammerDAO extends DBManager {
 				+ "     FROM TBL_PROGRAMMER"
 				+ "    WHERE PROG_NUM = ?"; 
 		
-		ArrayList<CareerVO> list = new ArrayList<CareerVO>();
+		ArrayList<ProgrammerVO> list = new ArrayList<ProgrammerVO>();
 		
 		try {
 			conn = getConnection();
@@ -48,8 +46,30 @@ public class ProgrammerDAO extends DBManager {
 		while(rs.next()) {	
 			ProgrammerVO progVo = new ProgrammerVO();
 			
-			progVo.setIn
+			progVo.setIntroduce1(rs.getString("introduce1"));
+			progVo.setIntroduce2(rs.getString("introduce2"));
+			progVo.setIntroduce3(rs.getString("introduce3"));
+			progVo.setIntroduce4(rs.getString("introduce4"));
+			progVo.setIntroFile(rs.getString("introFile"));
 	
-	
+			list.add(progVo);
+		}
+		
+		}catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		return list;
+		
+	}
 	
 }

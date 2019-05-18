@@ -1,7 +1,6 @@
 package com.mms.controller;
 
 import com.mms.controller.action.Action;
-import com.mms.controller.action.CoverLetterAction;
 import com.mms.controller.action.career.CareerDeleteAction;
 import com.mms.controller.action.career.CareerListFormAction;
 import com.mms.controller.action.career.CareerRegisterAction;
@@ -20,6 +19,7 @@ import com.mms.controller.action.edu.EduUpdateFormAction;
 import com.mms.controller.action.grant.GrantListFormAction;
 import com.mms.controller.action.grant.GrantUpdateAction;
 import com.mms.controller.action.grant.GrantUpdateFormAction;
+import com.mms.controller.action.introduce.IntroduceListAction;
 import com.mms.controller.action.introduce.IntroduceRegisterAction;
 import com.mms.controller.action.memberSet.MemberSetFormAction;
 import com.mms.controller.action.memberSet.MemberUpdateAction;
@@ -108,8 +108,8 @@ public class ProgrammerActionFactory {
 		/**
 		 * @author OSJ
 		 */
-		else if (command.equals("coverLetter")) {
-			action = new CoverLetterAction();
+		else if (command.equals("introduceList")) {
+			action = new IntroduceListAction();
 		} 
 		// 자격증
 		else if (command.equals("certListForm")) {
