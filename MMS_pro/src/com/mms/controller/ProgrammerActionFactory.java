@@ -102,6 +102,8 @@ public class ProgrammerActionFactory {
 			action = new PlsDeleteAction();	
 		}else if (command.equals("introduceRegister")) {
 			action = new IntroduceRegisterAction();
+		}else if (command.equals("intorduceList")) {
+			action = new IntroduceListAction();
 		}
 		
 

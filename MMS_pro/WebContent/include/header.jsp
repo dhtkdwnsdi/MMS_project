@@ -170,7 +170,7 @@
 										<ul class="kt-menu__subnav">
 											<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">프로필 관리</span></span></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="components_base_tables.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">프로필 조회</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=coverLetter" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">자기소개서 등록</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=intorduceList" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">자기소개서 등록</span></a></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=myCertListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">보유 자격증 등록</span></a></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=portpolioListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">포트폴리오 등록</span></a></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=eduListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">학력 등록</span></a></li>
@@ -730,7 +730,7 @@
 										<ul class="kt-menu__subnav">
 											<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">프로필 관리</span></span></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="components_base_tables.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">프로필 조회</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=coverLetter" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">자기소개서 등록</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=intorduceList" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">자기소개서 등록</span></a></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="prog?command=myCertListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">보유 자격증 등록</span></a></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="components_base_button-group.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">포트폴리오 등록</span></a></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="prog?command=eduListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">학력 등록</span></a></li>

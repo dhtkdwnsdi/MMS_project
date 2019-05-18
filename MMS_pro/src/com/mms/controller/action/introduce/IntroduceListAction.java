@@ -20,7 +20,7 @@ public class IntroduceListAction implements Action {
 		// TODO Auto-generated method stub
 		
 		HttpSession session = request.getSession();		// java에서 세션을 이용할 때 꼭 작성.
-		String url ="profile/careerListForm.jsp";
+		String url ="profile/introduceList.jsp";
 		
 		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser");  // 현재 세션의 ProgrammerVO 타입인 LoginUser를 pVo에 대입
 		String progNum = pVo.getProgNum();		// pVo의 셋팅된 progNum을 가져와서 progNum 변수에 대입
