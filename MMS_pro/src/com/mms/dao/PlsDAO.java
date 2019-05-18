@@ -28,13 +28,13 @@ public class PlsDAO extends DBManager {
 		ArrayList<PlsVO> list = new ArrayList<PlsVO>();
 		
 		String sql = "SELECT PLS.PLS_NUM"
-				+ "         ,PL.PL_NUM"
 				+ "			,PL.PL_NAME"
 				+ "			,PLS.PROFIENCY"
 				+ "			,PLS.EXPERIENCE"
 				+ "		FROM TBL_PLS PLS, TBL_PL PL"
 				+ "	   WHERE PLS.PL_NUM = PL.PL_NUM"
-				+ "		 AND PLS.PROG_NUM = " + progNum ;
+				+ "		 AND PLS.PROG_NUM = " + progNum
+				+ " ORDER BY PLS_NUM DESC ";
 
 		
 		Connection conn = null;
@@ -47,15 +47,14 @@ public class PlsDAO extends DBManager {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				PlsVO pVo = new PlsVO();
+				PlsVO plsVo = new PlsVO();
 				
-				pVo.setPlsNum(rs.getString("PLS_NUM"));
-				pVo.setPlNum(rs.getString("PL_NUM"));
-				pVo.setPlNum(rs.getString("PL_NAME"));
-				pVo.setProfiency(rs.getString("PROFIENCY"));
-				pVo.setExperience(rs.getString("EXPERIENCE"));
+				plsVo.setPlsNum(rs.getString("PLS_NUM"));
+				plsVo.setPlName(rs.getString("PL_NAME"));
+				plsVo.setProfiency(rs.getString("PROFIENCY"));
+				plsVo.setExperience(rs.getString("EXPERIENCE"));
 
-				list.add(pVo);
+				list.add(plsVo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -195,11 +194,11 @@ public class PlsDAO extends DBManager {
 	// delete
 	   public void deletePls(String plsNum) {
 		   String sql = "DELETE FROM TBL_PLS"
-					+    "  WHERE PLS_NUM = " +plsNum;
+					+    "WHERE PLS_NUM = " +plsNum;
 
 		      Connection conn = null;
-		         PreparedStatement pstmt =null;
-		         try {
+		      PreparedStatement pstmt =null;
+		      try {
 		            conn = getConnection();
 		            pstmt = conn.prepareStatement(sql);
 		            

@@ -53,15 +53,15 @@ License: You must have a valid license purchased only from themeforest(the above
 															</tr>
 														</thead>
 														<tbody style="text-align: center;">
-															<c:forEach items="${plsList}" var="plsVo" varStatus="listStat">
+															<c:forEach items="${plsList}" var="PlsVo" varStatus="listStat">
 															<tr>
-																<th scope="row">${listStat.count} <input type="hidden" name="plsNum" id="plsNum" value="${plsVo.plsNum}"></th>
-																<td><input type="hidden" value="${plsVo.plNum}" name="plNum" id="plNum" >${plsVo.plName}</td>
-																<td>${plsVo.profiency}</td>
-																<td>${plsVo.experience}</td>
+																<th scope="row">${listStat.count} <input type="hidden" name="plsNum" id="plsNum" value="${PlsVo.plsNum}"></th>
+																<td>${PlsVo.plName}</td>
+																<td>${PlsVo.profiency}</td>
+																<td>${PlsVo.experience}</td>
 																<td>
-																<a href="prog?command=plsUpdateFrom&careerNum=${plsVo.plsNum}" onclick="openPopUp2()"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
-																<a href="prog?command=careerDelete&careerNum=${plsVo.plsNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
+																<a href="prog?command=plsUpdateFrom&plsNum=${PlsVo.plsNum}" onclick="openPopUp2()"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
+																<a href="prog?command=plsDelete&plsNum=${PlsVo.plsNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
 																</td>
 															</tr>
 															</c:forEach>

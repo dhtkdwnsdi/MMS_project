@@ -30,6 +30,7 @@ import com.mms.controller.action.pl.PlDeleteAction;
 import com.mms.controller.action.pl.PlListFormAction;
 import com.mms.controller.action.pl.PlRegisterAction;
 import com.mms.controller.action.pl.PlRegisterFormAction;
+import com.mms.controller.action.pls.PlsDeleteAction;
 import com.mms.controller.action.pls.PlsListFormAction;
 import com.mms.controller.action.pls.PlsRegisterAction;
 import com.mms.controller.action.portpolio.PortpolioListFormAction;
@@ -95,11 +96,12 @@ public class ProgrammerActionFactory {
 			action = new PlsListFormAction();
 		}else if(command.equals("plsRegister")) {
 			action = new PlsRegisterAction();	
+		}else if(command.equals("plsDelete")) {
+			action = new PlsDeleteAction();	
 		}else if (command.equals("introduceRegister")) {
 			action = new IntroduceRegisterAction();
-
 		}
-
+		
 
 		/**
 		 * @author OSJ
