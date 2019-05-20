@@ -19,13 +19,18 @@ public class PortpolioModifyFormAction implements Action{
 		String url = "/profile/portpolioModify.jsp";
 		
 		PortpolioDAO portDao = PortpolioDAO.getInstance();
+		
 		String portNum = request.getParameter("portNum");
+		
 		request.setAttribute("portNum", portNum);
 		
 		PortpolioVo portVo = portDao.readPortpolio(portNum);
 		
 		request.setAttribute("portVo", portVo);
 		
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+		dispatcher.forward(request, response);
 	}
 }
 		

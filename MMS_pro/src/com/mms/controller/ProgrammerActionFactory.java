@@ -37,6 +37,8 @@ import com.mms.controller.action.pls.PlsDeleteAction;
 import com.mms.controller.action.pls.PlsListFormAction;
 import com.mms.controller.action.pls.PlsRegisterAction;
 import com.mms.controller.action.portpolio.PortpolioListFormAction;
+import com.mms.controller.action.portpolio.PortpolioRegistAction;
+import com.mms.controller.action.portpolio.PortpolioRegistFormAction;
 
 public class ProgrammerActionFactory {
 	private static ProgrammerActionFactory instance = new ProgrammerActionFactory();
@@ -139,14 +141,14 @@ public class ProgrammerActionFactory {
 			action = new MyCertUpdateAction();
 		}
 		
-		//포트폴리오
-		else if(command.equals("portpolioListForm")) {
-			
-		}
 
 		// 포트폴리오
-		else if (command.equals("portpolioListForm")) {
+		else if (command.equals("portpolioList")) {
 			action = new PortpolioListFormAction();
+		}
+		
+		else if (command.equals("portpolioRegister")) {
+			action = new PortpolioRegistFormAction();
 		}
 
 		/**

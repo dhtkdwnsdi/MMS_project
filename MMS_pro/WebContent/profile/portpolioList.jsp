@@ -76,23 +76,21 @@ License: You must have a valid license purchased only from themeforest(the above
 													
 												</div>
 											<!--end::Section-->
-										</div>
-										<div class="kt-portlet__foot">
+											
+													<div class="kt-portlet__foot">
 												<div class="kt-form__actions kt-form__actions--right">
 													<div class="row">
-														<!-- <div class="col kt-align-left">
-															<button type="reset" class="btn btn-secondary">수정</button>
-															<button type="reset" class="btn btn-danger">삭제</button>
-														</div> -->
-														<div class="col kt-align-right">
-														<a type="button" href="prog?command=portpolioRegistForm" class="btn btn-brand">등록</a>
-														<input type="submit" class="btn btn-danger" value="삭제"/>
-															<!-- <button type="reset" class="btn btn-danger">삭제</button>
-															<button type="button" class="btn btn-brand" href="prog?command=portpolioRegistForm">등록</button> -->
-														</div>
+														
+															<div class="col kt-align-right">
+														<a type="button" href="prog?command=portpolioRegister" class="btn btn-brand">등록</a>
+														<input type="submit" class="btn btn-danger" value="삭제">
 													</div>
 												</div>
 											</div>
+											
+											
+										</div>
+							
 									</form>
 									<!--end: Datatable -->
 							</div>

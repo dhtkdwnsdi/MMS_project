@@ -35,7 +35,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			<div class="kt-portlet__head kt-portlet__head--lg">
 				<div class="kt-portlet__head-label">
 					<span class="kt-portlet__head-icon"> </span>
-					<h3 class="kt-portlet__head-title">${LoginUser.name}님의포트폴리오 목록</h3>
+					<h3 class="kt-portlet__head-title">${LoginUser.name}님의포트폴리오 등록</h3>
 				</div>
 			</div>
 
@@ -142,6 +142,8 @@ License: You must have a valid license purchased only from themeforest(the above
 											</div>
 										</div>
 									</div>
+									
+									
 									<div class="kt-portlet__foot">
 										<div class="col kt-align-right">
 											<button type="button" class="btn btn-brand"
