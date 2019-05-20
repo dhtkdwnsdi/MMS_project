@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.mms.vo.ProgrammerVO;
 
@@ -71,5 +72,48 @@ public class ProgrammerDAO extends DBManager {
 		return list;
 		
 	}
+	
+	//등록된 programmer 출력
+		public List<ProgrammerVO> selectProgrammer(){
+			String sql = "select prog_num, name, id from tbl_programmer order by prog_num desc";
+			
+			List<ProgrammerVO> progList = new ArrayList<ProgrammerVO>();
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				conn=getConnection();
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					ProgrammerVO pVo = new ProgrammerVO();
+					
+					pVo.setProgNum(rs.getString("prog_num"));
+					pVo.setName(rs.getString("name"));
+					pVo.setId(rs.getString("id"));
+					
+					progList.add(pVo);
+				}
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}finally {
+					try {
+						if(pstmt != null)
+							pstmt.close();
+						if(conn != null)
+							conn.close();
+						if(rs != null)
+							rs.close();
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+				}
+				
+				return progList;
+			}
+		
 	
 }
