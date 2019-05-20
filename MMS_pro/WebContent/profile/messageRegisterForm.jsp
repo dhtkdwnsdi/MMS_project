@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
 
 <!DOCTYPE html>
 <!-- 
@@ -20,7 +19,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- begin::Head -->
 <head>
 <meta charset="utf-8" />
-<title>Metronic | 보유 자격증 등록</title>
+<title>Metronic | 메세지 보내기</title>
 <meta name="description" content="Bootstrap daterangepicker examples">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,52 +42,98 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--end::Fonts -->
 
 <!--begin:: Global Mandatory Vendors -->
-<link href="../assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css"
+	rel="stylesheet" type="text/css" />
 
-		<!--end:: Global Mandatory Vendors -->
+<!--end:: Global Mandatory Vendors -->
 
-		<!--begin:: Global Optional Vendors -->
-		<link href="../assets/vendors/general/tether/dist/css/tether.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/select2/dist/css/select2.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/nouislider/distribute/nouislider.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/summernote/dist/summernote.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/animate.css/animate.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/toastr/build/toastr.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/morris.js/morris.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/sweetalert2/dist/sweetalert2.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/general/socicon/css/socicon.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/custom/vendors/line-awesome/css/line-awesome.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/custom/vendors/flaticon/flaticon.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/custom/vendors/flaticon2/flaticon.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/vendors/custom/vendors/fontawesome5/css/all.min.css" rel="stylesheet" type="text/css" />
+<!--begin:: Global Optional Vendors -->
+<link href="../assets/vendors/general/tether/dist/css/tether.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/select2/dist/css/select2.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/ion-rangeslider/css/ion.rangeSlider.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/nouislider/distribute/nouislider.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/dropzone/dist/dropzone.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/summernote/dist/summernote.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/general/bootstrap-markdown/css/bootstrap-markdown.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/animate.css/animate.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/toastr/build/toastr.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/morris.js/morris.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/sweetalert2/dist/sweetalert2.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/socicon/css/socicon.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/custom/vendors/line-awesome/css/line-awesome.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/custom/vendors/flaticon/flaticon.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/custom/vendors/flaticon2/flaticon.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/vendors/custom/vendors/fontawesome5/css/all.min.css"
+	rel="stylesheet" type="text/css" />
 
-		<!--end:: Global Optional Vendors -->
+<!--end:: Global Optional Vendors -->
 
-		<!--begin::Global Theme Styles(used by all pages) -->
-		<link href="../assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
+<!--begin::Global Theme Styles(used by all pages) -->
+<link href="../assets/demo/default/base/style.bundle.css"
+	rel="stylesheet" type="text/css" />
 
-		<!--end::Global Theme Styles -->
+<!--end::Global Theme Styles -->
 
-		<!--begin::Layout Skins(used by all pages) -->
-		<link href="../assets/demo/default/skins/header/base/light.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/demo/default/skins/header/menu/light.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/demo/default/skins/brand/dark.css" rel="stylesheet" type="text/css" />
-		<link href="../assets/demo/default/skins/aside/dark.css" rel="stylesheet" type="text/css" />
+<!--begin::Layout Skins(used by all pages) -->
+<link href="../assets/demo/default/skins/header/base/light.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/demo/default/skins/header/menu/light.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/demo/default/skins/brand/dark.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/demo/default/skins/aside/dark.css"
+	rel="stylesheet" type="text/css" />
 
-		<!--end::Layout Skins -->
-		<link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
+<!--end::Layout Skins -->
+<link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
 </head>
 
 <!-- end::Head -->
@@ -98,20 +143,18 @@ License: You must have a valid license purchased only from themeforest(the above
 	class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
 
 	<!-- begin:: Content -->
-
-
 	<div class="kt-content  kt-grid__item kt-grid__item--fluid"
 		id="kt_content">
 		<div class="kt-portlet kt-portlet--mobile">
 			<div class="kt-portlet__head kt-portlet__head--lg">
 				<div class="kt-portlet__head-label">
-					<h3 class="kt-portlet__head-title">보유 자격증 등록</h3>
+					<h3 class="kt-portlet__head-title">메세지 보내기</h3>
 				</div>
 			</div>
 			<div class="kt-portlet__body">
-				<form class="kt-form" id="kt_form" method="post" name="frm">
-					<input type="hidden" name="progNum" value="${LoginUser.progNum}"
-						id="progNum">
+				<form class="kt-form" id="kt_form">
+					<input type="hidden" name="receiver" id="receiver"
+						value="${LoginUser.progNum}">
 					<div class="row">
 						<div class="col-xl-2"></div>
 						<div class="col-xl-8">
@@ -120,59 +163,54 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="kt-section__body">
 									<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
 																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
-
 									<div class="form-group row">
-										<label class="col-3 col-form-label">자격증명</label> 
-										<input type="hidden" name="certNum" class="form-control" id="certNum">
-										<div class="kt-input-icon kt-input-icon--right">
-											<input type="text" class="form-control" id="certName" name="certName" readonly> 
-											<span class="kt-input-icon__icon kt-input-icon__icon--right">
-												<span>
-												<button type="button" class="btn btn-outline-hover-danger btn-icon" onClick="openPopUp2()" id="certNameCherck">
-														<i class="la la-search"></i>
-												</button>
+										<label class="col-3 col-form-label">받는 사람</label>
+										<div class="col-9">
+											
+											<div class="kt-input-icon kt-input-icon--right">
+												<input type="text" class="form-control" id="sender"
+													name="sender" readonly> <span
+													class="kt-input-icon__icon kt-input-icon__icon--right">
+													<span>
+														<button type="button"
+															class="btn btn-outline-hover-danger btn-icon"
+															onClick="openPopUp2()" id="progNumCherck">
+															<i class="la la-search"></i>
+														</button>
 												</span>
-											</span>
+												</span>
+											</div>
 										</div>
 									</div>
-
-									
-									
 									<div class="form-group row">
-										<label class="col-3 col-form-label">발급기관</label>
+										<label class="col-3 col-form-label">제목</label>
 										<div class="col-9">
-											<input class="form-control" type="text" name="issueOrg" id="issueOrg">
+											<input class="form-control" type="text" name="msg_subject"
+												id="msg_subject">
 										</div>
 									</div>
-									
-									
-
 									<div class="form-group row">
-										<label class="col-3 col-form-label">발행일자</label>
+										<label class="col-3 col-form-label">내용</label>
 										<div class="col-9">
-											<input type="text" class="form-control" id="kt_datepicker_1"
-												readonly name="issueDate">
+										<textarea style="width: 550px; height: 120px;"
+										class="form-control" id="message_contents" name="message_contents"></textarea>
+											
 										</div>
 									</div>
-									
-									
-									<div class="form-group row">
-										<label class="col-3 col-form-label">일련번호</label>
-										<div class="col-9">
-											<input class="form-control" type="text" name="certSerial"
-												id="certSerial">
+								</div>
+							</div>
+							<div class="kt-portlet__foot">
+								<div class="kt-form__actions kt-form__actions--right">
+									<div class="row">
+										<div class="col kt-align-right">
+											<button type="button" class="btn btn-brand"
+												onclick="registerCareer()">전송</button>
 										</div>
-									</div>
-									
-
-
-									<div class="col kt-align-right">
-										<button type="button" class="btn btn-brand"
-											onclick="registerMyCert()">등록</button>
 									</div>
 								</div>
 							</div>
 						</div>
+						<div class="col-xl-2"></div>
 					</div>
 				</form>
 			</div>
@@ -184,33 +222,6 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Global Config(global config for global JS sciprts) -->
 	<script>
-	function openPopUp2() {
-		// window.name = "부모창 이름"; 
-		window.name = "childForm";
-		// window.open("open할 window", "자식창 이름", "팝업창 옵션");
-		var width = "500";
-		var height = "300";
-		var top = (window.screen.height - height) / 2;
-		var left = (window.screen.width - width) / 2;
-		var url = "/prog?command=messageSearchForm";
-		var title = "자격증 검색";
-		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
-				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
-
-		window.open(url, title, status);
-
-		
-	}
-	
-	/* function certNameCheck() {
-		var url = "/prog?command=certSearchForm"
-		window.open(url, "_blank_1",
-						"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=500, height=400");
-
-	} */
-	
-	
-	
 		var KTAppOptions = {
 			"colors" : {
 				"state" : {
@@ -406,7 +417,9 @@ License: You must have a valid license purchased only from themeforest(the above
 	<script
 		src="../assets/app/custom/general/crud/forms/widgets/bootstrap-datepicker.js"
 		type="text/javascript"></script>
-
+	<script
+		src="../assets/vendors/general/bootstrap-datepicker/js/locales/bootstrap-datepicker.ko.js"
+		type="text/javascript"></script>
 	<!--end::Page Scripts -->
 
 	<!--begin::Global App Bundle(used by all pages) -->
@@ -415,19 +428,31 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!--end::Global App Bundle -->
 </body>
 <script>
-	// 학력 등록 AJAX
-	function registerMyCert() {
+	// 경력 등록 AJAX
+	function registerCareer() {
 
 		// userID 변수에 userID의 입력된 값을 가져오게 함
 		var progNum = $('#progNum').val();
-		var myCertNum = $('#myCertNum').val();
-		var certNum = $('#certNum').val();
-		var certSerial = $('#certSerial').val();
-		var issueDate = $('#kt_datepicker_1').val();
+		var companyName = $('#companyName').val();
+		var department = $('#department').val();
+		var position = $('#position').val();
+		var joinDate = $('#kt_datepicker_1').val();
+		var retireDate = $('#kt_datepicker_4_1').val();
 
-		if (certNum == "") {
-			alert("자격증을 선택해주세요.");
-			$("#certNum").focus();
+		if (companyName == "") {
+			alert("회사 명을 입력해주세요.");
+			$("#companyName").focus();
+			return false;
+		}
+		if (department == "") {
+			alert("부서를 입력해주세요.");
+			$("#department").focus();
+			return false;
+		}
+		if (position == "") {
+			alert("직책을 입력해주세요.");
+			$("#position").focus();
+			return false;
 		}
 		if (progNum == "") {
 			alert("잘못된 정보입니다.");
@@ -438,21 +463,21 @@ License: You must have a valid license purchased only from themeforest(the above
 
 				type : 'POST', // GET or POST 전송방법 
 
-				url : '/prog?command=myCertRegist', // 이쪽으로 보낸다(호출URL)
+				url : '/prog?command=careerRegister', // 이쪽으로 보낸다(호출URL)
 
 				data : {
-					eduCategory : eduCategory,
-					eduState : eduState,
-					schoolName : schoolName,
-					enterDate : enterDate,
-					graduateDate : graduateDate,
+					companyName : companyName,
+					department : department,
+					position : position,
+					joinDate : joinDate,
+					retireDate : retireDate,
 					progNum : progNum
 				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
 
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
 					alert("등록 되었습니다.");
 					self.close();
-					opener.location.href = "/prog?command=myCertListForm";
+					opener.location.href = "/prog?command=careerListForm";
 				},
 				error : function(data) {
 					alert("오류:: 다시 시도해주세요.");
@@ -487,6 +512,24 @@ License: You must have a valid license purchased only from themeforest(the above
 	$(function() {
 		$("#datepicker1").datepicker();
 	});
+	
+	function openPopUp2() {
+		// window.name = "부모창 이름"; 
+		window.name = "childForm";
+		// window.open("open할 window", "자식창 이름", "팝업창 옵션");
+		var width = "500";
+		var height = "300";
+		var top = (window.screen.height - height) / 2;
+		var left = (window.screen.width - width) / 2;
+		var url = "/prog?command=programmerSearchForm";
+		var title = "프로그래머 검색";
+		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
+
+		window.open(url, title, status);
+
+		
+	}
 </script>
 <!-- end::Body -->
 </html>
