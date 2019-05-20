@@ -192,7 +192,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		var height = "300";
 		var top = (window.screen.height - height) / 2;
 		var left = (window.screen.width - width) / 2;
-		var url = "/prog?command=certSearchForm";
+		var url = "/prog?command=messageSearchForm";
 		var title = "자격증 검색";
 		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
 				+ width + ",height=" + height + ",top=" + top + ",left=" + left;

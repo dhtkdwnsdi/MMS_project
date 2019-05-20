@@ -21,8 +21,8 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- begin::Head -->
 	<head>
 		<meta charset="utf-8" />
-		<title>Metronic | Tabbed Portlets</title>
-		<meta name="description" content="Tabbed portlet examples">
+		<title>PMMS | 메세지 보기</title>
+		<meta name="description" content="Multi column form examples">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!--begin::Fonts -->
@@ -91,6 +91,12 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- end::Head -->
 
+<style>
+#label1 {
+font-weight: bold;
+}
+</style>
+
 	<!-- begin::Body -->
 	<body class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
 
@@ -99,96 +105,179 @@ License: You must have a valid license purchased only from themeforest(the above
 		<div class="kt-grid kt-grid--hor kt-grid--root">
 			<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
 
-
-
 						<!-- begin:: Content -->
 						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
 							<div class="row">
-								<div class="col-xl-12">
+								<div class="col-lg-12">
 
 									<!--begin::Portlet-->
-									<div class="kt-portlet kt-portlet--tabs">
+									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">
-													${LoginUser.name}의 메세지 조회
+												<h3>
+												메세지 보기
 												</h3>
 											</div>
-											<div class="kt-portlet__head-toolbar">
-												<ul class="nav nav-tabs nav-tabs-bold nav-tabs-line   nav-tabs-line-right nav-tabs-line-brand" role="tablist">
-													<li class="nav-item">
-														<a class="nav-link active" data-toggle="tab" href="#kt_portlet_tab_1_1" role="tab">
-															받은 메세지
-														</a>
-													</li>
-													<li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_2" role="tab">
-															보낸 메세지
-														</a>
-													</li>
-													<!-- <li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab">
-															Settings
-														</a>
-													</li> -->
-												</ul>
-											</div>
 										</div>
-										<div class="kt-portlet__body">
-											<div class="tab-content">
-												<div class="tab-pane active" id="kt_portlet_tab_1_1">
-													<table class="table table-bordered table-hover">
-													<input type="hidden" name="progNum" value="${LoginUser.progNum}">
-			                                          <thead style="text-align: center;">
-			                                             <tr>
-			                                                <th>#</th>
-			                                                <th style="font-weight: bold;">제목</th>
-			                                                <th style="font-weight: bold;">보낸 사람</th>
-			                                                <th style="font-weight: bold;">날짜</th>
-			                                             </tr>
-			                                          </thead>
-			                                          <tbody style="text-align: center;">
-			                                          <c:forEach items="${sendMessageList}" var="mVo" varStatus="listStat">
-			                                             <tr>
-			                                                <td style="text-align: center;"><input type="checkbox" value="${mVo.messageNum}" name="msgCheck" id="msgCheck"></td>
-			                                                <td><a href="prog/command=viewMessageForm">${mVo.msgSubject}</a></td>
-			                                                <td>${mVo.receiver}</td>
-			                                                <td>${mVo.writeDate}</td>
-			                                             </tr>
-			                                          </c:forEach>
-			                                          </tbody>
-                                       				</table>
+
+										<!--begin::Form-->
+										<form class="kt-form kt-form--label-right">
+											<div class="kt-portlet__body">
+												<div class="form-group row form-group-marginless kt-margin-t-20">
+													<div class="col-lg-4">
+														<label id="label1">제목</label>
+														<input type="hidden" id="projNum" value="${projVo.projNum}">
+														<input type="text" class="form-control" value="${projVo.projName}" name="projName" id="projName" readonly="readonly">
+													</div>
+													<div class="col-lg-4">
+														<label id="label1">보낸사람</label>
+														<input type="text" class="form-control" readonly="readonly" value="${projVo.progName}">
+													</div>
+													<div class="col-lg-4">
+														<label id="label1">날짜</label>
+														<input type="text" class="form-control" readonly="readonly" value="${projVo.projStat}">
+													</div>
+													<div class="col-lg-4">
+														<label id="label1">내용</label>
+														<input type="text" class="form-control" readonly="readonly" value="${projVo.projStat}">
+													</div>
 												</div>
-												<div class="tab-pane" id="kt_portlet_tab_1_2">
-													<table class="table table-bordered table-hover">
-			                                          <thead style="text-align: center;">
-			                                             <tr>
-			                                                <th>#</th>
-			                                                <th style="font-weight: bold;">제목</th>
-			                                                <th style="font-weight: bold;">받는 사람</th>
-			                                                <th style="font-weight: bold;">날짜</th>
-			                                             </tr>
-			                                          </thead>
-			                                          <tbody style="text-align: center;">
-			                                         <c:forEach items="${receiveMessageList}" var="mVo" varStatus="listStat">
-			                                             <tr>
-			                                                <th scope="row">${listStat.count}</th>
-			                                                <td>${mVo.msgSubject}</td>
-			                                                <td>${mVo.sender}</td>
-			                                                <td>${mVo.writeDate}</td>
-			                                             </tr>
-			                                          </c:forEach>
-			                                          </tbody>
-                                       				</table>
+												<!-- Start Divider -->
+												<br><br>
+												<div class="kt-section__content kt-section__content--solid">
+													<div class="kt-divider">
+														<span></span>
+													</div>
 												</div>
-												<div>
-												<button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button>
+												<br>
+												<!-- End Divider -->
+												<div class="form-group row form-group-marginless kt-margin-t-20">
+													<div class="col-lg-4">
+														<label id="label1">참여 형태</label>
+														<input type="text" class="form-control" readonly="readonly" value="${projVo.partiFormCode}">
+													</div>
+													<div class="col-lg-4">
+														<label id="label1">분류</label>
+														<input type="text" class="form-control" readonly="readonly" value="${projVo.projCate}">
+													</div>
+													<div class="col-lg-4">
+														<label id="label1">세분류</label>
+														<input type="text" class="form-control" readonly="readonly" value="${projVo.projDetailCate}">
+													</div>
 												</div>
-												<!-- <div class="tab-pane" id="kt_portlet_tab_1_3">
-													Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
-												</div> -->
+												<!-- Start Divider -->
+												<br><br>
+												<div class="kt-section__content kt-section__content--solid">
+													<div class="kt-divider">
+														<span></span>
+													</div>
+												</div>
+												<br>
+												<!-- End Divider -->
+												<div class="form-group row form-group-marginless kt-margin-t-20">
+													<div class="col-lg-6">
+														<label id="label1">OS 종류</label>
+														<input type="text" class="form-control" readonly="readonly" value="${projVo.osCode}">
+													</div>
+													<div class="col-lg-6">
+														<label id="label1">프레임워크 종류</label>
+														<input type="text" class="form-control" readonly="readonly" value="${projVo.fwCode}">
+													</div>
+												</div>
+												<div class="form-group row form-group-marginless kt-margin-t-20">
+													<div class="col-lg-6">
+														<label id="label1">DBMS 종류</label>
+														<input type="text" class="form-control" readonly="readonly" value="${projVo.dbmsCode}">
+													</div>
+													<div class="col-lg-6">
+														<label id="label1">프로젝트 난이도</label>
+														<input type="text" class="form-control" readonly="readonly" value="${projVo.levelCode}">
+													</div>
+												</div>
+												<!-- Start Divider -->
+												<br><br>
+												<div class="kt-section__content kt-section__content--solid">
+													<div class="kt-divider">
+														<span></span>
+													</div>
+												</div>
+												<br>
+												<!-- End Divider -->
+												<div class="form-group row form-group-marginless kt-margin-t-20">
+													<div class="col-lg-4">
+														<label id="label1">신청 마감일</label>
+														<div class="kt-input-icon">
+															<input type="text" class="form-control" value="${projVo.deadline}" name="deadline" id="deadline" readonly="readonly">
+															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
+														</div>
+													</div>
+													<div class="col-lg-4">
+														<label id="label1">시작 예정일</label>
+														<div class="kt-input-icon">
+															<input type="text" class="form-control" value="${projVo.startDuedate}" name="startDuedate" id="startDuedate" readonly="readonly">
+															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
+														</div>
+													</div>
+													<div class="col-lg-4">
+														<label id="label1">종료 예정일</label>
+														<div class="kt-input-icon">
+															<input type="text" class="form-control" value="${projVo.endDuedate}" name="endDuedate" id="endDuedate" readonly="readonly">
+															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
+														</div>
+													</div>
+												</div>
+												<!-- Start Divider -->
+												<br><br>
+												<div class="kt-section__content kt-section__content--solid">
+													<div class="kt-divider">
+														<span></span>
+													</div>
+												</div>
+												<br>
+												<!-- End Divider -->
+												<div class="form-group row form-group-marginless kt-margin-t-20">
+													<div class="col-lg-12">
+														<label id="label1">프로젝트 내용</label>
+														<textarea class="form-control" name="contents" id="contents" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 129px;" readonly="readonly">${projVo.contents}</textarea>
+													</div>
+												</div>
+												<!-- Start Divider -->
+												<br><br>
+												<div class="kt-section__content kt-section__content--solid">
+													<div class="kt-divider">
+														<span></span>
+													</div>
+												</div>
+												<br>
+												<!-- End Divider -->
+												<div class="form-group row form-group-marginless kt-margin-t-20">
+														<div class="col-lg-12">
+																<label id="label1">첨부파일</label>
+																<div></div>
+																<div class="custom-file">
+																	<label class="custom-file-label" for="customFile" style="text-align: left;">
+																	<a href="/proj?command=download&projFile=${projVo.projFile}">${projVo.projFile}</a></label>
+																</div>
+														</div>
+												</div>
 											</div>
-										</div>
+											<div class="kt-portlet__foot">
+												<div class="kt-form__actions">
+													<div class="row">
+														<div class="col-lg-6">
+														</div>
+														<div class="col-lg-6 kt-align-right">
+															<button type="button" class="btn btn-success" id="applyBtn" onclick="openApplyPop('${projVo.projNum}')">
+																참여 신청
+															</button>
+															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+
+										<!--end::Form-->
 									</div>
 
 									<!--end::Portlet-->
@@ -199,37 +288,19 @@ License: You must have a valid license purchased only from themeforest(the above
 						<!-- end:: Content -->
 					</div>
 
-					<!-- begin:: Footer -->
+				</div>
+			<!-- begin:: Footer -->
 					
 					<%@ include file="../include/footer.jsp" %>
 
-					<!-- end:: Footer -->
-				</div>
-
+			<!-- end:: Footer -->
 		<!-- end:: Page -->
-
 
 		<!-- begin::Scrolltop -->
 		<div id="kt_scrolltop" class="kt-scrolltop">
 			<i class="fa fa-arrow-up"></i>
 		</div>
-
 		<!-- end::Scrolltop -->
-
-		<!-- begin::Sticky Toolbar -->
-		<ul class="kt-sticky-toolbar" style="margin-top: 30px;">
-			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--success" id="kt_demo_panel_toggle" data-toggle="kt-tooltip" title="Check out more demos" data-placement="right">
-				<a href="#" class=""><i class="flaticon2-drop"></i></a>
-			</li>
-			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--brand" data-toggle="kt-tooltip" title="Layout Builder" data-placement="left">
-				<a href="https://keenthemes.com/metronic/preview/default/builder.html" target="_blank"><i class="flaticon2-gear"></i></a>
-			</li>
-			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--warning" data-toggle="kt-tooltip" title="Documentation" data-placement="left">
-				<a href="https://keenthemes.com/metronic/?page=docs" target="_blank"><i class="flaticon2-telegram-logo"></i></a>
-			</li>
-		</ul>
-
-		<!-- end::Sticky Toolbar -->
 
 
 		<!-- begin::Global Config(global config for global JS sciprts) -->
@@ -332,42 +403,70 @@ License: You must have a valid license purchased only from themeforest(the above
 		<script src="../assets/app/bundle/app.bundle.js" type="text/javascript"></script>
 
 		<!--end::Global App Bundle -->
+		<script src="../assets/app/custom/general/crud/forms/widgets/select2.js" type="text/javascript"></script>
 	</body>
 
 	<!-- end::Body -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <script>
-function deleteMessage(messageNum){
-	var messageNum = messageNum;
-	
-	if(confirm("삭제하시겠습니까?") == true){
-		location.href = "/prog?command=messageDelete&messageNum="+messageNum;
-		alert("삭제되었습니다.");
-	}
-	else{
-		return false;
-	}
-	
-}
+    $.datepicker.setDefaults({
+        dateFormat: 'yy-mm-dd',
+        prevText: '이전 달',
+        nextText: '다음 달',
+        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+        showMonthAfterYear: true,
+        yearSuffix: '년'
+    });
 
-function openPopUp()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "555"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/messageRegisterForm.jsp"; 
-	  var title = "경력 정보 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+    $(function() {
+        /* $("#startDuedate").datepicker();
+        $("#endDuedate").datepicker();
+        $("#deadline").datepicker(); */
+    });
 
-      window.open(url, title, status);
+    
+$(document).ready(
+		function() {
+			$('#cancel').on("click",function(event) {
+						self.location = "proj?command=projectApplyListForm";
+					});
+			
+			$('#delete').on("click", function(evt) {
+				
+				var confirmStat = confirm("삭제하시겠습니까?");
+				
+				if(confirmStat == true){
+					var projNum = $('#projNum').val();
+					alert("삭제되었습니다.");
+					self.location = "proj?command=projectDelete&projNum="+projNum;	
+				} else{
+					return false;
+				}
+				
+			});
+			
+		});
+		
+function openApplyPop(projNum){
+	var projNum = projNum;
+    var width = "500"; 
+	var height = "440"; 
+	var top = (window.screen.height-height)/2; 
+	var left = (window.screen.width-width)/2; 
+	var url = "/proj?command=projectApplyFormAction&projNum="+projNum; 
+	var title = "프로젝트 신청"; 
+	var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
-
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
-}
+    
+    window.open(url, title, status);
+    
+    
+}		
 </script>
 </html>

@@ -165,8 +165,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
 									<div class="form-group row">
 										<label class="col-3 col-form-label">프로그래밍 언어명</label> <input
-											type="hidden" name="plNum" class="form-control"
-											id="plNum">
+											type="hidden" name="plNum" class="form-control" id="plNum">
 										<div class="kt-input-icon kt-input-icon--right">
 											<input type="text" class="form-control" id="plName"
 												name="plName" readonly> <span
@@ -183,7 +182,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 
 
-									
+
 									<div class="form-group row">
 										<label class="col-3 col-form-label">숙련도</label>
 										<div class="col-9">
@@ -196,10 +195,10 @@ License: You must have a valid license purchased only from themeforest(the above
 											</select>
 										</div>
 									</div>
-									
-									
-									
-									
+
+
+
+
 									<div class="form-group row">
 										<label class="col-3 col-form-label">직책(연차)</label>
 										<div class="col-9">
@@ -207,12 +206,12 @@ License: You must have a valid license purchased only from themeforest(the above
 												id="experience">
 										</div>
 									</div>
-									
-									
+
+
 								</div>
 							</div>
-							
-							
+
+
 							<div class="kt-portlet__foot">
 								<div class="kt-form__actions kt-form__actions--right">
 									<div class="row">
@@ -224,7 +223,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 						<div class="col-xl-2"></div>
 					</div>
@@ -453,7 +452,6 @@ License: You must have a valid license purchased only from themeforest(the above
 		var department = $('#profiency').val();
 		var position = $('#experience').val();
 
-		
 		if (progNum == "") {
 			alert("잘못된 정보입니다.");
 			return false;

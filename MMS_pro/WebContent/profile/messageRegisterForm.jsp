@@ -19,7 +19,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- begin::Head -->
 <head>
 <meta charset="utf-8" />
-<title>Metronic | 포트폴리오 등록</title>
+<title>Metronic | 메세지 보내기</title>
 <meta name="description" content="Bootstrap daterangepicker examples">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -143,20 +143,18 @@ License: You must have a valid license purchased only from themeforest(the above
 	class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
 
 	<!-- begin:: Content -->
-
-
 	<div class="kt-content  kt-grid__item kt-grid__item--fluid"
 		id="kt_content">
 		<div class="kt-portlet kt-portlet--mobile">
 			<div class="kt-portlet__head kt-portlet__head--lg">
 				<div class="kt-portlet__head-label">
-					<h3 class="kt-portlet__head-title">포트폴리오 등록</h3>
+					<h3 class="kt-portlet__head-title">메세지 보내기</h3>
 				</div>
 			</div>
 			<div class="kt-portlet__body">
-				<form class="kt-form" id="kt_form" method="post" action="">
-					<input type="hidden" name="progNum" value="${LoginUser.progNum}"
-						id="progNum">
+				<form class="kt-form" id="kt_form">
+					<input type="hidden" name="receiver" id="receiver"
+						value="${LoginUser.progNum}">
 					<div class="row">
 						<div class="col-xl-2"></div>
 						<div class="col-xl-8">
@@ -165,122 +163,54 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="kt-section__body">
 									<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
 																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
-
+									<div class="form-group row">
+										<label class="col-3 col-form-label">받는 사람</label>
+										<div class="col-9">
+											
+											<div class="kt-input-icon kt-input-icon--right">
+												<input type="text" class="form-control" id="sender"
+													name="sender" readonly> <span
+													class="kt-input-icon__icon kt-input-icon__icon--right">
+													<span>
+														<button type="button"
+															class="btn btn-outline-hover-danger btn-icon"
+															onClick="openPopUp2()" id="progNumCherck">
+															<i class="la la-search"></i>
+														</button>
+												</span>
+												</span>
+											</div>
+										</div>
+									</div>
 									<div class="form-group row">
 										<label class="col-3 col-form-label">제목</label>
-										<div class="col-5">
-											<input class="form-control" type="text" value="subject"
-												id="subject">
+										<div class="col-9">
+											<input class="form-control" type="text" name="msg_subject"
+												id="msg_subject">
 										</div>
-
 									</div>
-
-
-
 									<div class="form-group row">
-										<label class="col-3 col-form-label">카테고리</label>
-										<div class="col-4">
-											<select name="portCate" class="form-control" id="portCate">
-												<option value="">--선택--</option>
-												<option value="C1">개발</option>
-												<option value="C2">디자인</option>
-
-											</select>
-										</div>
-									</div>
-
-									<div class="form-group row">
-										<label class="col-3 col-form-label">세부 카테고리</label>
-										<div class="col-4">
-											<select name="portDetailCate" class="form-control"
-												id="portDetailCate">
-												<option value="">--선택--</option>
-												<option value="DC1">웹</option>
-												<option value="DC2">어플리케이션</option>
-												<option value="DC3">컨소시엄</option>
-												<option value="DC3">워드프레스</option>
-												<option value="DC3">퍼블리싱</option>
-												<option value="DC3">일반 소프트웨어</option>
-												<option value="DC3">커머스, 쇼핑몰</option>
-												<option value="DC3">게임</option>
-												<option value="DC3">임베디드</option>
-												<option value="DC3">기타</option>
-
-
-											</select>
-										</div>
-									</div>
-
-
-
-
-									<div class="form-group row">
-										<label class="col-3 col-form-label">시작일</label>
-										<div class="col-4">
-											<input type="text" class="form-control" id="kt_datepicker_1"
-												readonly name="portStartDate">
-										</div>
-									</div>
-
-
-
-									<div class="form-group row">
-										<label class="col-3 col-form-label">종료일</label>
-										<div class="col-4">
-											<input type="text" class="form-control"
-												id="kt_datepicker_4_1" readonly name="portEndDate">
-										</div>
-									</div>
-
-	<div class="form-group row">
-											<label class="col-3 col-form-label">참여율</label>
-											<div class="col-3">
-												<input class="form-control" type="text" value="%" id="rate">
-											</div>
-										</div>
-										
-										
-										
-										<label></label>
-										<div class="form-group form-group-last row">
-											<label class="col-1 col-form-label">관련기술 </label>
-											<textarea style="width: 600px; height: 120px;"
-												class="form-control" id="exampleTextarea"></textarea>
-										</div>
-										
-											<label></label>
-										<div class="form-group form-group-last row">
-											<label class="col-1 col-form-label">내용 </label>
-											<textarea style="width: 600px; height: 120px;"
-												class="form-control" id="exampleTextarea"></textarea>
-										</div>
-										
-										
-											<label></label>
-										<div class="form-group form-group-last row">
-											<label class="col-3 col-form-label">첨부파일</label>
-											<div class="col-lg-6 col-md-6 col-sm-6">
-												<input type="file" class="custom-file-input" name="projFile"
-													id="projFile"> <label class="custom-file-label"
-													for="customFile" style="text-align: left;"></label>
-											</div>
-										</div>
-									</div>
-									
-
-
-													<div class="kt-portlet__foot">
-										<div class="col kt-align-right">
-											<button type="button" class="btn btn-brand"
-												onclick="registerPortpolio()">등록</button>
-											<button type="reset" class="btn btn-danger"
-												href="prog?command=portpolioListForm">취소</button>
+										<label class="col-3 col-form-label">내용</label>
+										<div class="col-9">
+										<textarea style="width: 550px; height: 120px;"
+										class="form-control" id="message_contents" name="message_contents"></textarea>
+											
 										</div>
 									</div>
 								</div>
+							</div>
+							<div class="kt-portlet__foot">
+								<div class="kt-form__actions kt-form__actions--right">
+									<div class="row">
+										<div class="col kt-align-right">
+											<button type="button" class="btn btn-brand"
+												onclick="registerCareer()">전송</button>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
+						<div class="col-xl-2"></div>
 					</div>
 				</form>
 			</div>
@@ -487,7 +417,9 @@ License: You must have a valid license purchased only from themeforest(the above
 	<script
 		src="../assets/app/custom/general/crud/forms/widgets/bootstrap-datepicker.js"
 		type="text/javascript"></script>
-
+	<script
+		src="../assets/vendors/general/bootstrap-datepicker/js/locales/bootstrap-datepicker.ko.js"
+		type="text/javascript"></script>
 	<!--end::Page Scripts -->
 
 	<!--begin::Global App Bundle(used by all pages) -->
@@ -496,32 +428,31 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!--end::Global App Bundle -->
 </body>
 <script>
-	// 학력 등록 AJAX
-	function registerEdu() {
+	// 경력 등록 AJAX
+	function registerCareer() {
 
 		// userID 변수에 userID의 입력된 값을 가져오게 함
 		var progNum = $('#progNum').val();
-		var eduCategory = $('#eduCategory').val();
-		var eduState = $('#eduState').val();
-		var schoolName = $('#schoolName').val();
-		var enterDate = $('#kt_datepicker_1').val();
-		var graduateDate = $('#kt_datepicker_4_1').val();
+		var companyName = $('#companyName').val();
+		var department = $('#department').val();
+		var position = $('#position').val();
+		var joinDate = $('#kt_datepicker_1').val();
+		var retireDate = $('#kt_datepicker_4_1').val();
 
-		if (eduCategory == "") {
-			alert("분류를 입력해주세요.");
-			$("#eduCategory").focus();
+		if (companyName == "") {
+			alert("회사 명을 입력해주세요.");
+			$("#companyName").focus();
+			return false;
 		}
-		if (eduState == "") {
-			alert("상태를 입력해주세요.");
-			$("#eduState").focus();
+		if (department == "") {
+			alert("부서를 입력해주세요.");
+			$("#department").focus();
+			return false;
 		}
-		if (schoolName == "") {
-			alert("학교명을 입력해주세요.");
-			$("#schoolName").focus();
-		}
-		if (enterDate == "") {
-			alert("입학일을 입력해주세요.");
-			$("#enterDate").focus();
+		if (position == "") {
+			alert("직책을 입력해주세요.");
+			$("#position").focus();
+			return false;
 		}
 		if (progNum == "") {
 			alert("잘못된 정보입니다.");
@@ -532,21 +463,21 @@ License: You must have a valid license purchased only from themeforest(the above
 
 				type : 'POST', // GET or POST 전송방법 
 
-				url : '/prog?command=eduRegister', // 이쪽으로 보낸다(호출URL)
+				url : '/prog?command=careerRegister', // 이쪽으로 보낸다(호출URL)
 
 				data : {
-					eduCategory : eduCategory,
-					eduState : eduState,
-					schoolName : schoolName,
-					enterDate : enterDate,
-					graduateDate : graduateDate,
+					companyName : companyName,
+					department : department,
+					position : position,
+					joinDate : joinDate,
+					retireDate : retireDate,
 					progNum : progNum
 				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
 
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
 					alert("등록 되었습니다.");
 					self.close();
-					opener.location.href = "/prog?command=eduListForm";
+					opener.location.href = "/prog?command=careerListForm";
 				},
 				error : function(data) {
 					alert("오류:: 다시 시도해주세요.");
@@ -581,6 +512,24 @@ License: You must have a valid license purchased only from themeforest(the above
 	$(function() {
 		$("#datepicker1").datepicker();
 	});
+	
+	function openPopUp2() {
+		// window.name = "부모창 이름"; 
+		window.name = "childForm";
+		// window.open("open할 window", "자식창 이름", "팝업창 옵션");
+		var width = "500";
+		var height = "300";
+		var top = (window.screen.height - height) / 2;
+		var left = (window.screen.width - width) / 2;
+		var url = "/prog?command=programmerSearchForm";
+		var title = "프로그래머 검색";
+		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
+
+		window.open(url, title, status);
+
+		
+	}
 </script>
 <!-- end::Body -->
 </html>
