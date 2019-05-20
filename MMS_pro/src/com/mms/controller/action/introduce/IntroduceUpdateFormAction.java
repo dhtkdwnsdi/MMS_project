@@ -11,12 +11,13 @@ import com.mms.controller.action.Action;
 import com.mms.dao.IntroduceDAO;
 import com.mms.vo.ProgrammerVO;
 
-public class IntroduceRegisterFormAction implements Action{
+public class IntroduceUpdateFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String url ="profile/introduceRegisterForm.jsp";
+		// TODO Auto-generated method stub
+		
+		String url ="profile/introduceUpdateForm.jsp";
 		
 		IntroduceDAO progDao = IntroduceDAO.getInstance();
 
@@ -31,5 +32,7 @@ public class IntroduceRegisterFormAction implements Action{
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 		
-}
+		
+	}
+
 }

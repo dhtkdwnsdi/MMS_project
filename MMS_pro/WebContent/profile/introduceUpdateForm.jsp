@@ -58,7 +58,7 @@ table, td, tr, th {
 							</div>
 
 							<!--begin::Form-->
-							<form class="kt-form kt-form--label-right" method="post" action="prog?command=introduceRegister">
+							<form class="kt-form kt-form--label-right" method="post" action="prog?command=introduceUpdate">
 								<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}">
 								<div class="kt-portlet__body">
 
@@ -104,7 +104,8 @@ table, td, tr, th {
 										<label class="col-3 col-form-label">첨부파일</label>
 										<div class="col-lg-6 col-md-6 col-sm-6">
 											<input type="file" class="custom-file-input" name="introFile"
-												id="introFile"> <label class="custom-file-label"
+												id="introFile">
+											<label class="custom-file-label"
 												for="customFile" style="text-align: left;"></label>
 										</div>
 									</div>
@@ -117,8 +118,7 @@ table, td, tr, th {
 											<div class="row">
 												<div class="col-lg-6"></div>
 												<div class="col-lg-6 kt-align-right">
-													<button type="button" class="btn btn-primary">등록</button>
-													<button type="button" class="btn btn-secondary" id="cancel">수정</button>
+													<button type="submit" class="btn btn-primary">수정</button>
 												</div>
 											</div>
 										</div>

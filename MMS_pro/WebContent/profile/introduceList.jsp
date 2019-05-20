@@ -58,7 +58,7 @@ table, td, tr, th {
 							</div>
 
 							<!--begin::Form-->
-							<form class="kt-form kt-form--label-right" method="post" action="prog?command=introduceRegister">
+							<form class="kt-form kt-form--label-right">
 								<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}">
 								<div class="kt-portlet__body">
 
@@ -111,7 +111,7 @@ table, td, tr, th {
 											<div class="row">
 												<div class="col-lg-6"></div>
 												<div class="col-lg-6 kt-align-right">
-													<a href="prog?command=introduceRegisterForm&id=${LoginUser.id}" class ="btn btn-primary">업데이트</a>
+													<a href="prog?command=introduceUpdateForm&id=${LoginUser.id}" class ="btn btn-primary">수정</a>
 												</div>
 											</div>
 										</div>

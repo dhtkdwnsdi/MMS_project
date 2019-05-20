@@ -54,6 +54,8 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">관리</th>
 															</tr>
 														</thead>
+														<c:choose>
+															<c:when test="${not empty cList}">
 														<tbody style="text-align: center;">
 															<c:forEach items="${cList}" var="cVo" varStatus="listStat">
 															<tr>
@@ -83,6 +85,13 @@ License: You must have a valid license purchased only from themeforest(the above
 															</tr>
 															</c:forEach>
 														</tbody>
+													</c:when>
+													<c:otherwise>
+													<tr>
+													<td colspan="7" class="txt_center" align="center"> <b>경력 데이터가 없습니다.</b></td>
+													</tr>
+													</c:otherwise>
+													</c:choose>
 													</table>
 												</div>
 											</div>

@@ -20,7 +20,8 @@ import com.mms.controller.action.grant.GrantListFormAction;
 import com.mms.controller.action.grant.GrantUpdateAction;
 import com.mms.controller.action.grant.GrantUpdateFormAction;
 import com.mms.controller.action.introduce.IntroduceListAction;
-import com.mms.controller.action.introduce.IntroduceRegisterFormAction;
+import com.mms.controller.action.introduce.IntroduceUpdateAction;
+import com.mms.controller.action.introduce.IntroduceUpdateFormAction;
 import com.mms.controller.action.memberSet.MemberSetFormAction;
 import com.mms.controller.action.memberSet.MemberUpdateAction;
 import com.mms.controller.action.message.MessageListFormAction;
@@ -37,7 +38,6 @@ import com.mms.controller.action.pls.PlsDeleteAction;
 import com.mms.controller.action.pls.PlsListFormAction;
 import com.mms.controller.action.pls.PlsRegisterAction;
 import com.mms.controller.action.portpolio.PortpolioListFormAction;
-import com.mms.controller.action.portpolio.PortpolioRegistAction;
 import com.mms.controller.action.portpolio.PortpolioRegistFormAction;
 
 public class ProgrammerActionFactory {
@@ -103,9 +103,13 @@ public class ProgrammerActionFactory {
 			action = new PlsRegisterAction();	
 		}else if(command.equals("plsDelete")) {
 			action = new PlsDeleteAction();	
-		}else if (command.equals("introduceRegisterForm")) {
-			action = new IntroduceRegisterFormAction();
-		}else if (command.equals("intorduceList")) {
+		}else if (command.equals("introduceUpdateForm")) {
+			action = new IntroduceUpdateFormAction();
+		}else if (command.equals("introduceUpdate")) {
+			action = new IntroduceUpdateAction();
+		}
+		
+		else if (command.equals("intorduceList")) {
 			action = new IntroduceListAction();
 		}
 		
