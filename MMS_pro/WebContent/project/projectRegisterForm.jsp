@@ -20,7 +20,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<head>
 		<meta charset="utf-8" />
 		<title>PMMS | 프로젝트 등록</title>
-		<meta name="description" content="Multi column form examples">
+		<meta name="description" content="Form repeater examples">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!--begin::Fonts -->
@@ -90,8 +90,8 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- end::Head -->
 
 <style>
-#label1 {
-font-weight: bold;
+#label1{
+	font-weight: bold;
 }
 </style>
 
@@ -286,6 +286,54 @@ font-weight: bold;
 												</div>
 												<br>
 												<!-- End Divider -->
+												
+												<div id="kt_repeater_1">
+												<div class="form-group  row" id="kt_repeater_1">
+													<label class="col-lg-2 col-form-label" id="label1">사용 프로그래밍 언어</label>
+													<div data-repeater-list="" class="col-lg-10">
+														
+													<div data-repeater-item="" class="form-group row align-items-center" style="">
+															<div class="col-md-5">
+																<div class="kt-form__group--inline">
+																	<div class="kt-form__control">
+																		<input type="email" class="form-control" placeholder="Enter full name">
+																	</div>
+																</div>
+																<div class="d-md-none kt-margin-b-10"></div>
+															</div>
+															<div class="col-md-4">
+																<div data-repeater-delete="" class="btn-sm btn btn-danger btn-pill">
+																	<span>
+																		<i class="la la-trash-o"></i>
+																		<span>삭제</span>
+																	</span>
+																</div>
+															</div>
+														</div></div>
+												</div>
+												<div class="form-group row">
+													<label class="col-lg-2 col-form-label"></label>
+													<div class="col-lg-4">
+														<div data-repeater-create="" class="btn btn btn-sm btn-brand btn-pill">
+															<span>
+																<i class="la la-plus"></i>
+																<span>추가</span>
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											
+											<!-- Start Divider -->
+											<br><br>
+											<div class="kt-section__content kt-section__content--solid">
+												<div class="kt-divider">
+													<span></span>
+												</div>
+											</div>
+											<br>
+											<!-- End Divider -->
+												
 												<div class="form-group row form-group-marginless kt-margin-t-20">
 													<div class="col-lg-12">
 														<label id="label1">프로젝트 내용</label>
@@ -337,14 +385,8 @@ font-weight: bold;
 
 				</div>
 
+
 		<!-- end:: Page -->
-
-		<!-- begin::Scrolltop -->
-		<div id="kt_scrolltop" class="kt-scrolltop">
-			<i class="fa fa-arrow-up"></i>
-		</div>
-		<!-- end::Scrolltop -->
-
 
 		<!-- begin::Global Config(global config for global JS sciprts) -->
 		<script>
@@ -442,144 +484,16 @@ font-weight: bold;
 
 		<!--end::Global Theme Bundle -->
 
+		<!--begin::Page Scripts(used by this page) -->
+		<script src="../assets/app/custom/general/crud/forms/widgets/form-repeater.js" type="text/javascript"></script>
+
+		<!--end::Page Scripts -->
+
 		<!--begin::Global App Bundle(used by all pages) -->
 		<script src="../assets/app/bundle/app.bundle.js" type="text/javascript"></script>
 
 		<!--end::Global App Bundle -->
-		<script src="../assets/app/custom/general/crud/forms/widgets/select2.js" type="text/javascript"></script>
 	</body>
 
 	<!-- end::Body -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-<script>
-    $.datepicker.setDefaults({
-        dateFormat: 'yy-mm-dd',
-        prevText: '이전 달',
-        nextText: '다음 달',
-        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-        showMonthAfterYear: true,
-        yearSuffix: '년'
-    });
-
-    $(function() {
-        $("#startDuedate").datepicker();
-        $("#endDuedate").datepicker();
-        $("#deadline").datepicker();
-    });
-
-    
-function registerProject(){
-
-		
-		// userID 변수에 userID의 입력된 값을 가져오게 함
-		var projName = $('#projName').val();
-		var progNum = $('#progNum').val();
-		var partiFormCode = $('#partiFormCode').val();
-		var projCate = $('#projCate').val();
-		var projDetailCate = $('#projDetailCate').val();
-		var osCode = $('#osCode').val();
-		var fwCode = $('#fwCode').val();
-		var dbmsCode = $('#dbmsCode').val();
-		var levelCode = $('#levelCode').val();
-		var startDuedate = $('#startDuedate').val();
-		var endDuedate = $('#endDuedate').val();
-		var deadline = $('#deadline').val();
-		var contents = $('#contents').val();
-		var projFile = $('#projFile').val();
-		
-		
-		if(projName == ""){
-			alert("프로젝트 명을 입력해주세요.");
-			$("#projName").focus();
-			return false;
-		}
-		if(partiFormCode == ""){
-			alert("참여형태를 선택해주세요.");
-			$("#partiFormCode").focus();
-			return false;
-		}
-		if(projCate == ""){
-			alert("분류를 선택해주세요.");
-			$("#projCate").focus();
-			return false;
-		}
-		if(projDetailCate == ""){
-			alert("세분류를 선택해주세요.");
-			$("#projDetailCate").focus();
-			return false;
-		}
-		if(osCode == ""){
-			alert("OS를 선택해주세요.");
-			$("#osCode").focus();
-			return false;
-		}
-		if(fwCode == ""){
-			alert("프레임워크를 선택해주세요.");
-			$("#fwCode").focus();
-			return false;
-		}
-		if(dbmsCode == ""){
-			alert("DBMS를 선택해주세요.");
-			$("#dbmsCode").focus();
-			return false;
-		}
-		if(levelCode == ""){
-			alert("프로젝트 난이도를 선택해주세요.");
-			$("#levelCode").focus();
-			return false;
-		}
-		if(deadline == ""){
-			alert("신청 마감일을 선택해주세요.");
-			$("#deadline").focus();
-			return false;
-		}
-		if(startDuedate == ""){
-			alert("시작 예정일을 선택해주세요.");
-			$("#startDuedate").focus();
-			return false;
-		}
-		if(endDuedate == ""){
-			alert("종료 예정일을 선택해주세요.");
-			$("#endDuedate").focus();
-			return false;
-		}
-		
-		else {
-			var form = $("#frm")[0];
-			var data = new FormData(form);
-		$.ajax({
-			
-			type: 'POST',  // GET or POST 전송방법 
-			enctype: 'multipart/form-data',
-			url: '/proj?command=projectRegister',  // 이쪽으로 보낸다(호출URL)
-			
-			processData: false, 
-	        contentType: false,
-		
-			data: data,  
-			cache: false,
-			timeout: 600000,
-
-			success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
-				alert("등록되었습니다.");
-				self.close();
-				opener.location.href = "/proj?command=projectRegisterListForm";
-			},
-			error: function(data){
-				alert("오류:: 다시 시도해주세요.");
-				return false;
-			}
-			 
-
-		})
-		} 
-	}
-
-</script>
 </html>

@@ -38,6 +38,12 @@ License: You must have a valid license purchased only from themeforest(the above
 											</div>
 										</div>
 										<div class="kt-portlet__body">
+										<c:if test = "${message ne null}">
+									<div class="alert alert-info alert-dismissible" role="alert">
+									  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									  ${message}
+									</div>
+									</c:if>
 											<!--begin::Section-->
 											<div class="kt-section">
 												<div class="kt-section__content">
@@ -71,7 +77,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td>${projVo.progName}</td>
 																<td>${projVo.projStat}</td>
 																<td>
-																<span class="kt-badge kt-badge--success kt-badge--inline" onclick="openApplyPop('${projVo.projNum}')">신청</span>
+																<span class="kt-badge kt-badge--success kt-badge--inline" onclick="openApplyPop('${projVo.projNum}', '${LoginUser.progNum}')">신청</span>
 																</td>
 															</tr>
 														</c:forEach>
@@ -249,13 +255,14 @@ function openPopUp()
             "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
 }
 
-function openApplyPop(projNum){
+function openApplyPop(projNum, progNum){
 	var projNum = projNum;
+	var progNum = progNum;
     var width = "500"; 
 	var height = "440"; 
 	var top = (window.screen.height-height)/2; 
 	var left = (window.screen.width-width)/2; 
-	var url = "/proj?command=projectApplyFormAction&projNum="+projNum; 
+	var url = "/proj?command=projectApplyFormAction&projNum="+projNum+"&progNum="+progNum; 
 	var title = "프로젝트 신청"; 
 	var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
