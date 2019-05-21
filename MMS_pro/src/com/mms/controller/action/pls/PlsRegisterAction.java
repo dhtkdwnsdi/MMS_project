@@ -20,7 +20,6 @@ public class PlsRegisterAction implements Action{
 		String url="/prog?command=plsListForm";
 		
 		//parameter가져오기
-		String plsNum = request.getParameter("plsNum");
 		String plNum = request.getParameter("plNum");
 		String profiency = request.getParameter("profiency");
 		String experience = request.getParameter("experience");
@@ -31,7 +30,6 @@ public class PlsRegisterAction implements Action{
 		PlsDAO pDao = PlsDAO.getInstance();
 		
 		//parameter출력
-		System.out.println("plsNum : " + plsNum);
 		System.out.println("plNum : " + plNum);
 		System.out.println("profiency : " + profiency);
 		System.out.println("experience : " + experience);
@@ -39,7 +37,6 @@ public class PlsRegisterAction implements Action{
 		
 		
 		
-		pVo.setPlsNum(plsNum);
 		pVo.setPlNum(plNum);
 		pVo.setProfiency(profiency);
 		pVo.setExperience(experience);

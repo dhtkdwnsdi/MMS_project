@@ -14,6 +14,14 @@ public class EduVO {
 	private String schoolName;
 	private String enterDate;
 	private String graduateDate;
+	private String major;
+	
+	public String getMajor() {
+		return major;
+	}
+	public void setMajor(String major) {
+		this.major = major;
+	}
 	public String getProgNum() {
 		return progNum;
 	}
@@ -56,13 +64,14 @@ public class EduVO {
 	public void setGraduateDate(String graduateDate) {
 		this.graduateDate = graduateDate;
 	}
-	
 	@Override
 	public String toString() {
 		return "EduVO [progNum=" + progNum + ", eduNum=" + eduNum + ", eduCategory=" + eduCategory + ", eduState="
 				+ eduState + ", schoolName=" + schoolName + ", enterDate=" + enterDate + ", graduateDate="
-				+ graduateDate + "]";
+				+ graduateDate + ", major=" + major + "]";
 	}
+	
+	
 	
 	
 

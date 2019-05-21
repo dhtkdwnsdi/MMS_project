@@ -23,6 +23,7 @@ public class EduRegisterAction implements Action {
 		String eduCategory = request.getParameter("eduCategory");
 		String eduState = request.getParameter("eduState");
 		String schoolName = request.getParameter("schoolName");
+		String major = request.getParameter("major");
 		String enterDate = request.getParameter("enterDate");
 		String graduateDate = request.getParameter("graduateDate");
 		
@@ -34,6 +35,7 @@ public class EduRegisterAction implements Action {
 		eduVo.setEduCategory(eduCategory);
 		eduVo.setEduState(eduState);
 		eduVo.setSchoolName(schoolName);
+		eduVo.setMajor(major);
 		if(enterDate != "" ) {
 			eduVo.setEnterDate(enterDate);
 		}

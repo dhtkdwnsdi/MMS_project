@@ -192,7 +192,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		var height = "300";
 		var top = (window.screen.height - height) / 2;
 		var left = (window.screen.width - width) / 2;
-		var url = "/prog?command=messageSearchForm";
+		var url = "/prog?command=certSearchForm";
 		var title = "자격증 검색";
 		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
 				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
@@ -420,11 +420,14 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		// userID 변수에 userID의 입력된 값을 가져오게 함
 		var progNum = $('#progNum').val();
-		var myCertNum = $('#myCertNum').val();
 		var certNum = $('#certNum').val();
-		var certSerial = $('#certSerial').val();
 		var issueDate = $('#kt_datepicker_1').val();
-
+		var certSerial = $('#certSerial').val();
+	
+		if (issueDate == "") {
+			alert("발행일자를 선택해주세요.");
+			$("#issueDate").focus();
+		}
 		if (certNum == "") {
 			alert("자격증을 선택해주세요.");
 			$("#certNum").focus();
@@ -441,12 +444,10 @@ License: You must have a valid license purchased only from themeforest(the above
 				url : '/prog?command=myCertRegist', // 이쪽으로 보낸다(호출URL)
 
 				data : {
-					eduCategory : eduCategory,
-					eduState : eduState,
-					schoolName : schoolName,
-					enterDate : enterDate,
-					graduateDate : graduateDate,
-					progNum : progNum
+					progNum : progNum,
+					certNum : certNum,
+					issueDate : issueDate,
+					certSerial : certSerial,
 				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
 
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환

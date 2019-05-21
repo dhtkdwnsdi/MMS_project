@@ -1,6 +1,7 @@
 package com.mms.controller;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.ProfileFormAction;
 import com.mms.controller.action.career.CareerDeleteAction;
 import com.mms.controller.action.career.CareerListFormAction;
 import com.mms.controller.action.career.CareerRegisterAction;
@@ -35,6 +36,7 @@ import com.mms.controller.action.pl.PlDeleteAction;
 import com.mms.controller.action.pl.PlListFormAction;
 import com.mms.controller.action.pl.PlRegisterAction;
 import com.mms.controller.action.pl.PlRegisterFormAction;
+import com.mms.controller.action.pl.PlSearchFormAction;
 import com.mms.controller.action.pls.PlsDeleteAction;
 import com.mms.controller.action.pls.PlsListFormAction;
 import com.mms.controller.action.pls.PlsRegisterAction;
@@ -80,6 +82,10 @@ public class ProgrammerActionFactory {
 
 		} else if (command.equals("careerUpdate")) {
 			action = new CareerUpdateAction();
+
+		}
+		else if (command.equals("profileForm")) {
+			action = new ProfileFormAction();
 
 		}
 
@@ -148,7 +154,7 @@ public class ProgrammerActionFactory {
 		
 
 		// 포트폴리오
-		else if (command.equals("portpolioList")) {
+		else if (command.equals("portpolioListForm")) {
 			action = new PortpolioListFormAction();
 		}
 		
@@ -159,6 +165,10 @@ public class ProgrammerActionFactory {
 		/**
 		 * @author LYJ
 		 */
+		else if (command.equals("plSearchForm")) {
+			action = new PlSearchFormAction();
+		}
+		
 		else if (command.equals("plListForm")) {
 			action = new PlListFormAction();
 		} else if (command.equals("plDelete")) {

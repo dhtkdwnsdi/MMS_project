@@ -58,7 +58,7 @@ table, td, tr, th {
 							</div>
 
 							<!--begin::Form-->
-							<form class="kt-form kt-form--label-right">
+							<form class="kt-form">
 								<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}">
 								<div class="kt-portlet__body">
 

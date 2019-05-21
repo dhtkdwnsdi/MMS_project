@@ -448,10 +448,14 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		// userID 변수에 userID의 입력된 값을 가져오게 함
 		var progNum = $('#progNum').val();
-		var companyName = $('#plNum').val();
-		var department = $('#profiency').val();
-		var position = $('#experience').val();
+		var plNum = $('#plNum').val();
+		var profiency = $('#profiency').val();
+		var experience = $('#experience').val();
 
+		if (profiency == "") {
+			alert("숙련도를 입력하시오.");
+			return false;
+		}
 		if (progNum == "") {
 			alert("잘못된 정보입니다.");
 			return false;
@@ -464,10 +468,10 @@ License: You must have a valid license purchased only from themeforest(the above
 				url : '/prog?command=plsRegister', // 이쪽으로 보낸다(호출URL)
 
 				data : {
-					progNum : progNum,
 					plNum : plNum,
 					profiency : profiency,
 					experience : experience,
+					progNum : progNum,
 				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
 
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
@@ -482,6 +486,24 @@ License: You must have a valid license purchased only from themeforest(the above
 
 			})
 		}
+	}
+	
+	function openPopUp2() {
+		// window.name = "부모창 이름"; 
+		window.name = "childForm";
+		// window.open("open할 window", "자식창 이름", "팝업창 옵션");
+		var width = "500";
+		var height = "300";
+		var top = (window.screen.height - height) / 2;
+		var left = (window.screen.width - width) / 2;
+		var url = "/prog?command=plSearchForm";
+		var title = "프로그래밍 언어 검색";
+		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
+
+		window.open(url, title, status);
+
+		
 	}
 </script>
 

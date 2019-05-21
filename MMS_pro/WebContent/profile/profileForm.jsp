@@ -34,23 +34,32 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!-- begin:: Page -->
 
-		
-						<!-- begin:: Content -->
-						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
-							<div class="kt-portlet kt-portlet--mobile">
-								<div class="kt-portlet__head kt-portlet__head--lg">
-									<div class="kt-portlet__head-label">
-										<span class="kt-portlet__head-icon">
-										</span>
-										<h3 class="kt-portlet__head-title">
-											${LoginUser.name} 님의 학력 정보
-										</h3>
+
+
+				<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
+
+
+
+						<div class="kt-portlet kt-portlet--mobile">
+									<div class="kt-portlet__head kt-portlet__head--lg">
+										<div class="kt-portlet__head-label">
+											<span class="kt-portlet__head-icon">
+													</span>
+												<h3 class="kt-portlet__head-title">
+												<b>보유자격증</b>
+												</h3>
+												<div class="col kt-align-right">
+												<pre>																					
+												<button type="button" class="btn btn-brand" onclick="openPopUp()">업데이트</button></pre>
+												</div>
+												
+										</div>
 									</div>
-								</div>
 
 											<!--begin::Section-->
+											<!--바디  -->
 											<div class="kt-portlet__body">
-										<form action="prog?command=eduDelete" method="post">
+										<form>
 										<input type="hidden" name="progNum" value="${LoginUser.progNum}">
 											<div class="kt-section">
 												<div class="kt-section__content">
@@ -58,71 +67,211 @@ License: You must have a valid license purchased only from themeforest(the above
 														<thead>
 															<tr>
 																<th>#</th>
-																<th style="font-weight: bold;">분류</th>
-																<th style="font-weight: bold;">상태</th>
-																<th style="font-weight: bold;">학교명</th>
-																<th style="font-weight: bold;">전공</th>
-																<th style="font-weight: bold;">입학일</th>
-																<th style="font-weight: bold;">졸업일</th>
-																<th style="font-weight: bold;">관리</th>
+																<th style="font-weight: bold;">구분</th>
+																<th style="font-weight: bold;">발행처</th>
+																<th style="font-weight: bold;">발행일자</th>
+																<th style="font-weight: bold;">자격증번호</th>
 															</tr>
 														</thead>
 														
 														<tbody style="text-align: center;">
-														<c:forEach items="${eduList}" var="eduVo" varStatus="listStat">
+														<c:forEach items="${myCertList}" var="profVo" varStatus="listStat">
 															<tr>
 																<th scope="row">${listStat.count}
-																<input type="hidden" name="eduNum" id="eduNum" value="${eduVo.eduNum}"></th>
-																<td>${eduVo.eduCategory}</td>
-																<td>${eduVo.eduState}</td>
-																<td>${eduVo.schoolName}</td>
-																<td>${eduVo.major}</td>
-																<td>${eduVo.enterDate}</td>
-																<td>${eduVo.graduateDate}</td>
-																<td>
-																<a href="prog?command=eduUpdateFrom&eduNum=${eduVo.eduNum}">
-																<span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
-																<a href="prog?command=eduDelete&eduNum=${eduVo.eduNum}">
-																<span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a></td>
+																<input type="hidden" name="myCertNum" id="myCertNum" value="${profVo.myCertNum}"></th>
+																<td>${profVo.certName}</td>
+																<td>${profVo.issueOrg}</td>
+																<td>${profVo.issueDate}</td>
+																<td>${profVo.certSerial}</td>
+															</tr>
+														</c:forEach>
+														</tbody>
+													</table>
+												</div>
+											
+										</div>
+									</form>
+							</div>
+						</div>
+						
+					
+					
+
+
+						<div class="kt-portlet kt-portlet--mobile">
+									<div class="kt-portlet__head kt-portlet__head--lg">
+										<div class="kt-portlet__head-label">
+											<span class="kt-portlet__head-icon">
+													</span>
+												<h3 class="kt-portlet__head-title">
+												<b>학력</b>
+												</h3>
+												<div class="col kt-align-right">
+												<pre>																						
+												<button type="button" class="btn btn-brand" onclick="openPopUp()">업데이트</button></pre>
+												</div>
+										</div>
+									</div>
+
+											<!--begin::Section-->
+											<!--바디  -->
+											<div class="kt-portlet__body">
+										<form>
+										<input type="hidden" name="progNum" value="${LoginUser.progNum}">
+											<div class="kt-section">
+												<div class="kt-section__content">
+													<table class="table table-bordered">
+														<thead>
+															<tr>
+																<th>#</th>
+																<th style="font-weight: bold;">학교명</th>
+																<th style="font-weight: bold;">전공</th>
+																<th style="font-weight: bold;">분류</th>
+																<th style="font-weight: bold;">상태</th>
+																<th style="font-weight: bold;">입학일</th>
+																<th style="font-weight: bold;">졸업일</th>
+															</tr>
+														</thead>
+														
+														<tbody style="text-align: center;">
+														<c:forEach items="${eduList}" var="profVo" varStatus="listStat">
+															<tr>
+																<th scope="row">${listStat.count}
+																<input type="hidden" name="eduNum" id="eduNum" value="${profVo.eduNum}"></th>
+																<td>${profVo.schoolName}</td>
+																<td>${profVo.major}</td>
+																<td>${profVo.eduCategory}</td>
+																<td>${profVo.eduState}</td>
+																<td>${profVo.enterDate}</td>
+																<td>${profVo.graduateDate}</td>
 															</tr>
 														</c:forEach>
 														</tbody>
 													</table>
 												</div>
 											<!--end::Section-->
-												<div class="kt-portlet__foot">
-												<div class="kt-form__actions kt-form__actions--right">
-													<div class="row">
-														<!-- <div class="col kt-align-left">
-															<button type="reset" class="btn btn-secondary">수정</button>
-															<button type="reset" class="btn btn-danger">삭제</button>
-														</div> -->
-														<div class="col kt-align-right">
-															<button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button>
-														</div>
-													</div>
-												</div>
-											</div>
 										</div>
 									</form>
-									<!--end: Datatable -->
+							</div>
+						</div>
+					
+					
+					
+					
+					
+					
+							<div class="kt-portlet kt-portlet--mobile">
+									<div class="kt-portlet__head kt-portlet__head--lg">
+										<div class="kt-portlet__head-label">
+											<span class="kt-portlet__head-icon">
+													</span>
+												<h3 class="kt-portlet__head-title">
+												<b>경력</b>
+												</h3>
+												<div class="col kt-align-right">
+												<pre>																						
+												<button type="button" class="btn btn-brand" onclick="openPopUp()">업데이트</button></pre>
+												</div>
+										</div>
+									</div>
+
+											<!--begin::Section-->
+											<!--바디  -->
+											<div class="kt-portlet__body">
+										<form>
+										<input type="hidden" name="progNum" value="${LoginUser.progNum}">
+											<div class="kt-section">
+												<div class="kt-section__content">
+													<table class="table table-bordered">
+														<thead>
+															<tr>
+																<th>#</th>
+																<th style="font-weight: bold;">회사명</th>
+																<th style="font-weight: bold;">근무부서</th>
+																<th style="font-weight: bold;">직책</th>
+																<th style="font-weight: bold;">입사일</th>
+																<th style="font-weight: bold;">퇴사일</th>
+															</tr>
+														</thead>
+														
+														<tbody style="text-align: center;">
+														<c:forEach items="${cList}" var="profVo" varStatus="listStat">
+															<tr>
+																<th scope="row">${listStat.count}
+																<input type="hidden" name="careerNum" id="careerNum" value="${profVo.careerNum}"></th>
+																<td>${profVo.companyName}</td>
+																<td>${profVo.department}</td>
+																<td>${profVo.position}</td>
+																<td>${profVo.joinDate}</td>
+																<td>${profVo.retireDate}</td>
+															</tr>
+														</c:forEach>
+														</tbody>
+													</table>
+												</div>
+											<!--end::Section-->
+										</div>
+									</form>
 							</div>
 						</div>
 
 
-					<!-- begin:: Footer -->
-					<div class="kt-footer kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop">
-						<div class="kt-footer__copyright">
-							2019&nbsp;&copy;&nbsp;<a href="http://keenthemes.com/metronic" target="_blank" class="kt-link">Keenthemes</a>
-						</div>
-						<div class="kt-footer__menu">
-							<a href="http://keenthemes.com/metronic" target="_blank" class="kt-footer__menu-link kt-link">About</a>
-							<a href="http://keenthemes.com/metronic" target="_blank" class="kt-footer__menu-link kt-link">Team</a>
-							<a href="http://keenthemes.com/metronic" target="_blank" class="kt-footer__menu-link kt-link">Contact</a>
-						</div>
-					</div>
 
-					<!-- end:: Footer -->
+
+
+							<div class="kt-portlet kt-portlet--mobile">
+								<div class="kt-portlet__head kt-portlet__head--lg">
+									<div class="kt-portlet__head-label">
+										<span class="kt-portlet__head-icon">
+										</span>
+										<h3 class="kt-portlet__head-title">
+										<b>언어 숙련도</b>
+										</h3>
+										<div class="col kt-align-right">
+										<pre>																					
+										<button type="button" class="btn btn-brand" onclick="openPopUp()">업데이트</button></pre>
+										</div>
+									</div>
+								</div>
+
+											<!--begin::Section-->
+											<!--바디  -->
+											<div class="kt-portlet__body">
+										<form>
+										<input type="hidden" name="progNum" value="${LoginUser.progNum}">
+											<div class="kt-section">
+												<div class="kt-section__content">
+													<table class="table table-bordered">
+														<thead>
+															<tr>
+																<th>#</th>
+																<th style="font-weight: bold;">종류</th>
+																<th style="font-weight: bold;">숙련도</th>
+																<th style="font-weight: bold;">경험(연차)</th>
+															</tr>
+														</thead>
+														
+														<tbody style="text-align: center;">
+														<c:forEach items="${plsList}" var="profVo" varStatus="listStat">
+															<tr>
+																<th scope="row">${listStat.count}
+																<input type="hidden" name="plNum" id="plNum" value="${profVo.plNum}"></th>
+																<td>${profVo.plName}</td>
+																<td>${profVo.profiency}</td>
+																<td>${profVo.experience}</td>
+															</tr>
+														</c:forEach>
+														</tbody>
+													</table>
+												</div>
+											<!--end::Section-->
+										</div>
+									</form>
+									<!--end: Datatable -->
+							</div>
+							<!--바디  -->
+						</div>
+						
 				</div>
 
 		<!-- begin::Scrolltop -->

@@ -159,6 +159,16 @@ License: You must have a valid license purchased only from themeforest(the above
 												id="schoolName">
 										</div>
 									</div>
+									
+									
+									
+									<div class="form-group row">
+										<label class="col-3 col-form-label">전공</label>
+										<div class="col-9">
+											<input class="form-control" type="text" name="major"
+												id="major">
+										</div>
+									</div>
 
 
 
@@ -412,6 +422,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		var eduCategory = $('#eduCategory').val();
 		var eduState = $('#eduState').val();
 		var schoolName = $('#schoolName').val();
+		var major = $('#major').val();
 		var enterDate = $('#kt_datepicker_1').val();
 		var graduateDate = $('#kt_datepicker_4_1').val();
 
@@ -446,6 +457,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					eduCategory : eduCategory,
 					eduState : eduState,
 					schoolName : schoolName,
+					major : major,
 					enterDate : enterDate,
 					graduateDate : graduateDate,
 					progNum : progNum

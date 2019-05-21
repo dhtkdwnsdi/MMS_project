@@ -31,9 +31,8 @@ public class PlsListFormAction implements Action{
 		String progNum = pVo.getProgNum();
 		
 		PlsDAO plsDao = PlsDAO.getInstance();
-
-		ArrayList<PlsVO> plsList = plsDao.selectPls(progNum);
 		
+		ArrayList<PlsVO> plsList = plsDao.selectPls(progNum);
 		
 		request.setAttribute("plsList", plsList);
 		

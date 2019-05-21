@@ -128,8 +128,8 @@ public class PlsDAO extends DBManager {
 	// insert
 	public void insertPls(PlsVO pVo) {
 		String sql = "insert into tbl_pls (" 
-	            + " pls_num, pl_num, profiency, experience, prog_num)"
-				+ " values (?,?,?,?,?) ";
+	            + " pl_num, profiency, experience, prog_num)"
+				+ " values (?,?,?,?) ";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;

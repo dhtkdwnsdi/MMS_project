@@ -190,4 +190,41 @@ public class MyCertDAO extends DBManager {
 				}
 			}
 	   	}
+	   	
+	   	public void insertMyCert(MyCertVO myCertVo) {
+	   		
+	   		String sql = "INSERT INTO TBL_MY_CERT("
+	   				+ "	  PROG_NUM, CERT_NUM, ISSUE_DATE, CERT_SERIAL)"
+	   				+ "	  VALUES(?, ?, ?, ?)" ;
+	   		
+	   		Connection conn = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				
+				conn=DBManager.getConnection();
+				
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, myCertVo.getProgNum());
+				pstmt.setString(2, myCertVo.getCertNum());
+				pstmt.setString(3, myCertVo.getIssueDate());
+				pstmt.setString(4, myCertVo.getCertSerial());
+				
+				pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
+	   				
+	   	}
 }

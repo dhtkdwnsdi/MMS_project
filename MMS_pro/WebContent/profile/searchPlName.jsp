@@ -161,22 +161,19 @@
 								<thead>
 									<tr>
 										<th><b>#</b></th>
-										<th style="font-weight: bold;">자격증명</th>
-										<th style="font-weight: bold;">발급기관</th>
+										<th style="font-weight: bold;">프로그래밍 언어 명</th>
 									</tr>
 								</thead>
 
 								<tbody style="text-align: center;">
-									<c:forEach items="${certList}" var="certVo"
+									<c:forEach items="${PlList}" var="plVo"
 										varStatus="listStat">
 										<tr>
-											<th scope="row">
-										          ${listStat.count}</th>
-											<td><a onclick="sendToParent('${certVo.certNum}','${certVo.certName}','${certVo.issueOrg}')">
-											${certVo.certName}</a>
-											</td>
-											<td><a onclick="sendToParent('${certVo.certNum}','${certVo.certName}','${certVo.issueOrg}')">${certVo.issueOrg}
-											</a></td>
+											<th scope="row">${listStat.count}</th>
+											<td>
+											<a onclick="sendToParent('${plVo.plNum}','${plVo.plName}')">
+											${plVo.plName}</a></td>
+											
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -249,16 +246,10 @@
 
 <!-- begin::Global Config(global config for global JS sciprts) -->
 <script>
-	function sendToParent(certnum,certname, issueorg) {
+	function sendToParent(plnum, plname) {
 		
-	/* 	
-		opener.document.getElementById("certNum").value = document.getElementById("certNum").value;
-		opener.document.getElementById("certName").value = document.getElementById("certName").value;
-		opener.document.getElementById("issueOrg").value = document.getElementById("issueOrg").value; */
-		
-		opener.document.getElementById("certNum").value = certnum;
-		opener.document.getElementById("certName").value = certname;
-		opener.document.getElementById("issueOrg").value = issueorg;
+		opener.document.getElementById("plNum").value = plnum;
+		opener.document.getElementById("plName").value = plname;
 		window.close();
 
 	}

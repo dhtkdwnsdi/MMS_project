@@ -28,6 +28,9 @@ public class EduUpdateAction implements Action {
 		String schoolName = request.getParameter("schoolName");
 		request.setAttribute("schoolName", schoolName);
 		
+		String major = request.getParameter("major");
+		request.setAttribute("major", major);
+		
 		String enterDate = request.getParameter("enterDate");
 		request.setAttribute("enterDate", enterDate);
 		
@@ -40,6 +43,7 @@ public class EduUpdateAction implements Action {
 		eduVo.setEduCategory(eduCategory);
 		eduVo.setEduState(eduState);
 		eduVo.setSchoolName(schoolName);
+		eduVo.setMajor(major);
 		eduVo.setEnterDate(enterDate);
 		eduVo.setGraduateDate(graduateDate);
 		

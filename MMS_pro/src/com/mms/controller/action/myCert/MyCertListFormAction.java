@@ -18,17 +18,13 @@ public class MyCertListFormAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("액션왓나?");
 		
-		// java에서 세션을 이용할 때 꼭 작성.
 		HttpSession session = request.getSession();     
 		
 		String url = "profile/myCertList.jsp";
 
-		// 현재 세션의 ProgrammerVO 타입인 LoginUser를 pVo에 대입
 		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser"); 
 		
-		// pVo의 셋팅된 progNum을 가져와서 progNum 변수에 대입
 		String progNum = pVo.getProgNum(); 
 		 
 		MyCertDAO myCertDao = MyCertDAO.getInstance();
