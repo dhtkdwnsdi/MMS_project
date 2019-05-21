@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.mms.vo.ApplyStmtVO;
+import com.mms.vo.ProjectVO;
 
 import util.DBManager;
 
@@ -309,6 +310,55 @@ public class ApplyStmtDAO extends DBManager {
 				
 			}
 		}
+	}
+	
+	// 프로젝트 중복신청 예방
+	public int applyCheck(ApplyStmtVO aVo) {
+		int result = -1;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT PROJ_NUM" + 
+				"	 	   , PROG_NUM" + 
+				"          , APPLY_STAT" + 
+				"  FROM TBL_APPLY_STMT" + 
+				" WHERE PROJ_NUM = ?" + 
+				"   AND PROG_NUM = ?" + 
+				"   AND APPLY_STAT LIKE '%승인대기%'";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, aVo.getProjNum());
+			pstmt.setString(2, aVo.getProgNum());
+			
+			rs = pstmt.executeQuery();
+			if(aVo.equals("")) {
+				// 데이터 null
+				result = 0;
+			} else if (rs.next()) {
+				// 데이터 존재
+				result = 1;
+				
+			} else {
+				result = -1;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		return result;
+		
 	}
 	
 }
