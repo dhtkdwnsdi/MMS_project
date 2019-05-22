@@ -494,6 +494,133 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!--end::Global App Bundle -->
 	</body>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+<script>
+$.datepicker.setDefaults({
+    dateFormat: 'yy-mm-dd',
+    prevText: '이전 달',
+    nextText: '다음 달',
+    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+    showMonthAfterYear: true,
+    yearSuffix: '년'
+});
+
+$(function() {
+    $("#startDuedate").datepicker();
+    $("#endDuedate").datepicker();
+    $("#deadline").datepicker();
+});
+
+function registerProject(){
+	
+	// userID 변수에 userID의 입력된 값을 가져오게 함
+	var projName = $('#projName').val();
+	var progNum = $('#progNum').val();
+	var partiFormCode = $('#partiFormCode').val();
+	var projCate = $('#projCate').val();
+	var projDetailCate = $('#projDetailCate').val();
+	var osCode = $('#osCode').val();
+	var fwCode = $('#fwCode').val();
+	var dbmsCode = $('#dbmsCode').val();
+	var levelCode = $('#levelCode').val();
+	var startDuedate = $('#startDuedate').val();
+	var endDuedate = $('#endDuedate').val();
+	var deadline = $('#deadline').val();
+	var contents = $('#contents').val();
+	var projFile = $('#projFile').val();
+	
+	
+	if(projName == ""){
+		alert("프로젝트 명을 입력해주세요.");
+		$("#projName").focus();
+		return false;
+	}
+	if(partiFormCode == ""){
+		alert("참여형태를 선택해주세요.");
+		$("#partiFormCode").focus();
+		return false;
+	}
+	if(projCate == ""){
+		alert("분류를 선택해주세요.");
+		$("#projCate").focus();
+		return false;
+	}
+	if(projDetailCate == ""){
+		alert("세분류를 선택해주세요.");
+		$("#projDetailCate").focus();
+		return false;
+	}
+	if(osCode == ""){
+		alert("OS를 선택해주세요.");
+		$("#osCode").focus();
+		return false;
+	}
+	if(fwCode == ""){
+		alert("프레임워크를 선택해주세요.");
+		$("#fwCode").focus();
+		return false;
+	}
+	if(dbmsCode == ""){
+		alert("DBMS를 선택해주세요.");
+		$("#dbmsCode").focus();
+		return false;
+	}
+	if(levelCode == ""){
+		alert("프로젝트 난이도를 선택해주세요.");
+		$("#levelCode").focus();
+		return false;
+	}
+	if(deadline == ""){
+		alert("신청 마감일을 선택해주세요.");
+		$("#deadline").focus();
+		return false;
+	}
+	if(startDuedate == ""){
+		alert("시작 예정일을 선택해주세요.");
+		$("#startDuedate").focus();
+		return false;
+	}
+	if(endDuedate == ""){
+		alert("종료 예정일을 선택해주세요.");
+		$("#endDuedate").focus();
+		return false;
+	}
+	
+	else {
+		var form = $("#frm")[0];
+		var data = new FormData(form);
+	$.ajax({
+		
+		type: 'POST',  // GET or POST 전송방법 
+		enctype: 'multipart/form-data',
+		url: '/proj?command=projectRegister',  // 이쪽으로 보낸다(호출URL)
+		
+		processData: false, 
+        contentType: false,
+	
+		data: data,  
+		cache: false,
+		timeout: 600000,
+		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
+			alert("등록되었습니다.");
+			self.close();
+			opener.location.href = "/proj?command=projectRegisterListForm";
+		},
+		error: function(data){
+			alert("오류:: 다시 시도해주세요.");
+			return false;
+		}
+		 
+	})
+	} 
+}
+</script>
 
 	<!-- end::Body -->
 </html>

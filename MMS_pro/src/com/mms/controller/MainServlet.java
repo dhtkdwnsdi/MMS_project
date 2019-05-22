@@ -40,7 +40,7 @@ public class MainServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 
 		} else if (command.equals("loginForm")) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 			dispatcher.forward(request, response);
 
 		} else {

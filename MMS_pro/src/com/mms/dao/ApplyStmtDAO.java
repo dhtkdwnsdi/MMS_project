@@ -68,6 +68,7 @@ public class ApplyStmtDAO extends DBManager {
 				"          , TBL_APPLY_STMT AP" + 
 				" WHERE PJ.PROG_NUM = PG.PROG_NUM" + 
 				"   AND PJ.PROJ_NUM = AP.PROJ_NUM"
+				/* + " AND PJ.PROJ_STAT LIKE '모집'" */
 				+ " AND AP.PROG_NUM = ?"
 				+ " ORDER BY AP.APPLY_STMT_NUM DESC";
 		
@@ -129,6 +130,7 @@ public class ApplyStmtDAO extends DBManager {
 				" WHERE PJ.PROG_NUM = PG.PROG_NUM" + 
 				"   AND PJ.PROJ_NUM = AP.PROJ_NUM"
 				+ " AND AP.PROG_NUM = ?"
+				+ "	AND PJ.PROJ_STAT LIKE '모집'"
 				+ "	AND AP.APPLY_STAT LIKE '%승인대기%'"
 				+ " ORDER BY AP.APPLY_STMT_NUM DESC";
 		

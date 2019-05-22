@@ -835,7 +835,7 @@ function updateProject(){
 
 			success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
 				alert("수정되었습니다.");
-				location.href = "/proj?command=projectViewForm&projNum="+projNum;
+				location.href = "/proj?command=projectRegisterViewForm&projNum="+projNum;
 			},
 			error: function(data){
 				alert("오류:: 다시 시도해주세요.");

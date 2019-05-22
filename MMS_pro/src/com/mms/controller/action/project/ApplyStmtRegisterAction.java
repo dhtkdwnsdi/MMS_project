@@ -14,6 +14,7 @@ public class ApplyStmtRegisterAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String progNum = request.getParameter("progNum");
 		String projNum = request.getParameter("projNum");
 		String applyPosition = request.getParameter("applyPosition");
@@ -25,6 +26,7 @@ public class ApplyStmtRegisterAction implements Action{
 		aVo.setApplyPosition(applyPosition);
 		
 		aDao.insertApplyStmt(aVo);
+			
 		
 	}
 

@@ -18,7 +18,7 @@ public class MainAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "index.jsp";
+		String url = "main.jsp";
 		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);

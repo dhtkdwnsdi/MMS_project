@@ -192,7 +192,7 @@
 										<ul class="kt-menu__subnav">
 											<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">프로젝트 관리</span></span></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="/proj?command=projectApplyListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">프로젝트 신청</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="components_extended_spinners.jsp" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">내 프로젝트 내역</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="/proj?command=myProjectListForm"  class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">내 프로젝트 내역</span></a></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="/proj?command=myApplyStmtListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">내 프로젝트 신청내역</span></a></li>
 										</ul>
 									</div>

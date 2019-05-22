@@ -111,19 +111,19 @@ License: You must have a valid license purchased only from themeforest(the above
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
 												<h3 class="kt-portlet__head-title">
-													내 프로젝트 신청내역
+													내 프로젝트 내역
 												</h3>
 											</div>
 											<div class="kt-portlet__head-toolbar">
 												<ul class="nav nav-tabs nav-tabs-bold nav-tabs-line   nav-tabs-line-right nav-tabs-line-brand" role="tablist">
 													<li class="nav-item">
 														<a class="nav-link active" data-toggle="tab" href="#kt_portlet_tab_1_1" role="tab">
-															전체리스트
+															진행 프로젝트
 														</a>
 													</li>
 													<li class="nav-item">
 														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_2" role="tab">
-															승인대기
+															종료 프로젝트
 														</a>
 													</li>
 													<!-- <li class="nav-item">
@@ -145,44 +145,22 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                                <th style="font-weight: bold;">담당자</th>
 			                                                <th style="font-weight: bold;">지원직무</th>
 			                                                <th style="font-weight: bold;">상태</th>
-			                                                <th style="font-weight: bold;">관리</th>
 			                                             </tr>
 			                                          </thead>
 			                                          <tbody style="text-align: center;">
-			                                          <c:forEach items="${myApplyAllList}" var="aVo" varStatus="listStat">
+			                                          <c:forEach items="${pPList}" var="pVo" varStatus="listStat">
 			                                             <tr>
 			                                                <th scope="row">${listStat.count}</th>
-			                                                <td>${aVo.projName}</td>
-			                                                <td>${aVo.progName}</td>
-			                                                <td>${aVo.applyPosition}</td>
-			                                                <td>
-			                                                <c:if test="${aVo.applyStat eq '승인대기' }">
-			                                                <span class="kt-badge kt-badge--warning kt-badge--inline">${aVo.applyStat}</span>
-			                                                </c:if>
-			                                                <c:if test="${aVo.applyStat eq '승인' }">
-			                                                <span class="kt-badge kt-badge--success kt-badge--inline">${aVo.applyStat}</span>
-			                                                </c:if>
-			                                                <c:if test="${aVo.applyStat eq '거절' }">
-			                                                <span class="kt-badge kt-badge--danger kt-badge--inline">${aVo.applyStat}</span>
-			                                                </c:if>
-			                                                </td>
-			                                                <td>
-			                                                <c:if test="${aVo.applyStat eq '승인대기' }">
-			                                                <span class="kt-badge kt-badge--danger kt-badge--inline" onclick="deleteApplyStmt('${aVo.applyStmtNum}')">신청 취소</span>
-			                                               	</c:if>
-			                                               	<c:if test="${aVo.applyStat ne '승인대기' }">
-			                                               	-
-			                                               	</c:if>
-			                                                </td>
+			                                                <td><a href="#">${pVo.projName}</a></td>
+			                                                <td>${pVo.progName}</td>
+			                                                <td>${pVo.applyPosition}</td>
+			                                                <td>${pVo.projStat}</td>
 			                                             </tr>
 			                                          </c:forEach>
-			                                          	<c:if test="${empty myApplyAllList}">
-			                                          	<tr>
-			                                             	<td colspan="6">
-			                                             	내역이 없습니다
-			                                             	</td>
-			                                             </tr>
-			                                             </c:if>
+			                                          <c:if test="${empty pPList }">
+			                                          <td colspan="5">내역이 없습니다</td>
+			                                          </c:if>
+			                                          </tbody>
 			                                          </tbody>
                                        				</table>
 												</div>
@@ -195,27 +173,21 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                                <th style="font-weight: bold;">담당자</th>
 			                                                <th style="font-weight: bold;">지원직무</th>
 			                                                <th style="font-weight: bold;">상태</th>
-			                                                <th style="font-weight: bold;">관리</th>
 			                                             </tr>
 			                                          </thead>
 			                                          <tbody style="text-align: center;">
-			                                          <c:forEach items="${myApplyWaitList}" var="aVo" varStatus="listStat">
+			                                          <c:forEach items="${ePList}" var="eVo" varStatus="listStat">
 			                                             <tr>
 			                                                <th scope="row">${listStat.count}</th>
-			                                                <td>${aVo.projName}</td>
-			                                                <td>${aVo.progName}</td>
-			                                                <td>${aVo.applyPosition}</td>
-			                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">${aVo.applyStat}</span></td>
-			                                                <td>
-			                                                <span class="kt-badge kt-badge--danger kt-badge--inline" onclick="deleteApplyStmt('${aVo.applyStmtNum}')">신청 취소</span>
-			                                                </td>
+			                                                <td>${eVo.projName}</td>
+			                                                <td>${eVo.progName}</td>
+			                                                <td>${eVo.applyPosition}</td>
+			                                                <td>${eVo.projStat}</td>
 			                                             </tr>
 			                                          </c:forEach>
-			                                             <c:if test="${empty myApplyWaitList}">
-			                                             	<td colspan="6">
-			                                             	내역이 없습니다
-			                                             	</td>
-			                                             </c:if>
+			                                          <c:if test="${empty ePList }">
+			                                          <td colspan="5">내역이 없습니다</td>
+			                                          </c:if>
 			                                          </tbody>
                                        				</table>
 												</div>

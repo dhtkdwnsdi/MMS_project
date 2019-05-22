@@ -6,6 +6,7 @@ import com.mms.controller.action.project.ApplyStmtDeleteAction;
 import com.mms.controller.action.project.ApplyStmtDenyAction;
 import com.mms.controller.action.project.ApplyStmtRegisterAction;
 import com.mms.controller.action.project.MyApplyStmtListFormAction;
+import com.mms.controller.action.project.MyProjectListFormAction;
 import com.mms.controller.action.project.ProjectApplyAcceptFormAction;
 import com.mms.controller.action.project.ProjectApplyFormAction;
 import com.mms.controller.action.project.ProjectApplyListFormAction;
@@ -92,6 +93,10 @@ public class ProjectActionFactory {
 			}
 			else if(command.equals("applyDeny")) {
 				action = new ApplyStmtDenyAction();
+				
+			}
+			else if(command.equals("myProjectListForm")) {
+				action = new MyProjectListFormAction();
 				
 			}
 			return action;
