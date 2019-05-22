@@ -20,89 +20,175 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Head -->
 	<head>
-		<title>PMMS | 받은 메세지</title>
+		<meta charset="utf-8" />
+		<title>PMMS | 메세지 보기</title>
+		<meta name="description" content="Multi column form examples">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!--begin::Fonts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+		<script>
+			WebFont.load({
+				google: {
+					"families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"]
+				},
+				active: function() {
+					sessionStorage.fonts = true;
+				}
+			});
+		</script>
+
+		<!--end::Fonts -->
+
+		<!--begin:: Global Mandatory Vendors -->
+		<link href="../assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
+
+		<!--end:: Global Mandatory Vendors -->
+
+		<!--begin:: Global Optional Vendors -->
+		<link href="../assets/vendors/general/tether/dist/css/tether.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/select2/dist/css/select2.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/nouislider/distribute/nouislider.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/summernote/dist/summernote.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/animate.css/animate.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/toastr/build/toastr.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/morris.js/morris.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/sweetalert2/dist/sweetalert2.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/socicon/css/socicon.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/line-awesome/css/line-awesome.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/flaticon/flaticon.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/flaticon2/flaticon.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/fontawesome5/css/all.min.css" rel="stylesheet" type="text/css" />
+
+		<!--end:: Global Optional Vendors -->
+
+		<!--begin::Global Theme Styles(used by all pages) -->
+		<link href="../assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
+
+		<!--end::Global Theme Styles -->
+
+		<!--begin::Layout Skins(used by all pages) -->
+		<link href="../assets/demo/default/skins/header/base/light.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/demo/default/skins/header/menu/light.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/demo/default/skins/brand/dark.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/demo/default/skins/aside/dark.css" rel="stylesheet" type="text/css" />
+
+		<!--end::Layout Skins -->
+		<link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
 	</head>
+
 	<!-- end::Head -->
+
+<style>
+#label1 {
+font-weight: bold;
+}
+</style>
 
 	<!-- begin::Body -->
 	<body class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
+
+		<!-- begin:: Page -->
+
+		<div class="kt-grid kt-grid--hor kt-grid--root">
+			<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
+
+						<!-- begin:: Content -->
 						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
 							<div class="row">
 								<div class="col-lg-12">
 
 									<!--begin::Portlet-->
-									<div class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile" id="kt_page_portlet">
-										<div class="kt-portlet__head kt-portlet__head--lg">
+									<div class="kt-portlet">
+										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">받은 메세지</h3>
+												<h3>
+												메세지 보기
+												</h3>
 											</div>
 										</div>
-										<div class="kt-portlet__body">
-											<!--begin::Section-->
-											<div class="kt-section">
-												<div class="kt-section__content">
-													<table class="table table-bordered table-hover">
-														<thead style="text-align: center;">
-															<tr>
-																<th>#</th>
-																<th style="font-weight: bold;">제목</th>
-																<th style="font-weight: bold;">발신자</th>
-																<th style="font-weight: bold;">날짜</th>
-															</tr>
-														</thead>
-														<tbody style="text-align: center;">
-														<c:forEach items="${list}" var="mVo" varStatus="listStat">
-															<tr>
-																<th scope="row">${listStat.count}
-																</th>
-																<td><a href="proj?command=projectApplyViewForm&projNum=${messageList.messageNum}">${messageList.subject}</a>
-																</td>
-																<td>${messageList.sender}</td>
-																<td>${messageList.writeDate}</td>
-															</tr>
-														</c:forEach>
-														</tbody>
-													</table>
-												</div>
-											</div>
 
-											<!--end::Section-->
+										<!--begin::Form-->
+										<form class="kt-form kt-form--label-right">
+											<div class="kt-portlet__body">
+												<div class="form-group row form-group-marginless kt-margin-t-20">
+													<div class="col-lg-4">
+														<label id="label1">제목</label>
+														<input type="hidden" id="projNum" value="${projVo.projNum}">
+														<input type="hidden" id="messageNum" value="${mVo.messageNum}">
+														<input type="text" class="form-control" value="${mVo.msgSubject}" name="msgSubject" id="msgSubject" readonly="readonly">
+													</div>
+													<div class="col-lg-4">
+														<label id="label1">보낸사람</label>
+														<input type="text" class="form-control" readonly="readonly" value="${mVo.receiver}">
+													</div>
+													<div class="col-lg-4">
+														<label id="label1">날짜</label>
+														<input type="text" class="form-control" readonly="readonly" value="${mVo.writeDate}">
+													</div>
+													<div class="col-lg-4">
+														<label id="label1">내용</label>
+														<input type="text" class="form-control" readonly="readonly" value="${mVo.messageContents}">
+													</div>
+												</div>
+												
+												
+												
+												<!-- End Divider -->
+												
+											</div>
 											<div class="kt-portlet__foot">
-												<div class="kt-form__actions kt-form__actions--right">
+												<div class="kt-form__actions">
 													<div class="row">
-														<!-- <div class="col kt-align-left">
-															<button type="reset" class="btn btn-secondary">수정</button>
-															<button type="reset" class="btn btn-danger">삭제</button>
-														</div> -->
-														<!-- <div class="col kt-align-right">
-															<button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button>
-														</div> -->
+														<div class="col-lg-6">
+														</div>
+														<div class="col-lg-6 kt-align-right">
+															<button type="button" class="btn btn-success" id="applyBtn" onclick="openApplyPop('${projVo.projNum}')">
+																참여 신청
+															</button>
+															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
+														</div>
 													</div>
 												</div>
 											</div>
-											
-										</div>
+										</form>
+
+										<!--end::Form-->
 									</div>
-									
+
+									<!--end::Portlet-->
+								</div>
+							</div>
+						</div>
+
+						<!-- end:: Content -->
 					</div>
-				
+
 				</div>
-			</div>
-					<!-- begin:: Footer -->
+			<!-- begin:: Footer -->
 					
 					<%@ include file="../include/footer.jsp" %>
 
-					<!-- end:: Footer -->
-
+			<!-- end:: Footer -->
 		<!-- end:: Page -->
 
 		<!-- begin::Scrolltop -->
 		<div id="kt_scrolltop" class="kt-scrolltop">
 			<i class="fa fa-arrow-up"></i>
 		</div>
-
 		<!-- end::Scrolltop -->
-
 
 
 		<!-- begin::Global Config(global config for global JS sciprts) -->
@@ -201,41 +287,61 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!--end::Global Theme Bundle -->
 
-		<!--begin::Page Scripts(used by this page) -->
-		<script src="../assets/app/custom/general/crud/forms/widgets/bootstrap-datepicker.js" type="text/javascript"></script>
-
-		<!--end::Page Scripts -->
-
 		<!--begin::Global App Bundle(used by all pages) -->
 		<script src="../assets/app/bundle/app.bundle.js" type="text/javascript"></script>
 
 		<!--end::Global App Bundle -->
+		<script src="../assets/app/custom/general/crud/forms/widgets/select2.js" type="text/javascript"></script>
 	</body>
 
 	<!-- end::Body -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <script>
-function openPopUp()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "1030"; 
-	  var height = "700"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "project/projectRegisterForm.jsp"; 
-	  var title = "프로젝트 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+    $.datepicker.setDefaults({
+        dateFormat: 'yy-mm-dd',
+        prevText: '이전 달',
+        nextText: '다음 달',
+        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+        showMonthAfterYear: true,
+        yearSuffix: '년'
+    });
 
-      window.open(url, title, status);
+    $(function() {
+        /* $("#startDuedate").datepicker();
+        $("#endDuedate").datepicker();
+        $("#deadline").datepicker(); */
+    });
 
-
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
-}
-
-function openApplyPop(projNum){
+    
+$(document).ready(
+		function() {
+			$('#cancel').on("click",function(event) {
+						self.location = "prog?command=messageListForm";
+					});
+			
+			$('#delete').on("click", function(evt) {
+				
+				var confirmStat = confirm("삭제하시겠습니까?");
+				
+				if(confirmStat == true){
+					var messageNum = $('#messageNum').val();
+					alert("삭제되었습니다.");
+					self.location = "prog?command=messageDelete&messageNum="+messageNum;	
+				} else{
+					return false;
+				}
+				
+			});
+			
+		});
+		
+function openMessagePop(projNum){
 	var projNum = projNum;
     var width = "500"; 
 	var height = "440"; 
@@ -249,7 +355,6 @@ function openApplyPop(projNum){
     window.open(url, title, status);
     
     
-}
-
+}		
 </script>
 </html>

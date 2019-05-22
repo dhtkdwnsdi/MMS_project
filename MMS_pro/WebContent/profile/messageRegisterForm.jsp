@@ -153,7 +153,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			</div>
 			<div class="kt-portlet__body">
 				<form class="kt-form" id="kt_form">
-					<input type="hidden" name="receiver" id="receiver"
+					<input type="hidden" name="sendReceiver" id="sendReceiver"
 						value="${LoginUser.progNum}">
 					<div class="row">
 						<div class="col-xl-2"></div>
@@ -168,13 +168,14 @@ License: You must have a valid license purchased only from themeforest(the above
 										<div class="col-9">
 											
 											<div class="kt-input-icon kt-input-icon--right">
-												<input type="text" class="form-control" id="sender"
-													name="sender" readonly> <span
-													class="kt-input-icon__icon kt-input-icon__icon--right">
+											<input type="hidden" id="sendSender" name="sendSender">
+												<input type="text" class="form-control" id="name"
+													name="name" readonly> 
+													<span class="kt-input-icon__icon kt-input-icon__icon--right">
 													<span>
 														<button type="button"
 															class="btn btn-outline-hover-danger btn-icon"
-															onClick="openPopUp2()" id="progNumCherck">
+															onClick="openPopUp2()" id="progNumCheck">
 															<i class="la la-search"></i>
 														</button>
 												</span>
@@ -185,15 +186,15 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="form-group row">
 										<label class="col-3 col-form-label">제목</label>
 										<div class="col-9">
-											<input class="form-control" type="text" name="msg_subject"
-												id="msg_subject">
+											<input class="form-control" type="text" name="sendSubject"
+												id="sendSubject">
 										</div>
 									</div>
 									<div class="form-group row">
 										<label class="col-3 col-form-label">내용</label>
 										<div class="col-9">
 										<textarea style="width: 550px; height: 120px;"
-										class="form-control" id="message_contents" name="message_contents"></textarea>
+										class="form-control" id="sendContents" name="sendContents"></textarea>
 											
 										</div>
 									</div>
@@ -204,7 +205,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="row">
 										<div class="col kt-align-right">
 											<button type="button" class="btn btn-brand"
-												onclick="registerCareer()">전송</button>
+												onclick="registerMessage()">전송</button>
 										</div>
 									</div>
 								</div>
@@ -429,55 +430,34 @@ License: You must have a valid license purchased only from themeforest(the above
 </body>
 <script>
 	// 경력 등록 AJAX
-	function registerCareer() {
+	function registerMessage() {
 
 		// userID 변수에 userID의 입력된 값을 가져오게 함
-		var progNum = $('#progNum').val();
-		var companyName = $('#companyName').val();
-		var department = $('#department').val();
-		var position = $('#position').val();
-		var joinDate = $('#kt_datepicker_1').val();
-		var retireDate = $('#kt_datepicker_4_1').val();
+		
+		var sendSubject = $('#sendSubject').val();
+		var sendContents = $('#sendContents').val();
+		var sendReceiver = $('#sendReceiver').val();
+		var sendSender = $('#sendSender').val();
 
-		if (companyName == "") {
-			alert("회사 명을 입력해주세요.");
-			$("#companyName").focus();
-			return false;
-		}
-		if (department == "") {
-			alert("부서를 입력해주세요.");
-			$("#department").focus();
-			return false;
-		}
-		if (position == "") {
-			alert("직책을 입력해주세요.");
-			$("#position").focus();
-			return false;
-		}
-		if (progNum == "") {
-			alert("잘못된 정보입니다.");
-			return false;
-		} else {
+		
 
 			$.ajax({
 
 				type : 'POST', // GET or POST 전송방법 
 
-				url : '/prog?command=careerRegister', // 이쪽으로 보낸다(호출URL)
+				url : '/prog?command=messageRegister', // 이쪽으로 보낸다(호출URL)
 
 				data : {
-					companyName : companyName,
-					department : department,
-					position : position,
-					joinDate : joinDate,
-					retireDate : retireDate,
-					progNum : progNum
+					sendSubject : sendSubject,
+					sendContents : sendContents,
+					sendReceiver : sendReceiver,
+					sendSender : sendSender,
 				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
 
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
-					alert("등록 되었습니다.");
+					alert("전송 되었습니다.");
 					self.close();
-					opener.location.href = "/prog?command=careerListForm";
+					opener.location.href = "/prog?command=messageListForm";
 				},
 				error : function(data) {
 					alert("오류:: 다시 시도해주세요.");
@@ -486,7 +466,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 			})
 		}
-	}
+	
 </script>
 
 <link rel="stylesheet"

@@ -127,139 +127,27 @@ font-weight: bold;
 													<div class="col-lg-4">
 														<label id="label1">제목</label>
 														<input type="hidden" id="projNum" value="${projVo.projNum}">
-														<input type="text" class="form-control" value="${projVo.projName}" name="projName" id="projName" readonly="readonly">
+														<input type="hidden" id="messageNum" value="${mVo.messageNum}">
+														<input type="text" class="form-control" value="${mVo.msgSubject}" name="msgSubject" id="msgSubject" readonly="readonly">
 													</div>
 													<div class="col-lg-4">
-														<label id="label1">보낸사람</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.progName}">
+														<label id="label1">보낸 사람</label>
+														<input type="text" class="form-control" readonly="readonly" value="${mVo.sender}">
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">날짜</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.projStat}">
+														<input type="text" class="form-control" readonly="readonly" value="${mVo.writeDate}">
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">내용</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.projStat}">
+														<input type="text" class="form-control" readonly="readonly" value="${mVo.messageContents}">
 													</div>
 												</div>
-												<!-- Start Divider -->
-												<br><br>
-												<div class="kt-section__content kt-section__content--solid">
-													<div class="kt-divider">
-														<span></span>
-													</div>
-												</div>
-												<br>
+												
+												
+												
 												<!-- End Divider -->
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-4">
-														<label id="label1">참여 형태</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.partiFormCode}">
-													</div>
-													<div class="col-lg-4">
-														<label id="label1">분류</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.projCate}">
-													</div>
-													<div class="col-lg-4">
-														<label id="label1">세분류</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.projDetailCate}">
-													</div>
-												</div>
-												<!-- Start Divider -->
-												<br><br>
-												<div class="kt-section__content kt-section__content--solid">
-													<div class="kt-divider">
-														<span></span>
-													</div>
-												</div>
-												<br>
-												<!-- End Divider -->
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-6">
-														<label id="label1">OS 종류</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.osCode}">
-													</div>
-													<div class="col-lg-6">
-														<label id="label1">프레임워크 종류</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.fwCode}">
-													</div>
-												</div>
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-6">
-														<label id="label1">DBMS 종류</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.dbmsCode}">
-													</div>
-													<div class="col-lg-6">
-														<label id="label1">프로젝트 난이도</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.levelCode}">
-													</div>
-												</div>
-												<!-- Start Divider -->
-												<br><br>
-												<div class="kt-section__content kt-section__content--solid">
-													<div class="kt-divider">
-														<span></span>
-													</div>
-												</div>
-												<br>
-												<!-- End Divider -->
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-4">
-														<label id="label1">신청 마감일</label>
-														<div class="kt-input-icon">
-															<input type="text" class="form-control" value="${projVo.deadline}" name="deadline" id="deadline" readonly="readonly">
-															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
-														</div>
-													</div>
-													<div class="col-lg-4">
-														<label id="label1">시작 예정일</label>
-														<div class="kt-input-icon">
-															<input type="text" class="form-control" value="${projVo.startDuedate}" name="startDuedate" id="startDuedate" readonly="readonly">
-															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
-														</div>
-													</div>
-													<div class="col-lg-4">
-														<label id="label1">종료 예정일</label>
-														<div class="kt-input-icon">
-															<input type="text" class="form-control" value="${projVo.endDuedate}" name="endDuedate" id="endDuedate" readonly="readonly">
-															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
-														</div>
-													</div>
-												</div>
-												<!-- Start Divider -->
-												<br><br>
-												<div class="kt-section__content kt-section__content--solid">
-													<div class="kt-divider">
-														<span></span>
-													</div>
-												</div>
-												<br>
-												<!-- End Divider -->
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-12">
-														<label id="label1">프로젝트 내용</label>
-														<textarea class="form-control" name="contents" id="contents" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 129px;" readonly="readonly">${projVo.contents}</textarea>
-													</div>
-												</div>
-												<!-- Start Divider -->
-												<br><br>
-												<div class="kt-section__content kt-section__content--solid">
-													<div class="kt-divider">
-														<span></span>
-													</div>
-												</div>
-												<br>
-												<!-- End Divider -->
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-														<div class="col-lg-12">
-																<label id="label1">첨부파일</label>
-																<div></div>
-																<div class="custom-file">
-																	<label class="custom-file-label" for="customFile" style="text-align: left;">
-																	<a href="/proj?command=download&projFile=${projVo.projFile}">${projVo.projFile}</a></label>
-																</div>
-														</div>
-												</div>
+												
 											</div>
 											<div class="kt-portlet__foot">
 												<div class="kt-form__actions">
@@ -434,7 +322,7 @@ font-weight: bold;
 $(document).ready(
 		function() {
 			$('#cancel').on("click",function(event) {
-						self.location = "proj?command=projectApplyListForm";
+						self.location = "prog?command=messageListForm";
 					});
 			
 			$('#delete').on("click", function(evt) {
@@ -442,9 +330,9 @@ $(document).ready(
 				var confirmStat = confirm("삭제하시겠습니까?");
 				
 				if(confirmStat == true){
-					var projNum = $('#projNum').val();
+					var messageNum = $('#messageNum').val();
 					alert("삭제되었습니다.");
-					self.location = "proj?command=projectDelete&projNum="+projNum;	
+					self.location = "prog?command=messageDelete&messageNum="+messageNum;	
 				} else{
 					return false;
 				}

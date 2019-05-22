@@ -171,12 +171,9 @@
 										varStatus="listStat">
 										<tr>
 											<th scope="row">
-											<input type="hidden" name="progNum"
-												value="${pVo.progNum}" id="progNum"> <a
-												onclick="sendToParent()">${listStat.count}</a></th>
-											<td><input type="hidden" name=name
-												value="${pVo.name}" id="name"> <a
-												onclick="sendToParent()">${pVo.name}</a></td>
+											${listStat.count}</th>
+											<td><a onclick="sendToParent('${pVo.progNum}','${pVo.name}')">
+											${pVo.name}</a></td>
 											<td>${pVo.id}</td>
 										</tr>
 									</c:forEach>
@@ -197,29 +194,7 @@
 	<!-- end:: Content -->
 </div>
 
-<!-- begin:: Footer -->
-<div
-	class="kt-footer kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop">
-	<div class="kt-footer__copyright">
-		2019&nbsp;&copy;&nbsp;<a href="http://keenthemes.com/metronic"
-			target="_blank" class="kt-link">Keenthemes</a>
-	</div>
-	<div class="kt-footer__menu">
-		<a href="http://keenthemes.com/metronic" target="_blank"
-			class="kt-footer__menu-link kt-link">About</a> <a
-			href="http://keenthemes.com/metronic" target="_blank"
-			class="kt-footer__menu-link kt-link">Team</a> <a
-			href="http://keenthemes.com/metronic" target="_blank"
-			class="kt-footer__menu-link kt-link">Contact</a>
-	</div>
-</div>
 
-<!-- end:: Footer -->
-</div>
-</div>
-</div>
-
-<!-- end:: Page -->
 
 <!-- begin::Quick Panel -->
 <div id="kt_quick_panel" class="kt-quick-panel">
@@ -254,9 +229,12 @@
 
 <!-- begin::Global Config(global config for global JS sciprts) -->
 <script>
-	function sendToParent() {
-		document.getElementById("progNum").value = opener.document.getElementById("progNum").value;
-		//document.getElementById("name").value = opener.document.getElementById("name").value;
+	function sendToParent(prognum, name) {
+
+		
+		opener.document.getElementById("sendSender").value = prognum;
+		opener.document.getElementById("name").value = name;
+		
 		window.close();
 
 	}

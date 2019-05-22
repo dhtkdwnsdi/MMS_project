@@ -27,33 +27,7 @@ public class MessageDAO extends DBManager {
 		return instance;
 	}
 
-	/*
-	 * // list public ArrayList<MessageVO> messageList(String progNum) { Connection
-	 * conn = null; PreparedStatement pstmt = null; ResultSet rs = null;
-	 * 
-	 * 
-	 * String sql =
-	 * "select message_num, msg_subject, sender, write_date from tbl_message where receiver = "
-	 * + progNum; ArrayList<MessageVO> list = new ArrayList<MessageVO>();
-	 * 
-	 * try { conn = getConnection(); pstmt = conn.prepareStatement(sql); rs =
-	 * pstmt.executeQuery();
-	 * 
-	 * 
-	 * while (rs.next()) { MessageVO mVo = new MessageVO();
-	 * 
-	 * mVo.setMessageNum(rs.getString("message_num"));
-	 * mVo.setMsgSubject(rs.getString("msg_subject")); //
-	 * mVo.setMessageContents(rs.getString("message_contents"));
-	 * mVo.setWriteDate(rs.getString("write_date"));
-	 * mVo.setReceiver(rs.getString("receiver"));
-	 * mVo.setSender(rs.getString("sender"));
-	 * 
-	 * list.add(mVo); } } catch (SQLException e) { e.printStackTrace(); } finally {
-	 * try { if (rs != null) rs.close(); if (pstmt != null) pstmt.close(); if (conn
-	 * != null) conn.close(); } catch (Exception e) { e.printStackTrace(); } }
-	 * return list; }
-	 */
+	
 	// 수신 목록 리스트
 	public ArrayList<MessageVO> sendMessageList(String progNum) {
 		Connection conn = null;
@@ -156,21 +130,22 @@ public class MessageDAO extends DBManager {
 	}
 	
 	//상세보기
-	public MessageVO viewMessage(String messageNum) {
+	public MessageVO viewSendMessage(String messageNum) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		MessageVO mVo = null;
 		
-		String sql = "select m.message_num, m.msg_subject, m.write_date, m.message_contents, p.prog_name as sender, p.prog_name as receiver"
-					+"		from message m, programmer p where message_num=? and m.receiver = p.prog_num";
+		String sql = "select m.message_num, m.msg_subject, m.write_date, m.message_contents, p.name as receiver"
+					+"		from tbl_message m, tbl_programmer p where message_num=? and receiver = p.prog_num";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, messageNum);
 			rs = pstmt.executeQuery();
 			
-			pstmt.setString(1, messageNum);
+			
 			
 			while (rs.next()) {
 				mVo = new MessageVO();
@@ -199,6 +174,52 @@ public class MessageDAO extends DBManager {
 		}
 		return mVo;
 	}
+	
+	//상세보기
+		public MessageVO viewReceiveMessage(String messageNum) {
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			MessageVO mVo = null;
+			
+			String sql = "select m.message_num, m.msg_subject, m.write_date, m.message_contents, p.name as sender"
+						+"		from tbl_message m, tbl_programmer p where message_num=? and sender = p.prog_num";
+			
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, messageNum);
+				rs = pstmt.executeQuery();
+				
+				
+				
+				while (rs.next()) {
+					mVo = new MessageVO();
+					 
+					mVo.setMessageNum(rs.getString("message_num"));
+					mVo.setMsgSubject(rs.getString("msg_subject"));
+					mVo.setMessageContents(rs.getString("message_contents"));
+					mVo.setWriteDate(rs.getString("write_date"));
+					mVo.setReceiver(rs.getString("receiver"));
+					mVo.setSender(rs.getString("sender"));
+
+				}
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					if (rs != null)
+						rs.close();
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			return mVo;
+		}
 	
 	//등록
 	public void insertMessage(MessageVO mVo) {
@@ -230,6 +251,32 @@ public class MessageDAO extends DBManager {
 		}
 	}
 	
-	
+	//삭제
+	public int deleteMessage(String messageNumIndivi) {
+		String sql = "delete from tbl_message where message_num = ?";
+		
+		int res = 0;
+		
+		Connection conn = getConnection();
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, messageNumIndivi);
+			res=pstmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();
+				if(conn != null)
+					conn.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return res;
+	}
 	
 }
