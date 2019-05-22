@@ -126,21 +126,20 @@ font-weight: bold;
 												<div class="form-group row form-group-marginless kt-margin-t-20">
 													<div class="col-lg-4">
 														<label id="label1">제목</label>
-														<input type="hidden" id="projNum" value="${projVo.projNum}">
-														<input type="hidden" id="messageNum" value="${mVo.messageNum}">
-														<input type="text" class="form-control" value="${mVo.msgSubject}" name="msgSubject" id="msgSubject" readonly="readonly">
+														<input type="hidden" id="sendNum" value="${sVo.sendNum}">
+														<input type="text" class="form-control" value="${sVo.sendSubject}" name="sendSubject" id="sendSubject" readonly="readonly">
 													</div>
 													<div class="col-lg-4">
-														<label id="label1">보낸사람</label>
-														<input type="text" class="form-control" readonly="readonly" value="${mVo.receiver}">
+														<label id="label1">보낸 사람</label>
+														<input type="text" class="form-control" readonly="readonly" value="${sVo.sendReceiver}">
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">날짜</label>
-														<input type="text" class="form-control" readonly="readonly" value="${mVo.writeDate}">
+														<input type="text" class="form-control" readonly="readonly" value="${sVo.sendWriteDate}">
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">내용</label>
-														<input type="text" class="form-control" readonly="readonly" value="${mVo.messageContents}">
+														<input type="text" class="form-control" readonly="readonly" value="${sVo.sendContents}">
 													</div>
 												</div>
 												
@@ -330,9 +329,9 @@ $(document).ready(
 				var confirmStat = confirm("삭제하시겠습니까?");
 				
 				if(confirmStat == true){
-					var messageNum = $('#messageNum').val();
+					var messageNum = $('#sendNum').val();
 					alert("삭제되었습니다.");
-					self.location = "prog?command=messageDelete&messageNum="+messageNum;	
+					self.location = "prog?command=sendMsgDelete&sendNum="+sendNum;	
 				} else{
 					return false;
 				}

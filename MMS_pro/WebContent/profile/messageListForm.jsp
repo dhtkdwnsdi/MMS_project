@@ -185,11 +185,11 @@ License: You must have a valid license purchased only from themeforest(the above
 							</div>
 							<div class="kt-portlet__body">
 								<div class="tab-content">
-									<form method="post" action="/prog?command=receiveMsgDelete">
+									<input type="hidden" name="progNum"
+										value="${LoginUser.progNum}">
 										<div class="tab-pane active" id="kt_portlet_tab_1_1">
+									<form method="post" action="/prog?command=receiveMsgDelete">
 											<table class="table table-bordered table-hover">
-												<input type="hidden" name="progNum"
-													value="${LoginUser.progNum}">
 												<thead style="text-align: center;">
 													<tr>
 														<th>#</th>
@@ -199,7 +199,7 @@ License: You must have a valid license purchased only from themeforest(the above
 													</tr>
 												</thead>
 												<tbody style="text-align: center;">
-													<c:forEach items="${MessageList}" var="rVo"
+													<c:forEach items="${ReceiveMessageList}" var="rVo"
 														varStatus="listStat">
 														<tr>
 															<td style="text-align: center;"><input type="hidden"
@@ -207,7 +207,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																id="receiveNum"><input type="checkbox"
 																value="${rVo.receiveNum}" name="msgCheck" id="msgCheck"></td>
 															<td><a
-																href="prog?command=messagereceiveViewForm&receiveNum=${rVo.receiveNum}">${rVo.receiveSubject}</a></td>
+																href="prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}">${rVo.receiveSubject}</a></td>
 															<td>${rVo.receiveReceiver}</td>
 															<td>${rVo.receiveWriteDate}</td>
 														</tr>
@@ -217,10 +217,10 @@ License: You must have a valid license purchased only from themeforest(the above
 												<button type="button" class="btn btn-brand"
 													onclick="openPopUp()">등록</button>
 												<button type="submit" class="btn btn-danger">삭제</button>
-										</div>
 									</form>
-									<form method="post" action="/prog?command=sendMsgDelete">
+										</div>
 										<div class="tab-pane" id="kt_portlet_tab_1_2">
+									<form method="post" action="/prog?command=sendMsgDelete">
 											<table class="table table-bordered table-hover">
 												<thead style="text-align: center;">
 													<tr>
@@ -231,7 +231,7 @@ License: You must have a valid license purchased only from themeforest(the above
 													</tr>
 												</thead>
 												<tbody style="text-align: center;">
-													<c:forEach items="${MessageList}" var="sVo"
+													<c:forEach items="${SendMessageList}" var="sVo"
 														varStatus="listStat">
 														<tr>
 															<td style="text-align: center;"><input type="hidden"
@@ -239,7 +239,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																type="checkbox" value="${sVo.sendNum}" name="msgCheck"
 																id="msgCheck"></td>
 															<td><a
-																href="prog?command=messageSendViewForm&messageNum=${sVo.sendNum}">${sVo.sendSubject}</a></td>
+																href="prog?command=messageSendViewForm&SendNum=${sVo.sendNum}">${sVo.sendSubject}</a></td>
 															<td>${sVo.sendSender}</td>
 															<td>${sVo.sendWriteDate}</td>
 														</tr>
@@ -249,8 +249,8 @@ License: You must have a valid license purchased only from themeforest(the above
 											<button type="button" class="btn btn-brand"
 												onclick="openPopUp()">등록</button>
 											<button type="submit" class="btn btn-danger">삭제</button>
-										</div>
 									</form>
+										</div>
 									<div>
 										<%-- <button type="button" class="btn btn-brand" onclick="deleteMessage('${mVo.messageNum}')">삭제</button> --%>
 									</div>

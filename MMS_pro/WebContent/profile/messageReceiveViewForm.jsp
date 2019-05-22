@@ -126,21 +126,20 @@ font-weight: bold;
 												<div class="form-group row form-group-marginless kt-margin-t-20">
 													<div class="col-lg-4">
 														<label id="label1">제목</label>
-														<input type="hidden" id="projNum" value="${projVo.projNum}">
-														<input type="hidden" id="messageNum" value="${mVo.messageNum}">
-														<input type="text" class="form-control" value="${mVo.msgSubject}" name="msgSubject" id="msgSubject" readonly="readonly">
+														<input type="hidden" id="receiveNum" value="${rVo.receiveNum}">
+														<input type="text" class="form-control" value="${rVo.receiveSubject}" name="receiveSubject" id="receiveSubject" readonly="readonly">
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">보낸 사람</label>
-														<input type="text" class="form-control" readonly="readonly" value="${mVo.sender}">
+														<input type="text" class="form-control" readonly="readonly" value="${rVo.receiveSender}">
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">날짜</label>
-														<input type="text" class="form-control" readonly="readonly" value="${mVo.writeDate}">
+														<input type="text" class="form-control" readonly="readonly" value="${rVo.receiveWriteDate}">
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">내용</label>
-														<input type="text" class="form-control" readonly="readonly" value="${mVo.messageContents}">
+														<input type="text" class="form-control" readonly="readonly" value="${mVo.receiveContents}">
 													</div>
 												</div>
 												
@@ -156,7 +155,7 @@ font-weight: bold;
 														</div>
 														<div class="col-lg-6 kt-align-right">
 															<button type="button" class="btn btn-success" id="applyBtn" onclick="openApplyPop('${projVo.projNum}')">
-																참여 신청
+																답장
 															</button>
 															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
 														</div>
@@ -330,9 +329,9 @@ $(document).ready(
 				var confirmStat = confirm("삭제하시겠습니까?");
 				
 				if(confirmStat == true){
-					var messageNum = $('#messageNum').val();
+					var messageNum = $('#receiveNum').val();
 					alert("삭제되었습니다.");
-					self.location = "prog?command=messageDelete&messageNum="+messageNum;	
+					self.location = "prog?command=receiveMsgDelete&receiveNum="+receiveNum;	
 				} else{
 					return false;
 				}

@@ -10,9 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.mms.controller.action.Action;
-import com.mms.dao.MessageDAO;
-import com.mms.vo.MessageVO;
+import com.mms.dao.ReceiverMsgDAO;
+import com.mms.dao.SenderMsgDAO;
 import com.mms.vo.ProgrammerVO;
+import com.mms.vo.ReceiveMsgVO;
+import com.mms.vo.SendMsgVO;
 
 public class MessageListFormAction implements Action {
 	
@@ -26,13 +28,15 @@ public class MessageListFormAction implements Action {
 		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser");
 		String progNum = pVo.getProgNum();
 		
-		MessageDAO mDao = MessageDAO.getInstance();
 		
-		ArrayList<MessageVO> sendMessageList = mDao.sendMessageList(progNum);
-		request.setAttribute("sendMessageList", sendMessageList);
+		ReceiverMsgDAO rDao = ReceiverMsgDAO.getInstance();
+		SenderMsgDAO sDao = SenderMsgDAO.getInstance();
 		
-		ArrayList<MessageVO> receiveMessageList = mDao.receiveMessageList(progNum);
-		request.setAttribute("receiveMessageList", receiveMessageList);
+		ArrayList<ReceiveMsgVO> ReceiveMessageList = rDao.ReceiveMessageList(progNum);
+		request.setAttribute("ReceiveMessageList", ReceiveMessageList);
+		
+		ArrayList<SendMsgVO> SendMessageList = sDao.SendMessageList(progNum);
+		request.setAttribute("SendMessageList", SendMessageList);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

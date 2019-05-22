@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
-import com.mms.dao.MessageDAO;
-import com.mms.vo.MessageVO;
+import com.mms.dao.SenderMsgDAO;
+import com.mms.vo.SendMsgVO;
 
 public class MessageSendViewFormAction implements Action {
 
@@ -17,11 +17,11 @@ public class MessageSendViewFormAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String url = "profile/messageSendViewForm.jsp";
-		String messageNum = request.getParameter("messageNum");
-		MessageVO mVo = new MessageVO();
-		MessageDAO mDao = MessageDAO.getInstance();
-		mVo = mDao.viewSendMessage(messageNum);
-		request.setAttribute("mVo", mVo);
+		String sendNum = request.getParameter("sendNum");
+		SendMsgVO sVo = new SendMsgVO();
+		SenderMsgDAO sDao = SenderMsgDAO.getInstance();
+		sVo = sDao.viewMessage(sendNum);
+		request.setAttribute("sVo", sVo);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

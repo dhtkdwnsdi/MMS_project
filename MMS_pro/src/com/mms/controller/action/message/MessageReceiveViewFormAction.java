@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
-import com.mms.dao.MessageDAO;
-import com.mms.vo.MessageVO;
+import com.mms.dao.ReceiverMsgDAO;
+import com.mms.vo.ReceiveMsgVO;
 
 public class MessageReceiveViewFormAction implements Action {
 
@@ -17,11 +17,11 @@ public class MessageReceiveViewFormAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String url = "profile/messageReceiveViewForm.jsp";
-		String messageNum = request.getParameter("messageNum");
-		MessageVO mVo = new MessageVO();
-		MessageDAO mDao = MessageDAO.getInstance();
-		mVo = mDao.viewReceiveMessage(messageNum);
-		request.setAttribute("mVo", mVo);
+		String receiveNum = request.getParameter("receiveNum");
+		ReceiveMsgVO rVo = new ReceiveMsgVO();
+		ReceiverMsgDAO rDao = ReceiverMsgDAO.getInstance();
+		rVo = rDao.viewMessage(receiveNum);
+		request.setAttribute("rVo", rVo);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

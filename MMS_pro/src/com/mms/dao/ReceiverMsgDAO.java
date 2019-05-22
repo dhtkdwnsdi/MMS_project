@@ -27,21 +27,21 @@ public class ReceiverMsgDAO extends DBManager{
 
 	
 	// 수신 목록 리스트
-	public ArrayList<ReceiveMsgVO> MessageList(String progNum) {
+	public ArrayList<ReceiveMsgVO> ReceiveMessageList(String progNum) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		String sql = "Select m.receive_num"
 				+ "		   , m.receive_subject"
-				+ "		   , p.name as receiver"
+				+ "		   , p.name as receive_receiver"
 				+ "		   , m.receive_write_date"
 				+ "	    from tbl_receive_msg m"
 				+ "		   , tbl_programmer p"
-				+ "    where m.receiver=p.prog_num"
-				+ "	     and m.sender = ?";
+				+ "    where receive_receiver=p.prog_num"
+				+ "	     and m.receive_sender = ?";
 		
-		ArrayList<ReceiveMsgVO> MessageList = new ArrayList<ReceiveMsgVO>();
+		ArrayList<ReceiveMsgVO> ReceiveMessageList = new ArrayList<ReceiveMsgVO>();
 
 		try {
 			conn = getConnection();
@@ -52,12 +52,12 @@ public class ReceiverMsgDAO extends DBManager{
 
 			while (rs.next()) {
 				ReceiveMsgVO rVo = new ReceiveMsgVO();
-				rVo.setReceiveNum(rs.getString("receiveNum"));
-				rVo.setReceiveSubject(rs.getString("receiveSubject"));
-				rVo.setReceiveReceiver(rs.getString("receiveReceiver"));
-				rVo.setReceiveWriteDate(rs.getString("receiveWriteDate"));
+				rVo.setReceiveNum(rs.getString("receive_Num"));
+				rVo.setReceiveSubject(rs.getString("receive_Subject"));
+				rVo.setReceiveReceiver(rs.getString("receive_Receiver"));
+				rVo.setReceiveWriteDate(rs.getString("receive_Write_Date"));
 
-				MessageList.add(rVo);
+				ReceiveMessageList.add(rVo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -73,23 +73,30 @@ public class ReceiverMsgDAO extends DBManager{
 				e.printStackTrace();
 			}
 		}
-		return MessageList;
+		return ReceiveMessageList;
 	}
 	
 	//상세보기
-	public ReceiveMsgVO viewMessage(String messageNum) {
+	public ReceiveMsgVO viewMessage(String receiveNum) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ReceiveMsgVO rVo = null;
 		
-		String sql = "select m.receive_num, m.receive_subject, m.receive_write_date, m.receive_contents, p.name as receiver"
-					+"		from tbl_receive_msg m, tbl_programmer p where message_num=? and receiver = p.prog_num";
+		String sql = "select m.receive_num"
+				+",			 m.receive_subject"
+				+",			 m.receive_write_date"
+				+",			 m.receive_contents"
+				+",		     p.name as receive_receiver"
+				+"		from tbl_receive_msg m"
+				+", 		 tbl_programmer p "
+				+ "	   where receive_num=? "
+				+ "      and receive_receiver = p.prog_num";
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, messageNum);
+			pstmt.setString(1, receiveNum);
 			rs = pstmt.executeQuery();
 			
 			
@@ -97,11 +104,11 @@ public class ReceiverMsgDAO extends DBManager{
 			while (rs.next()) {
 				rVo = new ReceiveMsgVO();
 				 
-				rVo.setReceiveNum(rs.getString("receiveNum"));
-				rVo.setReceiveSubject(rs.getString("receiveSubject"));
-				rVo.setReceiveWriteDate(rs.getString("receiveWriteDate"));
-				rVo.setReceiveContents(rs.getString("receiveContents"));
-				rVo.setReceiveReceiver(rs.getString("receiveReceiver"));
+				rVo.setReceiveNum(rs.getString("receive_num"));
+				rVo.setReceiveSubject(rs.getString("receive_subject"));
+				rVo.setReceiveWriteDate(rs.getString("receive_write_date"));
+				rVo.setReceiveContents(rs.getString("receive_contents"));
+				rVo.setReceiveReceiver(rs.getString("receive_receiver"));
 
 			}
 		}catch(SQLException e) {
@@ -154,7 +161,7 @@ public class ReceiverMsgDAO extends DBManager{
 	
 	//삭제
 	public int deleteMessage(String messageNumIndivi) {
-		String sql = "delete from tbl_receive_msg where receive_num = ?";
+		String sql = "delete from tbl_receive_msg where receive_receiver = ?";
 		
 		int res = 0;
 		

@@ -27,21 +27,21 @@ public class SenderMsgDAO extends DBManager{
 
 	
 	// 수신 목록 리스트
-	public ArrayList<SendMsgVO> MessageList(String progNum) {
+	public ArrayList<SendMsgVO> SendMessageList(String progNum) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		String sql = "Select m.send_num"
 				+ "		   , m.send_subject"
-				+ "		   , p.name as sender"
+				+ "		   , p.name as send_sender"
 				+ "		   , m.send_write_date"
 				+ "	    from tbl_send_msg m"
 				+ "		   , tbl_programmer p"
-				+ "    where m.sender=p.prog_num"
-				+ "	     and m.receiver = ?";
+				+ "    where send_sender=p.prog_num"
+				+ "	     and m.send_receiver = ?";
 		
-		ArrayList<SendMsgVO> MessageList = new ArrayList<SendMsgVO>();
+		ArrayList<SendMsgVO> SendMessageList = new ArrayList<SendMsgVO>();
 
 		try {
 			conn = getConnection();
@@ -52,12 +52,12 @@ public class SenderMsgDAO extends DBManager{
 
 			while (rs.next()) {
 				SendMsgVO sVo = new SendMsgVO();
-				sVo.setSendNum(rs.getString("sendNum"));
-				sVo.setSendSubject(rs.getString("sendSubject"));
-				sVo.setSendReceiver(rs.getString("sendSender"));
-				sVo.setSendWriteDate(rs.getString("sendWriteDate"));
+				sVo.setSendNum(rs.getString("send_Num"));
+				sVo.setSendSubject(rs.getString("send_Subject"));
+				sVo.setSendReceiver(rs.getString("send_Sender"));
+				sVo.setSendWriteDate(rs.getString("send_Write_Date"));
 
-				MessageList.add(sVo);
+				SendMessageList.add(sVo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -73,7 +73,7 @@ public class SenderMsgDAO extends DBManager{
 				e.printStackTrace();
 			}
 		}
-		return MessageList;
+		return SendMessageList;
 	}
 	
 	//상세보기
@@ -83,8 +83,8 @@ public class SenderMsgDAO extends DBManager{
 		ResultSet rs = null;
 		SendMsgVO sVo = null;
 		
-		String sql = "select m.send_num, m.send_subject, m.send_write_date, m.send_contents, p.name as sender"
-					+"		from tbl_send_msg m, tbl_programmer p where message_num=? and sender = p.prog_num";
+		String sql = "select m.send_num, m.send_subject, m.send_write_date, m.send_contents, p.name as send_sender"
+					+"		from tbl_send_msg m, tbl_programmer p where send_num=? and send_sender = p.prog_num";
 		
 		try {
 			conn = getConnection();
@@ -97,11 +97,11 @@ public class SenderMsgDAO extends DBManager{
 			while (rs.next()) {
 				sVo = new SendMsgVO();
 				
-				sVo.setSendNum(rs.getString("sendNum"));
-				sVo.setSendSubject(rs.getString("sendSubject"));
-				sVo.setSendWriteDate(rs.getString("sendWriteDate"));
-				sVo.setSendReceiver(rs.getString("sendSender"));
-				sVo.setSendContents(rs.getString("sendContents"));
+				sVo.setSendNum(rs.getString("send_Num"));
+				sVo.setSendSubject(rs.getString("send_Subject"));
+				sVo.setSendWriteDate(rs.getString("send_Write_Date"));
+				sVo.setSendReceiver(rs.getString("send_Sender"));
+				sVo.setSendContents(rs.getString("send_Contents"));
 				 
 
 			}
@@ -155,7 +155,7 @@ public class SenderMsgDAO extends DBManager{
 	
 	//삭제
 	public int deleteMessage(String messageNumIndivi) {
-		String sql = "delete from tbl_send_msg where receiver_num = ?";
+		String sql = "delete from tbl_send_msg where send_Sender = ?";
 		
 		int res = 0;
 		
