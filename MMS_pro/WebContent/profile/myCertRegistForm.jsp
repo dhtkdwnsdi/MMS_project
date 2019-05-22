@@ -121,20 +121,25 @@ License: You must have a valid license purchased only from themeforest(the above
 									<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
 																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
 
+
 									<div class="form-group row">
-										<label class="col-3 col-form-label">자격증명</label> 
-										<input type="hidden" name="certNum" class="form-control" id="certNum">
-										<div class="kt-input-icon kt-input-icon--right">
-											<input type="text" class="form-control" id="certName" name="certName" readonly> 
-											<span class="kt-input-icon__icon kt-input-icon__icon--right">
+										<label class="col-3 col-form-label">자격증명</label>
+										<div class="col-9">
+											<input type="hidden" name="certNum" class="form-control" id="certNum">
+											<div class="kt-input-icon kt-input-icon--right">
+												<input type="text" class="form-control" id="certName" name="certName" readonly> 
+												<span class="kt-input-icon__icon kt-input-icon__icon--right">
 												<span>
 												<button type="button" class="btn btn-outline-hover-danger btn-icon" onClick="openPopUp2()" id="certNameCherck">
 														<i class="la la-search"></i>
 												</button>
 												</span>
 											</span>
+											</div>
 										</div>
 									</div>
+
+
 
 									
 									

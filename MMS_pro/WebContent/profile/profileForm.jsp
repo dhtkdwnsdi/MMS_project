@@ -50,7 +50,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</h3>
 												<div class="col kt-align-right">
 												<pre>																					
-												<button type="button" class="btn btn-brand" onclick="openPopUp()">업데이트</button></pre>
+												<button type="button" class="btn btn-brand" onclick="openPopUp1()">업데이트</button></pre>
 												</div>
 												
 										</div>
@@ -108,7 +108,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</h3>
 												<div class="col kt-align-right">
 												<pre>																						
-												<button type="button" class="btn btn-brand" onclick="openPopUp()">업데이트</button></pre>
+												<button type="button" class="btn btn-brand" onclick="openPopUp2()">업데이트</button></pre>
 												</div>
 										</div>
 									</div>
@@ -170,7 +170,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</h3>
 												<div class="col kt-align-right">
 												<pre>																						
-												<button type="button" class="btn btn-brand" onclick="openPopUp()">업데이트</button></pre>
+												<button type="button" class="btn btn-brand" onclick="openPopUp3()">업데이트</button></pre>
 												</div>
 										</div>
 									</div>
@@ -229,7 +229,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</h3>
 										<div class="col kt-align-right">
 										<pre>																					
-										<button type="button" class="btn btn-brand" onclick="openPopUp()">업데이트</button></pre>
+										<button type="button" class="btn btn-brand" onclick="openPopUp4()">업데이트</button></pre>
 										</div>
 									</div>
 								</div>
@@ -579,7 +579,26 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- end::Body -->
 	
 	<script>
-function openPopUp()
+function openPopUp1()
+{
+    // window.name = "부모창 이름"; 
+      window.name = "parentForm";
+    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+      var width = "800"; 
+	  var height = "500"; 
+	  var top = (window.screen.height-height)/2; 
+	  var left = (window.screen.width-width)/2; 
+ 	  var url = "profile/myCertRegistForm.jsp"; 
+	  var title = "보유자격증 정보 등록"; 
+	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+      window.open(url, title, status);
+
+
+  
+}
+
+function openPopUp2()
 {
     // window.name = "부모창 이름"; 
       window.name = "parentForm";
@@ -596,8 +615,44 @@ function openPopUp()
 
 
   
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
+}
+
+function openPopUp3()
+{
+    // window.name = "부모창 이름"; 
+      window.name = "parentForm";
+    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+      var width = "800"; 
+	  var height = "500"; 
+	  var top = (window.screen.height-height)/2; 
+	  var left = (window.screen.width-width)/2; 
+ 	  var url = "profile/careerRegisterForm.jsp"; 
+	  var title = "경력 정보 등록"; 
+	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+      window.open(url, title, status);
+
+
+  
+}
+
+function openPopUp4()
+{
+    // window.name = "부모창 이름"; 
+      window.name = "parentForm";
+    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+      var width = "800"; 
+	  var height = "500"; 
+	  var top = (window.screen.height-height)/2; 
+	  var left = (window.screen.width-width)/2; 
+ 	  var url = "profile/plsRegisterForm.jsp"; 
+	  var title = "언어숙련도 정보 등록"; 
+	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+      window.open(url, title, status);
+
+
+  
 }
 </script>
 </html>

@@ -161,9 +161,30 @@ License: You must have a valid license purchased only from themeforest(the above
 							<div class="kt-section kt-section--first">
 
 								<div class="kt-section__body">
-									<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
-																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
-									<div class="form-group row">
+								
+								
+								
+								<div class="form-group row">
+										<label class="col-3 col-form-label">프로그래밍 언어명</label>
+										<div class="col-9">
+											<input type="hidden" name="plNum" class="form-control" id="plNum">
+											<div class="kt-input-icon kt-input-icon--right">
+												<input type="text" class="form-control" id="plName" name="plName" readonly> 
+												<span class="kt-input-icon__icon kt-input-icon__icon--right">
+												<span>
+												<button type="button" class="btn btn-outline-hover-danger btn-icon" onClick="openPopUp2()" id="plNameCherck">
+														<i class="la la-search"></i>
+												</button>
+												</span>
+											</span>
+											</div>
+										</div>
+									</div>
+								
+								
+								
+								
+									<!-- <div class="form-group row">
 										<label class="col-3 col-form-label">프로그래밍 언어명</label> <input
 											type="hidden" name="plNum" class="form-control" id="plNum">
 										<div class="kt-input-icon kt-input-icon--right">
@@ -179,7 +200,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											</span>
 											</span>
 										</div>
-									</div>
+									</div> -->
 
 
 
