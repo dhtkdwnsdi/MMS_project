@@ -232,59 +232,59 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 
-	<div class="form-group row">
-											<label class="col-3 col-form-label">참여율</label>
-											<div class="col-3">
-												<input class="form-control" type="text" value="%" id="rate">
-											</div>
-										</div>
-										
-										
-										
-										<label></label>
-										<div class="form-group form-group-last row">
-											<label class="col-1 col-form-label">관련기술 </label>
-											<textarea style="width: 600px; height: 120px;"
-												class="form-control" id="exampleTextarea"></textarea>
-										</div>
-										
-											<label></label>
-										<div class="form-group form-group-last row">
-											<label class="col-1 col-form-label">내용 </label>
-											<textarea style="width: 600px; height: 120px;"
-												class="form-control" id="exampleTextarea"></textarea>
-										</div>
-										
-										
-											<label></label>
-										<div class="form-group form-group-last row">
-											<label class="col-3 col-form-label">첨부파일</label>
-											<div class="col-lg-6 col-md-6 col-sm-6">
-												<input type="file" class="custom-file-input" name="projFile"
-													id="projFile"> <label class="custom-file-label"
-													for="customFile" style="text-align: left;"></label>
-											</div>
+									<div class="form-group row">
+										<label class="col-3 col-form-label">참여율</label>
+										<div class="col-3">
+											<input class="form-control" type="text" value="%" id="rate">
 										</div>
 									</div>
-									
 
 
-													<div class="kt-portlet__foot">
-										<div class="col kt-align-right">
-											<button type="button" class="btn btn-brand"
-												onclick="registerPortpolio()">등록</button>
-											<button type="reset" class="btn btn-danger"
-												href="prog?command=portpolioListForm">취소</button>
+
+									<label></label>
+									<div class="form-group form-group-last row">
+										<label class="col-3 col-form-label">관련기술 </label>
+										<textarea style="width: 600px; height: 120px;"
+											class="form-control" id="exampleTextarea"></textarea>
+									</div>
+
+									<label></label>
+									<div class="form-group form-group-last row">
+										<label class="col-3 col-form-label">내용 </label>
+										<textarea style="width: 600px; height: 120px;"
+											class="form-control" id="exampleTextarea"></textarea>
+									</div>
+
+
+									<label></label>
+									<div class="form-group form-group-last row">
+										<label class="col-3 col-form-label">첨부파일</label>
+										<div class="col-lg-6 col-md-6 col-sm-6">
+											<input type="file" class="custom-file-input" name="projFile"
+												id="projFile"> <label class="custom-file-label"
+												for="customFile" style="text-align: left;"></label>
 										</div>
 									</div>
 								</div>
+
+
+
+								<div class="kt-portlet__foot">
+									<div class="col kt-align-right">
+										<button type="button" class="btn btn-brand"
+											onclick="registerPortpolio()">등록</button>
+										<button type="reset" class="btn btn-danger"
+											href="prog?command=portpolioListForm">취소</button>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</form>
 			</div>
 		</div>
+		</form>
+	</div>
+	</div>
 	</div>
 
 	<!-- end:: Content -->
@@ -582,5 +582,11 @@ License: You must have a valid license purchased only from themeforest(the above
 		$("#datepicker1").datepicker();
 	});
 </script>
+
+
+
+
+
+
 <!-- end::Body -->
 </html>
