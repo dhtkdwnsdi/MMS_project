@@ -27,7 +27,12 @@ public class ProjectApplyAcceptFormAction implements Action{
 		ApplyStmtDAO aDao = ApplyStmtDAO.getInstance();
 		ArrayList<ApplyStmtVO> acceptList = new ArrayList<ApplyStmtVO>();
 		acceptList = aDao.applyAcceptList(progNum);
+		System.out.println(acceptList);
 		request.setAttribute("acceptList", acceptList);
+		
+		
+		ArrayList<ApplyStmtVO> allApplyStmt = aDao.allApplyStmt(progNum);
+		request.setAttribute("allList", allApplyStmt);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import com.mms.vo.PlVO;
 
@@ -21,7 +20,7 @@ public class PlDAO extends DBManager{
 	
 	//조회
 	
-	public List<PlVO> selectPl(){
+	public ArrayList<PlVO> selectPl(){
 		ArrayList<PlVO> plList = new ArrayList<PlVO>();
 		
 		String sql = "select * from tbl_pl order by pl_num desc";
@@ -57,7 +56,8 @@ public class PlDAO extends DBManager{
 				e.printStackTrace();
 			}
 			
-		}return plList;
+		}
+		return plList;
 	}
 	
 	//등록

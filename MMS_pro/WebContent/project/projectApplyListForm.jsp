@@ -175,9 +175,11 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                             </tr>
 			                                          </c:forEach>
 			                                             <c:if test="${empty aList}">
-			                                             	<td colspan="10">
-			                                             	내역이 없습니다
-			                                             	</td>
+			                                             	<tr>
+				                                             	<td colspan="10">
+				                                             	내역이 없습니다
+				                                             	</td>
+				                                            </tr>
 			                                             </c:if>
 			                                          </tbody>
                                        				</table>

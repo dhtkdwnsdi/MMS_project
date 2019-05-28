@@ -24,6 +24,10 @@ public class MyProjectListFormAction implements Action {
 		String progNum = pVo.getProgNum();
 		
 		ProjectDAO pDao = ProjectDAO.getInstance();
+		ArrayList<ApplyStmtVO> myAllProjectList = new ArrayList<ApplyStmtVO>();
+		myAllProjectList = pDao.myAllProjectList(progNum);
+		request.setAttribute("aList", myAllProjectList);
+		
 		ArrayList<ApplyStmtVO> myProgressProjectList = new ArrayList<ApplyStmtVO>();
 		myProgressProjectList = pDao.myProgressProjectList(progNum);
 		request.setAttribute("pPList", myProgressProjectList);

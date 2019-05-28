@@ -7,16 +7,20 @@ import com.mms.controller.action.project.ApplyStmtDenyAction;
 import com.mms.controller.action.project.ApplyStmtRegisterAction;
 import com.mms.controller.action.project.MyApplyStmtListFormAction;
 import com.mms.controller.action.project.MyProjectListFormAction;
+import com.mms.controller.action.project.MyProjectViewFormAction;
 import com.mms.controller.action.project.ProjectApplyAcceptFormAction;
 import com.mms.controller.action.project.ProjectApplyFormAction;
 import com.mms.controller.action.project.ProjectApplyListFormAction;
 import com.mms.controller.action.project.ProjectApplyViewFormAction;
 import com.mms.controller.action.project.ProjectDeleteAction;
+import com.mms.controller.action.project.ProjectManpowerDeployListFormAction;
 import com.mms.controller.action.project.ProjectRegisterListFormAction;
+import com.mms.controller.action.project.ProjectRegisterViewFormAction;
 import com.mms.controller.action.project.ProjectRegisterAction;
+import com.mms.controller.action.project.ProjectRegisterFormAction;
 import com.mms.controller.action.project.ProjectUpdateAction;
 import com.mms.controller.action.project.ProjectUpdateFormAction;
-import com.mms.controller.action.project.ProjectRegisterViewFormAction;
+import com.mms.controller.action.project.ProjectViewFormAction;
 
 public class ProjectActionFactory {
 
@@ -43,8 +47,8 @@ public class ProjectActionFactory {
 				action = new ProjectRegisterAction();
 				
 			}
-			else if(command.equals("projectRegisterViewForm")) {
-				action = new ProjectRegisterViewFormAction();
+			else if(command.equals("projectViewForm")) {
+				action = new ProjectViewFormAction();
 				
 			}
 			else if(command.equals("projectUpdateForm")) {
@@ -61,10 +65,6 @@ public class ProjectActionFactory {
 			}
 			else if(command.equals("projectApplyListForm")) {
 				action = new ProjectApplyListFormAction();
-				
-			}
-			else if(command.equals("projectApplyViewForm")) {
-				action = new ProjectApplyViewFormAction();
 				
 			}
 			else if(command.equals("projectApplyFormAction")) {
@@ -97,6 +97,26 @@ public class ProjectActionFactory {
 			}
 			else if(command.equals("myProjectListForm")) {
 				action = new MyProjectListFormAction();
+				
+			}
+			else if(command.equals("projectManpowerDeployListForm")) {
+				action = new ProjectManpowerDeployListFormAction();
+				
+			}
+			else if(command.equals("projectRegisterForm")) {
+				action = new ProjectRegisterFormAction();
+				
+			}
+			else if(command.equals("projectRegisterViewForm")) {
+				action = new ProjectRegisterViewFormAction();
+				
+			}
+			else if(command.equals("projectApplyViewForm")) {
+				action = new ProjectApplyViewFormAction();
+				
+			}
+			else if(command.equals("myProjectViewForm")) {
+				action = new MyProjectViewFormAction();
 				
 			}
 			return action;

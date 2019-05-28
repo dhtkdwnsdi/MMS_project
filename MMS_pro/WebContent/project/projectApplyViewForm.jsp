@@ -108,7 +108,7 @@ font-weight: bold;
 						<!-- begin:: Content -->
 						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
 							<div class="row">
-								<div class="col-lg-12">
+								<div class="col-lg-8">
 
 									<!--begin::Portlet-->
 									<div class="kt-portlet">
@@ -200,21 +200,27 @@ font-weight: bold;
 												<br>
 												<!-- End Divider -->
 												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-4">
+													<div class="col-lg-6">
+														<label id="label1">모집 인원</label>
+														<input type="text" class="form-control" readonly="readonly" value="${projVo.recruitNumber}">
+													</div>
+													<div class="col-lg-6">
 														<label id="label1">신청 마감일</label>
 														<div class="kt-input-icon">
 															<input type="text" class="form-control" value="${projVo.deadline}" name="deadline" id="deadline" readonly="readonly">
 															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
 														</div>
 													</div>
-													<div class="col-lg-4">
+												</div>
+												<div class="form-group row form-group-marginless kt-margin-t-20">
+													<div class="col-lg-6">
 														<label id="label1">시작 예정일</label>
 														<div class="kt-input-icon">
 															<input type="text" class="form-control" value="${projVo.startDuedate}" name="startDuedate" id="startDuedate" readonly="readonly">
 															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
 														</div>
 													</div>
-													<div class="col-lg-4">
+													<div class="col-lg-6">
 														<label id="label1">종료 예정일</label>
 														<div class="kt-input-icon">
 															<input type="text" class="form-control" value="${projVo.endDuedate}" name="endDuedate" id="endDuedate" readonly="readonly">
@@ -263,9 +269,9 @@ font-weight: bold;
 														<div class="col-lg-6">
 														</div>
 														<div class="col-lg-6 kt-align-right">
-															<button type="button" class="btn btn-success" id="applyBtn" onclick="openApplyPop('${projVo.projNum}')">
-																참여 신청
-															</button>
+															<c:if test="${projVo.projStat eq '모집'}">
+															<button type="button" class="btn btn-success" onclick="openApplyPop(${projVo.projNum}, ${LoginUser.progNum})">참여 신청</button>
+															</c:if>
 															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
 														</div>
 													</div>
@@ -278,6 +284,34 @@ font-weight: bold;
 
 									<!--end::Portlet-->
 								</div>
+								
+							<div class="col-lg-4">
+								<div class="kt-portlet">
+										<div class="kt-portlet__head">
+											<div class="kt-portlet__head-label">
+												<h4>
+													사용 프로그래밍 언어
+												</h4>
+											</div>
+										</div>
+										<div class="kt-portlet__body">
+											<div class="kt-widget4">
+												<c:forEach items="${uList}" var="uVo" varStatus="listStat">
+												<div class="kt-widget4__item">
+													<div class="kt-widget4__pic kt-widget4__pic--logo">
+														<img src="../assets/media/client-logos/logo5.png" alt="">
+													</div>
+													<div class="kt-widget4__info">
+														<a href="#" class="kt-widget4__title">
+															${uVo.plName}
+														</a>
+													</div>
+												</div>
+												</c:forEach>
+											</div>
+										</div>
+									</div>
+                        		</div>
 							</div>
 						</div>
 
@@ -432,7 +466,6 @@ $(document).ready(
 			$('#cancel').on("click",function(event) {
 						self.location = "proj?command=projectApplyListForm";
 					});
-			
 			$('#delete').on("click", function(evt) {
 				
 				var confirmStat = confirm("삭제하시겠습니까?");
@@ -446,16 +479,15 @@ $(document).ready(
 				}
 				
 			});
-			
 		});
-		
-function openApplyPop(projNum){
+function openApplyPop(projNum, progNum){
 	var projNum = projNum;
+	var progNum = progNum;
     var width = "500"; 
 	var height = "440"; 
 	var top = (window.screen.height-height)/2; 
 	var left = (window.screen.width-width)/2; 
-	var url = "/proj?command=projectApplyFormAction&projNum="+projNum; 
+	var url = "/proj?command=projectApplyFormAction&projNum="+projNum+"&progNum="+progNum; 
 	var title = "프로젝트 신청"; 
 	var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
@@ -463,6 +495,6 @@ function openApplyPop(projNum){
     window.open(url, title, status);
     
     
-}		
+}
 </script>
 </html>

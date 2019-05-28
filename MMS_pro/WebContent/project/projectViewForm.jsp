@@ -304,6 +304,51 @@ font-weight: bold;
 													사용 프로그래밍 언어
 												</h4>
 											</div>
+											<!-- <div class="kt-portlet__head-toolbar">
+												<a href="#" class="btn btn-label-brand btn-bold btn-sm dropdown-toggle" data-toggle="dropdown">
+													All
+												</a>
+												<div class="dropdown-menu dropdown-menu-fit dropdown-menu-right">
+													<ul class="kt-nav">
+														<li class="kt-nav__section kt-nav__section--first">
+															<span class="kt-nav__section-text">Finance</span>
+														</li>
+														<li class="kt-nav__item">
+															<a href="#" class="kt-nav__link">
+																<i class="kt-nav__link-icon flaticon2-graph-1"></i>
+																<span class="kt-nav__link-text">Statistics</span>
+															</a>
+														</li>
+														<li class="kt-nav__item">
+															<a href="#" class="kt-nav__link">
+																<i class="kt-nav__link-icon flaticon2-calendar-4"></i>
+																<span class="kt-nav__link-text">Events</span>
+															</a>
+														</li>
+														<li class="kt-nav__item">
+															<a href="#" class="kt-nav__link">
+																<i class="kt-nav__link-icon flaticon2-layers-1"></i>
+																<span class="kt-nav__link-text">Reports</span>
+															</a>
+														</li>
+														<li class="kt-nav__section kt-nav__section--first">
+															<span class="kt-nav__section-text">HR</span>
+														</li>
+														<li class="kt-nav__item">
+															<a href="#" class="kt-nav__link">
+																<i class="kt-nav__link-icon flaticon2-calendar-4"></i>
+																<span class="kt-nav__link-text">Notifications</span>
+															</a>
+														</li>
+														<li class="kt-nav__item">
+															<a href="#" class="kt-nav__link">
+																<i class="kt-nav__link-icon flaticon2-file-1"></i>
+																<span class="kt-nav__link-text">Files</span>
+															</a>
+														</li>
+													</ul>
+												</div>
+											</div> -->
 										</div>
 										<div class="kt-portlet__body">
 											<div class="kt-widget4">
@@ -316,12 +361,199 @@ font-weight: bold;
 														<a href="#" class="kt-widget4__title">
 															${uVo.plName}
 														</a>
+														<!-- <p class="kt-widget4__text">
+															Make Metronic Great Again
+														</p> -->
 													</div>
+													<!-- <span class="kt-widget4__number kt-font-brand">+$2500</span> -->
 												</div>
 												</c:forEach>
+												<!-- <div class="kt-widget4__item">
+													<div class="kt-widget4__pic kt-widget4__pic--logo">
+														<img src="../assets/media/client-logos/logo4.png" alt="">
+													</div>
+													<div class="kt-widget4__info">
+														<a href="#" class="kt-widget4__title">
+															StarBucks
+														</a>
+														<p class="kt-widget4__text">
+															Good Coffee &amp; Snacks
+														</p>
+													</div>
+													<span class="kt-widget4__number kt-font-brand">-$290</span>
+												</div> -->
+												<!-- <div class="kt-widget4__item">
+													<div class="kt-widget4__pic kt-widget4__pic--logo">
+														<img src="../assets/media/client-logos/logo3.png" alt="">
+													</div>
+													<div class="kt-widget4__info">
+														<a href="#" class="kt-widget4__title">
+															Phyton
+														</a>
+														<p class="kt-widget4__text">
+															A Programming Language
+														</p>
+													</div>
+													<span class="kt-widget4__number kt-font-brand">+$17</span>
+												</div> -->
+												<!-- <div class="kt-widget4__item">
+													<div class="kt-widget4__pic kt-widget4__pic--logo">
+														<img src="../assets/media/client-logos/logo2.png" alt="">
+													</div>
+													<div class="kt-widget4__info">
+														<a href="#" class="kt-widget4__title">
+															GreenMakers
+														</a>
+														<p class="kt-widget4__text">
+															Make Green Great Again
+														</p>
+													</div>
+													<span class="kt-widget4__number kt-font-brand">-$2.50</span>
+												</div> -->
+												<!-- <div class="kt-widget4__item">
+													<div class="kt-widget4__pic kt-widget4__pic--logo">
+														<img src="../assets/media/client-logos/logo1.png" alt="">
+													</div>
+													<div class="kt-widget4__info">
+														<a href="#" class="kt-widget4__title">
+															FlyThemes
+														</a>
+														<p class="kt-widget4__text">
+															A Let's Fly Fast Again Language
+														</p>
+													</div>
+													<span class="kt-widget4__number kt-font-brand">+$200</span>
+												</div> -->
 											</div>
 										</div>
 									</div>
+							
+                           <!--begin:: Widgets/New Users-->
+                           <c:if test="${projVo.projStat eq '진행'}">
+                           <div class="kt-portlet">
+                              <div class="kt-portlet__head">
+                                 <div class="kt-portlet__head-label">
+                                    <h4>
+                                       	프로젝트 구성원
+                                    </h4>
+                                 </div>
+                                 <!-- <div class="kt-portlet__head-toolbar">
+                                    <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-brand" role="tablist">
+                                       <li class="nav-item">
+                                          <a class="nav-link active" data-toggle="tab" href="#kt_widget4_tab1_content" role="tab">
+                                             Today
+                                          </a>
+                                       </li>
+                                       <li class="nav-item">
+                                          <a class="nav-link" data-toggle="tab" href="#kt_widget4_tab2_content" role="tab">
+                                             Month
+                                          </a>
+                                       </li>
+                                    </ul>
+                                 </div> -->
+                              </div>
+                              <div class="kt-portlet__body">
+                                 <div class="tab-content">
+                                    <div class="tab-pane active" id="kt_widget4_tab1_content">
+                                       <div class="kt-widget4">
+                                       	<c:forEach items="${mList}" var="mVo" varStatus="listStat">
+                                          <div class="kt-widget4__item">
+                                             <div class="kt-widget4__pic kt-widget4__pic--pic">
+                                                <img src="../assets/media/users/100_4.jpg" alt="">
+                                             </div>
+                                             <div class="kt-widget4__info">
+                                                <a href="#" class="kt-widget4__username">
+                                                   ${mVo.progName}
+                                                </a>
+                                                <p class="kt-widget4__text">
+                                                   ${mVo.applyPosition}
+                                                </p>
+                                             </div>
+                                             <a href="#" class="btn btn-sm btn-label-brand btn-bold">Message</a>
+                                          </div>
+                                         </c:forEach>
+                                       </div>
+                                    </div>
+                                    <!-- <div class="tab-pane" id="kt_widget4_tab2_content">
+                                       <div class="kt-widget4">
+                                          <div class="kt-widget4__item">
+                                             <div class="kt-widget4__pic kt-widget4__pic--pic">
+                                                <img src="../assets/media/users/100_2.jpg" alt="">
+                                             </div>
+                                             <div class="kt-widget4__info">
+                                                <a href="#" class="kt-widget4__username">
+                                                   Kristika Bold
+                                                </a>
+                                                <p class="kt-widget4__text">
+                                                   Product Designer,Apple Inc
+                                                </p>
+                                             </div>
+                                             <a href="#" class="btn btn-sm btn-label-success">Follow</a>
+                                          </div>
+                                          <div class="kt-widget4__item">
+                                             <div class="kt-widget4__pic kt-widget4__pic--pic">
+                                                <img src="../assets/media/users/100_13.jpg" alt="">
+                                             </div>
+                                             <div class="kt-widget4__info">
+                                                <a href="#" class="kt-widget4__username">
+                                                   Ron Silk
+                                                </a>
+                                                <p class="kt-widget4__text">
+                                                   Release Manager, Loop Inc
+                                                </p>
+                                             </div>
+                                             <a href="#" class="btn btn-sm btn-label-brand">Follow</a>
+                                          </div>
+                                          <div class="kt-widget4__item">
+                                             <div class="kt-widget4__pic kt-widget4__pic--pic">
+                                                <img src="../assets/media/users/100_9.jpg" alt="">
+                                             </div>
+                                             <div class="kt-widget4__info">
+                                                <a href="#" class="kt-widget4__username">
+                                                   Nick Bold
+                                                </a>
+                                                <p class="kt-widget4__text">
+                                                   Web Developer, Facebook Inc
+                                                </p>
+                                             </div>
+                                             <a href="#" class="btn btn-sm btn-label-danger">Follow</a>
+                                          </div>
+                                          <div class="kt-widget4__item">
+                                             <div class="kt-widget4__pic kt-widget4__pic--pic">
+                                                <img src="../assets/media/users/100_2.jpg" alt="">
+                                             </div>
+                                             <div class="kt-widget4__info">
+                                                <a href="#" class="kt-widget4__username">
+                                                   Wiltor Delton
+                                                </a>
+                                                <p class="kt-widget4__text">
+                                                   Project Manager, Amazon Inc
+                                                </p>
+                                             </div>
+                                             <a href="#" class="btn btn-sm btn-label-success">Follow</a>
+                                          </div>
+                                          <div class="kt-widget4__item">
+                                             <div class="kt-widget4__pic kt-widget4__pic--pic">
+                                                <img src="../assets/media/users/100_8.jpg" alt="">
+                                             </div>
+                                             <div class="kt-widget4__info">
+                                                <a href="#" class="kt-widget4__username">
+                                                   Nick Bold
+                                                </a>
+                                                <p class="kt-widget4__text">
+                                                   Web Developer, Facebook Inc
+                                                </p>
+                                             </div>
+                                             <a href="#" class="btn btn-sm btn-label-info">Follow</a>
+                                          </div>
+                                       </div>
+                                    </div> -->
+                                 </div>
+                              </div>
+
+                           <!--end:: Widgets/New Users-->
+                        			</div>
+                        </c:if>
                         		</div>
 							</div>
 						</div>

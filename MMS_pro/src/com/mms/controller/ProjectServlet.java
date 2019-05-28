@@ -78,6 +78,11 @@ public class ProjectServlet extends HttpServlet {
 			String levelCode = multi.getParameter("levelCode");
 			String projFile = multi.getFilesystemName("projFile");
 			String progNum = multi.getParameter("progNum");
+			String recruitNumber = multi.getParameter("recruitNumber");
+			
+			String [] usePl = multi.getParameterValues("usePl[]");
+			request.setAttribute("usePl", usePl);
+			
 			
 			ProjectVO pVo = new ProjectVO();
 			pVo.setProjName(projName);
@@ -94,6 +99,7 @@ public class ProjectServlet extends HttpServlet {
 			pVo.setLevelCode(levelCode);
 			pVo.setProjFile(projFile);
 			pVo.setProgNum(progNum);
+			pVo.setRecruitNumber(recruitNumber);
 			
 			System.out.println("path: " + path);
 			System.out.println("fileName: " + projFile);
@@ -101,7 +107,7 @@ public class ProjectServlet extends HttpServlet {
 			
 			request.setAttribute("pVo", pVo);
 			
-			new ProjectRegisterAction().execute(request, response);
+			/* new ProjectRegisterAction().execute(request, response); */
 		} else if(command.equals("projectUpdate")) {
 			
 			ServletContext context = getServletContext();

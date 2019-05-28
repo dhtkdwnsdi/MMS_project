@@ -25,10 +25,15 @@ public class ProjectRegisterListFormAction implements Action {
 		ProgrammerVO progVo = (ProgrammerVO) session.getAttribute("LoginUser");
 		String progNum = progVo.getProgNum();
 		
-		ArrayList<ProjectVO> list = new ArrayList<ProjectVO>();
+		ArrayList<ProjectVO> myList = new ArrayList<ProjectVO>();
+		ArrayList<ProjectVO> allList = new ArrayList<ProjectVO>();
 		ProjectDAO pDao = ProjectDAO.getInstance();
-		list = pDao.myProjectList(progNum);
-		request.setAttribute("list", list);
+		myList = pDao.myProjectList(progNum);
+		request.setAttribute("myList", myList);
+		allList = pDao.projectList();
+		request.setAttribute("allList", allList);
+		
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

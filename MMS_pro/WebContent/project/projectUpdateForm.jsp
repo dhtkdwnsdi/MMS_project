@@ -108,7 +108,7 @@ font-weight: bold;
 						<!-- begin:: Content -->
 						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
 							<div class="row">
-								<div class="col-lg-12">
+								<div class="col-lg-8">
 
 									<!--begin::Portlet-->
 									<div class="kt-portlet">
@@ -509,21 +509,28 @@ font-weight: bold;
 												<br>
 												<!-- End Divider -->
 												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-4">
+													<div class="col-lg-6">
+														<label id="label1">모집 인원</label>
+														<input type="text" class="form-control" value="${projVo.recruitNumber}">
+													</div>
+													<div class="col-lg-6">
 														<label id="label1">신청 마감일</label>
 														<div class="kt-input-icon">
 															<input type="text" class="form-control" value="${projVo.deadline}" name="deadline" id="deadline" readonly="readonly">
 															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
 														</div>
 													</div>
-													<div class="col-lg-4">
+												</div>
+												
+												<div class="form-group row form-group-marginless kt-margin-t-20">
+												<div class="col-lg-6">
 														<label id="label1">시작 예정일</label>
 														<div class="kt-input-icon">
 															<input type="text" class="form-control" value="${projVo.startDuedate}" name="startDuedate" id="startDuedate" readonly="readonly">
 															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
 														</div>
 													</div>
-													<div class="col-lg-4">
+													<div class="col-lg-6">
 														<label id="label1">종료 예정일</label>
 														<div class="kt-input-icon">
 															<input type="text" class="form-control" value="${projVo.endDuedate}" name="endDuedate" id="endDuedate" readonly="readonly">
@@ -585,6 +592,60 @@ font-weight: bold;
 
 									<!--end::Portlet-->
 								</div>
+								<div class="col-lg-4">
+									<div class="kt-portlet">
+										<div class="kt-portlet__head">
+											<div class="kt-portlet__head-label">
+												<h4>
+													사용 프로그래밍 언어
+												</h4>
+											</div>
+										</div>
+										<div class="kt-portlet__body">
+											<div id="kt_repeater_1">
+												<div class="form-group  row" id="kt_repeater_1">
+													<label class="col-lg-2 col-form-label" id="label1">사용 프로그래밍 언어</label>
+													<div data-repeater-list="" class="col-lg-10" id="list">
+														<c:forEach items="${uList}" var="uVo">
+														<div data-repeater-item="" class="form-group row align-items-center" style="" id="repeat">
+																<div class="col-md-5">
+																	<div class="kt-form__group--inline">
+																		<div class="kt-form__control">
+																			<input type="text" name="usePl" class="form-control" id="autocomplete" value="${uVo.plName}" placeholder="사용 프로그래밍 언어를 입력해주세요.">
+																		</div>
+																	</div>
+																	<div class="d-md-none kt-margin-b-10"></div>
+																</div>
+																<div class="col-md-4">
+																<button type="button" name="delete" id="delete" class="btn btn-danger">삭제</button>
+																	<!-- <div data-repeater-delete="" class="btn-sm btn btn-danger btn-pill">
+																		<span>
+																			<i class="la la-trash-o"></i>
+																			<span id="delete">삭제</span>
+																		</span>
+																	</div> -->
+																</div>
+														</div>
+														</c:forEach>
+													</div>
+												</div>
+												<div class="form-group row">
+													<label class="col-lg-2 col-form-label"></label>
+													<div class="col-lg-4">
+													<button type="button" name="add" class="btn btn-primary">추가</button>
+														<!-- <div data-repeater-create="" class="btn btn btn-sm btn-brand btn-pill">
+															<span>
+																<i class="la la-plus"></i>
+																<span id="add">추가</span>
+															</span>
+														</div> -->
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							
 							</div>
 						</div>
 
@@ -851,11 +912,34 @@ $(document).ready(
 		function() {
 			$('#cancel').on("click",function(event) {
 						var projNum = $('#projNum').val();
-						self.location = "proj?command=projectRegisterViewForm&projNum="+projNum;
+						self.location = "proj?command=projectViewForm&projNum="+projNum;
 					});
 			$('#newBtn').on("click", function(evt) {
 				self.location = "register";
 			});
 		});
+		
+//input 추가 버튼
+$(document).on("click", "button[name=add]", function(){
+	var repeat = $('#repeat').clone();		// div repeat 복사
+	repeat.find("input").val("");			// 복사한 repeat 하위요소인 input의 value ""으로 초기화
+	$('#list').append(repeat);				// div list에 붙여넣기
+});
+
+// input 삭제 버튼
+$(document).on("click", "button[name=delete]", function(){
+	/* alert($('#delete').index(this)); */
+	if(confirm("삭제하시겠습니까?") == true){
+		if($('#delete').index(this) == -1){		// 현재 delete 버튼의 index를 가져옴
+			$(this).parent().parent().remove();	// delete 버튼의 부모의 부모인 div repeat 삭제
+		}
+		else{
+			alert("삭제 불가");						// index -1이 아니면 삭제 불가 == 첫 째 행은 삭제 불가
+		} 
+	}
+	else{
+		return false;
+	}
+});
 </script>
 </html>

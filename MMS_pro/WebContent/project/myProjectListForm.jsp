@@ -118,19 +118,19 @@ License: You must have a valid license purchased only from themeforest(the above
 												<ul class="nav nav-tabs nav-tabs-bold nav-tabs-line   nav-tabs-line-right nav-tabs-line-brand" role="tablist">
 													<li class="nav-item">
 														<a class="nav-link active" data-toggle="tab" href="#kt_portlet_tab_1_1" role="tab">
-															진행 프로젝트
+															전체 리스트
 														</a>
 													</li>
 													<li class="nav-item">
 														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_2" role="tab">
+															진행 프로젝트
+														</a>
+													</li>
+													<li class="nav-item">
+														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab">
 															종료 프로젝트
 														</a>
 													</li>
-													<!-- <li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab">
-															Settings
-														</a>
-													</li> -->
 												</ul>
 											</div>
 										</div>
@@ -148,16 +148,16 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                             </tr>
 			                                          </thead>
 			                                          <tbody style="text-align: center;">
-			                                          <c:forEach items="${pPList}" var="pVo" varStatus="listStat">
+			                                          <c:forEach items="${aList}" var="pVo" varStatus="listStat">
 			                                             <tr>
 			                                                <th scope="row">${listStat.count}</th>
-			                                                <td><a href="#">${pVo.projName}</a></td>
+			                                                <td><a href="/proj?command=myProjectViewForm&projNum=${pVo.projNum}">${pVo.projName}</a></td>
 			                                                <td>${pVo.progName}</td>
 			                                                <td>${pVo.applyPosition}</td>
 			                                                <td>${pVo.projStat}</td>
 			                                             </tr>
 			                                          </c:forEach>
-			                                          <c:if test="${empty pPList }">
+			                                          <c:if test="${empty aList }">
 			                                          <td colspan="5">내역이 없습니다</td>
 			                                          </c:if>
 			                                          </tbody>
@@ -176,10 +176,38 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                             </tr>
 			                                          </thead>
 			                                          <tbody style="text-align: center;">
+			                                          <c:forEach items="${pPList}" var="pVo" varStatus="listStat">
+			                                             <tr>
+			                                                <th scope="row">${listStat.count}</th>
+			                                                <td><a href="/proj?command=myProjectViewForm&projNum=${pVo.projNum}">${pVo.projName}</a></td>
+			                                                <td>${pVo.progName}</td>
+			                                                <td>${pVo.applyPosition}</td>
+			                                                <td>${pVo.projStat}</td>
+			                                             </tr>
+			                                          </c:forEach>
+			                                          <c:if test="${empty pPList }">
+			                                          <td colspan="5">내역이 없습니다</td>
+			                                          </c:if>
+			                                          </tbody>
+			                                          </tbody>
+                                       				</table>
+												</div>
+												<div class="tab-pane" id="kt_portlet_tab_1_3">
+													<table class="table table-bordered table-hover">
+			                                          <thead style="text-align: center;">
+			                                             <tr>
+			                                                <th>#</th>
+			                                                <th style="font-weight: bold;">프로젝트 명</th>
+			                                                <th style="font-weight: bold;">담당자</th>
+			                                                <th style="font-weight: bold;">지원직무</th>
+			                                                <th style="font-weight: bold;">상태</th>
+			                                             </tr>
+			                                          </thead>
+			                                          <tbody style="text-align: center;">
 			                                          <c:forEach items="${ePList}" var="eVo" varStatus="listStat">
 			                                             <tr>
 			                                                <th scope="row">${listStat.count}</th>
-			                                                <td>${eVo.projName}</td>
+			                                                <td><a href="/proj?command=myProjectViewForm&projNum=${pVo.projNum}">${eVo.projName}</a></td>
 			                                                <td>${eVo.progName}</td>
 			                                                <td>${eVo.applyPosition}</td>
 			                                                <td>${eVo.projStat}</td>
@@ -191,9 +219,6 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                          </tbody>
                                        				</table>
 												</div>
-												<!-- <div class="tab-pane" id="kt_portlet_tab_1_3">
-													Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
-												</div> -->
 											</div>
 										</div>
 									</div>

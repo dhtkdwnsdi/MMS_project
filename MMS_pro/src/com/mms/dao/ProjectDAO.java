@@ -45,8 +45,9 @@ public class ProjectDAO extends DBManager {
 		   		+ ",	 OS_CODE"
 		   		+ ",	 LEVEL_CODE"
 		   		+ ",	 PROJ_FILE"
-		   		+ ",	 PROG_NUM)"
-		   		+ "		 VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		   		+ ",	 PROG_NUM"
+		   		+ ",	 RECRUIT_NUMBER)"
+		   		+ "		 VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		   
 		   try {
 			   conn = getConnection();
@@ -202,6 +203,7 @@ public class ProjectDAO extends DBManager {
 		   		+ "			  , PJ.PROJ_FILE AS PROJ_FILE"
 		   		+ "			  , PJ.PROJ_STAT AS PROJ_STAT"
 		   		+ "			  , PG.NAME AS PROG_NAME"
+		   		+ "			  , PJ.RECRUIT_NUMBER AS RECRUIT_NUMBER"
 		   		+ "        FROM TBL_PROJECT PJ, TBL_PROGRAMMER PG"
 		   		+ "		  WHERE PJ.PROG_NUM = PG.PROG_NUM"
 		   		+ "    ORDER BY PROJ_NUM DESC";
@@ -231,6 +233,7 @@ public class ProjectDAO extends DBManager {
 				   pVo.setProjStat(rs.getString("PROJ_STAT"));
 //				   pVo.setProgNum(rs.getString("PROG_NUM"));
 				   pVo.setProgName(rs.getString("PROG_NAME"));
+				   pVo.setRecruitNumber(rs.getString("RECRUIT_NUMBER"));
 				   
 				   list.add(pVo);
 			   }
@@ -348,7 +351,8 @@ public class ProjectDAO extends DBManager {
 		   		+ "			   ,PJ.OS_CODE AS OS_CODE"
 		   		+ "			   ,PJ.LEVEL_CODE AS LEVEL_CODE"
 		   		+ "			   ,PJ.PROJ_FILE AS PROJ_FILE"
-		   		+ "			   ,PJ.PROG_NUM AS PROG_NUM" + 
+		   		+ "			   ,PJ.PROG_NUM AS PROG_NUM"
+		   		+ "			   ,PJ.RECRUIT_NUMBER AS RECRUIT_NUMBER" + 
 		   		"          FROM TBL_PROJECT PJ" + 
 		   		"			   ,TBL_PROGRAMMER PG" + 
 		   		"  		   WHERE PG.PROG_NUM = ?"
@@ -382,6 +386,7 @@ public class ProjectDAO extends DBManager {
 				   pVo.setProjStat(rs.getString("PROJ_STAT"));
 				   pVo.setProgName(rs.getString("PROG_NAME"));
 				   pVo.setProgNum(rs.getString("PROG_NUM"));
+				   pVo.setRecruitNumber(rs.getString("RECRUIT_NUMBER"));
 				   
 				   list.add(pVo);
 			   }
@@ -426,7 +431,8 @@ public class ProjectDAO extends DBManager {
 			   		+ "			   ,PJ.OS_CODE AS OS_CODE"
 			   		+ "			   ,PJ.LEVEL_CODE AS LEVEL_CODE"
 			   		+ "			   ,PJ.PROJ_FILE AS PROJ_FILE"
-			   		+ "			   ,PJ.PROG_NUM AS PROG_NUM" + 
+			   		+ "			   ,PJ.PROG_NUM AS PROG_NUM"
+			   		+ "			   ,PJ.RECRUIT_NUMBER AS RECRUIT_NUMBER" + 
 			   		"          FROM TBL_PROJECT PJ" + 
 			   		"			   ,TBL_PROGRAMMER PG" + 
 			   		"  		   WHERE PJ.PROJ_NUM = ?"
@@ -458,6 +464,7 @@ public class ProjectDAO extends DBManager {
 				   pVo.setProjStat(rs.getString("PROJ_STAT"));
 				   pVo.setProgName(rs.getString("PROG_NAME"));
 				   pVo.setProgNum(rs.getString("PROG_NUM"));
+				   pVo.setRecruitNumber(rs.getString("RECRUIT_NUMBER"));
 				   
 			   }
 			   
@@ -497,7 +504,8 @@ public class ProjectDAO extends DBManager {
 		   		"   AND AP.PROJ_NUM = PJ.PROJ_NUM" + 
 		   		"   AND PJ.PROJ_STAT LIKE '%진행%'" + 
 		   		"   AND AP.APPLY_STAT LIKE '승인'" + 
-		   		"   AND AP.PROG_NUM = ?";
+		   		"   AND AP.PROG_NUM = ?"
+		   		+ "	ORDER BY PJ.PROJ_NUM DESC";
 		   
 		   ArrayList<ApplyStmtVO> list = new ArrayList<ApplyStmtVO>();
 		   
@@ -514,7 +522,6 @@ public class ProjectDAO extends DBManager {
 				   aVo.setApplyPosition(rs.getString("APPLY_POSITION"));
 				   aVo.setProjStat(rs.getString("PROJ_STAT"));
 				   aVo.setProjNum(rs.getString("PROJ_NUM"));
-				   
 				   list.add(aVo);
 				   
 			   }
@@ -553,7 +560,8 @@ public class ProjectDAO extends DBManager {
 			   		"   AND AP.PROJ_NUM = PJ.PROJ_NUM" + 
 			   		"   AND PJ.PROJ_STAT LIKE '%종료%'" + 
 			   		"   AND AP.APPLY_STAT LIKE '승인'" + 
-			   		"   AND AP.PROG_NUM = ?";
+			   		"   AND AP.PROG_NUM = ?"
+			   		+ "	ORDER BY PJ.PROJ_NUM DESC";
 		   try {
 			   conn = getConnection();
 			   pstmt = conn.prepareStatement(sql);
@@ -587,4 +595,58 @@ public class ProjectDAO extends DBManager {
 		   
 		   return list;
 	   }
+	   
+	   // 나의 전체 프로젝트 리스트 보기
+	   public ArrayList<ApplyStmtVO> myAllProjectList(String progNum){
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   ResultSet rs = null;
+		   ArrayList<ApplyStmtVO> list = new ArrayList<ApplyStmtVO>();
+		   String sql = "SELECT PJ.PROJ_NAME AS PROJ_NAME" + 
+			   		"     , PG.NAME AS PROG_NAME"
+			   		+ "   , AP.APPLY_POSITION AS APPLY_POSITION" + 
+			   		"     , PJ.PROJ_STAT AS PROJ_STAT"
+			   		+ "   , PJ.PROJ_NUM AS PROJ_NUM" + 
+			   		"  FROM TBL_PROJECT PJ" + 
+			   		"     , TBL_PROGRAMMER PG" + 
+			   		"     , TBL_APPLY_STMT AP" + 
+			   		" WHERE PJ.PROG_NUM = PG.PROG_NUM" + 
+			   		"   AND AP.PROJ_NUM = PJ.PROJ_NUM" + 
+			   		"   AND AP.APPLY_STAT LIKE '승인'" + 
+			   		"   AND AP.PROG_NUM = ?"
+			   		+ " ORDER BY PJ.PROJ_NUM DESC";
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   pstmt.setString(1, progNum);
+			   rs = pstmt.executeQuery();
+			   
+			   while(rs.next()) {
+				   ApplyStmtVO aVo = new ApplyStmtVO();
+				   aVo.setProjName(rs.getString("PROJ_NAME"));
+				   aVo.setProgName(rs.getString("PROG_NAME"));
+				   aVo.setApplyPosition(rs.getString("APPLY_POSITION"));
+				   aVo.setProjStat(rs.getString("PROJ_STAT"));
+				   aVo.setProjNum(rs.getString("PROJ_NUM"));
+				   
+				   list.add(aVo);
+				   
+			   }
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+			   
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		   
+		   return list;
+	   }
+
 }

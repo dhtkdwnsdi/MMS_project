@@ -18,6 +18,7 @@ public class ProjectVO {
 	private String progNum;			// 프로그래머 번호, 담당자	NN	----	총 15개
 	private String projStat;		// 프로젝트 상태 (모집 중, 진행 중, 종료, 보류..)
 	private String progName;		// DB에서 조인한 프로그래머 이름 가져오기
+	private String recruitNumber;
 	
 	public String getProgName() {
 		return progName;
@@ -130,14 +131,25 @@ public class ProjectVO {
 		this.projStat = projStat;
 	}
 
+	public String getRecruitNumber() {
+		return recruitNumber;
+	}
+
+	public void setRecruitNumber(String recruitNumber) {
+		this.recruitNumber = recruitNumber;
+	}
+
 	@Override
 	public String toString() {
 		return "ProjectVO [projNum=" + projNum + ", projName=" + projName + ", projCate=" + projCate
 				+ ", projDetailCate=" + projDetailCate + ", startDuedate=" + startDuedate + ", endDuedate=" + endDuedate
 				+ ", deadline=" + deadline + ", contents=" + contents + ", partiFormCode=" + partiFormCode + ", fwCode="
 				+ fwCode + ", dbmsCode=" + dbmsCode + ", osCode=" + osCode + ", levelCode=" + levelCode + ", projFile="
-				+ projFile + ", progNum=" + progNum + ", projStat=" + projStat + ", progName=" + progName + "]";
+				+ projFile + ", progNum=" + progNum + ", projStat=" + projStat + ", progName=" + progName
+				+ ", recruitNumber=" + recruitNumber + "]";
 	}
+
+
 
 	
 	

@@ -9,16 +9,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
+import com.mms.dao.ApplyStmtDAO;
 import com.mms.dao.ProjectDAO;
 import com.mms.dao.UsePlDAO;
+import com.mms.vo.ApplyStmtVO;
 import com.mms.vo.ProjectVO;
 import com.mms.vo.UsePlVO;
 
-public class ProjectRegisterViewFormAction implements Action {
+public class ProjectViewFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "project/projectRegisterViewForm.jsp";
+		String url = "project/projectViewForm.jsp";
 		
 		String projNum = request.getParameter("projNum");
 		ProjectVO projVo = new ProjectVO();
@@ -30,6 +32,11 @@ public class ProjectRegisterViewFormAction implements Action {
 		UsePlDAO uDao = UsePlDAO.getInstance();
 		ArrayList<UsePlVO> usePlList = uDao.usePlList(projNum);
 		request.setAttribute("uList", usePlList);
+		
+		ApplyStmtDAO aDao = ApplyStmtDAO.getInstance();
+		ArrayList<ApplyStmtVO> memberList = aDao.projectMemberList(projNum);
+		request.setAttribute("mList", memberList);
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
