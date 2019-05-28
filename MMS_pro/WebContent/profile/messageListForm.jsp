@@ -208,7 +208,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																value="${rVo.receiveNum}" name="msgCheck" id="msgCheck"></td>
 															<td><a
 																href="prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}">${rVo.receiveSubject}</a></td>
-															<td>${rVo.receiveReceiver}</td>
+															<td>${rVo.receiveSender}</td>
 															<td>${rVo.receiveWriteDate}</td>
 														</tr>
 													</c:forEach>
@@ -240,7 +240,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																id="msgCheck"></td>
 															<td><a
 																href="prog?command=messageSendViewForm&SendNum=${sVo.sendNum}">${sVo.sendSubject}</a></td>
-															<td>${sVo.sendSender}</td>
+															<td>${sVo.sendReceiver}</td>
 															<td>${sVo.sendWriteDate}</td>
 														</tr>
 													</c:forEach>

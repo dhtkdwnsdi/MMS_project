@@ -168,9 +168,9 @@ License: You must have a valid license purchased only from themeforest(the above
 										<div class="col-9">
 											
 											<div class="kt-input-icon kt-input-icon--right">
-											<input type="hidden" id="sendReceiver" name="sendReceiver">
+											<%-- <input type="text" id="sendReceiver" name="sendReceiver" value="${sendReceiver}"> --%>
 												<input type="text" class="form-control" id="name"
-													name="name" readonly> 
+													name="name" readonly  value="${sendReceiver}"> 
 													<span class="kt-input-icon__icon kt-input-icon__icon--right">
 													<span>
 														<button type="button"

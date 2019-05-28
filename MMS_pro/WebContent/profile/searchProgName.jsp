@@ -232,7 +232,7 @@
 	function sendToParent(prognum, name) {
 
 		
-		opener.document.getElementById("sendSender").value = prognum;
+		opener.document.getElementById("sendReceiver").value = prognum;
 		opener.document.getElementById("name").value = name;
 		
 		window.close();

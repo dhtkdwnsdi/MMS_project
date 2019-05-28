@@ -22,31 +22,31 @@ public class MessageRegisterAction implements Action {
 		
 		String sendSubject = request.getParameter("sendSubject");
 		String sendContents = request.getParameter("sendContents");
-		String sendSender = request.getParameter("sendSender");
 		String sendReceiver = request.getParameter("sendReceiver");
+		String sendSender = request.getParameter("sendSender");
 		
 		SendMsgVO sVo = new SendMsgVO();
 		SenderMsgDAO sDao = SenderMsgDAO.getInstance();
 		
 		sVo.setSendSubject(sendSubject);
 		sVo.setSendContents(sendContents);
-		sVo.setSendSender(sendSender);
 		sVo.setSendReceiver(sendReceiver);
+		sVo.setSendSender(sendSender);
 		
 		sDao.insertMessage(sVo);
 		
 		String receiveSubject = request.getParameter("sendSubject");
 		String receiveContents = request.getParameter("sendContents");
-		String receiveSender = request.getParameter("sendSender");
 		String receiveReceiver = request.getParameter("sendReceiver");
+		String receiveSender = request.getParameter("sendSender");
 		
 		ReceiveMsgVO rVo = new ReceiveMsgVO();
 		ReceiverMsgDAO rDao = ReceiverMsgDAO.getInstance();
 		
 		rVo.setReceiveSubject(receiveSubject);
 		rVo.setReceiveContents(receiveContents);
-		rVo.setReceiveSender(receiveSender);
 		rVo.setReceiveReceiver(receiveReceiver);
+		rVo.setReceiveSender(receiveSender);
 		
 		rDao.insertMessage(rVo);
 		

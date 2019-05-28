@@ -139,7 +139,7 @@ font-weight: bold;
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">내용</label>
-														<input type="text" class="form-control" readonly="readonly" value="${mVo.receiveContents}">
+														<input type="text" class="form-control" readonly="readonly" value="${rVo.receiveContents}">
 													</div>
 												</div>
 												
@@ -154,7 +154,7 @@ font-weight: bold;
 														<div class="col-lg-6">
 														</div>
 														<div class="col-lg-6 kt-align-right">
-															<button type="button" class="btn btn-success" id="applyBtn" onclick="openApplyPop('${projVo.projNum}')">
+															<button type="button" class="btn btn-success" id="applyBtn" onclick="openMessagePop('${rVo.receiveSender}')">
 																답장
 															</button>
 															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
@@ -331,7 +331,7 @@ $(document).ready(
 				if(confirmStat == true){
 					var messageNum = $('#receiveNum').val();
 					alert("삭제되었습니다.");
-					self.location = "prog?command=receiveMsgDelete&receiveNum="+receiveNum;	
+					self.location = "prog?command=deleteMessage&receiveNum="+receiveNum;	
 				} else{
 					return false;
 				}
@@ -340,14 +340,15 @@ $(document).ready(
 			
 		});
 		
-function openApplyPop(projNum){
-	var projNum = projNum;
+function openMessagePop(receiveSender){
+	var sendReceiver = receiveSender;
+	
     var width = "500"; 
 	var height = "440"; 
 	var top = (window.screen.height-height)/2; 
 	var left = (window.screen.width-width)/2; 
-	var url = "/proj?command=projectApplyFormAction&projNum="+projNum; 
-	var title = "프로젝트 신청"; 
+	var url = "/prog?command=messageRegisterForm&sendReceiver="+sendReceiver; 
+	var title = "메세지 보내기"; 
 	var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
     

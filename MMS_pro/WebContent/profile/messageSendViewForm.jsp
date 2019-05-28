@@ -331,7 +331,7 @@ $(document).ready(
 				if(confirmStat == true){
 					var messageNum = $('#sendNum').val();
 					alert("삭제되었습니다.");
-					self.location = "prog?command=sendMsgDelete&sendNum="+sendNum;	
+					self.location = "prog?command=deleteMessage&sendNum="+sendNum;	
 				} else{
 					return false;
 				}
