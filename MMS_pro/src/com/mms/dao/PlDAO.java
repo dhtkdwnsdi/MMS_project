@@ -18,6 +18,49 @@ public class PlDAO extends DBManager{
 		return instance;
 	}
 	
+	//PL 읽기
+		public ArrayList<PlVO> readPl(String plName){
+			
+			ArrayList<PlVO> list = new ArrayList<PlVO>();
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			String sql = "SELECT * FROM TBL_PL"
+					+ "    WHERE PL_NAME LIKE '%" + plName +"%'";
+			
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+					while(rs.next()) {
+						
+						PlVO plVo = new PlVO();
+						
+						plVo.setPlNum(rs.getString("PL_NUM"));
+						plVo.setPlName(rs.getString("PL_NAME"));
+						
+						list.add(plVo);
+					}
+			}catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+					
+				}
+			}
+			return list;
+		}
+	
 	//조회
 	
 	public ArrayList<PlVO> selectPl(){

@@ -135,30 +135,45 @@
 				<h3 class="kt-portlet__head-title">자격증 검색</h3>
 			</div>
 			<!--begin: Search Form -->
-			<div
-				class="kt-form kt-form--label-right kt-margin-t-20 kt-margin-b-10">
-				<div class="row align-items-center">
+			<div class="kt-form kt-form--label-right kt-margin-t-20 kt-margin-b-10">
+				
+				
+				
+				
+				<form method = "post" action="prog?command=searchCertName">
+				<div class="kt-input-icon kt-input-icon--right">
+				<input type="text" class="form-control" id="certName" name="certName"> 
+					<span class="kt-input-icon__icon kt-input-icon__icon--right">
+							<span>
+									<button type="submit" class="btn btn-outline-hover-danger btn-icon">
+											<i class="la la-search"></i>
+									</button>
+							</span>
+					</span>
+				</div>
+				</form>
+				
+				<!-- <div class="row align-items-center">
 					<div class="col-xl-8 order-2 order-xl-1">
 						<div class="row align-items-center">
 							<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
 								<div class="kt-input-icon kt-input-icon--left">
-									<input type="text" class="form-control" placeholder="Search..."
-										id="generalSearch"> <span
-										class="kt-input-icon__icon kt-input-icon__icon--left">
+									<input type="text" class="form-control" placeholder="Search..." id="generalSearch"> 
+									<span class="kt-input-icon__icon kt-input-icon__icon--left">
 										<span><i class="la la-search"></i></span>
 									</span>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<div class="kt-portlet__body">
 				<form name="frm" method="post">
 					<div class="kt-section">
 						<div class="kt-section__content">
 							<table class="table table-bordered">
-								<thead>
+								<thead style="text-align: center;">
 									<tr>
 										<th><b>#</b></th>
 										<th style="font-weight: bold;">자격증명</th>

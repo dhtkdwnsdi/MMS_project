@@ -12,24 +12,29 @@ import com.mms.controller.action.Action;
 import com.mms.dao.PlDAO;
 import com.mms.vo.PlVO;
 
-public class PlSearchFormAction implements Action {
+public class SearchPlNameAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		
-		String url = "/profile/searchPlName.jsp";
-				
+		String url="/profile/searchPlName.jsp";
+		
+		String plName = request.getParameter("plName");
+		
+		request.setAttribute("plName", plName);
+		
 		PlDAO plDao = PlDAO.getInstance();
 		
-		ArrayList<PlVO> plList = (ArrayList<PlVO>) plDao.selectPl();
+		ArrayList<PlVO> plList = (ArrayList<PlVO>) plDao.readPl(plName);
 		
 		request.setAttribute("plList", plList);
 		
 		System.out.println(plList);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-	    dispatcher.forward(request, response);
+		dispatcher.forward(request, response);
 	}
 
 }

@@ -25,6 +25,51 @@ public class CertDAO extends DBManager {
 		}
 		return instance;
 	}
+	
+	//자격증 읽기
+	public ArrayList<CertVO> readCert(String certName) {
+		
+		ArrayList<CertVO> list = new ArrayList<CertVO>();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT * FROM TBL_CERT"
+				+ "	  WHERE CERT_NAME LIKE '%" + certName + "%'";
+		
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+				while(rs.next()) {
+					
+					CertVO certVo = new CertVO();
+					
+					certVo.setCertNum(rs.getString("CERT_NUM"));
+					certVo.setCertName(rs.getString("CERT_NAME"));
+					certVo.setIssueOrg(rs.getString("ISSUE_ORG"));
+					
+					list.add(certVo);
+				}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		return list;
+	}
 
 	// 등록된 자격증 출력하는 메소드
 	public List<CertVO> selectCert() {
