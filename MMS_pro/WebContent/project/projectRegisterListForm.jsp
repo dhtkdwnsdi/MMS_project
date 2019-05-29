@@ -164,7 +164,15 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                                <td>${aVo.deadline}</td>
 			                                                <td>${aVo.recruitNumber} 명</td>
 			                                                <td>${aVo.progName}</td>
-			                                                <td>${aVo.projStat}</td>
+			                                                <c:if test="${aVo.projStat eq '모집' }">
+															<td><span class="kt-badge kt-badge--success kt-badge--inline">모집</span></td>
+															</c:if>
+															<c:if test="${aVo.projStat eq '진행' }">
+															<td><span class="kt-badge kt-badge--warning kt-badge--inline">진행</span></td>
+															</c:if>
+															<c:if test="${aVo.projStat eq '종료' }">
+															<td><span class="kt-badge kt-badge--danger kt-badge--inline">종료</span></td>
+															</c:if>
 			                                             </tr>
 			                                          </c:forEach>
 			                                             <c:if test="${empty allList}">
@@ -180,12 +188,12 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                          <thead style="text-align: center;">
 			                                             <tr>
 			                                                <th>#</th>
-			                                                <th style="font-weight: bold;">분류</th>
-			                                                <th style="font-weight: bold;">세분류</th>
+			                                                <!-- <th style="font-weight: bold;">분류</th>
+			                                                <th style="font-weight: bold;">세분류</th> -->
 			                                                <th style="font-weight: bold;">프로젝트 명</th>
-			                                                <th style="font-weight: bold;">신청 마감일</th>
 			                                                <th style="font-weight: bold;">시작 예정일</th>
 			                                                <th style="font-weight: bold;">종료 예정일</th>
+			                                                <th style="font-weight: bold;">신청 마감일</th>
 			                                                <th style="font-weight: bold;">모집인원</th>
 			                                                <th style="font-weight: bold;">담당자</th>
 			                                                <th style="font-weight: bold;">상태</th>
@@ -195,15 +203,23 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                          <c:forEach items="${myList}" var="mVo" varStatus="listStat">
 															<tr>
 																<th scope="row">${listStat.count}<input type="hidden" name="projNum" id="projNum" value="${mVo.projNum}"></th>
-																<td>${mVo.projCate}</td>
-																<td>${mVo.projDetailCate}</td>
+																<%-- <td>${mVo.projCate}</td>
+																<td>${mVo.projDetailCate}</td> --%>
 																<td><a href="proj?command=projectRegisterViewForm&projNum=${mVo.projNum}">${mVo.projName}</a></td>
-																<td>${mVo.deadline}</td>
 																<td>${mVo.startDuedate}</td>
 																<td>${mVo.endDuedate}</td>
+																<td>${mVo.deadline}</td>
 																<td>${mVo.recruitNumber} 명</td>
 																<td>${mVo.progName}</td>
-																<td>${mVo.projStat}</td>
+																<c:if test="${mVo.projStat eq '모집' }">
+																<td><span class="kt-badge kt-badge--success kt-badge--inline">모집</span></td>
+																</c:if>
+																<c:if test="${mVo.projStat eq '진행' }">
+																<td><span class="kt-badge kt-badge--warning kt-badge--inline">진행</span></td>
+																</c:if>
+																<c:if test="${mVo.projStat eq '종료' }">
+																<td><span class="kt-badge kt-badge--danger kt-badge--inline">종료</span></td>
+																</c:if>
 															</tr>
 														</c:forEach>
 			                                             <c:if test="${empty myList}">

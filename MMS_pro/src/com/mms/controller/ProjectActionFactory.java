@@ -21,6 +21,7 @@ import com.mms.controller.action.project.ProjectRegisterFormAction;
 import com.mms.controller.action.project.ProjectUpdateAction;
 import com.mms.controller.action.project.ProjectUpdateFormAction;
 import com.mms.controller.action.project.ProjectViewFormAction;
+import com.mms.controller.action.project.SearchUsePlAction;
 
 public class ProjectActionFactory {
 
@@ -118,6 +119,9 @@ public class ProjectActionFactory {
 			else if(command.equals("myProjectViewForm")) {
 				action = new MyProjectViewFormAction();
 				
+			}
+			else if(command.equals("searchUsePl")) {
+				action = new SearchUsePlAction();
 			}
 			return action;
 		}

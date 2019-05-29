@@ -692,7 +692,7 @@ $(document).on("click", "button[name=delete]", function(){
 });
 
 //autocomplete
-$(document).ready(function(){
+/* $(document).ready(function(){
 	$("#autocomplete").autocomplete({
 		source : function(request, response) {
 			$.ajax({
@@ -714,6 +714,35 @@ $(document).ready(function(){
 	});
 	
 });
+ */
+
+$(function(){
+	$("#autocomplete").autocomplete({
+		source : function(request, response){
+			$.ajax({
+				type: 'post',
+				url: "/proj?command=searchUsePl",
+				dataType: "json",
+				// request.term = $("#autocomplete").val()
+				data: { value : request.term },
+				success: function(data){
+					response(
+					 $.map(data, function(item){
+						return{
+							label: item.data,
+							value: item.data
+						}
+					})
+				);
+				}
+			});
+		},
+		minLength: 1,
+		select: function(event, ui){
+			
+		}
+	});
+})
 
 </script>
 

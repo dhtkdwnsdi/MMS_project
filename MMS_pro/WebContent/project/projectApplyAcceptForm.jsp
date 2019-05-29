@@ -157,7 +157,15 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <td><a href="#">${aVo.progName}</a></td>
                                                 <td>${aVo.applyPosition}</td>
                                                 <td>${aVo.applyDate}</td>
-                                                <td>${aVo.applyStat}</td>
+                                                <c:if test="${aVo.applyStat eq '승인' }">
+                                                <td><span class="kt-badge kt-badge--success kt-badge--inline">승인</span></td>
+                                                </c:if>
+                                                <c:if test="${aVo.applyStat eq '승인대기' }">
+                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">승인대기</span></td>
+                                                </c:if>
+                                                <c:if test="${aVo.applyStat eq '거절' }">
+                                                <td><span class="kt-badge kt-badge--danger kt-badge--inline">거절</span></td>
+                                                </c:if>
                                                 <c:if test="${aVo.applyStat eq '승인대기' and aVo.projStat eq '모집'}">
                                                 <td>
                                                 <span class="kt-badge kt-badge--success kt-badge--inline" onclick="acceptApply('${aVo.applyStmtNum}')">승인</span>
@@ -201,7 +209,15 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <td><a href="#">${acVo.progName}</a></td>
                                                 <td>${acVo.applyPosition}</td>
                                                 <td>${acVo.applyDate}</td>
-                                                <td>${acVo.applyStat}</td>
+                                                <c:if test="${acVo.applyStat eq '승인' }">
+                                                <td><span class="kt-badge kt-badge--success kt-badge--inline">승인</span></td>
+                                                </c:if>
+                                                <c:if test="${acVo.applyStat eq '승인대기' }">
+                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">승인대기</span></td>
+                                                </c:if>
+                                                <c:if test="${acVo.applyStat eq '거절' }">
+                                                <td><span class="kt-badge kt-badge--danger kt-badge--inline">거절</span></td>
+                                                </c:if>
                                                 <c:if test="${acVo.applyStat eq '승인대기' and acVo.projStat eq '모집'}">
                                                 <td>
                                                 <span class="kt-badge kt-badge--success kt-badge--inline" onclick="acceptApply('${acVo.applyStmtNum}')">승인</span>

@@ -314,7 +314,7 @@ font-weight: bold;
 									</div>
 							
                            <!--begin:: Widgets/New Users-->
-                           <c:if test="${projVo.projStat eq '진행'}">
+                           <%-- <c:if test="${projVo.projStat eq '진행' or projVo.projStat eq '종료'}"> --%>
                            <div class="kt-portlet">
                               <div class="kt-portlet__head">
                                  <div class="kt-portlet__head-label">
@@ -350,7 +350,7 @@ font-weight: bold;
 
                            <!--end:: Widgets/New Users-->
                         			</div>
-                        </c:if>
+                        <%-- </c:if> --%>
                         		</div>
 							</div>
 						</div>

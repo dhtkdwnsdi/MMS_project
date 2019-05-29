@@ -141,12 +141,13 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                          <thead style="text-align: center;">
 			                                             <tr>
 			                                                <th>#</th>
-			                                                <th style="font-weight: bold;">분류</th>
-			                                                <th style="font-weight: bold;">세분류</th>
+			                                                <!-- <th style="font-weight: bold;">분류</th>
+			                                                <th style="font-weight: bold;">세분류</th> -->
 			                                                <th style="font-weight: bold;">프로젝트 명</th>
-			                                                <th style="font-weight: bold;">신청 마감일</th>
 			                                                <th style="font-weight: bold;">시작 예정일</th>
 			                                                <th style="font-weight: bold;">종료 예정일</th>
+			                                                <th style="font-weight: bold;">신청 마감일</th>
+			                                                <th style="font-weight: bold;">모집인원</th>
 			                                                <th style="font-weight: bold;">담당자</th>
 			                                                <th style="font-weight: bold;">상태</th>
 			                                                <th style="font-weight: bold;">접수</th>
@@ -156,17 +157,26 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                          <c:forEach items="${aList}" var="aVo" varStatus="listStat">
 			                                             <tr>
 			                                                <th scope="row">${listStat.count}</th>
-			                                                <td>${aVo.projCate}</td>
-			                                                <td>${aVo.projDetailCate}</td>
+			                                                <%-- <td>${aVo.projCate}</td>
+			                                                <td>${aVo.projDetailCate}</td> --%>
 			                                                <td><a href="proj?command=projectApplyViewForm&projNum=${aVo.projNum}">${aVo.projName}</a></td>
-			                                                <td>${aVo.deadline}</td>
 			                                                <td>${aVo.startDuedate}</td>
 			                                                <td>${aVo.endDuedate}</td>
+			                                                <td>${aVo.deadline}</td>
+			                                                <td>${aVo.recruitNumber} 명</td>
 			                                                <td>${aVo.progName}</td>
-			                                                <td>${aVo.projStat}</td>
+			                                                <c:if test="${aVo.projStat eq '모집' }">
+			                                                <td><span class="kt-badge kt-badge--success kt-badge--inline">모집</span></td>
+			                                                </c:if>
+			                                                <c:if test="${aVo.projStat eq '진행' }">
+			                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">진행</span></td>
+			                                                </c:if>
+			                                                <c:if test="${aVo.projStat eq '종료' }">
+			                                                <td><span class="kt-badge kt-badge--danger kt-badge--inline">종료</span></td>
+			                                                </c:if>
 			                                                <c:if test="${aVo.projStat eq '모집' }">
 			                                                <td>
-			                                                <span class="kt-badge kt-badge--success kt-badge--inline" onclick="openApplyPop('${aVo.projNum}','${LoginUser.progNum}')">신청</span>
+			                                                <span class="kt-badge kt-badge--primary kt-badge--inline" onclick="openApplyPop('${aVo.projNum}','${LoginUser.progNum}')">신청</span>
 			                                                </td>
 			                                                </c:if>
 			                                                <c:if test="${aVo.projStat ne '모집' }">
@@ -189,12 +199,13 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                          <thead style="text-align: center;">
 			                                             <tr>
 			                                                <th>#</th>
-			                                                <th style="font-weight: bold;">분류</th>
-			                                                <th style="font-weight: bold;">세분류</th>
+			                                                <!-- <th style="font-weight: bold;">분류</th>
+			                                                <th style="font-weight: bold;">세분류</th> -->
 			                                                <th style="font-weight: bold;">프로젝트 명</th>
-			                                                <th style="font-weight: bold;">신청 마감일</th>
 			                                                <th style="font-weight: bold;">시작 예정일</th>
 			                                                <th style="font-weight: bold;">종료 예정일</th>
+			                                                <th style="font-weight: bold;">신청 마감일</th>
+			                                                <th style="font-weight: bold;">모집인원</th>
 			                                                <th style="font-weight: bold;">담당자</th>
 			                                                <th style="font-weight: bold;">상태</th>
 			                                                <th style="font-weight: bold;">접수</th>
@@ -204,16 +215,25 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                          <c:forEach items="${Plist}" var="pVo" varStatus="listStat">
 			                                             <tr>
 			                                                <th scope="row">${listStat.count}</th>
-			                                                <td>${pVo.projCate}</td>
-			                                                <td>${pVo.projDetailCate}</td>
+			                                                <%-- <td>${pVo.projCate}</td>
+			                                                <td>${pVo.projDetailCate}</td> --%>
 			                                                <td><a href="proj?command=projectApplyViewForm&projNum=${pVo.projNum}">${pVo.projName}</a></td>
-			                                                <td>${pVo.deadline}</td>
 			                                                <td>${pVo.startDuedate}</td>
 			                                                <td>${pVo.endDuedate}</td>
+			                                                <td>${pVo.deadline}</td>
+			                                                <td>${pVo.recruitNumber} 명</td>
 			                                                <td>${pVo.progName}</td>
-			                                                <td>${pVo.projStat}</td>
+			                                                <c:if test="${pVo.projStat eq '모집' }">
+			                                                <td><span class="kt-badge kt-badge--success kt-badge--inline">모집</span></td>
+			                                                </c:if>
+			                                                <c:if test="${pVo.projStat eq '진행' }">
+			                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">진행</span></td>
+			                                                </c:if>
+			                                                <c:if test="${pVo.projStat eq '종료' }">
+			                                                <td><span class="kt-badge kt-badge--danger kt-badge--inline">종료</span></td>
+			                                                </c:if>
 			                                                <td>
-			                                                <span class="kt-badge kt-badge--success kt-badge--inline" onclick="openApplyPop('${pVo.projNum}','${LoginUser.progNum}')">신청</span>
+			                                                <span class="kt-badge kt-badge--primary kt-badge--inline" onclick="openApplyPop('${pVo.projNum}','${LoginUser.progNum}')">신청</span>
 			                                                </td>
 			                                             </tr>
 			                                          </c:forEach>

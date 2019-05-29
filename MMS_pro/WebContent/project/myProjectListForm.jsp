@@ -154,7 +154,15 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                                <td><a href="/proj?command=myProjectViewForm&projNum=${pVo.projNum}">${pVo.projName}</a></td>
 			                                                <td>${pVo.progName}</td>
 			                                                <td>${pVo.applyPosition}</td>
-			                                                <td>${pVo.projStat}</td>
+			                                                <c:if test="${pVo.projStat eq '모집' }">
+																<td><span class="kt-badge kt-badge--success kt-badge--inline">모집</span></td>
+																</c:if>
+																<c:if test="${pVo.projStat eq '진행' }">
+																<td><span class="kt-badge kt-badge--warning kt-badge--inline">진행</span></td>
+																</c:if>
+																<c:if test="${pVo.projStat eq '종료' }">
+																<td><span class="kt-badge kt-badge--danger kt-badge--inline">종료</span></td>
+																</c:if>
 			                                             </tr>
 			                                          </c:forEach>
 			                                          <c:if test="${empty aList }">
@@ -182,7 +190,15 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                                <td><a href="/proj?command=myProjectViewForm&projNum=${pVo.projNum}">${pVo.projName}</a></td>
 			                                                <td>${pVo.progName}</td>
 			                                                <td>${pVo.applyPosition}</td>
-			                                                <td>${pVo.projStat}</td>
+			                                                 <c:if test="${pVo.projStat eq '모집' }">
+																<td><span class="kt-badge kt-badge--success kt-badge--inline">모집</span></td>
+																</c:if>
+																<c:if test="${pVo.projStat eq '진행' }">
+																<td><span class="kt-badge kt-badge--warning kt-badge--inline">진행</span></td>
+																</c:if>
+																<c:if test="${pVo.projStat eq '종료' }">
+																<td><span class="kt-badge kt-badge--danger kt-badge--inline">종료</span></td>
+																</c:if>
 			                                             </tr>
 			                                          </c:forEach>
 			                                          <c:if test="${empty pPList }">
@@ -210,7 +226,15 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                                <td><a href="/proj?command=myProjectViewForm&projNum=${pVo.projNum}">${eVo.projName}</a></td>
 			                                                <td>${eVo.progName}</td>
 			                                                <td>${eVo.applyPosition}</td>
-			                                                <td>${eVo.projStat}</td>
+			                                                 <c:if test="${eVo.projStat eq '모집' }">
+																<td><span class="kt-badge kt-badge--success kt-badge--inline">모집</span></td>
+																</c:if>
+																<c:if test="${eVo.projStat eq '진행' }">
+																<td><span class="kt-badge kt-badge--warning kt-badge--inline">진행</span></td>
+																</c:if>
+																<c:if test="${eVo.projStat eq '종료' }">
+																<td><span class="kt-badge kt-badge--danger kt-badge--inline">종료</span></td>
+																</c:if>
 			                                             </tr>
 			                                          </c:forEach>
 			                                          <c:if test="${empty ePList }">

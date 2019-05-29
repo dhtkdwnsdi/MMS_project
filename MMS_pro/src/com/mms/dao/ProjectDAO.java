@@ -276,7 +276,8 @@ public class ProjectDAO extends DBManager {
 			   		+ "			   ,PJ.OS_CODE AS OS_CODE"
 			   		+ "			   ,PJ.LEVEL_CODE AS LEVEL_CODE"
 			   		+ "			   ,PJ.PROJ_FILE AS PROJ_FILE"
-			   		+ "			   ,PJ.PROG_NUM AS PROG_NUM" + 
+			   		+ "			   ,PJ.PROG_NUM AS PROG_NUM"
+			   		+ "			   ,PJ.RECRUIT_NUMBER AS RECRUIT_NUMBER" + 
 			   		"          FROM TBL_PROJECT PJ" + 
 			   		"			   ,TBL_PROGRAMMER PG" + 
 			   		"  		   WHERE PG.PROG_NUM = PJ.PROG_NUM"
@@ -308,6 +309,7 @@ public class ProjectDAO extends DBManager {
 				   pVo.setProjStat(rs.getString("PROJ_STAT"));
 				   pVo.setProgNum(rs.getString("PROG_NUM"));
 				   pVo.setProgName(rs.getString("PROG_NAME"));
+				   pVo.setRecruitNumber(rs.getString("RECRUIT_NUMBER"));
 				   
 				   list.add(pVo);
 			   }

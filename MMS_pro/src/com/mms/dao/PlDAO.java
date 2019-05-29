@@ -160,4 +160,47 @@ public class PlDAO extends DBManager{
 			}
 		}
 	}
+	
+	// pl autocomplete
+		public ArrayList<PlVO> searchPlList(String value){
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			ArrayList<PlVO> list = new ArrayList<PlVO>();
+			String sql = "SELECT PL_NUM"
+					+ "			,PL_NAME"
+					+ "		FROM TBL_PL"
+					+ "	   WHERE PL_NAME LIKE '%" + value + "%'";
+			
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					PlVO plVo = new PlVO();
+					plVo.setPlNum(rs.getString("PL_NUM"));
+					plVo.setPlName(rs.getString("PL_NAME"));
+					
+					list.add(plVo);
+					
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				
+			} finally {
+				try {
+					if(rs != null) rs.close();
+					if(pstmt != null) pstmt.close();
+					if(conn != null) conn.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+					
+				}
+			}
+			return list;
+			
+		}
+
 }
