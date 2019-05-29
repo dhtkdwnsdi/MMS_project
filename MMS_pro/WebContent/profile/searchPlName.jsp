@@ -229,7 +229,7 @@
 <!-- begin::Global Config(global config for global JS sciprts) -->
 <script>
 	function sendToParent(plnum, plname) {
-		alert(document.getElementById("plNum").value);
+		/* alert(plnum); */
 		
 		opener.document.getElementById("plNum").value = plnum;
 		opener.document.getElementById("plName").value = plname;

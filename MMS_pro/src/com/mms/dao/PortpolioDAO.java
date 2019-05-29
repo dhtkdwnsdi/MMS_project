@@ -7,230 +7,100 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mms.vo.PortpolioVo;
+import com.mms.vo.PortpolioVO;
 
 import util.DBManager;
 
 public class PortpolioDAO extends DBManager {
-	
+
 	private static PortpolioDAO instance;
-	
+
 	private PortpolioDAO() {
-		
+
 	}
-	
+
 	public static PortpolioDAO getInstance() {
-		if(instance == null) {
+		if (instance == null) {
 			instance = new PortpolioDAO();
 		}
 		System.out.print("PortpolioDAO.java");
 		return instance;
 	}
+
 	
-	//조회
-	public List<PortpolioVo> selectPortpolio(String progNum){
+	//포토폴리오 조회
+	 public List<PortpolioVO> selectPortpolio(String progNum){
+		 
+		 String sql = "SELECT  PORT_NUM"
+		 		+ "          , SUBJECT"
+		 		+ "          , PORT_CATE"
+		 		+ "          , PORT_DETAIL_CATE"
+		 		+ "      FROM tbl_portpolio"
+		 		+ "     WHERE PROG_NUM = " + progNum;
+		 
+		 List<PortpolioVO> list = new ArrayList<PortpolioVO>();
+		 
+		 Connection conn = null;
+	     PreparedStatement pstmt = null;
+	     ResultSet rs = null;
 		
-		String sql = "SELECT PORT_NUM"
-				+ "			,SUBJECT"
-				+ "			,PORT_CATE"
-				+ "			FROM TBL_PORTPOLIO"
-				+ "			WHERE PROG_NUM = " + progNum
-				+ "			ORDER BY PORT_NUM";
-		
-		List<PortpolioVo> list = new ArrayList<PortpolioVo>();
+	     try {
+	    	 conn = getConnection();
+	         pstmt = conn.prepareStatement(sql);
+	         rs = pstmt.executeQuery();
+	            
+	         while(rs.next()) {
+	        	 PortpolioVO portpolioVo = new PortpolioVO();
+	        	 
+	        	 portpolioVo.setPortNum(rs.getString("PORT_NUM"));
+	        	 portpolioVo.setSubject(rs.getString("SUBJECT"));
+	        	 portpolioVo.setPortCate(rs.getString("PORT_CATE"));
+	        	 portpolioVo.setPortCate(rs.getString("PORT_DETAIL_CATE"));
+	        	 list.add(portpolioVo);
+	         }
+	     } catch (SQLException e) {
+	            
+	            e.printStackTrace();
+	            
+	     } finally {
+        	 try {
+                 if(pstmt != null)
+                	 pstmt.close();
+                 if(conn != null)
+                    conn.close();
+              } catch (Exception e) {
+                 e.printStackTrace();
+              }
+         }
+	     
+	     return list;
+	 }
+	
+	
+	// 포트폴리오 삭제
+	public void deletePortpolio(String portNum) {
+
+		String sql = "DELETE FROM TBL_PORTPOLIO" + "    WHERE PORT_NUM=" + portNum;
+
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				PortpolioVo portVo = new PortpolioVo();
-				
-				portVo.setPortNum(rs.getString("port_Num"));
-				portVo.setSubject(rs.getString("subject"));
-				portVo.setPortCate(rs.getString("port_Cate"));
-				/*
-				 * portVo.setPortDetailCate(rs.getString("portDetailCate"));
-				 * portVo.setPortStartDate(rs.getString("portStartDate"));
-				 * portVo.setPortEndDate(rs.getString("portEndDate"));
-				 * portVo.setRate(rs.getString("rate"));
-				 * portVo.setConnectSkill(rs.getString("connectSkill"));
-				 * portVo.setPortContents(rs.getString("portContents"));
-				 * portVo.setPortFile(rs.getString("portFile"));
-				 */
-				
-				list.add(portVo);
-			}
-		} catch(SQLException e) {
-			e.printStackTrace();
-		} finally {
-			//dbClose();
-		}
-		return list;
-	}
-	
-	public PortpolioVo readPortpolio(String portNum) {
-		
-		String sql ="Select * from tbl_portpolio where port_num=?";
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		PortpolioVo portVo = new PortpolioVo();
-		
-		try {
-			conn=getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, portNum);
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				portVo.setPortNum(rs.getString("port_Num"));
-				portVo.setSubject(rs.getString("subject"));
-				portVo.setPortCate(rs.getString("port_Cate"));
-				portVo.setPortDetailCate(rs.getString("port_Detail_Cate"));
-				portVo.setPortStartDate(rs.getString("port_Start_Date"));
-				portVo.setPortEndDate(rs.getString("port_End_Date"));
-				portVo.setRate(rs.getString("rate"));
-				portVo.setConnectSkill(rs.getString("connect_Skill"));
-				portVo.setPortContents(rs.getString("port_Contents"));
-				portVo.setPortFile(rs.getString("port_File"));
-				
-			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			
-		}return portVo;
-	}
-	
-	public ArrayList<PortpolioVo> portpolioList(String progNum) {
-		ArrayList<PortpolioVo> portpolioList = new ArrayList<PortpolioVo>();
-		
-		String sql = "SELECT PORT_NUM"
-					+ "			,SUBJECT"
-					+ "			,PORT_CATE"
-					+ "			FROM TBL_PORTPOLIO"
-					+ "			WHERE PROG_NUM = " + progNum
-					+ "			ORDER BY PORT_NUM";
-		
-		Connection conn = null;
-		PreparedStatement st = null;
-		ResultSet rs = null;
-		
-		try {
-			conn = getConnection();
-			st = conn.prepareStatement(sql);
-			rs = st.executeQuery();
-			
-			while (rs.next()) {
-				PortpolioVo portVo = new PortpolioVo();
-				
-				portVo.setPortNum(rs.getString("PORT_NUM"));
-				portVo.setSubject(rs.getString("SUBJECT"));
-				portVo.setPortCate(rs.getString("PORT_CATE"));
-				/*
-				 * portVo.setPortDetailCate(rs.getString("portDetailCate"));
-				 * portVo.setPortStartDate(rs.getString("portStartDate"));
-				 * portVo.setPortEndDate(rs.getString("portEndDate"));
-				 * portVo.setRate(rs.getString("rate"));
-				 * portVo.setConnectSkill(rs.getString("connectSkill"));
-				 * portVo.setPortContents(rs.getString("portContents"));
-				 * portVo.setPortFile(rs.getString("portFile"));
-				 */
-				
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			
-		}
-		return portpolioList;
-	}
-	
-	//등록
-	public void insertPortpolio(PortpolioVo portVo) {
-		String sql = "INSERT INTO TBL_PORTPOLIO (PORT_NUM,SUBJECT,PORT_CATE,PORT_DETAIL_CATE,PORT_START_DATE,PORT_END_DATE,RATE,CONNECT_SKILL,PORT_CONTENTS,PORT_FILE,PROG_NUM) VALUES(port_num,?,?,?,?,?,?,?,?,?,?)";
-		
-		Connection conn = getConnection();
-		PreparedStatement pstmt;
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			//pstmt.setString(1, portVo.getPortNum());
-			pstmt.setString(1, portVo.getSubject());
-			pstmt.setString(2, portVo.getPortCate());
-			pstmt.setString(3, portVo.getPortDetailCate());
-			pstmt.setString(4, portVo.getPortStartDate());
-			pstmt.setString(5, portVo.getPortEndDate());
-			pstmt.setString(6, portVo.getRate());
-			pstmt.setString(7, portVo.getConnectSkill());
-			pstmt.setString(8, portVo.getPortContents());
-			pstmt.setString(9, portVo.getPortFile());
-			pstmt.setString(10, portVo.getProgNum());
-			
+
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			//dbClose();
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
-	}
-	
-	//수정
-	public void updatePortpolio(PortpolioVo portVo) {
-		String sql = "UPDATE TBL_PORTPOLIO SET SUBJECT=?,PORT_CATE=?,PORT_DETAIL_CATE=?,PORT_START_DATE=?,PORT_END_DATE=?,RATE=?,CONNECT_SKILL=?,PORT_CONTENTS=?,PORT_FILE=? WHERE PORT_NUM=?";
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, portVo.getSubject());
-			pstmt.setString(2, portVo.getPortCate());
-			pstmt.setString(3, portVo.getPortDetailCate());
-			pstmt.setString(4, portVo.getPortStartDate());
-			pstmt.setString(5, portVo.getPortEndDate());
-			pstmt.setString(6, portVo.getRate());
-			pstmt.setString(7, portVo.getConnectSkill());
-			pstmt.setString(8, portVo.getPortContents());
-			pstmt.setString(9, portVo.getPortFile());
-			//pstmt.setString(10, portVo.getProgNum());
-			pstmt.setString(10, portVo.getPortNum());
-			
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			//dbClose();
-		}
-	}
-	
-	//삭제
-	public int deletePortpolio(String portNum) {
-		
-		String sql = "delete from tbl_portpolio where port_num=" + portNum;
-		
-		Connection conn = null;
-		PreparedStatement pstmt;
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1,portNum);
-			
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} 
-		//dbClose();
-		return 0;
 	}
 
 }
