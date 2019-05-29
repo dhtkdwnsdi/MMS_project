@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
 import com.mms.dao.PortpolioDAO;
-import com.mms.vo.PortpolioVo;
+import com.mms.vo.PortpolioVO;
 
 public class PortpolioDeleteAction implements Action{
 
@@ -20,7 +20,7 @@ public class PortpolioDeleteAction implements Action{
 		
 		String url = "prog?command=portpolioListForm";
 		
-		PortpolioVo portVo = new PortpolioVo();
+		PortpolioVO portVo = new PortpolioVO();
 		
 		String portNum = request.getParameter("portNum");
 		

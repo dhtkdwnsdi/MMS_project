@@ -106,8 +106,6 @@ public class MyCertDAO extends DBManager {
 	   	}
 	   	
 	   	
-	   	//보유 자격증을 등록하는 메소드
-	   	
 	   	
 	   	//보유 자격증 번호를 통해 myCertUpdateFor.jsp로 넘어가는 메소드
 	   	public MyCertVO readMyCert(String myCertNum) {
@@ -190,6 +188,8 @@ public class MyCertDAO extends DBManager {
 				}
 			}
 	   	}
+	   	
+	  	//보유 자격증을 등록하는 메소드
 	   	
 	   	public void insertMyCert(MyCertVO myCertVo) {
 	   		

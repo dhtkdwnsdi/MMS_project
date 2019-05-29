@@ -12,6 +12,7 @@ import com.mms.controller.action.cert.CertListFormAction;
 import com.mms.controller.action.cert.CertRegistAction;
 import com.mms.controller.action.cert.CertRegistFormAction;
 import com.mms.controller.action.cert.CertSearchFormAction;
+import com.mms.controller.action.cert.SearchCertNameAction;
 import com.mms.controller.action.edu.EduDeleteAction;
 import com.mms.controller.action.edu.EduListFormAction;
 import com.mms.controller.action.edu.EduRegisterAction;
@@ -28,11 +29,8 @@ import com.mms.controller.action.memberSet.MemberUpdateAction;
 import com.mms.controller.action.message.MessageListFormAction;
 import com.mms.controller.action.message.MessageReceiveViewFormAction;
 import com.mms.controller.action.message.MessageRegisterAction;
-import com.mms.controller.action.message.MessageRegisterFormAction;
 import com.mms.controller.action.message.MessageSendViewFormAction;
 import com.mms.controller.action.message.ProgrammerSearchFormAction;
-import com.mms.controller.action.message.ReceiveMsgDeleteAction;
-import com.mms.controller.action.message.SendMsgDeleteAction;
 import com.mms.controller.action.myCert.MyCertDeleteAction;
 import com.mms.controller.action.myCert.MyCertListFormAction;
 import com.mms.controller.action.myCert.MyCertRegistAction;
@@ -43,6 +41,7 @@ import com.mms.controller.action.pl.PlListFormAction;
 import com.mms.controller.action.pl.PlRegisterAction;
 import com.mms.controller.action.pl.PlRegisterFormAction;
 import com.mms.controller.action.pl.PlSearchFormAction;
+import com.mms.controller.action.pl.SearchPlNameAction;
 import com.mms.controller.action.pls.PlsDeleteAction;
 import com.mms.controller.action.pls.PlsListFormAction;
 import com.mms.controller.action.pls.PlsRegisterAction;
@@ -116,7 +115,11 @@ public class ProgrammerActionFactory {
 			action = new PlsRegisterAction();	
 		}else if(command.equals("plsDelete")) {
 			action = new PlsDeleteAction();	
-		}else if (command.equals("introduceUpdateForm")) {
+		}
+		else if(command.equals("searchPlName")) {
+			action = new SearchPlNameAction();	
+		}
+		else if (command.equals("introduceUpdateForm")) {
 			action = new IntroduceUpdateFormAction();
 		}else if (command.equals("introduceUpdate")) {
 			action = new IntroduceUpdateAction();
@@ -140,7 +143,11 @@ public class ProgrammerActionFactory {
 			action = new CertRegistAction();
 		} else if (command.equals("certSearchForm")) {
 			action = new CertSearchFormAction();
+		} 
+		else if (command.equals("searchCertName")) {
+			action = new SearchCertNameAction();
 		}
+		
 
 		// 보유 자격증
 		else if (command.equals("myCertListForm")) {
@@ -201,12 +208,6 @@ public class ProgrammerActionFactory {
 			action = new MessageReceiveViewFormAction();
 		} else if (command.equals("messageRegister")) {
 			action = new MessageRegisterAction(); 
-		} else if (command.equals("receiveMsgDelete")) {
-			action = new ReceiveMsgDeleteAction();
-		} else if (command.equals("sendMsgDelete")) {
-			action = new SendMsgDeleteAction();
-		} else if (command.equals("messageRegisterForm")) {
-			action = new MessageRegisterFormAction();
 		}
 
 		return action;
