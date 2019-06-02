@@ -452,35 +452,49 @@ $(function(){
             else{
                 $("#alert-success").hide();
                 $("#alert-danger").hide();
-            }
+               
+            }     
         });
     });
 
+	
+	
 	//회원가입 유효성 검사
 	function validate(){
 		var name = document.getElementById("name").value;
-		var id = document.getElementById("id1").value;
+		var signUpid = document.getElementById("signUpid").value;
 		var pass = document.getElementById("password1").value;
 		var rpass = document.getElementById("rpassword1").value;
+		
 		if(name == ""){
 			alert("이름을 입력해주세요.");
 			document.getElementById("name").focus();
 			return false;
 		}
-		else if(id == ""){
+		
+		else if(signUpid == ""){
 			alert("ID를 입력해주세요.");
-			document.getElementById("id1").focus();
+			document.getElementById("signUpid").focus();
 			return false;
 		}
-		else if(pass == "" && rpass == ""){
+		
+		else if(pass == "" || rpass == ""){
 			alert("비밀번호를 입력해주세요.");
 			document.getElementById("password1").focus();
 			return false;
-		} 
+		}
+		else if(pass != rpass){
+			alert("비밀번호가 일치하지 않습니다.");
+			document.getElementById("password1").focus();
+			return false;
+		}
 		else{
 			return true;
 		}
 	}
+	
+	
+	
 	//로그인 유효성 검사
 	function validateLogin(){
 		var id = document.getElementById("id").value;
@@ -501,6 +515,14 @@ $(function(){
 		}
 		
 	}
+	
+	
+      
+//엔터막기		   
+$(document).keypress(function(e) { if (e.keyCode == 13) e.preventDefault(); });
+
+		  
+	
 </script>
 
 	
