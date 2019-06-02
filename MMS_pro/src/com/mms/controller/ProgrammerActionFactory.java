@@ -2,6 +2,7 @@ package com.mms.controller;
 
 import com.mms.controller.action.Action;
 import com.mms.controller.action.ProfileFormAction;
+import com.mms.controller.action.ResumeFormAction;
 import com.mms.controller.action.career.CareerDeleteAction;
 import com.mms.controller.action.career.CareerListFormAction;
 import com.mms.controller.action.career.CareerRegisterAction;
@@ -46,6 +47,7 @@ import com.mms.controller.action.pls.PlsDeleteAction;
 import com.mms.controller.action.pls.PlsListFormAction;
 import com.mms.controller.action.pls.PlsRegisterAction;
 import com.mms.controller.action.portpolio.PortpolioListFormAction;
+import com.mms.controller.action.portpolio.PortpolioReadFormAction;
 import com.mms.controller.action.portpolio.PortpolioRegistFormAction;
 
 public class ProgrammerActionFactory {
@@ -92,6 +94,9 @@ public class ProgrammerActionFactory {
 		else if (command.equals("profileForm")) {
 			action = new ProfileFormAction();
 
+		}else if (command.equals("portpolioReadForm")) {
+			action = new PortpolioReadFormAction();
+
 		}
 
 		/**
@@ -128,7 +133,9 @@ public class ProgrammerActionFactory {
 		else if (command.equals("intorduceList")) {
 			action = new IntroduceListAction();
 		}
-		
+		else if (command.equals("resumeForm")) {
+			action = new ResumeFormAction();
+		}
 
 		/**
 		 * @author OSJ

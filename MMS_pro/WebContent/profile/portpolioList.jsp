@@ -48,7 +48,8 @@ License: You must have a valid license purchased only from themeforest(the above
                            </div>
                         </div>
 
-                           <!--begin::Section-->
+
+
 				<div class="kt-portlet__body">
 					<form action="prog?command=myCertDelete" method="post" name="frm">
 						<input type="hidden" name="progNum" value="${LoginUser.progNum}">
@@ -63,6 +64,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                              </tr>
                                           </thead>
                                           
+                                          
+                                          <c:choose>
+												<c:when test="${not empty portpolioList}">
                                           <c:forEach items="${portpolioList}" var="PortpolioVo" varStatus="listStat">
                                           <tbody style="text-align: center;">
                                              <tr>
@@ -74,6 +78,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                              </tr>
                                           </tbody>
                                           </c:forEach>
+												</c:when>
+												<c:otherwise>
+													<tr>
+														<td colspan="3" class="txt_center" align="center"><b>포트폴리오 데이터가 없습니다.</b></td>
+													</tr>
+												</c:otherwise>
+											</c:choose>
                                        </table>
                                        
                                     </div>
@@ -139,182 +150,6 @@ License: You must have a valid license purchased only from themeforest(the above
          </li>
       </ul>
 
-      <!-- end::Sticky Toolbar -->
-
-      <!-- begin::Demo Panel -->
-      <div id="kt_demo_panel" class="kt-demo-panel">
-         <div class="kt-demo-panel__head">
-            <h3 class="kt-demo-panel__title">
-               Select A Demo
-
-               <!--<small>5</small>-->
-            </h3>
-            <a href="#" class="kt-demo-panel__close" id="kt_demo_panel_close"><i class="flaticon2-delete"></i></a>
-         </div>
-         <div class="kt-demo-panel__body">
-            <div class="kt-demo-panel__item kt-demo-panel__item--active">
-               <div class="kt-demo-panel__item-title">
-                  Default
-               </div>
-               <div class="kt-demo-panel__item-preview">
-                  <img src="../assets/media/demos/Demo-_Default.jpg" alt="" />
-                  <div class="kt-demo-panel__item-preview-overlay">
-                     <a href="../default/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
-                  </div>
-               </div>
-            </div>
-            <div class="kt-demo-panel__item ">
-               <div class="kt-demo-panel__item-title">
-                  Demo 2
-               </div>
-               <div class="kt-demo-panel__item-preview">
-                  <img src="../assets/media/demos/Demo-2.jpg" alt="" />
-                  <div class="kt-demo-panel__item-preview-overlay">
-                     <a href="../demo2/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
-                  </div>
-               </div>
-            </div>
-            <div class="kt-demo-panel__item ">
-               <div class="kt-demo-panel__item-title">
-                  Demo 3
-               </div>
-               <div class="kt-demo-panel__item-preview">
-                  <img src="../assets/media/demos/Demo-3.jpg" alt="" />
-                  <div class="kt-demo-panel__item-preview-overlay">
-                     <a href="../demo3/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
-                  </div>
-               </div>
-            </div>
-            <div class="kt-demo-panel__item ">
-               <div class="kt-demo-panel__item-title">
-                  Demo 4
-               </div>
-               <div class="kt-demo-panel__item-preview">
-                  <img src="../assets/media/demos/Demo-4.jpg" alt="" />
-                  <div class="kt-demo-panel__item-preview-overlay">
-                     <a href="../demo4/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
-                  </div>
-               </div>
-            </div>
-            <div class="kt-demo-panel__item ">
-               <div class="kt-demo-panel__item-title">
-                  Demo 5
-               </div>
-               <div class="kt-demo-panel__item-preview">
-                  <img src="../assets/media/demos/Demo-5.jpg" alt="" />
-                  <div class="kt-demo-panel__item-preview-overlay">
-                     <a href="../demo5/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
-                  </div>
-               </div>
-            </div>
-            <div class="kt-demo-panel__item ">
-               <div class="kt-demo-panel__item-title">
-                  Demo 6
-               </div>
-               <div class="kt-demo-panel__item-preview">
-                  <img src="../assets/media/demos/Demo-6.jpg" alt="" />
-                  <div class="kt-demo-panel__item-preview-overlay">
-                     <a href="../demo6/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
-                  </div>
-               </div>
-            </div>
-            <div class="kt-demo-panel__item ">
-               <div class="kt-demo-panel__item-title">
-                  Demo 7
-               </div>
-               <div class="kt-demo-panel__item-preview">
-                  <img src="../assets/media/demos/Demo-7.jpg" alt="" />
-                  <div class="kt-demo-panel__item-preview-overlay">
-                     <a href="../demo7/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
-                  </div>
-               </div>
-            </div>
-            <div class="kt-demo-panel__item ">
-               <div class="kt-demo-panel__item-title">
-                  Demo 8
-               </div>
-               <div class="kt-demo-panel__item-preview">
-                  <img src="../assets/media/demos/Demo-8.jpg" alt="" />
-                  <div class="kt-demo-panel__item-preview-overlay">
-                     <a href="../demo8/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
-                  </div>
-               </div>
-            </div>
-            <div class="kt-demo-panel__item ">
-               <div class="kt-demo-panel__item-title">
-                  Demo 9
-               </div>
-               <div class="kt-demo-panel__item-preview">
-                  <img src="../assets/media/demos/Demo-9.jpg" alt="" />
-                  <div class="kt-demo-panel__item-preview-overlay">
-                     <a href="../demo9/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
-                  </div>
-               </div>
-            </div>
-            <div class="kt-demo-panel__item ">
-               <div class="kt-demo-panel__item-title">
-                  Demo 10
-               </div>
-               <div class="kt-demo-panel__item-preview">
-                  <img src="../assets/media/demos/Demo-10.jpg" alt="" />
-                  <div class="kt-demo-panel__item-preview-overlay">
-                     <a href="../demo10/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
-                  </div>
-               </div>
-            </div>
-            <div class="kt-demo-panel__item ">
-               <div class="kt-demo-panel__item-title">
-                  Demo 11
-               </div>
-               <div class="kt-demo-panel__item-preview">
-                  <img src="../assets/media/demos/Demo-11.jpg" alt="" />
-                  <div class="kt-demo-panel__item-preview-overlay">
-                     <a href="../demo11/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
-                  </div>
-               </div>
-            </div>
-            <div class="kt-demo-panel__item ">
-               <div class="kt-demo-panel__item-title">
-                  Demo 12
-               </div>
-               <div class="kt-demo-panel__item-preview">
-                  <img src="../assets/media/demos/Demo-12.jpg" alt="" />
-                  <div class="kt-demo-panel__item-preview-overlay">
-                     <a href="../demo12/index.html" class="btn btn-brand btn-elevate " target="_blank">Preview</a>
-                  </div>
-               </div>
-            </div>
-            <div class="kt-demo-panel__item ">
-               <div class="kt-demo-panel__item-title">
-                  Demo 13
-               </div>
-               <div class="kt-demo-panel__item-preview">
-                  <img src="../assets/media/demos/Demo-13.jpg" alt="" />
-                  <div class="kt-demo-panel__item-preview-overlay">
-                     <a href="#" class="btn btn-brand btn-elevate disabled">Coming soon</a>
-                  </div>
-               </div>
-            </div>
-            <div class="kt-demo-panel__item ">
-               <div class="kt-demo-panel__item-title">
-                  Demo 14
-               </div>
-               <div class="kt-demo-panel__item-preview">
-                  <img src="../assets/media/demos/Demo-14.jpg" alt="" />
-                  <div class="kt-demo-panel__item-preview-overlay">
-                     <a href="#" class="btn btn-brand btn-elevate disabled">Coming soon</a>
-                  </div>
-               </div>
-            </div>
-            <a href="" target="_blank" class="kt-demo-panel__purchase btn btn-brand btn-elevate btn-bold btn-upper">
-               Buy Metronic Now!
-            </a>
-         </div>
-      </div>
-
-      <!-- end::Demo Panel -->
-
-      <!-- begin::Global Config(global config for global JS sciprts) -->
       <script>
          var KTAppOptions = {
             "colors": {

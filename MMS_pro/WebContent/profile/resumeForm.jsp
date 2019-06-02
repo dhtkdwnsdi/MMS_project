@@ -48,11 +48,6 @@ License: You must have a valid license purchased only from themeforest(the above
 												<h3 class="kt-portlet__head-title">
 												<b>보유자격증</b>
 												</h3>
-												<div class="col kt-align-right">
-												<pre>																					
-												<button type="button" class="btn btn-brand" onclick="openPopUp1()">업데이트</button></pre>
-												</div>
-												
 										</div>
 									</div>
 
@@ -71,6 +66,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">발행처</th>
 																<th style="font-weight: bold;">발행일자</th>
 																<th style="font-weight: bold;">자격증번호</th>
+																<th style="font-weight: bold;">관리</th>
 															</tr>
 														</thead>
 														
@@ -86,17 +82,31 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td>${profVo.issueOrg}</td>
 																<td>${profVo.issueDate}</td>
 																<td>${profVo.certSerial}</td>
+																<td><a href="prog?command=myCertUpdateForm&myCertNum=${profVo.myCertNum}">
+																<span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
+																<a href="prog?command=myCertDelete&myCertNum=${profVo.myCertNum}" onclick="deleteCheck()">
+																<span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
+																</td>
 															</tr>
 														</c:forEach>
 														</c:when>
 														<c:otherwise>
 															<tr>
-																<td colspan="6" class="txt_center" align="center"><b>보유자격증 데이터가 없습니다.</b></td>
+																<td colspan="7" class="txt_center" align="center"><b>보유자격증 데이터가 없습니다.</b></td>
 															</tr>
 														</c:otherwise>
 														</c:choose>
 														</tbody>
 													</table>
+												</div>
+												
+												
+												<div class="kt-form__actions kt-form__actions--right">
+												<div class="row">
+													<div class="col kt-align-right">
+														<button type="button" class="btn btn-brand" onclick="openPopUp1()">등록</button>
+													</div>
+												</div>
 												</div>
 											
 										</div>
@@ -116,10 +126,6 @@ License: You must have a valid license purchased only from themeforest(the above
 												<h3 class="kt-portlet__head-title">
 												<b>학력</b>
 												</h3>
-												<div class="col kt-align-right">
-												<pre>																						
-												<button type="button" class="btn btn-brand" onclick="openPopUp2()">업데이트</button></pre>
-												</div>
 										</div>
 									</div>
 
@@ -140,6 +146,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">상태</th>
 																<th style="font-weight: bold;">입학일</th>
 																<th style="font-weight: bold;">졸업일</th>
+																<th style="font-weight: bold;">관리</th>
 															</tr>
 														</thead>
 														
@@ -156,19 +163,32 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td>${profVo.eduState}</td>
 																<td>${profVo.enterDate}</td>
 																<td>${profVo.graduateDate}</td>
+																<td>
+																<a href="prog?command=eduUpdateFrom&eduNum=${profVo.eduNum}">
+																<span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
+																<a href="prog?command=eduDelete&eduNum=${profVo.eduNum}">
+																<span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a></td>
 															</tr>
 														</c:forEach>
 														</c:when>
 														<c:otherwise>
 															<tr>
-																<td colspan="7" class="txt_center" align="center"><b>학력 데이터가 없습니다.</b></td>
+																<td colspan="8" class="txt_center" align="center"><b>학력 데이터가 없습니다.</b></td>
 															</tr>
 														</c:otherwise>
 														</c:choose>
 														</tbody>
 													</table>
 												</div>
-											<!--end::Section-->
+												
+												<div class="kt-form__actions kt-form__actions--right">
+													<div class="row">
+														<div class="col kt-align-right">
+															<button type="button" class="btn btn-brand" onclick="openPopUp2()">등록</button>
+														</div>
+													</div>
+												</div>
+												
 										</div>
 									</form>
 							</div>
@@ -187,10 +207,6 @@ License: You must have a valid license purchased only from themeforest(the above
 												<h3 class="kt-portlet__head-title">
 												<b>경력</b>
 												</h3>
-												<div class="col kt-align-right">
-												<pre>																						
-												<button type="button" class="btn btn-brand" onclick="openPopUp3()">업데이트</button></pre>
-												</div>
 										</div>
 									</div>
 
@@ -210,6 +226,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">직책</th>
 																<th style="font-weight: bold;">입사일</th>
 																<th style="font-weight: bold;">퇴사일</th>
+																<th style="font-weight: bold;">관리</th>
 															</tr>
 														</thead>
 														
@@ -226,12 +243,16 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td>${profVo.position}</td>
 																<td>${profVo.joinDate}</td>
 																<td>${profVo.retireDate}</td>
+																<td>
+																<a href="prog?command=careerUpdateFrom&careerNum=${profVo.careerNum}"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
+																<a href="prog?command=careerDelete&careerNum=${profVo.careerNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
+																</td>
 															</tr>
 														</c:forEach>
 														</c:when>
 														<c:otherwise>
 															<tr>
-																<td colspan="6" class="txt_center" align="center"><b>경력 데이터가 없습니다.</b></td>
+																<td colspan="7" class="txt_center" align="center"><b>경력 데이터가 없습니다.</b></td>
 															</tr>
 														</c:otherwise>
 														</c:choose>
@@ -239,6 +260,15 @@ License: You must have a valid license purchased only from themeforest(the above
 													</table>
 												</div>
 											<!--end::Section-->
+											
+											<div class="kt-form__actions kt-form__actions--right">
+													<div class="row">
+														<div class="col kt-align-right">
+															<button type="button" class="btn btn-brand" onclick="openPopUp2()">등록</button>
+														</div>
+													</div>
+											</div>
+												
 										</div>
 									</form>
 							</div>
@@ -256,10 +286,6 @@ License: You must have a valid license purchased only from themeforest(the above
 										<h3 class="kt-portlet__head-title">
 										<b>언어 숙련도</b>
 										</h3>
-										<div class="col kt-align-right">
-										<pre>																					
-										<button type="button" class="btn btn-brand" onclick="openPopUp4()">업데이트</button></pre>
-										</div>
 									</div>
 								</div>
 
@@ -277,6 +303,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">종류</th>
 																<th style="font-weight: bold;">숙련도</th>
 																<th style="font-weight: bold;">경험(연차)</th>
+																<th style="font-weight: bold;">관리</th>
 															</tr>
 														</thead>
 														
@@ -292,12 +319,16 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td>${profVo.plName}</td>
 																<td>${profVo.profiency}</td>
 																<td>${profVo.experience}</td>
+																<td>
+																<a href="prog?command=plsUpdateFrom&plsNum=${profVo.plsNum}"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
+																<a href="prog?command=plsDelete&plsNum=${profVo.plsNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
+																</td>
 															</tr>
 														</c:forEach>
 														</c:when>
 														<c:otherwise>
 															<tr>
-																<td colspan="4" class="txt_center" align="center"><b>프로그래밍 언어 숙련도 데이터가 없습니다.</b></td>
+																<td colspan="5" class="txt_center" align="center"><b>프로그래밍 언어 숙련도 데이터가 없습니다.</b></td>
 															</tr>
 														</c:otherwise>
 														</c:choose>
@@ -305,12 +336,106 @@ License: You must have a valid license purchased only from themeforest(the above
 													</table>
 												</div>
 											<!--end::Section-->
+											
+											
+											<div class="kt-form__actions kt-form__actions--right">
+													<div class="row">
+														<div class="col kt-align-right">
+															<button type="button" class="btn btn-brand" onclick="openPopUp4()">등록</button>
+														</div>
+													</div>
+											</div>
+											
+											
 										</div>
 									</form>
 									<!--end: Datatable -->
 							</div>
 							<!--바디  -->
 						</div>
+						
+						
+						
+						<div class="kt-portlet kt-portlet--mobile">
+								<div class="kt-portlet__head kt-portlet__head--lg">
+									<div class="kt-portlet__head-label">
+										<span class="kt-portlet__head-icon">
+										</span>
+										<h3 class="kt-portlet__head-title">
+										<b>포토폴리오</b>
+										</h3>
+									</div>
+								</div>
+
+											<!--begin::Section-->
+											<!--바디  -->
+											<div class="kt-portlet__body">
+										<form>
+										<input type="hidden" name="progNum" value="${LoginUser.progNum}">
+											<div class="kt-section">
+												<div class="kt-section__content">
+													<table class="table table-bordered">
+														<thead>
+															<tr>
+																<th>#</th>
+																<th style="font-weight: bold;">제목</th>
+                                               					<th style="font-weight: bold;">카테고리</th>
+																<th style="font-weight: bold;">관리</th>
+															</tr>
+														</thead>
+														
+														
+														
+													<c:choose>
+														<c:when test="${not empty portpolioList}">
+                                         				 <c:forEach items="${portpolioList}" var="profVo" varStatus="listStat">
+                                        				  <tbody style="text-align: center;">
+                                            				 <tr>
+                                               				 <th scope="row">${listStat.count}
+                                              				  <input type="hidden" value="${profVo.portNum}" id="portNum" name="portNum"></tH>
+                                              				  <td><a href="prog?command=portpolioReadForm&portNum=${profVo.portNum}">${profVo.subject}</a></td>
+                                              				  <td>${profVo.portCate} &nbsp;&nbsp; >> &nbsp;&nbsp;
+                                              				  ${profVo.portDetailCate} </td>
+                                              				  <td>
+																<a href="prog?command=portpolioUpdateFrom&portNum=${profVo.portNum}"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
+																<a href="prog?command=portpolioDelete&portNum=${profVo.portNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
+															  </td>
+                                             				</tr>
+                                          				</tbody>
+                                          				</c:forEach>
+														</c:when>
+														<c:otherwise>
+															<tr>
+															<td colspan="4" class="txt_center" align="center"><b>포트폴리오 데이터가 없습니다.</b></td>
+															</tr>
+														</c:otherwise>
+													</c:choose>
+														</tbody>
+													</table>
+												</div>
+											<!--end::Section-->
+											
+											
+											<div class="kt-form__actions kt-form__actions--right">
+													<div class="row">
+														<div class="col kt-align-right">
+															<button type="button" class="btn btn-brand" onclick="openPopUp5()">등록</button>
+														</div>
+													</div>
+											</div>
+											
+											
+										</div>
+									</form>
+									<!--end: Datatable -->
+							</div>
+							<!--바디  -->
+						</div>
+						
+						
+						
+						
+						
 						
 				</div>
 
@@ -443,80 +568,86 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- end::Body -->
 	
 	<script>
-function openPopUp1()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "500"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/myCertRegistForm.jsp"; 
-	  var title = "보유자격증 정보 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+	function openPopUp1() {
+		// window.name = "부모창 이름"; 
+		window.name = "parentForm";
+		// window.open("open할 window", "자식창 이름", "팝업창 옵션");
+		var width = "800";
+		var height = "500";
+		var top = (window.screen.height - height) / 2;
+		var left = (window.screen.width - width) / 2;
+		var url = "../profile/myCertRegistForm.jsp";
+		var title = "보유 자격증 등록";
+		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
 
-      window.open(url, title, status);
+		window.open(url, title, status);
+	}
 
+	function openPopUp2()
+	{
+	    // window.name = "부모창 이름"; 
+	      window.name = "parentForm";
+	    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+	      var width = "800"; 
+		  var height = "500"; 
+		  var top = (window.screen.height-height)/2; 
+		  var left = (window.screen.width-width)/2; 
+	 	  var url = "profile/eduRegisterForm.jsp"; 
+		  var title = "학력 정보 등록"; 
+		  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
-  
-}
+	      window.open(url, title, status);
+	}
+	
+	
+	function openPopUp3()
+	{
+	    // window.name = "부모창 이름"; 
+	      window.name = "parentForm";
+	    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+	      var width = "800"; 
+		  var height = "555"; 
+		  var top = (window.screen.height-height)/2; 
+		  var left = (window.screen.width-width)/2; 
+	 	  var url = "profile/careerRegisterForm.jsp"; 
+		  var title = "경력 정보 등록"; 
+		  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
-function openPopUp2()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "500"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/eduRegisterForm.jsp"; 
-	  var title = "학력 정보 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
-
-      window.open(url, title, status);
-
-
-  
-}
-
-function openPopUp3()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "500"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/careerRegisterForm.jsp"; 
-	  var title = "경력 정보 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
-
-      window.open(url, title, status);
+	      window.open(url, title, status);
+	}
 
 
-  
-}
+	function openPopUp4()
+	{
+	    // window.name = "부모창 이름"; 
+	      window.name = "parentForm";
+	    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+	      var width = "800"; 
+		  var height = "555"; 
+		  var top = (window.screen.height-height)/2; 
+		  var left = (window.screen.width-width)/2; 
+	 	  var url = "profile/plsRegisterForm.jsp"; 
+		  var title = "언어숙련도 정보 등록"; 
+		  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
-function openPopUp4()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "500"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/plsRegisterForm.jsp"; 
-	  var title = "언어숙련도 정보 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+	      window.open(url, title, status);
+	}
+	
+	function openPopUp5()
+	{
+	    // window.name = "부모창 이름"; 
+	      window.name = "parentForm";
+	    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+	      var width = "800"; 
+		  var height = "500"; 
+		  var top = (window.screen.height-height)/2; 
+		  var left = (window.screen.width-width)/2; 
+	 	  var url = "profile/portpolioRegister.jsp"; 
+		  var title = "포트폴리오 정보 등록"; 
+		  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
-      window.open(url, title, status);
-
-
-  
-}
+	      window.open(url, title, status);
+	}
 </script>
 </html>

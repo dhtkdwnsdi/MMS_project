@@ -4,18 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <html lang="en">
 
 	<!-- begin::Head -->
@@ -40,71 +28,6 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
-						<div class="kt-portlet kt-portlet--mobile">
-									<div class="kt-portlet__head kt-portlet__head--lg">
-										<div class="kt-portlet__head-label">
-											<span class="kt-portlet__head-icon">
-													</span>
-												<h3 class="kt-portlet__head-title">
-												<b>보유자격증</b>
-												</h3>
-												<div class="col kt-align-right">
-												<pre>																					
-												<button type="button" class="btn btn-brand" onclick="openPopUp1()">업데이트</button></pre>
-												</div>
-												
-										</div>
-									</div>
-
-											<!--begin::Section-->
-											<!--바디  -->
-											<div class="kt-portlet__body">
-										<form>
-										<input type="hidden" name="progNum" value="${LoginUser.progNum}">
-											<div class="kt-section">
-												<div class="kt-section__content">
-													<table class="table table-bordered">
-														<thead>
-															<tr>
-																<th>#</th>
-																<th style="font-weight: bold;">구분</th>
-																<th style="font-weight: bold;">발행처</th>
-																<th style="font-weight: bold;">발행일자</th>
-																<th style="font-weight: bold;">자격증번호</th>
-															</tr>
-														</thead>
-														
-														
-														<c:choose>
-															<c:when test="${not empty myCertList}">
-														<tbody style="text-align: center;">
-														<c:forEach items="${myCertList}" var="profVo" varStatus="listStat">
-															<tr>
-																<th scope="row">${listStat.count}
-																<input type="hidden" name="myCertNum" id="myCertNum" value="${profVo.myCertNum}"></th>
-																<td>${profVo.certName}</td>
-																<td>${profVo.issueOrg}</td>
-																<td>${profVo.issueDate}</td>
-																<td>${profVo.certSerial}</td>
-															</tr>
-														</c:forEach>
-														</c:when>
-														<c:otherwise>
-															<tr>
-																<td colspan="6" class="txt_center" align="center"><b>보유자격증 데이터가 없습니다.</b></td>
-															</tr>
-														</c:otherwise>
-														</c:choose>
-														</tbody>
-													</table>
-												</div>
-											
-										</div>
-									</form>
-							</div>
-						</div>
-						
-					
 					
 
 
@@ -443,24 +366,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- end::Body -->
 	
 	<script>
-function openPopUp1()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "500"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/myCertRegistForm.jsp"; 
-	  var title = "보유자격증 정보 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
-      window.open(url, title, status);
-
-
-  
-}
 
 function openPopUp2()
 {

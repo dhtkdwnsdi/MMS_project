@@ -52,23 +52,33 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">관리</th>
 															</tr>
 														</thead>
+														
+														
+														<c:choose>
+															<c:when test="${not empty commuteList}">
 														<tbody style="text-align: center;">
 															<c:forEach items="${plsList}" var="plsVo" varStatus="listStat">
 															<tr>
 																<th scope="row">${listStat.count}
-																<input type="hidden" name="plsNum" id="plsNum" value="${plsVo.plsNum}">
-																</th>
+																<input type="hidden" name="plsNum" id="plsNum" value="${plsVo.plsNum}"> </th>
 																<td>
 																<input type="hidden" name="plNum" id="plNum" value="${plsVo.plNum}">
 																${plsVo.plName}</td>
 																<td>${plsVo.profiency}</td>
 																<td>${plsVo.experience}</td>
 																<td>
-																<a href="prog?command=plsUpdateFrom&plsNum=${plsVo.plsNum}" onclick="openPopUp2()"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
+																<a href="prog?command=plsUpdateFrom&plsNum=${plsVo.plsNum}"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
 																<a href="prog?command=plsDelete&plsNum=${plsVo.plsNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
 																</td>
 															</tr>
 															</c:forEach>
+															</c:when>
+															<c:otherwise>
+																<tr>
+																<td colspan="5" class="txt_center" align="center"><b>프로그래밍 언어 숙련도 데이터가 없습니다.</b></td>
+																</tr>
+															</c:otherwise>
+															</c:choose>
 														</tbody>
 													</table>
 												</div>

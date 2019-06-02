@@ -79,8 +79,6 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td>
 																<a href="prog?command=careerUpdateFrom&careerNum=${cVo.careerNum}"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
 																<a href="prog?command=careerDelete&careerNum=${cVo.careerNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
-																<!-- <button type="button" class="btn btn-warning btn-sm">수정</button> -->
-																<!-- <button type="button" class="btn btn-danger btn-sm">삭제</button>	 -->
 																</td>
 															</tr>
 															</c:forEach>
@@ -100,10 +98,6 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="kt-portlet__foot">
 												<div class="kt-form__actions kt-form__actions--right">
 													<div class="row">
-														<!-- <div class="col kt-align-left">
-															<button type="reset" class="btn btn-secondary">수정</button>
-															<button type="reset" class="btn btn-danger">삭제</button>
-														</div> -->
 														<div class="col kt-align-right">
 															<button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button>
 														</div>
@@ -279,28 +273,8 @@ function openPopUp()
             "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
 }
 
-function openPopUp()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "555"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/careerRegisterForm.jsp"; 
-	  var title = "경력 정보 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
-      window.open(url, title, status);
-
-
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
-}
-
-function deleteCareer(){
+/* function deleteCareer(){
 
 	// userID 변수에 userID의 입력된 값을 가져오게 함
 	var careerNum = $('#careerNum').val();
@@ -363,7 +337,7 @@ function deleteCareer(){
 	} else{
 		return false;
 	}
-}
+} */
 
 </script>
 </html>

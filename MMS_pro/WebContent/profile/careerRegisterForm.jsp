@@ -151,6 +151,7 @@ License: You must have a valid license purchased only from themeforest(the above
 														
 														<div class="col kt-align-right">
 															<button type="button" class="btn btn-brand" onclick="registerCareer()">등록</button>
+															<button type="button" class="btn btn-secondary" onclick="window.close();" >취소</button>	
 														</div>
 													</div>
 												</div>
