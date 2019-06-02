@@ -611,19 +611,15 @@ font-weight: bold;
 																<div class="col-md-5">
 																	<div class="kt-form__group--inline">
 																		<div class="kt-form__control">
-																			<input type="text" name="usePl" class="form-control" id="autocomplete" value="${uVo.plName}" placeholder="사용 프로그래밍 언어를 입력해주세요.">
+																			<input type="text" name="plName" class="form-control autocomplete" id="autocomplete" value="${uVo.plName}" placeholder="사용 프로그래밍 언어를 입력해주세요.">
+																			<input type="hidden" name="plNum" id="plNum" class="plNum" value="${uVo.plNum}">
+																			<input type="hidden" name="usePlNum" id="usePlNum" class="usePlNum" value="${uVo.usePlNum}">
 																		</div>
 																	</div>
 																	<div class="d-md-none kt-margin-b-10"></div>
 																</div>
 																<div class="col-md-4">
 																<button type="button" name="delete" id="delete" class="btn btn-danger">삭제</button>
-																	<!-- <div data-repeater-delete="" class="btn-sm btn btn-danger btn-pill">
-																		<span>
-																			<i class="la la-trash-o"></i>
-																			<span id="delete">삭제</span>
-																		</span>
-																	</div> -->
 																</div>
 														</div>
 														</c:forEach>
@@ -911,8 +907,9 @@ function updateProject(){
 $(document).ready(
 		function() {
 			$('#cancel').on("click",function(event) {
-						var projNum = $('#projNum').val();
-						self.location = "proj?command=projectViewForm&projNum="+projNum;
+					history.back();
+// 						var projNum = $('#projNum').val();
+// 						self.location = "proj?command=projectViewForm&projNum="+projNum;
 					});
 			$('#newBtn').on("click", function(evt) {
 				self.location = "register";
@@ -924,22 +921,102 @@ $(document).on("click", "button[name=add]", function(){
 	var repeat = $('#repeat').clone();		// div repeat 복사
 	repeat.find("input").val("");			// 복사한 repeat 하위요소인 input의 value ""으로 초기화
 	$('#list').append(repeat);				// div list에 붙여넣기
+	
+	
+	$(function(){
+		$(".autocomplete").autocomplete({
+			source : function(request, response){
+				$.ajax({
+					type: 'post',
+					url: "/proj?command=searchUsePl",
+					dataType: "json",
+					// request.term = $("#autocomplete").val()
+					data: { value : request.term },
+					success: function(data){
+						response(
+						 $.map(data, function(item){
+							 return{
+								label: item.plName,
+								value : item.plName,
+								num : item.plNum
+								
+								 
+							}
+						})
+					);
+						
+				
+					}
+				});
+			},
+			
+			minLength: 1,
+			select: function(event, ui){
+				this.parentElement.children[1].value = ui.item.num;
+			}
+		});
+	})
 });
 
 // input 삭제 버튼
 $(document).on("click", "button[name=delete]", function(){
 	/* alert($('#delete').index(this)); */
 	if(confirm("삭제하시겠습니까?") == true){
-		if($('#delete').index(this) == -1){		// 현재 delete 버튼의 index를 가져옴
-			$(this).parent().parent().remove();	// delete 버튼의 부모의 부모인 div repeat 삭제
-		}
-		else{
-			alert("삭제 불가");						// index -1이 아니면 삭제 불가 == 첫 째 행은 삭제 불가
-		} 
+		
+		//삭제 버튼의 가장 가까운 usePlNum의 value를 가져옴
+		var usePlNum = $(this).parent().parent().find(".usePlNum").val();
+		
+// 		$.ajax({
+// 			type: "post",
+// 			url: "/proj?command=deleteUsePl",
+// 			dataType: "json",
+// 			data:{
+// 				usePlNum: usePlNum
+// 			},
+// 			success: function(data){
+// 			$(this).parent().parent().remove();	
+// 			}
+			
+// 		});
+		
 	}
 	else{
 		return false;
 	}
 });
+
+$(function(){
+	$(".autocomplete").autocomplete({
+		source : function(request, response){
+			$.ajax({
+				type: 'post',
+				url: "/proj?command=searchUsePl",
+				dataType: "json",
+				// request.term = $("#autocomplete").val()
+				data: { value : request.term },
+				success: function(data){
+					response(
+					 $.map(data, function(item){
+						 return{
+							label: item.plName,
+							value : item.plName,
+							num : item.plNum
+							
+							 
+						}
+					})
+				);
+					
+			
+				}
+			});
+		},
+		
+		minLength: 1,
+		select: function(event, ui){
+			$(".plNum").val(ui.item.num);
+		}
+	});
+})
 </script>
 </html>

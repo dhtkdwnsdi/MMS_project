@@ -50,6 +50,37 @@ public class ApplyStmtDAO extends DBManager {
 			}
 		}
 	}
+	// 프로젝트 등록할 때 PM 자동적으로 신청되는 것
+	public void insertPMApplyStmt(ApplyStmtVO aVo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "INSERT INTO TBL_APPLY_STMT("
+				+ "	  APPLY_POSITION, PROG_NUM, PROJ_NUM, APPLY_STAT)"
+				+ "   VALUES(?, ?, ?, ?)";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, aVo.getApplyPosition());
+			pstmt.setString(2, aVo.getProgNum());
+			pstmt.setString(3, aVo.getProjNum());
+			pstmt.setString(4, aVo.getApplyStat());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+	}
 	
 	// 내 프로젝트 신청내역 전체리스트 보기
 	public ArrayList<ApplyStmtVO> myApplyStmtAllList(String progNum){
@@ -63,7 +94,8 @@ public class ApplyStmtDAO extends DBManager {
 				"          , PG.NAME AS PROG_NAME" + 
 				"     	   , AP.APPLY_STMT_NUM AS APPLY_STMT_NUM" + 
 				"          , AP.APPLY_POSITION AS APPLY_POSITION" + 
-				"          , AP.APPLY_STAT AS APPLY_STAT" + 
+				"          , AP.APPLY_STAT AS APPLY_STAT"
+				+ "		   , AP.APPLY_DATE AS APPLY_DATE" + 
 				"       FROM TBL_PROJECT PJ" + 
 				"	       , TBL_PROGRAMMER PG" + 
 				"          , TBL_APPLY_STMT AP" + 
@@ -89,6 +121,7 @@ public class ApplyStmtDAO extends DBManager {
 				aVo.setProjNum(rs.getString("PROJ_NUM"));
 				aVo.setProgName(rs.getString("PROG_NAME"));
 				aVo.setProjName(rs.getString("PROJ_NAME"));
+				aVo.setApplyDate(rs.getString("APPLY_DATE"));
 				
 				list.add(aVo);
 				
@@ -125,7 +158,8 @@ public class ApplyStmtDAO extends DBManager {
 				"          , PG.NAME AS PROG_NAME" + 
 				"     	   , AP.APPLY_STMT_NUM AS APPLY_STMT_NUM" + 
 				"          , AP.APPLY_POSITION AS APPLY_POSITION" + 
-				"          , AP.APPLY_STAT AS APPLY_STAT" + 
+				"          , AP.APPLY_STAT AS APPLY_STAT"
+				+ "		   , AP.APPLY_DATE AS APPLY_DATE" + 
 				"       FROM TBL_PROJECT PJ" + 
 				"	       , TBL_PROGRAMMER PG" + 
 				"          , TBL_APPLY_STMT AP" + 
@@ -151,6 +185,7 @@ public class ApplyStmtDAO extends DBManager {
 				aVo.setProjNum(rs.getString("PROJ_NUM"));
 				aVo.setProgName(rs.getString("PROG_NAME"));
 				aVo.setProjName(rs.getString("PROJ_NAME"));
+				aVo.setApplyDate(rs.getString("APPLY_DATE"));
 				
 				list.add(aVo);
 				

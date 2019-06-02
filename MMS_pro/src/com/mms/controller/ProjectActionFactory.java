@@ -14,14 +14,15 @@ import com.mms.controller.action.project.ProjectApplyListFormAction;
 import com.mms.controller.action.project.ProjectApplyViewFormAction;
 import com.mms.controller.action.project.ProjectDeleteAction;
 import com.mms.controller.action.project.ProjectManpowerDeployListFormAction;
-import com.mms.controller.action.project.ProjectRegisterListFormAction;
-import com.mms.controller.action.project.ProjectRegisterViewFormAction;
+import com.mms.controller.action.project.ProjectListFormAction;
+import com.mms.controller.action.project.ProjectListViewFormAction;
 import com.mms.controller.action.project.ProjectRegisterAction;
 import com.mms.controller.action.project.ProjectRegisterFormAction;
 import com.mms.controller.action.project.ProjectUpdateAction;
 import com.mms.controller.action.project.ProjectUpdateFormAction;
 import com.mms.controller.action.project.ProjectViewFormAction;
 import com.mms.controller.action.project.SearchUsePlAction;
+import com.mms.controller.action.project.UsePlDeleteAction;
 
 public class ProjectActionFactory {
 
@@ -40,8 +41,8 @@ public class ProjectActionFactory {
 
 			System.out.println("ActionFactory : " + command);
 			
-			if(command.equals("projectRegisterListForm")) {
-				action = new ProjectRegisterListFormAction();
+			if(command.equals("projectListForm")) {
+				action = new ProjectListFormAction();
 				
 			}
 			else if(command.equals("projectRegister")) {
@@ -108,8 +109,8 @@ public class ProjectActionFactory {
 				action = new ProjectRegisterFormAction();
 				
 			}
-			else if(command.equals("projectRegisterViewForm")) {
-				action = new ProjectRegisterViewFormAction();
+			else if(command.equals("projectListViewForm")) {
+				action = new ProjectListViewFormAction();
 				
 			}
 			else if(command.equals("projectApplyViewForm")) {
@@ -122,6 +123,9 @@ public class ProjectActionFactory {
 			}
 			else if(command.equals("searchUsePl")) {
 				action = new SearchUsePlAction();
+			}
+			else if(command.equals("deleteUsePl")) {
+				action = new UsePlDeleteAction();
 			}
 			return action;
 		}

@@ -23,9 +23,9 @@ public class ProjectApplyListFormAction implements Action{
 		list = pDao.projectApplyList();
 		request.setAttribute("Plist", list);
 		
-		ArrayList<ProjectVO> aList = new ArrayList<ProjectVO>();
-		aList = pDao.projectList();
-		request.setAttribute("aList", aList);
+//		ArrayList<ProjectVO> aList = new ArrayList<ProjectVO>();
+//		aList = pDao.projectList();
+//		request.setAttribute("aList", aList);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

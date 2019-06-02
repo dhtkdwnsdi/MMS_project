@@ -144,6 +144,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                                <th style="font-weight: bold;">프로젝트 명</th>
 			                                                <th style="font-weight: bold;">담당자</th>
 			                                                <th style="font-weight: bold;">지원직무</th>
+			                                                <th style="font-weight: bold;">신청날짜</th>
 			                                                <th style="font-weight: bold;">상태</th>
 			                                                <th style="font-weight: bold;">관리</th>
 			                                             </tr>
@@ -155,6 +156,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                                <td>${aVo.projName}</td>
 			                                                <td>${aVo.progName}</td>
 			                                                <td>${aVo.applyPosition}</td>
+			                                                <td>${aVo.applyDate}</td>
 			                                                <td>
 			                                                <c:if test="${aVo.applyStat eq '승인대기' }">
 			                                                <span class="kt-badge kt-badge--warning kt-badge--inline">${aVo.applyStat}</span>
@@ -168,7 +170,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                                </td>
 			                                                <td>
 			                                                <c:if test="${aVo.applyStat eq '승인대기' }">
-			                                                <span class="kt-badge kt-badge--danger kt-badge--inline" onclick="deleteApplyStmt('${aVo.applyStmtNum}')">신청 취소</span>
+			                                                <a href="#"><span class="kt-badge kt-badge--primary kt-badge--inline" onclick="deleteApplyStmt('${aVo.applyStmtNum}')">신청 취소</span></a>
 			                                               	</c:if>
 			                                               	<c:if test="${aVo.applyStat ne '승인대기' }">
 			                                               	-
@@ -178,7 +180,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                          </c:forEach>
 			                                          	<c:if test="${empty myApplyAllList}">
 			                                          	<tr>
-			                                             	<td colspan="6">
+			                                             	<td colspan="7">
 			                                             	내역이 없습니다
 			                                             	</td>
 			                                             </tr>
@@ -194,6 +196,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                                <th style="font-weight: bold;">프로젝트 명</th>
 			                                                <th style="font-weight: bold;">담당자</th>
 			                                                <th style="font-weight: bold;">지원직무</th>
+			                                                <th style="font-weight: bold;">신청날짜</th>
 			                                                <th style="font-weight: bold;">상태</th>
 			                                                <th style="font-weight: bold;">관리</th>
 			                                             </tr>
@@ -205,14 +208,15 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                                <td>${aVo.projName}</td>
 			                                                <td>${aVo.progName}</td>
 			                                                <td>${aVo.applyPosition}</td>
+			                                                <td>${aVo.applyDate}</td>
 			                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">${aVo.applyStat}</span></td>
 			                                                <td>
-			                                                <span class="kt-badge kt-badge--danger kt-badge--inline" onclick="deleteApplyStmt('${aVo.applyStmtNum}')">신청 취소</span>
+			                                                <a href="#"><span class="kt-badge kt-badge--primary kt-badge--inline" onclick="deleteApplyStmt('${aVo.applyStmtNum}')">신청 취소</span></a>
 			                                                </td>
 			                                             </tr>
 			                                          </c:forEach>
 			                                             <c:if test="${empty myApplyWaitList}">
-			                                             	<td colspan="6">
+			                                             	<td colspan="7">
 			                                             	내역이 없습니다
 			                                             	</td>
 			                                             </c:if>

@@ -27,9 +27,12 @@ public class ProjectDAO extends DBManager {
 	   }
 	   
 // 프로젝트 등록 메소드
-	   public void registerProject(ProjectVO pVo) {
+	   public int registerProject(ProjectVO pVo) {
+		   int res = 0;
+		   
 		   Connection conn = null;
 		   PreparedStatement pstmt = null;
+		   ResultSet rs = null;
 		   
 		   String sql = "INSERT INTO TBL_PROJECT("
 		   		+ "		 PROJ_NAME"
@@ -51,7 +54,7 @@ public class ProjectDAO extends DBManager {
 		   
 		   try {
 			   conn = getConnection();
-			   pstmt = conn.prepareStatement(sql);
+			   pstmt = conn.prepareStatement(sql, pstmt.RETURN_GENERATED_KEYS);
 			   
 			   pstmt.setString(1, pVo.getProjName());
 			   pstmt.setString(2, pVo.getProjCate());
@@ -67,10 +70,18 @@ public class ProjectDAO extends DBManager {
 			   pstmt.setString(12, pVo.getLevelCode());
 			   pstmt.setString(13, pVo.getProjFile());
 			   pstmt.setString(14, pVo.getProgNum());
+			   pstmt.setString(15, pVo.getRecruitNumber());
 			   
 			   pstmt.executeUpdate();
 			   
+			   // 등록 후 AUTO_INCREMENT 한 키 값을 반환
+			   rs = pstmt.getGeneratedKeys();
+			   rs.next();
+			   res = rs.getInt(1);
+			   
+			   
 		   } catch (SQLException e) {
+			   res = 0;
 			   e.printStackTrace();
 			   
 		} finally {
@@ -83,6 +94,7 @@ public class ProjectDAO extends DBManager {
 				
 			}
 		}
+		   return res;
 		   
 	   }
 	   

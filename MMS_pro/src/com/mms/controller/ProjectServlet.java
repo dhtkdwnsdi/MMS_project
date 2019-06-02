@@ -80,8 +80,8 @@ public class ProjectServlet extends HttpServlet {
 			String progNum = multi.getParameter("progNum");
 			String recruitNumber = multi.getParameter("recruitNumber");
 			
-			String [] usePl = multi.getParameterValues("usePl[]");
-			request.setAttribute("usePl", usePl);
+			String[] plNum = multi.getParameterValues("plNum");
+			request.setAttribute("plNum", plNum);
 			
 			
 			ProjectVO pVo = new ProjectVO();
@@ -107,7 +107,7 @@ public class ProjectServlet extends HttpServlet {
 			
 			request.setAttribute("pVo", pVo);
 			
-			/* new ProjectRegisterAction().execute(request, response); */
+			new ProjectRegisterAction().execute(request, response);
 		} else if(command.equals("projectUpdate")) {
 			
 			ServletContext context = getServletContext();

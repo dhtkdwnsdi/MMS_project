@@ -7,18 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
-import com.mms.dao.ProjectDAO;
+import com.mms.dao.UsePlDAO;
+import com.mms.vo.UsePlVO;
 
-public class ProjectDeleteAction implements Action{
+public class UsePlDeleteAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String projNum = request.getParameter("projNum");
-		System.out.println(projNum);
-		ProjectDAO pDao = ProjectDAO.getInstance();
-		pDao.deleteProject(projNum);
-		
-		new ProjectListFormAction().execute(request, response);
+		String usePlNum = request.getParameter("usePlNum");
+		UsePlDAO uDao = UsePlDAO.getInstance();
+		uDao.deleteUsePl(usePlNum);
 		
 	}
 

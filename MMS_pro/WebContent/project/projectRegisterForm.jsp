@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../include/header.jsp" %>
 <!DOCTYPE html>
 
 <!-- 
@@ -301,20 +302,15 @@ License: You must have a valid license purchased only from themeforest(the above
 																<div class="col-md-5">
 																	<div class="kt-form__group--inline">
 																		<div class="kt-form__control">
-																			<input type="text" name="usePl" class="form-control" id="autocomplete" placeholder="사용 프로그래밍 언어를 입력해주세요.">
+																			<input type="text" name="usePl" class="form-control autocomplete" placeholder="사용 프로그래밍 언어를 입력해주세요.">
+																			<input type="hidden" name="plNum" id="plNum" class="plNum">
 																		</div>
 																	</div>
 																	<div class="d-md-none kt-margin-b-10"></div>
 																</div>
-																<div class="col-md-4">
+																<!-- <div class="col-md-4">
 																<button type="button" name="delete" id="delete" class="btn btn-danger">삭제</button>
-																	<!-- <div data-repeater-delete="" class="btn-sm btn btn-danger btn-pill">
-																		<span>
-																			<i class="la la-trash-o"></i>
-																			<span id="delete">삭제</span>
-																		</span>
-																	</div> -->
-																</div>
+																</div> -->
 														</div>
 													</div>
 												</div>
@@ -360,8 +356,9 @@ License: You must have a valid license purchased only from themeforest(the above
 												<div class="form-group">
 														<label id="label1">첨부파일</label>
 														<div class="custom-file">
-															<input type="file" class="custom-file-input" name="projFile" id="projFile">
-															<label class="custom-file-label" for="customFile" style="text-align: left;"></label>
+															<input type="file" name="projFile" id="projFile">
+															<!-- <input type="file" class="custom-file-input" name="projFile" id="projFile">
+															<label class="custom-file-label" for="customFile" style="text-align: left;"></label> -->
 														</div>
 												</div>
 											</div>
@@ -372,7 +369,6 @@ License: You must have a valid license purchased only from themeforest(the above
 														</div>
 														<div class="col-lg-6 kt-align-right">
 															<button type="button" class="btn btn-primary" id="submitBtn" onclick="registerProject()">저장</button>
-															<button type="button" class="btn btn-secondary" onclick="self.close()">취소</button>
 															<!-- <button type="reset" class="btn btn-danger">Delete</button> -->
 														</div>
 													</div>
@@ -390,7 +386,10 @@ License: You must have a valid license purchased only from themeforest(the above
 
 						<!-- end:: Content -->
 					</div>
-
+					
+					<!--  begin:: footer -->
+					<%@ include file="../include/footer.jsp" %>
+					<!--  end:: footer -->
 				</div>
 
 
@@ -503,6 +502,12 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--end::Global App Bundle -->
 	</body>
 
+<!-- begin:: autocomplete  -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css">  -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- end::  -->
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -546,6 +551,7 @@ function registerProject(){
 	var projFile = $('#projFile').val();
 	var recruitNumber = $('#recruitNumber').val();
 	var usePl = $('input[name=usePl]').val();
+	var plNum = $("input[name=plNum]").val();
 	
 	if(projName == ""){
 		alert("프로젝트 명을 입력해주세요.");
@@ -613,8 +619,13 @@ function registerProject(){
 		return false;
 	}
 	if(usePl == ""){
-		alert("사용 프로그래밍 언어를 입력해주세요.");
-		$("#usePl").focus();
+		alert("사용 프로그래밍 언어를 선택해주세요.");
+		$("input[name=usePl]").focus();
+		return false;
+	}
+	if(plNum == ""){
+		alert("사용 프로그래밍 언어를 선택해주세요.");
+		$("input[name=plNum]").focus();
 		return false;
 	}
 	
@@ -635,8 +646,7 @@ function registerProject(){
 		timeout: 600000,
 		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
 			alert("등록되었습니다.");
-			self.close();
-			opener.location.href = "/proj?command=projectRegisterListForm";
+			location.href = "/proj?command=projectListForm";
 		},
 		error: function(data){
 			alert("오류:: 다시 시도해주세요.");
@@ -672,19 +682,52 @@ function removeChar(event) {
 $(document).on("click", "button[name=add]", function(){
 	var repeat = $('#repeat').clone();		// div repeat 복사
 	repeat.find("input").val("");			// 복사한 repeat 하위요소인 input의 value ""으로 초기화
+	repeat.append("<div class=\"col-md-4\">"+
+	"<button type=\"button\" name=\"delete\" id=\"delete\" class=\"btn btn-danger\">삭제</button>"+
+	"</div>");
 	$('#list').append(repeat);				// div list에 붙여넣기
+	
+	
+	$(function(){
+		$(".autocomplete").autocomplete({
+			source : function(request, response){
+				$.ajax({
+					type: 'post',
+					url: "/proj?command=searchUsePl",
+					dataType: "json",
+					// request.term = $("#autocomplete").val()
+					data: { value : request.term },
+					success: function(data){
+						response(
+						 $.map(data, function(item){
+							 return{
+								label: item.plName,
+								value : item.plName,
+								num : item.plNum
+								
+								 
+							}
+						})
+					);
+						
+				
+					}
+				});
+			},
+			
+			minLength: 1,
+			select: function(event, ui){
+				this.parentElement.children[1].value = ui.item.num;
+			}
+		});
+	})
 });
 
 // input 삭제 버튼
 $(document).on("click", "button[name=delete]", function(){
 	/* alert($('#delete').index(this)); */
 	if(confirm("삭제하시겠습니까?") == true){
-		if($('#delete').index(this) == -1){		// 현재 delete 버튼의 index를 가져옴
-			$(this).parent().parent().remove();	// delete 버튼의 부모의 부모인 div repeat 삭제
-		}
-		else{
-			alert("삭제 불가");						// index -1이 아니면 삭제 불가 == 첫 째 행은 삭제 불가
-		} 
+		$(this).parent().parent().remove();		
 	}
 	else{
 		return false;
@@ -717,7 +760,7 @@ $(document).on("click", "button[name=delete]", function(){
  */
 
 $(function(){
-	$("#autocomplete").autocomplete({
+	$(".autocomplete").autocomplete({
 		source : function(request, response){
 			$.ajax({
 				type: 'post',
@@ -728,18 +771,24 @@ $(function(){
 				success: function(data){
 					response(
 					 $.map(data, function(item){
-						return{
-							label: item.data,
-							value: item.data
+						 return{
+							label: item.plName,
+							value : item.plName,
+							num : item.plNum
+							
+							 
 						}
 					})
 				);
+					
+			
 				}
 			});
 		},
+		
 		minLength: 1,
 		select: function(event, ui){
-			
+			$(".plNum").val(ui.item.num);
 		}
 	});
 })

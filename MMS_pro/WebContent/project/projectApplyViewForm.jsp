@@ -270,7 +270,7 @@ font-weight: bold;
 														</div>
 														<div class="col-lg-6 kt-align-right">
 															<c:if test="${projVo.projStat eq '모집'}">
-															<button type="button" class="btn btn-success" onclick="openApplyPop(${projVo.projNum}, ${LoginUser.progNum})">참여 신청</button>
+															<button type="button" class="btn btn-primary" onclick="openApplyPop(${projVo.projNum}, ${LoginUser.progNum})">참여 신청</button>
 															</c:if>
 															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
 														</div>

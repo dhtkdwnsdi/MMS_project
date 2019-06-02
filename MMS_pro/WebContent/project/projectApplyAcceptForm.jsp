@@ -168,8 +168,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </c:if>
                                                 <c:if test="${aVo.applyStat eq '승인대기' and aVo.projStat eq '모집'}">
                                                 <td>
-                                                <span class="kt-badge kt-badge--success kt-badge--inline" onclick="acceptApply('${aVo.applyStmtNum}')">승인</span>
-                                                <span class="kt-badge kt-badge--danger kt-badge--inline" onclick="denyApply('${aVo.applyStmtNum}')">거절</span>
+                                                <a href="#"><span class="kt-badge kt-badge--success kt-badge--inline" onclick="acceptApply('${aVo.applyStmtNum}')">승인</span></a>
+                                                <a href="#"><span class="kt-badge kt-badge--danger kt-badge--inline" onclick="denyApply('${aVo.applyStmtNum}')">거절</span></a>
                                                 </td>
                                                 </c:if>
                                                 <c:if test="${aVo.applyStat ne '승인대기' or aVo.projStat ne '모집'}">

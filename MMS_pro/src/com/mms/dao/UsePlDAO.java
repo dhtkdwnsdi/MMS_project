@@ -22,7 +22,7 @@ public class UsePlDAO extends DBManager {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "INSERT INTO TBL_USE_PL(PL_NUM, PROJ_NUM)"
-				+ "	  VALUSE(?, ?)";
+				+ "	  VALUES(?, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -52,7 +52,8 @@ public class UsePlDAO extends DBManager {
 		
 		ArrayList<UsePlVO> list = new ArrayList<UsePlVO>();
 		String sql = "SELECT UPL.USE_PL_NUM AS USE_PL_NUM" + 
-				"	 , PL.PL_NAME AS PL_NAME" + 
+				"	 , PL.PL_NAME AS PL_NAME"
+				+ "	 , PL.PL_NUM AS PL_NUM" + 
 				"  FROM TBL_PL PL" + 
 				"	 , TBL_PROJECT PJ" + 
 				"     , TBL_USE_PL UPL" + 
@@ -69,6 +70,7 @@ public class UsePlDAO extends DBManager {
 				UsePlVO uVo = new UsePlVO();
 				uVo.setUsePlNum(rs.getString("USE_PL_NUM"));
 				uVo.setPlName(rs.getString("PL_NAME"));
+				uVo.setPlNum(rs.getString("PL_NUM"));
 				
 				list.add(uVo);
 			}
@@ -87,5 +89,32 @@ public class UsePlDAO extends DBManager {
 		}
 		return list;
 		
+	}
+	
+	// 사용 프로그래밍 언어 삭제
+	public void deleteUsePl(String usePlNum) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "DELETE FROM TBL_USE_PL WHERE USE_PL_NUM = ?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, usePlNum);
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
 	}
 }
