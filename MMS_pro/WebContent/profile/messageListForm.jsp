@@ -231,6 +231,7 @@ License: You must have a valid license purchased only from themeforest(the above
 														<th style="font-weight: bold;">날짜</th>
 													</tr>
 												</thead>
+												
 												<tbody style="text-align: center;">
 													<c:forEach items="${SendMessageList}" var="sVo"
 														varStatus="listStat">
