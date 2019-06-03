@@ -50,24 +50,33 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">신청 마감일</th>
 																<th style="font-weight: bold;">시작 예정일</th>
 																<th style="font-weight: bold;">종료 예정일</th>
-																<th style="font-weight: bold;">현재 인원</th>
+																<th style="font-weight: bold;">모집인원</th>
 																<th style="font-weight: bold;">상태</th>
+																<th style="font-weight: bold;">관리</th>
 															</tr>
 														</thead>
 														<tbody style="text-align: center;">
 														<c:forEach items="${list}" var="projVo" varStatus="listStat">
 															<tr>
 																<th scope="row">${listStat.count}<input type="hidden" name="projNum" id="projNum" value="${projVo.projNum}"></th>
-																<td><a href="proj?command=projectRegisterViewForm&projNum=${projVo.projNum}">${projVo.projName}</a></td>
-																<td>${projVo.projCate}</td>
-																<td>${projVo.projDetailCate}</td>
+																<td><a href="proj?command=myProjectViewForm&projNum=${projVo.projNum}">${projVo.projName}</a></td>
 																<td>${projVo.deadline}</td>
 																<td>${projVo.startDuedate}</td>
 																<td>${projVo.endDuedate}</td>
-																<td>${projVo.progName}</td>
+																<td>${projVo.recruitNumber}</td>
 																<td>${projVo.projStat}</td>
+																<td>
+																<a href="#">
+																<span class="kt-badge kt-badge--primary kt-badge--inline" onclick="openDeployPop('${projVo.projNum}')">인력배치</span>
+																</a>
+																</td>
 															</tr>
 														</c:forEach>
+														<c:if test="${empty list}">
+															<tr>
+																<td colspan="8">내역이 없습니다.</td>
+															</tr>
+														</c:if>
 														</tbody>
 													</table>
 												</div>
@@ -82,7 +91,7 @@ License: You must have a valid license purchased only from themeforest(the above
 															<button type="reset" class="btn btn-danger">삭제</button>
 														</div> -->
 														<div class="col kt-align-right">
-															<button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button>
+															<!-- <button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button> -->
 														</div>
 													</div>
 												</div>
@@ -221,8 +230,9 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- end::Body -->
 <script>
-function openPopUp()
+function openDeployPop(projNum)
 {
+	var projNum = projNum;
     // window.name = "부모창 이름"; 
       window.name = "parentForm";
     // window.open("open할 window", "자식창 이름", "팝업창 옵션");
@@ -230,8 +240,8 @@ function openPopUp()
 	  var height = "700"; 
 	  var top = (window.screen.height-height)/2; 
 	  var left = (window.screen.width-width)/2; 
- 	  var url = "project/projectRegisterForm.jsp"; 
-	  var title = "프로젝트 등록"; 
+ 	  var url = "/proj?command=projectManpowerDeployForm&projNum="+projNum; 
+	  var title = "프로젝트 인력배치"; 
 	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
       window.open(url, title, status);

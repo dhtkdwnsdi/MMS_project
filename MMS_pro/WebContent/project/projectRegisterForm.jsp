@@ -646,7 +646,7 @@ function registerProject(){
 		timeout: 600000,
 		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
 			alert("등록되었습니다.");
-			location.href = "/proj?command=projectListForm";
+			location.href = "/proj?command=myProjectListForm";
 		},
 		error: function(data){
 			alert("오류:: 다시 시도해주세요.");

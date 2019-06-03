@@ -118,7 +118,7 @@ font-weight: bold;
 												프로젝트 상세조회
 												</h3>
 											</div>
-											<div class="kt-portlet__head-toolbar">
+											<%-- <div class="kt-portlet__head-toolbar">
 												<div class="btn-group">
 													<c:if test="${LoginUser.progNum eq projVo.progNum}">
 													<button type="button" class="btn btn-success">
@@ -127,7 +127,7 @@ font-weight: bold;
 													</button>
 													</c:if>
 												</div>
-											</div>
+											</div> --%>
 										</div>
 
 										<!--begin::Form-->
@@ -279,10 +279,10 @@ font-weight: bold;
 														<div class="col-lg-6">
 														</div>
 														<div class="col-lg-6 kt-align-right">
-															<c:if test="${LoginUser.progNum eq projVo.progNum}">
+															<%-- <c:if test="${LoginUser.progNum eq projVo.progNum}">
 															<button type="button" class="btn btn-primary" onclick="location.href='/proj?command=projectUpdateForm&projNum=${projVo.projNum}'">수정</button>
 															<button type="button" class="btn btn-danger" id="delete">삭제</button>
-															</c:if>
+															</c:if> --%>
 															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
 														</div>
 													</div>

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import util.DBManager;
 
 import com.mms.vo.ApplyStmtVO;
+import com.mms.vo.ProgrammerVO;
 import com.mms.vo.ProjectVO;
 
 public class ProjectDAO extends DBManager {
@@ -420,6 +421,84 @@ public class ProjectDAO extends DBManager {
 		}
 		   return list;
 	   }
+	   
+	   public ArrayList<ProjectVO> ProjectDeployList(String progNum){
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   ResultSet rs = null;
+		   
+		   String sql = "SELECT PJ.PROJ_NUM AS PROJ_NUM" + 
+		   		"	           ,PJ.PROJ_CATE AS PROJ_CATE" + 
+		   		"              ,PJ.PROJ_DETAIL_CATE AS PROJ_DETAIL_CATE"
+		   		+ "			   ,PJ.PROJ_NAME AS PROJ_NAME" + 
+		   		"              ,PJ.DEADLINE AS DEADLINE" + 
+		   		"              ,PJ.START_DUEDATE AS START_DUEDATE" + 
+		   		"              ,PJ.END_DUEDATE AS END_DUEDATE" + 
+		   		"              ,PG.NAME AS PROG_NAME" + 
+		   		"              ,PJ.PROJ_STAT AS PROJ_STAT"
+		   		+ "			   ,PJ.CONTENTS AS CONTENTS"
+		   		+ "			   ,PJ.PARTI_FORM_CODE AS PARTI_FORM_CODE"
+		   		+ "			   ,PJ.FW_CODE AS FW_CODE"
+		   		+ "			   ,PJ.DBMS_CODE AS DBMS_CODE"
+		   		+ "			   ,PJ.OS_CODE AS OS_CODE"
+		   		+ "			   ,PJ.LEVEL_CODE AS LEVEL_CODE"
+		   		+ "			   ,PJ.PROJ_FILE AS PROJ_FILE"
+		   		+ "			   ,PJ.PROG_NUM AS PROG_NUM"
+		   		+ "			   ,PJ.RECRUIT_NUMBER AS RECRUIT_NUMBER" + 
+		   		"          FROM TBL_PROJECT PJ" + 
+		   		"			   ,TBL_PROGRAMMER PG" + 
+		   		"  		   WHERE PG.PROG_NUM = ?"
+		   		+ "			 AND PG.PROG_NUM = PJ.PROG_NUM"
+		   		+ "			 AND PJ.PROJ_STAT NOT LIKE '종료'"
+		   		+ "		   ORDER BY PJ.PROJ_NUM DESC";
+		   
+		   ArrayList<ProjectVO> list = new ArrayList<ProjectVO>();
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   pstmt.setString(1, progNum);
+			   rs = pstmt.executeQuery();
+			   
+			   while(rs.next()) {
+				   ProjectVO pVo = new ProjectVO();
+				   pVo.setProjNum(rs.getString("PROJ_NUM"));
+				   pVo.setProjName(rs.getString("PROJ_NAME"));
+				   pVo.setProjCate(rs.getString("PROJ_CATE"));
+				   pVo.setProjDetailCate(rs.getString("PROJ_DETAIL_CATE"));
+				   pVo.setStartDuedate(rs.getString("START_DUEDATE"));
+				   pVo.setEndDuedate(rs.getString("END_DUEDATE"));
+				   pVo.setDeadline(rs.getString("DEADLINE"));
+				   pVo.setContents(rs.getString("CONTENTS"));
+				   pVo.setPartiFormCode(rs.getString("PARTI_FORM_CODE"));
+				   pVo.setFwCode(rs.getString("FW_CODE"));
+				   pVo.setDbmsCode(rs.getString("DBMS_CODE"));
+				   pVo.setOsCode(rs.getString("OS_CODE"));
+				   pVo.setLevelCode(rs.getString("LEVEL_CODE"));
+				   pVo.setProjFile(rs.getString("PROJ_FILE"));
+				   pVo.setProjStat(rs.getString("PROJ_STAT"));
+				   pVo.setProgName(rs.getString("PROG_NAME"));
+				   pVo.setProgNum(rs.getString("PROG_NUM"));
+				   pVo.setRecruitNumber(rs.getString("RECRUIT_NUMBER"));
+				   
+				   list.add(pVo);
+			   }
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+		   
+		   } finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		   return list;
+	   }
 
 
 // 프로젝트 상세 보기 메소드
@@ -661,6 +740,80 @@ public class ProjectDAO extends DBManager {
 		}
 		   
 		   return list;
+	   }
+	   
+	   // 프로젝트 신청 마감일 지나면 바로 프로젝트 상태 '진행'으로 업데이트
+	   public void updateProgressProj() {
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   String sql = "UPDATE TBL_PROJECT"
+		   		+ "		    SET PROJ_STAT = '진행'"
+		   		+ "		  WHERE PROJ_NUM = "
+		   		+ "		(SELECT PROJ_NUM "
+		   		+ "		   FROM "
+		   		+ "		(SELECT PROJ_NUM"
+		   		+ "		   FROM TBL_PROJECT "
+		   		+ "		  WHERE CURDATE() - DEADLINE > 0) PROJ_NUM )";
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   pstmt.executeUpdate();
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+			   
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		   
+	   }
+	   
+	   // 인력배치할 때 모든 프로그래머 띄우기 (PM과 ADMIN 제외)
+	   
+	   public ArrayList<ProgrammerVO> allProgrammer(){
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   ResultSet rs = null;
+		   String sql = "SELECT * FROM TBL_PROGRAMMER PG WHERE PG.GRANT = 0";
+		   ArrayList<ProgrammerVO> progList = new ArrayList<ProgrammerVO>();
+		   
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   rs = pstmt.executeQuery();
+			   
+			   while(rs.next()) {
+				   ProgrammerVO progVo = new ProgrammerVO();
+				   progVo.setProgNum(rs.getString("PROG_NUM"));
+				   progVo.setId(rs.getString("ID"));
+				   progVo.setName(rs.getString("NAME"));
+				   
+				   progList.add(progVo);
+				   
+			   }
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+
+		   } finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		 return progList;  
+		 
 	   }
 
 }

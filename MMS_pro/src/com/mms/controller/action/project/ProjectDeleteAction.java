@@ -18,7 +18,7 @@ public class ProjectDeleteAction implements Action{
 		ProjectDAO pDao = ProjectDAO.getInstance();
 		pDao.deleteProject(projNum);
 		
-		new ProjectListFormAction().execute(request, response);
+		new MyProjectListFormAction().execute(request, response);
 		
 	}
 

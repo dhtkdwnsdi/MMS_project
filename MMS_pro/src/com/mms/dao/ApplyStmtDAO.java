@@ -95,7 +95,7 @@ public class ApplyStmtDAO extends DBManager {
 				"     	   , AP.APPLY_STMT_NUM AS APPLY_STMT_NUM" + 
 				"          , AP.APPLY_POSITION AS APPLY_POSITION" + 
 				"          , AP.APPLY_STAT AS APPLY_STAT"
-				+ "		   , AP.APPLY_DATE AS APPLY_DATE" + 
+				+ "		   , SUBSTR(AP.APPLY_DATE, 1, 10) AS APPLY_DATE" + 
 				"       FROM TBL_PROJECT PJ" + 
 				"	       , TBL_PROGRAMMER PG" + 
 				"          , TBL_APPLY_STMT AP" + 
@@ -159,7 +159,7 @@ public class ApplyStmtDAO extends DBManager {
 				"     	   , AP.APPLY_STMT_NUM AS APPLY_STMT_NUM" + 
 				"          , AP.APPLY_POSITION AS APPLY_POSITION" + 
 				"          , AP.APPLY_STAT AS APPLY_STAT"
-				+ "		   , AP.APPLY_DATE AS APPLY_DATE" + 
+				+ "		   , SUBSTR(AP.APPLY_DATE, 1, 10) AS APPLY_DATE" + 
 				"       FROM TBL_PROJECT PJ" + 
 				"	       , TBL_PROGRAMMER PG" + 
 				"          , TBL_APPLY_STMT AP" + 
@@ -220,7 +220,7 @@ public class ApplyStmtDAO extends DBManager {
 		String sql = " SELECT AP.APPLY_STMT_NUM AS APPLY_STMT_NUM" + 
 				"	 		, PJ.PROJ_NAME AS PROJ_NAME" + 
 				"    		, PG.NAME AS PROG_NAME"
-				+ "			, AP.APPLY_DATE AS APPLY_DATE"
+				+ "			, SUBSTR(AP.APPLY_DATE, 1, 10) AS APPLY_DATE"
 				+ "			, AP.APPLY_POSITION AS APPLY_POSITION"
 				+ "			, AP.APPLY_STAT AS APPLY_STAT"
 				+ "		    , PJ.PROJ_STAT AS PROJ_STAT" + 
@@ -283,7 +283,7 @@ public class ApplyStmtDAO extends DBManager {
 		String sql = "SELECT AP.APPLY_STMT_NUM AS APPLY_STMT_NUM" + 
 				"				, PJ.PROJ_NAME AS PROJ_NAME" + 
 				"				, PG.NAME AS PROG_NAME" + 
-				"				, AP.APPLY_DATE AS APPLY_DATE" + 
+				"				, SUBSTR(AP.APPLY_DATE, 1, 10) AS APPLY_DATE" + 
 				"               , AP.APPLY_POSITION" + 
 				"               , PJ.PROJ_STAT"
 				+ "				, AP.APPLY_STAT AS APPLY_STAT" + 

@@ -26,7 +26,7 @@ public class ProjectManpowerDeployListFormAction implements Action {
 		
 		ArrayList<ProjectVO> list = new ArrayList<ProjectVO>();
 		ProjectDAO pDao = ProjectDAO.getInstance();
-		list = pDao.myProjectList(progNum);
+		list = pDao.ProjectDeployList(progNum);
 		request.setAttribute("list", list);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);

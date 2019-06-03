@@ -48,7 +48,7 @@ public class ProjectRegisterAction implements Action {
 		}
 		
 		
-		new ProjectListFormAction().execute(request, response);
+		new MyProjectListFormAction().execute(request, response);
 		
 	}
 

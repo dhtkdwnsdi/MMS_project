@@ -604,11 +604,11 @@ font-weight: bold;
 										<div class="kt-portlet__body">
 											<div id="kt_repeater_1">
 												<div class="form-group  row" id="kt_repeater_1">
-													<label class="col-lg-2 col-form-label" id="label1">사용 프로그래밍 언어</label>
-													<div data-repeater-list="" class="col-lg-10" id="list">
-														<c:forEach items="${uList}" var="uVo">
+													<!-- <label class="col-lg-2 col-form-label" id="label1">사용 프로그래밍 언어</label> -->
+													<div data-repeater-list="" class="col-lg-12" id="list">
+														<c:forEach items="${uList}" var="uVo" varStatus="listStat">
 														<div data-repeater-item="" class="form-group row align-items-center" style="" id="repeat">
-																<div class="col-md-5">
+																<div class="col-md-8">
 																	<div class="kt-form__group--inline">
 																		<div class="kt-form__control">
 																			<input type="text" name="plName" class="form-control autocomplete" id="autocomplete" value="${uVo.plName}" placeholder="사용 프로그래밍 언어를 입력해주세요.">
@@ -618,16 +618,17 @@ font-weight: bold;
 																	</div>
 																	<div class="d-md-none kt-margin-b-10"></div>
 																</div>
+																<c:if test="${listStat.count != 1}">
 																<div class="col-md-4">
 																<button type="button" name="delete" id="delete" class="btn btn-danger">삭제</button>
 																</div>
+																</c:if>
 														</div>
 														</c:forEach>
 													</div>
 												</div>
 												<div class="form-group row">
-													<label class="col-lg-2 col-form-label"></label>
-													<div class="col-lg-4">
+													<div class="col-lg-12">
 													<button type="button" name="add" class="btn btn-primary">추가</button>
 														<!-- <div data-repeater-create="" class="btn btn btn-sm btn-brand btn-pill">
 															<span>
@@ -771,6 +772,7 @@ font-weight: bold;
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <script>
+	
     $.datepicker.setDefaults({
         dateFormat: 'yy-mm-dd',
         prevText: '이전 달',
@@ -907,9 +909,8 @@ function updateProject(){
 $(document).ready(
 		function() {
 			$('#cancel').on("click",function(event) {
-					history.back();
-// 						var projNum = $('#projNum').val();
-// 						self.location = "proj?command=projectViewForm&projNum="+projNum;
+ 						var projNum = $('#projNum').val();
+ 						self.location = "proj?command=myProjectViewForm&projNum="+projNum;
 					});
 			$('#newBtn').on("click", function(evt) {
 				self.location = "register";
@@ -920,6 +921,9 @@ $(document).ready(
 $(document).on("click", "button[name=add]", function(){
 	var repeat = $('#repeat').clone();		// div repeat 복사
 	repeat.find("input").val("");			// 복사한 repeat 하위요소인 input의 value ""으로 초기화
+	repeat.append("<div class=\"col-md-4\">"+
+			"<button type=\"button\" name=\"delete\" id=\"delete\" class=\"btn btn-danger\">삭제</button>"+
+			"</div>");
 	$('#list').append(repeat);				// div list에 붙여넣기
 	
 	
@@ -958,13 +962,22 @@ $(document).on("click", "button[name=add]", function(){
 	})
 });
 
+var cnt = 0;
+var dUsePlNo = new Array();
 // input 삭제 버튼
 $(document).on("click", "button[name=delete]", function(){
 	/* alert($('#delete').index(this)); */
 	if(confirm("삭제하시겠습니까?") == true){
-		
-		//삭제 버튼의 가장 가까운 usePlNum의 value를 가져옴
-		var usePlNum = $(this).parent().parent().find(".usePlNum").val();
+		//삭제 버튼의 가장 가까운 usePlNum의 value를 가져와서 usePlNo[] 배열 안에 대입
+		dUsePlNo[cnt] = $(this).parent().parent().find(".usePlNum").val();
+		// cnt 증가
+		cnt++
+		// 숨기기
+		$(this).parent().parent().hide();
+// 		var usePlNum = new Array();
+// 		usePlNum[cnt] = $(this).parent().parent().find(".usePlNum").val();
+// 		$(this).parent().parent().hide();
+// 		var usePlNum = $(this).parent().parent().find(".usePlNum").val();
 		
 // 		$.ajax({
 // 			type: "post",

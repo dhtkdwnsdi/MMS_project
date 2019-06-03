@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
 Author: KeenThemes
@@ -17,12 +15,16 @@ Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-t
 License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
 -->
 <html lang="en">
-
+<style>
+#label1{
+ font-weight: bold;;
+}
+</style>
 	<!-- begin::Head -->
 	<head>
 		<meta charset="utf-8" />
-		<title>PMMS | 프로젝트 상세보기</title>
-		<meta name="description" content="Multi column form examples">
+		<title>PMMS | 프로젝트 인력배치</title>
+		<meta name="description" content="Base form control examples">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!--begin::Fonts -->
@@ -91,12 +93,6 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- end::Head -->
 
-<style>
-#label1 {
-font-weight: bold;
-}
-</style>
-
 	<!-- begin::Body -->
 	<body class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
 
@@ -105,17 +101,19 @@ font-weight: bold;
 		<div class="kt-grid kt-grid--hor kt-grid--root">
 			<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
 
+
+					<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
 						<!-- begin:: Content -->
 						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
 							<div class="row">
-								<div class="col-lg-8">
+								<div class="col-lg-12">
 
 									<!--begin::Portlet-->
 									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
 												<h3>
-												프로젝트 상세조회
+												프로젝트 인력배치
 												</h3>
 											</div>
 										</div>
@@ -124,110 +122,51 @@ font-weight: bold;
 										<form class="kt-form kt-form--label-right">
 											<div class="kt-portlet__body">
 												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-4">
-														<label id="label1">프로젝트 명</label>
-														<input type="hidden" id="projNum" value="${projVo.projNum}">
-														<input type="text" class="form-control" value="${projVo.projName}" name="projName" id="projName" readonly="readonly">
-													</div>
-													<div class="col-lg-4">
-														<label id="label1">담당자 명</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.progName}">
-													</div>
-													<div class="col-lg-4">
-														<label id="label1">프로젝트 상태</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.projStat}">
-													</div>
-												</div>
-												<!-- Start Divider -->
-												<br><br>
-												<div class="kt-section__content kt-section__content--solid">
-													<div class="kt-divider">
-														<span></span>
-													</div>
-												</div>
-												<br>
-												<!-- End Divider -->
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-4">
-														<label id="label1">참여 형태</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.partiFormCode}">
+													<div class="col-lg-6">
+													 <div class="form-group">
+														<label id="label1">프로그래밍 언어</label>
+															<div class="kt-checkbox-inline">
+																<c:forEach items="${plList}" var="plVo" varStatus="listStat">
+																<label class="kt-checkbox">
+																<input type="checkbox" value="${plVo.plNum}"> ${plVo.plName}
+																<span></span>
+																</label>
+																</c:forEach>
+															</div>
+													 </div>
 													</div>
 													<div class="col-lg-4">
-														<label id="label1">분류</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.projCate}">
-													</div>
-													<div class="col-lg-4">
-														<label id="label1">세분류</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.projDetailCate}">
-													</div>
-												</div>
-												<!-- Start Divider -->
-												<br><br>
-												<div class="kt-section__content kt-section__content--solid">
-													<div class="kt-divider">
-														<span></span>
-													</div>
-												</div>
-												<br>
-												<!-- End Divider -->
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-6">
-														<label id="label1">OS 종류</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.osCode}">
-													</div>
-													<div class="col-lg-6">
-														<label id="label1">프레임워크 종류</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.fwCode}">
-													</div>
-												</div>
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-6">
-														<label id="label1">DBMS 종류</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.dbmsCode}">
-													</div>
-													<div class="col-lg-6">
-														<label id="label1">프로젝트 난이도</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.levelCode}">
-													</div>
-												</div>
-												<!-- Start Divider -->
-												<br><br>
-												<div class="kt-section__content kt-section__content--solid">
-													<div class="kt-divider">
-														<span></span>
-													</div>
-												</div>
-												<br>
-												<!-- End Divider -->
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-6">
-														<label id="label1">모집 인원</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.recruitNumber}">
-													</div>
-													<div class="col-lg-6">
-														<label id="label1">신청 마감일</label>
-														<div class="kt-input-icon">
-															<input type="text" class="form-control" value="${projVo.deadline}" name="deadline" id="deadline" readonly="readonly">
-															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
+														<label id="label1">프로그래머 등급</label>
+														<br>
+														<div class="input-group">
+														<select name="grade" class="form-control" id="exampleSelect1">
+															<option value="1">초급 기능사</option>
+															<option value="2">중급 기능사</option>
+															<option value="3">고급 기능사</option>
+															<option value="4">초급 기술자</option>
+															<option value="5">중급 기술자</option>
+															<option value="6">고급 기술자</option>
+															<option value="7">특급 기술자</option>
+															<option value="8">기술사</option>
+														</select>
+														&nbsp;&nbsp;&nbsp;
+														<input type="button" class="btn btn-success btn-sm" value="추천하기">
 														</div>
 													</div>
+													<!-- <div class="col-lg-3">
+														<br>
+														<input type="button" class="btn btn-success btn-sm" value="추천하기">
+													</div> -->
 												</div>
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-6">
-														<label id="label1">시작 예정일</label>
-														<div class="kt-input-icon">
-															<input type="text" class="form-control" value="${projVo.startDuedate}" name="startDuedate" id="startDuedate" readonly="readonly">
-															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
-														</div>
-													</div>
-													<div class="col-lg-6">
-														<label id="label1">종료 예정일</label>
-														<div class="kt-input-icon">
-															<input type="text" class="form-control" value="${projVo.endDuedate}" name="endDuedate" id="endDuedate" readonly="readonly">
-															<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
-														</div>
+
+												<!-- <br><br>
+												<div class="kt-section__content kt-section__content--solid">
+													<div class="kt-divider">
+														<span></span>
 													</div>
 												</div>
+												<br> -->
+												
 												<!-- Start Divider -->
 												<br><br>
 												<div class="kt-section__content kt-section__content--solid">
@@ -237,31 +176,37 @@ font-weight: bold;
 												</div>
 												<br>
 												<!-- End Divider -->
+												
 												<div class="form-group row form-group-marginless kt-margin-t-20">
 													<div class="col-lg-12">
-														<label id="label1">프로젝트 내용</label>
-														<textarea class="form-control" name="contents" id="contents" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 129px;" readonly="readonly">${projVo.contents}</textarea>
+														<label id="label1">배치된 인력</label>
+														<br>
 													</div>
 												</div>
-												<!-- Start Divider -->
-												<br><br>
-												<div class="kt-section__content kt-section__content--solid">
-													<div class="kt-divider">
-														<span></span>
-													</div>
-												</div>
-												<br>
-												<!-- End Divider -->
+												
 												<div class="form-group row form-group-marginless kt-margin-t-20">
-														<div class="col-lg-12">
-																<label id="label1">첨부파일</label>
-																<div></div>
-																<div class="custom-file">
-																	<label class="custom-file-label" for="customFile" style="text-align: left;">
-																	<a href="/proj?command=download&projFile=${projVo.projFile}">${projVo.projFile}</a></label>
-																</div>
-														</div>
+													<div class="col-lg-12">
+														<table class="table table-bordered table-hover">
+														<thead style="text-align: center;">
+															<tr>
+																<th>#</th>
+																<th style="font-weight: bold;">ID</th>
+																<th style="font-weight: bold;">이름</th>
+																<th style="font-weight: bold;">등급</th>
+																<th style="font-weight: bold;">관련기술</th>
+																<th style="font-weight: bold;">프로젝트 참여여부</th>
+																<th style="font-weight: bold;">종료날짜</th>
+															</tr>
+														</thead>
+														<tbody style="text-align: center;">
+															<tr>
+																<td colspan="7">내역이 없습니다.</td>																
+															</tr>
+														</tbody>
+													</table>
+													</div>
 												</div>
+												
 											</div>
 											<div class="kt-portlet__foot">
 												<div class="kt-form__actions">
@@ -269,11 +214,9 @@ font-weight: bold;
 														<div class="col-lg-6">
 														</div>
 														<div class="col-lg-6 kt-align-right">
-															<c:if test="${LoginUser.progNum eq projVo.progNum}">
-															<button type="button" class="btn btn-primary" onclick="location.href='/proj?command=projectUpdateForm&projNum=${projVo.projNum}'">수정</button>
-															<button type="button" class="btn btn-danger" id="delete">삭제</button>
-															</c:if>
-															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
+															<button type="button" class="btn btn-danger">직접배치</button>
+															<button type="button" class="btn btn-primary">저장</button>
+															<!-- <button type="button" class="btn btn-secondary" id="cancel">목록</button> -->
 														</div>
 													</div>
 												</div>
@@ -285,73 +228,6 @@ font-weight: bold;
 
 									<!--end::Portlet-->
 								</div>
-								
-							<div class="col-lg-4">
-								<div class="kt-portlet">
-										<div class="kt-portlet__head">
-											<div class="kt-portlet__head-label">
-												<h4>
-													사용 프로그래밍 언어
-												</h4>
-											</div>
-										</div>
-										<div class="kt-portlet__body">
-											<div class="kt-widget4">
-												<c:forEach items="${uList}" var="uVo" varStatus="listStat">
-												<div class="kt-widget4__item">
-													<div class="kt-widget4__pic kt-widget4__pic--logo">
-														<img src="../assets/media/client-logos/logo5.png" alt="">
-													</div>
-													<div class="kt-widget4__info">
-														<a href="#" class="kt-widget4__title">
-															${uVo.plName}
-														</a>
-													</div>
-												</div>
-												</c:forEach>
-											</div>
-										</div>
-									</div>
-							
-                           <!--begin:: Widgets/New Users-->
-                           <%-- <c:if test="${projVo.projStat eq '진행' or projVo.projStat eq '종료'}"> --%>
-                           <div class="kt-portlet">
-                              <div class="kt-portlet__head">
-                                 <div class="kt-portlet__head-label">
-                                    <h4>
-                                       	프로젝트 구성원
-                                    </h4>
-                                 </div>
-                              </div>
-                              <div class="kt-portlet__body">
-                                 <div class="tab-content">
-                                    <div class="tab-pane active" id="kt_widget4_tab1_content">
-                                       <div class="kt-widget4">
-                                       	<c:forEach items="${mList}" var="mVo" varStatus="listStat">
-                                          <div class="kt-widget4__item">
-                                             <div class="kt-widget4__pic kt-widget4__pic--pic">
-                                                <img src="../assets/media/users/100_4.jpg" alt="">
-                                             </div>
-                                             <div class="kt-widget4__info">
-                                                <a href="#" class="kt-widget4__username">
-                                                   ${mVo.progName}
-                                                </a>
-                                                <p class="kt-widget4__text">
-                                                   ${mVo.applyPosition}
-                                                </p>
-                                             </div>
-                                             <a class="btn btn-sm btn-label-brand btn-bold Message">Message</a>
-                                          </div>
-                                         </c:forEach>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-
-                           <!--end:: Widgets/New Users-->
-                        			</div>
-                        <%-- </c:if> --%>
-                        		</div>
 							</div>
 						</div>
 
@@ -359,18 +235,9 @@ font-weight: bold;
 					</div>
 
 				</div>
-			<!-- begin:: Footer -->
-					
-					<%@ include file="../include/footer.jsp" %>
+			</div>
 
-			<!-- end:: Footer -->
 		<!-- end:: Page -->
-
-		<!-- begin::Scrolltop -->
-		<div id="kt_scrolltop" class="kt-scrolltop">
-			<i class="fa fa-arrow-up"></i>
-		</div>
-		<!-- end::Scrolltop -->
 
 
 		<!-- begin::Global Config(global config for global JS sciprts) -->
@@ -473,57 +340,49 @@ font-weight: bold;
 		<script src="../assets/app/bundle/app.bundle.js" type="text/javascript"></script>
 
 		<!--end::Global App Bundle -->
-		<script src="../assets/app/custom/general/crud/forms/widgets/select2.js" type="text/javascript"></script>
 	</body>
 
 	<!-- end::Body -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+	
 <script>
-    $.datepicker.setDefaults({
-        dateFormat: 'yy-mm-dd',
-        prevText: '이전 달',
-        nextText: '다음 달',
-        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-        showMonthAfterYear: true,
-        yearSuffix: '년'
-    });
+function registerApplyStmt(){
 
-    $(function() {
-        /* $("#startDuedate").datepicker();
-        $("#endDuedate").datepicker();
-        $("#deadline").datepicker(); */
-    });
-
-    
-$(document).ready(
-		function() {
-			$('#cancel').on("click",function(event) {
-						self.location = "proj?command=myProjectListForm";
-					});
-			$('#delete').on("click", function(evt) {
-				
-				var confirmStat = confirm("삭제하시겠습니까?");
-				
-				if(confirmStat == true){
-					var projNum = $('#projNum').val();
-					alert("삭제되었습니다.");
-					self.location = "proj?command=projectDelete&projNum="+projNum;	
-				} else{
-					return false;
-				}
-				
-			});
-			
-			$('.Message').on("click", function(event){
-				
-			});
-		});
+	
+	// userID 변수에 userID의 입력된 값을 가져오게 함
+	var projNum = $('#projNum').val();
+	var progNum = $('#progNum').val();
+	var applyPosition = $('#applyPosition').val();
+	
+	if(applyPosition == ""){
+		alert("지원직무를 선택해주세요.");
+		$("#applyPosition").focus();
+		return false;
+	}
+	else {
+	$.ajax({
 		
+		type: 'POST',  // GET or POST 전송방법 
+		url: '/proj?command=applyStmtRegister',  // 이쪽으로 보낸다(호출URL)
+		
+		data: {
+			projNum : projNum,
+			progNum : progNum,
+			applyPosition : applyPosition
+		},  
+
+		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
+			alert("신청되었습니다.");
+			self.close();
+			opener.location.href = "/proj?command=projectApplyListForm";
+		},
+		error: function(data){
+			alert("오류:: 다시 시도해주세요.");
+			return false;
+		}
+		 
+
+	})
+	} 
+}
 </script>
 </html>
