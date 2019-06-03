@@ -244,8 +244,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										
 										
 										<div class="col kt-align-right">
-											<button type="submit" class="btn btn-brand"
-												onclick="updateCareer()">수정</button>
+											<button type="submit" class="btn btn-brand" onclick="updateCareer()">수정</button>
+											<a class="btn btn-secondary" href="prog?command=resumeForm" >취소</a>	
 										</div>
 									</div>
 								</div>

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.ResumeFormAction;
 import com.mms.dao.PlsDAO;
 import com.mms.vo.PlsVO;
 
@@ -39,7 +40,7 @@ public class PlsUpdateAction implements Action {
 		
 		plsDao.updatePls(plsVo);
 		
-		new PlsListFormAction().execute(request, response);
+		new ResumeFormAction().execute(request, response);
 		
 		
 	}

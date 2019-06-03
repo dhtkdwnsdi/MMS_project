@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.ResumeFormAction;
 import com.mms.dao.EduDAO;
 import com.mms.vo.EduVO;
 
@@ -50,7 +51,7 @@ public class EduUpdateAction implements Action {
 		EduDAO eduDao = EduDAO.getInstance();
 		eduDao.updateEdu(eduVo);
 		
-		new EduListFormAction().execute(request, response);
+		new ResumeFormAction().execute(request, response);
 		
 	}
 

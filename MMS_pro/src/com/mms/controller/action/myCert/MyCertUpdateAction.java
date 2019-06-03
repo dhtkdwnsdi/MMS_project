@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.ResumeFormAction;
 import com.mms.dao.MyCertDAO;
 import com.mms.vo.MyCertVO;
 
@@ -36,7 +37,7 @@ public class MyCertUpdateAction implements Action {
 		
 		System.out.println(myCertVo);
 		
-		new MyCertListFormAction().execute(request, response);
+		new ResumeFormAction().execute(request, response);
 	}
 
 }

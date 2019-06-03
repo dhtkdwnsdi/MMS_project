@@ -65,38 +65,67 @@ table, td, tr, th {
 
 									<label></label>
 									<div class="form-group form-group-last row">
-
 										<label class="col-3 col-form-label"><b>성장과정</b> </label>
 										<label class="col-9">${progVo.introduce1 }</label>
 									</div>
+									
+									
+									<br><br>
+									<div class="kt-section__content kt-section__content--solid">
+									<div class="kt-divider"><span></span> </div>
+									</div>
+									<br>
 
 									<label></label><label></label>
 									<div class="form-group form-group-last row">
 										<label class="col-3 col-form-label"><b>장점·단점</b></label>
 										<label class="col-9">${progVo.introduce2 }</label>
-
 									</div>
+									
+									
+									
+									<br><br>
+									<div class="kt-section__content kt-section__content--solid">
+									<div class="kt-divider"><span></span> </div>
+									</div>
+									<br>
+									
 
 
 									<label></label><label></label>
 									<div class="form-group form-group-last row">
 										<label class="col-3 col-form-label"><b>취미·특기</b></label>
 										<label class="col-9">${progVo.introduce3 }</label>
-
 									</div>
+									
+									
+									<br><br>
+									<div class="kt-section__content kt-section__content--solid">
+									<div class="kt-divider"><span></span> </div>
+									</div>
+									<br>
+									
+									
 
 									<label></label><label></label>
 									<div class="form-group form-group-last row"> 
 										<label class="col-3 col-form-label"><b>계획·포부 </b></label>
 										<label class="col-9">${progVo.introduce4 }</label>
-
 									</div>
+									
+									
+									
+									<br><br>
+									<div class="kt-section__content kt-section__content--solid">
+									<div class="kt-divider"><span></span> </div>
+									</div>
+									<br>
 
 
 									<label></label><label></label>
 									<div class="form-group form-group-last row">
 										<label class="col-3 col-form-label"><b>첨부파일</b></label>
-										<div class="col-lg-6 col-md-6 col-sm-6">
+										<div class="col-9">
 											<input type="file" class="custom-file-input" name="introFile"
 												id="introFile"> <label class="custom-file-label"
 												for="customFile" style="text-align: left;"></label>
@@ -105,9 +134,7 @@ table, td, tr, th {
 
 
 
-
-									<div class="kt-portlet__foot">
-										<div class="kt-form__actions">
+									<br><br>
 											<div class="row">
 												<div class="col-lg-6"></div>
 												<div class="col-lg-6 kt-align-right">
@@ -115,7 +142,6 @@ table, td, tr, th {
 												</div>
 											</div>
 										</div>
-									</div>
 
 
 								</div>

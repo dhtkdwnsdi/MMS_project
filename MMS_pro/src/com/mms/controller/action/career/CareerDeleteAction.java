@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.ResumeFormAction;
 import com.mms.dao.CareerDAO;
 import com.mms.vo.CareerVO;
 
@@ -30,7 +31,7 @@ public class CareerDeleteAction implements Action {
 		
 		careerDao.deleteCareer(careerNum);
 		
-		new CareerListFormAction().execute(request, response);
+		new ResumeFormAction().execute(request, response);
 		
 		
 	}

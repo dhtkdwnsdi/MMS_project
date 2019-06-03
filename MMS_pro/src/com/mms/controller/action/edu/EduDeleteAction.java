@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.ResumeFormAction;
 import com.mms.dao.EduDAO;
 import com.mms.vo.EduVO;
 
@@ -29,7 +30,7 @@ public class EduDeleteAction implements Action {
 		
 		eduDao.deleteEdu(eduNum);
 		
-		new EduListFormAction().execute(request, response);
+		new ResumeFormAction().execute(request, response);
 	}
 
 }

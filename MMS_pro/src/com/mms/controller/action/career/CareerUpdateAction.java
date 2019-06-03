@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.ResumeFormAction;
 import com.mms.dao.CareerDAO;
 import com.mms.vo.CareerVO;
 
@@ -48,7 +49,7 @@ public class CareerUpdateAction implements Action {
 	CareerDAO careerDao = CareerDAO.getInstance();
 	careerDao.updateCareer(careerVo);
 	
-	new CareerListFormAction().execute(request, response);
+	new ResumeFormAction().execute(request, response);
 	
 	}
 

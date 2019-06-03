@@ -49,8 +49,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<b>보유자격증</b>
 												</h3>
 												<div class="col kt-align-right">
-												<pre>																					
-												<button type="button" class="btn btn-brand" onclick="openPopUp1()">업데이트</button></pre>
+												<button type="button" class="btn btn-brand" onclick="openPopUp1()">업데이트</button>
 												</div>
 												
 										</div>
