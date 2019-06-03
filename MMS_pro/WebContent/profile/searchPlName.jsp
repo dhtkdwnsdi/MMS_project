@@ -173,7 +173,7 @@
 										<tr>
 											<th scope="row">${listStat.count}</th>
 											<td>
-											<a onclick="sendToParent('${plVo.plNum}','${plVo.plName}')">
+											<a href="#" onclick="sendToParent('${plVo.plNum}','${plVo.plName}')">
 											${plVo.plName}</a></td>
 											
 										</tr>

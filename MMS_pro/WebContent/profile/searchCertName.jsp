@@ -187,7 +187,7 @@
 										<tr>
 											<th scope="row">
 										          ${listStat.count}</th>
-											<td><a onclick="sendToParent('${certVo.certNum}','${certVo.certName}','${certVo.issueOrg}')">
+											<td><a href="#" onclick="sendToParent('${certVo.certNum}','${certVo.certName}','${certVo.issueOrg}')">
 											${certVo.certName}</a>
 											</td>
 											<td><a onclick="sendToParent('${certVo.certNum}','${certVo.certName}','${certVo.issueOrg}')">${certVo.issueOrg}

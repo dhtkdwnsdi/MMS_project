@@ -7,35 +7,35 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.mms.controller.action.Action;
 import com.mms.dao.PortpolioDAO;
 import com.mms.vo.PortpolioVO;
-import com.mms.vo.ProgrammerVO;
 
-public class PortpolioListFormAction implements Action {
+public class PortpolioReadFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+		String url = "profile/portpolioReadForm.jsp";
 		
+		PortpolioDAO portDao = PortpolioDAO.getInstance();
 		
-		String url = "profile/portpolioList.jsp";
+		String portNum = request.getParameter("portNum");
 		
-		HttpSession session = request.getSession();   
+		request.setAttribute("portNum", portNum);
 		
-		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser"); 
+		//포트폴리오 상세 조회
+		PortpolioVO portVo = portDao.readPortpolio(portNum);
 		
-		String progNum = pVo.getProgNum(); 
+		request.setAttribute("portVo", portVo);
 		
-		PortpolioDAO pDao = PortpolioDAO.getInstance();
+		//포트폴리오 PL 조회
+		List<PortpolioVO> plList = portDao.readPl(portNum);
 		
-		List<PortpolioVO> portpolioList = pDao.selectPortpolio(progNum);
+		request.setAttribute("plList", plList);
 		
-		request.setAttribute("portpolioList", portpolioList);
-		
-		System.out.println(portpolioList);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

@@ -42,21 +42,14 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--end::Fonts -->
 
 <!--begin:: Global Mandatory Vendors -->
-<link
-	href="../assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css"
-	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
 
 <!--end:: Global Mandatory Vendors -->
 
 <!--begin:: Global Optional Vendors -->
-<link href="../assets/vendors/general/tether/dist/css/tether.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css"
-	rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/tether/dist/css/tether.css" rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" type="text/css" />
+<link href="../assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
 <link
 	href="../assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css"
 	rel="stylesheet" type="text/css" />
@@ -154,7 +147,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 			</div>
 			<div class="kt-portlet__body">
-				<form class="kt-form" id="kt_form" method="post" action="">
+				<form class="kt-form" id="kt_form" method="post" >
 					<input type="hidden" name="progNum" value="${LoginUser.progNum}"
 						id="progNum">
 					<div class="row">
@@ -166,57 +159,76 @@ License: You must have a valid license purchased only from themeforest(the above
 									<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
 																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
 
+									
+									
 									<div class="form-group row">
 										<label class="col-3 col-form-label">제목</label>
-										<div class="col-5">
-											<input class="form-control" type="text" value="subject"
-												id="subject">
+										<div class="col-9">
+											<input class="form-control" type="text" name = "subject" id="subject">
 										</div>
 
 									</div>
 
-
+									
+									
+									
+									
+									
 
 									<div class="form-group row">
 										<label class="col-3 col-form-label">카테고리</label>
-										<div class="col-4">
+										<div class="col-9">
 											<select name="portCate" class="form-control" id="portCate">
 												<option value="">--선택--</option>
-												<option value="C1">개발</option>
-												<option value="C2">디자인</option>
+												<option value="개발">개발</option>
+												<option value="디자인">디자인</option>
 
 											</select>
 										</div>
 									</div>
+									
+									
+									
 
 									<div class="form-group row">
 										<label class="col-3 col-form-label">세부 카테고리</label>
-										<div class="col-4">
+										<div class="col-9">
 											<select name="portDetailCate" class="form-control"
 												id="portDetailCate">
 												<option value="">--선택--</option>
-												<option value="DC1">웹</option>
-												<option value="DC2">어플리케이션</option>
-												<option value="DC3">컨소시엄</option>
-												<option value="DC3">워드프레스</option>
-												<option value="DC3">퍼블리싱</option>
-												<option value="DC3">일반 소프트웨어</option>
-												<option value="DC3">커머스, 쇼핑몰</option>
-												<option value="DC3">게임</option>
-												<option value="DC3">임베디드</option>
-												<option value="DC3">기타</option>
-
-
+												<option value="웹">웹</option>
+												<option value="어플리케이션">어플리케이션</option>
+												<option value="워드프레스">워드프레스</option>
+												<option value="퍼블리싱">퍼블리싱</option>
+												<option value="소프트웨어">일반 소프트웨어</option>
+												<option value="커머스, 쇼핑몰">커머스, 쇼핑몰</option>
+												<option value="게임">게임</option>
+												<option value="임베디드">임베디드</option>
+												<option value="기타">기타</option>
+												
+												<option value="">--선택--</option>
+												<option value="웹">웹</option>
+												<option value="어플리케이션">어플리케이션</option>
+												<option value="제품">제품</option>
+												<option value="프레젠테이션">프레젠테이션</option>
+												<option value="인쇄물">인쇄물</option>
+												<option value="커머스, 쇼핑몰">커머스, 쇼핑몰</option>
+												<option value="로고">로고</option>
+												<option value="그래픽">그래픽</option>
+												<option value="영상">영상</option>
+												<option value="기타">기타</option>
 											</select>
 										</div>
 									</div>
+
+
 
 
 
 
 									<div class="form-group row">
 										<label class="col-3 col-form-label">시작일</label>
-										<div class="col-4">
+										<div class="col-9">
 											<input type="text" class="form-control" id="kt_datepicker_1"
 												readonly name="portStartDate">
 										</div>
@@ -224,37 +236,103 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
+
+
+
+
 									<div class="form-group row">
 										<label class="col-3 col-form-label">종료일</label>
-										<div class="col-4">
+										<div class="col-9">
 											<input type="text" class="form-control"
 												id="kt_datepicker_4_1" readonly name="portEndDate">
 										</div>
 									</div>
 
+
+
+
+
+
 									<div class="form-group row">
 										<label class="col-3 col-form-label">참여율</label>
-										<div class="col-3">
-											<input class="form-control" type="text" value="%" id="rate">
+										<div class="col-9">
+											<input class="form-control" type="text" id="rate" placeholder="참여율을 1에서 100사이로 입력하시오">
 										</div>
 									</div>
 
 
 
-									<label></label>
-									<div class="form-group form-group-last row">
+									<!-- <div class="form-group form-group-last row">
 										<label class="col-3 col-form-label">관련기술 </label>
 										<textarea style="width: 600px; height: 120px;"
 											class="form-control" id="exampleTextarea"></textarea>
-									</div>
+									</div> -->
 
-									<label></label>
-									<div class="form-group form-group-last row">
+									<div class="form-group row">
 										<label class="col-3 col-form-label">내용 </label>
-										<textarea style="width: 600px; height: 120px;"
+										<textarea style="width: 900px; height: 120px;" name="portContents" id="portContents"
 											class="form-control" id="exampleTextarea"></textarea>
 									</div>
-
+									
+									
+									
+									<!-- <div class="form-group row">
+										<label class="col-3 col-form-label">사용 프로그래밍 언어</label>
+										<div class="col-9">
+											<input type="hidden" name="plNum" id="plNum" class="plNum">
+											<div class="kt-input-icon kt-input-icon--right">
+												<input type="text" name="usePl" class="form-control autocomplete" placeholder="사용 프로그래밍 언어를 입력해주세요.">
+												<span class="kt-input-icon__icon kt-input-icon__icon--right">
+												<span>
+												<button type="button" class="btn btn-outline-hover-danger btn-icon" onClick="openPopUp2()" id="certNameCherck">
+														<i class="la la-search"></i>
+												</button>
+												</span>
+											</span>
+											</div>
+										</div>
+										
+									</div> -->
+									
+									
+									
+									<div id="kt_repeater_1">
+												<div class="form-group row" id="kt_repeater_1">
+													<label class="col-3 col-form-label">관련 기술(프로그래밍 언어)</label>
+													<div data-repeater-list="" class="col-9" id="list">
+														<div data-repeater-item="" class="form-group row align-items-center" style="" id="repeat">
+																<div class="col-12">
+																	<div class="kt-form__group--inline">
+																		<div class="kt-input-icon kt-input-icon--right">
+												<input type="text" name="usePl" class="form-control autocomplete">
+												<span class="kt-input-icon__icon kt-input-icon__icon--right">
+												<span>
+												<button type="button" class="btn btn-outline-hover-danger btn-icon" onClick="openPopUp()" id="certNameCherck">
+														<i class="la la-search"></i>
+												</button>
+												</span>
+											</span>
+											</div>
+																		
+																		<div class="kt-form__control">
+																			<input type="hidden" name="plNum" id="plNum" class="plNum">
+																			
+																		</div>
+																	</div>
+																	<div class="d-md-none kt-margin-b-10"></div>
+																</div>
+														</div>
+													</div>
+												</div>
+												<div class="form-group row">
+													<div class="col-lg-4">
+													<button type="button" name="add" class="btn btn-primary">추가</button>
+													</div>
+												</div>
+											</div>
+									
+									
+									
 
 									<label></label>
 									<div class="form-group form-group-last row">
@@ -268,23 +346,17 @@ License: You must have a valid license purchased only from themeforest(the above
 								</div>
 
 
-
-								<div class="kt-portlet__foot">
+									<br>
 									<div class="col kt-align-right">
-										<button type="button" class="btn btn-brand"
-											onclick="registerPortpolio()">등록</button>
-										<button type="reset" class="btn btn-danger"
-											href="prog?command=portpolioListForm">취소</button>
+										<button type="button" class="btn btn-brand" onclick="registerPortpolio()">등록</button>
+										<button type="button" class="btn btn-secondary" onclick="window.close();" >취소</button>	
 									</div>
-								</div>
 							</div>
 						</div>
 					</div>
+			</form>
 			</div>
 		</div>
-		</form>
-	</div>
-	</div>
 	</div>
 
 	<!-- end:: Content -->
@@ -556,10 +628,35 @@ License: You must have a valid license purchased only from themeforest(the above
 			})
 		}
 	}
+	
+	//input 추가 버튼
+	$(document).on("click", "button[name=add]", function(){
+		var repeat = $('#repeat').clone();		// div repeat 복사
+		repeat.find("input").val("");			// 복사한 repeat 하위요소인 input의 value ""으로 초기화
+		repeat.append("<div class=\"col-md-4\">"+
+		"<button type=\"button\" name=\"delete\" id=\"delete\" class=\"btn btn-danger\">삭제</button>"+
+		"</div>");
+		$('#list').append(repeat);	
+		
+	})
+	
+	
+	// input 삭제 버튼
+	$(document).on("click", "button[name=delete]", function(){
+	/* alert($('#delete').index(this)); */
+	if(confirm("삭제하시겠습니까?") == true){
+		$(this).parent().parent().remove();		
+	}
+	else{
+		return false;
+	}
+	});
+	
+	
+		
 </script>
 
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <script>
@@ -581,6 +678,25 @@ License: You must have a valid license purchased only from themeforest(the above
 	$(function() {
 		$("#datepicker1").datepicker();
 	});
+	
+	
+	 function openPopUp() {
+			// window.name = "부모창 이름"; 
+			window.name = "childForm";
+			// window.open("open할 window", "자식창 이름", "팝업창 옵션");
+			var width = "500";
+			var height = "300";
+			var top = (window.screen.height - height) / 2;
+			var left = (window.screen.width - width) / 2;
+			var url = "/prog?command=plSearchForm";
+			var title = "프로그래밍 언어 검색";
+			var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+					+ width + ",height=" + height + ",top=" + top + ",left=" + left;
+
+			window.open(url, title, status);
+
+			
+		} 	
 </script>
 
 

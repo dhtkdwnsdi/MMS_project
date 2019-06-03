@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ include file="../include/header.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
@@ -19,7 +20,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- begin::Head -->
 <head>
 <meta charset="utf-8" />
-<title>Metronic | 프로그래밍 언어 등록</title>
+<title>Metronic | 학력 수정</title>
 <meta name="description" content="Bootstrap daterangepicker examples">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -49,205 +50,220 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--end:: Global Mandatory Vendors -->
 
 <!--begin:: Global Optional Vendors -->
-<link href="../assets/vendors/general/tether/dist/css/tether.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/select2/dist/css/select2.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/ion-rangeslider/css/ion.rangeSlider.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/nouislider/distribute/nouislider.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/dropzone/dist/dropzone.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/summernote/dist/summernote.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-markdown/css/bootstrap-markdown.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/animate.css/animate.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/toastr/build/toastr.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/morris.js/morris.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/sweetalert2/dist/sweetalert2.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/socicon/css/socicon.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/custom/vendors/line-awesome/css/line-awesome.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/custom/vendors/flaticon/flaticon.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/custom/vendors/flaticon2/flaticon.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/custom/vendors/fontawesome5/css/all.min.css"
-	rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/tether/dist/css/tether.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/select2/dist/css/select2.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/nouislider/distribute/nouislider.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/summernote/dist/summernote.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/animate.css/animate.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/toastr/build/toastr.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/morris.js/morris.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/sweetalert2/dist/sweetalert2.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/socicon/css/socicon.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/line-awesome/css/line-awesome.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/flaticon/flaticon.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/flaticon2/flaticon.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/fontawesome5/css/all.min.css" rel="stylesheet" type="text/css" />
 
-<!--end:: Global Optional Vendors -->
+		<!--end:: Global Optional Vendors -->
 
-<!--begin::Global Theme Styles(used by all pages) -->
-<link href="../assets/demo/default/base/style.bundle.css"
-	rel="stylesheet" type="text/css" />
+		<!--begin::Global Theme Styles(used by all pages) -->
+		<link href="../assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
 
-<!--end::Global Theme Styles -->
+		<!--end::Global Theme Styles -->
 
-<!--begin::Layout Skins(used by all pages) -->
-<link href="../assets/demo/default/skins/header/base/light.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/demo/default/skins/header/menu/light.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/demo/default/skins/brand/dark.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/demo/default/skins/aside/dark.css"
-	rel="stylesheet" type="text/css" />
+		<!--begin::Layout Skins(used by all pages) -->
+		<link href="../assets/demo/default/skins/header/base/light.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/demo/default/skins/header/menu/light.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/demo/default/skins/brand/dark.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/demo/default/skins/aside/dark.css" rel="stylesheet" type="text/css" />
 
-<!--end::Layout Skins -->
-<link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
-</head>
+		<!--end::Layout Skins -->
+		<link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
+	</head>
 
 <!-- end::Head -->
 
 <!-- begin::Body -->
-<body
-	class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
+<body class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
 
 	<!-- begin:: Content -->
-	<div class="kt-content  kt-grid__item kt-grid__item--fluid"
-		id="kt_content">
-		<div class="kt-portlet kt-portlet--mobile">
-			<div class="kt-portlet__head kt-portlet__head--lg">
-				<div class="kt-portlet__head-label">
-					<h3 class="kt-portlet__head-title">프로그래밍 언어 숙련도 등록</h3>
+	<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="kt-portlet">
+					<div class="kt-portlet__head">
+						<div class="kt-portlet__head-label">
+						<h3 class="kt-portlet__head-title">포트폴리오 상세보기</h3>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="kt-portlet__body">
-				<form class="kt-form" id="kt_form">
-					<input type="hidden" name="progNum" id="progNum"
-						value="${LoginUser.progNum}">
+			
+			
+			
+			<form class="kt-form kt-form--label-right" id="kt_form">
+				<div class="kt-portlet__body">
+					<div class="form-group row form-group-marginless kt-margin-t-20">
+						<div class="col-lg-4">
+							<label id="label1">제목</label>
+							<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}"> 
+							<input type="hidden" id="portNum" value="${portVo.portNum}">
+							<input type="text" class="form-control" value="${portVo.subject}" name="subject" id="subject" readonly="readonly">
+						</div>
+						<div class="col-lg-4">
+							<label id="label1">카테고리</label>
+							<input type="text" class="form-control" readonly="readonly" value="${portVo.portCate }">
+						</div>
+						<div class="col-lg-4">
+							<label id="label1">세부 카테고리</label>
+							<input type="text" class="form-control" readonly="readonly" value="${portVo.portDetailCate }">
+						</div>
+					</div>
+					<br><br>
+					
 					<div class="row">
 						<div class="col-xl-2"></div>
 						<div class="col-xl-8">
 							<div class="kt-section kt-section--first">
 
 								<div class="kt-section__body">
+						
+
+
+
+								<div class="form-group row">
+										<label class="col-3 col-form-label">제목</label>
+										<div class="col-9">
+											<input class="form-control" type="text" name="subject" id="subject" value="${portVo.subject }" readonly="readonly">
+										</div>
+								</div>
+								
+								
+								<div class="form-group row">
+										<label class="col-3 col-form-label">카테고리</label>
+										<div class="col-9">
+											<select name="portCate" class="form-control" id="portCate">
+												<option value="${portVo.portCate }" selected>${portVo.portCate }</option>
+												<option value="개발">개발</option>
+												<option value="디자인">디자인</option>
+
+											</select>
+										</div>
+								</div>
+								
 								
 								
 								
 								<div class="form-group row">
-										<label class="col-3 col-form-label">프로그래밍 언어명</label>
+										<label class="col-3 col-form-label">세부 카테고리</label>
 										<div class="col-9">
-											<input type="hidden" name="plNum" class="form-control" id="plNum">
-											<div class="kt-input-icon kt-input-icon--right">
-												<input type="text" class="form-control" id="plName" name="plName" readonly> 
-												<span class="kt-input-icon__icon kt-input-icon__icon--right">
-												<span>
-												<button type="button" class="btn btn-outline-hover-danger btn-icon" onClick="openPopUp2()" id="plNameCherck">
-														<i class="la la-search"></i>
-												</button>
-												</span>
-											</span>
-											</div>
-										</div>
-									</div>
-								
-								
-								
-								
-									<!-- <div class="form-group row">
-										<label class="col-3 col-form-label">프로그래밍 언어명</label> <input
-											type="hidden" name="plNum" class="form-control" id="plNum">
-										<div class="kt-input-icon kt-input-icon--right">
-											<input type="text" class="form-control" id="plName"
-												name="plName" readonly> <span
-												class="kt-input-icon__icon kt-input-icon__icon--right">
-												<span>
-													<button type="button"
-														class="btn btn-outline-hover-danger btn-icon"
-														onClick="openPopUp2()" id="plNameCherck">
-														<i class="la la-search"></i>
-													</button>
-											</span>
-											</span>
-										</div>
-									</div> -->
+											<select name="portDetailCate" class="form-control" id="portDetailCate">
+												<option value="${portVo.portDetailCate}">${portVo.portDetailCate}</option>
+												<option value="웹">웹</option>
+												<option value="어플리케이션">어플리케이션</option>
+												<option value="워드프레스">워드프레스</option>
+												<option value="퍼블리싱">퍼블리싱</option>
+												<option value="소프트웨어">일반 소프트웨어</option>
+												<option value="커머스, 쇼핑몰">커머스, 쇼핑몰</option>
+												<option value="게임">게임</option>
+												<option value="임베디드">임베디드</option>
+												<option value="기타">기타</option>
+												
+												<option value="">--선택--</option>
+												<option value="웹">웹</option>
+												<option value="어플리케이션">어플리케이션</option>
+												<option value="제품">제품</option>
+												<option value="프레젠테이션">프레젠테이션</option>
+												<option value="인쇄물">인쇄물</option>
+												<option value="커머스, 쇼핑몰">커머스, 쇼핑몰</option>
+												<option value="로고">로고</option>
+												<option value="그래픽">그래픽</option>
+												<option value="영상">영상</option>
+												<option value="기타">기타</option>
 
 
-
-									<div class="form-group row">
-										<label class="col-3 col-form-label">숙련도</label>
-										<div class="col-9">
-											<select class="form-control" id="profiency" name="profiency">
-												<option value='' selected>--선택--</option>
-												<option value="초급">초급</option>
-												<option value="중급">중급</option>
-												<option value="고급">고급</option>
-												<option value="특급">특급</option>
 											</select>
 										</div>
 									</div>
-
-
-
-
+								
+								
+									
 									<div class="form-group row">
-										<label class="col-3 col-form-label">직책(연차)</label>
+										<label class="col-3 col-form-label">시작일</label>
 										<div class="col-9">
-											<input class="form-control" type="text" name="experience"
-												id="experience">
+											<input type="text" class="form-control" id="kt_datepicker_1" disabled
+												readonly name="portStartDate" value="${portVo.portStartDate }">
 										</div>
 									</div>
+									
+									
+									
+									<div class="form-group row">
+										<label class="col-3 col-form-label">종료일</label>
+										<div class="col-9">
+											<input type="text" class="form-control" disabled value="${portVo.portEndDate}"
+												id="kt_datepicker_4_1" readonly name="portEndDate">
+										</div>
+									</div>
+									
+									
+									
+									
+									<div class="form-group row">
+										<label class="col-3 col-form-label">참여율</label>
+										<div class="col-9">
+											<input class="form-control" type="text" id="rate" value="${portVo.rate }">
+										</div>
+									</div>
+									
+									
+									
+									
+									<div class="form-group row">
+										<label class="col-3 col-form-label">내용 </label>
+										<textarea style="width: 900px; height: 120px;" name="portContents" id="portContents"
+											class="form-control" id="exampleTextarea">${portVo.portContents }</textarea>
+									</div>
+									
+									
+
+
+									
+
+
 
 
 								</div>
 							</div>
-
-
+							<div class="kt-portlet__foot">
 								<div class="kt-form__actions kt-form__actions--right">
 									<div class="row">
-
+										
+										
 										<div class="col kt-align-right">
-											<button type="button" class="btn btn-brand" onclick="registerPls()">등록</button>
-											<button type="button" class="btn btn-secondary" onclick="window.close();" >취소</button>	
+											<button type="submit" class="btn btn-brand"
+												onclick="updateCareer()">수정</button>
 										</div>
 									</div>
 								</div>
-
+							</div>
 						</div>
 						<div class="col-xl-2"></div>
 					</div>
-				</form>
-			</div>
+				</div>
+			</form>
 		</div>
 	</div>
 
@@ -463,69 +479,37 @@ License: You must have a valid license purchased only from themeforest(the above
 </body>
 <script>
 	// 경력 등록 AJAX
-	function registerPls() {
+	function updateCareer() {
 
 		// userID 변수에 userID의 입력된 값을 가져오게 함
 		var progNum = $('#progNum').val();
-		var plNum = $('#plNum').val();
-		var profiency = $('#profiency').val();
-		var experience = $('#experience').val();
+		var companyName = $('#companyName').val();
+		var department = $('#department').val();
+		var position = $('#position').val();
+		var joinDate = $('#kt_datepicker_1').val();
+		var retireDate = $('#kt_datepicker_4_1').val();
 
-		if (profiency == "") {
-			alert("숙련도를 입력하시오.");
+		if (companyName == "") {
+			alert("회사 명을 입력해주세요.");
+			$("#companyName").focus();
+			return false;
+		}
+		if (department == "") {
+			alert("부서를 입력해주세요.");
+			$("#department").focus();
+			return false;
+		}
+		if (position == "") {
+			alert("직책을 입력해주세요.");
+			$("#position").focus();
 			return false;
 		}
 		if (progNum == "") {
 			alert("잘못된 정보입니다.");
 			return false;
-		} else {
-
-			$.ajax({
-
-				type : 'POST', // GET or POST 전송방법 
-
-				url : '/prog?command=plsRegister', // 이쪽으로 보낸다(호출URL)
-
-				data : {
-					plNum : plNum,
-					profiency : profiency,
-					experience : experience,
-					progNum : progNum,
-				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
-
-				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
-					alert("등록 되었습니다.");
-					self.close();
-					opener.location.href = "/prog?command=plsListForm";
-				},
-				error : function(data) {
-					alert("오류:: 다시 시도해주세요.");
-					return false;
-				}
-
-			})
 		}
+
 	}
-	
-	
-	
-	 function openPopUp2() {
-		// window.name = "부모창 이름"; 
-		window.name = "childForm";
-		// window.open("open할 window", "자식창 이름", "팝업창 옵션");
-		var width = "500";
-		var height = "300";
-		var top = (window.screen.height - height) / 2;
-		var left = (window.screen.width - width) / 2;
-		var url = "/prog?command=plSearchForm";
-		var title = "프로그래밍 언어 검색";
-		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
-				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
-
-		window.open(url, title, status);
-
-		
-	} 
 </script>
 
 <link rel="stylesheet"

@@ -172,8 +172,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 									<div class="col kt-align-right">
-										<button type="button" class="btn btn-brand"
-											onclick="registerMyCert()">등록</button>
+										<button type="button" class="btn btn-brand" onclick="registerMyCert()">등록</button>
+										<button type="button" class="btn btn-secondary" onclick="window.close();" >취소</button>	
 									</div>
 								</div>
 							</div>
@@ -429,13 +429,16 @@ License: You must have a valid license purchased only from themeforest(the above
 		var issueDate = $('#kt_datepicker_1').val();
 		var certSerial = $('#certSerial').val();
 	
-		if (issueDate == "") {
-			alert("발행일자를 선택해주세요.");
-			$("#issueDate").focus();
-		}
+		
 		if (certNum == "") {
 			alert("자격증을 선택해주세요.");
 			$("#certNum").focus();
+			return false;
+		}
+		if (issueDate == "") {
+			alert("발행일자를 선택해주세요.");
+			$("#issueDate").focus();
+			return false;
 		}
 		if (progNum == "") {
 			alert("잘못된 정보입니다.");

@@ -111,7 +111,7 @@ table, td, tr, th {
 											<div class="row">
 												<div class="col-lg-6"></div>
 												<div class="col-lg-6 kt-align-right">
-													<a href="prog?command=introduceUpdateForm&id=${LoginUser.id}" class ="btn btn-primary">수정</a>
+													<a href="prog?command=introduceUpdateForm&id=${LoginUser.id}" class ="btn btn-primary">업데이트</a>
 												</div>
 											</div>
 										</div>

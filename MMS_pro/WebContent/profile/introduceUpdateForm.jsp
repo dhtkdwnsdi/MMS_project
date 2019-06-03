@@ -118,7 +118,7 @@ table, td, tr, th {
 											<div class="row">
 												<div class="col-lg-6"></div>
 												<div class="col-lg-6 kt-align-right">
-													<button type="submit" class="btn btn-primary">수정</button>
+													<button type="submit" class="btn btn-primary">저정</button>
 												</div>
 											</div>
 										</div>
