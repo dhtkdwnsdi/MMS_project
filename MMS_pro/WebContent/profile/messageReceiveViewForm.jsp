@@ -131,7 +131,8 @@ font-weight: bold;
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">보낸 사람</label>
-														<input type="text" class="form-control" readonly="readonly" value="${rVo.receiveSender}">
+														<input type="hidden" id="receiveName" value="${rVo.receiveSender}">
+														<input type="text" class="form-control" readonly="readonly" value="${rVo.receiveName}">
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">날짜</label>
@@ -139,7 +140,8 @@ font-weight: bold;
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">내용</label>
-														<input type="text" class="form-control" readonly="readonly" value="${rVo.receiveContents}">
+														<%-- <input type="text" class="form-control" readonly="readonly" value="${rVo.receiveContents}"> --%>
+														<textarea style="width: 705px; height: 120px;" class="form-control" readonly="readonly" value="${rVo.receiveContents}">${rVo.receiveContents}</textarea>
 													</div>
 												</div>
 												
@@ -154,7 +156,7 @@ font-weight: bold;
 														<div class="col-lg-6">
 														</div>
 														<div class="col-lg-6 kt-align-right">
-															<button type="button" class="btn btn-success" id="applyBtn" onclick="openMessagePop('${rVo.receiveSender}')">
+															<button type="button" class="btn btn-success" id="applyBtn" onclick="openMessagePop('${rVo.receiveSender}','${rVo.receiveName}')">
 																답장
 															</button>
 															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
@@ -340,14 +342,15 @@ $(document).ready(
 			
 		});
 		
-function openMessagePop(receiveSender){
+function openMessagePop(receiveSender,receiveName){
 	var sendReceiver = receiveSender;
+	var sendName = receiveName;
 	
-    var width = "500"; 
-	var height = "440"; 
+    var width = "800"; 
+	var height = "555"; 
 	var top = (window.screen.height-height)/2; 
 	var left = (window.screen.width-width)/2; 
-	var url = "/prog?command=messageRegisterForm&sendReceiver="+sendReceiver; 
+	var url = "/prog?command=messageRegisterForm&sendReceiver="+sendReceiver+"&sendName="+sendName; 
 	var title = "메세지 보내기"; 
 	var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 

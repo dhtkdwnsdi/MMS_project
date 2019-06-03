@@ -209,7 +209,7 @@
 										<ul class="kt-menu__subnav">
 											<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">메세지 관리</span></span></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=messageListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">메세지 조회</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="#"  class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">메세지 보내기</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a onclick="window.open('prog?command=msgRegisterForm','register','width=800,height=500,location=no,status=no,scrollbars=no')" class="kt-menu__link " ><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">메세지 보내기</span></a></li>
 										</ul>
 									</div>
 								</li>
@@ -801,7 +801,7 @@
 										<ul class="kt-menu__subnav">
 											<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">메세지 관리</span></span></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=messageListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">메세지 조회</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="#"  class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">메세지 보내기</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=msgRegisterForm"  class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">메세지 보내기</span></a></li>
 										</ul>
 									</div>
 								</li>
@@ -1352,7 +1352,7 @@
 										<ul class="kt-menu__subnav">
 											<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">메세지 관리</span></span></li>
 											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=messageListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">메세지 조회</span></a></li>
-											<li class="kt-menu__item " aria-haspopup="true"><a href="#"  class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">메세지 보내기</span></a></li>
+											<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=msgRegisterForm"  class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">메세지 보내기</span></a></li>
 										</ul>
 									</div>
 								</li>

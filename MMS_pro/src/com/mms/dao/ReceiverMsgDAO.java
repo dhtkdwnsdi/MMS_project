@@ -34,7 +34,7 @@ public class ReceiverMsgDAO extends DBManager{
 
 		String sql = "Select m.receive_num"
 				+ "		   , m.receive_subject"
-				+ "		   , p.name as receive_sender"
+				+ "		   , p.name as receive_name, receive_sender"
 				+ "		   , m.receive_write_date"
 				+ "	    from tbl_receive_msg m"
 				+ "		   , tbl_programmer p"
@@ -54,6 +54,7 @@ public class ReceiverMsgDAO extends DBManager{
 				ReceiveMsgVO rVo = new ReceiveMsgVO();
 				rVo.setReceiveNum(rs.getString("receive_Num"));
 				rVo.setReceiveSubject(rs.getString("receive_Subject"));
+				rVo.setReceiveName(rs.getString("receive_name"));
 				rVo.setReceiveSender(rs.getString("receive_sender"));
 				rVo.setReceiveWriteDate(rs.getString("receive_Write_Date"));
 
@@ -87,7 +88,8 @@ public class ReceiverMsgDAO extends DBManager{
 				+",			 m.receive_subject"
 				+",			 m.receive_write_date"
 				+",			 m.receive_contents"
-				+",		     p.name as receive_sender"
+				+",		     p.name as receive_name, receive_sender"
+				+",			 m.receive_file"
 				+"		from tbl_receive_msg m"
 				+", 		 tbl_programmer p "
 				+ "	   where receive_num=? "
@@ -107,7 +109,9 @@ public class ReceiverMsgDAO extends DBManager{
 				rVo.setReceiveNum(rs.getString("receive_num"));
 				rVo.setReceiveSubject(rs.getString("receive_subject"));
 				rVo.setReceiveWriteDate(rs.getString("receive_write_date"));
+				rVo.setReceiveName(rs.getString("receive_name"));
 				rVo.setReceiveContents(rs.getString("receive_contents"));
+				rVo.setReceiveFile(rs.getString("receive_file"));
 				rVo.setReceiveSender(rs.getString("receive_sender"));
 
 			}
@@ -134,7 +138,7 @@ public class ReceiverMsgDAO extends DBManager{
 	public void insertMessage(ReceiveMsgVO rVo) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into tbl_receive_msg(receive_subject, receive_contents, receive_receiver, receive_sender) values (?,?,?,?)";
+		String sql = "insert into tbl_receive_msg(receive_subject, receive_contents, receive_receiver, receive_sender,receive_file) values (?,?,?,?,?)";
 		
 		try {
 			conn = getConnection();
@@ -143,6 +147,7 @@ public class ReceiverMsgDAO extends DBManager{
 			pstmt.setString(2, rVo.getReceiveContents());
 			pstmt.setString(3, rVo.getReceiveReceiver());
 			pstmt.setString(4, rVo.getReceiveSender());
+			pstmt.setString(5, rVo.getReceiveFile());
 			
 			pstmt.executeUpdate();
 		}catch (SQLException e) {

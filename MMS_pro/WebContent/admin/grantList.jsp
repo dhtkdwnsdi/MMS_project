@@ -45,9 +45,9 @@ License: You must have a valid license purchased only from themeforest(the above
 						<form method="post">
 							<!--begin::Section-->
 							<div class="kt-section">
-								<div class="kt-section__content">
+								<div class="kt-section__content" style="text-align: center; vertical-align: middle;">
 									<table class="table table-bordered table-hover">
-										<thead style="text-align: center;">
+										<thead style="text-align: center; vertical-align: middle;">
 											<tr>
 												<th style="font-weight: bold;">번호</th>
 												<th style="font-weight: bold;">이름</th>
@@ -55,7 +55,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<th style="font-weight: bold;">관리</th>
 											</tr>
 										</thead>
-										<tbody style="text-align: center;">
+										<tbody style="text-align: center; vertical-align: middle;">
 											<c:forEach items="${gList}" var="pVo" varStatus="listStat">
 												<tr>
 													<th scope="row">${listStat.count}
@@ -68,8 +68,10 @@ License: You must have a valid license purchased only from themeforest(the above
 													<td><c:if test="${pVo.grant == '0' }">일반사용자</c:if>
 														<c:if test="${pVo.grant == '1' }">PM</c:if></td>
 													<td>
-														<button type="button" class="btn btn-secondary"
-															onclick="openPopUp('${pVo.progNum}')">수정</button> 
+													<span class="kt-badge kt-badge--primary kt-badge--inline" onclick="openPopUp('${pVo.progNum}')">수정</span>
+													<!-- <span class="kt-badge kt-badge--success kt-badge--inline">수정</span> -->
+														<%-- <button type="button" class="btn btn-secondary"
+															onclick="openPopUp('${pVo.progNum}')">수정</button>  --%>
 													<%-- <a href="prog?command=grantModify&progNum=${pVo.progNum}&grant=${pVo.grant}"><span
 													class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a> --%>
 													</td>

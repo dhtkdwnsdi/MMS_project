@@ -233,7 +233,7 @@
 
 		
 		opener.document.getElementById("sendReceiver").value = prognum;
-		opener.document.getElementById("name").value = name;
+		opener.document.getElementById("sendName").value = name;
 		
 		window.close();
 

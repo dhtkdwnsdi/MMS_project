@@ -8,6 +8,8 @@ public class SendMsgVO {
 	private String sendContents;
 	private String sendReceiver;
 	private String sendSender;
+	private String sendName;
+	private String sendFile;
 	public String getSendNum() {
 		return sendNum;
 	}
@@ -44,12 +46,26 @@ public class SendMsgVO {
 	public void setSendSender(String sendSender) {
 		this.sendSender = sendSender;
 	}
+	public String getSendName() {
+		return sendName;
+	}
+	public void setSendName(String sendName) {
+		this.sendName = sendName;
+	}
+	public String getSendFile() {
+		return sendFile;
+	}
+	public void setSendFile(String sendFile) {
+		this.sendFile = sendFile;
+	}
 	@Override
 	public String toString() {
 		return "SendMsgVO [sendNum=" + sendNum + ", sendSubject=" + sendSubject + ", sendWriteDate=" + sendWriteDate
 				+ ", sendContents=" + sendContents + ", sendReceiver=" + sendReceiver + ", sendSender=" + sendSender
-				+ "]";
+				+ ", sendName=" + sendName + ", sendFile=" + sendFile + "]";
 	}
+
+	
 	
 	
 

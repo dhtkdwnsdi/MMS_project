@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 
 <!-- 
@@ -192,7 +193,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<table class="table table-bordered table-hover">
 												<thead style="text-align: center;">
 													<tr>
-														<th>#</th>
+														<th><input type="checkbox" name="receiveChk" id="ReceiveAll"/></th>
 														<th style="font-weight: bold;">제목</th>
 														<th style="font-weight: bold;">보낸 사람</th>
 														<th style="font-weight: bold;">날짜</th>
@@ -202,21 +203,21 @@ License: You must have a valid license purchased only from themeforest(the above
 													<c:forEach items="${ReceiveMessageList}" var="rVo"
 														varStatus="listStat">
 														<tr>
-															<td style="text-align: center;"><input type="hidden"
-																name="receiveNum" value="${rVo.receiveNum}"
-																id="receiveNum"><input type="checkbox"
-																value="${rVo.receiveNum}" name="msgCheck" id="msgCheck"></td>
-															<td><a
-																href="prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}">${rVo.receiveSubject}</a></td>
-															<td>${rVo.receiveSender}</td>
+															<td style="text-align: center;">
+															<input type="hidden" name="receiveNum" value="${rVo.receiveNum}" id="receiveNum">
+															<input type="checkbox" value="${rVo.receiveNum}" name="msgCheck" id="receiveNum" class="receiveChk"/></td>
+															<td><a onclick="window.open('prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${rVo.receiveSubject}</a></td>
+															<td>${rVo.receiveName}<input type="hidden" value="${rVo.receiveSender}"></td>
 															<td>${rVo.receiveWriteDate}</td>
 														</tr>
 													</c:forEach>
 												</tbody>
 											</table>
+											<div class="col kt-align-right">
 												<button type="button" class="btn btn-brand"
-													onclick="openPopUp()">등록</button>
+													onclick="openPopUp()">메세지 보내기</button>
 												<button type="submit" class="btn btn-danger">삭제</button>
+												</div>
 									</form>
 										</div>
 										<div class="tab-pane" id="kt_portlet_tab_1_2">
@@ -224,7 +225,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<table class="table table-bordered table-hover">
 												<thead style="text-align: center;">
 													<tr>
-														<th>#</th>
+														<th><input type="checkbox" name="sendChk" id="SendAll"/></th>
 														<th style="font-weight: bold;">제목</th>
 														<th style="font-weight: bold;">받는 사람</th>
 														<th style="font-weight: bold;">날짜</th>
@@ -234,21 +235,21 @@ License: You must have a valid license purchased only from themeforest(the above
 													<c:forEach items="${SendMessageList}" var="sVo"
 														varStatus="listStat">
 														<tr>
-															<td style="text-align: center;"><input type="hidden"
-																name="sendNum" value="${sVo.sendNum}" id="sendNum"><input
-																type="checkbox" value="${sVo.sendNum}" name="msgCheck"
-																id="msgCheck"></td>
-															<td><a
-																href="prog?command=messageSendViewForm&SendNum=${sVo.sendNum}">${sVo.sendSubject}</a></td>
-															<td>${sVo.sendReceiver}</td>
+															<td style="text-align: center;">
+															<input type="hidden" name="sendNum" value="${sVo.sendNum}" id="sendNum">
+															<input type="checkbox" value="${sVo.sendNum}" name="msgCheck" id="sendChk" class="sendChk"></td>
+															<td><a onclick="window.open('prog?command=messageSendViewForm&sendNum=${sVo.sendNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${sVo.sendSubject}</a></td>
+															<td>${sVo.sendName}<input type="hidden" id="sendReceiver" value="${sVo.sendReceiver}"></td>
 															<td>${sVo.sendWriteDate}</td>
 														</tr>
 													</c:forEach>
 												</tbody>
 											</table>
+											<div class="col kt-align-right">
 											<button type="button" class="btn btn-brand"
-												onclick="openPopUp()">등록</button>
+												onclick="openPopUp()">메세지 보내기</button>
 											<button type="submit" class="btn btn-danger">삭제</button>
+											</div>
 									</form>
 										</div>
 									<div>
@@ -509,12 +510,31 @@ License: You must have a valid license purchased only from themeforest(the above
 </body>
 
 <!-- end::Body -->
-<script>
-	function deleteReceive(messageNum) {
-		var messageNum = messageNum;
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+</script>
+
+<script type="text/javascript">             
+$( document ).ready( function() {
+    $( '#ReceiveAll' ).click( function() {
+      $( '.receiveChk' ).prop( 'checked', this.checked );
+    } );
+  } );
+</script>
+
+<script type="text/javascript">             
+$( document ).ready( function() {
+    $( '#SendAll' ).click( function() {
+      $( '.sendChk' ).prop( 'checked', this.checked );
+    } );
+  } );
+</script>
+	
+	<script>
+	function deleteReceive(receiveNum) {
+		var messageNum = receiveNum;
 
 		if (confirm("삭제하시겠습니까?") == true) {
-			location.href = "/prog?command=messageDelete&messageNum="
+			location.href = "/prog?command=receiveMsgDelete&messageNum="
 					+ messageNum;
 			alert("삭제되었습니다.");
 		} else {
@@ -522,17 +542,16 @@ License: You must have a valid license purchased only from themeforest(the above
 		}
 
 	}
-	function deleteSend(messageNum) {
-		var messageNum = messageNum;
 
+	function deleteSend(sendNum) {
+		var messageNum = sendNum;
+		
 		if (confirm("삭제하시겠습니까?") == true) {
-			location.href = "/prog?command=messageDelete&messageNum="
-					+ messageNum;
-			alert("삭제되었습니다.");
-		} else {
+			location.href = "/prog?command=sendMsgDelete&messageNum=" + messageNum;
+			alert("삭제되었습니다.")
+		}else{
 			return false;
 		}
-
 	}
 
 	function openPopUp() {
@@ -554,4 +573,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		        "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */
 	}
 </script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+
 </html>

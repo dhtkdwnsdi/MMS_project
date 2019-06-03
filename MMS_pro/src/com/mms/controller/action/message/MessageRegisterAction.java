@@ -24,6 +24,7 @@ public class MessageRegisterAction implements Action {
 		String sendContents = request.getParameter("sendContents");
 		String sendReceiver = request.getParameter("sendReceiver");
 		String sendSender = request.getParameter("sendSender");
+		String sendFile = request.getParameter("sendFile");
 		
 		SendMsgVO sVo = new SendMsgVO();
 		SenderMsgDAO sDao = SenderMsgDAO.getInstance();
@@ -32,6 +33,7 @@ public class MessageRegisterAction implements Action {
 		sVo.setSendContents(sendContents);
 		sVo.setSendReceiver(sendReceiver);
 		sVo.setSendSender(sendSender);
+		sVo.setSendFile(sendFile);
 		
 		sDao.insertMessage(sVo);
 		
@@ -39,6 +41,7 @@ public class MessageRegisterAction implements Action {
 		String receiveContents = request.getParameter("sendContents");
 		String receiveReceiver = request.getParameter("sendReceiver");
 		String receiveSender = request.getParameter("sendSender");
+		String receiveFile = request.getParameter("sendFile");
 		
 		ReceiveMsgVO rVo = new ReceiveMsgVO();
 		ReceiverMsgDAO rDao = ReceiverMsgDAO.getInstance();
@@ -47,6 +50,7 @@ public class MessageRegisterAction implements Action {
 		rVo.setReceiveContents(receiveContents);
 		rVo.setReceiveReceiver(receiveReceiver);
 		rVo.setReceiveSender(receiveSender);
+		rVo.setReceiveFile(receiveFile);
 		
 		rDao.insertMessage(rVo);
 		

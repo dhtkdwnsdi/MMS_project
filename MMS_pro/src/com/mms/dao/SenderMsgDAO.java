@@ -34,7 +34,8 @@ public class SenderMsgDAO extends DBManager{
 
 		String sql = "Select m.send_num"
 				+ "		   , m.send_subject"
-				+ "		   , p.name as send_receiver"
+				+ "		   , p.name as send_name"
+				+ "		   , send_receiver"
 				+ "		   , m.send_write_date"
 				+ "	    from tbl_send_msg m"
 				+ "		   , tbl_programmer p"
@@ -54,6 +55,7 @@ public class SenderMsgDAO extends DBManager{
 				SendMsgVO sVo = new SendMsgVO();
 				sVo.setSendNum(rs.getString("send_Num"));
 				sVo.setSendSubject(rs.getString("send_Subject"));
+				sVo.setSendName(rs.getString("send_name"));
 				sVo.setSendReceiver(rs.getString("send_receiver"));
 				sVo.setSendWriteDate(rs.getString("send_Write_Date"));
 
@@ -87,7 +89,9 @@ public class SenderMsgDAO extends DBManager{
 				+ ",		 m.send_subject"
 				+ ",		 m.send_write_date"
 				+ ",		 m.send_contents"
-				+ ",		 p.name as send_receiver"
+				+ ",		 p.name as send_name"
+				+ ",		 m.send_receiver"
+				+ ",		 m.send_file"
 				+"		from tbl_send_msg m"
 				+ "		   , tbl_programmer p "
 				+ "	   where send_num=? "
@@ -104,11 +108,13 @@ public class SenderMsgDAO extends DBManager{
 			if (rs.next()) {
 				sVo = new SendMsgVO();
 				
-				sVo.setSendNum(rs.getString("send_Num"));
-				sVo.setSendSubject(rs.getString("send_Subject"));
-				sVo.setSendWriteDate(rs.getString("send_Write_Date"));
+				sVo.setSendSubject(rs.getString("send_subject"));
+				sVo.setSendWriteDate(rs.getString("send_write_Date"));
+				sVo.setSendContents(rs.getString("send_contents"));
+				sVo.setSendName(rs.getString("send_name"));
 				sVo.setSendReceiver(rs.getString("send_receiver"));
-				sVo.setSendContents(rs.getString("send_Contents"));
+				sVo.setSendFile(rs.getString("send_file"));
+				sVo.setSendNum(rs.getString("send_num"));
 				 
 
 			}
@@ -135,7 +141,7 @@ public class SenderMsgDAO extends DBManager{
 	public void insertMessage(SendMsgVO rVo) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into tbl_send_msg(send_num, send_subject, send_contents, send_receiver, send_sender) values (send_num,?,?,?,?)";
+		String sql = "insert into tbl_send_msg(send_num, send_subject, send_contents, send_receiver, send_sender, send_file) values (send_num,?,?,?,?,?)";
 		
 		try {
 			conn = getConnection();
@@ -144,6 +150,7 @@ public class SenderMsgDAO extends DBManager{
 			pstmt.setString(2, rVo.getSendContents());
 			pstmt.setString(3, rVo.getSendReceiver());
 			pstmt.setString(4, rVo.getSendSender());
+			pstmt.setString(5, rVo.getSendFile());
 			
 			pstmt.executeUpdate();
 		}catch (SQLException e) {

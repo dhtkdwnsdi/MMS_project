@@ -8,6 +8,8 @@ public class ReceiveMsgVO {
 	private String receiveContents;
 	private String receiveReceiver;
 	private String receiveSender;
+	private String receiveName;
+	private String receiveFile;
 	public String getReceiveNum() {
 		return receiveNum;
 	}
@@ -44,12 +46,26 @@ public class ReceiveMsgVO {
 	public void setReceiveSender(String receiveSender) {
 		this.receiveSender = receiveSender;
 	}
+	public String getReceiveName() {
+		return receiveName;
+	}
+	public void setReceiveName(String receiveName) {
+		this.receiveName = receiveName;
+	}
+	public String getReceiveFile() {
+		return receiveFile;
+	}
+	public void setReceiveFile(String receiveFile) {
+		this.receiveFile = receiveFile;
+	}
 	@Override
 	public String toString() {
 		return "ReceiveMsgVO [receiveNum=" + receiveNum + ", receiveSubject=" + receiveSubject + ", receiveWriteDate="
 				+ receiveWriteDate + ", receiveContents=" + receiveContents + ", receiveReceiver=" + receiveReceiver
-				+ ", receiveSender=" + receiveSender + "]";
+				+ ", receiveSender=" + receiveSender + ", receiveName=" + receiveName + ", receiveFile=" + receiveFile
+				+ "]";
 	}
+	
 	
 	
 }

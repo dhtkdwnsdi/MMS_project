@@ -8,22 +8,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
+import com.mms.dao.SenderMsgDAO;
+import com.mms.vo.SendMsgVO;
 
-public class MessageRegisterFormAction implements Action {
+public class MsgRegisterFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "profile/messageReRegisterForm.jsp";
+		String url = "profile/messageRegisterForm.jsp";
 		
-		String sendReceiver = request.getParameter("sendReceiver");
-		request.setAttribute("sendReceiver", sendReceiver);
-		
-		String sendName = request.getParameter("sendName");
-		request.setAttribute("sendName", sendName);
+		System.out.println(url);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
+		
+
 	}
 
 }

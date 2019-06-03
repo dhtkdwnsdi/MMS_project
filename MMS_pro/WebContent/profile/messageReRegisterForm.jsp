@@ -161,24 +161,23 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="kt-section__body">
 									<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
 																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
-									<input type="hidden" name="sendSender" id="sendSender"
-										value="${LoginUser.progNum}">
+									<input type="hidden" name="sendSender" id="sendSender" value="${LoginUser.progNum}">
 									<div class="form-group row">
 										<label class="col-3 col-form-label">받는 사람</label>
 										<div class="col-9">
 											
+											<input type="hidden" id="sendReceiver" name="sendReceiver" value="${sendReceiver}">
 											<div class="kt-input-icon kt-input-icon--right">
-											<%-- <input type="text" id="sendReceiver" name="sendReceiver" value="${sendReceiver}"> --%>
-												<input type="text" class="form-control" id="name"
-													name="name" readonly  value="${sendReceiver}"> 
-													<span class="kt-input-icon__icon kt-input-icon__icon--right">
+											<input type="text" class="form-control" id="sendName"
+													name="sendName" value="${sendName}" readonly>
+												<span class="kt-input-icon__icon kt-input-icon__icon--right">
 													<span>
 														<button type="button"
 															class="btn btn-outline-hover-danger btn-icon"
 															onClick="openPopUp2()" id="progNumCheck">
 															<i class="la la-search"></i>
 														</button>
-												</span>
+													</span>
 												</span>
 											</div>
 										</div>
@@ -197,6 +196,13 @@ License: You must have a valid license purchased only from themeforest(the above
 										class="form-control" id="sendContents" name="sendContents"></textarea>
 											
 										</div>
+									</div>
+									<div class="form-group">
+										<label id="label1">첨부파일</label>
+											<div class="custom-file">
+												<input type="file" class="custom-file-input" name="sendFile" id="sendFile">
+												<label class="custom-file-label" for="customFile" style="text-align: left;"></label>
+											</div>
 									</div>
 								</div>
 							</div>
@@ -428,6 +434,10 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!--end::Global App Bundle -->
 </body>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <script>
 	// 경력 등록 AJAX
 	function registerMessage() {
@@ -437,9 +447,20 @@ License: You must have a valid license purchased only from themeforest(the above
 		var sendSubject = $('#sendSubject').val();
 		var sendContents = $('#sendContents').val();
 		var sendReceiver = $('#sendReceiver').val();
+		//var sendName = $('#sendName').val();
 		var sendSender = $('#sendSender').val();
 
-		
+		if(sendReceiver == ""){
+			alert("보낼 사람을 지정 해주세요");
+			$("#sendReceiver").focus();
+			return false;
+		}
+		if(sendSubject == ""){
+			alert("제목을 입력해주세요.");
+			$("#department").focus();
+			return false;
+		}
+		else{
 
 			$.ajax({
 
@@ -465,6 +486,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				}
 
 			})
+		}
 		}
 	
 </script>

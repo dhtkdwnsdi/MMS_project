@@ -169,8 +169,8 @@ License: You must have a valid license purchased only from themeforest(the above
 											
 											<div class="kt-input-icon kt-input-icon--right">
 											<input type="hidden" id="sendReceiver" name="sendReceiver">
-												<input type="text" class="form-control" id="name"
-													name="name" readonly> 
+												<input type="text" class="form-control" id="sendName"
+													name="sendName" readonly> 
 													<span class="kt-input-icon__icon kt-input-icon__icon--right">
 													<span>
 														<button type="button"
@@ -197,6 +197,14 @@ License: You must have a valid license purchased only from themeforest(the above
 										class="form-control" id="sendContents" name="sendContents"></textarea>
 											
 										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-3 col-form-label">첨부파일</label>
+										
+											<div class="custom-file">
+												<input size="50" type="file" class="custom-file-input" name="sendFile" id="sendFile">
+												<label class="custom-file-label" for="customFile" style="text-align: left;"></label>
+											</div>
 									</div>
 								</div>
 							</div>
@@ -428,6 +436,10 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!--end::Global App Bundle -->
 </body>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <script>
 	// 경력 등록 AJAX
 	function registerMessage() {
@@ -438,8 +450,19 @@ License: You must have a valid license purchased only from themeforest(the above
 		var sendContents = $('#sendContents').val();
 		var sendReceiver = $('#sendReceiver').val();
 		var sendSender = $('#sendSender').val();
+		var sendFile = $('#sendFile').val();
 
-		
+		if(sendReceiver == ""){
+			alert("보낼 사람을 지정 해주세요");
+			$("#sendReceiver").focus();
+			return false;
+		}
+		if(sendSubject == ""){
+			alert("제목을 입력해주세요.");
+			$("#department").focus();
+			return false;
+		}
+		else{
 
 			$.ajax({
 
@@ -452,6 +475,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					sendContents : sendContents,
 					sendReceiver : sendReceiver,
 					sendSender : sendSender,
+					sendFile : sendFile,
 				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
 
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
@@ -465,6 +489,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				}
 
 			})
+		}
 		}
 	
 </script>

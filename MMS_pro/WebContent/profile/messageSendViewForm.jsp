@@ -131,7 +131,8 @@ font-weight: bold;
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">보낸 사람</label>
-														<input type="text" class="form-control" readonly="readonly" value="${sVo.sendReceiver}">
+														<input type="text" class="form-control" readonly="readonly" value="${sVo.sendName}">
+														<input type="hidden" id="sendReceiver" value="${sVo.sendReceiver}">
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">날짜</label>
@@ -139,7 +140,8 @@ font-weight: bold;
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">내용</label>
-														<input type="text" class="form-control" readonly="readonly" value="${sVo.sendContents}">
+														<%-- <input type="text" class="form-control" readonly="readonly" value="${sVo.sendContents}"> --%>
+														<textarea style="width: 760px; height: 120px;" class="form-control" readonly="readonly" value="${sVo.sendContents}">${sVo.sendContents}</textarea>
 													</div>
 												</div>
 												
@@ -154,9 +156,7 @@ font-weight: bold;
 														<div class="col-lg-6">
 														</div>
 														<div class="col-lg-6 kt-align-right">
-															<button type="button" class="btn btn-success" id="applyBtn" onclick="openApplyPop('${projVo.projNum}')">
-																참여 신청
-															</button>
+															<!-- <button type="button" class="btn btn-brand"	onclick="openMessagePop()">메세지 보내기</button> -->
 															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
 														</div>
 													</div>
@@ -340,20 +340,22 @@ $(document).ready(
 			
 		});
 		
-function openMessagePop(projNum){
-	var projNum = projNum;
-    var width = "500"; 
-	var height = "440"; 
+function openMessagePop(sendReceiver,sendName){
+	var sendReceiver = sendReceiver;
+	var sendName = sendName;
+	
+    var width = "800"; 
+	var height = "555"; 
 	var top = (window.screen.height-height)/2; 
 	var left = (window.screen.width-width)/2; 
-	var url = "/proj?command=projectApplyFormAction&projNum="+projNum; 
-	var title = "프로젝트 신청"; 
+	var url = "/prog?command=messageRegisterForm&sendReceiver="+sendReceiver+"&sendName="+sendName; 
+	var title = "메세지 보내기"; 
 	var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
     
     window.open(url, title, status);
     
     
-}		
+}	
 </script>
 </html>
