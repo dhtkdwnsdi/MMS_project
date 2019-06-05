@@ -194,123 +194,103 @@ License: You must have a valid license purchased only from themeforest(the above
 				<!--end::Portlet-->
 			</div>
 			
-			<div class="col-xl-4">
+
+		<div class="col-xl-4">
 				<div class="kt-portlet kt-portlet--tabs kt-portlet--height-fluid">
 					<div class="kt-portlet__head">
 						<div class="kt-portlet__head-label">
 							<h3 class="kt-portlet__head-title">메세지</h3>
 						</div>
+
+
 						<div class="kt-portlet__head-toolbar">
 							<ul
-								class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-brand"
+								class="nav nav-tabs nav-tabs-bold nav-tabs-line   nav-tabs-line-right nav-tabs-line-brand"
 								role="tablist">
 								<li class="nav-item"><a class="nav-link active"
-									data-toggle="tab" href="#kt_widget4_tab1_content" role="tab">
-										Today </a></li>
+									data-toggle="tab" href="#kt_portlet_tab_1_1" role="tab"> 받은
+										메세지 </a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#kt_widget4_tab2_content" role="tab"> Month </a></li>
+									href="#kt_portlet_tab_1_2" role="tab"> 보낸 메세지 </a></li>
+								<!-- <li class="nav-item">
+														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab">
+															Settings
+														</a>
+													</li> -->
 							</ul>
 						</div>
 					</div>
+
+
 					<div class="kt-portlet__body">
 						<div class="tab-content">
-							<div class="tab-pane active" id="kt_widget4_tab1_content">
-								<div class="kt-widget4">
-									<div class="kt-widget4__item">
-										<div class="kt-widget4__pic kt-widget4__pic--pic">
-											<img src="../assets/media/users/100_4.jpg" alt="">
-										</div>
-										<div class="kt-widget4__info">
-											<a href="#" class="kt-widget4__username"> Anna Strong </a>
-											<p class="kt-widget4__text">Visual Designer,Google Inc</p>
-										</div>
-										<a href="#" class="btn btn-sm btn-label-brand btn-bold">Follow</a>
-									</div>
-									<div class="kt-widget4__item">
-										<div class="kt-widget4__pic kt-widget4__pic--pic">
-											<img src="../assets/media/users/100_14.jpg" alt="">
-										</div>
-										<div class="kt-widget4__info">
-											<a href="#" class="kt-widget4__username"> Milano Esco </a>
-											<p class="kt-widget4__text">Product Designer, Apple Inc</p>
-										</div>
-										<a href="#" class="btn btn-sm btn-label-warning btn-bold">Follow</a>
-									</div>
-									<div class="kt-widget4__item">
-										<div class="kt-widget4__pic kt-widget4__pic--pic">
-											<img src="../assets/media/users/100_11.jpg" alt="">
-										</div>
-										<div class="kt-widget4__info">
-											<a href="#" class="kt-widget4__username"> Nick Bold </a>
-											<p class="kt-widget4__text">Web Developer, Facebook Inc</p>
-										</div>
-										<a href="#" class="btn btn-sm btn-label-danger btn-bold">Follow</a>
-									</div>
-									<div class="kt-widget4__item">
-										<div class="kt-widget4__pic kt-widget4__pic--pic">
-											<img src="../assets/media/users/100_1.jpg" alt="">
-										</div>
-										<div class="kt-widget4__info">
-											<a href="#" class="kt-widget4__username"> Wiltor Delton </a>
-											<p class="kt-widget4__text">Project Manager, Amazon Inc</p>
-										</div>
-										<a href="#" class="btn btn-sm btn-label-success btn-bold">Follow</a>
-									</div>
-									<div class="kt-widget4__item">
-										<div class="kt-widget4__pic kt-widget4__pic--pic">
-											<img src="../assets/media/users/100_5.jpg" alt="">
-										</div>
-										<div class="kt-widget4__info">
-											<a href="#" class="kt-widget4__username"> Nick Stone </a>
-											<p class="kt-widget4__text">Visual Designer, Github Inc</p>
-										</div>
-										<a href="#" class="btn btn-sm btn-label-primary btn-bold">Follow</a>
-									</div>
-								</div>
-							</div>
-							<div class="tab-pane" id="kt_widget4_tab2_content">
-								<div class="kt-widget4">
-									<div class="kt-widget4__item">
-										<div class="kt-widget4__pic kt-widget4__pic--pic">
-											<img src="../assets/media/users/100_2.jpg" alt="">
-										</div>
-										<div class="kt-widget4__info">
-											<a href="#" class="kt-widget4__username"> Kristika Bold </a>
-											<p class="kt-widget4__text">Product Designer,Apple Inc</p>
-										</div>
-										<a href="#" class="btn btn-sm btn-label-success">Follow</a>
-									</div>
-									<div class="kt-widget4__item">
-										<div class="kt-widget4__pic kt-widget4__pic--pic">
-											<img src="../assets/media/users/100_13.jpg" alt="">
-										</div>
-										<div class="kt-widget4__info">
-											<a href="#" class="kt-widget4__username"> Ron Silk </a>
-											<p class="kt-widget4__text">Release Manager, Loop Inc</p>
-										</div>
-										<a href="#" class="btn btn-sm btn-label-brand">Follow</a>
-									</div>
-									<div class="kt-widget4__item">
-										<div class="kt-widget4__pic kt-widget4__pic--pic">
-											<img src="../assets/media/users/100_9.jpg" alt="">
-										</div>
+							<input type="hidden" name="progNum" value="${LoginUser.progNum}">
+							<div class="tab-pane active" id="kt_portlet_tab_1_1">
+								<form method="post" action="/prog?command=receiveMsgDelete">
+									<table class="table table-bordered table-hover">
+										<thead style="text-align: center;">
+											<tr>
 
-										<a href="#" class="btn btn-sm btn-label-info">Follow</a>
-									</div>
-								</div>
+												<th style="font-weight: bold;">제목</th>
+												<th style="font-weight: bold;">보낸 사람</th>
+
+											</tr>
+										</thead>
+										<tbody style="text-align: center;">
+											<c:forEach items="${ReceiveMessageList}" var="rVo"
+												varStatus="listStat">
+												<tr>
+
+													<td><a
+														href="prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}">${rVo.receiveSubject}</a></td>
+													<td>${rVo.receiveSender}</td>
+
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+
+								</form>
 							</div>
+							<div class="tab-pane" id="kt_portlet_tab_1_2">
+								<form method="post" action="/prog?command=sendMsgDelete">
+									<table class="table table-bordered table-hover">
+										<thead style="text-align: center;">
+											<tr>
+
+												<th style="font-weight: bold;">제목</th>
+												<th style="font-weight: bold;">받는 사람</th>
+
+											</tr>
+										</thead>
+										<tbody style="text-align: center;">
+											<c:forEach items="${SendMessageList}" var="sVo"
+												varStatus="listStat">
+												<tr>
+
+													<td><a
+														href="prog?command=messageSendViewForm&SendNum=${sVo.sendNum}">${sVo.sendSubject}</a></td>
+													<td>${sVo.sendReceiver}</td>
+
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+
+								</form>
+							</div>
+							<div></div>
+
 						</div>
 					</div>
 				</div>
 
 			</div>
 
-		</div>
+		
 
 
 	</div>
-
-
 
 
 
