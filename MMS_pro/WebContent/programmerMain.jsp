@@ -399,7 +399,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!-- end:: Footer -->
 	</div>
-	</div>
+
 
 	<!-- end:: Page -->
 

@@ -304,7 +304,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
-						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content"> 
+						<!-- <div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">  -->
 							<div class="row">
 								<div class="col-xl-12">
 
@@ -453,7 +453,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--end::Portlet-->
 								</div>
 							</div>
-					</div>
+					<!-- </div> -->
 
 
 
@@ -462,6 +462,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
+</div>
 
 
 
@@ -510,7 +511,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!-- end:: Footer -->
 	</div>
-	</div>
+
 
 	<!-- end:: Page -->
 
