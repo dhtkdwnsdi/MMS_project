@@ -118,25 +118,59 @@ font-weight: bold;
 												프로젝트 상세조회
 												</h3>
 											</div>
+											<c:if test="${LoginUser.progNum eq projVo.progNum}">
+											<div class="kt-portlet__head-toolbar">
+												<div class="btn-group">
+													<button type="button" class="btn btn-success">
+														<i class="flaticon2-settings"></i>&nbsp;
+														상태&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;${projVo.projStat}
+													</button>
+													<button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													</button>
+													<div class="dropdown-menu dropdown-menu-right">
+														<ul class="kt-nav">
+															<li class="kt-nav__item">
+																<a href="/proj?command=projStatApply&projNum=${projVo.projNum}" class="kt-nav__link">
+																	<i class="kt-nav__link-icon flaticon2-reload"></i>
+																	<span class="kt-nav__link-text">모집</span>
+																</a>
+															</li>
+															<li class="kt-nav__item">
+																<a href="/proj?command=projStatProgress&projNum=${projVo.projNum}" class="kt-nav__link">
+																	<i class="kt-nav__link-icon flaticon2-reload"></i>
+																	<span class="kt-nav__link-text">진행</span>
+																</a>
+															</li>
+															<li class="kt-nav__item">
+																<a href="/proj?command=projStatEnd&projNum=${projVo.projNum}" class="kt-nav__link">
+																	<i class="kt-nav__link-icon flaticon2-power"></i>
+																	<span class="kt-nav__link-text">종료</span>
+																</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											</c:if>
 										</div>
 
 										<!--begin::Form-->
 										<form class="kt-form kt-form--label-right">
 											<div class="kt-portlet__body">
 												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-4">
+													<div class="col-lg-6">
 														<label id="label1">프로젝트 명</label>
 														<input type="hidden" id="projNum" value="${projVo.projNum}">
 														<input type="text" class="form-control" value="${projVo.projName}" name="projName" id="projName" readonly="readonly">
 													</div>
-													<div class="col-lg-4">
+													<div class="col-lg-6">
 														<label id="label1">담당자 명</label>
 														<input type="text" class="form-control" readonly="readonly" value="${projVo.progName}">
 													</div>
-													<div class="col-lg-4">
+													<%-- <div class="col-lg-4">
 														<label id="label1">프로젝트 상태</label>
 														<input type="text" class="form-control" readonly="readonly" value="${projVo.projStat}">
-													</div>
+													</div> --%>
 												</div>
 												<!-- Start Divider -->
 												<br><br>

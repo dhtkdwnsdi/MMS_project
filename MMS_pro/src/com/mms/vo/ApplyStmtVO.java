@@ -10,7 +10,16 @@ public class ApplyStmtVO {
 	private String projName;
 	private String projStat;
 	private String applyDate;
+	private String progState;
 	
+	public String getProgState() {
+		return progState;
+	}
+
+	public void setProgState(String progState) {
+		this.progState = progState;
+	}
+
 	public String getApplyDate() {
 		return applyDate;
 	}
@@ -82,9 +91,11 @@ public class ApplyStmtVO {
 	public String toString() {
 		return "ApplyStmtVO [applyStmtNum=" + applyStmtNum + ", applyStat=" + applyStat + ", applyPosition="
 				+ applyPosition + ", progNum=" + progNum + ", projNum=" + projNum + ", progName=" + progName
-				+ ", projName=" + projName + ", projStat=" + projStat + ", applyDate=" + applyDate + "]";
+				+ ", projName=" + projName + ", projStat=" + projStat + ", applyDate=" + applyDate + ", progState="
+				+ progState + "]";
 	}
 
+	
 
 
 	

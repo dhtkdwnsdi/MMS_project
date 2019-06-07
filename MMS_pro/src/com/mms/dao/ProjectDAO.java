@@ -815,5 +815,92 @@ public class ProjectDAO extends DBManager {
 		 return progList;  
 		 
 	   }
+	   
+	   // PM이 수동으로 proj_stat 진행으로 수정
+	   public void projStatProgressUpdate(String projNum) {
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   String sql = "UPDATE TBL_PROJECT"
+		   		+ "		    SET PROJ_STAT = '진행'"
+		   		+ "		  WHERE PROJ_NUM = ?";
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   pstmt.setString(1, projNum);
+			   pstmt.executeUpdate();
+			   
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+			   
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+	   }
+	   
+	   // PM이 수동으로 proj_stat 진행으로 수정
+	   public void projStatEndUpdate(String projNum) {
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   String sql = "UPDATE TBL_PROJECT"
+		   		+ "		    SET PROJ_STAT = '종료'"
+		   		+ "		  WHERE PROJ_NUM = ?";
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   pstmt.setString(1, projNum);
+			   pstmt.executeUpdate();
+			   
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+			   
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+	   }
+	   
+	   // PM이 수동으로 proj_stat 진행으로 수정
+	   public void projStatApplyUpdate(String projNum) {
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   String sql = "UPDATE TBL_PROJECT"
+		   		+ "		    SET PROJ_STAT = '모집'"
+		   		+ "		  WHERE PROJ_NUM = ?";
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   pstmt.setString(1, projNum);
+			   pstmt.executeUpdate();
+			   
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+			   
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+	   }
 
 }

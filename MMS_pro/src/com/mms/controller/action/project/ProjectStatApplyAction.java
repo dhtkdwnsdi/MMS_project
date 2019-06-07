@@ -7,18 +7,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
-import com.mms.dao.ApplyStmtDAO;
+import com.mms.dao.ProjectDAO;
 
-public class ApplyStmtAcceptAction implements Action {
+public class ProjectStatApplyAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String applyStmtNum = request.getParameter("applyStmtNum");
-		ApplyStmtDAO aDao = ApplyStmtDAO.getInstance();
-		aDao.acceptApply(applyStmtNum);
-		aDao.updateProgState(applyStmtNum);
+		String projNum = request.getParameter("projNum");
 		
-		new ProjectApplyAcceptFormAction().execute(request, response);
+		ProjectDAO pDao = ProjectDAO.getInstance();
+		pDao.projStatApplyUpdate(projNum);
+		
+		new MyProjectViewFormAction().execute(request, response);
 		
 	}
 

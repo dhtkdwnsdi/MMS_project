@@ -19,6 +19,9 @@ import com.mms.controller.action.project.ProjectListViewFormAction;
 import com.mms.controller.action.project.ProjectManpowerDeployFormAction;
 import com.mms.controller.action.project.ProjectRegisterAction;
 import com.mms.controller.action.project.ProjectRegisterFormAction;
+import com.mms.controller.action.project.ProjectStatApplyAction;
+import com.mms.controller.action.project.ProjectStatEndAction;
+import com.mms.controller.action.project.ProjectStatProgressAction;
 import com.mms.controller.action.project.ProjectUpdateAction;
 import com.mms.controller.action.project.ProjectUpdateFormAction;
 import com.mms.controller.action.project.ProjectViewFormAction;
@@ -130,6 +133,17 @@ public class ProjectActionFactory {
 			}
 			else if(command.equals("projectManpowerDeployForm")) {
 				action = new ProjectManpowerDeployFormAction();
+				
+			}
+			else if(command.equals("projStatProgress")) {
+				action = new ProjectStatProgressAction();
+			}
+			else if(command.equals("projStatEnd")) {
+				action = new ProjectStatEndAction();
+				
+			}
+			else if(command.equals("projStatApply")) {
+				action = new ProjectStatApplyAction();
 				
 			}
 			return action;

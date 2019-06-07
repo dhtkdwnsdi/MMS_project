@@ -136,7 +136,8 @@ font-weight: bold;
 													</div>
 													<div class="col-lg-4">
 														<label id="label1">프로젝트 상태</label>
-														<select class="form-control" name="projStat" id="projStat">
+														<input type="text" class="form-control" disabled="disabled" name="progStat" value="${projVo.projStat}">
+														<%-- <select class="form-control" name="projStat" id="projStat">
 															<c:choose>
 																<c:when test="${projVo.projStat eq '모집'}">
 																	<option value="">선택</option>
@@ -167,7 +168,7 @@ font-weight: bold;
 																	<option value="보류" selected="selected">보류</option>
 																</c:when>
 															</c:choose>
-														</select>
+														</select> --%>
 													</div>
 												</div>
 												<!-- Start Divider -->

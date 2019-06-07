@@ -153,19 +153,47 @@ License: You must have a valid license purchased only from themeforest(the above
 														<input type="button" class="btn btn-success btn-sm" value="추천하기">
 														</div>
 													</div>
-													<!-- <div class="col-lg-3">
-														<br>
-														<input type="button" class="btn btn-success btn-sm" value="추천하기">
-													</div> -->
 												</div>
-
-												<!-- <br><br>
+												
+												<!-- Start Divider -->
+												<br><br>
 												<div class="kt-section__content kt-section__content--solid">
 													<div class="kt-divider">
 														<span></span>
 													</div>
 												</div>
-												<br> -->
+												<br>
+												<!-- End Divider -->
+												
+												<div class="form-group row form-group-marginless kt-margin-t-20">
+													<div class="col-lg-12">
+														<label id="label1">추천된 인력</label>
+														<br>
+													</div>
+												</div>
+												
+												<div class="form-group row form-group-marginless kt-margin-t-20">
+													<div class="col-lg-12">
+														<table class="table table-bordered table-hover">
+														<thead style="text-align: center;">
+															<tr>
+																<th>#</th>
+																<th style="font-weight: bold;">ID</th>
+																<th style="font-weight: bold;">이름</th>
+																<th style="font-weight: bold;">등급</th>
+																<th style="font-weight: bold;">관련기술</th>
+																<!-- <th style="font-weight: bold;">프로젝트 참여여부</th>
+																<th style="font-weight: bold;">종료날짜</th> -->
+															</tr>
+														</thead>
+														<tbody style="text-align: center;">
+															<tr>
+																<td colspan="5">내역이 없습니다.</td>																
+															</tr>
+														</tbody>
+													</table>
+													</div>
+												</div>
 												
 												<!-- Start Divider -->
 												<br><br>
@@ -194,13 +222,13 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">이름</th>
 																<th style="font-weight: bold;">등급</th>
 																<th style="font-weight: bold;">관련기술</th>
-																<th style="font-weight: bold;">프로젝트 참여여부</th>
-																<th style="font-weight: bold;">종료날짜</th>
+																<!-- <th style="font-weight: bold;">프로젝트 참여여부</th>
+																<th style="font-weight: bold;">종료날짜</th> -->
 															</tr>
 														</thead>
 														<tbody style="text-align: center;">
 															<tr>
-																<td colspan="7">내역이 없습니다.</td>																
+																<td colspan="5">내역이 없습니다.</td>																
 															</tr>
 														</tbody>
 													</table>

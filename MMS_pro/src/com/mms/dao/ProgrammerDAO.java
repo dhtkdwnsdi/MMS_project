@@ -115,5 +115,35 @@ public class ProgrammerDAO extends DBManager {
 				return progList;
 			}
 		
+		// 프로그래머 STATE 업데이트 (신청할 경우 업데이트)
+		
+		public void updateState(String progNum) {
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			String sql = "UPDATE TBL_PROGRAMMER"
+					+ "	     SET STATE = 1"
+					+ "	   WHERE PROG_NUM = ?";
+			
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, progNum);
+				pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+			
+		}
+		}
+		
 	
 }

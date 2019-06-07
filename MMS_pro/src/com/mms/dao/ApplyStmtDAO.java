@@ -516,4 +516,33 @@ public class ApplyStmtDAO extends DBManager {
 		
 	}
 	
+	// 신청 승인 시 progState "예정" 업데이트
+	public void updateProgState(String applyStmtNum) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "UPDATE TBL_APPLY_STMT SET PROG_STATE = '예정' WHERE APPLY_STMT_NUM = ?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, applyStmtNum);
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+	}
+	
 }

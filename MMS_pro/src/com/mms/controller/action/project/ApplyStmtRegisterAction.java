@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
 import com.mms.dao.ApplyStmtDAO;
+import com.mms.dao.ProgrammerDAO;
 import com.mms.vo.ApplyStmtVO;
 
 public class ApplyStmtRegisterAction implements Action{
@@ -26,6 +27,9 @@ public class ApplyStmtRegisterAction implements Action{
 		aVo.setApplyPosition(applyPosition);
 		
 		aDao.insertApplyStmt(aVo);
+		
+		ProgrammerDAO pDao = ProgrammerDAO.getInstance();
+		pDao.updateState(progNum);
 			
 		
 	}

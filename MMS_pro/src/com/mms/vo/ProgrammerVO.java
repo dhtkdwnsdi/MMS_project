@@ -7,8 +7,7 @@ public class ProgrammerVO {
  */
 	private String progNum;
 	private String name;
-	private String id
-	;
+	private String id;
 	private String password;
 	private String email;
 	private String tel;
@@ -27,6 +26,7 @@ public class ProgrammerVO {
 	private String introFile;
 	private String grade;
 	private String messageNum;
+	private String state;
 	
 	public ProgrammerVO() {
 
@@ -200,6 +200,14 @@ public class ProgrammerVO {
 		this.messageNum = messageNum;
 	}
 
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
 	@Override
 	public String toString() {
 		return "ProgrammerVO [progNum=" + progNum + ", name=" + name + ", id=" + id + ", password=" + password
@@ -207,8 +215,9 @@ public class ProgrammerVO {
 				+ ", juso=" + juso + ", extraJuso=" + extraJuso + ", bank=" + bank + ", account=" + account + ", grant="
 				+ grant + ", introduce1=" + introduce1 + ", introduce2=" + introduce2 + ", introduce3=" + introduce3
 				+ ", introduce4=" + introduce4 + ", introFile=" + introFile + ", grade=" + grade + ", messageNum="
-				+ messageNum + "]";
+				+ messageNum + ", state=" + state + "]";
 	}
+
 	
 	
 	
