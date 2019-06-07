@@ -157,7 +157,7 @@ font-weight: bold;
 														</div>
 														<div class="col-lg-6 kt-align-right">
 															<!-- <button type="button" class="btn btn-brand"	onclick="openMessagePop()">메세지 보내기</button> -->
-															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
+															<button type="button" class="btn btn-secondary" id="cancel" onclick="window.close()">목록</button>
 														</div>
 													</div>
 												</div>

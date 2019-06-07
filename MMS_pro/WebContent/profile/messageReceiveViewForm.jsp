@@ -159,7 +159,7 @@ font-weight: bold;
 															<button type="button" class="btn btn-success" id="applyBtn" onclick="openMessagePop('${rVo.receiveSender}','${rVo.receiveName}')">
 																답장
 															</button>
-															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
+															<button type="button" class="btn btn-secondary" id="cancel" onclick="window.close()">목록</button>
 														</div>
 													</div>
 												</div>
@@ -357,7 +357,8 @@ function openMessagePop(receiveSender,receiveName){
     
     window.open(url, title, status);
     
-    
 }		
+
+
 </script>
 </html>
