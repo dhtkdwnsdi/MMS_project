@@ -250,20 +250,6 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 							<!--Begin::Section-->
 							<div class="row">
 								<div class="col-xl-4">
