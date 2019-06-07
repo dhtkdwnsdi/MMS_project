@@ -164,7 +164,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td>${profVo.enterDate}</td>
 																<td>${profVo.graduateDate}</td>
 																<td>
-																<a href="prog?command=eduUpdateFrom&eduNum=${profVo.eduNum}">
+																<a href="prog?command=eduUpdateForm&eduNum=${profVo.eduNum}">
 																<span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
 																<a href="prog?command=eduDelete&eduNum=${profVo.eduNum}">
 																<span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a></td>
@@ -244,7 +244,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td>${profVo.joinDate}</td>
 																<td>${profVo.retireDate}</td>
 																<td>
-																<a href="prog?command=careerUpdateFrom&careerNum=${profVo.careerNum}"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
+																<a href="prog?command=careerUpdateForm&careerNum=${profVo.careerNum}"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
 																<a href="prog?command=careerDelete&careerNum=${profVo.careerNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
 																</td>
 															</tr>

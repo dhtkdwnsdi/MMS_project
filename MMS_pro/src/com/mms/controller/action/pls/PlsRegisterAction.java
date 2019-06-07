@@ -2,12 +2,12 @@ package com.mms.controller.action.pls;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.ResumeFormAction;
 import com.mms.dao.PlsDAO;
 import com.mms.vo.PlsVO;
 
@@ -17,7 +17,6 @@ public class PlsRegisterAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String url="/prog?command=plsListForm";
 		
 		//parameter가져오기
 		String plNum = request.getParameter("plNum");
@@ -45,8 +44,7 @@ public class PlsRegisterAction implements Action{
 		
 		pDao.insertPls(pVo);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
+		new ResumeFormAction().execute(request, response);
 	}
 
 }

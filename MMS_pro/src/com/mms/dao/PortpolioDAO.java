@@ -80,7 +80,8 @@ public class PortpolioDAO extends DBManager {
 	// 포트폴리오 삭제
 	public void deletePortpolio(String portNum) {
 
-		String sql = "DELETE FROM TBL_PORTPOLIO" + "    WHERE PORT_NUM=" + portNum;
+		String sql = "DELETE FROM TBL_PORTPOLIO" +
+				  "    WHERE PORT_NUM=" + portNum;
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -201,4 +202,96 @@ public class PortpolioDAO extends DBManager {
 	     return list;
 	}
 
+	
+	
+	//포트폴리오 등록하는 메소드
+	public void insertPortpolio(PortpolioVO portVo) {
+		
+		String sql = "INSERT INTO TBL_PORTPOLIO("
+				+ "   PROG_NUM, SUBJECT, ORGANIZATION, PORT_CATE,"
+				+ "   PORT_DETAIL_CATE, PORT_CONTENTS, PORT_START_DATE,"
+				+ "   PORT_END_DATE, RATE, PORT_FILE, PL_NUM)"
+				+ "	  VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" ;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			conn = DBManager.getConnection();
+					
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, portVo.getProgNum());
+			pstmt.setString(2, portVo.getSubject());
+			pstmt.setString(3, portVo.getOrganization());
+			pstmt.setString(4, portVo.getPortCate());
+			pstmt.setString(5, portVo.getPortDetailCate());
+			pstmt.setString(6, portVo.getPortContents());
+			pstmt.setString(7, portVo.getPortStartDate());
+			pstmt.setString(8, portVo.getPortEndDate());
+			pstmt.setString(9, portVo.getRate());
+			pstmt.setString(10, portVo.getPortFile());
+			pstmt.setString(11, portVo.getPlNum());
+			
+			pstmt.executeUpdate();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();
+				if(conn != null)
+					conn.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+	
+	//포트폴리오 수정하는 메소드
+	public void updatePortpolio(PortpolioVO portVo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "UPDATE TBL_PORTPOLIO SET"
+				+ "	  SUBJECT = ?"
+				+ ",  ORGANIZATION = ?"
+				+ ",  PORT_CATE = ?"
+				+ ",  PORT_DETAIL_CATE = ?"
+				+ ",  PORT_CONTENTS = ?"
+				+ ",  PORT_START_DATE = ?"
+				+ ",  PORT_END_DATE = ?"
+				+ ",  RATE = ?"
+				+ ",  PORT_FILE =?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, portVo.getSubject());
+			pstmt.setString(2, portVo.getOrganization());
+			pstmt.setString(3, portVo.getPortCate());
+			pstmt.setString(4, portVo.getPortDetailCate());
+			pstmt.setString(5, portVo.getPortContents());
+			pstmt.setString(6, portVo.getPortStartDate());
+			pstmt.setString(7, portVo.getPortEndDate());
+			pstmt.setString(8, portVo.getRate());
+			pstmt.setString(9, portVo.getPortFile());
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

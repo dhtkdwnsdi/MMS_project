@@ -47,93 +47,53 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--end:: Global Mandatory Vendors -->
 
 <!--begin:: Global Optional Vendors -->
-<link href="../assets/vendors/general/tether/dist/css/tether.css" rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/select2/dist/css/select2.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/ion-rangeslider/css/ion.rangeSlider.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/nouislider/distribute/nouislider.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/dropzone/dist/dropzone.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/summernote/dist/summernote.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/general/bootstrap-markdown/css/bootstrap-markdown.min.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/animate.css/animate.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/toastr/build/toastr.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/morris.js/morris.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/sweetalert2/dist/sweetalert2.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/general/socicon/css/socicon.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/custom/vendors/line-awesome/css/line-awesome.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/custom/vendors/flaticon/flaticon.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/vendors/custom/vendors/flaticon2/flaticon.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="../assets/vendors/custom/vendors/fontawesome5/css/all.min.css"
-	rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/tether/dist/css/tether.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/select2/dist/css/select2.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/nouislider/distribute/nouislider.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/summernote/dist/summernote.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/animate.css/animate.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/toastr/build/toastr.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/morris.js/morris.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/sweetalert2/dist/sweetalert2.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/general/socicon/css/socicon.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/line-awesome/css/line-awesome.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/flaticon/flaticon.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/flaticon2/flaticon.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/vendors/custom/vendors/fontawesome5/css/all.min.css" rel="stylesheet" type="text/css" />
 
-<!--end:: Global Optional Vendors -->
+		<!--end:: Global Optional Vendors -->
 
-<!--begin::Global Theme Styles(used by all pages) -->
-<link href="../assets/demo/default/base/style.bundle.css"
-	rel="stylesheet" type="text/css" />
+		<!--begin::Global Theme Styles(used by all pages) -->
+		<link href="../assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
 
-<!--end::Global Theme Styles -->
+		<!--end::Global Theme Styles -->
 
-<!--begin::Layout Skins(used by all pages) -->
-<link href="../assets/demo/default/skins/header/base/light.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/demo/default/skins/header/menu/light.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/demo/default/skins/brand/dark.css"
-	rel="stylesheet" type="text/css" />
-<link href="../assets/demo/default/skins/aside/dark.css"
-	rel="stylesheet" type="text/css" />
+		<!--begin::Layout Skins(used by all pages) -->
+		<link href="../assets/demo/default/skins/header/base/light.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/demo/default/skins/header/menu/light.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/demo/default/skins/brand/dark.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/demo/default/skins/aside/dark.css" rel="stylesheet" type="text/css" />
 
-<!--end::Layout Skins -->
-<link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
+		<!--end::Layout Skins -->
+		<link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
 </head>
 
 <!-- end::Head -->
 
 <!-- begin::Body -->
-<body
-	class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
+<body class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
 
 	<!-- begin:: Content -->
 
@@ -168,7 +128,21 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 
 									</div>
+									
+									
+									
+									
+									
+									
+									<div class="form-group row">
+										<label class="col-3 col-form-label">발주기관</label>
+										<div class="col-9">
+											<input class="form-control" type="text" name = "organization" id="organization">
+										</div>
 
+									</div>
+
+									
 									
 									
 									
@@ -186,6 +160,8 @@ License: You must have a valid license purchased only from themeforest(the above
 											</select>
 										</div>
 									</div>
+									
+									
 									
 									
 									
@@ -226,6 +202,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
+
+
 									<div class="form-group row">
 										<label class="col-3 col-form-label">시작일</label>
 										<div class="col-9">
@@ -240,6 +218,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
+
+
 									<div class="form-group row">
 										<label class="col-3 col-form-label">종료일</label>
 										<div class="col-9">
@@ -247,6 +227,10 @@ License: You must have a valid license purchased only from themeforest(the above
 												id="kt_datepicker_4_1" readonly name="portEndDate">
 										</div>
 									</div>
+
+
+
+
 
 
 
@@ -296,18 +280,19 @@ License: You must have a valid license purchased only from themeforest(the above
 									
 									
 									
-									<div id="kt_repeater_1">
-												<div class="form-group row" id="kt_repeater_1">
-													<label class="col-3 col-form-label">관련 기술(프로그래밍 언어)</label>
-													<div data-repeater-list="" class="col-9" id="list">
-														<div data-repeater-item="" class="form-group row align-items-center" style="" id="repeat">
-																<div class="col-12">
-																	<div class="kt-form__group--inline">
-																		<div class="kt-input-icon kt-input-icon--right">
-												<input type="text" name="usePl" class="form-control autocomplete">
-												<span class="kt-input-icon__icon kt-input-icon__icon--right">
-												<span>
-												<button type="button" class="btn btn-outline-hover-danger btn-icon" onClick="openPopUp()" id="certNameCherck">
+									<!-- <div id="kt_repeater_1">
+										<div class="form-group row" id="kt_repeater_1">
+											<label class="col-3 col-form-label">관련 기술(프로그래밍 언어)</label>
+												<div data-repeater-list="" class="col-9" id="list">
+													<div data-repeater-item="" class="form-group row align-items-center" style="" id="repeat">
+														<div class="col-12">
+														<input type="hidden" name="plNum" class="form-control" id="plNum">
+															<div class="kt-form__group--inline">
+																<div class="kt-input-icon kt-input-icon--right">
+																<input type="text" id="plName" name="plName" class="form-control autocomplete">
+																<span class="kt-input-icon__icon kt-input-icon__icon--right">
+																<span>
+													<button type="button" class="btn btn-outline-hover-danger btn-icon" onClick="openPopUp()" id="certNameCherck">
 														<i class="la la-search"></i>
 												</button>
 												</span>
@@ -329,18 +314,54 @@ License: You must have a valid license purchased only from themeforest(the above
 													<button type="button" name="add" class="btn btn-primary">추가</button>
 													</div>
 												</div>
+											</div> -->
+											
+									<div class="form-group row">
+										<label class="col-3 col-form-label">핵심 프로그래밍 언어</label>
+										<div class="col-9">
+											<input type="hidden" name="plNum" class="form-control" id="plNum">
+											<div class="kt-input-icon kt-input-icon--right">
+												<input type="text" class="form-control" id="plName" name="plName" readonly> 
+												<span class="kt-input-icon__icon kt-input-icon__icon--right">
+												<span>
+												<button type="button" class="btn btn-outline-hover-danger btn-icon" onClick="openPopUp1()" id="plNameCherck">
+														<i class="la la-search"></i>
+												</button>
+												</span>
+											</span>
 											</div>
+										</div>
+									</div>
+									
+									
+									
+									
+									<!-- <div class="form-group row">
+										<label class="col-3 col-form-label">서브 프로그래밍 언어</label>
+										<div class="col-9">
+											<input type="hidden" name="plNum2" class="form-control" id="plNum2">
+											<div class="kt-input-icon kt-input-icon--right">
+												<input type="text" class="form-control" id="plName" name="plName" readonly> 
+												<span class="kt-input-icon__icon kt-input-icon__icon--right">
+												<span>
+												<button type="button" class="btn btn-outline-hover-danger btn-icon" onClick="openPopUp2()" id="plNameCherck">
+														<i class="la la-search"></i>
+												</button>
+												</span>
+											</span>
+											</div>
+										</div>
+									</div> -->
 									
 									
 									
 
-									<label></label>
-									<div class="form-group form-group-last row">
-										<label class="col-3 col-form-label">첨부파일</label>
-										<div class="col-lg-6 col-md-6 col-sm-6">
-											<input type="file" class="custom-file-input" name="projFile"
-												id="projFile"> <label class="custom-file-label"
-												for="customFile" style="text-align: left;"></label>
+								<div class="form-group form-group-last row">
+									<label class="col-3 col-form-label">첨부파일</label>
+									<div class="col-9">
+										<div class="kt-input-icon kt-input-icon--right">
+											<input type="file" class="custom-file-input" name="projFile" id="projFile">
+											<label class="custom-file-label" for="customFile" style="text-align: left;"></label>
 										</div>
 									</div>
 								</div>
@@ -354,6 +375,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							</div>
 						</div>
 					</div>
+				</div>
 			</form>
 			</div>
 		</div>
@@ -569,31 +591,43 @@ License: You must have a valid license purchased only from themeforest(the above
 </body>
 <script>
 	// 학력 등록 AJAX
-	function registerEdu() {
+	function registerPortpolio() {
 
 		// userID 변수에 userID의 입력된 값을 가져오게 함
-		var progNum = $('#progNum').val();
-		var eduCategory = $('#eduCategory').val();
-		var eduState = $('#eduState').val();
-		var schoolName = $('#schoolName').val();
-		var enterDate = $('#kt_datepicker_1').val();
-		var graduateDate = $('#kt_datepicker_4_1').val();
+		var subject = $('#subject').val();
+		var organization = $('#organization').val();
+		var portCate = $('#portCate').val();
+		var portDetailCate = $('#portDetailCate').val();
+		var portContents = $('#portContents').val();
+		var portStartDate = $('#portStartDate').val();
+		var portEndDate = $('#portEndDate').val();
+		var rate = $('#rate').val();
+		var portFile = $('#portFile').val();
+		var plNum = $('#plNum').val();
 
-		if (eduCategory == "") {
-			alert("분류를 입력해주세요.");
-			$("#eduCategory").focus();
+		if (subject == "") {
+			alert("제목을 입력해주세요.");
+			$("#subject").focus();
 		}
-		if (eduState == "") {
-			alert("상태를 입력해주세요.");
-			$("#eduState").focus();
+		if (organization == "") {
+			alert("발주기관을 입력해주세요.");
+			$("#organization").focus();
 		}
-		if (schoolName == "") {
-			alert("학교명을 입력해주세요.");
-			$("#schoolName").focus();
+		if (portCate == "") {
+			alert("카테고리를 입력해주세요.");
+			$("#portCate").focus();
 		}
-		if (enterDate == "") {
-			alert("입학일을 입력해주세요.");
-			$("#enterDate").focus();
+		if (portDetailCate == "") {
+			alert("세부 카테고리를 입력해주세요.");
+			$("#portDetailCate").focus();
+		}
+		if (portStartDate == "") {
+			alert("내용를 입력해주세요.");
+			$("#portDetailCate").focus();
+		}
+		if (portDetailCate == "") {
+			alert("세부 카테고리를 입력해주세요.");
+			$("#portDetailCate").focus();
 		}
 		if (progNum == "") {
 			alert("잘못된 정보입니다.");
@@ -604,7 +638,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 				type : 'POST', // GET or POST 전송방법 
 
-				url : '/prog?command=eduRegister', // 이쪽으로 보낸다(호출URL)
+				url : '/prog?command=portpolioRegister', // 이쪽으로 보낸다(호출URL)
 
 				data : {
 					eduCategory : eduCategory,
@@ -618,7 +652,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
 					alert("등록 되었습니다.");
 					self.close();
-					opener.location.href = "/prog?command=eduListForm";
+					opener.location.href = "/prog?command=resumeForm";
 				},
 				error : function(data) {
 					alert("오류:: 다시 시도해주세요.");
@@ -628,29 +662,6 @@ License: You must have a valid license purchased only from themeforest(the above
 			})
 		}
 	}
-	
-	//input 추가 버튼
-	$(document).on("click", "button[name=add]", function(){
-		var repeat = $('#repeat').clone();		// div repeat 복사
-		repeat.find("input").val("");			// 복사한 repeat 하위요소인 input의 value ""으로 초기화
-		repeat.append("<div class=\"col-md-4\">"+
-		"<button type=\"button\" name=\"delete\" id=\"delete\" class=\"btn btn-danger\">삭제</button>"+
-		"</div>");
-		$('#list').append(repeat);	
-		
-	})
-	
-	
-	// input 삭제 버튼
-	$(document).on("click", "button[name=delete]", function(){
-	/* alert($('#delete').index(this)); */
-	if(confirm("삭제하시겠습니까?") == true){
-		$(this).parent().parent().remove();		
-	}
-	else{
-		return false;
-	}
-	});
 	
 	
 		
@@ -680,7 +691,25 @@ License: You must have a valid license purchased only from themeforest(the above
 	});
 	
 	
-	 function openPopUp() {
+	 function openPopUp1() {
+			// window.name = "부모창 이름"; 
+			window.name = "childForm";
+			// window.open("open할 window", "자식창 이름", "팝업창 옵션");
+			var width = "500";
+			var height = "300";
+			var top = (window.screen.height - height) / 2;
+			var left = (window.screen.width - width) / 2;
+			var url = "/prog?command=plSearchForm";
+			var title = "프로그래밍 언어 검색";
+			var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+					+ width + ",height=" + height + ",top=" + top + ",left=" + left;
+
+			window.open(url, title, status);
+
+			
+		} 	
+	 
+	 function openPopUp2() {
 			// window.name = "부모창 이름"; 
 			window.name = "childForm";
 			// window.open("open할 window", "자식창 이름", "팝업창 옵션");

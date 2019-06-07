@@ -5,6 +5,7 @@ public class PortpolioVO {
 	
 	private String portNum;
 	private String subject;
+	private String organization;
 	private String portCate;
 	private String portDetailCate;
 	private String portContents;
@@ -12,6 +13,7 @@ public class PortpolioVO {
 	private String portEndDate;
 	private String rate;
 	private String progNum;
+	private String portFile;
 	private String plNum;
 	private String plName;
 	public String getPortNum() {
@@ -82,6 +84,20 @@ public class PortpolioVO {
 	}
 	
 	
+	
+	
+	public String getPortFile() {
+		return portFile;
+	}
+	public void setPortFile(String portFile) {
+		this.portFile = portFile;
+	}
+	public String getOrganization() {
+		return organization;
+	}
+	public void setOrganization(String organization) {
+		this.organization = organization;
+	}
 	@Override
 	public String toString() {
 		return "PortpolioVO [portNum=" + portNum + ", subject=" + subject + ", portCate=" + portCate

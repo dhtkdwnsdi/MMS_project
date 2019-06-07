@@ -2,12 +2,12 @@ package com.mms.controller.action.edu;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.ResumeFormAction;
 import com.mms.dao.EduDAO;
 import com.mms.vo.EduVO;
 
@@ -16,7 +16,6 @@ public class EduRegisterAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String url = "/prog?command=eduListForm";
 		
 		String progNum = request.getParameter("progNum");
 		String eduNum = request.getParameter("eduNum");
@@ -47,9 +46,7 @@ public class EduRegisterAction implements Action {
 		
 		eduDao.insertEdu(eduVo);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-        dispatcher.forward(request, response);
-		
+		new ResumeFormAction().execute(request, response);
 		
 	}
 

@@ -48,8 +48,9 @@ import com.mms.controller.action.pl.PlRegisterFormAction;
 import com.mms.controller.action.pl.PlSearchFormAction;
 import com.mms.controller.action.pl.SearchPlNameAction;
 import com.mms.controller.action.pls.PlsDeleteAction;
-import com.mms.controller.action.pls.PlsListFormAction;
 import com.mms.controller.action.pls.PlsRegisterAction;
+import com.mms.controller.action.pls.PlsUpdateFormAction;
+import com.mms.controller.action.portpolio.PortpolioDeleteAction;
 import com.mms.controller.action.portpolio.PortpolioListFormAction;
 import com.mms.controller.action.portpolio.PortpolioReadFormAction;
 import com.mms.controller.action.portpolio.PortpolioRegistFormAction;
@@ -88,7 +89,7 @@ public class ProgrammerActionFactory {
 		} else if (command.equals("careerDelete")) {
 			action = new CareerDeleteAction();
 
-		} else if (command.equals("careerUpdateFrom")) {
+		} else if (command.equals("careerUpdateForm")) {
 			action = new CareerUpdateFormAction();
 
 		} else if (command.equals("careerUpdate")) {
@@ -101,6 +102,8 @@ public class ProgrammerActionFactory {
 		}else if (command.equals("portpolioReadForm")) {
 			action = new PortpolioReadFormAction();
 
+		}else if (command.equals("portpolioDelete")) {
+			action = new PortpolioDeleteAction();
 		}
 
 		/**
@@ -114,16 +117,16 @@ public class ProgrammerActionFactory {
 			action = new EduRegisterAction();
 		}else if (command.equals("eduDelete")) {
 			action = new EduDeleteAction();
-		}else if(command.equals("eduUpdateFrom")) {
+		}else if(command.equals("eduUpdateForm")) {
 			action = new EduUpdateFormAction();	
 		}else if(command.equals("eduUpdate")) {
 			action = new EduUpdateAction();
-		}else if(command.equals("plsListForm")) {
-			action = new PlsListFormAction();
 		}else if(command.equals("plsRegister")) {
 			action = new PlsRegisterAction();	
 		}else if(command.equals("plsDelete")) {
 			action = new PlsDeleteAction();	
+		}else if(command.equals("plsUpdateForm")) {
+			action = new PlsUpdateFormAction();	
 		}
 		else if(command.equals("searchPlName")) {
 			action = new SearchPlNameAction();	

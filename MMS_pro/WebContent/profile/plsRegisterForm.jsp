@@ -496,7 +496,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
 					alert("등록 되었습니다.");
 					self.close();
-					opener.location.href = "/prog?command=plsListForm";
+					opener.location.href = "/prog?command=plsRegister";
 				},
 				error : function(data) {
 					alert("오류:: 다시 시도해주세요.");
