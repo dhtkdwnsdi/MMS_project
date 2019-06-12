@@ -317,8 +317,8 @@ License: You must have a valid license purchased only from themeforest(the above
 														</div>
 														<div class="col-lg-6 kt-align-right">
 															<button type="button" class="btn btn-warning" onclick="location.reload()">리셋</button>
-															<button type="button" class="btn btn-danger">직접배치</button>
-															<button type="button" class="btn btn-primary">저장</button>
+															<button type="button" class="btn btn-danger" onclick="directDeploy()">직접배치</button>
+															<button type="button" class="btn btn-primary" id="save">저장</button>
 														</div>
 													</div>
 												</div>
@@ -501,11 +501,11 @@ $("#recommend").click(function(){
 	});
 });
 
-var dProgNum = [];
+// var dProgNum = [];
 // 이미 배치된 인력의 값을 가져옴 == 유효성 검사
-$(".checkBox2").each(function(i){
-	dProgNum.push($(".checkBox2").eq(i).val());
-});
+// $(".checkBox2").each(function(i){
+// 	dProgNum.push($(".checkBox2").eq(i).val());
+// });
 
 $("#deploy").click(function(){
 	var z = 0;
@@ -530,7 +530,7 @@ $("#deploy").click(function(){
 		
 		tr = $(this).parent().parent().eq(i);
 		tr.eq(i).remove();
-		dProgNum.push($(this).eq(i).val());		// 배치된 인력의 값으로 넣어줌
+// 		dProgNum.push($(this).eq(i).val());		// 배치된 인력의 값으로 넣어줌
 		$(this).attr("class","checkBox2");
 		$(this).prop("checked", false);
 		
@@ -563,6 +563,64 @@ $( document ).ready( function() {
       $( '.checkBox2' ).prop( 'checked', this.checked );
     } );
   } );
+
+var dProgNum = [];
+$("#save").click(function(){
+	var projNum = $("#projNum").val();
+	// class가 checkBox2인 value 값을 dProgNum 배열에 대입 
+	$(".checkBox2").each(function(i){
+		dProgNum.push($(".checkBox2").eq(i).val());
+	});
+
+	if(confirm("저장하시겠습니까?") == true){
+		if(dProgNum.length == 0){
+			alert("인력을 배치해주세요.");
+			return false;
+		} 
+		else{
+			
+			$.ajax({
+				type: "POST",
+				data: {
+					"dProgNum" : dProgNum,
+					"projNum"  : projNum
+				},
+				url: "/proj?command=projectRecommendDeploy",
+				traditional : true,
+				
+				success: function(data){
+					alert("저장되었습니다.");
+					self.close();
+					opener.location.href = "/proj?command=myProjectViewForm&projNum="+projNum;
+				},
+				error:function(request,status,error){
+			        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			       }
+
+				
+				
+			});
+		}
+		
+		
+	}
+	else{
+		return false;
+	}
+	
+	
+	
+	
+	
+});
+
+function directDeploy(){
+	  // window.name = "부모창 이름"; 
+    window.name = "parentForm";
+    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+    window.open("project/projectDirectDeployForm.jsp",
+            "childForm", "width=500, height=300, resizable = no, scrollbars = no");
+}
 
 </script>
 </html>

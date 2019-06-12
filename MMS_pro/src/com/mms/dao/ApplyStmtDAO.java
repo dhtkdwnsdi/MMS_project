@@ -802,5 +802,36 @@ public class ApplyStmtDAO extends DBManager {
 		
 	}
 	
+	// 추천 받은 인력 배치
+		public void recommendManpowerDeploy(ApplyStmtVO aVo) {
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			String sql = "INSERT INTO TBL_APPLY_STMT("
+					+ "	  PROG_NUM, PROJ_NUM, APPLY_STAT, PROG_STATE)"
+					+ "   VALUES(?, ?, '승인', '예정')";
+			
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, aVo.getProgNum());
+				pstmt.setString(2, aVo.getProjNum());
+				
+				pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				
+			} finally {
+				try {
+					if(pstmt != null) pstmt.close();
+					if(conn != null) conn.close();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+					
+				}
+			}
+		}
+	
 	
 }
