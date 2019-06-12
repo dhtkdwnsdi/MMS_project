@@ -12,9 +12,9 @@ public class PortpolioVO {
 	private String portStartDate;
 	private String portEndDate;
 	private String rate;
-	private String progNum;
 	private String portFile;
 	private String plNum;
+	private String progNum;
 	private String plName;
 	public String getPortNum() {
 		return portNum;

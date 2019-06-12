@@ -1,7 +1,6 @@
 package com.mms.controller.action.portpolio;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,12 +29,7 @@ public class PortpolioReadFormAction implements Action {
 		PortpolioVO portVo = portDao.readPortpolio(portNum);
 		
 		request.setAttribute("portVo", portVo);
-		
-		//포트폴리오 PL 조회
-		List<PortpolioVO> plList = portDao.readPl(portNum);
-		
-		request.setAttribute("plList", plList);
-		
+				
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

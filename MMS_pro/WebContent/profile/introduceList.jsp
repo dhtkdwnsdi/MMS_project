@@ -58,7 +58,10 @@ table, td, tr, th {
 							</div>
 
 							<!--begin::Form-->
-							<form class="kt-form">
+							<form class="kt-form" enctype="multipart/form-data">  
+							<!-- enctype="multipart/form-data" 첨부파일 쓰기 위해 폼에 써야함  -->
+							
+							
 								<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}">
 								<div class="kt-portlet__body">
 
@@ -127,7 +130,7 @@ table, td, tr, th {
 										<label class="col-3 col-form-label"><b>첨부파일</b></label>
 										<div class="col-9">
 											<input type="file" class="custom-file-input" name="introFile"
-												id="introFile"> <label class="custom-file-label"
+												> <label class="custom-file-label"
 												for="customFile" style="text-align: left;"></label>
 										</div>
 									</div>
@@ -144,8 +147,8 @@ table, td, tr, th {
 										</div>
 
 
-								</div>
 								</form>
+								</div>
 						</div>
 					</div>
 				</div>

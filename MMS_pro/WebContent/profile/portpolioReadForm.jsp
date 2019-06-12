@@ -106,7 +106,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- begin:: Content -->
 	<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
 		<div class="row">
-			<div class="col-lg-8">
+			<div class="col-lg-12">
 			
 			
 				<div class="kt-portlet">
@@ -152,6 +152,9 @@ License: You must have a valid license purchased only from themeforest(the above
 								<span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="flaticon-calendar-2"></i></span></span>
 							</div>
 						</div>
+						
+						
+						
 						<div class="col-lg-6">
 							<label id="label1">종료일</label>
 							<div class="kt-input-icon">
@@ -161,11 +164,23 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 					</div>
 					
+					
+					
 					<div class="form-group row form-group-marginless kt-margin-t-20">
-						<div class="col-lg-12">
+						<div class="col-lg-6">
 							<label id="label1">참여율</label>
 							<div class="kt-input-icon">
 								<input type="text" class="form-control" value="${portVo.rate} %" name="rate" id="rate" readonly="readonly">
+							</div>
+						</div>
+						
+						
+						
+						<div class="col-lg-6">
+							<label id="label1">핵심 프로그래밍 언어</label>
+							<div class="kt-input-icon">
+								<input type="hidden" value="${portVo.plNum}" name="plNum" id="plNum">
+								<input type="text" class="form-control" value="${portVo.plName}" name="plName" id="plName" readonly="readonly">
 							</div>
 						</div>
 					</div>
@@ -204,16 +219,31 @@ License: You must have a valid license purchased only from themeforest(the above
 							<label id="label1">첨부파일</label>
 								<div class="custom-file">
 								<label class="custom-file-label" for="customFile" style="text-align: left;">
-								<a href="/proj?command=download&projFile=${projVo.projFile}">${projVo.projFile}</a></label>
+								<a href="/prog?command=download&portFile=${portVo.portFile}">${portVo.portFile}</a></label>
 								</div>
 						</div>
 					</div>
-				</div>
+					
+					
+					<div class="kt-portlet__foot">
+						<div class="kt-form__actions">
+							<div class="row">
+								<div class="col-lg-6"></div>
+									<div class="col-lg-6 kt-align-right">
+									<a class="btn btn-primary" href="prog?command=portpolioUpdateForm&portNum=${portVo.portNum }">수정하기</a>
+									<button type="button" class="btn btn-secondary" id="cancel">목록으로</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				
 				</form>
 			</div>
 		</div>
 		
-		<div class="col-lg-4">
+		<%-- <div class="col-lg-4">
 			<div class="kt-portlet">
 				<div class="kt-portlet__head">
 					<div class="kt-portlet__head-label">
@@ -235,7 +265,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					</div>
 				</div>
 			</div>
-         </div>
+         </div> --%>
 		
 		
 	</div>

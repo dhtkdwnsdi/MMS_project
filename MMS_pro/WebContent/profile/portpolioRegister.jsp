@@ -207,7 +207,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="form-group row">
 										<label class="col-3 col-form-label">시작일</label>
 										<div class="col-9">
-											<input type="text" class="form-control" id="kt_datepicker_1"
+											<input type="text" class="form-control" id="portStartDate"
 												readonly name="portStartDate">
 										</div>
 									</div>
@@ -224,7 +224,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										<label class="col-3 col-form-label">종료일</label>
 										<div class="col-9">
 											<input type="text" class="form-control"
-												id="kt_datepicker_4_1" readonly name="portEndDate">
+												id="portEndDate" readonly name="portEndDate">
 										</div>
 									</div>
 
@@ -594,6 +594,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	function registerPortpolio() {
 
 		// userID 변수에 userID의 입력된 값을 가져오게 함
+		var progNum = $('#progNum').val();
 		var subject = $('#subject').val();
 		var organization = $('#organization').val();
 		var portCate = $('#portCate').val();
@@ -608,26 +609,27 @@ License: You must have a valid license purchased only from themeforest(the above
 		if (subject == "") {
 			alert("제목을 입력해주세요.");
 			$("#subject").focus();
+			return false;
 		}
 		if (organization == "") {
 			alert("발주기관을 입력해주세요.");
 			$("#organization").focus();
+			return false;
 		}
 		if (portCate == "") {
 			alert("카테고리를 입력해주세요.");
 			$("#portCate").focus();
+			return false;
 		}
 		if (portDetailCate == "") {
 			alert("세부 카테고리를 입력해주세요.");
 			$("#portDetailCate").focus();
+			return false;
 		}
 		if (portStartDate == "") {
 			alert("내용를 입력해주세요.");
 			$("#portDetailCate").focus();
-		}
-		if (portDetailCate == "") {
-			alert("세부 카테고리를 입력해주세요.");
-			$("#portDetailCate").focus();
+			return false;
 		}
 		if (progNum == "") {
 			alert("잘못된 정보입니다.");
@@ -641,12 +643,18 @@ License: You must have a valid license purchased only from themeforest(the above
 				url : '/prog?command=portpolioRegister', // 이쪽으로 보낸다(호출URL)
 
 				data : {
-					eduCategory : eduCategory,
-					eduState : eduState,
-					schoolName : schoolName,
-					enterDate : enterDate,
-					graduateDate : graduateDate,
-					progNum : progNum
+					
+					progNum : progNum,
+					subject : subject,
+					organization : organization,
+					portCate : portCate,
+					portDetailCate : portDetailCate,
+					portContents : portContents,
+					portStartDate : portStartDate,
+					portEndDate : portEndDate,
+					rate : rate,
+					portFile : portFile,
+					plNum : plNum
 				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
 
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
@@ -687,7 +695,8 @@ License: You must have a valid license purchased only from themeforest(the above
 	});
 
 	$(function() {
-		$("#datepicker1").datepicker();
+		$("#portStartDate").datepicker();
+		$("#portEndDate").datepicker();
 	});
 	
 	

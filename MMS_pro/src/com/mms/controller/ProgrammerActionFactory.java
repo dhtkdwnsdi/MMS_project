@@ -54,6 +54,9 @@ import com.mms.controller.action.portpolio.PortpolioDeleteAction;
 import com.mms.controller.action.portpolio.PortpolioListFormAction;
 import com.mms.controller.action.portpolio.PortpolioReadFormAction;
 import com.mms.controller.action.portpolio.PortpolioRegistFormAction;
+import com.mms.controller.action.portpolio.PortpolioRegisterAction;
+import com.mms.controller.action.portpolio.PortpolioUpdateAction;
+import com.mms.controller.action.portpolio.PortpolioUpdateFormAction;
 
 public class ProgrammerActionFactory {
 	private static ProgrammerActionFactory instance = new ProgrammerActionFactory();
@@ -104,6 +107,12 @@ public class ProgrammerActionFactory {
 
 		}else if (command.equals("portpolioDelete")) {
 			action = new PortpolioDeleteAction();
+		}else if (command.equals("portpolioRegister")) {
+			action = new PortpolioRegisterAction();
+		}else if (command.equals("portpolioUpdateForm")) {
+			action = new PortpolioUpdateFormAction();
+		}else if (command.equals("portpolioUpdate")) {
+			action = new PortpolioUpdateAction();
 		}
 
 		/**

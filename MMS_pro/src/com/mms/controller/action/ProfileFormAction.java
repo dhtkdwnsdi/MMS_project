@@ -14,6 +14,7 @@ import com.mms.dao.CareerDAO;
 import com.mms.dao.EduDAO;
 import com.mms.dao.MyCertDAO;
 import com.mms.dao.PlsDAO;
+import com.mms.dao.ProgrammerDAO;
 import com.mms.vo.CareerVO;
 import com.mms.vo.EduVO;
 import com.mms.vo.MyCertVO;
@@ -31,6 +32,17 @@ public class ProfileFormAction implements Action {
 		
 		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser");  
 		String progNum = pVo.getProgNum();
+		
+		
+		
+		//기초정보 띄우기
+		ProgrammerDAO progDao = ProgrammerDAO.getInstance();
+		
+		ProgrammerVO profVo = progDao.readProgrammer(progNum);
+		
+		request.setAttribute("profVo", profVo);
+		
+		System.out.println(profVo);
 		
 		//보유 자격증 리스트 띄우기
 		MyCertDAO myCertDao = MyCertDAO.getInstance();

@@ -378,8 +378,9 @@ License: You must have a valid license purchased only from themeforest(the above
 														<thead>
 															<tr>
 																<th>#</th>
-																<th style="font-weight: bold;">제목</th>
+																<th style="font-weight: bold;">프로젝트 제목</th>
                                                					<th style="font-weight: bold;">카테고리</th>
+																<th style="font-weight: bold;">발주기관</th>
 																<th style="font-weight: bold;">관리</th>
 															</tr>
 														</thead>
@@ -396,9 +397,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                               				  <td><a href="prog?command=portpolioReadForm&portNum=${profVo.portNum}">${profVo.subject}</a></td>
                                               				  <td>${profVo.portCate} &nbsp;&nbsp; >> &nbsp;&nbsp;
                                               				  ${profVo.portDetailCate} </td>
+                                              				  <td> ${profVo.organization} </td>
                                               				  <td>
-																<a href="prog?command=portpolioUpdateFrom&portNum=${profVo.portNum}"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
-																<a href="prog?command=portpolioDelete&portNum=${profVo.portNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
+																<a href="prog?command=plsDelete&portNum=${profVo.portNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
 															  </td>
                                              				</tr>
                                           				</tbody>
@@ -406,7 +407,7 @@ License: You must have a valid license purchased only from themeforest(the above
 														</c:when>
 														<c:otherwise>
 															<tr>
-															<td colspan="4" class="txt_center" align="center"><b>포트폴리오 데이터가 없습니다.</b></td>
+															<td colspan="5" class="txt_center" align="center"><b>포트폴리오 데이터가 없습니다.</b></td>
 															</tr>
 														</c:otherwise>
 													</c:choose>

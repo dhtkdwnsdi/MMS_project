@@ -25,11 +25,13 @@ public class PortpolioUpdateFormAction implements Action {
 		
 		request.setAttribute("portNum", portNum);
 		
+		System.out.println(portNum);
+		
 		PortpolioVO portVo = portDao.readPortpolio(portNum);
 		
 		request.setAttribute("portVo", portVo);
 		
-		
+		System.out.println(portVo);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

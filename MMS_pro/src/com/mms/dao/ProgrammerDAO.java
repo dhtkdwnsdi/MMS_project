@@ -22,6 +22,63 @@ public class ProgrammerDAO extends DBManager {
 		return instance;
 	}
 	
+	
+	
+	
+	//자기 정보 띄우기
+	public ProgrammerVO readProgrammer(String progNum){
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT NAME, GRADE, EMAIL, TEL, JUSO, "
+				+ "		     EXTRAJUSO, BANK, ACCOUNT, PHOTO"
+				+ "     FROM TBL_PROGRAMMER"
+				+ "    WHERE PROG_NUM = " + progNum;
+		
+		
+		ProgrammerVO progVo = new ProgrammerVO();
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				progVo.setName(rs.getString("NAME"));
+				progVo.setGrade(rs.getString("GRADE"));
+				progVo.setEmail(rs.getString("EMAIL"));
+				progVo.setTel(rs.getString("TEL"));
+				progVo.setJuso(rs.getString("JUSO"));
+				progVo.setExtraJuso(rs.getString("EXTRAJUSO"));
+				progVo.setBank(rs.getString("BANK"));
+				progVo.setAccount(rs.getString("ACCOUNT"));
+				progVo.setPhoto(rs.getString("PHOTO"));
+				
+				
+				}
+			} catch(SQLException e) {
+				e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		
+		return progVo;
+	}
+	
+	
+	
+	
+	
 	// 자기소개서 list띄우기
 	public ArrayList<ProgrammerVO> coverLetterList(String progNum){
 		Connection conn = null;

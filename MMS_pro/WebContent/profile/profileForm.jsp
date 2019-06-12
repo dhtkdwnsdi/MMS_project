@@ -40,6 +40,124 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
+
+							<div class="kt-portlet kt-portlet--mobile">
+								<div class="kt-portlet__head kt-portlet__head--lg">
+									<div class="kt-portlet__head-label">
+										<span class="kt-portlet__head-icon"> </span>
+										<h2>${profVo.name}</h2>
+										<h3 class="kt-portlet__head-title"><b> &nbsp; 님의 기초정보</b></h3>
+										<div class="col kt-align-right"> </div>
+								</div>
+							</div>
+
+											<!--begin::Section-->
+											<!--바디  -->
+							<div class="kt-portlet__body">
+								<div class="tab-content">
+									<div class="tab-pane active" id="kt_widget5_tab1_content" aria-expanded="true">
+										<div class="kt-widget5">
+											<div class="kt-widget5__item">
+												<div class="kt-widget5__content">
+													<div class="kt-widget5__pic">
+														<img class="kt-widget7__img" src="../assets/media//products/photo.png" alt="">
+														<br>
+													</div>
+												<!-- <div class="kt-widget5__section">
+													<a href="#" class="kt-widget5__title">
+														Awesome Mobile App
+													</a>
+													<p class="kt-widget5__desc">
+														Metronic admin themes.Lorem Ipsum Amet
+													</p>
+													<div class="kt-widget5__info">
+														<span>Author:</span>
+														<span class="kt-font-info">Fly themes</span>
+														<span>Released:</span>
+														<span class="kt-font-info">23.08.17</span>
+													</div>
+												</div> -->
+												</div>
+													<div class="kt-widget5__content">
+													<table class="table table-bordered">
+															<tr>
+																<th style="font-weight: bold;"><b>등급</b></th>
+																<c:if test="${profVo.grade eq '1'}">
+																<td>초급기능사</td>
+																</c:if>
+																<c:if test="${profVo.grade eq '2'}">
+																<td>중급기능사</td>
+																</c:if>
+																<c:if test="${profVo.grade eq '3'}">
+																<td>고급기능사</td>
+																</c:if>
+																<c:if test="${profVo.grade eq '4'}">
+																<td>초급기능사</td>
+																</c:if>
+																<c:if test="${profVo.grade eq '5'}">
+																<td>초급기술사</td>
+																</c:if>
+																<c:if test="${profVo.grade eq '6'}">
+																<td>중급기술사</td>
+																</c:if>
+																<c:if test="${profVo.grade eq '7'}">
+																<td>특급기술자</td>
+																</c:if>
+																<c:if test="${profVo.grade eq '8'}">
+																<td>기술사</td>
+																</c:if>
+																
+															</tr>
+															<tr>
+																<th style="font-weight: bold;"><b>E-mail</b></th>
+																<td>${profVo.email}</td>
+															</tr>
+															<tr>
+																<th style="font-weight: bold;">TEL</th>
+																<td>${profVo.tel}</td>
+															</tr>
+															<tr>
+																<th style="font-weight: bold;">주소</th>
+																<td>${profVo.juso}</td>
+															</tr>
+															<tr>
+																<th style="font-weight: bold;">상세주소</th>
+																<td>${profVo.extraJuso}</td>
+															</tr>
+															<tr>
+																<th style="font-weight: bold;">${profVo.bank}</th>
+																<td>${profVo.account}</td>
+															</tr>
+														
+														
+														
+														
+															
+													</table>
+														<!-- <div class="kt-widget5__stats">
+															<span class="kt-widget5__number">210,054</span>
+															<span class="kt-widget5__sales">sales</span>
+														</div>
+														<div class="kt-widget5__stats">
+															<span class="kt-widget5__number">1103</span>
+															<span class="kt-widget5__votes">votes</span>
+														</div> -->
+													</div> 
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+						</div>
+
+
+				
+				
+				
+					
+
+						
+
 						<div class="kt-portlet kt-portlet--mobile">
 									<div class="kt-portlet__head kt-portlet__head--lg">
 										<div class="kt-portlet__head-label">
@@ -49,7 +167,6 @@ License: You must have a valid license purchased only from themeforest(the above
 												<b>보유자격증</b>
 												</h3>
 												<div class="col kt-align-right">
-												<button type="button" class="btn btn-brand" onclick="openPopUp1()">업데이트</button>
 												</div>
 												
 										</div>
@@ -116,8 +233,6 @@ License: You must have a valid license purchased only from themeforest(the above
 												<b>학력</b>
 												</h3>
 												<div class="col kt-align-right">
-												<pre>																						
-												<button type="button" class="btn btn-brand" onclick="openPopUp2()">업데이트</button></pre>
 												</div>
 										</div>
 									</div>
@@ -187,8 +302,6 @@ License: You must have a valid license purchased only from themeforest(the above
 												<b>경력</b>
 												</h3>
 												<div class="col kt-align-right">
-												<pre>																						
-												<button type="button" class="btn btn-brand" onclick="openPopUp3()">업데이트</button></pre>
 												</div>
 										</div>
 									</div>
@@ -256,8 +369,6 @@ License: You must have a valid license purchased only from themeforest(the above
 										<b>언어 숙련도</b>
 										</h3>
 										<div class="col kt-align-right">
-										<pre>																					
-										<button type="button" class="btn btn-brand" onclick="openPopUp4()">업데이트</button></pre>
 										</div>
 									</div>
 								</div>
