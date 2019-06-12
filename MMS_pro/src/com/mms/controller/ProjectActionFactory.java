@@ -14,6 +14,7 @@ import com.mms.controller.action.project.ProjectApplyListFormAction;
 import com.mms.controller.action.project.ProjectApplyViewFormAction;
 import com.mms.controller.action.project.ProjectDeleteAction;
 import com.mms.controller.action.project.ProjectManpowerDeployListFormAction;
+import com.mms.controller.action.project.ProjectManpowerRecommendAction;
 import com.mms.controller.action.project.ProjectListFormAction;
 import com.mms.controller.action.project.ProjectListViewFormAction;
 import com.mms.controller.action.project.ProjectManpowerDeployFormAction;
@@ -144,6 +145,10 @@ public class ProjectActionFactory {
 			}
 			else if(command.equals("projStatApply")) {
 				action = new ProjectStatApplyAction();
+				
+			}
+			else if(command.equals("projectManpowerRecommend")) {
+				action = new ProjectManpowerRecommendAction();
 				
 			}
 			return action;

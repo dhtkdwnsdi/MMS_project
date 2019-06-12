@@ -545,4 +545,262 @@ public class ApplyStmtDAO extends DBManager {
 		}
 	}
 	
+	// 프로젝트 인력 배치 :: 이미 프로젝트 진행 중일 경우 구성원 조회
+	public ArrayList<ApplyStmtVO> progressProjectMemberList(String projNum){
+		Connection conn = null;
+		PreparedStatement pstmt= null;
+		ResultSet rs = null;
+		
+		ArrayList<ApplyStmtVO> list = new ArrayList<ApplyStmtVO>();
+		String sql = "SELECT P.PROG_NUM AS PROG_NUM"
+				+ "        , P.ID AS ID"
+				+ "        , P.NAME AS PROG_NAME"
+				+ "        , P.GRADE AS GRADE"
+				+ "        , ifnull(V.PL_NAME, '-') AS PL_NAME"
+				+ "     FROM TBL_PROGRAMMER P "
+				+ "LEFT OUTER JOIN PLS_LIST_VIEW V "
+				+ "ON P.PROG_NUM = V.PROG_NUM "
+				+ "JOIN tbl_apply_stmt A "
+				+ "ON P.PROG_NUM = A.PROG_NUM "
+				+ "WHERE A.PROJ_NUM= ? "
+				+ "AND A.APPLY_STAT='승인' "
+				+ "AND A.APPLY_POSITION != 'PM'";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, projNum);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ApplyStmtVO aVo = new ApplyStmtVO();
+				aVo.setId(rs.getString("ID"));
+				aVo.setProgName(rs.getString("PROG_NAME"));
+				aVo.setGrade(rs.getString("GRADE"));
+				aVo.setProgNum(rs.getString("PROG_NUM"));
+				aVo.setPlName(rs.getString("PL_NAME"));
+				
+				list.add(aVo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+		return list;
+		
+	}
+	
+	// 기본 추천 리스트 띄우기
+	public ArrayList<ApplyStmtVO> defaultRecommnedList(){
+		Connection conn = null;
+		PreparedStatement pstmt= null;
+		ResultSet rs = null;
+		
+		ArrayList<ApplyStmtVO> list = new ArrayList<ApplyStmtVO>();
+		String sql = "SELECT PROG_NUM"
+				+ "        , ID"
+				+ "        , NAME"
+				+ "        , GRADE"
+				+ "        , ifnull(PL_NAME, '-') AS PL_NAME"
+				+ "     FROM DEFAULT_RECOMMEND_VIEW";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ApplyStmtVO aVo = new ApplyStmtVO();
+				aVo.setProgNum(rs.getString("PROG_NUM"));
+				aVo.setId(rs.getString("ID"));
+				aVo.setProgName(rs.getString("NAME"));
+				aVo.setGrade(rs.getString("GRADE"));
+				aVo.setPlName(rs.getString("PL_NAME"));
+				list.add(aVo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+		return list;
+		
+	}
+	
+	// 프로젝트 인력 추천 메소드
+	
+	public ArrayList<ApplyStmtVO> recommendList(String grade, String[] plName){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		ArrayList<ApplyStmtVO> list = new ArrayList<ApplyStmtVO>();
+		String sql = "";
+		
+		if(grade.equals("")) {
+			switch (plName.length) {
+			case 1:{
+				sql = "SELECT *"
+					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ " WHERE PL_NAME LIKE '%"+plName[0]+"%'";
+				break;
+			}
+			case 2:{
+				sql = "SELECT *"
+				    + "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ " WHERE PL_NAME LIKE '%"+plName[0]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'";
+				break;
+			}
+			case 3:{
+				sql = "SELECT *"
+					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ " WHERE PL_NAME LIKE '%"+plName[0]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[2]+"%'";
+				break;
+			}
+			case 4:{
+				sql = "SELECT *"
+					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ " WHERE PL_NAME LIKE '%"+plName[0]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[2]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[3]+"%'";
+				break;
+			}
+			case 5:{
+				sql = "SELECT *"
+					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ " WHERE PL_NAME LIKE '%"+plName[0]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[2]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[3]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[4]+"%'";
+				break;
+			}
+			case 6:{
+				sql = "SELECT *"
+					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ " WHERE PL_NAME LIKE '%"+plName[0]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[2]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[3]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[4]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[5]+"%'";
+				break;
+			}
+
+			}
+		}
+		else {
+			switch (plName.length) {
+			case 1:{
+				sql = "SELECT *"
+					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ " WHERE GRADE = " + grade
+					+ "   AND PL_NAME LIKE '%"+plName[0]+"%'";
+				break;
+			}
+			case 2:{
+				sql = "SELECT *"
+				    + "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ " WHERE GRADE = " + grade
+					+ "   AND (PL_NAME LIKE '%"+plName[0]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[1]+"%')";
+				break;
+			}
+			case 3:{
+				sql = "SELECT *"
+					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ " WHERE GRADE = " + grade
+					+ "   AND (PL_NAME LIKE '%"+plName[0]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[2]+"%')";
+				break;
+			}
+			case 4:{
+				sql = "SELECT *"
+					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ " WHERE GRADE = " + grade
+					+ "   AND (PL_NAME LIKE '%"+plName[0]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[2]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[3]+"%')";
+				break;
+			}
+			case 5:{
+				sql = "SELECT *"
+					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ " WHERE GRADE = " + grade
+					+ "   AND (PL_NAME LIKE '%"+plName[0]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[2]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[3]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[4]+"%')";
+				break;
+			}
+			case 6:{
+				sql = "SELECT *"
+					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ " WHERE GRADE = " + grade
+					+ "   AND (PL_NAME LIKE '%"+plName[0]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[2]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[3]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[4]+"%'"
+					+ "    OR PL_NAME LIKE '%"+plName[5]+"%')";
+				break;
+			}
+
+			}
+		}
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ApplyStmtVO aVo = new ApplyStmtVO();
+				aVo.setProgNum(rs.getString("PROG_NUM"));
+				aVo.setId(rs.getString("ID"));
+				aVo.setProgName(rs.getString("NAME"));
+				aVo.setGrade(rs.getString("GRADE"));
+				aVo.setPlName(rs.getString("PL_NAME"));
+				list.add(aVo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+		return list;
+		
+	}
+	
+	
 }

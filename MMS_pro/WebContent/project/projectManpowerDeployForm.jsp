@@ -119,42 +119,42 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 
 										<!--begin::Form-->
-										<form class="kt-form kt-form--label-right">
 											<div class="kt-portlet__body">
-												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-6">
-													 <div class="form-group">
-														<label id="label1">프로그래밍 언어</label>
-															<div class="kt-checkbox-inline">
-																<c:forEach items="${plList}" var="plVo" varStatus="listStat">
-																<label class="kt-checkbox">
-																<input type="checkbox" value="${plVo.plNum}"> ${plVo.plName}
-																<span></span>
-																</label>
-																</c:forEach>
+													<div class="form-group row form-group-marginless kt-margin-t-20">
+														<div class="col-lg-6">
+														 <div class="form-group">
+															<label id="label1">프로그래밍 언어 </label>
+																<div class="kt-checkbox-inline">
+																	<c:forEach items="${plList}" var="plVo" varStatus="listStat">
+																	<label class="kt-checkbox">
+																	<input type="checkbox" id="plName" value="${plVo.plName}"> ${plVo.plName}
+																	<span></span>
+																	</label>
+																	</c:forEach>
+																</div>
+														 </div>
+														</div>
+														<div class="col-lg-4">
+															<label id="label1">프로그래머 등급</label>
+															<br>
+															<div class="input-group">
+															<select name="grade" class="form-control" id="grade">
+																<option value="">전체</option>
+																<option value="1">초급기능사</option>
+																<option value="2">중급기능사</option>
+																<option value="3">고급기능사</option>
+																<option value="4">초급기술자</option>
+																<option value="5">중급기술자</option>
+																<option value="6">고급기술자</option>
+																<option value="7">특급기술자</option>
+																<option value="8">기술사</option>
+															</select>
+															&nbsp;&nbsp;&nbsp;
+															<input type="button" class="btn btn-success btn-sm" id="recommend" value="추천하기">
 															</div>
-													 </div>
-													</div>
-													<div class="col-lg-4">
-														<label id="label1">프로그래머 등급</label>
-														<br>
-														<div class="input-group">
-														<select name="grade" class="form-control" id="exampleSelect1">
-															<option value="1">초급 기능사</option>
-															<option value="2">중급 기능사</option>
-															<option value="3">고급 기능사</option>
-															<option value="4">초급 기술자</option>
-															<option value="5">중급 기술자</option>
-															<option value="6">고급 기술자</option>
-															<option value="7">특급 기술자</option>
-															<option value="8">기술사</option>
-														</select>
-														&nbsp;&nbsp;&nbsp;
-														<input type="button" class="btn btn-success btn-sm" value="추천하기">
 														</div>
 													</div>
-												</div>
-												
+													
 												<!-- Start Divider -->
 												<br><br>
 												<div class="kt-section__content kt-section__content--solid">
@@ -174,10 +174,10 @@ License: You must have a valid license purchased only from themeforest(the above
 												
 												<div class="form-group row form-group-marginless kt-margin-t-20">
 													<div class="col-lg-12">
-														<table class="table table-bordered table-hover">
+														<table class="table table-bordered table-hover" id="recommendTable">
 														<thead style="text-align: center;">
 															<tr>
-																<th>#</th>
+																<th><input type="checkbox" id="allCheck1" name="allCheck"></th>
 																<th style="font-weight: bold;">ID</th>
 																<th style="font-weight: bold;">이름</th>
 																<th style="font-weight: bold;">등급</th>
@@ -187,13 +187,52 @@ License: You must have a valid license purchased only from themeforest(the above
 															</tr>
 														</thead>
 														<tbody style="text-align: center;">
+															<c:forEach items="${recommendList}" var="rVo" varStatus="listStat">
 															<tr>
-																<td colspan="5">내역이 없습니다.</td>																
+																<c:if test="${listStat.count < 6}">
+																<td><input type="checkbox" class="checkBox1" name="check" value="${rVo.progNum}"></td>
+																<td><a href="#">${rVo.id}</a></td>
+																<td>${rVo.progName}</td>
+																
+																<c:if test="${rVo.grade eq 1}">
+																<td>초급기능사</td>
+																</c:if>
+																<c:if test="${rVo.grade eq 2}">
+																<td>중급기능사</td>
+																</c:if>
+																<c:if test="${rVo.grade eq 3}">
+																<td>고급기능사</td>
+																</c:if>
+																<c:if test="${rVo.grade eq 4}">
+																<td>초급기술사</td>
+																</c:if>
+																<c:if test="${rVo.grade eq 5}">
+																<td>중급기술사</td>
+																</c:if>
+																<c:if test="${rVo.grade eq 6}">
+																<td>고급기술사</td>
+																</c:if>
+																<c:if test="${rVo.grade eq 7}">
+																<td>특급기술사</td>
+																</c:if>
+																<c:if test="${rVo.grade eq 8}">
+																<td>기술사</td>
+																</c:if>
+																
+																<td>${rVo.plName}</td>
+																</c:if>
 															</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 													</div>
+													<div class="col-lg-12 kt-align-right">
+														<br>
+														<input type="hidden" id="projNum" name="projNum" value="${projNum}">
+														<input type="button" id="deploy" value="배치" class="btn btn-primary">
+													</div>
 												</div>
+												
 												
 												<!-- Start Divider -->
 												<br><br>
@@ -214,10 +253,10 @@ License: You must have a valid license purchased only from themeforest(the above
 												
 												<div class="form-group row form-group-marginless kt-margin-t-20">
 													<div class="col-lg-12">
-														<table class="table table-bordered table-hover">
+														<table id="deployedTable" class="table table-bordered table-hover">
 														<thead style="text-align: center;">
 															<tr>
-																<th>#</th>
+																<th><input type="checkbox" id="allCheck2"></th>
 																<th style="font-weight: bold;">ID</th>
 																<th style="font-weight: bold;">이름</th>
 																<th style="font-weight: bold;">등급</th>
@@ -227,9 +266,44 @@ License: You must have a valid license purchased only from themeforest(the above
 															</tr>
 														</thead>
 														<tbody style="text-align: center;">
+															<c:forEach items="${pMemList}" var="pMemVo" varStatus="listStat">
 															<tr>
-																<td colspan="5">내역이 없습니다.</td>																
+																<td><input type="checkbox" class="checkBox2" value="${pMemVo.progNum}"></td>
+																<td><a href="#">${pMemVo.id}</a></td>
+																<td>${pMemVo.progName}</td>
+																
+																<c:if test="${pMemVo.grade eq 1}">
+																<td>초급기능사</td>
+																</c:if>
+																<c:if test="${pMemVo.grade eq 2}">
+																<td>중급기능사</td>
+																</c:if>
+																<c:if test="${pMemVo.grade eq 3}">
+																<td>고급기능사</td>
+																</c:if>
+																<c:if test="${pMemVo.grade eq 4}">
+																<td>초급기술사</td>
+																</c:if>
+																<c:if test="${pMemVo.grade eq 5}">
+																<td>중급기술사</td>
+																</c:if>
+																<c:if test="${pMemVo.grade eq 6}">
+																<td>고급기술사</td>
+																</c:if>
+																<c:if test="${pMemVo.grade eq 7}">
+																<td>특급기술사</td>
+																</c:if>
+																<c:if test="${pMemVo.grade eq 8}">
+																<td>기술사</td>
+																</c:if>
+																<td>${pMemVo.plName}</td>
 															</tr>
+															</c:forEach>
+															<c:if test="${empty pMemList}">
+																<tr>
+																	<td colspan="5">내역이 없습니다.</td>
+																</tr>
+															</c:if>
 														</tbody>
 													</table>
 													</div>
@@ -242,14 +316,13 @@ License: You must have a valid license purchased only from themeforest(the above
 														<div class="col-lg-6">
 														</div>
 														<div class="col-lg-6 kt-align-right">
+															<button type="button" class="btn btn-warning" onclick="location.reload()">리셋</button>
 															<button type="button" class="btn btn-danger">직접배치</button>
 															<button type="button" class="btn btn-primary">저장</button>
-															<!-- <button type="button" class="btn btn-secondary" id="cancel">목록</button> -->
 														</div>
 													</div>
 												</div>
 											</div>
-										</form>
 
 										<!--end::Form-->
 									</div>
@@ -373,44 +446,123 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- end::Body -->
 	
 <script>
-function registerApplyStmt(){
 
+$("#recommend").click(function(){
+	var plList = [];
 	
-	// userID 변수에 userID의 입력된 값을 가져오게 함
-	var projNum = $('#projNum').val();
-	var progNum = $('#progNum').val();
-	var applyPosition = $('#applyPosition').val();
+	$("#plName:checked").each(function(i){ // jQuery로 for문 돌면서 check 된 값 배열에 대입
+		plList.push($(this).val());
+	});
 	
-	if(applyPosition == ""){
-		alert("지원직무를 선택해주세요.");
-		$("#applyPosition").focus();
-		return false;
-	}
-	else {
+	var grade = $('#grade').val();
+	
 	$.ajax({
 		
 		type: 'POST',  // GET or POST 전송방법 
-		url: '/proj?command=applyStmtRegister',  // 이쪽으로 보낸다(호출URL)
-		
+		url: '/proj?command=projectManpowerRecommend',  // 이쪽으로 보낸다(호출URL)
+		traditional : true,
+		dataType : "json",
 		data: {
-			projNum : projNum,
-			progNum : progNum,
-			applyPosition : applyPosition
+			"plName" : plList,
+			"grade" : grade
 		},  
-
+		
 		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
-			alert("신청되었습니다.");
-			self.close();
-			opener.location.href = "/proj?command=projectApplyListForm";
+			$("#recommendTable > tbody").empty();
+			if(data.length > 0) {
+			$.each(data, function(key, value){
+				var eachrow = "<tr>"
+							+ "<td>" + "<input type=\"checkbox\" class=\"checkBox1\" value=\"" + value.progNum + "\"" + ">"
+							+ "</td>"
+							+ "<td>" + "<a href=\"#\">" 
+							+ value.id
+							+ "</a>"
+							+ "</td>"
+							+ "<td>" + value.progName + "</td>"
+							+ "<td>" + value.grade + "</td>"
+							+ "<td>" + value.plName + "</td>";
+				$("#recommendTable > tbody").append(eachrow);
+			});
+			}
+			else {
+				var eachrow = "<tr>"
+					+ "<td colspan=\"5\">" + "내역이 없습니다" + "</td>"
+					+ "</tr>";
+				$("#recommendTable > tbody").append(eachrow);	
+			}
+		
 		},
 		error: function(data){
-			alert("오류:: 다시 시도해주세요.");
+			alert("프로그래밍 언어를 선택해주세요.");
 			return false;
 		}
 		 
 
-	})
-	} 
-}
+	});
+});
+
+var dProgNum = [];
+// 이미 배치된 인력의 값을 가져옴 == 유효성 검사
+$(".checkBox2").each(function(i){
+	dProgNum.push($(".checkBox2").eq(i).val());
+});
+
+$("#deploy").click(function(){
+	var z = 0;
+	var tr;
+	var zeroTd = "<tr>"
+			   + "<td colspan=\"5\">"
+			   + "내역이 없습니다."
+			   + "</td>"
+			   + "</tr>"; 
+	var length = $("#recommendTable > tbody td").length;
+	var noList = $("#deployedTable > tbody td").length;
+	
+	
+	$(".checkBox1:checked").each(function(i){ // jQuery로 for문 돌면서 check 된 값 배열에 대입
+		
+// 		for(var i = 0; i < dProgNum.length; i++){
+// 			if(this.value == dProgNum[i]){
+// 				z = 1;
+// 				break;
+// 			}
+// 		}
+		
+		tr = $(this).parent().parent().eq(i);
+		tr.eq(i).remove();
+		dProgNum.push($(this).eq(i).val());		// 배치된 인력의 값으로 넣어줌
+		$(this).attr("class","checkBox2");
+		$(this).prop("checked", false);
+		
+		if(noList == 1){			// 배치된 인력 칸에 내역 없음일 경우
+			$("#deployedTable > tbody td").remove();
+			$("#deployedTable > tbody").append(tr);
+		} else{
+			$("#deployedTable > tbody").append(tr);
+		}
+		
+		if(length == 5){			// 추천된 인력을 모두 추가시킬 경우 내역없음 띄우기
+			$("#recommendTable > tbody").append(zeroTd);
+		}
+		
+	});
+	
+	
+	
+});
+
+// 체크박스 전체 선택, 해제
+$( document ).ready( function() {
+    $( '#allCheck1' ).click( function() {
+      $( '.checkBox1' ).prop( 'checked', this.checked );
+    } );
+  } );
+  
+$( document ).ready( function() {
+    $( '#allCheck2' ).click( function() {
+      $( '.checkBox2' ).prop( 'checked', this.checked );
+    } );
+  } );
+
 </script>
 </html>

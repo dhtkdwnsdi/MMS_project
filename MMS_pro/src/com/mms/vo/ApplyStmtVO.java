@@ -11,7 +11,34 @@ public class ApplyStmtVO {
 	private String projStat;
 	private String applyDate;
 	private String progState;
+	private String id;
+	private String grade;
+	private String plName;
 	
+	public String getPlName() {
+		return plName;
+	}
+
+	public void setPlName(String plName) {
+		this.plName = plName;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getGrade() {
+		return grade;
+	}
+
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+
 	public String getProgState() {
 		return progState;
 	}
@@ -92,8 +119,11 @@ public class ApplyStmtVO {
 		return "ApplyStmtVO [applyStmtNum=" + applyStmtNum + ", applyStat=" + applyStat + ", applyPosition="
 				+ applyPosition + ", progNum=" + progNum + ", projNum=" + projNum + ", progName=" + progName
 				+ ", projName=" + projName + ", projStat=" + projStat + ", applyDate=" + applyDate + ", progState="
-				+ progState + "]";
+				+ progState + ", id=" + id + ", grade=" + grade + ", plName=" + plName + "]";
 	}
+
+	
+
 
 	
 
