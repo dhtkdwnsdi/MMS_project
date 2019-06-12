@@ -244,7 +244,6 @@ public class SignUpDAO extends DBManager {
 				progVo.setEmail(rs.getString("EMAIL"));
 				progVo.setTel(rs.getString("TEL"));
 				progVo.setPhoto(rs.getString("PHOTO"));
-				progVo.setGender(rs.getString("GENDER"));
 				progVo.setJuso(rs.getString("JUSO"));
 				progVo.setExtraJuso(rs.getString("EXTRAJUSO"));
 				progVo.setBank(rs.getString("BANK"));
