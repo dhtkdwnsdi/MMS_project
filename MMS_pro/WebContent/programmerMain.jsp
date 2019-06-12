@@ -33,12 +33,6 @@ License: You must have a valid license purchased only from themeforest(the above
 	<div class="kt-content  kt-grid__item kt-grid__item--fluid"
 		id="kt_content">
 
-		<!--Begin::Dashboard 1-->
-
-
-		<!--End::Section-->
-
-		<!--Begin::Section-->
 
 
 
@@ -61,10 +55,10 @@ License: You must have a valid license purchased only from themeforest(the above
 								class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-brand"
 								role="tablist">
 								<li class="nav-item"><a class="nav-link active"
-									data-toggle="tab" href="#kt_widget4_tab1_content" role="tab">
+									data-toggle="tab" href="#kt_portlet_tab_1_1" role="tab">
 										전체리스트 </a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#kt_widget4_tab2_content" role="tab"> 승인대기 </a></li>
+									href="#kt_portlet_tab_1_2" role="tab"> 승인대기 </a></li>
 							</ul>
 						</div>
 					</div>
@@ -92,13 +86,25 @@ License: You must have a valid license purchased only from themeforest(the above
 												<td>${aVo.progName}</td>
 												<td>${aVo.applyPosition}</td>
 												<td>${aVo.applyDate}</td>
-												<td><c:if test="${aVo.applyStat eq '승인대기' }">
+												
+												
+												
+											
+												
+												<td>
+												<c:if test="${aVo.applyStat eq '승인대기' }">
 														<span class="kt-badge kt-badge--warning kt-badge--inline">${aVo.applyStat}</span>
-													</c:if> <c:if test="${aVo.applyStat eq '승인' }">
+									                  </c:if> 
+									                  
+									                  <c:if test="${aVo.applyStat eq '승인' }">
 														<span class="kt-badge kt-badge--success kt-badge--inline">${aVo.applyStat}</span>
-													</c:if> <c:if test="${aVo.applyStat eq '거절' }">
+													</c:if> 
+													
+													<c:if test="${aVo.applyStat eq '거절' }">
 														<span class="kt-badge kt-badge--danger kt-badge--inline">${aVo.applyStat}</span>
-													</c:if></td>
+													</c:if>
+													
+													</td>
 												<td><c:if test="${aVo.applyStat eq '승인대기' }">
 														<a href="#"><span
 															class="kt-badge kt-badge--primary kt-badge--inline"
@@ -182,15 +188,11 @@ License: You must have a valid license purchased only from themeforest(the above
 								class="nav nav-tabs nav-tabs-bold nav-tabs-line   nav-tabs-line-right nav-tabs-line-brand"
 								role="tablist">
 								<li class="nav-item"><a class="nav-link active"
-									data-toggle="tab" href="#kt_portlet_tab_1_1" role="tab"> 받은
+									data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab"> 받은
 										메세지 </a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#kt_portlet_tab_1_2" role="tab"> 보낸 메세지 </a></li>
-								<!-- <li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab">
-															Settings
-														</a>
-													</li> -->
+									href="#kt_portlet_tab_1_4" role="tab"> 보낸 메세지 </a></li>
+
 							</ul>
 						</div>
 					</div>
@@ -199,7 +201,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					<div class="kt-portlet__body">
 						<div class="tab-content">
 							<input type="hidden" name="progNum" value="${LoginUser.progNum}">
-							<div class="tab-pane active" id="kt_portlet_tab_1_1">
+							<div class="tab-pane active" id="kt_portlet_tab_1_3">
 								<form method="post" action="/prog?command=receiveMsgDelete">
 									<table class="table table-bordered table-hover">
 										<thead style="text-align: center;">
@@ -217,7 +219,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 													<td><a
 														href="prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}">${rVo.receiveSubject}</a></td>
-													<td>${rVo.receiveSender}</td>
+													<td>${rVo.receiveName}<input type="hidden"
+														value="${rVo.receiveName}"></td>
 
 												</tr>
 											</c:forEach>
@@ -226,7 +229,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 								</form>
 							</div>
-							<div class="tab-pane" id="kt_portlet_tab_1_2">
+							<div class="tab-pane" id="kt_portlet_tab_1_4">
 								<form method="post" action="/prog?command=sendMsgDelete">
 									<table class="table table-bordered table-hover">
 										<thead style="text-align: center;">
@@ -243,8 +246,8 @@ License: You must have a valid license purchased only from themeforest(the above
 												<tr>
 
 													<td><a
-														href="prog?command=messageSendViewForm&SendNum=${sVo.sendNum}">${sVo.sendSubject}</a></td>
-													<td>${sVo.sendReceiver}</td>
+														onclick="window.open('prog?command=messageSendViewForm&sendNum=${sVo.sendNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${sVo.sendSubject}</a></td>
+													<td>${sVo.sendName}<input type="hidden" id="sendReceiver" value="${sVo.sendReceiver}"></td>
 
 												</tr>
 											</c:forEach>
@@ -328,9 +331,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<td><span
 												class="kt-badge kt-badge--danger kt-badge--inline">종료</span></td>
 										</c:if>
-										<td><a href="#"><span
-												class="kt-badge kt-badge--primary kt-badge--inline"
-												onclick="openApplyPop('${pVo.projNum}','${LoginUser.progNum}')">신청</span></a>
+										<td><a href="#"><span class="kt-badge kt-badge--primary kt-badge--inline" onclick="openApplyPop('${pVo.projNum}','${LoginUser.progNum}')">신청</span></a>
 										</td>
 									</tr>
 								</c:forEach>
@@ -1136,4 +1137,86 @@ License: You must have a valid license purchased only from themeforest(the above
 </body>
 
 <!-- end::Body -->
+<script>
+	function openPopUp() {
+		// window.name = "부모창 이름"; 
+		window.name = "parentForm";
+		// window.open("open할 window", "자식창 이름", "팝업창 옵션");
+		var width = "1030";
+		var height = "700";
+		var top = (window.screen.height - height) / 2;
+		var left = (window.screen.width - width) / 2;
+		var url = "project/projectRegisterForm.jsp";
+		var title = "프로젝트 등록";
+		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
+
+		window.open(url, title, status);
+
+		/* window.open("memberUpdateForm.jsp",
+		        "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */
+	}
+
+	function openApplyPop(projNum, progNum) {
+		var projNum = projNum;
+		var progNum = progNum;
+		var width = "500";
+		var height = "440";
+		var top = (window.screen.height - height) / 2;
+		var left = (window.screen.width - width) / 2;
+		var url = "/proj?command=projectApplyFormAction&projNum=" + projNum
+				+ "&progNum=" + progNum;
+		var title = "프로젝트 신청";
+		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
+
+		window.open(url, title, status);
+
+	}
+	
+	
+	
+	
+	function deleteApplyStmt(applyStmtNum){
+		var applyStmtNum = applyStmtNum;
+		
+		if(confirm("신청 취소하시겠습니까?") == true){
+			location.href = "/proj?command=applyStmtDelete&applyStmtNum="+applyStmtNum;
+			alert("취소되었습니다.");
+		}
+		else{
+			return false;
+		}
+		
+	}
+	
+	
+	
+	
+	
+	function openApplyPop(projNum, progNum){
+		var projNum = projNum;
+		var progNum = progNum;
+	    var width = "500"; 
+		var height = "440"; 
+		var top = (window.screen.height-height)/2; 
+		var left = (window.screen.width-width)/2; 
+		var url = "/proj?command=projectApplyFormAction&projNum="+projNum+"&progNum="+progNum; 
+		var title = "프로젝트 신청"; 
+		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+	    
+	    window.open(url, title, status);
+	    
+	    
+	}
+	
+	</script>
+	
+
+
+
+
+
+
 </html>
