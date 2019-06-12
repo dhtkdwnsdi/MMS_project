@@ -141,8 +141,20 @@ font-weight: bold;
 													<div class="col-lg-4">
 														<label id="label1">내용</label>
 														<%-- <input type="text" class="form-control" readonly="readonly" value="${sVo.sendContents}"> --%>
-														<textarea style="width: 760px; height: 120px;" class="form-control" readonly="readonly" value="${sVo.sendContents}">${sVo.sendContents}</textarea>
+														<textarea style="width: 660px; height: 120px;" class="form-control" readonly="readonly" value="${sVo.sendContents}">${sVo.sendContents}</textarea>
 													</div>
+														
+													<div class="col-lg-4">
+														<div class="form-group row form-group-marginless kt-margin-t-20">
+																<label id="label1">첨부파일</label>
+																<div></div>
+																<div class="custom-file">
+																	<label class="custom-file-label" for="customFile" style="text-align: left;">
+																	<a href="/proj?command=download&projFile=${sVo.sendFile}">${sVo.sendFile}</a></label>
+																</div>
+														</div>
+													</div>
+													
 												</div>
 												
 												

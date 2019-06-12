@@ -192,16 +192,17 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="form-group row">
 										<label class="col-3 col-form-label">내용</label>
 										<div class="col-9">
-										<textarea style="width: 550px; height: 120px;"
+										<textarea style="width: 500px; height: 120px;"
 										class="form-control" id="sendContents" name="sendContents"></textarea>
 											
 										</div>
 									</div>
 									<div class="form-group">
-										<label id="label1">첨부파일</label>
 											<div class="custom-file">
-												<input type="file" class="custom-file-input" name="sendFile" id="sendFile">
-												<label class="custom-file-label" for="customFile" style="text-align: left;"></label>
+										<label id="label1"  class="col-3 col-form-label">첨부파일</label>
+										
+												<input size="50" type="file" name="sendFile" id="sendFile">
+												<!-- <label class="custom-file-label" for="customFile" style="text-align: left;"></label> -->
 											</div>
 									</div>
 								</div>
@@ -449,6 +450,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		var sendReceiver = $('#sendReceiver').val();
 		//var sendName = $('#sendName').val();
 		var sendSender = $('#sendSender').val();
+		var sendFile = $('#sendFile').val();
 
 		if(sendReceiver == ""){
 			alert("보낼 사람을 지정 해주세요");
@@ -473,12 +475,13 @@ License: You must have a valid license purchased only from themeforest(the above
 					sendContents : sendContents,
 					sendReceiver : sendReceiver,
 					sendSender : sendSender,
+					sendFile : sendFile,
 				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
 
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
 					alert("전송 되었습니다.");
 					self.close();
-					opener.location.href = "/prog?command=messageListForm";
+					//opener.location.href = "/prog?command=messageListForm#kt_portlet_tab_1_2";
 				},
 				error : function(data) {
 					alert("오류:: 다시 시도해주세요.");

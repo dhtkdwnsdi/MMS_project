@@ -18,7 +18,7 @@ public class MessageRegisterAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String url = "/prog?command=messageListForm";
+		String url = "/prog?command=messageListForm#kt_portlet_tab_1_2";
 		
 		String sendSubject = request.getParameter("sendSubject");
 		String sendContents = request.getParameter("sendContents");

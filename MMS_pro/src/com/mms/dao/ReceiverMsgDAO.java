@@ -34,7 +34,8 @@ public class ReceiverMsgDAO extends DBManager{
 
 		String sql = "Select m.receive_num"
 				+ "		   , m.receive_subject"
-				+ "		   , p.name as receive_name, receive_sender"
+				+ "		   , p.name as receive_name"
+				+ "		   , receive_sender"
 				+ "		   , m.receive_write_date"
 				+ "	    from tbl_receive_msg m"
 				+ "		   , tbl_programmer p"

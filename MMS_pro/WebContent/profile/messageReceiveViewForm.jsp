@@ -143,6 +143,16 @@ font-weight: bold;
 														<%-- <input type="text" class="form-control" readonly="readonly" value="${rVo.receiveContents}"> --%>
 														<textarea style="width: 705px; height: 120px;" class="form-control" readonly="readonly" value="${rVo.receiveContents}">${rVo.receiveContents}</textarea>
 													</div>
+													<div class="col-lg-4">
+														<div class="form-group row form-group-marginless kt-margin-t-20">
+																<label id="label1">첨부파일</label>
+																<div></div>
+																<div class="custom-file">
+																	<label class="custom-file-label" for="customFile" style="text-align: left;">
+																	<a href="/proj?command=download&projFile=${sVo.sendFile}">${sVo.sendFile}</a></label>
+																</div>
+														</div>
+													</div>
 												</div>
 												
 												

@@ -149,6 +149,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			<div class="kt-portlet__head kt-portlet__head--lg">
 				<div class="kt-portlet__head-label">
 					<h3 class="kt-portlet__head-title">프로그래밍 언어 숙련도 등록</h3>
+					
 				</div>
 			</div>
 			<div class="kt-portlet__body">
@@ -551,6 +552,8 @@ License: You must have a valid license purchased only from themeforest(the above
 	$(function() {
 		$("#datepicker1").datepicker();
 	});
+	
+	
 </script>
 <!-- end::Body -->
 </html>
