@@ -13,11 +13,11 @@ import com.mms.controller.action.Action;
  * @author LEE HAN
  *
  */
-public class MemberSetFormAction implements Action {
+public class MemberUpdateFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "profile/memberSet.jsp";
+		String url = "profile/memberUpdateForm.jsp";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

@@ -375,7 +375,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 											<!--begin::Section-->
 											<!--바디  -->
-											<div class="kt-portlet__body">
+									<div class="kt-portlet__body">
 										<form>
 										<input type="hidden" name="progNum" value="${LoginUser.progNum}">
 											<div class="kt-section">
@@ -415,6 +415,70 @@ License: You must have a valid license purchased only from themeforest(the above
 													</table>
 												</div>
 											<!--end::Section-->
+										</div>
+									</form>
+									<!--end: Datatable -->
+							</div>
+							<!--바디  -->
+						</div>
+						
+						
+						
+						<div class="kt-portlet kt-portlet--mobile">
+								<div class="kt-portlet__head kt-portlet__head--lg">
+									<div class="kt-portlet__head-label">
+										<span class="kt-portlet__head-icon">
+										</span>
+										<h3 class="kt-portlet__head-title">
+										<b>포토폴리오</b>
+										</h3>
+									</div>
+								</div>
+
+											<!--begin::Section-->
+											<!--바디  -->
+									<div class="kt-portlet__body">
+										<form>
+											<div class="kt-section">
+												<div class="kt-section__content">
+													<table class="table table-bordered">
+														<thead>
+															<tr>
+																<th>#</th>
+																<th style="font-weight: bold;">프로젝트 제목</th>
+                                               					<th style="font-weight: bold;">카테고리</th>
+																<th style="font-weight: bold;">발주기관</th>
+															</tr>
+														</thead>
+														
+														
+														
+													<c:choose>
+														<c:when test="${not empty portpolioList}">
+                                         				 <c:forEach items="${portpolioList}" var="profVo" varStatus="listStat">
+                                        				  <tbody style="text-align: center;">
+                                            				 <tr>
+                                               				 <th scope="row">${listStat.count}
+                                              				  <input type="hidden" value="${profVo.portNum}" id="portNum" name="portNum"></tH>
+                                              				  <td><a href="prog?command=portpolioReadForm&portNum=${profVo.portNum}">${profVo.subject}</a></td>
+                                              				  <td>${profVo.portCate} &nbsp;&nbsp; >> &nbsp;&nbsp;
+                                              				  ${profVo.portDetailCate} </td>
+                                              				  <td> ${profVo.organization} </td>
+                                             				</tr>
+                                          				</tbody>
+                                          				</c:forEach>
+														</c:when>
+														<c:otherwise>
+															<tr>
+															<td colspan="4" class="txt_center" align="center"><b>포트폴리오 데이터가 없습니다.</b></td>
+															</tr>
+														</c:otherwise>
+													</c:choose>
+														</tbody>
+													</table>
+												</div>
+											
+											
 										</div>
 									</form>
 									<!--end: Datatable -->
@@ -572,61 +636,8 @@ function openPopUp1()
   
 }
 
-function openPopUp2()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "500"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/eduRegisterForm.jsp"; 
-	  var title = "학력 정보 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
-
-      window.open(url, title, status);
 
 
-  
-}
 
-function openPopUp3()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "500"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/careerRegisterForm.jsp"; 
-	  var title = "경력 정보 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
-
-      window.open(url, title, status);
-
-
-  
-}
-
-function openPopUp4()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "500"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/plsRegisterForm.jsp"; 
-	  var title = "언어숙련도 정보 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
-
-      window.open(url, title, status);
-
-
-  
-}
 </script>
 </html>

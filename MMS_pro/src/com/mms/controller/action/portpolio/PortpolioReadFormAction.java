@@ -28,6 +28,8 @@ public class PortpolioReadFormAction implements Action {
 		//포트폴리오 상세 조회
 		PortpolioVO portVo = portDao.readPortpolio(portNum);
 		
+		System.out.println(portVo);
+		
 		request.setAttribute("portVo", portVo);
 				
 		

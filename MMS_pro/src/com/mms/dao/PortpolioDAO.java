@@ -120,8 +120,10 @@ public class PortpolioDAO extends DBManager {
 				+ "		   , PORT_START_DATE"
 				+ "		   , PORT_END_DATE"
 				+ "		   , RATE"
+				+ "		   , PORT_FILE"
 				+ "		   , PL.PL_NUM"
 				+ "		   , PL.PL_NAME"
+				+ "		   , PROG_NUM"
 				+ "	    FROM TBL_PORTPOLIO PORT, TBL_PL PL"
 				+ "	   WHERE PL.PL_NUM = PORT.PL_NUM"
 				+ "	     AND PORT_NUM = ?";
@@ -145,8 +147,10 @@ public class PortpolioDAO extends DBManager {
 				portVo.setPortStartDate(rs.getString("PORT_START_DATE"));
 				portVo.setPortEndDate(rs.getString("PORT_END_DATE"));
 				portVo.setRate(rs.getString("RATE"));
+				portVo.setPortFile(rs.getString("PORT_FILE"));
 				portVo.setPlNum(rs.getString("PL_NUM"));
 				portVo.setPlName(rs.getString("PL_NAME"));
+				portVo.setProgNum(rs.getString("PROG_NUM"));
 				
 				
 			}
@@ -198,86 +202,95 @@ public class PortpolioDAO extends DBManager {
 	
 	
 	//포트폴리오 등록하는 메소드
-	public boolean insertPortpolio(PortpolioVO portVo) {
-		
-		boolean result = false;
-		
-
+	public void insertPortpolio(PortpolioVO portVo) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		try {
-			
-			conn = DBManager.getConnection();
-	        conn.setAutoCommit( false );
-	         
-	        StringBuffer sql = new StringBuffer(); 
-	        
-	        sql.append("INSERT INTO TBL_PORTPOLIO("
-	        		+ " PROG_NUM, SUBJECT, ORGANIZATION, PORT_CATE,"
-	        		+ " PORT_DETAIL_CATE, PORT_CONTENTS, PORT_START_DATE,"
-	        		+ " PORT_END_DATE, RATE, PORT_FILE, PL_NUM)");
-	        sql.append("VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-	        
-	        pstmt = conn.prepareStatement(sql.toString());
-	        
-	        pstmt.setString(1, portVo.getProgNum());
-	        pstmt.setString(2, portVo.getSubject());
-	        pstmt.setString(3, portVo.getOrganization());
-	        pstmt.setString(4, portVo.getPortCate());
-	        pstmt.setString(5, portVo.getPortDetailCate());
-	        pstmt.setString(6, portVo.getPortContents());
-	        pstmt.setString(7, portVo.getPortStartDate());
-	        pstmt.setString(8, portVo.getPortEndDate());
-	        pstmt.setString(9, portVo.getRate());
-	        pstmt.setString(10, portVo.getPortFile());
-	        pstmt.setString(11, portVo.getPlNum());
-	        
-	        int flag = pstmt.executeUpdate();
-	        
-	        if(flag > 0) {
-	        	result = true;
-	        	conn.commit();
-	        }
-	        
-		} catch(Exception e) {
-			throw new RuntimeException(e.getMessage());
-		} finally {
-			try {
-				if(pstmt != null) pstmt.close();
-				if(conn != null) conn.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		  String sql = "INSERT INTO TBL_PORTPOLIO(" +
+		  "   				   PROG_NUM, "
+		  + "			       SUBJECT, "
+		  + "				   ORGANIZATION, "
+		  + "			       PORT_CATE," 
+		  + "  				   PORT_DETAIL_CATE, "
+		  + "			       PORT_CONTENTS, "
+		  + "				   PORT_START_DATE,"
+		  + "   			   PORT_END_DATE, "
+		  + "			  	   RATE, "
+		  + "				   PORT_FILE, "
+		  + "				   PL_NUM)" +
+		  "	  VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" ;
+		  
+		  try {
+		  
+		  conn = DBManager.getConnection();
+		  
+		  pstmt = conn.prepareStatement(sql);
+		  
+		  pstmt.setString(1, portVo.getProgNum()); 
+		  pstmt.setString(2, portVo.getSubject()); 
+		  pstmt.setString(3, portVo.getOrganization());
+		  pstmt.setString(4, portVo.getPortCate()); 
+		  pstmt.setString(5, portVo.getPortDetailCate()); 
+		  pstmt.setString(6, portVo.getPortContents());
+		  pstmt.setString(7, portVo.getPortStartDate());
+		  pstmt.setString(8, portVo.getPortEndDate()); 
+		  pstmt.setString(9, portVo.getRate());
+		  pstmt.setString(10, portVo.getPortFile()); 
+		  pstmt.setString(11, portVo.getPlNum());
+		  
+		  pstmt.executeUpdate(); 
+		  } catch(SQLException e) { 
+			  e.printStackTrace(); 
+		  } finally {
+			   try {
+				   if(pstmt != null) pstmt.close();
+				   if(conn != null) conn.close();
+				   
+			   } catch (Exception e) {
+				   	e.printStackTrace();
+			   }
+		  	}
 		}
-		return result;
-	}
-		/*
-		 * String sql = "INSERT INTO TBL_PORTPOLIO(" +
-		 * "   PROG_NUM, SUBJECT, ORGANIZATION, PORT_CATE," +
-		 * "   PORT_DETAIL_CATE, PORT_CONTENTS, PORT_START_DATE," +
-		 * "   PORT_END_DATE, RATE, PORT_FILE, PL_NUM)" +
-		 * "	  VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" ;
-		 * 
-		 * try {
-		 * 
-		 * conn = DBManager.getConnection();
-		 * 
-		 * pstmt = conn.prepareStatement(sql);
-		 * 
-		 * pstmt.setString(1, portVo.getProgNum()); pstmt.setString(2,
-		 * portVo.getSubject()); pstmt.setString(3, portVo.getOrganization());
-		 * pstmt.setString(4, portVo.getPortCate()); pstmt.setString(5,
-		 * portVo.getPortDetailCate()); pstmt.setString(6, portVo.getPortContents());
-		 * pstmt.setString(7, portVo.getPortStartDate()); pstmt.setString(8,
-		 * portVo.getPortEndDate()); pstmt.setString(9, portVo.getRate());
-		 * pstmt.setString(10, portVo.getPortFile()); pstmt.setString(11,
-		 * portVo.getPlNum());
-		 * 
-		 * pstmt.executeUpdate(); } catch(SQLException e) { e.printStackTrace(); }
-		 * finally { try { if(pstmt != null) pstmt.close(); if(conn != null)
-		 * conn.close(); } catch(Exception e) { e.printStackTrace(); } }
-		 */
+		 
+
+			/*
+			 * Connection conn = null; PreparedStatement pstmt = null;
+			 * 
+			 * try {
+			 * 
+			 * conn = DBManager.getConnection(); conn.setAutoCommit( false );
+			 * 
+			 * StringBuffer sql = new StringBuffer();
+			 * 
+			 * sql.append("INSERT INTO TBL_PORTPOLIO(" +
+			 * " PROG_NUM, SUBJECT, ORGANIZATION, PORT_CATE," +
+			 * " PORT_DETAIL_CATE, PORT_CONTENTS, PORT_START_DATE," +
+			 * " PORT_END_DATE, RATE, PORT_FILE, PL_NUM)");
+			 * sql.append("VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			 * 
+			 * pstmt = conn.prepareStatement(sql.toString());
+			 * 
+			 * pstmt.setString(1, portVo.getProgNum()); pstmt.setString(2,
+			 * portVo.getSubject()); pstmt.setString(3, portVo.getOrganization());
+			 * pstmt.setString(4, portVo.getPortCate()); pstmt.setString(5,
+			 * portVo.getPortDetailCate()); pstmt.setString(6, portVo.getPortContents());
+			 * pstmt.setString(7, portVo.getPortStartDate()); pstmt.setString(8,
+			 * portVo.getPortEndDate()); pstmt.setString(9, portVo.getRate());
+			 * pstmt.setString(10, portVo.getPortFile()); pstmt.setString(11,
+			 * portVo.getPlNum());
+			 * 
+			 * int flag = pstmt.executeUpdate();
+			 * 
+			 * if(flag > 0) { result = true; conn.commit(); }
+			 * 
+			 * } catch(Exception e) { throw new RuntimeException(e.getMessage()); } finally
+			 * { try { if(pstmt != null) pstmt.close(); if(conn != null) conn.close(); }
+			 * catch (Exception e) { e.printStackTrace(); } } return result; }
+			 */
+		
+	
+
+		 
 	
 	
 	

@@ -327,10 +327,17 @@ public class SignUpDAO extends DBManager {
 		PreparedStatement pstmt = null;
 		
 		String sql = "UPDATE TBL_PROGRAMMER SET"
-				+ "	  ID = ?, PASSWORD = ?, NAME = ?,"
-				+ "	  JUSO = ?, EXTRAJUSO = ?, EMAIL = ?,"
-				+ "	  TEL = ?, BANK = ?, ACCOUNT = ?"
-				+ "   WHERE PROG_NUM = ?";
+				+ "	  		 ID = ?, "
+				+ "			 PASSWORD = ?, "
+				+ "  	     NAME = ?,"
+				+ "	  		 JUSO = ?, "
+				+ "  		 EXTRAJUSO = ?, "
+				+ " 		 EMAIL = ?,"
+				+ "	  		 TEL = ?, "
+				+ "			 BANK = ?, "
+				+ "			 ACCOUNT = ?, "
+				+ "			 PHOTO = ?"
+				+ "    WHERE PROG_NUM = ?";
 		
 		try {
 			conn = getConnection();
@@ -345,7 +352,8 @@ public class SignUpDAO extends DBManager {
 			pstmt.setString(7, progVo.getTel());
 			pstmt.setString(8, progVo.getBank());
 			pstmt.setString(9, progVo.getAccount());
-			pstmt.setString(10, progVo.getProgNum());
+			pstmt.setString(10, progVo.getPhoto());
+			pstmt.setString(11, progVo.getProgNum());
 			
 			pstmt.executeUpdate();
 			

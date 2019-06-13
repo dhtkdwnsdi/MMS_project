@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+<%@ include file="../include/header.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <!-- 
@@ -163,22 +165,17 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="kt-section__body">
 									<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
 																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
+									
 									<div class="form-group row">
 										<label class="col-3 col-form-label">프로그래밍 언어명</label>
-										<div class="kt-input-icon kt-input-icon--right">
-											<input type="hidden" class="form-control" id="plNum" name="plNum"  value="${plsVo.plNum }"> 
-											<input type="text" class="form-control" id="plName" name="plName" readonly="readonly" value="${plsVo.plName }"> 
-											<span class="kt-input-icon__icon kt-input-icon__icon--right">
-												<span>
-													<button type="button"
-														class="btn btn-outline-hover-danger btn-icon"
-														onClick="openPopUp2()" id="plNameCherck">
-														<i class="la la-search"></i>
-													</button>
-											</span>
-											</span>
+										<div class="col-9">
+										<input type="hidden" class="form-control" id="plNum" name="plNum"  value="${plsVo.plNum }"> 
+										<input class="form-control" type="text" name="plName" id="plName" readonly="readonly" value="${plsVo.plName }">
 										</div>
 									</div>
+									
+									
+									
 
 
 									

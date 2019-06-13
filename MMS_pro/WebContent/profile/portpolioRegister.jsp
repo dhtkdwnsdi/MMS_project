@@ -107,7 +107,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 			</div>
 			<div class="kt-portlet__body">
-				<form class="kt-form" id="kt_form" method="post" >
+				<form class="kt-form" id="frm" name="frm" >
 					<input type="hidden" name="progNum" value="${LoginUser.progNum}"
 						id="progNum">
 					<div class="row">
@@ -124,7 +124,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="form-group row">
 										<label class="col-3 col-form-label">제목</label>
 										<div class="col-9">
-											<input class="form-control" type="text" name = "subject" id="subject">
+											<input class="form-control" type="text" name="subject" id="subject">
 										</div>
 
 									</div>
@@ -137,7 +137,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="form-group row">
 										<label class="col-3 col-form-label">발주기관</label>
 										<div class="col-9">
-											<input class="form-control" type="text" name = "organization" id="organization">
+											<input class="form-control" type="text" name="organization" id="organization">
 										</div>
 
 									</div>
@@ -152,11 +152,10 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="form-group row">
 										<label class="col-3 col-form-label">카테고리</label>
 										<div class="col-9">
-											<select name="portCate" class="form-control" id="portCate">
-												<option value="">--선택--</option>
+											<select name="portCate" class="form-control" id="portCate" onchange="categoryChange(this)">
+												<option value="">카테고리를 선택해주세요</option>
 												<option value="개발">개발</option>
 												<option value="디자인">디자인</option>
-
 											</select>
 										</div>
 									</div>
@@ -169,30 +168,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="form-group row">
 										<label class="col-3 col-form-label">세부 카테고리</label>
 										<div class="col-9">
-											<select name="portDetailCate" class="form-control"
-												id="portDetailCate">
-												<option value="">--선택--</option>
-												<option value="웹">웹</option>
-												<option value="어플리케이션">어플리케이션</option>
-												<option value="워드프레스">워드프레스</option>
-												<option value="퍼블리싱">퍼블리싱</option>
-												<option value="소프트웨어">일반 소프트웨어</option>
-												<option value="커머스, 쇼핑몰">커머스, 쇼핑몰</option>
-												<option value="게임">게임</option>
-												<option value="임베디드">임베디드</option>
-												<option value="기타">기타</option>
-												
-												<option value="">--선택--</option>
-												<option value="웹">웹</option>
-												<option value="어플리케이션">어플리케이션</option>
-												<option value="제품">제품</option>
-												<option value="프레젠테이션">프레젠테이션</option>
-												<option value="인쇄물">인쇄물</option>
-												<option value="커머스, 쇼핑몰">커머스, 쇼핑몰</option>
-												<option value="로고">로고</option>
-												<option value="그래픽">그래픽</option>
-												<option value="영상">영상</option>
-												<option value="기타">기타</option>
+											<select name="portDetailCate" class="form-control" id="portDetailCate">
+												<option value="">세부 카테고리를 선택해주세요</option>
 											</select>
 										</div>
 									</div>
@@ -207,8 +184,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="form-group row">
 										<label class="col-3 col-form-label">시작일</label>
 										<div class="col-9">
-											<input type="text" class="form-control" id="portStartDate"
-												readonly name="portStartDate">
+											<input type="text" class="form-control" id="portStartDate" readonly name="portStartDate">
 										</div>
 									</div>
 
@@ -223,8 +199,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="form-group row">
 										<label class="col-3 col-form-label">종료일</label>
 										<div class="col-9">
-											<input type="text" class="form-control"
-												id="portEndDate" readonly name="portEndDate">
+											<input type="text" class="form-control" id="portEndDate" readonly name="portEndDate">
 										</div>
 									</div>
 
@@ -240,22 +215,15 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="form-group row">
 										<label class="col-3 col-form-label">참여율</label>
 										<div class="col-9">
-											<input class="form-control" type="text" id="rate" placeholder="참여율을 1에서 100사이로 입력하시오">
+											<input class="form-control" type="text" id="rate" name="rate" placeholder="참여율을 1에서 100사이로 입력하시오">
 										</div>
 									</div>
 
 
 
-									<!-- <div class="form-group form-group-last row">
-										<label class="col-3 col-form-label">관련기술 </label>
-										<textarea style="width: 600px; height: 120px;"
-											class="form-control" id="exampleTextarea"></textarea>
-									</div> -->
-
 									<div class="form-group row">
 										<label class="col-3 col-form-label">내용 </label>
-										<textarea style="width: 900px; height: 120px;" name="portContents" id="portContents"
-											class="form-control" id="exampleTextarea"></textarea>
+										<textarea style="width: 900px; height: 120px;" name="portContents" id="portContents" class="form-control"></textarea>
 									</div>
 									
 									
@@ -360,11 +328,13 @@ License: You must have a valid license purchased only from themeforest(the above
 									<label class="col-3 col-form-label">첨부파일</label>
 									<div class="col-9">
 										<div class="kt-input-icon kt-input-icon--right">
-											<input type="file" class="custom-file-input" name="projFile" id="projFile">
+											<input type="file" class="custom-file-input" name="portFile" id="portFile">
 											<label class="custom-file-label" for="customFile" style="text-align: left;"></label>
 										</div>
 									</div>
 								</div>
+								
+								
 
 
 									<br>
@@ -626,37 +596,35 @@ License: You must have a valid license purchased only from themeforest(the above
 			$("#portDetailCate").focus();
 			return false;
 		}
-		if (portStartDate == "") {
+		if (portContents == "") {
 			alert("내용를 입력해주세요.");
-			$("#portDetailCate").focus();
+			$("#portContents").focus();
+			return false;
+		}
+		if (plNum == "") {
+			alert("핵심언어를 입력해주세요.");
+			$("#plNum").focus();
 			return false;
 		}
 		if (progNum == "") {
 			alert("잘못된 정보입니다.");
 			return false;
 		} else {
+			var form = $("#frm")[0];
+			var data = new FormData(form);
 
 			$.ajax({
 
 				type : 'POST', // GET or POST 전송방법 
-
+				enctype: 'multipart/form-data',
 				url : '/prog?command=portpolioRegister', // 이쪽으로 보낸다(호출URL)
 
-				data : {
-					
-					progNum : progNum,
-					subject : subject,
-					organization : organization,
-					portCate : portCate,
-					portDetailCate : portDetailCate,
-					portContents : portContents,
-					portStartDate : portStartDate,
-					portEndDate : portEndDate,
-					rate : rate,
-					portFile : portFile,
-					plNum : plNum
-				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
-
+				processData: false, 
+		        contentType: false,
+			
+				data: data,  
+				cache: false,
+				timeout: 600000,
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
 					alert("등록 되었습니다.");
 					self.close();
@@ -735,6 +703,29 @@ License: You must have a valid license purchased only from themeforest(the above
 
 			
 		} 	
+	 
+	 
+	 function categoryChange(e){
+		 var good_a = ["웹", "어플리케이션", "워드프레스", "퍼블리싱", "소프트웨어", "커머스, 쇼핑몰", "게임", "임베디드", "기타"]
+		 var good_b = ["웹", "어플리케이션", "제품", "프레젠테이션", "인쇄물", "커머스, 쇼핑몰", "로고", "그래픽", "영상", "기타"]
+		 
+		 var target = document.getElementById("portDetailCate")
+		 
+		 if(e.value == "개발") var d = good_a;
+		 else if(e.value =="디자인") var d=good_b;
+		 
+		 target.options.length=0;
+		 
+		 for (x in d) {
+			    var opt = document.createElement("option");
+			    opt.value = d[x];
+			    opt.innerHTML = d[x];
+			    target.appendChild(opt);
+			  } 
+
+
+		
+	 }
 </script>
 
 

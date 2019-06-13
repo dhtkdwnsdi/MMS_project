@@ -149,7 +149,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<div class="kt-portlet kt-portlet--mobile">
 			<div class="kt-portlet__head kt-portlet__head--lg">
 				<div class="kt-portlet__head-label">
-					<h3 class="kt-portlet__head-title">경력 등록</h3>
+					<h3 class="kt-portlet__head-title">학력 수정</h3>
 				</div>
 			</div>
 			<div class="kt-portlet__body">

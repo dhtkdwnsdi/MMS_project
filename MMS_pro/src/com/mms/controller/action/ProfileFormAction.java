@@ -8,17 +8,18 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.mms.dao.CareerDAO;
 import com.mms.dao.EduDAO;
 import com.mms.dao.MyCertDAO;
 import com.mms.dao.PlsDAO;
+import com.mms.dao.PortpolioDAO;
 import com.mms.dao.ProgrammerDAO;
 import com.mms.vo.CareerVO;
 import com.mms.vo.EduVO;
 import com.mms.vo.MyCertVO;
 import com.mms.vo.PlsVO;
+import com.mms.vo.PortpolioVO;
 import com.mms.vo.ProgrammerVO;
 
 public class ProfileFormAction implements Action {
@@ -27,11 +28,12 @@ public class ProfileFormAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		HttpSession session = request.getSession();	
-		String url = "profile/profileForm.jsp";
+		String progNum = request.getParameter("progNum");
 		
-		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser");  
-		String progNum = pVo.getProgNum();
+		request.setAttribute("progNum", progNum);
+		
+		
+		String url = "profile/profileForm.jsp";
 		
 		
 		
@@ -71,6 +73,15 @@ public class ProfileFormAction implements Action {
 		ArrayList<PlsVO> plsList = plsDao.selectPls(progNum);
 		
 		request.setAttribute("plsList", plsList);
+		
+
+		//포트폴리오 리스트 띄우기
+		PortpolioDAO pDao = PortpolioDAO.getInstance();
+		
+		List<PortpolioVO> portpolioList = pDao.selectPortpolio(progNum);
+		
+		request.setAttribute("portpolioList", portpolioList);
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

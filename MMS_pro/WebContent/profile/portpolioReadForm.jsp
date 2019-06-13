@@ -219,7 +219,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<label id="label1">첨부파일</label>
 								<div class="custom-file">
 								<label class="custom-file-label" for="customFile" style="text-align: left;">
-								<a href="/prog?command=download&portFile=${portVo.portFile}">${portVo.portFile}</a></label>
+								<a href="/prog?command=portpolioDownload&portFile=${portVo.portFile}">${portVo.portFile}</a></label>
 								</div>
 						</div>
 					</div>
@@ -230,7 +230,9 @@ License: You must have a valid license purchased only from themeforest(the above
 							<div class="row">
 								<div class="col-lg-6"></div>
 									<div class="col-lg-6 kt-align-right">
-									<a class="btn btn-primary" href="prog?command=portpolioUpdateForm&portNum=${portVo.portNum }">수정하기</a>
+									<c:if test="${LoginUser.progNum eq portVo.progNum}">
+									<button type="button" class="btn btn-primary" onclick="location.href='/prog?command=portpolioUpdateForm&portNum=${portVo.portNum }'">수정</button>
+									</c:if>
 									<button type="button" class="btn btn-secondary" id="cancel">목록으로</button>
 									</div>
 								</div>
@@ -483,6 +485,8 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!--end::Global App Bundle -->
 </body>
 <script>
+	
+
 	// 경력 등록 AJAX
 	function updateCareer() {
 

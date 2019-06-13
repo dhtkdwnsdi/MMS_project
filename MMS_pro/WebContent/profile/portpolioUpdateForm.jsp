@@ -239,7 +239,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="form-group row">
 										<label class="col-3 col-form-label">참여율</label>
 										<div class="col-9">
-											<input class="form-control" type="text" id="rate" name="rate" value="${portVo.rate }">
+											<input class="form-control" type="text" id="rate" name="rate" onkeypress="inNumber();" value="${portVo.rate}">
 										</div>
 									</div>
 
@@ -531,6 +531,13 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!--end::Global App Bundle -->
 </body>
 <script>
+
+	function inNumber(){
+		if(event.keyCode<48||event.keyCode>57){
+			event.returnValue=false;
+		}
+	}
+
 	// 경력 등록 AJAX
 	function updatePortpolio() {
 

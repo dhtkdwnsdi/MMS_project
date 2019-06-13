@@ -108,7 +108,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											</div>
 										</div>
 										<div class="kt-portlet__body">
-											<form class="kt-form" id="kt_form" name="frm">
+											<form id="frm" name="frm">
 											<input type="hidden" id="progNum" name="progNum" value="${LoginUser.progNum}">
 												<div class="row">
 													<div class="col-xl-2"></div>
@@ -176,6 +176,15 @@ License: You must have a valid license purchased only from themeforest(the above
 																		<input class="form-control" type="text" id="account" name="account" value="${LoginUser.account}" onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)">
 																	</div>
 																</div>
+																<div class="form-group form-group-last row">
+																	<label class="col-3 col-form-label">첨부파일</label>
+																	<div class="col-9">
+																	<div class="kt-input-icon kt-input-icon--right">
+																		<input type="file" class="custom-file-input" name="photo" id="photo">
+																	<label class="custom-file-label" for="customFile" style="text-align: left;">${LoginUser.photo}</label>
+																	</div>
+																	</div>
+																</div>
 															</div>
 														</div>
 														<div class="kt-portlet__foot">
@@ -204,11 +213,6 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 
 						<!-- end:: Content -->
-					</div>
-
-				</div>
-			</div>
-		</div>
 
 		<!-- end:: Page -->
 
@@ -369,23 +373,22 @@ License: You must have a valid license purchased only from themeforest(the above
 			return false;
 		}
 		else if(confirm("수정할 경우 재로그인이 필요합니다.\n정말로 수정하시겠습니까?")){
+				var form = $("#frm")[0];
+				var data = new FormData(form);
 		
 		$.ajax({
 
 			type: 'POST',  // GET or POST 전송방법 
-
+			enctype: 'multipart/form-data',
 			url: '/prog?command=memberUpdate',  // 이쪽으로 보낸다(호출URL)
-
-			data: {id: id,
-				   password: password,
-				   name: name,
-				   juso: juso,
-				   extraJuso: extraJuso,
-				   email: email,
-				   tel: tel,
-				   bank: bank,
-				   account: account,
-				   progNum: progNum},  // userID 이름에 userID 데이터 값을 넣어서 보낸다
+		
+			processData: false, 
+	        contentType: false,
+	        
+	        
+			cache: false,
+			timeout: 600000,
+			data: data,  // userID 이름에 userID 데이터 값을 넣어서 보낸다
 
 			success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
 				alert("수정 완료되었습니다.\n다시 로그인 해주세요.");

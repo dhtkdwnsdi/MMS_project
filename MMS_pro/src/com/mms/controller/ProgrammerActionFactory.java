@@ -25,8 +25,8 @@ import com.mms.controller.action.grant.GrantUpdateFormAction;
 import com.mms.controller.action.introduce.IntroduceListAction;
 import com.mms.controller.action.introduce.IntroduceUpdateAction;
 import com.mms.controller.action.introduce.IntroduceUpdateFormAction;
-import com.mms.controller.action.memberSet.MemberSetFormAction;
 import com.mms.controller.action.memberSet.MemberUpdateAction;
+import com.mms.controller.action.memberSet.MemberUpdateFormAction;
 import com.mms.controller.action.message.MessageListFormAction;
 import com.mms.controller.action.message.MessageReceiveViewFormAction;
 import com.mms.controller.action.message.MessageRegisterAction;
@@ -78,11 +78,11 @@ public class ProgrammerActionFactory {
 		/**
 		 * @author LEE HAN
 		 */
-		if (command.equals("memberSetForm")) {
-			action = new MemberSetFormAction();
-
-		} else if (command.equals("memberUpdate")) {
+		if (command.equals("memberUpdate")) {
 			action = new MemberUpdateAction();
+
+		} else if (command.equals("memberUpdateForm")) {
+			action = new MemberUpdateFormAction();
 
 		} else if (command.equals("careerListForm")) {
 			action = new CareerListFormAction();

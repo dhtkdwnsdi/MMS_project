@@ -264,7 +264,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="kt-form__actions kt-form__actions--right">
 													<div class="row">
 														<div class="col kt-align-right">
-															<button type="button" class="btn btn-brand" onclick="openPopUp2()">등록</button>
+															<button type="button" class="btn btn-brand" onclick="openPopUp3()">등록</button>
 														</div>
 													</div>
 											</div>
@@ -320,7 +320,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td>${profVo.profiency}</td>
 																<td>${profVo.experience}</td>
 																<td>
-																<a href="prog?command=plsUpdateFrom&plsNum=${profVo.plsNum}"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
+																<a href="prog?command=plsUpdateForm&plsNum=${profVo.plsNum}"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
 																<a href="prog?command=plsDelete&plsNum=${profVo.plsNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
 																</td>
 															</tr>
@@ -369,7 +369,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 											<!--begin::Section-->
 											<!--바디  -->
-											<div class="kt-portlet__body">
+									<div class="kt-portlet__body">
 										<form>
 										<input type="hidden" name="progNum" value="${LoginUser.progNum}">
 											<div class="kt-section">

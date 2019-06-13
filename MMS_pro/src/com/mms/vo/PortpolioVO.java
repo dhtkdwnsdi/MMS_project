@@ -28,6 +28,12 @@ public class PortpolioVO {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
+	public String getOrganization() {
+		return organization;
+	}
+	public void setOrganization(String organization) {
+		this.organization = organization;
+	}
 	public String getPortCate() {
 		return portCate;
 	}
@@ -64,11 +70,11 @@ public class PortpolioVO {
 	public void setRate(String rate) {
 		this.rate = rate;
 	}
-	public String getProgNum() {
-		return progNum;
+	public String getPortFile() {
+		return portFile;
 	}
-	public void setProgNum(String progNum) {
-		this.progNum = progNum;
+	public void setPortFile(String portFile) {
+		this.portFile = portFile;
 	}
 	public String getPlNum() {
 		return plNum;
@@ -76,35 +82,27 @@ public class PortpolioVO {
 	public void setPlNum(String plNum) {
 		this.plNum = plNum;
 	}
+	public String getProgNum() {
+		return progNum;
+	}
+	public void setProgNum(String progNum) {
+		this.progNum = progNum;
+	}
 	public String getPlName() {
 		return plName;
 	}
 	public void setPlName(String plName) {
 		this.plName = plName;
 	}
-	
-	
-	
-	
-	public String getPortFile() {
-		return portFile;
-	}
-	public void setPortFile(String portFile) {
-		this.portFile = portFile;
-	}
-	public String getOrganization() {
-		return organization;
-	}
-	public void setOrganization(String organization) {
-		this.organization = organization;
-	}
 	@Override
 	public String toString() {
-		return "PortpolioVO [portNum=" + portNum + ", subject=" + subject + ", portCate=" + portCate
-				+ ", portDetailCate=" + portDetailCate + ", portContents=" + portContents + ", portStartDate="
-				+ portStartDate + ", portEndDate=" + portEndDate + ", rate=" + rate + ", progNum=" + progNum
-				+ ", plNum=" + plNum + ", plName=" + plName + "]";
+		return "PortpolioVO [portNum=" + portNum + ", subject=" + subject + ", organization=" + organization
+				+ ", portCate=" + portCate + ", portDetailCate=" + portDetailCate + ", portContents=" + portContents
+				+ ", portStartDate=" + portStartDate + ", portEndDate=" + portEndDate + ", rate=" + rate + ", portFile="
+				+ portFile + ", plNum=" + plNum + ", progNum=" + progNum + ", plName=" + plName + "]";
 	}
+	
+	
 	
 	
 	
