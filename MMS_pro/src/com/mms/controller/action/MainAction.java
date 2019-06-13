@@ -39,8 +39,10 @@ public class MainAction implements Action {
 
 		HttpSession session = request.getSession();
 
-		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser"); // login user의 속성을 가져온 뒤 pVo에 넣어줌.
-		String grant = pVo.getGrant(); // vo에 셋팅된 속성을 grant만 가져와서 새로운 grant에 대입 (모든 속성 중 grant만 가져오기)
+		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser"); 
+		
+		//vo에 셋팅된 속성을 grant만 가져와서 새로운 grant에 대입 (모든 속성 중 grant만 가져오기)
+		String grant = pVo.getGrant(); 
 		String progNum = pVo.getProgNum();
 
 		// grant 0 : 프로그래머
@@ -70,7 +72,9 @@ public class MainAction implements Action {
 			list = pDao.projectApplyList();
 			request.setAttribute("Plist", list);
 
-			// grant 1 : PM
+			
+			
+		// grant 1 : PM
 		} else 
 			if (grant.equals("1")) {
 
@@ -110,16 +114,14 @@ public class MainAction implements Action {
 
 			}
 
-			// grant 2 : 관리자
+		// grant 2 : 관리자
 			else 
 				if (grant.equals("2")) {
 
 					
 					//자격증
 					CertDAO certDao = CertDAO.getInstance();
-					
 					ArrayList<CertVO> certList = (ArrayList<CertVO>) certDao.selectCert();
-					
 					request.setAttribute("certList", certList);
 
 					
@@ -127,9 +129,7 @@ public class MainAction implements Action {
 					
 					//프로그래밍 언어
 					PlDAO plDao = PlDAO.getInstance();
-					
 					List<PlVO> plList = plDao.selectPl();
-					
 					request.setAttribute("plList", plList);
 					
 					

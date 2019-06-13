@@ -86,25 +86,18 @@ License: You must have a valid license purchased only from themeforest(the above
 												<td>${aVo.progName}</td>
 												<td>${aVo.applyPosition}</td>
 												<td>${aVo.applyDate}</td>
-												
-												
-												
-											
-												
-												<td>
-												<c:if test="${aVo.applyStat eq '승인대기' }">
+
+
+
+
+
+												<td><c:if test="${aVo.applyStat eq '승인대기' }">
 														<span class="kt-badge kt-badge--warning kt-badge--inline">${aVo.applyStat}</span>
-									                  </c:if> 
-									                  
-									                  <c:if test="${aVo.applyStat eq '승인' }">
+													</c:if> <c:if test="${aVo.applyStat eq '승인' }">
 														<span class="kt-badge kt-badge--success kt-badge--inline">${aVo.applyStat}</span>
-													</c:if> 
-													
-													<c:if test="${aVo.applyStat eq '거절' }">
+													</c:if> <c:if test="${aVo.applyStat eq '거절' }">
 														<span class="kt-badge kt-badge--danger kt-badge--inline">${aVo.applyStat}</span>
-													</c:if>
-													
-													</td>
+													</c:if></td>
 												<td><c:if test="${aVo.applyStat eq '승인대기' }">
 														<a href="#"><span
 															class="kt-badge kt-badge--primary kt-badge--inline"
@@ -218,7 +211,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<tr>
 
 													<td><a
-														href="prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}">${rVo.receiveSubject}</a></td>
+														onclick="window.open('prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${rVo.receiveSubject}</a></td>
 													<td>${rVo.receiveName}<input type="hidden"
 														value="${rVo.receiveName}"></td>
 
@@ -247,7 +240,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 													<td><a
 														onclick="window.open('prog?command=messageSendViewForm&sendNum=${sVo.sendNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${sVo.sendSubject}</a></td>
-													<td>${sVo.sendName}<input type="hidden" id="sendReceiver" value="${sVo.sendReceiver}"></td>
+													<td>${sVo.sendName}<input type="hidden"
+														id="sendReceiver" value="${sVo.sendReceiver}"></td>
 
 												</tr>
 											</c:forEach>
@@ -331,7 +325,9 @@ License: You must have a valid license purchased only from themeforest(the above
 											<td><span
 												class="kt-badge kt-badge--danger kt-badge--inline">종료</span></td>
 										</c:if>
-										<td><a href="#"><span class="kt-badge kt-badge--primary kt-badge--inline" onclick="openApplyPop('${pVo.projNum}','${LoginUser.progNum}')">신청</span></a>
+										<td><a href="#"><span
+												class="kt-badge kt-badge--primary kt-badge--inline"
+												onclick="openApplyPop('${pVo.projNum}','${LoginUser.progNum}')">신청</span></a>
 										</td>
 									</tr>
 								</c:forEach>
@@ -1173,46 +1169,38 @@ License: You must have a valid license purchased only from themeforest(the above
 		window.open(url, title, status);
 
 	}
-	
-	
-	
-	
-	function deleteApplyStmt(applyStmtNum){
+
+	function deleteApplyStmt(applyStmtNum) {
 		var applyStmtNum = applyStmtNum;
-		
-		if(confirm("신청 취소하시겠습니까?") == true){
-			location.href = "/proj?command=applyStmtDelete&applyStmtNum="+applyStmtNum;
+
+		if (confirm("신청 취소하시겠습니까?") == true) {
+			location.href = "/proj?command=applyStmtDelete&applyStmtNum="
+					+ applyStmtNum;
 			alert("취소되었습니다.");
-		}
-		else{
+		} else {
 			return false;
 		}
-		
+
 	}
-	
-	
-	
-	
-	
-	function openApplyPop(projNum, progNum){
+
+	function openApplyPop(projNum, progNum) {
 		var projNum = projNum;
 		var progNum = progNum;
-	    var width = "500"; 
-		var height = "440"; 
-		var top = (window.screen.height-height)/2; 
-		var left = (window.screen.width-width)/2; 
-		var url = "/proj?command=projectApplyFormAction&projNum="+projNum+"&progNum="+progNum; 
-		var title = "프로젝트 신청"; 
-		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+		var width = "500";
+		var height = "440";
+		var top = (window.screen.height - height) / 2;
+		var left = (window.screen.width - width) / 2;
+		var url = "/proj?command=projectApplyFormAction&projNum=" + projNum
+				+ "&progNum=" + progNum;
+		var title = "프로젝트 신청";
+		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
 
-	    
-	    window.open(url, title, status);
-	    
-	    
+		window.open(url, title, status);
+
 	}
-	
-	</script>
-	
+</script>
+
 
 
 
