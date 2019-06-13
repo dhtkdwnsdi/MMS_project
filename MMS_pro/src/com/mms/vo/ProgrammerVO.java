@@ -12,7 +12,6 @@ public class ProgrammerVO {
 	private String email;
 	private String tel;
 	private String photo;
-	private String gender;
 	private String birth;
 	private String juso;
 	private String extraJuso;
@@ -86,14 +85,6 @@ public class ProgrammerVO {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
 	}
 
 	public String getBirth() {
@@ -211,7 +202,7 @@ public class ProgrammerVO {
 	@Override
 	public String toString() {
 		return "ProgrammerVO [progNum=" + progNum + ", name=" + name + ", id=" + id + ", password=" + password
-				+ ", email=" + email + ", tel=" + tel + ", photo=" + photo + ", gender=" + gender + ", birth=" + birth
+				+ ", email=" + email + ", tel=" + tel + ", photo=" + photo +  ", birth=" + birth
 				+ ", juso=" + juso + ", extraJuso=" + extraJuso + ", bank=" + bank + ", account=" + account + ", grant="
 				+ grant + ", introduce1=" + introduce1 + ", introduce2=" + introduce2 + ", introduce3=" + introduce3
 				+ ", introduce4=" + introduce4 + ", introFile=" + introFile + ", grade=" + grade + ", messageNum="

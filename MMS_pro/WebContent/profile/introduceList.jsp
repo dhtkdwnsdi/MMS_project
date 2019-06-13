@@ -131,7 +131,8 @@ table, td, tr, th {
 										<div class="col-9">
 											<input type="file" class="custom-file-input" name="introFile"
 												> <label class="custom-file-label"
-												for="customFile" style="text-align: left;"></label>
+												for="customFile" style="text-align: left;">
+												<a href="/prog?command=introduceDownload&introFile=${progVo.introFile}">${progVo.introFile}</a></label>
 										</div>
 									</div>
 

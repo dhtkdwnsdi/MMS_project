@@ -16,9 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
-import com.mms.controller.action.ResumeFormAction;
-import com.mms.controller.action.memberSet.MemberUpdateFormAction;
+import com.mms.controller.action.memberSet.MemberUpdateAction;
 import com.mms.controller.action.portpolio.PortpolioRegisterAction;
+import com.mms.controller.action.portpolio.PortpolioUpdateAction;
 import com.mms.vo.PortpolioVO;
 import com.mms.vo.ProgrammerVO;
 import com.oreilly.servlet.MultipartRequest;
@@ -127,7 +127,7 @@ public class ProgrammerServlet extends HttpServlet {
 			
 			request.setAttribute("progVo", progVo);
 			
-			new MemberUpdateFormAction().execute(request, response);
+			new MemberUpdateAction().execute(request, response);
 			
 			
 			
@@ -231,8 +231,116 @@ public class ProgrammerServlet extends HttpServlet {
 			
 			request.setAttribute("portVo", portVo);
 			
-			new ResumeFormAction().execute(request, response);
+			new PortpolioUpdateAction().execute(request, response);
 		} 
+		
+		
+		
+		else if(command.equals("introduceUpdate")) {
+
+			ServletContext context = getServletContext();
+			System.out.println("context: " + context.getContextPath());
+			
+			String path = context.getRealPath("introFile");
+			
+			String encType = "UTF-8";
+			int sizeLimit = 20 * 1024 * 1024;
+			
+			//첨부파일 받아오는 객체 세팅
+			MultipartRequest multi = new MultipartRequest(request, path, sizeLimit, encType, new DefaultFileRenamePolicy());
+			
+			//parameter가져오기 
+			String progNum = multi.getParameter("progNum"); 
+			String introduce1 = multi.getParameter("introduce1"); 
+			String introduce2 = multi.getParameter("introduce2"); 
+			String introduce3 = multi.getParameter("introduce3"); 
+			String introduce4 = multi.getParameter("introduce4"); 
+			String introFile = multi.getFilesystemName("introFile"); 
+			
+			ProgrammerVO progVo = new ProgrammerVO(); 
+			
+			progVo.setProgNum(progNum); 
+			progVo.setIntroduce1(introduce1);
+			progVo.setIntroduce2(introduce2);
+			progVo.setIntroduce3(introduce3);
+			progVo.setIntroduce4(introduce4);
+			progVo.setIntroFile(introFile); 
+			
+			System.out.println("path: " + path);
+			System.out.println("fileName: " + introFile);
+			System.out.println("progVo: " + progVo);
+			
+			request.setAttribute("progVo", progVo);
+			
+			new PortpolioUpdateAction().execute(request, response);
+		} 
+		
+		
+		
+
+		else if(command.equals("introduceDownload")) {
+			
+			
+			request.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html; charset=UTF-8");
+			
+			String path = "D:\\MMS_osj\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MMS_pro\\introFile\\";
+			String fileName = request.getParameter("introFile");
+			String file = path + fileName;
+			String fileType = fileName.substring(fileName.lastIndexOf(".")+1);
+			
+			File f = new File(file);
+			if(f.exists()) {
+				
+				int filesize = (int)f.length();
+				byte buff[] = new byte[2048];
+				int bytesRead;
+				
+				try {
+					if (fileType.equals("hwp")){
+						  response.setContentType("application/x-hwp");
+						} else if (fileType.equals("pdf")){
+						  response.setContentType("application/pdf");
+						} else if (fileType.equals("ppt") || fileType.equals("pptx")){
+						  response.setContentType("application/vnd.ms-powerpoint");
+						} else if (fileType.equals("doc") || fileType.equals("docx")){
+						  response.setContentType("application/msword");
+						} else if (fileType.equals("xls") || fileType.equals("xlsx")){
+						  response.setContentType("application/vnd.ms-excel");
+						} else {
+						  response.setContentType("application/octet-stream");
+						}
+
+
+					response.setHeader("Content-Disposition","attachment; filename=" + fileName + ";");
+					FileInputStream fin = new java.io.FileInputStream(f);
+					BufferedInputStream bis = new BufferedInputStream(fin);
+					ServletOutputStream fout = response.getOutputStream();
+					BufferedOutputStream bos = new BufferedOutputStream(fout);
+					
+					while((bytesRead = bis.read(buff)) != -1) {
+						bos.write(buff, 0, bytesRead);
+						
+					}
+					bos.flush();
+					
+					fin.close();
+					fout.close();
+					bis.close();
+					bos.close();
+					
+				} catch (IOException e) {
+					response.setContentType("text/html; charset=UTF-8");
+					response.getWriter().println("Error : "+e.getMessage());
+					
+				}
+			} else {
+				response.setContentType("text/html; charset=UTF-8");
+				response.getWriter().println("File Not Found : " + file);
+				
+			}
+			
+		}
 		
 		
 		
@@ -300,6 +408,8 @@ public class ProgrammerServlet extends HttpServlet {
 			}
 			
 		}
+		
+		
 		
 		
 		

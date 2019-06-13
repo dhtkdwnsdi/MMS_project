@@ -181,7 +181,8 @@ License: You must have a valid license purchased only from themeforest(the above
 																	<div class="col-9">
 																	<div class="kt-input-icon kt-input-icon--right">
 																		<input type="file" class="custom-file-input" name="photo" id="photo">
-																	<label class="custom-file-label" for="customFile" style="text-align: left;">${LoginUser.photo}</label>
+																	<label class="custom-file-label" for="customFile" style="text-align: left;">
+																	${LoginUser.photo}</label>
 																	</div>
 																	</div>
 																</div>

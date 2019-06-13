@@ -88,30 +88,24 @@ public class IntroduceDAO extends DBManager {
 	}
 	
 	//자기소개서 수정
-	public boolean updateIntroduce(ProgrammerVO progVo) {
-		
-		boolean result = false;
+	public void updateIntroduce(ProgrammerVO progVo) {
 		
 		Connection conn = null;
 	    PreparedStatement pstmt = null;
 	    
+	    String sql = "UPDATE TBL_PROGRAMMER SERT"
+	    		+ "		     INTRODUCE1 = ?"
+	    		+ ",		 INTRODUCE2 = ?"
+	    		+ ",         INTRODUCE3 = ?"
+	    		+ ",         INTRODUCE4 = ?"
+	    		+ ",         INTRO_FILE = ?"
+	    		+ "	   WHERE PROG_NUM =?";	
 	    
 	    try {
 	    	
 	    	conn = getConnection();
-	    	conn.setAutoCommit(false);
+	    	pstmt = conn.prepareStatement(sql);
 	    	
-	    	StringBuffer sql = new StringBuffer();
-	    	
-	    	sql.append("UPDATE TBL_PROGRAMMER SET");
-	    	sql.append(" INTRODUCE1=?");
-	    	sql.append(" ,INTRODUCE2=?");
-	    	sql.append(" ,INTRODUCE3=?");
-	    	sql.append(" ,INTRODUCE4=?");
-	    	sql.append(" ,INTRO_FILE=?");
-	    	sql.append("WHERE PROG_NUM=?");
-	    	
-	    	pstmt = conn.prepareStatement(sql.toString());
 	    	pstmt.setString(1, progVo.getIntroduce1());
 	    	pstmt.setString(2, progVo.getIntroduce2());
 	    	pstmt.setString(3, progVo.getIntroduce3());
@@ -119,30 +113,18 @@ public class IntroduceDAO extends DBManager {
 	    	pstmt.setString(5, progVo.getIntroFile());
 	    	pstmt.setString(6, progVo.getProgNum());
 	    	
-	    	int flag = pstmt.executeUpdate();
-	    		if(flag > 0) {
-	    			result = true;
-	    			conn.commit(); // 완료시 커밋
-	    		}
-	    } catch (Exception e) {
-	         try {
-	                conn.rollback(); // 오류시 롤백
-	            } catch (SQLException sqle) {
-	                sqle.printStackTrace();
-	            }
-	            throw new RuntimeException(e.getMessage());
-	        }
-	      
-	    	try {
-	    		if(pstmt != null) pstmt.close();
-	    		if(conn != null) conn.close();
+	    	pstmt.executeUpdate();
 	    		
-	    	} catch (Exception e) {
-				e.printStackTrace();
-	    		// TODO: handle exception
+	    } catch (Exception e) {
+	    	e.printStackTrace();
+	        }finally {
+				try {
+					if(pstmt != null) pstmt.close();
+					if(conn != null) conn.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
-	    
-	      return result;
 	   }
 	
 		/*

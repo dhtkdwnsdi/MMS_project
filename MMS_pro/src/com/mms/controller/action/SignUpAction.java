@@ -24,7 +24,6 @@ public class SignUpAction implements Action {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String grade = request.getParameter("grade");
-		String gender = request.getParameter("gender");
 		String email = request.getParameter("email");
 		String tel = request.getParameter("tel");
 		String juso = request.getParameter("juso");
@@ -39,7 +38,6 @@ public class SignUpAction implements Action {
 		progVo.setId(id);
 		progVo.setPassword(password);
 		progVo.setGrade(grade);
-		progVo.setGender(gender);
 		progVo.setEmail(email);
 		progVo.setTel(tel);
 		progVo.setJuso(juso);
