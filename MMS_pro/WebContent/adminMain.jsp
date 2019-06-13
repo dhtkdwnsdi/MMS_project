@@ -42,69 +42,71 @@ License: You must have a valid license purchased only from themeforest(the above
 
 				<!--begin:: Widgets/Profit Share-->
 				<div class="kt-portlet kt-portlet--mobile">
-			<div class="kt-portlet__head kt-portlet__head--lg">
-				<div class="kt-portlet__head-label">
-					<span class="kt-portlet__head-icon"> </span>
-					<h3 class="kt-portlet__head-title">자격증 목록</h3>
-				</div>
-			</div>
-
-			<!--begin::Section-->
-			<div class="kt-portlet__body">
-				<form action="prog?command=certDelete" method="post">
-
-					<div class="kt-section">
-						<div class="kt-section__content">
-							<table class="table table-bordered">
-								<thead>
-									<tr>
-										<th><b>#</b></th>
-										<th><b>자격증명</b></th>
-										<th><b>발급기관</b></th>
-										<th><b>관리</b></th>
-									</tr>
-								</thead>
-
-								<c:forEach items="${certList}" var="CertVo" varStatus="listStat">
-									<tbody>
-										<tr>
-											<td scope="row">${listStat.count}<input type="hidden"
-												name="certNum" id="certNum" value="${CertVo.certNum}"></td>
-											<td>${CertVo.certName}</td>
-											<td>${CertVo.issueOrg}</td>
-											<td><a
-												href="prog?command=certDelete&certNum=${CertVo.certNum}"> <span
-													class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
-											</td>
-										</tr>
-									</tbody>
-								</c:forEach>
-							</table>
+					<div class="kt-portlet__head kt-portlet__head--lg">
+						<div class="kt-portlet__head-label">
+							<span class="kt-portlet__head-icon"> </span>
+							<h3 class="kt-portlet__head-title">자격증 목록</h3>
 						</div>
-						<!--end::Section-->
 					</div>
-					<div class="col-lg-2"></div>
-					<div class="kt-portlet__foot">
-						<div class="kt-form__actions kt-form__actions--right">
-							<div class="row">
-								<div class="col kt-align-right">
-									<button type="button" class="btn btn-brand"
-										onclick="openPopUp()">등록</button>
+
+					<!--begin::Section-->
+					<div class="kt-portlet__body">
+						<form action="prog?command=certDelete" method="post">
+
+							<div class="kt-section">
+								<div class="kt-section__content">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th><b>#</b></th>
+												<th><b>자격증명</b></th>
+												<th><b>발급기관</b></th>
+												<th><b>관리</b></th>
+											</tr>
+										</thead>
+
+										<c:forEach items="${certList}" var="CertVo"
+											varStatus="listStat">
+											<tbody>
+												<tr>
+													<td scope="row">${listStat.count}<input type="hidden"
+														name="certNum" id="certNum" value="${CertVo.certNum}"></td>
+													<td>${CertVo.certName}</td>
+													<td>${CertVo.issueOrg}</td>
+													<td><a
+														href="prog?command=certDelete&certNum=${CertVo.certNum}">
+															<span
+															class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span>
+													</a></td>
+												</tr>
+											</tbody>
+										</c:forEach>
+									</table>
+								</div>
+								<!--end::Section-->
+							</div>
+							<div class="col-lg-2"></div>
+							<div class="kt-portlet__foot">
+								<div class="kt-form__actions kt-form__actions--right">
+									<div class="row">
+										<div class="col kt-align-right">
+											<button type="button" class="btn btn-brand"
+												onclick="openPopUp()">등록</button>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
+						</form>
+						<!--end: Datatable -->
 					</div>
-				</form>
-				<!--end: Datatable -->
-			</div>
-		</div>
+				</div>
 
 				<!--end:: Widgets/Profit Share-->
 			</div>
 			<div class="col-xl-4">
 
 				<!--begin:: Widgets/Revenue Change-->
-								<div
+				<div
 					class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
 					id="kt_page_portlet">
 					<div class="kt-portlet__head kt-portlet__head--lg">
@@ -133,11 +135,10 @@ License: You must have a valid license purchased only from themeforest(the above
 														name="plNum" id="plNum" value="${plVo.plNum}"></th>
 													<%-- <td>${plVo.plNum}<input type="hidden" name="plNum" id="plNum" value="${plVo.plNum}"></td> --%>
 													<td>${plVo.plName}</td>
-													<td>
-														<a href="prog?command=plDelete&plNum=${plVo.plNum}">
-															<span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span>
-														</a>
-													</td>
+													<td><a
+														href="prog?command=plDelete&plNum=${plVo.plNum}"> <span
+															class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span>
+													</a></td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -219,7 +220,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<tr>
 
 													<td><a
-														href="prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}">${rVo.receiveSubject}</a></td>
+														onclick="window.open('prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${rVo.receiveSubject}</a></td>
 													<td>${rVo.receiveName}</td>
 
 												</tr>
@@ -247,7 +248,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 													<td><a
 														onclick="window.open('prog?command=messageSendViewForm&sendNum=${sVo.sendNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${sVo.sendSubject}</a></td>
-													<td>${sVo.sendName}<input type="hidden" id="sendReceiver" value="${sVo.sendReceiver}"></td>
+													<td>${sVo.sendName}<input type="hidden"
+														id="sendReceiver" value="${sVo.sendReceiver}"></td>
 
 												</tr>
 											</c:forEach>
