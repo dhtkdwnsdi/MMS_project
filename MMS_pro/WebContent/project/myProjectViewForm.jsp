@@ -374,7 +374,7 @@ font-weight: bold;
                                                    ${mVo.applyPosition}
                                                 </p>
                                              </div>
-                                             <a class="btn btn-sm btn-label-brand btn-bold Message">Message</a>
+                                             <a class="btn btn-sm btn-label-brand btn-bold Message" onclick=msgPopUp('${mVo.progNum}','${mVo.progName}')>Message</a>
                                           </div>
                                          </c:forEach>
                                        </div>
@@ -558,6 +558,23 @@ $(document).ready(
 				
 			});
 		});
+		
+function msgPopUp(progNum,progName){
+	var sendReceiver = progNum;
+	var sendName = progName;
+	
+    var width = "800"; 
+	var height = "555"; 
+	var top = (window.screen.height-height)/2; 
+	var left = (window.screen.width-width)/2; 
+	var url = "/prog?command=messageRegisterForm&sendReceiver="+sendReceiver+"&sendName="+sendName; 
+	var title = "메세지 보내기"; 
+	var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+    
+    window.open(url, title, status);
+    
+}
 		
 </script>
 </html>

@@ -202,5 +202,46 @@ public class ProgrammerDAO extends DBManager {
 		}
 		}
 		
-	
+		//프로그래머 이름 검색
+		public ArrayList<ProgrammerVO> readProgName(String name){
+			
+			ArrayList<ProgrammerVO> progList = new ArrayList<ProgrammerVO>();
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			String sql = "SELECT PROG_NUM, NAME, ID FROM TBL_PROGRAMMER WHERE NAME LIKE '%" + name + "%'";
+			
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					
+					ProgrammerVO pVo = new ProgrammerVO();
+					
+					pVo.setProgNum(rs.getString("PROG_NUM"));
+					pVo.setName(rs.getString("NAME"));
+					pVo.setId(rs.getString("ID"));
+					
+					progList.add(pVo);
+				}
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					if(pstmt != null)
+						pstmt.close();
+					if(conn != null)
+						conn.close();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			return progList;
+			
+			
+		}
 }

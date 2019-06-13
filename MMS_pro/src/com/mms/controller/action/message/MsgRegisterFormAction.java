@@ -13,17 +13,17 @@ import com.mms.vo.SendMsgVO;
 
 public class MsgRegisterFormAction implements Action {
 
-	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String url = "profile/messageRegisterForm.jsp";
-		
-		System.out.println(url);
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
-		
+   @Override
+   public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      // TODO Auto-generated method stub
+      String url = "profile/messageRegisterForm.jsp";
+      
+      System.out.println(url);
+      
+      RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+      dispatcher.forward(request, response);
+      
 
-	}
+   }
 
 }

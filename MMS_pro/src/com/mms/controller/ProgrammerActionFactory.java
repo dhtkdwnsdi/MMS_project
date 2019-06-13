@@ -35,6 +35,7 @@ import com.mms.controller.action.message.MessageSendViewFormAction;
 import com.mms.controller.action.message.MsgRegisterFormAction;
 import com.mms.controller.action.message.ProgrammerSearchFormAction;
 import com.mms.controller.action.message.ReceiveMsgDeleteAction;
+import com.mms.controller.action.message.SearchProgAction;
 import com.mms.controller.action.message.SendMsgDeleteAction;
 import com.mms.controller.action.myCert.MyCertDeleteAction;
 import com.mms.controller.action.myCert.MyCertListFormAction;
@@ -233,12 +234,14 @@ public class ProgrammerActionFactory {
 			action = new MessageRegisterAction(); 
 		} else if (command.equals("messageRegisterForm")) {
 			action = new MessageRegisterFormAction();
-		} else if (command.equals("msgRegisterForm")) {
-			action= new MsgRegisterFormAction();
 		} else if (command.equals("receiveMsgDelete")) {
 			action = new ReceiveMsgDeleteAction();
 		} else if (command.equals("sendMsgDelete")) {
 			action = new SendMsgDeleteAction();
+		} else if (command.equals("msgRegisterForm")) {
+			action = new MsgRegisterFormAction();
+		} else if (command.equals("searchProg")) {
+			action = new SearchProgAction();
 		}
 
 		return action;

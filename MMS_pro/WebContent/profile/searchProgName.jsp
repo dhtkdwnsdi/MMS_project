@@ -137,27 +137,26 @@
 			<!--begin: Search Form -->
 			<div
 				class="kt-form kt-form--label-right kt-margin-t-20 kt-margin-b-10">
-				<div class="row align-items-center">
-					<div class="col-xl-8 order-2 order-xl-1">
-						<div class="row align-items-center">
-							<div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
-								<div class="kt-input-icon kt-input-icon--left">
-									<input type="text" class="form-control" placeholder="Search..."
-										id="generalSearch"> <span
-										class="kt-input-icon__icon kt-input-icon__icon--left">
-										<span><i class="la la-search"></i></span>
-									</span>
-								</div>
-							</div>
-						</div>
-					</div>
+				
+					<form method = "post" action="prog?command=searchProg">
+				<div class="kt-input-icon kt-input-icon--right">
+				<input type="text" class="form-control" id="name" name="name"> 
+					<span class="kt-input-icon__icon kt-input-icon__icon--right">
+							<span>
+									<button type="submit" class="btn btn-outline-hover-danger btn-icon">
+											<i class="la la-search"></i>
+									</button>
+							</span>
+					</span>
 				</div>
+				</form>
+				
 			</div>
 			<div class="kt-portlet__body">
 				<form name="frm" method="post">
 					<div class="kt-section">
 						<div class="kt-section__content">
-							<table class="table table-bordered">
+							<table class="table table-bordered" style="text-align: center;">
 								<thead>
 									<tr>
 										<th><b>#</b></th>
