@@ -190,7 +190,6 @@ font-weight: bold;
 				</div>
 			<!-- begin:: Footer -->
 					
-					<%@ include file="../include/footer.jsp" %>
 
 			<!-- end:: Footer -->
 		<!-- end:: Page -->
