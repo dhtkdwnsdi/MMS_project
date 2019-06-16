@@ -67,6 +67,9 @@ License: You must have a valid license purchased only from themeforest(the above
 
 										<c:forEach items="${certList}" var="CertVo"
 											varStatus="listStat">
+											
+											<c:if test="${listStat.count < 6}">
+											
 											<tbody>
 												<tr>
 													<td scope="row">${listStat.count}<input type="hidden"
@@ -80,6 +83,7 @@ License: You must have a valid license purchased only from themeforest(the above
 													</a></td>
 												</tr>
 											</tbody>
+											</c:if>
 										</c:forEach>
 									</table>
 								</div>
@@ -130,6 +134,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</thead>
 										<tbody style="text-align: center;">
 											<c:forEach items="${plList}" var="plVo" varStatus="listStat">
+											<c:if test="${listStat.count < 6}">
 												<tr>
 													<th scope="row">${listStat.count}<input type="hidden"
 														name="plNum" id="plNum" value="${plVo.plNum}"></th>
@@ -140,6 +145,7 @@ License: You must have a valid license purchased only from themeforest(the above
 															class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span>
 													</a></td>
 												</tr>
+												</c:if>
 											</c:forEach>
 										</tbody>
 									</table>
@@ -217,6 +223,9 @@ License: You must have a valid license purchased only from themeforest(the above
 										<tbody style="text-align: center;">
 											<c:forEach items="${ReceiveMessageList}" var="rVo"
 												varStatus="listStat">
+												
+												<c:if test="${listStat.count < 6}">
+												
 												<tr>
 
 													<td><a
@@ -224,6 +233,7 @@ License: You must have a valid license purchased only from themeforest(the above
 													<td>${rVo.receiveName}</td>
 
 												</tr>
+												</c:if>
 											</c:forEach>
 										</tbody>
 									</table>
@@ -244,6 +254,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										<tbody style="text-align: center;">
 											<c:forEach items="${SendMessageList}" var="sVo"
 												varStatus="listStat">
+												<c:if test="${listStat.count < 6}">
 												<tr>
 
 													<td><a
@@ -252,6 +263,7 @@ License: You must have a valid license purchased only from themeforest(the above
 														id="sendReceiver" value="${sVo.sendReceiver}"></td>
 
 												</tr>
+												</c:if>
 											</c:forEach>
 										</tbody>
 									</table>

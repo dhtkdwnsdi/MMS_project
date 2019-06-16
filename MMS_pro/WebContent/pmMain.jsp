@@ -81,6 +81,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										<c:forEach items="${aList}" var="pVo" varStatus="listStat">
 											<tr>
 												<th scope="row">${listStat.count}</th>
+												<c:if test="${listStat.count < 6}">
 												<td><a
 													href="/proj?command=myProjectViewForm&projNum=${pVo.projNum}">${pVo.projName}</a></td>
 												<td>${pVo.progName}</td>
@@ -96,6 +97,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<c:if test="${pVo.projStat eq '종료' }">
 													<td><span
 														class="kt-badge kt-badge--danger kt-badge--inline">종료</span></td>
+												</c:if>
 												</c:if>
 											</tr>
 										</c:forEach>
@@ -122,7 +124,9 @@ License: You must have a valid license purchased only from themeforest(the above
 									<tbody style="text-align: center;">
 										<c:forEach items="${pPList}" var="pVo" varStatus="listStat">
 											<tr>
+											<c:if test="${listStat.count < 6}">
 												<th scope="row">${listStat.count}</th>
+		
 												<td><a
 													href="/proj?command=myProjectViewForm&projNum=${pVo.projNum}">${pVo.projName}</a></td>
 												<td>${pVo.progName}</td>
@@ -138,6 +142,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<c:if test="${pVo.projStat eq '종료' }">
 													<td><span
 														class="kt-badge kt-badge--danger kt-badge--inline">종료</span></td>
+												</c:if>
 												</c:if>
 											</tr>
 										</c:forEach>
@@ -162,6 +167,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<tbody style="text-align: center;">
 										<c:forEach items="${ePList}" var="eVo" varStatus="listStat">
 											<tr>
+											<c:if test="${listStat.count < 6}">
 												<th scope="row">${listStat.count}</th>
 												<td><a
 													href="/proj?command=myProjectViewForm&projNum=${pVo.projNum}">${eVo.projName}</a></td>
@@ -178,6 +184,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<c:if test="${eVo.projStat eq '종료' }">
 													<td><span
 														class="kt-badge kt-badge--danger kt-badge--inline">종료</span></td>
+												</c:if>
 												</c:if>
 											</tr>
 										</c:forEach>
@@ -237,17 +244,21 @@ License: You must have a valid license purchased only from themeforest(the above
 											</tr>
 										</thead>
 										<tbody style="text-align: center;">
-											<c:forEach items="${ReceiveMessageList}" var="rVo"
-												varStatus="listStat">
-												<tr>
-
-													<td><a
+												<c:forEach items="${ReceiveMessageList}" var="rVo"
+													varStatus="listStat">
+													
+													<c:if test="${listStat.count < 6}">
+													
+													<tr>
+                                      
+														<td><a
 														onclick="window.open('prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${rVo.receiveSubject}</a></td>
-													<td>${rVo.receiveName}</td>
+														<td>${rVo.receiveName}</td>
 
-												</tr>
-											</c:forEach>
-										</tbody>
+													</tr>
+													</c:if>
+												</c:forEach>
+											</tbody>
 									</table>
 
 								</form>
@@ -262,19 +273,23 @@ License: You must have a valid license purchased only from themeforest(the above
 												<th style="font-weight: bold;">받는 사람</th>
 
 											</tr>
-										</thead>
-										<tbody style="text-align: center;">
-											<c:forEach items="${SendMessageList}" var="sVo"
-												varStatus="listStat">
-												<tr>
+									<tbody style="text-align: center;">
+												<c:forEach items="${SendMessageList}" var="sVo"
+													varStatus="listStat">
+													<c:if test="${listStat.count < 6}">
+													
+													<tr>
 
-													<td><a onclick="window.open('prog?command=messageSendViewForm&sendNum=${sVo.sendNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${sVo.sendSubject}</a></td>
-													<td>${sVo.sendName}<input type="hidden"
-														id="sendReceiver" value="${sVo.sendReceiver}"></td>
+														<td><a
+														onclick="window.open('prog?command=messageSendViewForm&sendNum=${sVo.sendNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${sVo.sendSubject}</a></td>
+														<td>${sVo.sendName}<input type="hidden"
+															id="sendReceiver" value="${sVo.sendReceiver}"></td>
 
-												</tr>
-											</c:forEach>
-										</tbody>
+													</tr>
+												</c:if>
+												</c:forEach>
+												
+											</tbody>
 									</table>
 
 								</form>
@@ -338,59 +353,67 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 								<table class="table table-bordered table-hover">
-									<thead style="text-align: center;">
-										<tr>
-											<th>#</th>
-											<th style="font-weight: bold;">프로젝트 명</th>
-											<th style="font-weight: bold;">신청자 명</th>
-											<th style="font-weight: bold;">지원 직무</th>
-											<th style="font-weight: bold;">신청 날짜</th>
-											<th style="font-weight: bold;">상태</th>
-											<th style="font-weight: bold;">승인여부</th>
-										</tr>
-									</thead>
-									<tbody style="text-align: center;">
-										<c:forEach items="${acceptList}" var="acVo"
-											varStatus="listStat">
+										<thead style="text-align: center;">
 											<tr>
-												<th scope="row">${listStat.count}</th>
-												<td>${acVo.projName}</td>
-												<td><a href="#">${acVo.progName}</a></td>
-												<td>${acVo.applyPosition}</td>
-												<td>${acVo.applyDate}</td>
-												<c:if test="${acVo.applyStat eq '승인' }">
-													<td><span
-														class="kt-badge kt-badge--success kt-badge--inline">승인</span></td>
-												</c:if>
-												<c:if test="${acVo.applyStat eq '승인대기' }">
-													<td><span
-														class="kt-badge kt-badge--warning kt-badge--inline">승인대기</span></td>
-												</c:if>
-												<c:if test="${acVo.applyStat eq '거절' }">
-													<td><span
-														class="kt-badge kt-badge--danger kt-badge--inline">거절</span></td>
-												</c:if>
-												<c:if
-													test="${acVo.applyStat eq '승인대기' and acVo.projStat eq '모집'}">
-													<td><span
-														class="kt-badge kt-badge--success kt-badge--inline"
-														onclick="acceptApply('${acVo.applyStmtNum}')">승인</span> <span
-														class="kt-badge kt-badge--danger kt-badge--inline"
-														onclick="denyApply('${acVo.applyStmtNum}')">거절</span></td>
-												</c:if>
-												<c:if
-													test="${acVo.applyStat ne '승인대기' or acVo.projStat ne '모집'}">
-													<td>-</td>
-												</c:if>
+												<th>#</th>
+												<th style="font-weight: bold;">프로젝트 명</th>
+												<th style="font-weight: bold;">신청자 명</th>
+												<th style="font-weight: bold;">지원 직무</th>
+												<th style="font-weight: bold;">신청 날짜</th>
+												<th style="font-weight: bold;">상태</th>
+												<th style="font-weight: bold;">승인여부</th>
 											</tr>
-										</c:forEach>
-										<c:if test="${empty acceptList}">
-											<tr>
-												<td colspan="10">내역이 없습니다</td>
-											</tr>
-										</c:if>
-									</tbody>
-								</table>
+										</thead>
+										<tbody style="text-align: center;">
+											
+												<c:forEach items="${acceptList}" var="acVo" varStatus="listStat">
+												
+												<tr>
+												<c:if test="${listStat.count < 6}">
+												
+													<th scope="row">${listStat.count}</th>
+													<td>${acVo.projName}</td>
+													<td><a href="#">${acVo.progName}</a></td>
+													<td>${acVo.applyPosition}</td>
+													<td>${acVo.applyDate}</td>
+													<c:if test="${acVo.applyStat eq '승인' }">
+														<td><span
+															class="kt-badge kt-badge--success kt-badge--inline">승인</span></td>
+													</c:if>
+													<c:if test="${acVo.applyStat eq '승인대기' }">
+														<td><span
+															class="kt-badge kt-badge--warning kt-badge--inline">승인대기</span></td>
+													</c:if>
+													<c:if test="${acVo.applyStat eq '거절' }">
+														<td><span
+															class="kt-badge kt-badge--danger kt-badge--inline">거절</span></td>
+													</c:if>
+													<c:if
+														test="${acVo.applyStat eq '승인대기' and acVo.projStat eq '모집'}">
+														<td><span
+															class="kt-badge kt-badge--success kt-badge--inline"
+															onclick="acceptApply('${acVo.applyStmtNum}')">승인</span> <span
+															class="kt-badge kt-badge--danger kt-badge--inline"
+															onclick="denyApply('${acVo.applyStmtNum}')">거절</span></td>
+													</c:if>
+													<c:if
+														test="${acVo.applyStat ne '승인대기' or acVo.projStat ne '모집'}">
+														<td>-</td>
+													</c:if>
+													</c:if>
+												</tr>
+											
+											</c:forEach>
+											
+											<c:if test="${empty acceptList}">
+												<tr>
+													<td colspan="10">내역이 없습니다</td>
+												</tr>
+											</c:if>
+										
+										</tbody>
+									
+									</table>
 
 
 
@@ -413,6 +436,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<tbody style="text-align: center;">
 										<c:forEach items="${allList}" var="aVo" varStatus="listStat">
 											<tr>
+											<c:if test="${listStat.count < 6}">
 												<th scope="row">${listStat.count}</th>
 												<td>${aVo.projName}</td>
 												<td><a href="#">${aVo.progName}</a></td>
@@ -442,14 +466,18 @@ License: You must have a valid license purchased only from themeforest(the above
 												<c:if
 													test="${aVo.applyStat ne '승인대기' or aVo.projStat ne '모집'}">
 													<td>-</td>
+													</c:if>
 												</c:if>
 											</tr>
+											
 										</c:forEach>
 										<c:if test="${empty allList}">
 											<tr>
 												<td colspan="10">내역이 없습니다</td>
+												
 											</tr>
 										</c:if>
+										
 									</tbody>
 								</table>
 
