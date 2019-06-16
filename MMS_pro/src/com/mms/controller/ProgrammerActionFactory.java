@@ -2,6 +2,7 @@ package com.mms.controller;
 
 import com.mms.controller.action.Action;
 import com.mms.controller.action.ProfileFormAction;
+import com.mms.controller.action.ProfilePopupAction;
 import com.mms.controller.action.ResumeFormAction;
 import com.mms.controller.action.career.CareerDeleteAction;
 import com.mms.controller.action.career.CareerListFormAction;
@@ -242,6 +243,9 @@ public class ProgrammerActionFactory {
 			action = new MsgRegisterFormAction();
 		} else if (command.equals("searchProg")) {
 			action = new SearchProgAction();
+		}
+		else if(command.equals("profilePopup")) {
+			action = new ProfilePopupAction();
 		}
 
 		return action;
