@@ -181,6 +181,10 @@ License: You must have a valid license purchased only from themeforest(the above
 																	<i class="kt-nav__link-icon flaticon2-avatar"></i>
 																	<span class="kt-nav__link-text">이력서</span>
 																	</a>
+																	<a class="dropdown-item" href="#" onclick="openIntroducePopup('${dVo.progNum}')">
+																	<i class="flaticon-avatar"></i>
+																	<span class="kt-nav__link-text">자기소개서</span>
+																	</a>
 																	<a class="dropdown-item" href="#" onclick="msgPopUp('${dVo.progNum}', '${dVo.progName}')">
 																	<i class="kt-nav__link-icon flaticon2-send"></i>
 																	<span class="kt-nav__link-text">메세지</span>
@@ -410,9 +414,25 @@ $("#search").click(function(){
 					var eachrow = "<tr>"
 								+ "<td>" + "<input type=\"checkbox\" class=\"checkBox1\" name=\"check\" value=\"" + value.progNum + "\"" + ">"
 								+ "</td>"
-								+ "<td>" + "<a href=\"#\">" 
+								+ "<td>" + "<a href=\"#\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">" 
 								+ value.id
 								+ "</a>"
+								
+								+ "<div class=\"dropdown-menu\">"
+								+ "<a class=\"dropdown-item\" href=\"#\" onclick=\"openProfilePopup('" + value.progNum + "')\">"
+								+ "<i class=\"kt-nav__link-icon flaticon2-avatar\"></i>"
+								+ "<span class=\"kt-nav__link-text\">이력서</span></a>"
+								
+								+ "<a class=\"dropdown-item\" href=\"#\" onclick=\"openIntroducePopup('" + value.progNum + "')\">"
+								+ "<i class=\"flaticon-avatar\"></i>"
+								+ "<span class=\"kt-nav__link-text\">자기소개서</span></a>"
+								
+								+ "<a class=\"dropdown-item\" href=\"#\" onclick=\"msgPopUp('" + value.progNum + "', '" + value.progName + "')\">"
+								+ "<i class=\"kt-nav__link-icon flaticon2-send\"></i>"
+								+ "<span class=\"kt-nav__link-text\">메세지</span></a>"
+								+ "</div>"
+								
+								
 								+ "</td>"
 								+ "<td>" + value.progName + "</td>"
 								+ "<td>" + value.grade + "</td>"
@@ -450,13 +470,13 @@ $("#deploy").click(function(){
 		var tr = checkbox.parent().parent().eq(i);
 		var td = tr.children();
 		var progNum = $(this).val();
-		var id = td.eq(1).text();
+		var id = td.eq(1).html();
 		var name = td.eq(2).text();
 		var grade = td.eq(3).text();
 		var plName = td.eq(4).text();
 		var row = "<tr>"
 				+ "<td>" + "<input type=\"checkbox\" class=\"checkBox2\" name=\"check2\" value=\"" + progNum + "\"" + ">" + "</td>"
-				+ "<td>" + "<a href=\"#\">" + id + "</a>" + "</td>"
+				+ "<td>" + id + "</td>"
 				+ "<td>" + name + "</td>"
 				+ "<td>" + grade + "</td>"
 				+ "<td>" + plName + "</td>"
@@ -498,6 +518,28 @@ function openProfilePopup(progNum)
 	  var top = (window.screen.height-height)/2; 
 	  var left = (window.screen.width-width)/2; 
  	  var url = "/prog?command=profilePopup&progNum="+progNum; 
+	  var title = "프로젝트 인력배치"; 
+	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+      window.open(url, title, status);
+
+
+  
+    /* window.open("memberUpdateForm.jsp",
+            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
+}
+
+function openIntroducePopup(progNum)
+{
+	var progNum = progNum;
+    // window.name = "부모창 이름"; 
+      window.name = "parentForm";
+    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+      var width = "800"; 
+	  var height = "700"; 
+	  var top = (window.screen.height-height)/2; 
+	  var left = (window.screen.width-width)/2; 
+ 	  var url = "/prog?command=introducePopup&progNum="+progNum; 
 	  var title = "프로젝트 인력배치"; 
 	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 

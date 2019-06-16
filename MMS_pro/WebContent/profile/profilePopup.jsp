@@ -27,7 +27,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	</style>
 	
 	<meta charset="utf-8" />
-		<title>PMMS | 프로젝트 인력 직접배치</title>
+		<title>PMMS | 프로필</title>
 		<meta name="description" content="Base form control examples">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

@@ -24,6 +24,7 @@ import com.mms.controller.action.grant.GrantListFormAction;
 import com.mms.controller.action.grant.GrantUpdateAction;
 import com.mms.controller.action.grant.GrantUpdateFormAction;
 import com.mms.controller.action.introduce.IntroduceFormAction;
+import com.mms.controller.action.introduce.IntroducePopupAction;
 import com.mms.controller.action.introduce.IntroduceUpdateAction;
 import com.mms.controller.action.introduce.IntroduceUpdateFormAction;
 import com.mms.controller.action.memberSet.MemberUpdateAction;
@@ -246,6 +247,9 @@ public class ProgrammerActionFactory {
 		}
 		else if(command.equals("profilePopup")) {
 			action = new ProfilePopupAction();
+		}
+		else if(command.equals("introducePopup")) {
+			action = new IntroducePopupAction();
 		}
 
 		return action;
