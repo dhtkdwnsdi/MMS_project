@@ -177,7 +177,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td><input type="checkbox" class="checkBox1" name="check" value="${dVo.progNum}"></td>
 																<td><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${dVo.id}</a>
 																	<div class="dropdown-menu">
-																	<a class="dropdown-item" href="#">
+																	<a class="dropdown-item" href="#" onclick="openProfilePopup('${dVo.progNum}')">
 																	<i class="kt-nav__link-icon flaticon2-avatar"></i>
 																	<span class="kt-nav__link-text">이력서</span>
 																	</a>
@@ -485,6 +485,28 @@ function msgPopUp(progNum,progName){
     
     window.open(url, title, status);
     
+}
+
+function openProfilePopup(progNum)
+{
+	var progNum = progNum;
+    // window.name = "부모창 이름"; 
+      window.name = "parentForm";
+    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+      var width = "800"; 
+	  var height = "700"; 
+	  var top = (window.screen.height-height)/2; 
+	  var left = (window.screen.width-width)/2; 
+ 	  var url = "/prog?command=profilePopup&progNum="+progNum; 
+	  var title = "프로젝트 인력배치"; 
+	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+      window.open(url, title, status);
+
+
+  
+    /* window.open("memberUpdateForm.jsp",
+            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
 }
 
 </script>
