@@ -80,6 +80,9 @@ License: You must have a valid license purchased only from themeforest(the above
 									<tbody style="text-align: center;">
 										<c:forEach items="${myApplyAllList}" var="aVo"
 											varStatus="listStat">
+											
+											<c:if test="${listStat.count < 6}">
+											
 											<tr>
 												<th scope="row">${listStat.count}</th>
 												<td>${aVo.projName}</td>
@@ -107,6 +110,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                               	-
 			                                               	</c:if></td>
 											</tr>
+											</c:if>
 										</c:forEach>
 										<c:if test="${empty myApplyAllList}">
 											<tr>
@@ -132,6 +136,9 @@ License: You must have a valid license purchased only from themeforest(the above
 									<tbody style="text-align: center;">
 										<c:forEach items="${myApplyWaitList}" var="aVo"
 											varStatus="listStat">
+											
+											<c:if test="${listStat.count < 6}">
+											
 											<tr>
 												<th scope="row">${listStat.count}</th>
 												<td>${aVo.projName}</td>
@@ -145,6 +152,7 @@ License: You must have a valid license purchased only from themeforest(the above
 														onclick="deleteApplyStmt('${aVo.applyStmtNum}')">신청
 															취소</span></a></td>
 											</tr>
+											</c:if>
 										</c:forEach>
 										<c:if test="${empty myApplyWaitList}">
 											<td colspan="7">내역이 없습니다</td>
@@ -208,6 +216,9 @@ License: You must have a valid license purchased only from themeforest(the above
 										<tbody style="text-align: center;">
 											<c:forEach items="${ReceiveMessageList}" var="rVo"
 												varStatus="listStat">
+												
+												<c:if test="${listStat.count < 6}">
+												
 												<tr>
 
 													<td><a
@@ -216,6 +227,7 @@ License: You must have a valid license purchased only from themeforest(the above
 														value="${rVo.receiveName}"></td>
 
 												</tr>
+												</c:if>
 											</c:forEach>
 										</tbody>
 									</table>
@@ -236,6 +248,9 @@ License: You must have a valid license purchased only from themeforest(the above
 										<tbody style="text-align: center;">
 											<c:forEach items="${SendMessageList}" var="sVo"
 												varStatus="listStat">
+												
+												<c:if test="${listStat.count < 6}">
+												
 												<tr>
 
 													<td><a
@@ -244,6 +259,7 @@ License: You must have a valid license purchased only from themeforest(the above
 														id="sendReceiver" value="${sVo.sendReceiver}"></td>
 
 												</tr>
+												</c:if>
 											</c:forEach>
 										</tbody>
 									</table>
@@ -304,8 +320,9 @@ License: You must have a valid license purchased only from themeforest(the above
 								<c:forEach items="${Plist}" var="pVo" varStatus="listStat">
 									<tr>
 										<th scope="row">${listStat.count}</th>
-										<%-- <td>${pVo.projCate}</td>
-			                                                <td>${pVo.projDetailCate}</td> --%>
+										
+										<c:if test="${listStat.count < 6}">
+										
 										<td><a
 											href="proj?command=projectApplyViewForm&projNum=${pVo.projNum}">${pVo.projName}</a></td>
 										<td>${pVo.startDuedate}</td>
@@ -329,7 +346,9 @@ License: You must have a valid license purchased only from themeforest(the above
 												class="kt-badge kt-badge--primary kt-badge--inline"
 												onclick="openApplyPop('${pVo.projNum}','${LoginUser.progNum}')">신청</span></a>
 										</td>
+										</c:if>
 									</tr>
+								
 								</c:forEach>
 								<c:if test="${empty Plist}">
 									<td colspan="10">내역이 없습니다</td>
