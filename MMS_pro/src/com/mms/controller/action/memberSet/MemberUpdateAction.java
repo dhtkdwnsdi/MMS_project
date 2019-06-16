@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.LogoutAction;
 import com.mms.dao.SignUpDAO;
 import com.mms.vo.ProgrammerVO;
 
@@ -20,6 +21,7 @@ public class MemberUpdateAction implements Action {
 		System.out.println("progVo: " + progVo);
 		
 		sDao.updateUser(progVo);
+		
 		
        /* int fileSize= 5*1024*1024;
         // 업로드될 폴더 경로

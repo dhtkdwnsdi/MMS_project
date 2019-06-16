@@ -52,6 +52,7 @@ import com.mms.controller.action.pl.PlSearchFormAction;
 import com.mms.controller.action.pl.SearchPlNameAction;
 import com.mms.controller.action.pls.PlsDeleteAction;
 import com.mms.controller.action.pls.PlsRegisterAction;
+import com.mms.controller.action.pls.PlsUpdateAction;
 import com.mms.controller.action.pls.PlsUpdateFormAction;
 import com.mms.controller.action.portpolio.PortpolioDeleteAction;
 import com.mms.controller.action.portpolio.PortpolioListFormAction;
@@ -139,6 +140,9 @@ public class ProgrammerActionFactory {
 			action = new PlsDeleteAction();	
 		}else if(command.equals("plsUpdateForm")) {
 			action = new PlsUpdateFormAction();	
+		}
+		else if(command.equals("plsUpdate")) {
+			action = new PlsUpdateAction();	
 		}
 		else if(command.equals("searchPlName")) {
 			action = new SearchPlNameAction();	

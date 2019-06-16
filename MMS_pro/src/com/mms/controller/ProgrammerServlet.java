@@ -94,6 +94,7 @@ public class ProgrammerServlet extends HttpServlet {
 			String tel = multi.getParameter("tel");
 			String bank = multi.getParameter("bank");
 			String account = multi.getParameter("account");
+			String grade = multi.getParameter("grade");
 			String photo = multi.getFilesystemName("photo");
 			String progNum = multi.getParameter("progNum");
 			

@@ -336,7 +336,8 @@ public class SignUpDAO extends DBManager {
 				+ "	  		 TEL = ?, "
 				+ "			 BANK = ?, "
 				+ "			 ACCOUNT = ?, "
-				+ "			 PHOTO = ?"
+				+ "			 PHOTO = ?,"
+				+ "			 GRADE = ?"
 				+ "    WHERE PROG_NUM = ?";
 		
 		try {
@@ -353,7 +354,8 @@ public class SignUpDAO extends DBManager {
 			pstmt.setString(8, progVo.getBank());
 			pstmt.setString(9, progVo.getAccount());
 			pstmt.setString(10, progVo.getPhoto());
-			pstmt.setString(11, progVo.getProgNum());
+			pstmt.setString(11, progVo.getGrade());
+			pstmt.setString(12, progVo.getProgNum());
 			
 			pstmt.executeUpdate();
 			

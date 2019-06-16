@@ -174,7 +174,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
 									<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
 									<div class="input-group">
-													<select name="grade" class="form-control" id="exampleSelect1">
+													<select name="grade" class="form-control">
 														<option value="1">초급 기능사</option>
 														<option value="2">중급 기능사</option>
 														<option value="3">고급 기능사</option>

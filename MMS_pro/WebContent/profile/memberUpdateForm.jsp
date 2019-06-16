@@ -164,7 +164,47 @@ License: You must have a valid license purchased only from themeforest(the above
 																		</div>
 																	</div>
 																</div>
-																<div class="form-group row">
+											<div class="form-group row">
+												<label class="col-3 col-form-label">등급</label>
+												<div class="col-9">
+													<select name="grade" class="form-control">
+													<c:if test="${LoginUser.grade eq '1'}">
+													<option value="${LoginUser.grade }" selected>초급 기능사</option>
+													</c:if>
+													<c:if test="${LoginUser.grade eq '2'}">
+													<option value="${LoginUser.grade }" selected>중급 기능사</option>
+													</c:if>
+													<c:if test="${LoginUser.grade eq '3'}">
+													<option value="${LoginUser.grade }" selected>고급 기능사</option>
+													</c:if>
+													<c:if test="${LoginUser.grade eq '4'}">
+													<option value="${LoginUser.grade }" selected>초급 기술사</option>
+													</c:if>
+													<c:if test="${LoginUser.grade eq '5'}">
+													<option value="${LoginUser.grade }" selected>중급 기술사</option>
+													</c:if>
+													<c:if test="${LoginUser.grade eq '6'}">
+													<option value="${LoginUser.grade }" selected>고급 기술사</option>
+													</c:if>
+													<c:if test="${LoginUser.grade eq '7'}">
+													<option value="${LoginUser.grade }" selected>특급 기술사</option>
+													</c:if>
+													<c:if test="${LoginUser.grade eq '8'}">
+													<option value="${LoginUser.grade }" selected>기술사</option>
+													</c:if>
+														<option value="1">초급 기능사</option>
+														<option value="2">중급 기능사</option>
+														<option value="3">고급 기능사</option>
+														<option value="4">초급 기술자</option>
+														<option value="5">중급 기술자</option>
+														<option value="6">고급 기술자</option>
+														<option value="7">특급 기술자</option>
+														<option value="8">기술사</option>
+													</select>
+												</div>
+
+											</div>
+											<div class="form-group row">
 																	<label class="col-3 col-form-label">은행</label>
 																	<div class="col-9">
 																		<input class="form-control" type="text" id="bank" name="bank" value="${LoginUser.bank}">
@@ -393,8 +433,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 			success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
 				alert("수정 완료되었습니다.\n다시 로그인 해주세요.");
-				self.close();
-				opener.location.href = "/main?command=logout";
+				location.href = "/main?command=logout";
 			},
 			error: function(data){
 				alert("오류:: 다시 시도해주세요.");
