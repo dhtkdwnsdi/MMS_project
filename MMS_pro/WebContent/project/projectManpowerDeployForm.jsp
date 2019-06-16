@@ -193,7 +193,21 @@ License: You must have a valid license purchased only from themeforest(the above
 															<tr>
 																<c:if test="${listStat.count < 6}">
 																<td><input type="checkbox" class="checkBox1" name="check" value="${rVo.progNum}"></td>
-																<td><a href="#">${rVo.id}</a></td>
+																<td>
+																<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${rVo.id}</a>
+																	<div class="dropdown-menu">
+																	<a class="dropdown-item" href="#" onclick="openProfilePopup('${rVo.progNum}')">
+																	<i class="kt-nav__link-icon flaticon2-avatar"></i>
+																	<span class="kt-nav__link-text">이력서</span>
+																	</a>
+																	<a class="dropdown-item" href="#" onclick="msgPopUp('${rVo.progNum}', '${rVo.progName}')">
+																	<i class="kt-nav__link-icon flaticon2-send"></i>
+																	<span class="kt-nav__link-text">메세지</span>
+																	</a>
+																	<!-- <div class="dropdown-divider"></div>
+																	<a class="dropdown-item" href="#">Separated link</a> -->
+																	</div>
+																</td>
 																<td>${rVo.progName}</td>
 																
 																<c:if test="${rVo.grade eq 1}">
@@ -271,7 +285,21 @@ License: You must have a valid license purchased only from themeforest(the above
 															<c:forEach items="${pMemList}" var="pMemVo" varStatus="listStat">
 															<tr>
 																<td><input type="checkbox" disabled="disabled"></td>
-																<td><a href="#">${pMemVo.id}</a></td>
+																<td>
+																<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${pMemVo.id}</a>
+																	<div class="dropdown-menu">
+																	<a class="dropdown-item" href="#" onclick="openProfilePopup('${pMemVo.progNum}')">
+																	<i class="kt-nav__link-icon flaticon2-avatar"></i>
+																	<span class="kt-nav__link-text">이력서</span>
+																	</a>
+																	<a class="dropdown-item" href="#" onclick="msgPopUp('${pMemVo.progNum}', '${pMemVo.progName}')">
+																	<i class="kt-nav__link-icon flaticon2-send"></i>
+																	<span class="kt-nav__link-text">메세지</span>
+																	</a>
+																	<!-- <div class="dropdown-divider"></div>
+																	<a class="dropdown-item" href="#">Separated link</a> -->
+																	</div>
+																</td>
 																<td>${pMemVo.progName}</td>
 																
 																<c:if test="${pMemVo.grade eq 1}">
@@ -552,6 +580,7 @@ $("#deploy").click(function(){
 		var td = tr.children();
 		var progNum = $(this).val();
 		var id = td.eq(1).text();
+		alert("id: " + id);
 		var name = td.eq(2).text();
 		var grade = td.eq(3).text();
 		var plName = td.eq(4).text();
@@ -677,6 +706,45 @@ function directDeploy()
 	  var left = (window.screen.width-width)/2; 
  	  var url = "/proj?command=projectManpowerDirectDeployForm&projNum="+projNum; 
 	  var title = "프로젝트 인력 직접배치"; 
+	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+      window.open(url, title, status);
+
+
+  
+    /* window.open("memberUpdateForm.jsp",
+            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
+}
+
+function msgPopUp(progNum,progName){
+	var sendReceiver = progNum;
+	var sendName = progName;
+	
+    var width = "800"; 
+	var height = "555"; 
+	var top = (window.screen.height-height)/2; 
+	var left = (window.screen.width-width)/2; 
+	var url = "/prog?command=messageRegisterForm&sendReceiver="+sendReceiver+"&sendName="+sendName; 
+	var title = "메세지 보내기"; 
+	var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+    
+    window.open(url, title, status);
+    
+}
+
+function openProfilePopup(progNum)
+{
+	var progNum = progNum;
+    // window.name = "부모창 이름"; 
+      window.name = "parentForm";
+    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+      var width = "800"; 
+	  var height = "700"; 
+	  var top = (window.screen.height-height)/2; 
+	  var left = (window.screen.width-width)/2; 
+ 	  var url = "/prog?command=profilePopup&progNum="+progNum; 
+	  var title = "프로젝트 인력배치"; 
 	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
       window.open(url, title, status);
