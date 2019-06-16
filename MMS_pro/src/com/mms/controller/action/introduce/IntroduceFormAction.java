@@ -12,21 +12,22 @@ import com.mms.controller.action.Action;
 import com.mms.dao.IntroduceDAO;
 import com.mms.vo.ProgrammerVO;
 
-public class IntroduceListAction implements Action {
+public class IntroduceFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		HttpSession session = request.getSession();		// java에서 세션을 이용할 때 꼭 작성.
-		String url ="profile/introduceList.jsp";
+		String progNum = request.getParameter("progNum");
 		
-		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser");  // 현재 세션의 ProgrammerVO 타입인 LoginUser를 pVo에 대입
-		String id = pVo.getId();		// pVo의 셋팅된 progNum을 가져와서 progNum 변수에 대입
+		request.setAttribute("progNum", progNum);
+		
+		
+		String url = "profile/introduceForm.jsp";
 		
 		IntroduceDAO progDao = IntroduceDAO.getInstance();
 		
-		ProgrammerVO progVo = progDao.readIntroduce(id);
+		ProgrammerVO progVo = progDao.readIntroduce(progNum);
 		
 		request.setAttribute("progVo", progVo);
 		

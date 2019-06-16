@@ -22,7 +22,7 @@ import com.mms.controller.action.edu.EduUpdateFormAction;
 import com.mms.controller.action.grant.GrantListFormAction;
 import com.mms.controller.action.grant.GrantUpdateAction;
 import com.mms.controller.action.grant.GrantUpdateFormAction;
-import com.mms.controller.action.introduce.IntroduceListAction;
+import com.mms.controller.action.introduce.IntroduceFormAction;
 import com.mms.controller.action.introduce.IntroduceUpdateAction;
 import com.mms.controller.action.introduce.IntroduceUpdateFormAction;
 import com.mms.controller.action.memberSet.MemberUpdateAction;
@@ -147,8 +147,8 @@ public class ProgrammerActionFactory {
 			action = new IntroduceUpdateAction();
 		}
 		
-		else if (command.equals("intorduceList")) {
-			action = new IntroduceListAction();
+		else if (command.equals("intorduceForm")) {
+			action = new IntroduceFormAction();
 		}
 		else if (command.equals("resumeForm")) {
 			action = new ResumeFormAction();

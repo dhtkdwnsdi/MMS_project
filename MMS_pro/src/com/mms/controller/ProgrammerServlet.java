@@ -292,6 +292,7 @@ public class ProgrammerServlet extends HttpServlet {
 			String file = path + fileName;
 			String fileType = fileName.substring(fileName.lastIndexOf(".")+1);
 			
+			
 			File f = new File(file);
 			if(f.exists()) {
 				

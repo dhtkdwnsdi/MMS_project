@@ -155,7 +155,7 @@ public class IntroduceDAO extends DBManager {
 	
 	
 	//자기소개서 읽기
-	public ProgrammerVO readIntroduce(String id) {
+	public ProgrammerVO readIntroduce(String progNum) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -166,15 +166,16 @@ public class IntroduceDAO extends DBManager {
 				+ "         ,INTRODUCE3"
 				+ "         ,INTRODUCE4"
 				+ "         ,INTRO_FILE"
+				+ "			,PROG_NUM"
 				+ "     FROM TBL_PROGRAMMER"
-				+ "    WHERE ID = ?"; 
+				+ "    WHERE PROG_NUM = ?"; 
 		
 		ProgrammerVO progVo = new ProgrammerVO();
 		
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setString(1, progNum);
 			rs = pstmt.executeQuery();
 		
 				while(rs.next()) {
@@ -184,6 +185,7 @@ public class IntroduceDAO extends DBManager {
 					progVo.setIntroduce3(rs.getString("INTRODUCE3"));
 					progVo.setIntroduce4(rs.getString("INTRODUCE4"));
 					progVo.setIntroFile(rs.getString("INTRO_FILE"));
+					progVo.setProgNum(rs.getString("PROG_NUM"));
 				
 				
 			}

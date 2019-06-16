@@ -432,14 +432,14 @@ License: You must have a valid license purchased only from themeforest(the above
 							</div>
 							<!--바디  -->
 						</div>
-						
-						
-						
-						
-						
-						
+					
 				</div>
+					<!-- begin:: Footer -->
+					
+					<%@ include file="../include/footer.jsp" %>
 
+					<!-- end:: Footer -->
+		
 		<div id="kt_scrolltop" class="kt-scrolltop">
 			<i class="fa fa-arrow-up"></i>
 		</div>

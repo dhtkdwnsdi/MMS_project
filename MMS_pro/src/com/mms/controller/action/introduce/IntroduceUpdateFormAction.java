@@ -21,11 +21,11 @@ public class IntroduceUpdateFormAction implements Action {
 		
 		IntroduceDAO progDao = IntroduceDAO.getInstance();
 
-		String id = request.getParameter("id");	
+		String progNum = request.getParameter("progNum");	
 		
-		request.setAttribute("id", id);
+		request.setAttribute("progNum", progNum);
 		
-		ProgrammerVO progVo = progDao.readIntroduce(id);
+		ProgrammerVO progVo = progDao.readIntroduce(progNum);
 		
 		request.setAttribute("progVo", progVo);
 		

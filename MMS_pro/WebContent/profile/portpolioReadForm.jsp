@@ -274,6 +274,11 @@ License: You must have a valid license purchased only from themeforest(the above
 	</div>
 </div>
 </div>
+<!-- begin:: Footer -->
+					
+					<%@ include file="../include/footer.jsp" %>
+
+					<!-- end:: Footer -->
 	<!-- end:: Content -->
 	<!-- end:: Page -->
 

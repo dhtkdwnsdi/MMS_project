@@ -26,7 +26,7 @@ public class ProgrammerFormAction implements Action {
 		
 		request.setAttribute("progVo", progVo);
 		
-		new IntroduceListAction().execute(request, response);
+		new IntroduceFormAction().execute(request, response);
 		
 	}
 

@@ -41,12 +41,12 @@ public class IntroduceUpdateAction implements Action {
 //		  progVo.setIntroduce2(introduce2); progVo.setIntroduce3(introduce3);
 //		  progVo.setIntroduce4(introduce4); progVo.setIntroFile(introFile);
 		  
-		  IntroduceDAO introDao = IntroduceDAO.getInstance();
+		 IntroduceDAO introDao = IntroduceDAO.getInstance();
 		  ProgrammerVO progVo = (ProgrammerVO) request.getAttribute("progVo");
 		  
 		  introDao.updateIntroduce(progVo);
 		  
-		  new IntroduceListAction().execute(request, response);
+		  new IntroduceFormAction().execute(request, response);
 		 
 		/*
 		
