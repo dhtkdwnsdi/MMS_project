@@ -59,6 +59,7 @@ public class ProgrammerServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		String command = request.getParameter("command");
+		request.setAttribute("command", command);
 		System.out.println("ProgrammerServlet에서 요청 받음을 확인: " + command);
 		
 		if(command == null) {

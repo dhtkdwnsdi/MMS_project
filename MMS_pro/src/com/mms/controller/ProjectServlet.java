@@ -42,6 +42,7 @@ public class ProjectServlet extends HttpServlet {
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String command = request.getParameter("command");
+		request.setAttribute("command", command);
 		System.out.println("ProjectServlet에서 요청 받음을 확인: " + command);
 		
 		if(command == null) {
