@@ -86,20 +86,26 @@ License: You must have a valid license purchased only from themeforest(the above
 											</c:if>
 										</c:forEach>
 									</table>
+									
+										<div>
+											<div>
+												<div class="col kt-align-center">
+													<div class="col kt-align-center">
+														<button type="button"
+															class="btn btn-clean btn-bold btn-upper"
+															onclick="location.href='/prog?command=certListForm'">
+															자격증 전체 목록으로 가기</button>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									
 								</div>
 								<!--end::Section-->
 							</div>
 							<div class="col-lg-2"></div>
-							<div class="kt-portlet__foot">
-								<div class="kt-form__actions kt-form__actions--right">
-									<div class="row">
-										<div class="col kt-align-right">
-											<button type="button" class="btn btn-brand"
-												onclick="openPopUp()">등록</button>
-										</div>
-									</div>
-								</div>
-							</div>
+						
 						</form>
 						<!--end: Datatable -->
 					</div>
@@ -149,23 +155,41 @@ License: You must have a valid license purchased only from themeforest(the above
 											</c:forEach>
 										</tbody>
 									</table>
+									
+									
+										<div>
+											<div>
+												<div class="col kt-align-center">
+													<div class="col kt-align-center">
+														<button type="button"
+															class="btn btn-clean btn-bold btn-upper"
+															onclick="location.href='/prog?command=plListForm'">
+															프로그래밍 언어 전체 목록으로 가기</button>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									
+									
+									
 								</div>
 							</div>
 
 							<!--end::Section-->
-							<div class="kt-portlet__foot">
+						<!-- 	<div class="kt-portlet__foot">
 								<div class="kt-form__actions kt-form__actions--right">
 									<div class="row">
-										<!-- <div class="col kt-align-left">
+										<div class="col kt-align-left">
 															<button type="reset" class="btn btn-secondary">수정</button>
 															<button type="reset" class="btn btn-danger">삭제</button>
-														</div> -->
+										<!-- 				</div>
 										<div class="col kt-align-right">
 											<button type="button" class="btn btn-brand"
 												onclick="openPopUp()">등록</button>
 										</div>
-									</div>
-								</div>
+									</div> -->
+								</div> 
 							</div>
 						</form>
 					</div>
@@ -237,6 +261,23 @@ License: You must have a valid license purchased only from themeforest(the above
 											</c:forEach>
 										</tbody>
 									</table>
+									
+									
+									
+											<div>
+											<div>
+												<div class="col kt-align-center">
+													<div class="col kt-align-center">
+														<button type="button"
+															class="btn btn-clean btn-bold btn-upper"
+															onclick="location.href='/prog?command=messageListForm'">
+															메세지 전체 목록으로 가기</button>
+													</div>
+												</div>
+											</div>
+
+										</div>
+										
 
 								</form>
 							</div>

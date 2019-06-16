@@ -107,8 +107,15 @@ License: You must have a valid license purchased only from themeforest(the above
 											</tr>
 										</c:if>
 									</tbody>
-
+									
 								</table>
+								
+								<div class="col kt-align-center">
+								<button type="button"
+												class="btn btn-clean btn-bold btn-upper"
+												onclick="location.href='/proj?command=projectListForm'">
+												내 프로젝트 목록으로 가기</button>
+								
 							</div>
 							<div class="tab-pane" id="kt_portlet_tab_1_2">
 								<table class="table table-bordered table-hover">
@@ -150,6 +157,11 @@ License: You must have a valid license purchased only from themeforest(the above
 											<td colspan="7">내역이 없습니다</td>
 										</c:if>
 									</tbody>
+									
+									
+
+
+
 
 								</table>
 							</div>
@@ -260,6 +272,20 @@ License: You must have a valid license purchased only from themeforest(the above
 												</c:forEach>
 											</tbody>
 									</table>
+									
+											<div>
+													<div class="col kt-align-center">
+										<div class="col kt-align-center">
+											<button type="button"
+												class="btn btn-clean btn-bold btn-upper"
+												onclick="location.href='/prog?command=messageListForm'">
+											메세지 전체 목록으로 가기</button>
+										</div>
+									</div>
+									</div>
+										
+									
+									
 
 								</form>
 							</div>
@@ -414,6 +440,15 @@ License: You must have a valid license purchased only from themeforest(the above
 										</tbody>
 									
 									</table>
+									
+									<div class="col kt-align-center">
+										<div class="col kt-align-center">
+											<button type="button"
+												class="btn btn-clean btn-bold btn-upper"
+												onclick="location.href='/proj?command=projectApplyAcceptForm'">
+											프로젝트 접수 승인 전체 목록으로 가기</button>
+										</div>
+									</div>
 
 
 
