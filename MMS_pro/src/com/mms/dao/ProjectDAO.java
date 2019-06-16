@@ -120,7 +120,7 @@ public class ProjectDAO extends DBManager {
 		   		+ ",	 OS_CODE = ?"
 		   		+ ",	 LEVEL_CODE = ?"
 		   		+ ",	 PROJ_FILE = ?"
-		   		+ ",	 PROJ_STAT = ?"
+		   		+ ",	 RECRUIT_NUMBER = ?"
 		   		+ "		 WHERE PROJ_NUM = ?";
 		   
 		   try {
@@ -140,7 +140,7 @@ public class ProjectDAO extends DBManager {
 			   pstmt.setString(11, pVo.getOsCode());
 			   pstmt.setString(12, pVo.getLevelCode());
 			   pstmt.setString(13, pVo.getProjFile());
-			   pstmt.setString(14, pVo.getProjStat());
+			   pstmt.setString(14, pVo.getRecruitNumber());
 			   pstmt.setString(15, pVo.getProjNum());
 			   
 			   pstmt.executeUpdate();
@@ -268,7 +268,7 @@ public class ProjectDAO extends DBManager {
 	   }
 	   
 	   // 프로젝트 신청 리스트 - 모집만 띄우기
-	   public ArrayList<ProjectVO> projectApplyList(){
+	   public ArrayList<ProjectVO> projectApplyList(String progNum){
 		   Connection conn = null;
 		   PreparedStatement pstmt = null;
 		   ResultSet rs = null;
@@ -295,12 +295,14 @@ public class ProjectDAO extends DBManager {
 			   		"			   ,TBL_PROGRAMMER PG" + 
 			   		"  		   WHERE PG.PROG_NUM = PJ.PROG_NUM"
 			   		+ "			 AND PJ.PROJ_STAT LIKE '%모집%'"
+			   		+ "			 AND PJ.PROJ_NUM NOT IN (SELECT PROJ_NUM FROM TBL_APPLY_STMT WHERE PROG_NUM = ?)"
 			   		+ "		   ORDER BY PJ.PROJ_NUM DESC";
 		   ArrayList<ProjectVO> list = new ArrayList<ProjectVO>();
 		   
 		   try {
 			   conn = getConnection();
 			   pstmt = conn.prepareStatement(sql);
+			   pstmt.setString(1, progNum);
 			   rs = pstmt.executeQuery();
 			   
 			   while(rs.next()) {
@@ -902,5 +904,131 @@ public class ProjectDAO extends DBManager {
 			}
 		}
 	   }
+	   
+	   // project 종료 시 apply_stmt의 prog_state 종료
+	   public void endProgStateUpdate(String projNum) {
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   String sql = "UPDATE TBL_APPLY_STMT"
+		   		+ "		    SET PROG_STATE = '종료'"
+		   		+ "		  WHERE PROJ_NUM = ?";
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   pstmt.setString(1, projNum);
+			   pstmt.executeUpdate();
+			   
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+			   
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+	   }
+	   
+	   // project 진행 시 apply_stmt의 prog_state 진행
+	   public void progressProgStateUpdate(String projNum) {
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   String sql = "UPDATE TBL_APPLY_STMT"
+		   		+ "		    SET PROG_STATE = '진행'"
+		   		+ "		  WHERE PROJ_NUM = ?";
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   pstmt.setString(1, projNum);
+			   pstmt.executeUpdate();
+			   
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+			   
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+	   }
+	   
+	// project 모집 시 apply_stmt의 prog_state 예정
+	   public void applyProgStateUpdate(String projNum) {
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   String sql = "UPDATE TBL_APPLY_STMT"
+		   		+ "		    SET PROG_STATE = '예정'"
+		   		+ "		  WHERE PROJ_NUM = ?";
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   pstmt.setString(1, projNum);
+			   pstmt.executeUpdate();
+			   
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+			   
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+	   }
+	   
+	   public ArrayList<ProgrammerVO> projectMemberList(String projNum){
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   ResultSet rs = null;
+		   String sql = "SELECT PROG_NUM FROM TBL_APPLY_STMT WHERE PROJ_NUM = ?";
+		   ArrayList<ProgrammerVO> progList = new ArrayList<ProgrammerVO>();
+		   
+		   
+		   try {
+			   conn = getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   pstmt.setString(1, projNum);
+			   rs = pstmt.executeQuery();
+			   
+			   while(rs.next()) {
+				   ProgrammerVO progVo = new ProgrammerVO();
+				   progVo.setProgNum(rs.getString("PROG_NUM"));
+				   progList.add(progVo);
+				   
+			   }
+		   } catch (SQLException e) {
+			   e.printStackTrace();
+
+		   } finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		 return progList;  
+		 
+	   }
+	   
 
 }

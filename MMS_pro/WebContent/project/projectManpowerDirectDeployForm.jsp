@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
 Author: KeenThemes
@@ -17,12 +15,16 @@ Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-t
 License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
 -->
 <html lang="en">
-
+<style>
+#label1{
+ font-weight: bold;;
+}
+</style>
 	<!-- begin::Head -->
 	<head>
 		<meta charset="utf-8" />
-		<title>PMMS | 접수승인</title>
-		<meta name="description" content="Tabbed portlet examples">
+		<title>PMMS | 프로젝트 인력 직접배치</title>
+		<meta name="description" content="Base form control examples">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!--begin::Fonts -->
@@ -44,6 +46,8 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link href="../assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
 
 		<!--end:: Global Mandatory Vendors -->
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 		<!--begin:: Global Optional Vendors -->
 		<link href="../assets/vendors/general/tether/dist/css/tether.css" rel="stylesheet" type="text/css" />
@@ -100,152 +104,134 @@ License: You must have a valid license purchased only from themeforest(the above
 			<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
 
 
-
+					<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor">
 						<!-- begin:: Content -->
 						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
 							<div class="row">
-								<div class="col-xl-12">
-
+								<div class="col-lg-12">
 									<!--begin::Portlet-->
-									<div class="kt-portlet kt-portlet--tabs">
+									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">
-													프로젝트 접수 승인
+												<h3>
+												프로젝트 인력 직접배치
 												</h3>
 											</div>
-											<div class="kt-portlet__head-toolbar">
-												<ul class="nav nav-tabs nav-tabs-bold nav-tabs-line   nav-tabs-line-right nav-tabs-line-brand" role="tablist">
-													<li class="nav-item">
-														<a class="nav-link active" data-toggle="tab" href="#kt_portlet_tab_1_1" role="tab">
-															승인 대기 리스트
-														</a>
-													</li>
-													<li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_2" role="tab">
-															전체 리스트
-														</a>
-													</li>
-													<!-- <li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab">
-															Settings
-														</a>
-													</li> -->
-												</ul>
-											</div>
 										</div>
-										<div class="kt-portlet__body">
-											<div class="tab-content">
-												<div class="tab-pane active" id="kt_portlet_tab_1_1">
-													<table class="table table-bordered table-hover">
-                                          <thead style="text-align: center;">
-                                             <tr>
-                                                <th>#</th>
-                                                <th style="font-weight: bold;">프로젝트 명</th>
-                                                <th style="font-weight: bold;">신청자 명</th>
-                                                <th style="font-weight: bold;">지원 직무</th>
-                                                <th style="font-weight: bold;">신청 날짜</th>
-                                                <th style="font-weight: bold;">상태</th>
-                                                <th style="font-weight: bold;">승인여부</th>
-                                             </tr>
-                                          </thead>
-                                          <tbody style="text-align: center;">
-                                          <c:forEach items="${acceptList}" var="acVo" varStatus="listStat">
-                                             <tr>
-                                                <th scope="row">${listStat.count}</th>
-                                                <td>${acVo.projName}</td>
-                                                <td><a href="#">${acVo.progName}</a></td>
-                                                <td>${acVo.applyPosition}</td>
-                                                <td>${acVo.applyDate}</td>
-                                                <c:if test="${acVo.applyStat eq '승인' }">
-                                                <td><span class="kt-badge kt-badge--success kt-badge--inline">승인</span></td>
-                                                </c:if>
-                                                <c:if test="${acVo.applyStat eq '승인대기' }">
-                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">승인대기</span></td>
-                                                </c:if>
-                                                <c:if test="${acVo.applyStat eq '거절' }">
-                                                <td><span class="kt-badge kt-badge--danger kt-badge--inline">거절</span></td>
-                                                </c:if>
-                                                <c:if test="${acVo.applyStat eq '승인대기' and acVo.projStat eq '모집'}">
-                                                <td>
-                                                <span class="kt-badge kt-badge--success kt-badge--inline" onclick="acceptApply('${acVo.applyStmtNum}')">승인</span>
-                                                <span class="kt-badge kt-badge--danger kt-badge--inline" onclick="denyApply('${acVo.applyStmtNum}')">거절</span>
-                                                </td>
-                                                </c:if>
-                                                <c:if test="${acVo.applyStat ne '승인대기' or acVo.projStat ne '모집'}">
-                                                <td>-</td>
-                                                </c:if>
-                                             </tr>
-                                          </c:forEach>
-                                          <c:if test="${empty acceptList}">
-			                                    <tr>
-				                                   <td colspan="10">
-				                                                                              내역이 없습니다
-				                                   </td>
-				                               </tr>
-			                              </c:if>
-                                          </tbody>
-                                       </table>
 
+										<!--begin::Form-->
+											<div class="kt-portlet__body">
+													<div class="form-group row form-group-marginless kt-margin-t-20">
+															<div class="col-lg-12">
+																<label id="label1">프로그래머 검색</label>
+																<br>
+																<div class="input-group">
+																	<select name="category" class="form-control" id="category">
+																		<option value="all">전체리스트</option>
+																		<option value="name">이름</option>
+		 																<option value="id">아이디</option>
+																	</select>
+																	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																	<input type="text" class="form-control" name="keyword" id="keyword" disabled="disabled">
+																	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																	<button class="btn btn-primary" id="search">검색</button>
+																</div>
+															</div>
+													</div>
+													
+												<!-- Start Divider -->
+												<br><br>
+												<div class="kt-section__content kt-section__content--solid">
+													<div class="kt-divider">
+														<span></span>
+													</div>
 												</div>
-												<div class="tab-pane" id="kt_portlet_tab_1_2">
-													<table class="table table-bordered table-hover">
-                                          <thead style="text-align: center;">
-                                             <tr>
-                                                <th>#</th>
-                                                <th style="font-weight: bold;">프로젝트 명</th>
-                                                <th style="font-weight: bold;">신청자 명</th>
-                                                <th style="font-weight: bold;">지원 직무</th>
-                                                <th style="font-weight: bold;">신청 날짜</th>
-                                                <th style="font-weight: bold;">상태</th>
-                                                <th style="font-weight: bold;">승인여부</th>
-                                             </tr>
-                                          </thead>
-                                          <tbody style="text-align: center;">
-                                          <c:forEach items="${allList}" var="aVo" varStatus="listStat">
-                                             <tr>
-                                                <th scope="row">${listStat.count}</th>
-                                                <td>${aVo.projName}</td>
-                                                <td><a href="#">${aVo.progName}</a></td>
-                                                <td>${aVo.applyPosition}</td>
-                                                <td>${aVo.applyDate}</td>
-                                                <c:if test="${aVo.applyStat eq '승인' }">
-                                                <td><span class="kt-badge kt-badge--success kt-badge--inline">승인</span></td>
-                                                </c:if>
-                                                <c:if test="${aVo.applyStat eq '승인대기' }">
-                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">승인대기</span></td>
-                                                </c:if>
-                                                <c:if test="${aVo.applyStat eq '거절' }">
-                                                <td><span class="kt-badge kt-badge--danger kt-badge--inline">거절</span></td>
-                                                </c:if>
-                                                <c:if test="${aVo.applyStat eq '승인대기' and aVo.projStat eq '모집'}">
-                                                <td>
-                                                <a href="#"><span class="kt-badge kt-badge--success kt-badge--inline" onclick="acceptApply('${aVo.applyStmtNum}')">승인</span></a>
-                                                <a href="#"><span class="kt-badge kt-badge--danger kt-badge--inline" onclick="denyApply('${aVo.applyStmtNum}')">거절</span></a>
-                                                </td>
-                                                </c:if>
-                                                <c:if test="${aVo.applyStat ne '승인대기' or aVo.projStat ne '모집'}">
-                                                <td>-</td>
-                                                </c:if>
-                                             </tr>
-                                          </c:forEach>
-                                          <c:if test="${empty allList}">
-                                             <tr>
-                                               <td colspan="10">
-                                                                                          내역이 없습니다
-                                               </td>
-                                           </tr>
-                                       </c:if>
-                                          </tbody>
-                                       </table>
-
+												<br>
+												<!-- End Divider -->
+												
+												<div class="form-group row form-group-marginless kt-margin-t-20">
+													<div class="col-lg-12">
+														<label id="label1">인력 리스트</label>
+														<br>
+													</div>
 												</div>
-												<!-- <div class="tab-pane" id="kt_portlet_tab_1_3">
-													Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
-												</div> -->
+												
+												<div class="form-group row form-group-marginless kt-margin-t-20">
+													<div class="col-lg-12">
+														<table class="table table-bordered table-hover" id="manpowerTable">
+														<thead style="text-align: center;">
+															<tr>
+																<th><input type="checkbox" id="allCheck1" name="allCheck"></th>
+																<th style="font-weight: bold;">ID</th>
+																<th style="font-weight: bold;">이름</th>
+																<th style="font-weight: bold;">등급</th>
+																<th style="font-weight: bold;">관련기술</th>
+																<!-- <th style="font-weight: bold;">프로젝트 참여여부</th>
+																<th style="font-weight: bold;">종료날짜</th> -->
+															</tr>
+														</thead>
+														<tbody style="text-align: center;">
+															<c:forEach items="${directList}" var="dVo" varStatus="listStat">
+															<tr>
+																<c:if test="${listStat.count < 6}">
+																<td><input type="checkbox" class="checkBox1" name="check" value="${dVo.progNum}"></td>
+																<td><a href="#">${dVo.id}</a></td>
+																<td>${dVo.progName}</td>
+																
+																<c:if test="${dVo.grade eq 1}">
+																<td>초급기능사</td>
+																</c:if>
+																<c:if test="${dVo.grade eq 2}">
+																<td>중급기능사</td>
+																</c:if>
+																<c:if test="${dVo.grade eq 3}">
+																<td>고급기능사</td>
+																</c:if>
+																<c:if test="${dVo.grade eq 4}">
+																<td>초급기술사</td>
+																</c:if>
+																<c:if test="${dVo.grade eq 5}">
+																<td>중급기술사</td>
+																</c:if>
+																<c:if test="${dVo.grade eq 6}">
+																<td>고급기술사</td>
+																</c:if>
+																<c:if test="${dVo.grade eq 7}">
+																<td>특급기술사</td>
+																</c:if>
+																<c:if test="${dVo.grade eq 8}">
+																<td>기술사</td>
+																</c:if>
+																
+																<td>${dVo.plName}</td>
+																</c:if>
+															</tr>
+															</c:forEach>
+														</tbody>
+													</table>
+													</div>
+													<div class="col-lg-12 kt-align-right">
+														<br>
+														<input type="hidden" id="projNum" name="projNum" value="${projNum}">
+													</div>
+												</div>
+												
+												</div>
+												
+												<div class="kt-portlet__foot">
+												<div class="kt-form__actions">
+													<div class="row">
+														<div class="col-lg-6">
+														</div>
+														<div class="col-lg-6 kt-align-right">
+															<input type="button" id="deploy" value="배치" class="btn btn-primary">
+														</div>
+													</div>
+												</div>
 											</div>
-											
-										</div>
+											</div>
+
+										<!--end::Form-->
 									</div>
 
 									<!--end::Portlet-->
@@ -256,37 +242,9 @@ License: You must have a valid license purchased only from themeforest(the above
 						<!-- end:: Content -->
 					</div>
 
-					<!-- begin:: Footer -->
-					
-					<%@ include file="../include/footer.jsp" %>
-
-					<!-- end:: Footer -->
 				</div>
 
 		<!-- end:: Page -->
-
-
-		<!-- begin::Scrolltop -->
-		<div id="kt_scrolltop" class="kt-scrolltop">
-			<i class="fa fa-arrow-up"></i>
-		</div>
-
-		<!-- end::Scrolltop -->
-
-		<!-- begin::Sticky Toolbar -->
-		<ul class="kt-sticky-toolbar" style="margin-top: 30px;">
-			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--success" id="kt_demo_panel_toggle" data-toggle="kt-tooltip" title="Check out more demos" data-placement="right">
-				<a href="#" class=""><i class="flaticon2-drop"></i></a>
-			</li>
-			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--brand" data-toggle="kt-tooltip" title="Layout Builder" data-placement="left">
-				<a href="https://keenthemes.com/metronic/preview/default/builder.html" target="_blank"><i class="flaticon2-gear"></i></a>
-			</li>
-			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--warning" data-toggle="kt-tooltip" title="Documentation" data-placement="left">
-				<a href="https://keenthemes.com/metronic/?page=docs" target="_blank"><i class="flaticon2-telegram-logo"></i></a>
-			</li>
-		</ul>
-
-		<!-- end::Sticky Toolbar -->
 
 
 		<!-- begin::Global Config(global config for global JS sciprts) -->
@@ -393,31 +351,109 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- end::Body -->
 <script>
-function acceptApply(applyStmtNum){
-	var applyStmtNum = applyStmtNum;
+
+$("#category").click(function(){
+	var category = $("#category").val();
 	
-	if(confirm("신청 승인하시겠습니까?") == true){
-		location.href = "/proj?command=applyAccept&applyStmtNum="+applyStmtNum;
-		alert("신청 승인되었습니다.");
+	if(category == "name" || category == "id"){
+		$("#keyword").attr("disabled", false);
 	}
 	else{
-		return false;
+		$("#keyword").attr("disabled", true);
 	}
 	
-}
-function denyApply(applyStmtNum){
-	var applyStmtNum = applyStmtNum;
+});
+
+$("#search").click(function(){
+	var category = $("#category").val();
+	var keyword = $("#keyword").val();
+	var projNum = $("#projNum").val();
 	
-	if(confirm("신청 거절하시겠습니까?") == true){
-		location.href = "/proj?command=applyDeny&applyStmtNum="+applyStmtNum;
-		alert("신청 거절되었습니다.");
+	if(category == "name" && keyword == ""){
+		alert("키워드를 입력해주세요.");
+		return false;
+	}
+	else if(category == "id" && keyword == ""){
+		alert("키워드를 입력해주세요.");
+		return false;
 	}
 	else{
-		return false;
+		
+		$.ajax({
+			
+			type: "POST",
+			url: "/proj?command=projectManpowerSearch",
+			dataType: "json",
+			data: {
+				"category" : category,
+				"keyword" : keyword,
+				"projNum" : projNum
+			},
+			success: function(data){
+				$("#manpowerTable > tbody").empty();
+				if(data.length > 0) {
+				$.each(data, function(key, value){
+					var eachrow = "<tr>"
+								+ "<td>" + "<input type=\"checkbox\" class=\"checkBox1\" name=\"check\" value=\"" + value.progNum + "\"" + ">"
+								+ "</td>"
+								+ "<td>" + "<a href=\"#\">" 
+								+ value.id
+								+ "</a>"
+								+ "</td>"
+								+ "<td>" + value.progName + "</td>"
+								+ "<td>" + value.grade + "</td>"
+								+ "<td>" + value.plName + "</td>";
+					$("#manpowerTable > tbody").append(eachrow);
+				});
+				}
+				else {
+					var eachrow = "<tr>"
+						+ "<td colspan=\"5\">" + "내역이 없습니다" + "</td>"
+						+ "</tr>";
+					$("#manpowerTable > tbody").append(eachrow);	
+				}
+			},
+			error:function(request,status,error){
+		        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		    }
+			
+		});
+		
 	}
 	
-}
+	
+});
+
+$( document ).ready( function() {
+    $( '#allCheck1' ).click( function() {
+      $( '.checkBox1' ).prop( 'checked', this.checked );
+    } );
+  } );
+  
+$("#deploy").click(function(){
+	var checkbox = $("input[name=check]:checked");
+	checkbox.each(function(i) { 	
+		var tr = checkbox.parent().parent().eq(i);
+		var td = tr.children();
+		var progNum = $(this).val();
+		var id = td.eq(1).text();
+		var name = td.eq(2).text();
+		var grade = td.eq(3).text();
+		var plName = td.eq(4).text();
+		var row = "<tr>"
+				+ "<td>" + "<input type=\"checkbox\" class=\"checkBox2\" name=\"check2\" value=\"" + progNum + "\"" + ">" + "</td>"
+				+ "<td>" + "<a href=\"#\">" + id + "</a>" + "</td>"
+				+ "<td>" + name + "</td>"
+				+ "<td>" + grade + "</td>"
+				+ "<td>" + plName + "</td>"
+				+ "</tr>";
+				
+		// 숨긴 값의 체크박스를 false 상태로 바꿈
+		$(this).prop("checked", false);
+		$("#deployedTable > tbody", parent.opener.document).append(row);
+
+	});
+	self.close();
+});
 </script>
-
-
 </html>

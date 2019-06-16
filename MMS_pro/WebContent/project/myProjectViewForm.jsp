@@ -121,12 +121,34 @@ font-weight: bold;
 											<c:if test="${LoginUser.progNum eq projVo.progNum}">
 											<div class="kt-portlet__head-toolbar">
 												<div class="btn-group">
+													<c:if test="${projVo.projStat eq '모집'}">
 													<button type="button" class="btn btn-success">
 														<i class="flaticon2-settings"></i>&nbsp;
 														상태&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;${projVo.projStat}
 													</button>
 													<button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 													</button>
+													</c:if>
+													
+													<c:if test="${projVo.projStat eq '진행'}">
+													<button type="button" class="btn btn-warning">
+														<i class="flaticon2-settings"></i>&nbsp;
+														상태&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;${projVo.projStat}
+													</button>
+													<button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													</button>
+													</c:if>
+													
+													<c:if test="${projVo.projStat eq '종료'}">
+													<button type="button" class="btn btn-danger">
+														<i class="flaticon2-settings"></i>&nbsp;
+														상태&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;${projVo.projStat}
+													</button>
+													<button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													</button>
+													</c:if>
+													
+
 													<div class="dropdown-menu dropdown-menu-right">
 														<ul class="kt-nav">
 															<li class="kt-nav__item">

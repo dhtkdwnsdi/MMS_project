@@ -117,4 +117,31 @@ public class UsePlDAO extends DBManager {
 			}
 		}
 	}
+	
+	// 프로젝트 수정 시 사용 프로그래밍 언어 삭제
+		public void projectDeleteUsePl(String projNum) {
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			String sql = "DELETE FROM TBL_USE_PL WHERE PROJ_NUM = ?";
+			
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, projNum);
+				pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				
+			} finally {
+				try {
+					if(pstmt != null) pstmt.close();
+					if(conn != null) conn.close();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+					
+				}
+			}
+		}
 }

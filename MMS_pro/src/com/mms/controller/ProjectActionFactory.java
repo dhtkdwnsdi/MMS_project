@@ -14,7 +14,9 @@ import com.mms.controller.action.project.ProjectApplyListFormAction;
 import com.mms.controller.action.project.ProjectApplyViewFormAction;
 import com.mms.controller.action.project.ProjectDeleteAction;
 import com.mms.controller.action.project.ProjectManpowerDeployListFormAction;
+import com.mms.controller.action.project.ProjectManpowerDirectDeployFormAction;
 import com.mms.controller.action.project.ProjectManpowerRecommendAction;
+import com.mms.controller.action.project.ProjectManpowerSearchAction;
 import com.mms.controller.action.project.ProjectRecommendDeployAction;
 import com.mms.controller.action.project.ProjectListFormAction;
 import com.mms.controller.action.project.ProjectListViewFormAction;
@@ -28,7 +30,6 @@ import com.mms.controller.action.project.ProjectUpdateAction;
 import com.mms.controller.action.project.ProjectUpdateFormAction;
 import com.mms.controller.action.project.ProjectViewFormAction;
 import com.mms.controller.action.project.SearchUsePlAction;
-import com.mms.controller.action.project.UsePlDeleteAction;
 
 public class ProjectActionFactory {
 
@@ -130,9 +131,6 @@ public class ProjectActionFactory {
 			else if(command.equals("searchUsePl")) {
 				action = new SearchUsePlAction();
 			}
-			else if(command.equals("deleteUsePl")) {
-				action = new UsePlDeleteAction();
-			}
 			else if(command.equals("projectManpowerDeployForm")) {
 				action = new ProjectManpowerDeployFormAction();
 				
@@ -154,6 +152,14 @@ public class ProjectActionFactory {
 			}
 			else if(command.equals("projectRecommendDeploy")) {
 				action = new ProjectRecommendDeployAction();
+			}
+			else if(command.equals("projectManpowerDirectDeployForm")) {
+				action = new ProjectManpowerDirectDeployFormAction();
+				
+			}
+			else if(command.equals("projectManpowerSearch")) {
+				action = new ProjectManpowerSearchAction();
+				
 			}
 			return action;
 		}

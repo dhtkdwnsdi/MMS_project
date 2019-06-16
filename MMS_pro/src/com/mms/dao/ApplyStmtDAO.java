@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.mms.vo.ApplyStmtVO;
+import com.mms.vo.ProgrammerVO;
 import com.mms.vo.ProjectVO;
 import com.mms.vo.UsePlVO;
 
@@ -610,7 +611,7 @@ public class ApplyStmtDAO extends DBManager {
 				+ "        , NAME"
 				+ "        , GRADE"
 				+ "        , ifnull(PL_NAME, '-') AS PL_NAME"
-				+ "     FROM DEFAULT_RECOMMEND_VIEW";
+				+ "     FROM recommend_view";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -654,22 +655,28 @@ public class ApplyStmtDAO extends DBManager {
 		
 		if(grade.equals("")) {
 			switch (plName.length) {
+			case 0:{
+				sql = "SELECT *"
+					+ "  FROM recommend_view";
+				break;
+			}
+			
 			case 1:{
 				sql = "SELECT *"
-					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ "  FROM recommend_view"
 					+ " WHERE PL_NAME LIKE '%"+plName[0]+"%'";
 				break;
 			}
 			case 2:{
 				sql = "SELECT *"
-				    + "  FROM DEFAULT_RECOMMEND_VIEW"
+				    + "  FROM recommend_view"
 					+ " WHERE PL_NAME LIKE '%"+plName[0]+"%'"
 					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'";
 				break;
 			}
 			case 3:{
 				sql = "SELECT *"
-					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ "  FROM recommend_view"
 					+ " WHERE PL_NAME LIKE '%"+plName[0]+"%'"
 					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
 					+ "    OR PL_NAME LIKE '%"+plName[2]+"%'";
@@ -677,7 +684,7 @@ public class ApplyStmtDAO extends DBManager {
 			}
 			case 4:{
 				sql = "SELECT *"
-					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ "  FROM recommend_view"
 					+ " WHERE PL_NAME LIKE '%"+plName[0]+"%'"
 					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
 					+ "    OR PL_NAME LIKE '%"+plName[2]+"%'"
@@ -686,7 +693,7 @@ public class ApplyStmtDAO extends DBManager {
 			}
 			case 5:{
 				sql = "SELECT *"
-					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ "  FROM recommend_view"
 					+ " WHERE PL_NAME LIKE '%"+plName[0]+"%'"
 					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
 					+ "    OR PL_NAME LIKE '%"+plName[2]+"%'"
@@ -696,7 +703,7 @@ public class ApplyStmtDAO extends DBManager {
 			}
 			case 6:{
 				sql = "SELECT *"
-					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ "  FROM recommend_view"
 					+ " WHERE PL_NAME LIKE '%"+plName[0]+"%'"
 					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
 					+ "    OR PL_NAME LIKE '%"+plName[2]+"%'"
@@ -710,16 +717,23 @@ public class ApplyStmtDAO extends DBManager {
 		}
 		else {
 			switch (plName.length) {
+			case 0:{
+				sql = "SELECT *"
+					+ "  FROM recommend_view"
+					+ " WHERE GRADE = " + grade;
+				break;
+			}
+			
 			case 1:{
 				sql = "SELECT *"
-					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ "  FROM recommend_view"
 					+ " WHERE GRADE = " + grade
 					+ "   AND PL_NAME LIKE '%"+plName[0]+"%'";
 				break;
 			}
 			case 2:{
 				sql = "SELECT *"
-				    + "  FROM DEFAULT_RECOMMEND_VIEW"
+				    + "  FROM recommend_view"
 					+ " WHERE GRADE = " + grade
 					+ "   AND (PL_NAME LIKE '%"+plName[0]+"%'"
 					+ "    OR PL_NAME LIKE '%"+plName[1]+"%')";
@@ -727,7 +741,7 @@ public class ApplyStmtDAO extends DBManager {
 			}
 			case 3:{
 				sql = "SELECT *"
-					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ "  FROM recommend_view"
 					+ " WHERE GRADE = " + grade
 					+ "   AND (PL_NAME LIKE '%"+plName[0]+"%'"
 					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
@@ -736,7 +750,7 @@ public class ApplyStmtDAO extends DBManager {
 			}
 			case 4:{
 				sql = "SELECT *"
-					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ "  FROM recommend_view"
 					+ " WHERE GRADE = " + grade
 					+ "   AND (PL_NAME LIKE '%"+plName[0]+"%'"
 					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
@@ -746,7 +760,7 @@ public class ApplyStmtDAO extends DBManager {
 			}
 			case 5:{
 				sql = "SELECT *"
-					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ "  FROM recommend_view"
 					+ " WHERE GRADE = " + grade
 					+ "   AND (PL_NAME LIKE '%"+plName[0]+"%'"
 					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
@@ -757,7 +771,7 @@ public class ApplyStmtDAO extends DBManager {
 			}
 			case 6:{
 				sql = "SELECT *"
-					+ "  FROM DEFAULT_RECOMMEND_VIEW"
+					+ "  FROM recommend_view"
 					+ " WHERE GRADE = " + grade
 					+ "   AND (PL_NAME LIKE '%"+plName[0]+"%'"
 					+ "    OR PL_NAME LIKE '%"+plName[1]+"%'"
@@ -832,6 +846,213 @@ public class ApplyStmtDAO extends DBManager {
 				}
 			}
 		}
+		
+		// 프로젝트 인력 직접 배치 메소드
+		public ArrayList<ApplyStmtVO> directDeploy(String projNum){
+			   Connection conn = null;
+			   PreparedStatement pstmt = null;
+			   ResultSet rs = null;
+			   String sql = "(SELECT DISTINCT P.PROG_NUM"
+			   		+ "					   , P.NAME"
+			   		+ "					   , P.ID"
+			   		+ "					   , P.GRADE"
+			   		+ "					   , ifnull(PL_NAME, '-') AS PL_NAME"
+			   		+ "		   FROM TBL_PROGRAMMER P"
+			   		+ "		   LEFT JOIN PLS_LIST_VIEW PL"
+			   		+ "			 ON P.PROG_NUM = PL.PROG_NUM"
+			   		+ "		  WHERE P.PROG_NUM NOT IN ("
+			   		+ "		 SELECT DISTINCT A.PROG_NUM"
+			   		+ "		   FROM TBL_APPLY_STMT A"
+			   		+ "		  WHERE A.PROJ_NUM = ?)"
+			   		+ "			AND P.GRANT = '0')"
+			   		+ "		  UNION"
+			   		+ "		(SELECT P.PROG_NUM"
+			   		+ "			  , P.NAME"
+			   		+ "			  , P.ID"
+			   		+ "			  , P.GRADE"
+			   		+ "			  , ifnull(PL_NAME, '-') AS PL_NAME"
+			   		+ "		   FROM TBL_PROGRAMMER P"
+			   		+ "		   LEFT JOIN PLS_LIST_VIEW PL"
+			   		+ "			 ON P.PROG_NUM = PL.PROG_NUM"
+			   		+ "		  WHERE P.STATE = '0'"
+			   		+ "			AND P.GRANT = '0')";
+			   ArrayList<ApplyStmtVO> directList = new ArrayList<ApplyStmtVO>();
+			   
+			   
+			   try {
+				   conn = getConnection();
+				   pstmt = conn.prepareStatement(sql);
+				   pstmt.setString(1, projNum);
+				   rs = pstmt.executeQuery();
+				   
+				   while(rs.next()) {
+					   ApplyStmtVO aVo = new ApplyStmtVO();
+					   aVo.setProgNum(rs.getString("PROG_NUM"));
+					   aVo.setProgName(rs.getString("NAME"));
+					   aVo.setId(rs.getString("ID"));
+					   aVo.setGrade(rs.getString("GRADE"));
+					   aVo.setPlName(rs.getString("PL_NAME"));
+					   
+					   directList.add(aVo);
+				   }
+			   } catch (SQLException e) {
+				   e.printStackTrace();
+
+			   } finally {
+				try {
+					if(rs != null) rs.close();
+					if(pstmt != null) pstmt.close();
+					if(conn != null) conn.close();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+					
+				}
+			}
+			 return directList;  
+			 
+		   }
 	
+	
+	// 프로젝트 직접 배치 - 프로그래머 검색 메소드
+	public ArrayList<ApplyStmtVO> searchNameManpower(String projNum, String keyword){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "(SELECT DISTINCT P.PROG_NUM"
+		   		+ "					   , P.NAME"
+		   		+ "					   , P.ID"
+		   		+ "					   , P.GRADE"
+		   		+ "					   , PL.PL_NAME"
+		   		+ "		   FROM TBL_PROGRAMMER P"
+		   		+ "		   LEFT JOIN PLS_LIST_VIEW PL"
+		   		+ "			 ON P.PROG_NUM = PL.PROG_NUM"
+		   		+ "		  WHERE P.PROG_NUM NOT IN ("
+		   		+ "		 SELECT DISTINCT A.PROG_NUM"
+		   		+ "		   FROM TBL_APPLY_STMT A"
+		   		+ "		  WHERE A.PROJ_NUM = ?)"
+		   		+ "			AND P.GRANT = '0'"
+		   		+ "			AND P.NAME = ?)"
+		   		+ "		  UNION"
+		   		+ "		(SELECT P.PROG_NUM"
+		   		+ "			  , P.NAME"
+		   		+ "			  , P.ID"
+		   		+ "			  , P.GRADE"
+		   		+ "			  , PL.PL_NAME"
+		   		+ "		   FROM TBL_PROGRAMMER P"
+		   		+ "		   LEFT JOIN PLS_LIST_VIEW PL"
+		   		+ "			 ON P.PROG_NUM = PL.PROG_NUM"
+		   		+ "		  WHERE P.STATE = '0'"
+		   		+ "			AND P.GRANT = '0'"
+		   		+ "			AND P.NAME = ?)";
+		ArrayList<ApplyStmtVO> searchList = new ArrayList<ApplyStmtVO>();
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, projNum);
+			pstmt.setString(2, keyword);
+			pstmt.setString(3, keyword);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ApplyStmtVO aVo = new ApplyStmtVO();
+				aVo.setProgNum(rs.getString("PROG_NUM"));
+				aVo.setProgName(rs.getString("NAME"));
+				aVo.setId(rs.getString("ID"));
+				aVo.setGrade(rs.getString("GRADE"));
+				aVo.setPlName(rs.getString("PL_NAME"));
+				
+				searchList.add(aVo);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		
+		return searchList;
+	}
+	
+	public ArrayList<ApplyStmtVO> searchIdManpower(String projNum, String keyword){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "(SELECT DISTINCT P.PROG_NUM"
+		   		+ "					   , P.NAME"
+		   		+ "					   , P.ID"
+		   		+ "					   , P.GRADE"
+		   		+ "					   , PL.PL_NAME"
+		   		+ "		   FROM TBL_PROGRAMMER P"
+		   		+ "		   LEFT JOIN PLS_LIST_VIEW PL"
+		   		+ "			 ON P.PROG_NUM = PL.PROG_NUM"
+		   		+ "		  WHERE P.PROG_NUM NOT IN ("
+		   		+ "		 SELECT DISTINCT A.PROG_NUM"
+		   		+ "		   FROM TBL_APPLY_STMT A"
+		   		+ "		  WHERE A.PROJ_NUM = ?)"
+		   		+ "			AND P.GRANT = '0'"
+		   		+ "			AND P.ID = ?)"
+		   		+ "		  UNION"
+		   		+ "		(SELECT P.PROG_NUM"
+		   		+ "			  , P.NAME"
+		   		+ "			  , P.ID"
+		   		+ "			  , P.GRADE"
+		   		+ "			  , PL.PL_NAME"
+		   		+ "		   FROM TBL_PROGRAMMER P"
+		   		+ "		   LEFT JOIN PLS_LIST_VIEW PL"
+		   		+ "			 ON P.PROG_NUM = PL.PROG_NUM"
+		   		+ "		  WHERE P.STATE = '0'"
+		   		+ "			AND P.GRANT = '0'"
+		   		+ "			AND P.ID = ?)";
+		ArrayList<ApplyStmtVO> searchList = new ArrayList<ApplyStmtVO>();
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, projNum);
+			pstmt.setString(2, keyword);
+			pstmt.setString(3, keyword);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ApplyStmtVO aVo = new ApplyStmtVO();
+				aVo.setProgNum(rs.getString("PROG_NUM"));
+				aVo.setProgName(rs.getString("NAME"));
+				aVo.setId(rs.getString("ID"));
+				aVo.setGrade(rs.getString("GRADE"));
+				aVo.setPlName(rs.getString("PL_NAME"));
+				
+				searchList.add(aVo);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			}
+		}
+		
+		return searchList;
+	}
 	
 }

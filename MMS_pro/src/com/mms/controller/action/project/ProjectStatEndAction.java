@@ -1,6 +1,7 @@
 package com.mms.controller.action.project;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
 import com.mms.dao.ProjectDAO;
+import com.mms.vo.ProgrammerVO;
 
 public class ProjectStatEndAction implements Action {
 
@@ -17,6 +19,9 @@ public class ProjectStatEndAction implements Action {
 		
 		ProjectDAO pDao = ProjectDAO.getInstance();
 		pDao.projStatEndUpdate(projNum);
+
+		pDao.endProgStateUpdate(projNum);
+		
 		
 		new MyProjectViewFormAction().execute(request, response);
 		

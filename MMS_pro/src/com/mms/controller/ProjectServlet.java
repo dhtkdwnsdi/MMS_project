@@ -133,17 +133,27 @@ public class ProjectServlet extends HttpServlet {
 			String osCode = multi.getParameter("osCode");
 			String levelCode = multi.getParameter("levelCode");
 			String projFile = multi.getFilesystemName("projFile");
-			String projStat = multi.getParameter("projStat");
+			String recruitNumber = multi.getParameter("recruitNumber");
 			String projNum = multi.getParameter("projNum");
+			request.setAttribute("projNum", projNum);
 			
-			String prevProjFile = multi.getParameter("prevProjFile");
-			String filePath = path + "\\" + prevProjFile;
+			String[] plNum = multi.getParameterValues("plNum");
+			request.setAttribute("plNum", plNum);
 			
-			System.out.println(filePath);
+			System.out.println("projFile : " + projFile);
 			
-			File f = new File(filePath);
-			if(f.exists()) {
-				f.delete();
+			if(projFile == null) {
+				projFile = multi.getParameter("prevProjFile");
+			}
+			else {
+				String prevProjFile = multi.getParameter("prevProjFile");
+				String filePath = path + "\\" + prevProjFile;
+				System.out.println(filePath);
+				File f = new File(filePath);
+				if(f.exists()) {
+					f.delete();
+				}
+				
 			}
 			
 			ProjectVO pVo = new ProjectVO();
@@ -160,8 +170,8 @@ public class ProjectServlet extends HttpServlet {
 			pVo.setOsCode(osCode);
 			pVo.setLevelCode(levelCode);
 			pVo.setProjFile(projFile);
-			pVo.setProjStat(projStat);
 			pVo.setProjNum(projNum);
+			pVo.setRecruitNumber(recruitNumber);
 			
 			System.out.println("path: " + path);
 			System.out.println("fileName: " + projFile);

@@ -23,7 +23,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- begin::Head -->
 	<head>
 		<meta charset="utf-8" />
-		<title>PMMS | 프로젝트 인력배치</title>
+		<title>PMMS | 프로젝트 인력 추천배치</title>
 		<meta name="description" content="Base form control examples">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -46,6 +46,8 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link href="../assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
 
 		<!--end:: Global Mandatory Vendors -->
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 		<!--begin:: Global Optional Vendors -->
 		<link href="../assets/vendors/general/tether/dist/css/tether.css" rel="stylesheet" type="text/css" />
@@ -113,7 +115,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
 												<h3>
-												프로젝트 인력배치
+												프로젝트 인력 추천배치
 												</h3>
 											</div>
 										</div>
@@ -268,7 +270,7 @@ License: You must have a valid license purchased only from themeforest(the above
 														<tbody style="text-align: center;">
 															<c:forEach items="${pMemList}" var="pMemVo" varStatus="listStat">
 															<tr>
-																<td><input type="checkbox" class="checkBox2" value="${pMemVo.progNum}"></td>
+																<td><input type="checkbox" disabled="disabled"></td>
 																<td><a href="#">${pMemVo.id}</a></td>
 																<td>${pMemVo.progName}</td>
 																
@@ -307,22 +309,27 @@ License: You must have a valid license purchased only from themeforest(the above
 														</tbody>
 													</table>
 													</div>
+													<div class="col-lg-12 kt-align-right">
+														<br>
+														<input type="button" id="cancel" value="취소" class="btn btn-primary">
+													</div>
+													</div>
 												</div>
 												
-											</div>
-											<div class="kt-portlet__foot">
+												<div class="kt-portlet__foot">
 												<div class="kt-form__actions">
 													<div class="row">
 														<div class="col-lg-6">
 														</div>
 														<div class="col-lg-6 kt-align-right">
-															<button type="button" class="btn btn-warning" onclick="location.reload()">리셋</button>
 															<button type="button" class="btn btn-danger" onclick="directDeploy()">직접배치</button>
 															<button type="button" class="btn btn-primary" id="save">저장</button>
 														</div>
 													</div>
 												</div>
 											</div>
+											</div>
+											
 
 										<!--end::Form-->
 									</div>
@@ -336,7 +343,6 @@ License: You must have a valid license purchased only from themeforest(the above
 					</div>
 
 				</div>
-			</div>
 
 		<!-- end:: Page -->
 
@@ -466,13 +472,12 @@ $("#recommend").click(function(){
 			"plName" : plList,
 			"grade" : grade
 		},  
-		
 		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
 			$("#recommendTable > tbody").empty();
 			if(data.length > 0) {
 			$.each(data, function(key, value){
 				var eachrow = "<tr>"
-							+ "<td>" + "<input type=\"checkbox\" class=\"checkBox1\" value=\"" + value.progNum + "\"" + ">"
+							+ "<td>" + "<input type=\"checkbox\" class=\"checkBox1\" name=\"check\" value=\"" + value.progNum + "\"" + ">"
 							+ "</td>"
 							+ "<td>" + "<a href=\"#\">" 
 							+ value.id
@@ -492,10 +497,9 @@ $("#recommend").click(function(){
 			}
 		
 		},
-		error: function(data){
-			alert("프로그래밍 언어를 선택해주세요.");
-			return false;
-		}
+		error:function(request,status,error){
+	        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	       }
 		 
 
 	});
@@ -508,46 +512,94 @@ $("#recommend").click(function(){
 // });
 
 $("#deploy").click(function(){
-	var z = 0;
-	var tr;
+	var dProgNum = [];
+	
+// 	$(".checkBox2").each(function(i){
+// 		var tr = checkbox.parent().parent().eq(i);
+// 		var td = tr.children();
+// 		var id = td.eq(1).text();
+// 		dProgNum.push(id);
+// 	});
+	
+	//zeroTd = 내역이 없을 경우의 td
 	var zeroTd = "<tr>"
 			   + "<td colspan=\"5\">"
 			   + "내역이 없습니다."
 			   + "</td>"
 			   + "</tr>"; 
+			   
 	var length = $("#recommendTable > tbody td").length;
 	var noList = $("#deployedTable > tbody td").length;
 	
+	var allCheck = $("#allCheck1").is(":checked");
 	
-	$(".checkBox1:checked").each(function(i){ // jQuery로 for문 돌면서 check 된 값 배열에 대입
-		
-// 		for(var i = 0; i < dProgNum.length; i++){
-// 			if(this.value == dProgNum[i]){
-// 				z = 1;
-// 				break;
-// 			}
-// 		}
-		
-		tr = $(this).parent().parent().eq(i);
-		tr.eq(i).remove();
-// 		dProgNum.push($(this).eq(i).val());		// 배치된 인력의 값으로 넣어줌
-		$(this).attr("class","checkBox2");
+	// 배치된 인력 칸에 내역 없음일 경우
+	if(noList == 1){
+		$("#deployedTable > tbody tr").remove();
+	}
+	
+	// allCheck을 눌러서 추천된 인력을 모두 배치된 인력으로 내릴 경우 내역없음을 띄운 동시에 allCheck1 체크 해제
+	if(allCheck == true){
+		$("#recommendTable > tbody").append(zeroTd);
+		$("#allCheck1").prop("checked", false);
+	}
+	
+	
+	var checkbox = $("input[name=check]:checked");
+	
+	checkbox.each(function(i) { 	
+		var tr = checkbox.parent().parent().eq(i);
+		var td = tr.children();
+		var progNum = $(this).val();
+		var id = td.eq(1).text();
+		var name = td.eq(2).text();
+		var grade = td.eq(3).text();
+		var plName = td.eq(4).text();
+		var row = "<tr>"
+				+ "<td>" + "<input type=\"checkbox\" class=\"checkBox2\" name=\"check2\" value=\"" + progNum + "\"" + ">" + "</td>"
+				+ "<td>" + "<a href=\"#\">" + id + "</a>" + "</td>"
+				+ "<td>" + name + "</td>"
+				+ "<td>" + grade + "</td>"
+				+ "<td>" + plName + "</td>"
+				+ "</tr>";
+				
+		// 숨긴 값의 체크박스를 false 상태로 바꿈
 		$(this).prop("checked", false);
 		
-		if(noList == 1){			// 배치된 인력 칸에 내역 없음일 경우
-			$("#deployedTable > tbody td").remove();
-			$("#deployedTable > tbody").append(tr);
-		} else{
-			$("#deployedTable > tbody").append(tr);
-		}
-		
-		if(length == 5){			// 추천된 인력을 모두 추가시킬 경우 내역없음 띄우기
-			$("#recommendTable > tbody").append(zeroTd);
-		}
-		
+		// allcheck할 경우 숨긴 값의 체크박스도 체크되어서 class 값을 바꿈
+		$(this).attr("class", "hide");
+		tr.hide();
+		$("#deployedTable > tbody").append(row);
 	});
 	
+});
+
+$("#cancel").click(function(){
+	var zeroTd = "<tr>"
+		   + "<td colspan=\"5\">"
+		   + "내역이 없습니다."
+		   + "</td>"
+		   + "</tr>"; 
+		   
+	var allCheck = $("#allCheck2").is("checked");
+// 	var length = $("#deployedTable > tbody tr").length;
 	
+	if(allCheck == true){
+		$("#deployedTable > tbody").append(zeroTd);
+		$("#allCheck2").prop("checked", false);
+	}
+	
+// 	if(length == 1){
+// 		$("#deployedTable > tbody").append(zeroTd);
+// 	}	   
+		   
+	var checkbox = $("input[name=check2]:checked");
+	checkbox.each(function(i){
+		tr = checkbox.parent().parent().eq(i);
+		tr.prop("checked", false);
+		tr.attr("name", "hideCheck2");
+		tr.hide();
+	});
 	
 });
 
@@ -568,16 +620,16 @@ var dProgNum = [];
 $("#save").click(function(){
 	var projNum = $("#projNum").val();
 	// class가 checkBox2인 value 값을 dProgNum 배열에 대입 
-	$(".checkBox2").each(function(i){
-		dProgNum.push($(".checkBox2").eq(i).val());
+	$("input[name=check2]").each(function(i){
+		dProgNum.push($("input[name=check2]").eq(i).val());
 	});
+	
+	if(dProgNum.length == 0){
+		alert("인력을 배치해주세요.");
+		return false;
+	}
 
 	if(confirm("저장하시겠습니까?") == true){
-		if(dProgNum.length == 0){
-			alert("인력을 배치해주세요.");
-			return false;
-		} 
-		else{
 			
 			$.ajax({
 				type: "POST",
@@ -600,7 +652,6 @@ $("#save").click(function(){
 				
 				
 			});
-		}
 		
 		
 	}
@@ -614,12 +665,26 @@ $("#save").click(function(){
 	
 });
 
-function directDeploy(){
-	  // window.name = "부모창 이름"; 
-    window.name = "parentForm";
+function directDeploy()
+{
+	var projNum = $("#projNum").val();
+    // window.name = "부모창 이름"; 
+      window.name = "parentForm";
     // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-    window.open("project/projectDirectDeployForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no");
+      var width = "800"; 
+	  var height = "700"; 
+	  var top = (window.screen.height-height)/2; 
+	  var left = (window.screen.width-width)/2; 
+ 	  var url = "/proj?command=projectManpowerDirectDeployForm&projNum="+projNum; 
+	  var title = "프로젝트 인력 직접배치"; 
+	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+      window.open(url, title, status);
+
+
+  
+    /* window.open("memberUpdateForm.jsp",
+            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
 }
 
 </script>

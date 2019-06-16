@@ -302,7 +302,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<div class="col-md-5">
 																	<div class="kt-form__group--inline">
 																		<div class="kt-form__control">
-																			<input type="text" name="usePl" class="form-control autocomplete" placeholder="사용 프로그래밍 언어를 입력해주세요.">
+																			<input type="text" name="usePl" class="form-control autocomplete" placeholder="ex) JAVA, JSP, PYTHON">
 																			<input type="hidden" name="plNum" id="plNum" class="plNum">
 																		</div>
 																	</div>
@@ -715,7 +715,7 @@ $(document).on("click", "button[name=add]", function(){
 				});
 			},
 			
-			minLength: 1,
+			minLength: 0,
 			select: function(event, ui){
 				this.parentElement.children[1].value = ui.item.num;
 			}

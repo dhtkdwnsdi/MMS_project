@@ -17,6 +17,7 @@ public class ProjectStatApplyAction implements Action {
 		
 		ProjectDAO pDao = ProjectDAO.getInstance();
 		pDao.projStatApplyUpdate(projNum);
+		pDao.applyProgStateUpdate(projNum);
 		
 		new MyProjectViewFormAction().execute(request, response);
 		

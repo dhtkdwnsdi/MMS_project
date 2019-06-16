@@ -107,6 +107,8 @@ font-weight: bold;
 
 						<!-- begin:: Content -->
 						<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
+							
+							<form method="POST" enctype="multipart/form-data" id="frm" name="frm">
 							<div class="row">
 								<div class="col-lg-8">
 
@@ -121,54 +123,18 @@ font-weight: bold;
 										</div>
 
 										<!--begin::Form-->
-										<form method="POST" enctype="multipart/form-data" id="frm" name="frm">
-										<input type="hidden" name="prevProjFile" id="prevProjFile" value="${projVo.projFile}">
+<!-- 										<form method="POST" enctype="multipart/form-data" id="frm" name="frm"> -->
+<%-- 										<input type="hidden" name="prevProjFile" id="prevProjFile" value="${projVo.projFile}"> --%>
 										<input type="hidden" name="projNum" id="projNum" value="${projVo.projNum}">
 											<div class="kt-portlet__body">
 												<div class="form-group row form-group-marginless kt-margin-t-20">
-													<div class="col-lg-4">
+													<div class="col-lg-6">
 														<label id="label1">프로젝트 명</label>
 														<input type="text" class="form-control" value="${projVo.projName}" name="projName" id="projName">
 													</div>
-													<div class="col-lg-4">
+													<div class="col-lg-6">
 														<label id="label1">담당자 명</label>
 														<input type="text" class="form-control" disabled="disabled" name="progNum" value="${projVo.progName}">
-													</div>
-													<div class="col-lg-4">
-														<label id="label1">프로젝트 상태</label>
-														<input type="text" class="form-control" disabled="disabled" name="progStat" value="${projVo.projStat}">
-														<%-- <select class="form-control" name="projStat" id="projStat">
-															<c:choose>
-																<c:when test="${projVo.projStat eq '모집'}">
-																	<option value="">선택</option>
-																	<option value="모집" selected="selected">모집</option>
-																	<option value="진행">진행</option>
-																	<option value="종료">종료</option>
-																	<option value="보류">보류</option>
-																</c:when>
-																<c:when test="${projVo.projStat eq '진행'}">
-																	<option value="">선택</option>
-																	<option value="모집">모집</option>
-																	<option value="진행" selected="selected">진행</option>
-																	<option value="종료">종료</option>
-																	<option value="보류">보류</option>
-																</c:when>
-																<c:when test="${projVo.projStat eq '종료'}">
-																	<option value="">선택</option>
-																	<option value="모집">모집</option>
-																	<option value="진행">진행</option>
-																	<option value="종료" selected="selected">종료</option>
-																	<option value="보류">보류</option>
-																</c:when>
-																<c:when test="${projVo.projStat eq '보류'}">
-																	<option value="">선택</option>
-																	<option value="모집">모집</option>
-																	<option value="진행">진행</option>
-																	<option value="종료">종료</option>
-																	<option value="보류" selected="selected">보류</option>
-																</c:when>
-															</c:choose>
-														</select> --%>
 													</div>
 												</div>
 												<!-- Start Divider -->
@@ -512,7 +478,7 @@ font-weight: bold;
 												<div class="form-group row form-group-marginless kt-margin-t-20">
 													<div class="col-lg-6">
 														<label id="label1">모집 인원</label>
-														<input type="text" class="form-control" value="${projVo.recruitNumber}">
+														<input type="text" class="form-control" name="recruitNumber" value="${projVo.recruitNumber}">
 													</div>
 													<div class="col-lg-6">
 														<label id="label1">신청 마감일</label>
@@ -564,13 +530,23 @@ font-weight: bold;
 												<br>
 												<!-- End Divider -->
 												<div class="form-group">
+													<label>이전 첨부파일</label>
+													<div></div>
+													<div class="custom-file">
+														<input type="text" readonly="readonly" name="prevProjFile" id="prevProjFile" value="${projVo.projFile}">
+<!-- 														<input type="file" class="custom-file-input" id="projFile" name="projFile"> -->
+<!-- 														<label class="custom-file-label" for="customFile" style="text-align: left;"> -->
+<!-- 														</label> -->
+													</div>	
+												</div>
+												<div class="form-group">
 													<label>첨부파일</label>
 													<div></div>
 													<div class="custom-file">
 														<input type="file" name="projFile" id="projFile">
-														<!-- <input type="file" class="custom-file-input" id="projFile" name="projFile">
-														<label class="custom-file-label" for="customFile" style="text-align: left;">
-														</label> -->
+<!-- 														<input type="file" class="custom-file-input" id="projFile" name="projFile"> -->
+<!-- 														<label class="custom-file-label" for="customFile" style="text-align: left;"> -->
+<!-- 														</label> -->
 													</div>	
 												</div>
 											</div>
@@ -586,7 +562,7 @@ font-weight: bold;
 													</div>
 												</div>
 											</div>
-										</form>
+<!-- 										</form> -->
 
 										<!--end::Form-->
 									</div>
@@ -645,6 +621,10 @@ font-weight: bold;
 								</div>
 							
 							</div>
+							</form>
+							
+							
+							
 						</div>
 
 						<!-- end:: Content -->
@@ -815,6 +795,8 @@ function updateProject(){
 		var projStat = $('#projStat').val();
 		var prevProjFile = $('#prevProjFile').val();
 		var projNum = $('#projNum').val();
+		var plName = $("input[name=plName]").val();
+		var plNum = $("input[name=plNum]").val();
 		
 		if(projName == ""){
 			alert("프로젝트 명을 입력해주세요.");
@@ -876,6 +858,14 @@ function updateProject(){
 			$('#projStat').focus();
 			return false;
 		}
+		if(plName == ""){
+			alert("사용프로그래밍 언어를 입력해주세요.");
+			return false;
+		}
+		if(plNum == ""){
+			alert("사용프로그래밍 언어를 입력해주세요.");
+			return false;
+		}
 		
 		else {
 			var form = $("#frm")[0];
@@ -895,7 +885,7 @@ function updateProject(){
 
 			success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
 				alert("수정되었습니다.");
-				location.href = "/proj?command=projectRegisterViewForm&projNum="+projNum;
+				location.href = "/proj?command=myProjectViewForm&projNum="+projNum;
 			},
 			error: function(data){
 				alert("오류:: 다시 시도해주세요.");
@@ -963,35 +953,11 @@ $(document).on("click", "button[name=add]", function(){
 	})
 });
 
-var cnt = 0;
-var dUsePlNo = new Array();
 // input 삭제 버튼
 $(document).on("click", "button[name=delete]", function(){
 	/* alert($('#delete').index(this)); */
 	if(confirm("삭제하시겠습니까?") == true){
-		//삭제 버튼의 가장 가까운 usePlNum의 value를 가져와서 usePlNo[] 배열 안에 대입
-		dUsePlNo[cnt] = $(this).parent().parent().find(".usePlNum").val();
-		// cnt 증가
-		cnt++
-		// 숨기기
-		$(this).parent().parent().hide();
-// 		var usePlNum = new Array();
-// 		usePlNum[cnt] = $(this).parent().parent().find(".usePlNum").val();
-// 		$(this).parent().parent().hide();
-// 		var usePlNum = $(this).parent().parent().find(".usePlNum").val();
-		
-// 		$.ajax({
-// 			type: "post",
-// 			url: "/proj?command=deleteUsePl",
-// 			dataType: "json",
-// 			data:{
-// 				usePlNum: usePlNum
-// 			},
-// 			success: function(data){
-// 			$(this).parent().parent().remove();	
-// 			}
-			
-// 		});
+		$(this).parent().parent().remove();
 		
 	}
 	else{

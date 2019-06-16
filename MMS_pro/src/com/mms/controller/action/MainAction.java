@@ -69,7 +69,7 @@ public class MainAction implements Action {
 			// 프로젝트 신청하기
 			ProjectDAO pDao = ProjectDAO.getInstance();
 			ArrayList<ProjectVO> list = new ArrayList<ProjectVO>();
-			list = pDao.projectApplyList();
+			list = pDao.projectApplyList(progNum);
 			request.setAttribute("Plist", list);
 
 			

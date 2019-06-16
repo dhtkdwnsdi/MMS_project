@@ -16,7 +16,7 @@ public class ProjectStatProgressAction implements Action {
 		String projNum = request.getParameter("projNum");
 		ProjectDAO pDao = ProjectDAO.getInstance();
 		pDao.projStatProgressUpdate(projNum);
-		
+		pDao.progressProgStateUpdate(projNum);
 		
 		new MyProjectViewFormAction().execute(request, response);
 	}
