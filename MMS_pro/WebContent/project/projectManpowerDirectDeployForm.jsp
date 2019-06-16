@@ -175,7 +175,20 @@ License: You must have a valid license purchased only from themeforest(the above
 															<tr>
 																<c:if test="${listStat.count < 6}">
 																<td><input type="checkbox" class="checkBox1" name="check" value="${dVo.progNum}"></td>
-																<td><a href="#">${dVo.id}</a></td>
+																<td><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${dVo.id}</a>
+																	<div class="dropdown-menu">
+																	<a class="dropdown-item" href="#">
+																	<i class="kt-nav__link-icon flaticon2-avatar"></i>
+																	<span class="kt-nav__link-text">이력서</span>
+																	</a>
+																	<a class="dropdown-item" href="#" onclick="msgPopUp('${dVo.progNum}', '${dVo.progName}')">
+																	<i class="kt-nav__link-icon flaticon2-send"></i>
+																	<span class="kt-nav__link-text">메세지</span>
+																	</a>
+																	<!-- <div class="dropdown-divider"></div>
+																	<a class="dropdown-item" href="#">Separated link</a> -->
+																	</div>
+																</td>
 																<td>${dVo.progName}</td>
 																
 																<c:if test="${dVo.grade eq 1}">
@@ -359,6 +372,7 @@ $("#category").click(function(){
 		$("#keyword").attr("disabled", false);
 	}
 	else{
+		$("#keyword").val("");
 		$("#keyword").attr("disabled", true);
 	}
 	
@@ -455,5 +469,23 @@ $("#deploy").click(function(){
 	});
 	self.close();
 });
+
+function msgPopUp(progNum,progName){
+	var sendReceiver = progNum;
+	var sendName = progName;
+	
+    var width = "800"; 
+	var height = "555"; 
+	var top = (window.screen.height-height)/2; 
+	var left = (window.screen.width-width)/2; 
+	var url = "/prog?command=messageRegisterForm&sendReceiver="+sendReceiver+"&sendName="+sendName; 
+	var title = "메세지 보내기"; 
+	var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+    
+    window.open(url, title, status);
+    
+}
+
 </script>
 </html>
