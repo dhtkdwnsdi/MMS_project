@@ -93,7 +93,7 @@ public class IntroduceDAO extends DBManager {
 		Connection conn = null;
 	    PreparedStatement pstmt = null;
 	    
-	    String sql = "UPDATE TBL_PROGRAMMER SERT"
+	    String sql = "UPDATE TBL_PROGRAMMER SET"
 	    		+ "		     INTRODUCE1 = ?"
 	    		+ ",		 INTRODUCE2 = ?"
 	    		+ ",         INTRODUCE3 = ?"
@@ -166,6 +166,7 @@ public class IntroduceDAO extends DBManager {
 				+ "         ,INTRODUCE3"
 				+ "         ,INTRODUCE4"
 				+ "         ,INTRO_FILE"
+				+ "			,NAME"
 				+ "			,PROG_NUM"
 				+ "     FROM TBL_PROGRAMMER"
 				+ "    WHERE PROG_NUM = ?"; 
@@ -185,6 +186,7 @@ public class IntroduceDAO extends DBManager {
 					progVo.setIntroduce3(rs.getString("INTRODUCE3"));
 					progVo.setIntroduce4(rs.getString("INTRODUCE4"));
 					progVo.setIntroFile(rs.getString("INTRO_FILE"));
+					progVo.setIntroFile(rs.getString("NAME"));
 					progVo.setProgNum(rs.getString("PROG_NUM"));
 				
 				

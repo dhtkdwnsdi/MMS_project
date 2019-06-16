@@ -61,7 +61,6 @@ table, td, tr, th {
 							<!-- enctype="multipart/form-data" 첨부파일 쓰기 위해 폼에 써야함  -->
 							
 							
-								<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}">
 								<input type="hidden" name="progNum" id="progNum" value="${progVo.progNum}">
 								<div class="kt-portlet__body">
 

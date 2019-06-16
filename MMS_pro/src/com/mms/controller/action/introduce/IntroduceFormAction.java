@@ -18,10 +18,11 @@ public class IntroduceFormAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String progNum = request.getParameter("progNum");
+		HttpSession session = request.getSession();  
 		
-		request.setAttribute("progNum", progNum);
+		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser"); 
 		
+		String progNum = pVo.getProgNum(); 
 		
 		String url = "profile/introduceForm.jsp";
 		

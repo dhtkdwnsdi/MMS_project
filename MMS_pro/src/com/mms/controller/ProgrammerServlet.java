@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
+import com.mms.controller.action.introduce.IntroduceUpdateAction;
 import com.mms.controller.action.memberSet.MemberUpdateAction;
 import com.mms.controller.action.message.MessageRegisterAction;
 import com.mms.controller.action.portpolio.PortpolioRegisterAction;
@@ -275,7 +276,7 @@ public class ProgrammerServlet extends HttpServlet {
 			
 			request.setAttribute("progVo", progVo);
 			
-			new PortpolioUpdateAction().execute(request, response);
+			new IntroduceUpdateAction().execute(request, response);
 		} 
 		
 		
