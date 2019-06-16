@@ -591,7 +591,8 @@ public class ProjectDAO extends DBManager {
 		   		"     , PG.NAME AS PROG_NAME"
 		   		+ "	  , AP.APPLY_POSITION AS APPLY_POSITION" + 
 		   		"     , PJ.PROJ_STAT AS PROJ_STAT"
-		   		+ "   , PJ.PROJ_NUM AS PROJ_NUM" + 
+		   		+ "   , PJ.PROJ_NUM AS PROJ_NUM"
+		   		+ "	  , PJ.PROG_NUM AS PROG_NUM" + 
 		   		"  FROM TBL_PROJECT PJ" + 
 		   		"     , TBL_PROGRAMMER PG" + 
 		   		"     , TBL_APPLY_STMT AP" + 
@@ -617,6 +618,7 @@ public class ProjectDAO extends DBManager {
 				   aVo.setApplyPosition(rs.getString("APPLY_POSITION"));
 				   aVo.setProjStat(rs.getString("PROJ_STAT"));
 				   aVo.setProjNum(rs.getString("PROJ_NUM"));
+				   aVo.setProgNum(rs.getString("PROG_NUM"));
 				   list.add(aVo);
 				   
 			   }
@@ -647,7 +649,8 @@ public class ProjectDAO extends DBManager {
 			   		"     , PG.NAME AS PROG_NAME"
 			   		+ "   , AP.APPLY_POSITION AS APPLY_POSITION" + 
 			   		"     , PJ.PROJ_STAT AS PROJ_STAT"
-			   		+ "   , PJ.PROJ_NUM AS PROJ_NUM" + 
+			   		+ "   , PJ.PROJ_NUM AS PROJ_NUM"
+			   		+ "	  , PJ.PROG_NUM AS PROG_NUM" + 
 			   		"  FROM TBL_PROJECT PJ" + 
 			   		"     , TBL_PROGRAMMER PG" + 
 			   		"     , TBL_APPLY_STMT AP" + 
@@ -670,6 +673,7 @@ public class ProjectDAO extends DBManager {
 				   aVo.setApplyPosition(rs.getString("APPLY_POSITION"));
 				   aVo.setProjStat(rs.getString("PROJ_STAT"));
 				   aVo.setProjNum(rs.getString("PROJ_NUM"));
+				   aVo.setProgNum(rs.getString("PROG_NUM"));
 				   
 				   list.add(aVo);
 				   
@@ -701,7 +705,8 @@ public class ProjectDAO extends DBManager {
 			   		"     , PG.NAME AS PROG_NAME"
 			   		+ "   , AP.APPLY_POSITION AS APPLY_POSITION" + 
 			   		"     , PJ.PROJ_STAT AS PROJ_STAT"
-			   		+ "   , PJ.PROJ_NUM AS PROJ_NUM" + 
+			   		+ "   , PJ.PROJ_NUM AS PROJ_NUM"
+			   		+ "	  , PJ.PROG_NUM AS PROG_NUM" + 
 			   		"  FROM TBL_PROJECT PJ" + 
 			   		"     , TBL_PROGRAMMER PG" + 
 			   		"     , TBL_APPLY_STMT AP" + 
@@ -723,6 +728,7 @@ public class ProjectDAO extends DBManager {
 				   aVo.setApplyPosition(rs.getString("APPLY_POSITION"));
 				   aVo.setProjStat(rs.getString("PROJ_STAT"));
 				   aVo.setProjNum(rs.getString("PROJ_NUM"));
+				   aVo.setProgNum(rs.getString("PROG_NUM"));
 				   
 				   list.add(aVo);
 				   

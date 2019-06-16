@@ -154,7 +154,15 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                             <tr>
 			                                                <th scope="row">${listStat.count}</th>
 			                                                <td>${aVo.projName}</td>
-			                                                <td>${aVo.progName}</td>
+			                                                <td>
+			                                                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${aVo.progName}</a>
+			                                                   <div class="dropdown-menu">
+			                                                   <a class="dropdown-item" href="#" onclick="msgPopUp('${aVo.progNum}', '${aVo.progName}')">
+			                                                   <i class="kt-nav__link-icon flaticon2-send"></i>
+			                                                   <span class="kt-nav__link-text">메세지</span>
+			                                                   </a>
+			                                                   </div>
+			                                                </td>
 			                                                <td>${aVo.applyPosition}</td>
 			                                                <td>${aVo.applyDate}</td>
 			                                                <td>
@@ -206,7 +214,15 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                             <tr>
 			                                                <th scope="row">${listStat.count}</th>
 			                                                <td>${aVo.projName}</td>
-			                                                <td>${aVo.progName}</td>
+			                                                <td>
+			                                                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${aVo.progName}</a>
+			                                                   <div class="dropdown-menu">
+			                                                   <a class="dropdown-item" href="#" onclick="msgPopUp('${aVo.progNum}', '${aVo.progName}')">
+			                                                   <i class="kt-nav__link-icon flaticon2-send"></i>
+			                                                   <span class="kt-nav__link-text">메세지</span>
+			                                                   </a>
+			                                                   </div>
+			                                                </td>
 			                                                <td>${aVo.applyPosition}</td>
 			                                                <td>${aVo.applyDate}</td>
 			                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">${aVo.applyStat}</span></td>
@@ -387,5 +403,22 @@ function deleteApplyStmt(applyStmtNum){
 	}
 	
 }
+
+function msgPopUp(progNum,progName){
+	   var sendReceiver = progNum;
+	   var sendName = progName;
+	   
+	    var width = "800"; 
+	   var height = "555"; 
+	   var top = (window.screen.height-height)/2; 
+	   var left = (window.screen.width-width)/2; 
+	   var url = "/prog?command=messageRegisterForm&sendReceiver="+sendReceiver+"&sendName="+sendName; 
+	   var title = "메세지 보내기"; 
+	   var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+	    
+	    window.open(url, title, status);
+	    
+	}
 </script>
 </html>

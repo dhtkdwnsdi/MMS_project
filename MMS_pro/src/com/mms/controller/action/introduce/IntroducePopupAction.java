@@ -18,8 +18,7 @@ public class IntroducePopupAction implements Action{
 		String progNum = request.getParameter("progNum");
 		
 		request.setAttribute("progNum", progNum);
-		System.out.println("progNum: " + progNum);
-		
+
 		String url = "profile/introducePopup.jsp";
 		
 		IntroduceDAO progDao = IntroduceDAO.getInstance();

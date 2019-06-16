@@ -633,9 +633,9 @@ $("#cancel").click(function(){
 	var checkbox = $("input[name=check2]:checked");
 	checkbox.each(function(i){
 		tr = checkbox.parent().parent().eq(i);
-		this.prop("checked", false);
-		this.attr("name", "hideCheck2");
-		this.attr("class", "hideCheck2");
+		$(this).prop("checked", false);
+		$(this).attr("name", "hideCheck2");
+		$(this).attr("class", "hideCheck2");
 		tr.hide();
 	});
 	

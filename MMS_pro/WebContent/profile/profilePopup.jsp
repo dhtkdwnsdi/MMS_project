@@ -128,10 +128,10 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="kt-widget5__item">
 												<div class="kt-widget5__content">
 													<div class="kt-widget5__pic">
-													<c:if test = "${LoginUser.photo eq null}" >
+													<c:if test = "${profVo.photo eq null}" >
 														<img class="kt-widget7__img" src="../assets/media//products/photo.png" alt="">
 													</c:if>
-													<c:if test = "${LoginUser.photo eq profVo.photo}" >
+													<c:if test = "${profVo.photo ne null}" >
 														<img class="kt-widget7__img" src="/displayFile?fileName=${profVo.photo}" alt="">
 													</c:if>
 														

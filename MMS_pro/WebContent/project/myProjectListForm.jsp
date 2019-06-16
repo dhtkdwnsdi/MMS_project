@@ -152,7 +152,15 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                             <tr>
 			                                                <th scope="row">${listStat.count}</th>
 			                                                <td><a href="/proj?command=myProjectViewForm&projNum=${pVo.projNum}">${pVo.projName}</a></td>
-			                                                <td>${pVo.progName}</td>
+			                                                <td>
+			                                                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${pVo.progName}</a>
+			                                                   <div class="dropdown-menu">
+			                                                   <a class="dropdown-item" href="#" onclick="msgPopUp('${pVo.progNum}', '${pVo.progName}')">
+			                                                   <i class="kt-nav__link-icon flaticon2-send"></i>
+			                                                   <span class="kt-nav__link-text">메세지</span>
+			                                                   </a>
+			                                                   </div>
+			                                                </td>
 			                                                <td>${pVo.applyPosition}</td>
 			                                                <c:if test="${pVo.projStat eq '모집' }">
 																<td><span class="kt-badge kt-badge--success kt-badge--inline">모집</span></td>
@@ -188,7 +196,15 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                             <tr>
 			                                                <th scope="row">${listStat.count}</th>
 			                                                <td><a href="/proj?command=myProjectViewForm&projNum=${pVo.projNum}">${pVo.projName}</a></td>
-			                                                <td>${pVo.progName}</td>
+			                                                <td>
+			                                                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${pVo.progName}</a>
+			                                                   <div class="dropdown-menu">
+			                                                   <a class="dropdown-item" href="#" onclick="msgPopUp('${pVo.progNum}', '${pVo.progName}')">
+			                                                   <i class="kt-nav__link-icon flaticon2-send"></i>
+			                                                   <span class="kt-nav__link-text">메세지</span>
+			                                                   </a>
+			                                                   </div>
+			                                                </td>
 			                                                <td>${pVo.applyPosition}</td>
 			                                                 <c:if test="${pVo.projStat eq '모집' }">
 																<td><span class="kt-badge kt-badge--success kt-badge--inline">모집</span></td>
@@ -224,7 +240,15 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                             <tr>
 			                                                <th scope="row">${listStat.count}</th>
 			                                                <td><a href="/proj?command=myProjectViewForm&projNum=${pVo.projNum}">${eVo.projName}</a></td>
-			                                                <td>${eVo.progName}</td>
+			                                                <td>
+			                                                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${eVo.progName}</a>
+			                                                   <div class="dropdown-menu">
+			                                                   <a class="dropdown-item" href="#" onclick="msgPopUp('${eVo.progNum}', '${eVo.progName}')">
+			                                                   <i class="kt-nav__link-icon flaticon2-send"></i>
+			                                                   <span class="kt-nav__link-text">메세지</span>
+			                                                   </a>
+			                                                   </div>
+			                                                </td>
 			                                                <td>${eVo.applyPosition}</td>
 			                                                 <c:if test="${eVo.projStat eq '모집' }">
 																<td><span class="kt-badge kt-badge--success kt-badge--inline">모집</span></td>
@@ -404,5 +428,22 @@ function deleteApplyStmt(applyStmtNum){
 	}
 	
 }
+
+function msgPopUp(progNum,progName){
+	   var sendReceiver = progNum;
+	   var sendName = progName;
+	   
+	    var width = "800"; 
+	   var height = "555"; 
+	   var top = (window.screen.height-height)/2; 
+	   var left = (window.screen.width-width)/2; 
+	   var url = "/prog?command=messageRegisterForm&sendReceiver="+sendReceiver+"&sendName="+sendName; 
+	   var title = "메세지 보내기"; 
+	   var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+	    
+	    window.open(url, title, status);
+	    
+	}
 </script>
 </html>
