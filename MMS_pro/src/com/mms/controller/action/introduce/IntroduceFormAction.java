@@ -32,6 +32,8 @@ public class IntroduceFormAction implements Action {
 		
 		request.setAttribute("progVo", progVo);
 		
+		System.out.println(progVo);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 		

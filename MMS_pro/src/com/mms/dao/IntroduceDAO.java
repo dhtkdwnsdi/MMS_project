@@ -186,7 +186,7 @@ public class IntroduceDAO extends DBManager {
 					progVo.setIntroduce3(rs.getString("INTRODUCE3"));
 					progVo.setIntroduce4(rs.getString("INTRODUCE4"));
 					progVo.setIntroFile(rs.getString("INTRO_FILE"));
-					progVo.setIntroFile(rs.getString("NAME"));
+					progVo.setName(rs.getString("NAME"));
 					progVo.setProgNum(rs.getString("PROG_NUM"));
 				
 				

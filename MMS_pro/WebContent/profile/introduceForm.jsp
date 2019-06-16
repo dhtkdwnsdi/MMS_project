@@ -130,9 +130,8 @@ table, td, tr, th {
 									<div class="form-group form-group-last row">
 										<label class="col-3 col-form-label"><b>첨부파일</b></label>
 										<div class="col-9">
-											<label class="custom-file-label" for="customFile"
-												style="text-align: left;"> <a
-												href="/prog?command=introduceDownload&introFile=${progVo.introFile}">${progVo.introFile}</a></label>
+											<label class="custom-file-label" for="customFile" style="text-align: left;"> 
+											<a href="/prog?command=introduceDownload&introFile=${progVo.introFile}">${progVo.introFile}</a></label>
 										</div>
 									</div>
 

@@ -103,8 +103,7 @@ table, td, tr, th {
 									<div class="form-group form-group-last row">
 										<label class="col-3 col-form-label">첨부파일</label>
 										<div class="col-lg-6 col-md-6 col-sm-6">
-											<input type="file" class="custom-file-input" name="introFile"
-												id="introFile">
+											<input type="file" class="custom-file-input" name="introFile" id="introFile">
 											<label class="custom-file-label"
 												for="customFile" style="text-align: left;"></label>
 										</div>
