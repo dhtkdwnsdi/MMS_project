@@ -200,16 +200,16 @@ License: You must have a valid license purchased only from themeforest(the above
 												value="${sVo.sendContents}">${sVo.sendContents}</textarea>
 										</div>
 
-										<div class="col-lg-4">
-											<div
-												class="form-group row form-group-marginless kt-margin-t-20">
+										<div
+											class="form-group row form-group-marginless kt-margin-t-20">
+											<div class="col-lg-4">
 												<label id="label1">첨부파일</label>
-												<div></div>
-												<div class="custom-file">
+												<%-- <div class="custom-file">
 													<label class="custom-file-label" for="customFile"
 														style="text-align: left;"> <a
-														href="/proj?command=download&projFile=${sVo.sendFile}">${sVo.sendFile}</a></label>
-												</div>
+														href="/prog?command=messageDownload&sendFile=${sVo.sendFile}">${sVo.sendFile}</a></label>
+												</div> --%>
+												<a href="/prog?command=sendDownload&sendFile=${sVo.sendFile}">${sVo.sendFile}</a>
 											</div>
 										</div>
 

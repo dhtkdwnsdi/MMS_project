@@ -152,7 +152,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 			</div>
 			<div class="kt-portlet__body">
-				<form class="kt-form" id="kt_form">
+				<form class="kt-form" id="frm" name="frm">
 					<div class="row">
 						<div class="col-xl-2"></div>
 						<div class="col-xl-8">
@@ -199,12 +199,12 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 									<div class="form-group">
-											<div class="custom-file">
-										<label id="label1"  class="col-3 col-form-label">첨부파일</label>
+											<label id="label1">첨부파일</label>
+									<div class="custom-file">
 										
-												<input size="50" type="file" name="sendFile" id="sendFile">
-												<!-- <label class="custom-file-label" for="customFile" style="text-align: left;"></label> -->
-											</div>
+											<input type="file" name="sendFile" id="sendFile">
+											
+										</div>
 									</div>
 								</div>
 							</div>
@@ -459,25 +459,25 @@ License: You must have a valid license purchased only from themeforest(the above
 		}
 		if(sendSubject == ""){
 			alert("제목을 입력해주세요.");
-			$("#department").focus();
+			$("#sendSubject").focus();
 			return false;
 		}
 		else{
+			var form = $("#frm")[0];
+			var data = new FormData(form);
 
 			$.ajax({
 
 				type : 'POST', // GET or POST 전송방법 
-
+				enctype: 'multipart/form-data',
 				url : '/prog?command=messageRegister', // 이쪽으로 보낸다(호출URL)
 
-				data : {
-					sendSubject : sendSubject,
-					sendContents : sendContents,
-					sendReceiver : sendReceiver,
-					sendSender : sendSender,
-					sendFile : sendFile,
-				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
-
+				processData:false,
+				contentType:false,
+				
+				data : data, // userID 이름에 userID 데이터 값을 넣어서 보낸다
+				cache: false,
+				timeout: 600000,
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
 					alert("전송 되었습니다.");
 					self.close();

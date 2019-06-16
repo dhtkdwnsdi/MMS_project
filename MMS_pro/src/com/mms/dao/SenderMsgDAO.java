@@ -40,7 +40,8 @@ public class SenderMsgDAO extends DBManager{
 				+ "	    from tbl_send_msg m"
 				+ "		   , tbl_programmer p"
 				+ "    where send_receiver=p.prog_num"
-				+ "	     and m.send_sender = ?";
+				+ "	     and m.send_sender = ?"
+				+ "		 order by send_write_date desc";
 		
 		ArrayList<SendMsgVO> SendMessageList = new ArrayList<SendMsgVO>();
 

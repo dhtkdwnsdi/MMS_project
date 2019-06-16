@@ -17,10 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
 import com.mms.controller.action.memberSet.MemberUpdateAction;
+import com.mms.controller.action.message.MessageRegisterAction;
 import com.mms.controller.action.portpolio.PortpolioRegisterAction;
 import com.mms.controller.action.portpolio.PortpolioUpdateAction;
 import com.mms.vo.PortpolioVO;
 import com.mms.vo.ProgrammerVO;
+import com.mms.vo.ReceiveMsgVO;
+import com.mms.vo.SendMsgVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -380,6 +383,174 @@ public class ProgrammerServlet extends HttpServlet {
 
 
 					response.setHeader("Content-Disposition","attachment; filename=" + fileName + ";");
+					FileInputStream fin = new java.io.FileInputStream(f);
+					BufferedInputStream bis = new BufferedInputStream(fin);
+					ServletOutputStream fout = response.getOutputStream();
+					BufferedOutputStream bos = new BufferedOutputStream(fout);
+					
+					while((bytesRead = bis.read(buff)) != -1) {
+						bos.write(buff, 0, bytesRead);
+						
+					}
+					bos.flush();
+					
+					fin.close();
+					fout.close();
+					bis.close();
+					bos.close();
+					
+				} catch (IOException e) {
+					response.setContentType("text/html; charset=UTF-8");
+					response.getWriter().println("Error : "+e.getMessage());
+					
+				}
+			} else {
+				response.setContentType("text/html; charset=UTF-8");
+				response.getWriter().println("File Not Found : " + file);
+				
+			}
+			
+		} else if(command.equals("messageRegister")) {
+			ServletContext context = getServletContext();
+			System.out.println("context:" + context.getContextPath());
+			
+			String path = context.getRealPath("sendFile");
+			
+			String encType = "UTF-8";
+			int sizeLimit = 20*1024*1024;
+			//첨부파일 가져오는 객체 세팅
+			MultipartRequest multi = new MultipartRequest(request, path, sizeLimit, encType, new DefaultFileRenamePolicy());
+			//parameter가져오기
+			String sendNum = multi.getParameter("sendNum");
+			String sendSubject = multi.getParameter("sendSubject");
+			String sendWriteDate = multi.getParameter("sendWriteDate");
+			String sendContents = multi.getParameter("sendContents");
+			String sendReceiver = multi.getParameter("sendReceiver");
+			String sendSender = multi.getParameter("sendSender");
+			String sendFile = multi.getFilesystemName("sendFile");
+			
+			SendMsgVO sVo = new SendMsgVO();
+			
+			sVo.setSendNum(sendNum);
+			sVo.setSendSubject(sendSubject);
+			sVo.setSendWriteDate(sendWriteDate);
+			sVo.setSendContents(sendContents);
+			sVo.setSendReceiver(sendReceiver);
+			sVo.setSendSender(sendSender);
+			sVo.setSendFile(sendFile);
+			
+			String receiveSubject = multi.getParameter("sendSubject");
+			String receiveContents = multi.getParameter("sendContents");
+			String receiveReceiver = multi.getParameter("sendReceiver");
+			String receiveSender = multi.getParameter("sendSender");
+			String receiveFile = multi.getFilesystemName("sendFile");
+			
+			ReceiveMsgVO rVo = new ReceiveMsgVO();
+			
+			rVo.setReceiveSubject(receiveSubject);
+			rVo.setReceiveContents(receiveContents);
+			rVo.setReceiveReceiver(receiveReceiver);
+			rVo.setReceiveSender(receiveSender);
+			rVo.setReceiveFile(receiveFile);
+			
+			System.out.println("path : " + path);
+			System.out.println("fileName : " + sendFile);
+			System.out.println("sVo : " + sVo);
+			
+			request.setAttribute("sVo", sVo);
+			request.setAttribute("rVo", rVo);
+			
+			new MessageRegisterAction().execute(request,response);
+			
+		}else if(command.equals("sendDownload")) {
+			
+			request.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html; charset=UTF-8");
+			
+			String path = "C:\\MMS_LYJ\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MMS_pro\\sendFile\\";
+			String fileName = request.getParameter("sendFile");
+			String file = path + fileName;
+			String fileType = fileName.substring(fileName.lastIndexOf(".")+1);
+			
+			File f = new File(file);
+			if(f.exists()) {
+				int filesize = (int)f.length();
+				byte buff[] = new byte[2048];
+				int bytesRead;
+				
+				try {
+					if (fileType.equals("hwp")){
+						  response.setContentType("application/x-hwp");
+						} else if (fileType.equals("pdf")){
+						  response.setContentType("application/pdf");
+						} else if (fileType.equals("ppt") || fileType.equals("pptx")){
+						  response.setContentType("application/vnd.ms-powerpoint");
+						} else if (fileType.equals("doc") || fileType.equals("docx")){
+						  response.setContentType("application/msword");
+						} else if (fileType.equals("xls") || fileType.equals("xlsx")){
+						  response.setContentType("application/vnd.ms-excel");
+						} else {
+						  response.setContentType("application/octet-stream");
+						}
+					response.setHeader("Content-Disposition", "attachment; filename="+fileName + ";");
+					FileInputStream fin = new java.io.FileInputStream(f);
+					BufferedInputStream bis = new BufferedInputStream(fin);
+					ServletOutputStream fout = response.getOutputStream();
+					BufferedOutputStream bos = new BufferedOutputStream(fout);
+					
+					while((bytesRead = bis.read(buff)) != -1) {
+						bos.write(buff, 0, bytesRead);
+						
+					}
+					bos.flush();
+					
+					fin.close();
+					fout.close();
+					bis.close();
+					bos.close();
+					
+				} catch (IOException e) {
+					response.setContentType("text/html; charset=UTF-8");
+					response.getWriter().println("Error : "+e.getMessage());
+					
+				}
+			} else {
+				response.setContentType("text/html; charset=UTF-8");
+				response.getWriter().println("File Not Found : " + file);
+				
+			}
+			
+		} else if(command.equals("receiveDownload")) {
+			
+			request.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html; charset=UTF-8");
+			
+			String path = "C:\\MMS_LYJ\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MMS_pro\\sendFile\\";
+			String fileName = request.getParameter("receiveFile");
+			String file = path + fileName;
+			String fileType = fileName.substring(fileName.lastIndexOf(".")+1);
+			
+			File f = new File(file);
+			if(f.exists()) {
+				int filesize = (int)f.length();
+				byte buff[] = new byte[2048];
+				int bytesRead;
+				
+				try {
+					if (fileType.equals("hwp")){
+						  response.setContentType("application/x-hwp");
+						} else if (fileType.equals("pdf")){
+						  response.setContentType("application/pdf");
+						} else if (fileType.equals("ppt") || fileType.equals("pptx")){
+						  response.setContentType("application/vnd.ms-powerpoint");
+						} else if (fileType.equals("doc") || fileType.equals("docx")){
+						  response.setContentType("application/msword");
+						} else if (fileType.equals("xls") || fileType.equals("xlsx")){
+						  response.setContentType("application/vnd.ms-excel");
+						} else {
+						  response.setContentType("application/octet-stream");
+						}
+					response.setHeader("Content-Disposition", "attachment; filename="+fileName + ";");
 					FileInputStream fin = new java.io.FileInputStream(f);
 					BufferedInputStream bis = new BufferedInputStream(fin);
 					ServletOutputStream fout = response.getOutputStream();

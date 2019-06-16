@@ -40,7 +40,8 @@ public class ReceiverMsgDAO extends DBManager{
 				+ "	    from tbl_receive_msg m"
 				+ "		   , tbl_programmer p"
 				+ "    where receive_sender=p.prog_num"
-				+ "	     and m.receive_receiver = ?";
+				+ "	     and m.receive_receiver = ?"
+				+ "		 order by receive_write_date desc";
 		
 		ArrayList<ReceiveMsgVO> ReceiveMessageList = new ArrayList<ReceiveMsgVO>();
 
