@@ -22,7 +22,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- begin::Head -->
 <head>
 <meta charset="utf-8" />
-<title>Metronic | Tabbed Portlets</title>
+<title> PMMS | Message</title>
 <meta name="description" content="Tabbed portlet examples">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -166,6 +166,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<h3 class="kt-portlet__head-title">${LoginUser.name}의 메세지
 										조회</h3>
 								</div>
+								
 								<div class="kt-portlet__head-toolbar">
 									<ul
 										class="nav nav-tabs nav-tabs-bold nav-tabs-line   nav-tabs-line-right nav-tabs-line-brand"
