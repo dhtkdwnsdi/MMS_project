@@ -21,7 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- begin::Head -->
 <head>
-<title>Metronic | Dashboard</title>
+<title>PMMS | Dashboard</title>
 </head>
 
 
