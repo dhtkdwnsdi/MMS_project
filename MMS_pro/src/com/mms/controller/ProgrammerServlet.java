@@ -215,7 +215,7 @@ public class ProgrammerServlet extends HttpServlet {
 			String portEndDate = multi.getParameter("portEndDate"); 
 			String rate = multi.getParameter("rate"); 
 			String portFile = multi.getFilesystemName("portFile"); 
-			String plNum = request.getParameter("plNum");
+			String plNum = multi.getParameter("plNum");
 			
 			PortpolioVO portVo = new PortpolioVO(); 
 			

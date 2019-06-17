@@ -231,7 +231,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="col-lg-6"></div>
 									<div class="col-lg-6 kt-align-right">
 									<c:if test="${LoginUser.progNum eq portVo.progNum}">
-									<button type="button" class="btn btn-primary" onclick="location.href='/prog?command=portpolioUpdateForm&portNum=${portVo.portNum }'">수정</button>
+									<button type="button" class="btn btn-primary" onclick="location.href='/prog?command=portpolioUpdateForm&portNum=${portVo.portNum}'">수정</button>
 									</c:if>
 									<button type="button" class="btn btn-secondary" id="cancel">목록으로</button>
 									</div>

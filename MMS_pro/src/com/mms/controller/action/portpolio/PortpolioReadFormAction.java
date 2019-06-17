@@ -19,15 +19,17 @@ public class PortpolioReadFormAction implements Action {
 
 		String url = "profile/portpolioReadForm.jsp";
 		
-		PortpolioDAO portDao = PortpolioDAO.getInstance();
-		
 		String portNum = request.getParameter("portNum");
 		
-		request.setAttribute("portNum", portNum);
+		PortpolioVO portVo = new PortpolioVO();
+		PortpolioDAO portDao = PortpolioDAO.getInstance();
+		
+		portVo = portDao.readPortpolio(portNum);
+		request.setAttribute("portVo", portVo);
+		
 		
 		//포트폴리오 상세 조회
-		PortpolioVO portVo = portDao.readPortpolio(portNum);
-		
+		System.out.println(portNum);
 		System.out.println(portVo);
 		
 		request.setAttribute("portVo", portVo);

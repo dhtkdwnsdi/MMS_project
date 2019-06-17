@@ -17,12 +17,13 @@ public class PortpolioUpdateAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		PortpolioDAO portDao = PortpolioDAO.getInstance();
 		PortpolioVO portVo = (PortpolioVO) request.getAttribute("portVo");
+		PortpolioDAO portDao = PortpolioDAO.getInstance();
+		
+		System.out.println("portpolioUpdate : "+portVo);
 		
 		portDao.updatePortpolio(portVo);
 		
-		new ResumeFormAction().execute(request, response);
 		
 
 	}
