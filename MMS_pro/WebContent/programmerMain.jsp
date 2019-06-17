@@ -211,7 +211,11 @@ License: You must have a valid license purchased only from themeforest(the above
 										메세지 </a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab"
 									href="#kt_portlet_tab_1_4" role="tab"> 보낸 메세지 </a></li>
-
+								<!-- <li class="nav-item">
+														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab">
+															Settings
+														</a>
+													</li> -->
 							</ul>
 						</div>
 					</div>
@@ -231,37 +235,49 @@ License: You must have a valid license purchased only from themeforest(the above
 
 											</tr>
 										</thead>
+										<c:choose>
+										<c:when test="${not empty ReceiveMessageList}">
 										<tbody style="text-align: center;">
 											<c:forEach items="${ReceiveMessageList}" var="rVo"
 												varStatus="listStat">
-
+												
 												<c:if test="${listStat.count < 6}">
+												
+												<tr>
 
-													<tr>
+													<td><a
+														onclick="window.open('prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${rVo.receiveSubject}</a></td>
+													<td>${rVo.receiveName}</td>
 
-														<td><a
-															onclick="window.open('prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${rVo.receiveSubject}</a></td>
-														<td>${rVo.receiveName}<input type="hidden"
-															value="${rVo.receiveName}"></td>
-
-													</tr>
-												</c:if>
+												</tr>
 											</c:forEach>
+										</c:when>
+											<c:otherwise>
+												<tr>
+												<td colspan="5" class="txt_center" align="center"><b>받은 메세지가 없습니다.</b></td>
+												</tr>
+											</c:otherwise>
+										</c:choose>
+										</c:if>
 										</tbody>
 									</table>
-									<div>
-										<div class="col kt-align-center">
-											<div class="col kt-align-center">
-												<button type="button"
-													class="btn btn-clean btn-bold btn-upper"
-													onclick="location.href='/prog?command=messageListForm'">
-													메세지 전체 목록으로 가기</button>
+									
+									
+									
+											<div>
+											<div>
+												<div class="col kt-align-center">
+													<div class="col kt-align-center">
+														<button type="button"
+															class="btn btn-clean btn-bold btn-upper"
+															onclick="location.href='/prog?command=messageListForm'">
+															메세지 전체 목록으로 가기</button>
+													</div>
+												</div>
 											</div>
+
 										</div>
-									</div>
-
-
-
+										
 
 								</form>
 							</div>
@@ -276,22 +292,29 @@ License: You must have a valid license purchased only from themeforest(the above
 
 											</tr>
 										</thead>
+										<c:choose>
+										<c:when test="${not empty SendMessageList}">
 										<tbody style="text-align: center;">
 											<c:forEach items="${SendMessageList}" var="sVo"
 												varStatus="listStat">
-
 												<c:if test="${listStat.count < 6}">
+												<tr>
 
-													<tr>
+													<td><a
+														onclick="window.open('prog?command=messageSendViewForm&sendNum=${sVo.sendNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${sVo.sendSubject}</a></td>
+													<td>${sVo.sendName}<input type="hidden"
+														id="sendReceiver" value="${sVo.sendReceiver}"></td>
 
-														<td><a
-															onclick="window.open('prog?command=messageSendViewForm&sendNum=${sVo.sendNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${sVo.sendSubject}</a></td>
-														<td>${sVo.sendName}<input type="hidden"
-															id="sendReceiver" value="${sVo.sendReceiver}"></td>
-
-													</tr>
+												</tr>
 												</c:if>
 											</c:forEach>
+											</c:when>
+												<c:otherwise>
+													<tr>
+													<td colspan="5" class="txt_center" align="center"><b>보낸 메세지가 없습니다.</b></td>
+													</tr>
+												</c:otherwise>
+											</c:choose>
 										</tbody>
 									</table>
 
@@ -804,7 +827,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!-- end::Scrolltop -->
 
 		<!-- begin::Sticky Toolbar -->
-		<ul class="kt-sticky-toolbar" style="margin-top: 30px;">
+		<!-- <ul class="kt-sticky-toolbar" style="margin-top: 30px;">
 			<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--success"
 				id="kt_demo_panel_toggle" data-toggle="kt-tooltip"
 				title="Check out more demos" data-placement="right"><a href="#"
@@ -819,7 +842,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				<a href="https://keenthemes.com/metronic/?page=docs" target="_blank"><i
 					class="flaticon2-telegram-logo"></i></a>
 			</li>
-		</ul>
+		</ul> -->
 
 		<!-- end::Sticky Toolbar -->
 
