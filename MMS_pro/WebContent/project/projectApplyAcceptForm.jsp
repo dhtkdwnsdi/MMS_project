@@ -154,7 +154,25 @@ License: You must have a valid license purchased only from themeforest(the above
                                              <tr>
                                                 <th scope="row">${listStat.count}</th>
                                                 <td>${acVo.projName}</td>
-                                                <td><a href="#">${acVo.progName}</a></td>
+                                                <td>
+                                                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${acVo.progName}</a>
+																	<div class="dropdown-menu">
+																	<a class="dropdown-item" href="#" onclick="openProfilePopup('${acVo.progNum}')">
+																	<i class="kt-nav__link-icon flaticon2-avatar"></i>
+																	<span class="kt-nav__link-text">이력서</span>
+																	</a>
+																	<a class="dropdown-item" href="#" onclick="openIntroducePopup('${acVo.progNum}')">
+																	<i class="flaticon-avatar"></i>
+																	<span class="kt-nav__link-text">자기소개서</span>
+																	</a>
+																	<a class="dropdown-item" href="#" onclick="msgPopUp('${acVo.progNum}', '${acVo.progName}')">
+																	<i class="kt-nav__link-icon flaticon2-send"></i>
+																	<span class="kt-nav__link-text">메세지</span>
+																	</a>
+																	<!-- <div class="dropdown-divider"></div>
+																	<a class="dropdown-item" href="#">Separated link</a> -->
+																	</div>
+                                                </td>
                                                 <td>${acVo.applyPosition}</td>
                                                 <td>${acVo.applyDate}</td>
                                                 <c:if test="${acVo.applyStat eq '승인' }">
@@ -206,7 +224,25 @@ License: You must have a valid license purchased only from themeforest(the above
                                              <tr>
                                                 <th scope="row">${listStat.count}</th>
                                                 <td>${aVo.projName}</td>
-                                                <td><a href="#">${aVo.progName}</a></td>
+                                                <td>
+                                                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${aVo.progName}</a>
+																	<div class="dropdown-menu">
+																	<a class="dropdown-item" href="#" onclick="openProfilePopup('${aVo.progNum}')">
+																	<i class="kt-nav__link-icon flaticon2-avatar"></i>
+																	<span class="kt-nav__link-text">이력서</span>
+																	</a>
+																	<a class="dropdown-item" href="#" onclick="openIntroducePopup('${aVo.progNum}')">
+																	<i class="flaticon-avatar"></i>
+																	<span class="kt-nav__link-text">자기소개서</span>
+																	</a>
+																	<a class="dropdown-item" href="#" onclick="msgPopUp('${aVo.progNum}', '${aVo.progName}')">
+																	<i class="kt-nav__link-icon flaticon2-send"></i>
+																	<span class="kt-nav__link-text">메세지</span>
+																	</a>
+																	<!-- <div class="dropdown-divider"></div>
+																	<a class="dropdown-item" href="#">Separated link</a> -->
+																	</div>
+                                                </td>
                                                 <td>${aVo.applyPosition}</td>
                                                 <td>${aVo.applyDate}</td>
                                                 <c:if test="${aVo.applyStat eq '승인' }">
@@ -417,6 +453,68 @@ function denyApply(applyStmtNum){
 	}
 	
 }
+
+function msgPopUp(progNum,progName){
+	var sendReceiver = progNum;
+	var sendName = progName;
+	
+    var width = "800"; 
+	var height = "555"; 
+	var top = (window.screen.height-height)/2; 
+	var left = (window.screen.width-width)/2; 
+	var url = "/prog?command=messageRegisterForm&sendReceiver="+sendReceiver+"&sendName="+sendName; 
+	var title = "메세지 보내기"; 
+	var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+    
+    window.open(url, title, status);
+    
+}
+
+function openProfilePopup(progNum)
+{
+	var progNum = progNum;
+    // window.name = "부모창 이름"; 
+      window.name = "parentForm";
+    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+      var width = "800"; 
+	  var height = "700"; 
+	  var top = (window.screen.height-height)/2; 
+	  var left = (window.screen.width-width)/2; 
+ 	  var url = "/prog?command=profilePopup&progNum="+progNum; 
+	  var title = "프로젝트 인력배치"; 
+	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+      window.open(url, title, status);
+
+
+  
+    /* window.open("memberUpdateForm.jsp",
+            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
+}
+
+function openIntroducePopup(progNum)
+{
+	var progNum = progNum;
+    // window.name = "부모창 이름"; 
+      window.name = "parentForm";
+    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+      var width = "800"; 
+	  var height = "700"; 
+	  var top = (window.screen.height-height)/2; 
+	  var left = (window.screen.width-width)/2; 
+ 	  var url = "/prog?command=introducePopup&progNum="+progNum; 
+	  var title = "프로젝트 인력배치"; 
+	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
+
+      window.open(url, title, status);
+
+
+  
+    /* window.open("memberUpdateForm.jsp",
+            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
+}
+
 </script>
 
 

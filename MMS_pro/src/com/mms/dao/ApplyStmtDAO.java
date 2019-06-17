@@ -224,7 +224,8 @@ public class ApplyStmtDAO extends DBManager {
 				+ "			, SUBSTR(AP.APPLY_DATE, 1, 10) AS APPLY_DATE"
 				+ "			, AP.APPLY_POSITION AS APPLY_POSITION"
 				+ "			, AP.APPLY_STAT AS APPLY_STAT"
-				+ "		    , PJ.PROJ_STAT AS PROJ_STAT" + 
+				+ "		    , PJ.PROJ_STAT AS PROJ_STAT"
+				+ "			, PG.PROG_NUM AS PROG_NUM" + 
 				"   	 FROM TBL_PROJECT PJ" + 
 				"           , TBL_APPLY_STMT AP" + 
 				"           , TBL_PROGRAMMER PG" + 
@@ -251,6 +252,7 @@ public class ApplyStmtDAO extends DBManager {
 				aVo.setApplyPosition(rs.getString("APPLY_POSITION"));
 				aVo.setApplyStat(rs.getString("APPLY_STAT"));
 				aVo.setProjStat(rs.getString("PROJ_STAT"));
+				aVo.setProgNum(rs.getString("PROG_NUM"));
 				
 				list.add(aVo);
 				
@@ -287,7 +289,8 @@ public class ApplyStmtDAO extends DBManager {
 				"				, SUBSTR(AP.APPLY_DATE, 1, 10) AS APPLY_DATE" + 
 				"               , AP.APPLY_POSITION" + 
 				"               , PJ.PROJ_STAT"
-				+ "				, AP.APPLY_STAT AS APPLY_STAT" + 
+				+ "				, AP.APPLY_STAT AS APPLY_STAT"
+				+ "				, PG.PROG_NUM AS PROG_NUM" + 
 				"			    FROM TBL_PROJECT PJ " + 
 				"				   , TBL_APPLY_STMT AP" + 
 				"				   , TBL_PROGRAMMER PG" + 
@@ -313,6 +316,7 @@ public class ApplyStmtDAO extends DBManager {
 				aVo.setApplyPosition(rs.getString("APPLY_POSITION"));
 				aVo.setProjStat(rs.getString("PROJ_STAT"));
 				aVo.setApplyStat(rs.getString("APPLY_STAT"));
+				aVo.setProgNum(rs.getString("PROG_NUM"));
 				
 				list.add(aVo);
 				

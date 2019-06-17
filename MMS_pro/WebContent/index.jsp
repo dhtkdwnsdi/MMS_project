@@ -113,7 +113,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							</div>
 							<div class="kt-login__signin">
 								<div class="kt-login__head">
-									<h3 class="kt-login__title">Sign In</h3>
+									<h3 class="kt-login__title">로그인</h3>
 								</div>
 								
 								<c:if test = "${message ne null}">
@@ -131,45 +131,45 @@ License: You must have a valid license purchased only from themeforest(the above
 								
 								<form class="kt-form" method="post" action="main?command=login" onsubmit="return validateLogin()">
 									<div class="input-group">
-										<input class="form-control" type="text" placeholder="ID" name="id" autocomplete="off" id="id">
+										<input class="form-control" type="text" placeholder="아이디" name="id" autocomplete="off" id="id">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="password" placeholder="Password" name="password" id="password">
+										<input class="form-control" type="password" placeholder="비밀번호" name="password" id="password">
 									</div>
 									<div class="row kt-login__extra">
 										<div class="col">
 											<label class="kt-checkbox">
-												<input type="checkbox" name="remember"> Remember me
+												<input type="checkbox" name="remember"> 아이디 저장
 												<span></span>
 											</label>
 										</div>
 										<div class="col kt-align-right">
-											<a href="javascript:;" id="kt_login_forgot" class="kt-login__link">Forget Password ?</a>
+											<a href="javascript:;" id="kt_login_forgot" class="kt-login__link">비밀번호 찾기</a>
 										</div>
 									</div>
 									<div class="kt-login__actions">
-										<button type="submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Sign In</button>
+										<button type="submit" class="btn btn-brand btn-elevate kt-login__btn-primary">로그인</button>
 									</div>
 								</form>
 							</div>
 							<div class="kt-login__signup">
 								<div class="kt-login__head">
-									<h3 class="kt-login__title">Sign Up</h3>
-									<div class="kt-login__desc">Enter your details to create your account:</div>
+									<h3 class="kt-login__title">회원가입</h3>
+									<!-- <div class="kt-login__desc">Enter your details to create your account:</div> -->
 								</div>
 								<form class="kt-form" method="post" action="main?command=signUp" onsubmit="return validate()">
 									<div class="input-group">
-										<input class="form-control" type="text" placeholder="* FullName" name="name" autocomplete="off" id="name">
+										<input class="form-control" type="text" placeholder="* 이름" name="name" autocomplete="off" id="name">
 									</div>
 									<div class="input-group">
-										<input class="form-control" id="signUpid" type="text" placeholder="* ID (Click Here)" name="id" 
+										<input class="form-control" id="signUpid" type="text" placeholder="* 아이디" name="id" 
 										autocomplete="off" readonly="readonly" onclick="openPopUp()">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="password" placeholder="* Password" name="password" id="password1">
+										<input class="form-control" type="password" placeholder="* 비밀번호" name="password" id="password1">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="password" placeholder="* Confirm Password" name="rpassword" id="rpassword1">
+										<input class="form-control" type="password" placeholder="* 비밀번호 확인" name="rpassword" id="rpassword1">
 									</div>
 									<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
 									<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
@@ -186,24 +186,24 @@ License: You must have a valid license purchased only from themeforest(the above
 													</select>
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="text" placeholder="Email" name="email" autocomplete="off">
+										<input class="form-control" type="text" placeholder="이메일" name="email" autocomplete="off">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="text" placeholder="Tel" name="tel" autocomplete="off" onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)">
+										<input class="form-control" type="text" placeholder="전화번호" name="tel" autocomplete="off" onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="text" placeholder="Address (Click Here)" id="juso" name="juso" autocomplete="off" onclick="postcode()">
+										<input class="form-control" type="text" placeholder="주소" id="juso" name="juso" autocomplete="off" onclick="postcode()">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="text" placeholder="Detail Address" id="extraJuso" name="extraJuso" autocomplete="off">
+										<input class="form-control" type="text" placeholder="상세주소" id="extraJuso" name="extraJuso" autocomplete="off">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="text" placeholder="Bank" name="bank" autocomplete="off">
+										<input class="form-control" type="text" placeholder="은행" name="bank" autocomplete="off">
 									</div>
 									<div class="input-group">
-										<input class="form-control" type="text" placeholder="Bank Account" name="account" autocomplete="off" onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)">
+										<input class="form-control" type="text" placeholder="계좌번호" name="account" autocomplete="off" onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)">
 									</div>
-									<div class="row kt-login__extra">
+									<!-- <div class="row kt-login__extra">
 										<div class="col kt-align-left">
 											<label class="kt-checkbox">
 												<input type="checkbox" name="agree">I Agree the <a href="#" class="kt-link kt-login__link kt-font-bold">terms and conditions</a>.
@@ -211,10 +211,10 @@ License: You must have a valid license purchased only from themeforest(the above
 											</label>
 											<span class="form-text text-muted"></span>
 										</div>
-									</div>
+									</div> -->
 									<div class="kt-login__actions">
-										<button type="submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Sign Up</button>&nbsp;&nbsp;
-										<button id="kt_login_signup_cancel" class="btn btn-light btn-elevate kt-login__btn-secondary">Cancel</button>
+										<button type="submit" class="btn btn-brand btn-elevate kt-login__btn-primary">가입</button>&nbsp;&nbsp;
+										<button id="kt_login_signup_cancel" class="btn btn-light btn-elevate kt-login__btn-secondary">취소</button>
 									</div>
 								</form>
 
@@ -235,11 +235,11 @@ License: You must have a valid license purchased only from themeforest(the above
 								</form>
 							</div>
 							<div class="kt-login__account">
-								<span class="kt-login__account-msg">
-									Don't have an account yet ?
-								</span>
-								&nbsp;&nbsp;
-								<a href="javascript:;" id="kt_login_signup" class="kt-login__account-link">Sign Up!</a>
+<!-- 								<span class="kt-login__account-msg"> -->
+<!-- 									Don't have an account yet ? -->
+<!-- 								</span> -->
+<!-- 								&nbsp;&nbsp; -->
+								<a href="javascript:;" id="kt_login_signup" class="kt-login__account-link">회원가입</a>
 							</div>
 						</div>
 					</div>
