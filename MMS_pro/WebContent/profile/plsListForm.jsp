@@ -55,7 +55,7 @@ License: You must have a valid license purchased only from themeforest(the above
 														
 														
 														<c:choose>
-															<c:when test="${not empty commuteList}">
+															<c:when test="${not empty plsList}">
 														<tbody style="text-align: center;">
 															<c:forEach items="${plsList}" var="plsVo" varStatus="listStat">
 															<tr>

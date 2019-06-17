@@ -200,6 +200,8 @@ License: You must have a valid license purchased only from themeforest(the above
 														<th style="font-weight: bold;">날짜</th>
 													</tr>
 												</thead>
+												<c:choose>
+												<c:when test="${not empty ReceiveMessageList}">
 												<tbody style="text-align: center;">
 													<c:forEach items="${ReceiveMessageList}" var="rVo"
 														varStatus="listStat">
@@ -212,6 +214,13 @@ License: You must have a valid license purchased only from themeforest(the above
 															<td>${rVo.receiveWriteDate}</td>
 														</tr>
 													</c:forEach>
+													</c:when>
+													<c:otherwise>
+														<tr>
+														<td colspan="5" class="txt_center" align="center"><b>받은 메세지가 없습니다.</b></td>
+														</tr>
+													</c:otherwise>
+													</c:choose>
 												</tbody>
 											</table>
 											<div class="col kt-align-right">
@@ -234,6 +243,8 @@ License: You must have a valid license purchased only from themeforest(the above
 													</tr>
 												</thead>
 					
+												<c:choose>
+													<c:when test="${not empty SendMessageList}">
 												<tbody style="text-align: center;">
 													<c:forEach items="${SendMessageList}" var="sVo"
 														varStatus="listStat">
@@ -246,6 +257,13 @@ License: You must have a valid license purchased only from themeforest(the above
 															<td>${sVo.sendWriteDate}</td>
 														</tr>
 													</c:forEach>
+													</c:when>
+													<c:otherwise>
+														<tr>
+														<td colspan="5" class="txt_center" align="center"><b>보낸 메세지가 없습니다.</b></td>
+														</tr>
+													</c:otherwise>
+													</c:choose>
 												</tbody>
 											</table>
 											<div class="col kt-align-right">
