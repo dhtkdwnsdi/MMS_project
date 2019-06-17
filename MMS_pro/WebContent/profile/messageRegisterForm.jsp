@@ -517,7 +517,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	$(function() {
 		$("#datepicker1").datepicker();
 	});
-	
+	//프로그래머 검색을 통해 progNum을 받아옴
 	function openPopUp2() {
 		// window.name = "부모창 이름"; 
 		window.name = "childForm";

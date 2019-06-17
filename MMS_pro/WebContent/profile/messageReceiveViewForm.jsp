@@ -513,7 +513,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										});
 
 					});
-
+//답장을 위한 메세지 보내기 팝업
 	function openMessagePop(receiveSender, receiveName) {
 		var sendReceiver = receiveSender;
 		var sendName = receiveName;

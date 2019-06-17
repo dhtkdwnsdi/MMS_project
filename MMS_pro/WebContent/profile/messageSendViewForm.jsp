@@ -516,7 +516,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										});
 
 					});
-
+//메세지를 보내기위한 팝업 창
 	function openMessagePop(sendReceiver, sendName) {
 		var sendReceiver = sendReceiver;
 		var sendName = sendName;
