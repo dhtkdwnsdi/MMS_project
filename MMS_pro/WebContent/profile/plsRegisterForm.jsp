@@ -19,7 +19,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- begin::Head -->
 <head>
 <meta charset="utf-8" />
-<title>PMMS | Message</title>
+<title>PMMS | 프로그래밍 언어 등록</title>
 <meta name="description" content="Bootstrap daterangepicker examples">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -148,75 +148,102 @@ License: You must have a valid license purchased only from themeforest(the above
 		<div class="kt-portlet kt-portlet--mobile">
 			<div class="kt-portlet__head kt-portlet__head--lg">
 				<div class="kt-portlet__head-label">
-					<h3 class="kt-portlet__head-title">메세지 보내기</h3>
+					<h3 class="kt-portlet__head-title">프로그래밍 언어 숙련도 등록</h3>
+					
 				</div>
 			</div>
 			<div class="kt-portlet__body">
-				<form class="kt-form" id="frm" name="frm">
+				<form class="kt-form" id="kt_form">
+					<input type="hidden" name="progNum" id="progNum"
+						value="${LoginUser.progNum}">
 					<div class="row">
 						<div class="col-xl-2"></div>
 						<div class="col-xl-8">
 							<div class="kt-section kt-section--first">
 
 								<div class="kt-section__body">
-									<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
-																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
-									<input type="hidden" name="sendSender" id="sendSender" value="${LoginUser.progNum}">
-									<div class="form-group row">
-										<label class="col-3 col-form-label">받는 사람</label>
+								
+								
+								
+								<div class="form-group row">
+										<label class="col-3 col-form-label">프로그래밍 언어명</label>
 										<div class="col-9">
-											
-											<input type="hidden" id="sendReceiver" name="sendReceiver" value="${sendReceiver}">
+											<input type="hidden" name="plNum" class="form-control" id="plNum">
 											<div class="kt-input-icon kt-input-icon--right">
-											<input type="text" class="form-control" id="sendName"
-													name="sendName" value="${sendName}" readonly>
+												<input type="text" class="form-control" id="plName" name="plName" readonly> 
 												<span class="kt-input-icon__icon kt-input-icon__icon--right">
-													<span>
-														<button type="button"
-															class="btn btn-outline-hover-danger btn-icon"
-															onClick="openPopUp2()" id="progNumCheck">
-															<i class="la la-search"></i>
-														</button>
-													</span>
+												<span>
+												<button type="button" class="btn btn-outline-hover-danger btn-icon" onClick="openPopUp2()" id="plNameCherck">
+														<i class="la la-search"></i>
+												</button>
 												</span>
+											</span>
 											</div>
 										</div>
 									</div>
+								
+								
+								
+								
+									<!-- <div class="form-group row">
+										<label class="col-3 col-form-label">프로그래밍 언어명</label> <input
+											type="hidden" name="plNum" class="form-control" id="plNum">
+										<div class="kt-input-icon kt-input-icon--right">
+											<input type="text" class="form-control" id="plName"
+												name="plName" readonly> <span
+												class="kt-input-icon__icon kt-input-icon__icon--right">
+												<span>
+													<button type="button"
+														class="btn btn-outline-hover-danger btn-icon"
+														onClick="openPopUp2()" id="plNameCherck">
+														<i class="la la-search"></i>
+													</button>
+											</span>
+											</span>
+										</div>
+									</div> -->
+
+
+
 									<div class="form-group row">
-										<label class="col-3 col-form-label">제목</label>
+										<label class="col-3 col-form-label">숙련도</label>
 										<div class="col-9">
-											<input class="form-control" type="text" name="sendSubject"
-												id="sendSubject">
+											<select class="form-control" id="profiency" name="profiency">
+												<option value='' selected>--선택--</option>
+												<option value="초급">초급</option>
+												<option value="중급">중급</option>
+												<option value="고급">고급</option>
+												<option value="특급">특급</option>
+											</select>
 										</div>
 									</div>
+
+
+
+
 									<div class="form-group row">
-										<label class="col-3 col-form-label">내용</label>
+										<label class="col-3 col-form-label">직책(연차)</label>
 										<div class="col-9">
-										<textarea style="width: 500px; height: 120px;"
-										class="form-control" id="sendContents" name="sendContents"></textarea>
-											
+											<input class="form-control" type="text" name="experience"
+												id="experience">
 										</div>
 									</div>
-									<div class="form-group">
-											<label id="label1">첨부파일</label>
-									<div class="custom-file">
-										
-											<input type="file" name="sendFile" id="sendFile">
-											
-										</div>
-									</div>
+
+
 								</div>
 							</div>
-							<div class="kt-portlet__foot">
+
+
 								<div class="kt-form__actions kt-form__actions--right">
 									<div class="row">
+
 										<div class="col kt-align-right">
-											<button type="button" class="btn btn-brand"
-												onclick="registerMessage()">전송</button>
+											<button type="button" class="btn btn-brand" onclick="registerPls()">등록</button>
+											<button type="button" class="btn btn-secondary" onclick="window.close();" >취소</button>	
 										</div>
 									</div>
 								</div>
-							</div>
+
 						</div>
 						<div class="col-xl-2"></div>
 					</div>
@@ -435,54 +462,42 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!--end::Global App Bundle -->
 </body>
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <script>
 	// 경력 등록 AJAX
-	function registerMessage() {
+	function registerPls() {
 
 		// userID 변수에 userID의 입력된 값을 가져오게 함
-		
-		var sendSubject = $('#sendSubject').val();
-		var sendContents = $('#sendContents').val();
-		var sendReceiver = $('#sendReceiver').val();
-		//var sendName = $('#sendName').val();
-		var sendSender = $('#sendSender').val();
-		var sendFile = $('#sendFile').val();
+		var progNum = $('#progNum').val();
+		var plNum = $('#plNum').val();
+		var profiency = $('#profiency').val();
+		var experience = $('#experience').val();
 
-		if(sendReceiver == ""){
-			alert("보낼 사람을 지정 해주세요");
-			$("#sendReceiver").focus();
+		if (profiency == "") {
+			alert("숙련도를 입력하시오.");
 			return false;
 		}
-		if(sendSubject == ""){
-			alert("제목을 입력해주세요.");
-			$("#sendSubject").focus();
+		if (progNum == "") {
+			alert("잘못된 정보입니다.");
 			return false;
-		}
-		else{
-			var form = $("#frm")[0];
-			var data = new FormData(form);
+		} else {
 
 			$.ajax({
 
 				type : 'POST', // GET or POST 전송방법 
-				enctype: 'multipart/form-data',
-				url : '/prog?command=messageRegister', // 이쪽으로 보낸다(호출URL)
 
-				processData:false,
-				contentType:false,
-			
-				data : data,
-				cache: false,// userID 이름에 userID 데이터 값을 넣어서 보낸다
-				timeout: 600000,
+				url : '/prog?command=plsRegister', // 이쪽으로 보낸다(호출URL)
+
+				data : {
+					plNum : plNum,
+					profiency : profiency,
+					experience : experience,
+					progNum : progNum,
+				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
 
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
-					alert("전송 되었습니다.");
+					alert("등록 되었습니다.");
 					self.close();
-					//opener.location.href = "/prog?command=messageListForm#kt_portlet_tab_1_2";
+					opener.location.href = "/prog?command=plsRegister";
 				},
 				error : function(data) {
 					alert("오류:: 다시 시도해주세요.");
@@ -491,8 +506,27 @@ License: You must have a valid license purchased only from themeforest(the above
 
 			})
 		}
-		}
+	}
 	
+	
+	
+	 function openPopUp2() {
+		// window.name = "부모창 이름"; 
+		window.name = "childForm";
+		// window.open("open할 window", "자식창 이름", "팝업창 옵션");
+		var width = "500";
+		var height = "300";
+		var top = (window.screen.height - height) / 2;
+		var left = (window.screen.width - width) / 2;
+		var url = "/prog?command=plSearchForm";
+		var title = "프로그래밍 언어 검색";
+		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
+
+		window.open(url, title, status);
+
+		
+	} 
 </script>
 
 <link rel="stylesheet"
@@ -519,23 +553,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		$("#datepicker1").datepicker();
 	});
 	
-	function openPopUp2() {
-		// window.name = "부모창 이름"; 
-		window.name = "childForm";
-		// window.open("open할 window", "자식창 이름", "팝업창 옵션");
-		var width = "500";
-		var height = "300";
-		var top = (window.screen.height - height) / 2;
-		var left = (window.screen.width - width) / 2;
-		var url = "/prog?command=programmerSearchForm";
-		var title = "프로그래머 검색";
-		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
-				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
-
-		window.open(url, title, status);
-
-		
-	}
+	
 </script>
 <!-- end::Body -->
 </html>

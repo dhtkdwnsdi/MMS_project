@@ -104,11 +104,11 @@ License: You must have a valid license purchased only from themeforest(the above
 		<div class="kt-portlet kt-portlet--mobile">
 			<div class="kt-portlet__head kt-portlet__head--lg">
 				<div class="kt-portlet__head-label">
-					<h3 class="kt-portlet__head-title">포트폴리오 등록</h3>
+					<h3 class="kt-portlet__head-title">포트폴리오 수정</h3>
 				</div>
 			</div>
 			<div class="kt-portlet__body">
-				<form class="kt-form" id="kt_form" method="post" action="/prog?command=portpolioUpdate">
+				<form method="POST" enctype="multipart/form-data" id="frm" name="frm">
 					<input type="hidden" name="progNum" value="${LoginUser.progNum}" id="progNum">
 					<input name="portNum" id="portNum" type="hidden" value="${portVo.portNum }">
 					<div class="row">
@@ -258,7 +258,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="form-group row">
 										<label class="col-3 col-form-label">핵심 프로그래밍 언어</label>
 										<div class="col-9">
-											<input type="hidden" name="plNum" class="form-control" id="plNum" value="${portVo.plNum }">
+											<input type="hidden" name="plNum" id="plNum" value="${portVo.plNum }">
 											<div class="kt-input-icon kt-input-icon--right">
 												<input type="text" class="form-control" id="plName" name="plName" readonly  value="${portVo.plName }"> 
 												<span class="kt-input-icon__icon kt-input-icon__icon--right">
@@ -291,7 +291,16 @@ License: You must have a valid license purchased only from themeforest(the above
 											</div>
 										</div>
 									</div> -->
+								
+							
 									
+									
+								<div class="form-group row">
+										<label class="col-3 col-form-label">이전 첨부파일</label>
+										<div class="col-9">
+											<input type="text" class="form-control"  readonly="readonly" name="prevProjFile" id="prevProjFile" value="${projVo.projFile}">
+										</div>
+								</div>	
 									
 									
 
@@ -299,7 +308,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<label class="col-3 col-form-label">첨부파일</label>
 									<div class="col-9">
 										<div class="kt-input-icon kt-input-icon--right">
-											<input type="file" class="custom-file-input" name="projFile" id="projFile">
+											<input type="file" class="custom-file-input" name="portFile" id="portFile">
 											<label class="custom-file-label" for="customFile" style="text-align: left;"></label>
 										</div>
 									</div>
@@ -553,6 +562,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		var rate = $('#rate').val();
 		var portFile = $('#portFile').val();
 		var plNum = $('#plNum').val();
+		var portNum = $('#portNum').val();
 		
 		if (subject == "") {
 			alert("제목을 입력해주세요.");
@@ -584,11 +594,64 @@ License: You must have a valid license purchased only from themeforest(the above
 			$("#rate").focus();
 			return false;
 		}
+		if (plNum == "") {
+			alert("핵심언어를 입력해주세요.");
+			$("#plNum").focus();
+			return false;
+		}
 		if (progNum == "") {
 			alert("잘못된 정보입니다.");
 			return false;
 		} 
+		else {
+			var form = $("#frm")[0];
+			var data = new FormData(form);
+		$.ajax({
+			
+			type: 'POST',  // GET or POST 전송방법 
+			enctype: 'multipart/form-data',
+			url: '/prog?command=portpolioUpdate',  // 이쪽으로 보낸다(호출URL)
+			
+			processData: false, 
+	        contentType: false,
+		
+			data: data,  
+			cache: false,
+			timeout: 600000,
+
+			success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
+				alert("수정되었습니다.");
+				location.href = "/prog?command=portpolioReadForm&portNum="+portNum;
+			},
+			error: function(data){
+				alert("오류:: 다시 시도해주세요.");
+				return false;
+			}
+			 
+
+		})
+		} 
 	}
+	
+	
+	
+	function openPopUp1() {
+		// window.name = "부모창 이름"; 
+		window.name = "childForm";
+		// window.open("open할 window", "자식창 이름", "팝업창 옵션");
+		var width = "500";
+		var height = "300";
+		var top = (window.screen.height - height) / 2;
+		var left = (window.screen.width - width) / 2;
+		var url = "/prog?command=plSearchForm";
+		var title = "프로그래밍 언어 검색";
+		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
+				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
+
+		window.open(url, title, status);
+
+		
+	} 
 </script>
 
 <link rel="stylesheet"

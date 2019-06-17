@@ -534,7 +534,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
 </script>
 
-<script type="text/javascript">             
+<script type="text/javascript">  
+//체크박스 전체 선택을 위한 function
 $( document ).ready( function() {
     $( '#ReceiveAll' ).click( function() {
       $( '.receiveChk' ).prop( 'checked', this.checked );
@@ -574,7 +575,7 @@ $( document ).ready( function() {
 			return false;
 		}
 	}
-
+	//메세지 보내기 팝업 창
 	function openPopUp() {
 		// window.name = "부모창 이름"; 
 		window.name = "parentForm";
@@ -584,7 +585,7 @@ $( document ).ready( function() {
 		var top = (window.screen.height - height) / 2;
 		var left = (window.screen.width - width) / 2;
 		var url = "profile/messageRegisterForm.jsp";
-		var title = "경력 정보 등록";
+		var title = "메세지 보내기";
 		var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="
 				+ width + ",height=" + height + ",top=" + top + ",left=" + left;
 

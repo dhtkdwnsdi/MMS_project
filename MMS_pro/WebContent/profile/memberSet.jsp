@@ -20,7 +20,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Head -->
 	<head>
-		<title>Metronic | 계정 설정</title>
+		<title>PMMS | 계정 설정</title>
 	</head>
 
 	<!-- end::Head -->

@@ -19,7 +19,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- begin::Head -->
 <head>
 <meta charset="utf-8" />
-<title>Metronic | 메세지 보내기</title>
+<title>PMMS | Message</title>
 <meta name="description" content="Bootstrap daterangepicker examples">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -517,7 +517,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	$(function() {
 		$("#datepicker1").datepicker();
 	});
-	
+	//프로그래머 검색을 통해 progNum을 받아옴
 	function openPopUp2() {
 		// window.name = "부모창 이름"; 
 		window.name = "childForm";

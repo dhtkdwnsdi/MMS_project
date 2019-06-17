@@ -21,7 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- begin::Head -->
 	<head>
 		<meta charset="utf-8" />
-		<title>Metronic | Tabbed Portlets</title>
+		<title>PMMS | 프로젝트 신청</title>
 		<meta name="description" content="Tabbed portlet examples">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

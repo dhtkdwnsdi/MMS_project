@@ -21,7 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- begin::Head -->
 <head>
 <meta charset="utf-8" />
-<title>PMMS | 메세지 보기</title>
+<title>PMMS | Message</title>
 <meta name="description" content="Multi column form examples">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -516,7 +516,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										});
 
 					});
-
+//메세지를 보내기위한 팝업 창
 	function openMessagePop(sendReceiver, sendName) {
 		var sendReceiver = sendReceiver;
 		var sendName = sendName;

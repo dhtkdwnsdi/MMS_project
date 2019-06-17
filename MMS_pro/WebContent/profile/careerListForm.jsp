@@ -20,7 +20,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Head -->
 	<head>
-		<title>Metronic | 경력 등록</title>
+		<title>PMMS | 경력 등록</title>
 	</head>
 	<!-- end::Head -->
 
