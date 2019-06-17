@@ -162,7 +162,7 @@ sessionStorage.fonts = true;
 </li>
 
 
-<c:if test="${command ne 'profileForm' and command ne 'resumeForm' and command ne 'intorduceForm' and command ne 'memberUpdateForm'}">
+<c:if test="${command ne 'profileForm' and command ne 'resumeForm' and command ne 'intorduceForm' and command ne 'memberUpdateForm' and command ne 'myCertUpdateForm' and command ne 'eduUpdateForm' and command ne 'careerUpdateForm' and command ne 'plsUpdateForm' and command ne 'portpolioReadForm' and command ne 'introduceUpdateForm'}">
 <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 <polygon id="Shape" points="0 0 24 0 24 24 0 24" />
@@ -187,7 +187,7 @@ sessionStorage.fonts = true;
 </li>
 </c:if>
 
-<c:if test="${command eq 'profileForm' or command eq 'resumeForm' or command eq 'intorduceForm' or command eq 'memberUpdateForm'}">
+<c:if test="${command eq 'profileForm' or command eq 'resumeForm' or command eq 'intorduceForm' or command eq 'memberUpdateForm' or command eq 'myCertUpdateForm' or command eq 'eduUpdateForm' or command eq 'careerUpdateForm' or command eq 'plsUpdateForm' or command eq 'portpolioReadForm' or command eq 'introduceUpdateForm'}">
 <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--open" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
@@ -212,7 +212,7 @@ sessionStorage.fonts = true;
 </li>
 </c:if>
 
-<c:if test="${command ne 'projectApplyListForm' and command ne 'myProjectListForm' and command ne 'myApplyStmtListForm'}">
+<c:if test="${command ne 'projectApplyListForm' and command ne 'myProjectListForm' and command ne 'myApplyStmtListForm' and command ne 'projectApplyViewForm' and command ne 'myProjectViewForm'}">
 <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 <rect id="bound" x="0" y="0" width="24" height="24" />
@@ -233,7 +233,7 @@ sessionStorage.fonts = true;
 </c:if>
 
 
-<c:if test="${command eq 'projectApplyListForm' or command eq 'myProjectListForm' or command eq 'myApplyStmtListForm'}">
+<c:if test="${command eq 'projectApplyListForm' or command eq 'myProjectListForm' or command eq 'myApplyStmtListForm' or command eq 'projectApplyViewForm' or command eq 'myProjectViewForm'}">
 <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--open" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 <rect id="bound" x="0" y="0" width="24" height="24"></rect>
@@ -812,7 +812,7 @@ sessionStorage.fonts = true;
 <i class="kt-menu__section-icon flaticon-more-v2"></i>
 </li>
 
-<c:if test="${command ne 'profileForm' and command ne 'resumeForm' and command ne 'intorduceList' and command ne 'memberUpdateForm'}">
+<c:if test="${command ne 'profileForm' and command ne 'resumeForm' and command ne 'intorduceForm' and command ne 'memberUpdateForm' and command ne 'portpolioReadForm' and command ne 'introduceUpdateForm' and command ne 'myCertUpdateForm' and command ne 'eduUpdateForm' and command ne 'careerUpdateForm' and command ne 'plsUpdateForm'}">
 <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 <polygon id="Shape" points="0 0 24 0 24 24 0 24" />
@@ -830,14 +830,14 @@ sessionStorage.fonts = true;
 <!-- <li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=eduListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">학력 등록</span></a></li> -->
 <!-- <li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=careerListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">경력 등록</span></a></li> -->
 <!-- <li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=plsListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">프로그래밍 언어 숙련도 등록</span></a></li> -->
-<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=intorduceList" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">자기소개서 등록</span></a></li>
+<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=intorduceForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">자기소개서 등록</span></a></li>
 <li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=memberUpdateForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">내 정보 수정</span></a></li>
 </ul>
 </div>
 </li>
 </c:if>
 
-<c:if test="${command eq 'profileForm' or command eq 'resumeForm' or command eq 'intorduceList' or command eq 'memberUpdateForm'}">
+<c:if test="${command eq 'profileForm' or command eq 'resumeForm' or command eq 'intorduceForm' or command eq 'memberUpdateForm' or command eq 'portpolioReadForm' or command eq 'introduceUpdateForm' or command eq 'myCertUpdateForm' or command eq 'eduUpdateForm' or command eq 'careerUpdateForm' or command eq 'plsUpdateForm'}">
 <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--open" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
@@ -855,7 +855,7 @@ sessionStorage.fonts = true;
 <!-- <li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=eduListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">학력 등록</span></a></li> -->
 <!-- <li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=careerListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">경력 등록</span></a></li> -->
 <!-- <li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=plsListForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">프로그래밍 언어 숙련도 등록</span></a></li> -->
-<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=intorduceList" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">자기소개서 등록</span></a></li>
+<li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=intorduceForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">자기소개서 등록</span></a></li>
 <li class="kt-menu__item " aria-haspopup="true"><a href="/prog?command=memberUpdateForm" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">내 정보 수정</span></a></li>
 </ul>
 </div>
@@ -889,7 +889,7 @@ command=projectListForm
 </div>
 </li> -->
 
-<c:if test="${command ne 'projectListForm' and command ne 'projectRegisterForm' and command ne 'myProjectListForm'}">
+<c:if test="${command ne 'projectListForm' and command ne 'projectRegisterForm' and command ne 'myProjectListForm' and command ne 'projectListViewForm' and command ne 'myProjectViewForm'}">
 <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
 <!-- <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"> -->
 <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
@@ -911,7 +911,7 @@ command=projectListForm
 </li>
 </c:if>
 
-<c:if test="${command eq 'projectListForm' or command eq 'projectRegisterForm' or command eq 'myProjectListForm'}">
+<c:if test="${command eq 'projectListForm' or command eq 'projectRegisterForm' or command eq 'myProjectListForm' or command eq 'projectListViewForm' or command eq 'myProjectViewForm'}">
 <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--open" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
 <!-- <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"> -->
 <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
