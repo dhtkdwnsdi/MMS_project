@@ -230,6 +230,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- end::Body -->
 <script>
+
+// 현재 행의 proj_num을 가져와서 팝업창 띄우기
 function openDeployPop(projNum)
 {
 	var projNum = projNum;

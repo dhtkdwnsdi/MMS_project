@@ -465,6 +465,12 @@ $( document ).ready( function() {
   } );
   
 $("#deploy").click(function(){
+	var noList = $("#deployedTable > tbody", parent.opener.document).length;
+	
+	if(noList == 1){
+		$("#deployedTable > tbody tr", parent.opener.document).remove();
+	}
+	
 	var checkbox = $("input[name=check]:checked");
 	checkbox.each(function(i) { 	
 		var tr = checkbox.parent().parent().eq(i);

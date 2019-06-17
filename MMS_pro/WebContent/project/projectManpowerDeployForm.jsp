@@ -489,14 +489,18 @@ License: You must have a valid license purchased only from themeforest(the above
 	
 <script>
 
+// 추천 기능 Jquery
 $("#recommend").click(function(){
+	// 사용자가 추천 받고 싶은 프로그래밍 언어를 배열로 받음
 	var plList = [];
 	
 	$("#plName:checked").each(function(i){ // jQuery로 for문 돌면서 check 된 값 배열에 대입
 		plList.push($(this).val());
 	});
 	
+	// 사용자가 추천 받고 싶은 프로그래머 등급을 받음
 	var grade = $('#grade').val();
+	
 	
 	$.ajax({
 		
@@ -509,7 +513,10 @@ $("#recommend").click(function(){
 			"grade" : grade
 		},  
 		success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
+			// 추천된 인력 테이블을 비움
 			$("#recommendTable > tbody").empty();
+			
+			// ajax를 통해 얻은 data의 길이가 0보다 클 경우 즉, 리스트가 있을 경우
 			if(data.length > 0) {
 			$.each(data, function(key, value){
 				var eachrow = "<tr>"
@@ -560,7 +567,6 @@ $("#recommend").click(function(){
 
 
 $("#deploy").click(function(){
-	var dProgNum = [];
 	
 	var zeroTd = "<tr>"
 			   + "<td colspan=\"5\">"

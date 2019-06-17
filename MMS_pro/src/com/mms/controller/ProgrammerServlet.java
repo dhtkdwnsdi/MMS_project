@@ -285,14 +285,15 @@ public class ProgrammerServlet extends HttpServlet {
 		
 
 		else if(command.equals("introduceDownload")) {
-			
+			ServletContext context = getServletContext();
 			
 			request.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html; charset=UTF-8");
 			
-			String path = "D:\\MMS_osj\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MMS_pro\\introFile\\";
+//			String path = "D:\\MMS_osj\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MMS_pro\\introFile\\";
+			String path = context.getRealPath("introFile");
 			String fileName = request.getParameter("introFile");
-			String file = path + fileName;
+			String file = path + "\\" + fileName;
 			String fileType = fileName.substring(fileName.lastIndexOf(".")+1);
 			
 			
@@ -353,14 +354,15 @@ public class ProgrammerServlet extends HttpServlet {
 		
 		
 		else if(command.equals("portpolioDownload")) {
-			
+			ServletContext context = getServletContext();
 			
 			request.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html; charset=UTF-8");
 			
-			String path = "D:\\MMS_osj\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MMS_pro\\portFile\\";
+//			String path = "D:\\MMS_osj\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MMS_pro\\portFile\\";
+			String path = context.getRealPath("portFile");
 			String fileName = request.getParameter("portFile");
-			String file = path + fileName;
+			String file = path + "\\" + fileName;
 			String fileType = fileName.substring(fileName.lastIndexOf(".")+1);
 			
 			File f = new File(file);
@@ -467,13 +469,14 @@ public class ProgrammerServlet extends HttpServlet {
 			new MessageRegisterAction().execute(request,response);
 			
 		}else if(command.equals("sendDownload")) {
-			
+			ServletContext context = getServletContext();
 			request.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html; charset=UTF-8");
 			
-			String path = "C:\\MMS_LYJ\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MMS_pro\\sendFile\\";
+//			String path = "C:\\MMS_LYJ\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MMS_pro\\sendFile\\";
+			String path = context.getRealPath("sendFile");
 			String fileName = request.getParameter("sendFile");
-			String file = path + fileName;
+			String file = path + "\\" + fileName;
 			String fileType = fileName.substring(fileName.lastIndexOf(".")+1);
 			
 			File f = new File(file);
@@ -525,13 +528,14 @@ public class ProgrammerServlet extends HttpServlet {
 			}
 			
 		} else if(command.equals("receiveDownload")) {
-			
+			ServletContext context = getServletContext();
 			request.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html; charset=UTF-8");
 			
-			String path = "C:\\MMS_LYJ\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MMS_pro\\sendFile\\";
+//			String path = "C:\\MMS_LYJ\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MMS_pro\\sendFile\\";
+			String path = context.getRealPath("receiveFile");
 			String fileName = request.getParameter("receiveFile");
-			String file = path + fileName;
+			String file = path + "\\" + fileName;
 			String fileType = fileName.substring(fileName.lastIndexOf(".")+1);
 			
 			File f = new File(file);

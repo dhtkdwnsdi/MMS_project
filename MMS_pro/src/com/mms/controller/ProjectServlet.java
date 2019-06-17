@@ -183,13 +183,14 @@ public class ProjectServlet extends HttpServlet {
 			new ProjectUpdateAction().execute(request, response);
 		} 
 		else if(command.equals("download")) {
-//			ServletContext context = getServletContext();
+			ServletContext context = getServletContext();
 //			System.out.println("context: " + context.getContextPath());
 			request.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html; charset=UTF-8");
-			String path = "D:\\Project\\MMS_LH\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MMS_pro\\projectFile\\";
+//			String path = "D:\\Project\\MMS_LH\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MMS_pro\\projectFile\\";
+			String path = context.getRealPath("projectFile");
 			String fileName = request.getParameter("projFile");
-			String file = path + fileName;
+			String file = path + "\\" + fileName;
 			String fileType = fileName.substring(fileName.lastIndexOf(".")+1);
 			
 			File f = new File(file);

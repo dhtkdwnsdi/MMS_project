@@ -391,9 +391,13 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- end::Body -->
 <script>
+
+// 신청 거절 javaScript
 function deleteApplyStmt(applyStmtNum){
+	// 현재 행의 apply_stmt_num을 받아옴
 	var applyStmtNum = applyStmtNum;
 	
+	// confirm 확인 버튼 누를 경우 실행
 	if(confirm("신청 취소하시겠습니까?") == true){
 		location.href = "/proj?command=applyStmtDelete&applyStmtNum="+applyStmtNum;
 		alert("취소되었습니다.");
@@ -404,7 +408,9 @@ function deleteApplyStmt(applyStmtNum){
 	
 }
 
+// 메세지 팝업 javaScript
 function msgPopUp(progNum,progName){
+	  // 현재 행의 prog_num, prog_name 가져와 대입
 	   var sendReceiver = progNum;
 	   var sendName = progName;
 	   
