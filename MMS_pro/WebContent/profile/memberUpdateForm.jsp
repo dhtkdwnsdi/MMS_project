@@ -20,7 +20,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- begin::Head -->
 	<head>
 		<meta charset="utf-8" />
-		<title>Metronic | 계정 정보 수정</title>
+		<title>PMMS | 계정 정보 수정</title>
 		<meta name="description" content="Sticky form action bar example">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

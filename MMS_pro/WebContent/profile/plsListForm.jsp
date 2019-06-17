@@ -20,7 +20,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- begin::Head -->
 	<head>
-		<title>Metronic | 프로그래밍 언어 숙련도 등록</title>
+		<title>PMMS | 프로그래밍 언어 숙련도 등록</title>
 	</head>
 	<!-- end::Head -->
 
