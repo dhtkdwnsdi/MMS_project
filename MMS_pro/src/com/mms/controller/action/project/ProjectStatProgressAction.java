@@ -18,7 +18,14 @@ public class ProjectStatProgressAction implements Action {
 		pDao.projStatProgressUpdate(projNum);
 		pDao.progressProgStateUpdate(projNum);
 		
-		new MyProjectViewFormAction().execute(request, response);
+		response.setContentType("text/html; charset=UTF-8");
+		 
+		PrintWriter out = response.getWriter();
+		 
+		out.println("<script>alert('프로젝트 상태가 수정되었습니다.'); location.href='/proj?command=myProjectViewForm&projNum="
+		+ projNum +"';</script>");
+		 
+		out.flush();
 	}
 
 }
