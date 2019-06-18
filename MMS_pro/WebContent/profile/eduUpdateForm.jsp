@@ -153,10 +153,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 			</div>
 			<div class="kt-portlet__body">
-				<form class="kt-form" id="kt_form" method="post"
-					action="prog?command=eduUpdate">
-					<input type="hidden" name="progNum" id="progNum"
-						value="${LoginUser.progNum}"> 
+				<form class="kt-form" id="frm" method="post">
+					<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}"> 
 					<input type="hidden"
 						name="eduNum" id="eduNum" value="${eduVo.eduNum}">
 					<div class="row">
@@ -244,7 +242,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										
 										
 										<div class="col kt-align-right">
-											<button type="submit" class="btn btn-brand" onclick="updateCareer()">수정</button>
+											<button type="button" class="btn btn-brand" onclick="updateEdu()">수정</button>
 											<a class="btn btn-secondary" href="prog?command=resumeForm" >취소</a>	
 										</div>
 									</div>
@@ -470,34 +468,63 @@ License: You must have a valid license purchased only from themeforest(the above
 </body>
 <script>
 	// 경력 등록 AJAX
-	function updateCareer() {
+	function updateEdu() {
 
 		// userID 변수에 userID의 입력된 값을 가져오게 함
-		var progNum = $('#progNum').val();
-		var companyName = $('#companyName').val();
-		var department = $('#department').val();
-		var position = $('#position').val();
-		var joinDate = $('#kt_datepicker_1').val();
-		var retireDate = $('#kt_datepicker_4_1').val();
+		var eduNum = $('#eduNum').val();
+		var eduCategory = $('#eduCategory').val();
+		var eduState = $('#eduState').val();
+		var schoolName = $('#schoolName').val();
+		var enterDate = $('#kt_datepicker_1').val();
+		var graduateDate = $('#kt_datepicker_4_1').val();
+		var major = $('#major').val();
 
-		if (companyName == "") {
-			alert("회사 명을 입력해주세요.");
-			$("#companyName").focus();
+		if (eduCategory == "") {
+			alert("분류를 선택해주세요.");
+			$("#eduCategory").focus();
 			return false;
 		}
-		if (department == "") {
-			alert("부서를 입력해주세요.");
-			$("#department").focus();
+		if (eduState == "") {
+			alert("학력 상태를 선택해주세요.");
+			$("#eduState").focus();
 			return false;
 		}
-		if (position == "") {
-			alert("직책을 입력해주세요.");
-			$("#position").focus();
+		if (enterDate == "") {
+			alert("입학일을 입력해주세요.");
+			$("#enterDate").focus();
 			return false;
 		}
 		if (progNum == "") {
 			alert("잘못된 정보입니다.");
 			return false;
+		} else {
+
+			$.ajax({
+
+				type : 'POST', // GET or POST 전송방법 
+
+				url : '/prog?command=eduUpdate', // 이쪽으로 보낸다(호출URL)
+
+				data : {
+					eduNum : eduNum,
+					eduCategory : eduCategory,
+					eduState : eduState,
+					schoolName : schoolName,
+					enterDate : enterDate,
+					graduateDate : graduateDate,
+					major : major
+				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
+
+				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
+					alert("수정 되었습니다.");
+					location.href = "/prog?command=resumeForm";
+				},
+				error : function(data) {
+					alert("오류:: 다시 시도해주세요.");
+					return false;
+				}
+
+			})
 		}
 
 	}

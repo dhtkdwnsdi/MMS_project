@@ -110,7 +110,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 			</div>
 			<div class="kt-portlet__body">
-				<form class="kt-form" id="kt_form" method="post" name="frm" action="/prog?command=myCertUpdate">
+				<form class="kt-form" id="kt_form" method="post" name="frm">
 					<input type="hidden" name="progNum" value="${LoginUser.progNum}" id="progNum">
 					<input name="myCertNum" id="myCertNum" type="hidden" value="${myCertVo.myCertNum }">
 					<div class="row">
@@ -161,7 +161,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 									<div class="col kt-align-right">
-										<button type="submit" class="btn btn-brand" onclick="updateMyCert()">수정</button>
+										<button type="button" class="btn btn-brand" onclick="updateMyCert()">수정</button>
 										<a class="btn btn-secondary" href="prog?command=resumeForm" >취소</a>	
 									</div>
 								</div>
@@ -403,18 +403,14 @@ License: You must have a valid license purchased only from themeforest(the above
 				url : '/prog?command=myCertUpdate', // 이쪽으로 보낸다(호출URL)
 
 				data : {
-					eduCategory : eduCategory,
-					eduState : eduState,
-					schoolName : schoolName,
-					enterDate : enterDate,
-					graduateDate : graduateDate,
-					progNum : progNum
+					myCertNum : myCertNum,
+					certSerial : certSerial,
+					issueDate : issueDate
 				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
 
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
-					alert("등록 되었습니다.");
-					self.close();
-					opener.location.href = "/prog?command=myCertListForm";
+					alert("수정 되었습니다.");
+					location.href = "/prog?command=resumeForm";
 				},
 				error : function(data) {
 					alert("오류:: 다시 시도해주세요.");

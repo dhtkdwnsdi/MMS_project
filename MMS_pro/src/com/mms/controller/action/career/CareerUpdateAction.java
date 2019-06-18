@@ -45,6 +45,7 @@ public class CareerUpdateAction implements Action {
 	careerVo.setJoinDate(joinDate);
 	careerVo.setRetireDate(retireDate);
 	
+	System.out.println(careerVo);
 
 	CareerDAO careerDao = CareerDAO.getInstance();
 	careerDao.updateCareer(careerVo);

@@ -117,14 +117,12 @@ License: You must have a valid license purchased only from themeforest(the above
 							<div class="kt-section kt-section--first">
 
 								<div class="kt-section__body">
-									<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
-																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
 
 									<div class="form-group row">
 										<label class="col-3 col-form-label">분류</label>
 										<div class="col-9">
 											<select class="form-control" id="eduCategory">
-												<option value='' selected>--선택--</option>
+												<option value='' selected>학교 분류를 선택하세요.</option>
 												<option value="고등학교">고등학교</option>
 												<option value="전문대학교">전문대학교</option>
 												<option value="4년제 대학교">4년제 대학교</option>
@@ -141,7 +139,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										<label class="col-3 col-form-label">상태</label>
 										<div class="col-9">
 											<select class="form-control" id="eduState">
-												<option value='' selected>--선택--</option>
+												<option value='' selected>상태를 선택하세요.</option>
 												<option value="재학">재학</option>
 												<option value="휴학">휴학</option>
 												<option value="졸업">졸업</option>
