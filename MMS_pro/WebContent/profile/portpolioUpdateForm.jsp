@@ -298,7 +298,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="form-group row">
 										<label class="col-3 col-form-label">이전 첨부파일</label>
 										<div class="col-9">
-											<input type="text" class="form-control"  readonly="readonly" name="prevProjFile" id="prevProjFile" value="${projVo.projFile}">
+											<input type="text" class="form-control"  readonly="readonly" name="prevProjFile" id="prevProjFile" value="${portVo.portFile}">
 										</div>
 								</div>	
 									

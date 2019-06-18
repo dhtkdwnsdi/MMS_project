@@ -206,6 +206,17 @@ License: You must have a valid license purchased only from themeforest(the above
 												id="schoolName" value="${eduVo.schoolName }">
 										</div>
 									</div>
+									
+									
+									
+									<div class="form-group row">
+										<label class="col-3 col-form-label">전공</label>
+										<div class="col-9">
+											<input class="form-control" type="text" name="major"
+												id="major" value="${eduVo.major }">
+										</div>
+									</div>
+									
 
 
 
