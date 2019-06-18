@@ -445,8 +445,6 @@
 		type="text/javascript"></script>
 </body>
 
-
-
 <!-- end::Body -->
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
