@@ -5,18 +5,7 @@
 
 <!DOCTYPE html>
 
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
+
 <html lang="en">
 
 <!-- begin::Head -->
@@ -177,11 +166,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										<li class="nav-item"><a class="nav-link"
 											data-toggle="tab" href="#kt_portlet_tab_1_2" role="tab">
 												보낸 메세지 </a></li>
-										<!-- <li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab">
-															Settings
-														</a>
-													</li> -->
+										
 									</ul>
 								</div>
 							</div>
@@ -274,11 +259,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									</form>
 										</div>
 									<div>
-										<%-- <button type="button" class="btn btn-brand" onclick="deleteMessage('${mVo.messageNum}')">삭제</button> --%>
-									</div>
-									<!-- <div class="tab-pane" id="kt_portlet_tab_1_3">
-													Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
-												</div> -->
+										</div>
+									
 								</div>
 							</div>
 
@@ -591,8 +573,6 @@ $( document ).ready( function() {
 
 		window.open(url, title, status);
 
-		/* window.open("memberUpdateForm.jsp",
-		        "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */
 	}
 </script>
 

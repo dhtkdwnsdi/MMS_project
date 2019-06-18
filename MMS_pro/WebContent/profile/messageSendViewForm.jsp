@@ -4,18 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
+
 <html lang="en">
 
 <!-- begin::Head -->
@@ -194,7 +183,6 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 										<div class="col-lg-4">
 											<label id="label1">내용</label>
-											<%-- <input type="text" class="form-control" readonly="readonly" value="${sVo.sendContents}"> --%>
 											<textarea style="width: 660px; height: 120px;"
 												class="form-control" readonly="readonly"
 												value="${sVo.sendContents}">${sVo.sendContents}</textarea>
@@ -204,11 +192,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											class="form-group row form-group-marginless kt-margin-t-20">
 											<div class="col-lg-4">
 												<label id="label1">첨부파일</label>
-												<%-- <div class="custom-file">
-													<label class="custom-file-label" for="customFile"
-														style="text-align: left;"> <a
-														href="/prog?command=messageDownload&sendFile=${sVo.sendFile}">${sVo.sendFile}</a></label>
-												</div> --%>
+												
 												<a href="/prog?command=sendDownload&sendFile=${sVo.sendFile}">${sVo.sendFile}</a>
 											</div>
 										</div>
@@ -225,7 +209,6 @@ License: You must have a valid license purchased only from themeforest(the above
 										<div class="row">
 											<div class="col-lg-6"></div>
 											<div class="col-lg-6 kt-align-right">
-												<!-- <button type="button" class="btn btn-brand"	onclick="openMessagePop()">메세지 보내기</button> -->
 												<button type="button" class="btn btn-secondary" id="cancel"
 													onclick="window.close()">목록</button>
 											</div>
