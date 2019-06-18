@@ -84,7 +84,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td>${profVo.certSerial}</td>
 																<td><a href="prog?command=myCertUpdateForm&myCertNum=${profVo.myCertNum}">
 																<span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
-																<a href="prog?command=myCertDelete&myCertNum=${profVo.myCertNum}" onclick="deleteCheck()">
+																<a href="#" onclick="deleteCheck1()">
 																<span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
 																</td>
 															</tr>
@@ -166,7 +166,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td>
 																<a href="prog?command=eduUpdateForm&eduNum=${profVo.eduNum}">
 																<span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
-																<a href="prog?command=eduDelete&eduNum=${profVo.eduNum}">
+																<a href="#" onclick="deleteCheck2()">
 																<span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a></td>
 															</tr>
 														</c:forEach>
@@ -245,7 +245,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td>${profVo.retireDate}</td>
 																<td>
 																<a href="prog?command=careerUpdateForm&careerNum=${profVo.careerNum}"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
-																<a href="prog?command=careerDelete&careerNum=${profVo.careerNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
+																<a href="#" onclick="deleteCheck3()"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
 																</td>
 															</tr>
 														</c:forEach>
@@ -321,7 +321,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td>${profVo.experience}</td>
 																<td>
 																<a href="prog?command=plsUpdateForm&plsNum=${profVo.plsNum}"><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--pill kt-badge--rounded">수정</span></a>
-																<a href="prog?command=plsDelete&plsNum=${profVo.plsNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
+																<a href="#" onclick="deleteCheck4()"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
 																</td>
 															</tr>
 														</c:forEach>
@@ -399,7 +399,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                               				  ${profVo.portDetailCate} </td>
                                               				  <td> ${profVo.organization} </td>
                                               				  <td>
-																<a href="prog?command=plsDelete&portNum=${profVo.portNum}"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
+																<a href="#" onclick="deleteCheck5()"><span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span></a>
 															  </td>
                                              				</tr>
                                           				</tbody>
@@ -649,6 +649,76 @@ License: You must have a valid license purchased only from themeforest(the above
 		  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
 	      window.open(url, title, status);
+	}
+	
+	
+	function deleteCheck1()
+	{
+		var confirmStat = confirm("보유자격증을 삭제하시겠습니까?");
+		
+		if(confirmStat == true){
+			var myCertNum = $('#myCertNum').val();
+			alert("삭제되었습니다.");
+			self.location = "prog?command=myCertDelete&myCertNum="+myCertNum;	
+		} else{
+			return false;
+		}
+	}
+	
+	
+	function deleteCheck2()
+	{
+		var confirmStat = confirm("학력을 삭제하시겠습니까?");
+		
+		if(confirmStat == true){
+			var carrerNum = $('#eduNum').val();
+			alert("삭제되었습니다.");
+			self.location = "prog?command=eduDelete&eduNum="+eduNum;	
+		} else{
+			return false;
+		}
+	}
+	
+	
+	function deleteCheck3()
+	{
+		var confirmStat = confirm("경력을 삭제하시겠습니까?");
+		
+		if(confirmStat == true){
+			var carrerNum = $('#carrerNum').val();
+			alert("삭제되었습니다.");
+			self.location = "prog?command=carrerDelete&carrerNum="+carrerNum;	
+		} else{
+			return false;
+		}
+	}
+	
+	
+	function deleteCheck4()
+	{
+		var confirmStat = confirm("언어숙련도를 삭제하시겠습니까?");
+		
+		if(confirmStat == true){
+			var plsNum = $('#plsNum').val();
+			alert("삭제되었습니다.");
+			self.location = "prog?command=carrerDelete&plsNum="+plsNum;	
+		} else{
+			return false;
+		}
+	}
+	
+	
+	function deleteCheck5()
+	{
+		var confirmStat = confirm("포트폴리오를 삭제하시겠습니까?");
+		
+		if(confirmStat == true){
+			var portNum = $('#portNum').val();
+			alert("삭제되었습니다.");
+			self.location = "prog?command=carrerDelete&portNum="+portNum;	
+		} else{
+			return false;
+		}
 	}
 </script>
 </html>

@@ -205,28 +205,49 @@ License: You must have a valid license purchased only from themeforest(the above
 
 											</div>
 											<div class="form-group row">
-																	<label class="col-3 col-form-label">은행</label>
-																	<div class="col-9">
-																		<input class="form-control" type="text" id="bank" name="bank" value="${LoginUser.bank}">
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">계좌번호</label>
-																	<div class="col-9">
-																		<input class="form-control" type="text" id="account" name="account" value="${LoginUser.account}" onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)">
-																	</div>
-																</div>
-																<div class="form-group form-group-last row">
-																	<label class="col-3 col-form-label">첨부파일</label>
-																	<div class="col-9">
-																	<div class="kt-input-icon kt-input-icon--right">
-																		<input type="file" class="custom-file-input" name="photo" id="photo">
-																	<label class="custom-file-label" for="customFile" style="text-align: left;">
-																	${LoginUser.photo}</label>
-																	</div>
-																	</div>
-																</div>
-															</div>
+												<label class="col-3 col-form-label">은행</label>
+												<div class="col-9">
+													<input class="form-control" type="text" id="bank"
+														name="bank" value="${LoginUser.bank}">
+												</div>
+											</div>
+											
+											
+											<div class="form-group row">
+												<label class="col-3 col-form-label">계좌번호</label>
+												<div class="col-9">
+													<input class="form-control" type="text" id="account"
+														name="account" value="${LoginUser.account}"
+														onkeydown="return onlyNumber(event)"
+														onkeyup="removeChar(event)">
+												</div>
+											</div>
+											
+											
+											<div class="form-group row">
+												<label class="col-3 col-form-label">이전 첨부파일</label>
+												<div class="col-9">
+													<input class="form-control" type="text" id="prevPhoto"
+														name="prevPhoto" value="${LoginUser.photo}">
+												</div>
+											</div>
+
+
+
+
+											<div class="form-group form-group-last row">
+												<label class="col-3 col-form-label">첨부파일</label>
+												<div class="col-9">
+													<div class="kt-input-icon kt-input-icon--right">
+														<input type="file" class="custom-file-input" name="photo" id="photo"> 
+														<label class="custom-file-label" for="customFile" style="text-align: left;"></label>
+													</div>
+												</div>
+											</div>
+
+
+
+										</div>
 														</div>
 														<div class="kt-portlet__foot">
 												<div class="kt-form__actions kt-form__actions--right">

@@ -142,7 +142,7 @@ table, td, tr, th {
 										<div class="col-lg-6"></div>
 										<div class="col-lg-6 kt-align-right">
 											<c:if test="${LoginUser.progNum eq progVo.progNum}">
-												<a href="prog?command=introduceUpdateForm&id=${progVo.progNum}" class="btn btn-primary">업데이트</a>
+												<a href="prog?command=introduceUpdateForm&progNum=${progVo.progNum}" class="btn btn-primary">업데이트</a>
 											</c:if>
 										</div>
 									</div>

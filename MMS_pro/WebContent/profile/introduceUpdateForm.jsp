@@ -49,8 +49,7 @@ table, td, tr, th {
 						<div class="kt-portlet">
 							<div class="kt-portlet__head">
 								<div class="kt-portlet__head-label">
-									<h3 class="kt-portlet__head-title">${LoginUser.name}님의
-										자기소개서</h3>
+									<h3 class="kt-portlet__head-title">${LoginUser.name}님의 자기소개서</h3>
 								</div>
 								<div class="kt-portlet__head-toolbar">
 									<div class="btn-group"></div>
@@ -58,7 +57,8 @@ table, td, tr, th {
 							</div>
 
 							<!--begin::Form-->
-							<form class="kt-form kt-form--label-right" method="post" action="prog?command=introduceUpdate" enctype="multipart/form-data">
+							<form class="kt-form kt-form--label-right" method="post" action="prog?command=introduceUpdate"
+							 enctype="multipart/form-data">
 								<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}">
 								<div class="kt-portlet__body">
 
@@ -100,6 +100,19 @@ table, td, tr, th {
 
 
 									<label></label><label></label>
+									
+									<div class="form-group form-group-last row">
+										<label class="col-3 col-form-label">이전 첨부파일</label>
+										<div class="col-lg-6 col-md-6 col-sm-6">
+											<input type="text" class="form-control"  readonly="readonly" 
+											name="prevIntroFile" id="prevIntroFile" value="${progVo.introFile}">	
+										</div>
+									</div>
+									
+									
+									<label></label><label></label>
+									
+									
 									<div class="form-group form-group-last row">
 										<label class="col-3 col-form-label">첨부파일</label>
 										<div class="col-lg-6 col-md-6 col-sm-6">

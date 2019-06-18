@@ -19,7 +19,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- begin::Head -->
 <head>
 <meta charset="utf-8" />
-<title>PMMS | 프로그래밍 언어 등록</title>
+<title>Metronic | 프로그래밍 언어 등록</title>
 <meta name="description" content="Bootstrap daterangepicker examples">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -497,7 +497,8 @@ License: You must have a valid license purchased only from themeforest(the above
 				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
 					alert("등록 되었습니다.");
 					self.close();
-					opener.location.href = "/prog?command=plsRegister";
+					opener.location.reload();
+					/* opener.location.href = "/prog?command=plsRegister"; */
 				},
 				error : function(data) {
 					alert("오류:: 다시 시도해주세요.");

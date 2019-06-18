@@ -81,7 +81,6 @@ public class ProgrammerServlet extends HttpServlet {
 			String encType = "UTF-8";
 			int sizeLimit = 20 * 1024 * 1024;
 			
-			
 			//첨부파일 받아오는 객체 세팅
 			MultipartRequest multi = new MultipartRequest(request, path, sizeLimit, encType, new DefaultFileRenamePolicy());
 			
@@ -99,16 +98,19 @@ public class ProgrammerServlet extends HttpServlet {
 			String photo = multi.getFilesystemName("photo");
 			String progNum = multi.getParameter("progNum");
 			
-			//?
-			String prevPhoto = multi.getParameter("prevPhoto");
-			String filePath = path + "\\" + prevPhoto;
+			System.out.println("photo : " + photo);
 			
-			System.out.println(filePath);
-			
-			//파일 있으면 지우기
-			File f = new File(filePath);
-			if(f.exists()) {
-				f.delete();
+			if(photo == null) {
+				photo = multi.getParameter("prevPhoto");
+			}
+			else {
+				String prevPhoto = multi.getParameter("prevPhoto");
+				String filePath = path + "\\" + prevPhoto;
+				System.out.println(filePath);
+				File f = new File(filePath);
+				if(f.exists()) {
+					f.delete();
+				}
 			}
 			
 			//프로그래머VO 세팅
@@ -122,6 +124,7 @@ public class ProgrammerServlet extends HttpServlet {
 			progVo.setEmail(email);
 			progVo.setTel(tel);
 			progVo.setBank(bank);
+			progVo.setGrade(grade);
 			progVo.setAccount(account);
 			progVo.setPhoto(photo);
 			progVo.setProgNum(progNum);
@@ -165,6 +168,7 @@ public class ProgrammerServlet extends HttpServlet {
 			String rate = multi.getParameter("rate"); 
 			String portFile = multi.getFilesystemName("portFile"); 
 			String plNum = multi.getParameter("plNum");
+			
 			
 			PortpolioVO portVo = new PortpolioVO(); 
 			
@@ -217,6 +221,20 @@ public class ProgrammerServlet extends HttpServlet {
 			String portFile = multi.getFilesystemName("portFile"); 
 			String plNum = multi.getParameter("plNum");
 			
+			if(portFile == null) {
+				portFile = multi.getParameter("prevPortFile");
+			}
+			else {
+				String prevPortFile = multi.getParameter("prevPortFile");
+				String filePath = path + "\\" + prevPortFile;
+				System.out.println(filePath);
+				File f = new File(filePath);
+				if(f.exists()) {
+					f.delete();
+				}
+			}
+			
+			
 			PortpolioVO portVo = new PortpolioVO(); 
 			
 			portVo.setPortNum(portNum); 
@@ -262,6 +280,20 @@ public class ProgrammerServlet extends HttpServlet {
 			String introduce3 = multi.getParameter("introduce3"); 
 			String introduce4 = multi.getParameter("introduce4"); 
 			String introFile = multi.getFilesystemName("introFile"); 
+			
+			if(introFile == null) {
+				introFile = multi.getParameter("prevIntroFile");
+			}
+			else {
+				String prevIntroFile = multi.getParameter("prevIntroFile");
+				String filePath = path + "\\" + prevIntroFile;
+				System.out.println(filePath);
+				File f = new File(filePath);
+				if(f.exists()) {
+					f.delete();
+				}
+			}
+			
 			
 			ProgrammerVO progVo = new ProgrammerVO(); 
 			
