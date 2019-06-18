@@ -1,6 +1,7 @@
 package com.mms.controller.action.project;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -23,7 +24,14 @@ public class ProjectStatEndAction implements Action {
 		pDao.endProgStateUpdate(projNum);
 		
 		
-		new MyProjectViewFormAction().execute(request, response);
+		response.setContentType("text/html; charset=UTF-8");
+		 
+		PrintWriter out = response.getWriter();
+		 
+		out.println("<script>alert('프로젝트 상태가 수정되었습니다.'); location.href='/proj?command=myProjectViewForm&projNum="
+		+ projNum +"';</script>");
+		 
+		out.flush();
 		
 	}
 
