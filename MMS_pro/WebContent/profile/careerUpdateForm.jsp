@@ -99,12 +99,12 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="kt-portlet__head kt-portlet__head--lg">
 									<div class="kt-portlet__head-label">
 										<h3 class="kt-portlet__head-title">
-											경력 등록
+											경력 수정
 										</h3>
 									</div>
 								</div>
 								<div class="kt-portlet__body">
-											<form class="kt-form" id="kt_form" method="post" action="prog?command=careerUpdate">
+											<form class="kt-form" id="frm" name="frm" method="post" >
 											<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}">
 											<input type="hidden" name="careerNum" id="careerNum" value="${careerVo.careerNum}">
 												<div class="row">
@@ -155,7 +155,7 @@ License: You must have a valid license purchased only from themeforest(the above
 															<button type="reset" class="btn btn-danger">삭제</button>
 														</div> -->
 														<div class="col kt-align-right">
-															<button type="submit" class="btn btn-brand" onclick="updateCareer()">수정</button>
+															<button type="button" class="btn btn-brand" onclick="updateCareer()">수정</button>
 															<a class="btn btn-secondary" href="prog?command=resumeForm" >취소</a>	
 														</div>
 													</div>
@@ -283,7 +283,7 @@ License: You must have a valid license purchased only from themeforest(the above
 function updateCareer(){
 
 	// userID 변수에 userID의 입력된 값을 가져오게 함
-	var progNum = $('#progNum').val();
+	var careerNum = $('#careerNum').val();
 	var companyName = $('#companyName').val();
 	var department = $('#department').val();
 	var position = $('#position').val();
@@ -308,6 +308,33 @@ function updateCareer(){
 	if(progNum == ""){
 		alert("잘못된 정보입니다.");
 		return false;
+	} else {
+
+		$.ajax({
+
+			type : 'POST', // GET or POST 전송방법 
+
+			url : '/prog?command=careerUpdate', // 이쪽으로 보낸다(호출URL)
+
+			data : {
+				careerNum : careerNum,
+				companyName : companyName,
+				department : department,
+				position : position,
+				joinDate : joinDate,
+				retireDate : retireDate
+			}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
+
+			success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
+				alert("수정 되었습니다.");
+				location.href = "/prog?command=resumeForm";
+			},
+			error : function(data) {
+				alert("오류:: 다시 시도해주세요.");
+				return false;
+			}
+
+		});
 	}
 	
 }

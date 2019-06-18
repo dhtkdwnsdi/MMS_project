@@ -209,7 +209,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										<label class="col-3 col-form-label">숙련도</label>
 										<div class="col-9">
 											<select class="form-control" id="profiency" name="profiency">
-												<option value='' selected>--선택--</option>
+												<option value='' selected>숙련도를 선택하세요.</option>
 												<option value="초급">초급</option>
 												<option value="중급">중급</option>
 												<option value="고급">고급</option>

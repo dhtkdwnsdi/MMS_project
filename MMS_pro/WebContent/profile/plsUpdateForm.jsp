@@ -154,7 +154,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 			</div>
 			<div class="kt-portlet__body">
-				<form class="kt-form" id="kt_form" method="post" action="prog?command=plsUpdate">
+				<form class="kt-form" id="frm" >
 					<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}">
 					<input type="hidden" name="plsNum" id="plsNum" value="${plsVo.plsNum }">
 					<div class="row">
@@ -213,7 +213,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="row">
 
 										<div class="col kt-align-right">
-											<button type="submit" class="btn btn-brand">수정</button>
+											<button type="button" class="btn btn-brand" onclick="updatePls()">수정</button>
 											<a class="btn btn-secondary" href="prog?command=resumeForm" >취소</a>	
 										</div>
 									</div>
@@ -443,15 +443,49 @@ License: You must have a valid license purchased only from themeforest(the above
 	function updatePls() {
 
 		// userID 변수에 userID의 입력된 값을 가져오게 함
-		var progNum = $('#progNum').val();
 		var plsNum = $('#plsNum').val();
 		var plNum = $('#plNum').val();
 		var profiency = $('#profiency').val();
 		var experience = $('#experience').val();
 		
+		if (plNum == "") {
+			alert("프로그래밍 언어를 입력해주세요.");
+			$("#plNum").focus();
+			return false;
+		}
+		if (profiency == "") {
+			alert("숙련도를 입력해주세요.");
+			$("#profiency").focus();
+			return false;
+		}
 		if (progNum == "") {
 			alert("잘못된 정보입니다.");
 			return false;
+		} else {
+
+			$.ajax({
+
+				type : 'POST', // GET or POST 전송방법 
+
+				url : '/prog?command=plsUpdate', // 이쪽으로 보낸다(호출URL)
+
+				data : {
+					plsNum : plsNum,
+					plNum : plNum,
+					profiency : profiency,
+					experience : experience
+				}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
+
+				success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
+					alert("수정 되었습니다.");
+					location.href = "/prog?command=resumeForm";
+				},
+				error : function(data) {
+					alert("오류:: 다시 시도해주세요.");
+					return false;
+				}
+
+			})
 		}
 	}
 </script>

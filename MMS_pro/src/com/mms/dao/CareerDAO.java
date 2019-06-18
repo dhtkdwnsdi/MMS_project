@@ -103,7 +103,7 @@ public class CareerDAO extends DBManager {
 	}
 	
 	// 경력 수정 메소드
-	public void updateCareer(CareerVO cVo) {
+	public void updateCareer(CareerVO careerVo) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
@@ -120,12 +120,12 @@ public class CareerDAO extends DBManager {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, cVo.getCompanyName());
-			pstmt.setString(2, cVo.getDepartment());
-			pstmt.setString(3, cVo.getPosition());
-			pstmt.setString(4, cVo.getJoinDate());
-			pstmt.setString(5, cVo.getRetireDate());
-			pstmt.setString(6, cVo.getCareerNum());
+			pstmt.setString(1, careerVo.getCompanyName());
+			pstmt.setString(2, careerVo.getDepartment());
+			pstmt.setString(3, careerVo.getPosition());
+			pstmt.setString(4, careerVo.getJoinDate());
+			pstmt.setString(5, careerVo.getRetireDate());
+			pstmt.setString(6, careerVo.getCareerNum());
 			
 			pstmt.executeUpdate();
 			
