@@ -124,6 +124,7 @@ public class ProgrammerActionFactory {
 		 */
 
 
+		//학력
 		else if (command.equals("eduListForm")) {
 			action = new EduListFormAction();
 		}else if (command.equals("eduRegister")) {
@@ -132,8 +133,11 @@ public class ProgrammerActionFactory {
 			action = new EduDeleteAction();
 		}else if(command.equals("eduUpdateForm")) {
 			action = new EduUpdateFormAction();	
+
 		}else if(command.equals("eduUpdate")) {
 			action = new EduUpdateAction();
+			
+		//프로그래밍언어숙련도 
 		}else if(command.equals("plsRegister")) {
 			action = new PlsRegisterAction();	
 		}else if(command.equals("plsDelete")) {
@@ -144,18 +148,23 @@ public class ProgrammerActionFactory {
 		else if(command.equals("plsUpdate")) {
 			action = new PlsUpdateAction();	
 		}
+		
+		//프로그래밍언어
 		else if(command.equals("searchPlName")) {
 			action = new SearchPlNameAction();	
 		}
+		
+		//자기소개서
 		else if (command.equals("introduceUpdateForm")) {
 			action = new IntroduceUpdateFormAction();
 		}else if (command.equals("introduceUpdate")) {
 			action = new IntroduceUpdateAction();
 		}
-		
 		else if (command.equals("intorduceForm")) {
 			action = new IntroduceFormAction();
 		}
+		
+		//이력서
 		else if (command.equals("resumeForm")) {
 			action = new ResumeFormAction();
 		}

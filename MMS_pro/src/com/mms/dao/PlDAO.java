@@ -18,7 +18,7 @@ public class PlDAO extends DBManager{
 		return instance;
 	}
 	
-	//PL 읽기
+	//프로그래밍언어 읽기
 		public ArrayList<PlVO> readPl(String plName){
 			
 			ArrayList<PlVO> list = new ArrayList<PlVO>();
@@ -61,14 +61,13 @@ public class PlDAO extends DBManager{
 			return list;
 		}
 	
-	//조회
+	//프로그래밍언어 조회
 	
 	public ArrayList<PlVO> selectPl(){
 		ArrayList<PlVO> plList = new ArrayList<PlVO>();
 		
 		String sql = "select * from tbl_pl order by pl_num desc";
 		
-		//List<PlVO> list = new ArrayList<PlVO>();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -103,7 +102,7 @@ public class PlDAO extends DBManager{
 		return plList;
 	}
 	
-	//등록
+	//프로그래밍언어 등록
 	public void insertPl(PlVO plVo) {
 		
 		String sql = "insert into tbl_pl(pl_num, pl_name) values(pl_num, ?)";
@@ -131,7 +130,7 @@ public class PlDAO extends DBManager{
 		}
 	}
 	
-	//삭제
+	//프로그래밍언어 삭제
 	public void deletePl(String plNum) {
 		
 		
@@ -161,7 +160,7 @@ public class PlDAO extends DBManager{
 		}
 	}
 	
-	// pl autocomplete
+	//프로그래밍언어 autoComplete
 		public ArrayList<PlVO> searchPlList(String value){
 			Connection conn = null;
 			PreparedStatement pstmt = null;

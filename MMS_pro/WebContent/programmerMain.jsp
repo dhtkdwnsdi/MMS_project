@@ -38,7 +38,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
-
+		<!--내 프로젝트 신청내역-->
 
 		<div class="row">
 			<div class="col-xl-8">
@@ -182,9 +182,6 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 					</div>
 
-
-
-
 				</div>
 			</div>
 
@@ -193,7 +190,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
-
+			<!--메세지-->
 			<div class="col-xl-4">
 				<div class="kt-portlet kt-portlet--tabs kt-portlet--height-fluid">
 					<div class="kt-portlet__head">
@@ -211,11 +208,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										메세지 </a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab"
 									href="#kt_portlet_tab_1_4" role="tab"> 보낸 메세지 </a></li>
-								<!-- <li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab">
-															Settings
-														</a>
-													</li> -->
+
 							</ul>
 						</div>
 					</div>
@@ -236,48 +229,48 @@ License: You must have a valid license purchased only from themeforest(the above
 											</tr>
 										</thead>
 										<c:choose>
-										<c:when test="${not empty ReceiveMessageList}">
-										<tbody style="text-align: center;">
-											<c:forEach items="${ReceiveMessageList}" var="rVo"
-												varStatus="listStat">
-												
-												<c:if test="${listStat.count < 6}">
-												
-												<tr>
+											<c:when test="${not empty ReceiveMessageList}">
+												<tbody style="text-align: center;">
+													<c:forEach items="${ReceiveMessageList}" var="rVo"
+														varStatus="listStat">
 
-													<td><a
-														onclick="window.open('prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${rVo.receiveSubject}</a></td>
-													<td>${rVo.receiveName}</td>
+														<c:if test="${listStat.count < 6}">
+															<tr>
+																<td><a
+																	onclick="window.open('prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${rVo.receiveSubject}</a></td>
+																<td>${rVo.receiveName}</td>
 
-												</tr>
-											</c:forEach>
-										</c:when>
+															</tr>
+														</c:if>
+													</c:forEach>
+											</c:when>
 											<c:otherwise>
 												<tr>
-												<td colspan="5" class="txt_center" align="center"><b>받은 메세지가 없습니다.</b></td>
+													<td colspan="5" class="txt_center" align="center"><b>받은
+															메세지가 없습니다.</b></td>
 												</tr>
 											</c:otherwise>
 										</c:choose>
-										</c:if>
+
 										</tbody>
 									</table>
-									
-									
-									
-											<div>
-											<div>
+
+
+
+									<div>
+										<div>
+											<div class="col kt-align-center">
 												<div class="col kt-align-center">
-													<div class="col kt-align-center">
-														<button type="button"
-															class="btn btn-clean btn-bold btn-upper"
-															onclick="location.href='/prog?command=messageListForm'">
-															메세지 전체 목록으로 가기</button>
-													</div>
+													<button type="button"
+														class="btn btn-clean btn-bold btn-upper"
+														onclick="location.href='/prog?command=messageListForm'">
+														메세지 전체 목록으로 가기</button>
 												</div>
 											</div>
-
 										</div>
-										
+
+									</div>
+
 
 								</form>
 							</div>
@@ -293,28 +286,29 @@ License: You must have a valid license purchased only from themeforest(the above
 											</tr>
 										</thead>
 										<c:choose>
-										<c:when test="${not empty SendMessageList}">
-										<tbody style="text-align: center;">
-											<c:forEach items="${SendMessageList}" var="sVo"
-												varStatus="listStat">
-												<c:if test="${listStat.count < 6}">
-												<tr>
+											<c:when test="${not empty SendMessageList}">
+												<tbody style="text-align: center;">
+													<c:forEach items="${SendMessageList}" var="sVo"
+														varStatus="listStat">
+														<c:if test="${listStat.count < 6}">
+															<tr>
 
-													<td><a
-														onclick="window.open('prog?command=messageSendViewForm&sendNum=${sVo.sendNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${sVo.sendSubject}</a></td>
-													<td>${sVo.sendName}<input type="hidden"
-														id="sendReceiver" value="${sVo.sendReceiver}"></td>
+																<td><a
+																	onclick="window.open('prog?command=messageSendViewForm&sendNum=${sVo.sendNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${sVo.sendSubject}</a></td>
+																<td>${sVo.sendName}<input type="hidden"
+																	id="sendReceiver" value="${sVo.sendReceiver}"></td>
 
-												</tr>
-												</c:if>
-											</c:forEach>
+															</tr>
+														</c:if>
+													</c:forEach>
 											</c:when>
-												<c:otherwise>
-													<tr>
-													<td colspan="5" class="txt_center" align="center"><b>보낸 메세지가 없습니다.</b></td>
-													</tr>
-												</c:otherwise>
-											</c:choose>
+											<c:otherwise>
+												<tr>
+													<td colspan="5" class="txt_center" align="center"><b>보낸
+															메세지가 없습니다.</b></td>
+												</tr>
+											</c:otherwise>
+										</c:choose>
 										</tbody>
 									</table>
 
@@ -337,7 +331,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
-
+		<!--프로젝트 신청하기-->
 		<div class="row">
 			<div class="col-xl-12">
 				<div class="kt-portlet kt-portlet--tabs kt-portlet--height-fluid">
@@ -348,15 +342,9 @@ License: You must have a valid license purchased only from themeforest(the above
 					</div>
 					<div class="kt-portlet__head-toolbar">
 
-
-
 						<table class="table table-bordered table-hover">
 							<thead style="text-align: center;">
 								<tr>
-
-
-
-
 
 									<th>#</th>
 
@@ -422,45 +410,11 @@ License: You must have a valid license purchased only from themeforest(the above
 
 						</div>
 
-
-
-
 					</div>
 				</div>
 			</div>
 
-
-
-
-
-
-
 		</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		<div class="col-xl-14">
@@ -1229,6 +1183,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- end::Body -->
 <script>
+
+//프로젝트 등록 
 	function openPopUp() {
 		// window.name = "부모창 이름"; 
 		window.name = "parentForm";
@@ -1247,7 +1203,9 @@ License: You must have a valid license purchased only from themeforest(the above
 		/* window.open("memberUpdateForm.jsp",
 		        "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */
 	}
-
+	
+	
+//프로젝트 신청
 	function openApplyPop(projNum, progNum) {
 		var projNum = projNum;
 		var progNum = progNum;
@@ -1265,6 +1223,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	}
 
+//프로젝트 신청 취소
 	function deleteApplyStmt(applyStmtNum) {
 		var applyStmtNum = applyStmtNum;
 
@@ -1278,6 +1237,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	}
 
+//프로젝트 신청
 	function openApplyPop(projNum, progNum) {
 		var projNum = projNum;
 		var progNum = progNum;

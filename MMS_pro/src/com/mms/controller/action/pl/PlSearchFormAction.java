@@ -14,6 +14,8 @@ import com.mms.vo.PlVO;
 
 public class PlSearchFormAction implements Action {
 
+	
+	//프로그래밍언어 검색 form action
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -22,6 +24,7 @@ public class PlSearchFormAction implements Action {
 				
 		PlDAO plDao = PlDAO.getInstance();
 		
+		//프로그래밍 언어 검색 리스트 
 		ArrayList<PlVO> plList = (ArrayList<PlVO>) plDao.selectPl();
 		
 		request.setAttribute("plList", plList);

@@ -25,22 +25,19 @@ License: You must have a valid license purchased only from themeforest(the above
 </head>
 
 
-<!-- end::Head -->
-<!-- begin::Body -->
 <body
 	class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
 	<!-- begin:: Content -->
 	<div class="kt-content  kt-grid__item kt-grid__item--fluid"
 		id="kt_content">
 
-		<!--Begin::Dashboard 1-->
 
-		<!--Begin::Section-->
+
+		<!--자격증 목록-->
 		<div class="row">
 
 			<div class="col-xl-4">
 
-				<!--begin:: Widgets/Profit Share-->
 				<div class="kt-portlet kt-portlet--mobile">
 					<div class="kt-portlet__head kt-portlet__head--lg">
 						<div class="kt-portlet__head-label">
@@ -49,7 +46,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 					</div>
 
-					<!--begin::Section-->
+
 					<div class="kt-portlet__body">
 						<form action="prog?command=certDelete" method="post">
 
@@ -67,55 +64,58 @@ License: You must have a valid license purchased only from themeforest(the above
 
 										<c:forEach items="${certList}" var="CertVo"
 											varStatus="listStat">
-											
+
 											<c:if test="${listStat.count < 6}">
-											
-											<tbody>
-												<tr>
-													<td scope="row">${listStat.count}<input type="hidden"
-														name="certNum" id="certNum" value="${CertVo.certNum}"></td>
-													<td>${CertVo.certName}</td>
-													<td>${CertVo.issueOrg}</td>
-													<td><a
-														href="prog?command=certDelete&certNum=${CertVo.certNum}">
-															<span
-															class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span>
-													</a></td>
-												</tr>
-											</tbody>
+
+												<tbody>
+													<tr>
+														<td scope="row">${listStat.count}<input type="hidden"
+															name="certNum" id="certNum" value="${CertVo.certNum}"></td>
+														<td>${CertVo.certName}</td>
+														<td>${CertVo.issueOrg}</td>
+														<td><a
+															href="prog?command=certDelete&certNum=${CertVo.certNum}">
+																<span
+																class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span>
+														</a></td>
+													</tr>
+												</tbody>
 											</c:if>
 										</c:forEach>
 									</table>
-									
+
+									<div>
 										<div>
-											<div>
+											<div class="col kt-align-center">
 												<div class="col kt-align-center">
-													<div class="col kt-align-center">
-														<button type="button"
-															class="btn btn-clean btn-bold btn-upper"
-															onclick="location.href='/prog?command=certListForm'">
-															자격증 전체 목록으로 가기</button>
-													</div>
+													<button type="button"
+														class="btn btn-clean btn-bold btn-upper"
+														onclick="location.href='/prog?command=certListForm'">
+														자격증 전체 목록으로 가기</button>
 												</div>
 											</div>
-
 										</div>
-									
+
+									</div>
+
 								</div>
 								<!--end::Section-->
 							</div>
 							<div class="col-lg-2"></div>
-						
+
 						</form>
-						<!--end: Datatable -->
+
 					</div>
 				</div>
 
-				<!--end:: Widgets/Profit Share-->
+
 			</div>
+
+
+			<!--프로그래밍언어 목록-->
 			<div class="col-xl-4">
 
-				<!--begin:: Widgets/Revenue Change-->
+
 				<div
 					class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
 					id="kt_page_portlet">
@@ -127,7 +127,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					<div class="kt-portlet__body">
 						<form action="prog?command=plDelete" method="post">
 
-							<!--begin::Section-->
+
 							<div class="kt-section">
 								<div class="kt-section__content">
 									<table class="table table-bordered table-hover">
@@ -140,269 +140,196 @@ License: You must have a valid license purchased only from themeforest(the above
 										</thead>
 										<tbody style="text-align: center;">
 											<c:forEach items="${plList}" var="plVo" varStatus="listStat">
-											<c:if test="${listStat.count < 6}">
-												<tr>
-													<th scope="row">${listStat.count}<input type="hidden"
-														name="plNum" id="plNum" value="${plVo.plNum}"></th>
-													<%-- <td>${plVo.plNum}<input type="hidden" name="plNum" id="plNum" value="${plVo.plNum}"></td> --%>
-													<td>${plVo.plName}</td>
-													<td><a
-														href="prog?command=plDelete&plNum=${plVo.plNum}"> <span
-															class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span>
-													</a></td>
-												</tr>
+												<c:if test="${listStat.count < 6}">
+													<tr>
+														<th scope="row">${listStat.count}<input type="hidden"
+															name="plNum" id="plNum" value="${plVo.plNum}"></th>
+														<td>${plVo.plName}</td>
+														<td><a
+															href="prog?command=plDelete&plNum=${plVo.plNum}"> <span
+																class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">삭제</span>
+														</a></td>
+													</tr>
 												</c:if>
 											</c:forEach>
 										</tbody>
 									</table>
-									
-									
+									<div>
 										<div>
-											<div>
+											<div class="col kt-align-center">
 												<div class="col kt-align-center">
-													<div class="col kt-align-center">
-														<button type="button"
-															class="btn btn-clean btn-bold btn-upper"
-															onclick="location.href='/prog?command=plListForm'">
-															프로그래밍 언어 전체 목록으로 가기</button>
-													</div>
+													<button type="button"
+														class="btn btn-clean btn-bold btn-upper"
+														onclick="location.href='/prog?command=plListForm'">
+														프로그래밍 언어 전체 목록으로 가기</button>
 												</div>
 											</div>
-
 										</div>
-									
-									
-									
+
+									</div>
 								</div>
-							</div>
-
-							<!--end::Section-->
-						<!-- 	<div class="kt-portlet__foot">
-								<div class="kt-form__actions kt-form__actions--right">
-									<div class="row">
-										<div class="col kt-align-left">
-															<button type="reset" class="btn btn-secondary">수정</button>
-															<button type="reset" class="btn btn-danger">삭제</button>
-										<!-- 				</div>
-										<div class="col kt-align-right">
-											<button type="button" class="btn btn-brand"
-												onclick="openPopUp()">등록</button>
-										</div>
-									</div> -->
-								</div> 
 							</div>
 						</form>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
 
-				<!--end:: Widgets/Revenue Change-->
+
+
+
+	<!--메세지-->
+
+	<div class="col-xl-4">
+		<div class="kt-portlet kt-portlet--tabs kt-portlet--height-fluid">
+			<div class="kt-portlet__head">
+				<div class="kt-portlet__head-label">
+					<h3 class="kt-portlet__head-title">메세지</h3>
+				</div>
+
+
+				<div class="kt-portlet__head-toolbar">
+					<ul
+						class="nav nav-tabs nav-tabs-bold nav-tabs-line   nav-tabs-line-right nav-tabs-line-brand"
+						role="tablist">
+						<li class="nav-item"><a class="nav-link active"
+							data-toggle="tab" href="#kt_portlet_tab_1_1" role="tab"> 받은
+								메세지 </a></li>
+						<li class="nav-item"><a class="nav-link" data-toggle="tab"
+							href="#kt_portlet_tab_1_2" role="tab"> 보낸 메세지 </a></li>
+
+					</ul>
+				</div>
 			</div>
 
 
+			<div class="kt-portlet__body">
+				<div class="tab-content">
+					<input type="hidden" name="progNum" value="${LoginUser.progNum}">
+					<div class="tab-pane active" id="kt_portlet_tab_1_1">
+						<form method="post" action="/prog?command=receiveMsgDelete">
+							<table class="table table-bordered table-hover">
+								<thead style="text-align: center;">
+									<tr>
 
+										<th style="font-weight: bold;">제목</th>
+										<th style="font-weight: bold;">보낸 사람</th>
 
-
-
-			<div class="col-xl-4">
-				<div class="kt-portlet kt-portlet--tabs kt-portlet--height-fluid">
-					<div class="kt-portlet__head">
-						<div class="kt-portlet__head-label">
-							<h3 class="kt-portlet__head-title">메세지</h3>
-						</div>
-
-
-						<div class="kt-portlet__head-toolbar">
-							<ul
-								class="nav nav-tabs nav-tabs-bold nav-tabs-line   nav-tabs-line-right nav-tabs-line-brand"
-								role="tablist">
-								<li class="nav-item"><a class="nav-link active"
-									data-toggle="tab" href="#kt_portlet_tab_1_1" role="tab"> 받은
-										메세지 </a></li>
-								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#kt_portlet_tab_1_2" role="tab"> 보낸 메세지 </a></li>
-								<!-- <li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab">
-															Settings
-														</a>
-													</li> -->
-							</ul>
-						</div>
-					</div>
-
-
-					<div class="kt-portlet__body">
-						<div class="tab-content">
-							<input type="hidden" name="progNum" value="${LoginUser.progNum}">
-							<div class="tab-pane active" id="kt_portlet_tab_1_1">
-								<form method="post" action="/prog?command=receiveMsgDelete">
-									<table class="table table-bordered table-hover">
-										<thead style="text-align: center;">
-											<tr>
-
-												<th style="font-weight: bold;">제목</th>
-												<th style="font-weight: bold;">보낸 사람</th>
-
-											</tr>
-										</thead>
-										<c:choose>
-										<c:when test="${not empty ReceiveMessageList}">
+									</tr>
+								</thead>
+								<c:choose>
+									<c:when test="${not empty ReceiveMessageList}">
 										<tbody style="text-align: center;">
 											<c:forEach items="${ReceiveMessageList}" var="rVo"
 												varStatus="listStat">
-												
+
 												<c:if test="${listStat.count < 6}">
-												
-												<tr>
 
-													<td><a
-														onclick="window.open('prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${rVo.receiveSubject}</a></td>
-													<td>${rVo.receiveName}</td>
+													<tr>
 
-												</tr>
+														<td><a
+															onclick="window.open('prog?command=messageReceiveViewForm&receiveNum=${rVo.receiveNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${rVo.receiveSubject}</a></td>
+														<td>${rVo.receiveName}</td>
+
+													</tr>
+												</c:if>
 											</c:forEach>
-										</c:when>
-											<c:otherwise>
-												<tr>
-												<td colspan="5" class="txt_center" align="center"><b>받은 메세지가 없습니다.</b></td>
-												</tr>
-											</c:otherwise>
-										</c:choose>
-										</c:if>
-										</tbody>
-									</table>
-									
-									
-									
-											<div>
-											<div>
-												<div class="col kt-align-center">
-													<div class="col kt-align-center">
-														<button type="button"
-															class="btn btn-clean btn-bold btn-upper"
-															onclick="location.href='/prog?command=messageListForm'">
-															메세지 전체 목록으로 가기</button>
-													</div>
-												</div>
-											</div>
+									</c:when>
+									<c:otherwise>
+										<tr>
+											<td colspan="5" class="txt_center" align="center"><b>받은
+													메세지가 없습니다.</b></td>
+										</tr>
+									</c:otherwise>
+								</c:choose>
+								</tbody>
+							</table>
 
+
+
+							<div>
+								<div>
+									<div class="col kt-align-center">
+										<div class="col kt-align-center">
+											<button type="button"
+												class="btn btn-clean btn-bold btn-upper"
+												onclick="location.href='/prog?command=messageListForm'">
+												메세지 전체 목록으로 가기</button>
 										</div>
-										
+									</div>
+								</div>
 
-								</form>
 							</div>
-							<div class="tab-pane" id="kt_portlet_tab_1_2">
-								<form method="post" action="/prog?command=sendMsgDelete">
-									<table class="table table-bordered table-hover">
-										<thead style="text-align: center;">
-											<tr>
 
-												<th style="font-weight: bold;">제목</th>
-												<th style="font-weight: bold;">받는 사람</th>
 
-											</tr>
-										</thead>
-										<c:choose>
-										<c:when test="${not empty SendMessageList}">
+						</form>
+					</div>
+					<div class="tab-pane" id="kt_portlet_tab_1_2">
+						<form method="post" action="/prog?command=sendMsgDelete">
+							<table class="table table-bordered table-hover">
+								<thead style="text-align: center;">
+									<tr>
+
+										<th style="font-weight: bold;">제목</th>
+										<th style="font-weight: bold;">받는 사람</th>
+
+									</tr>
+								</thead>
+								<c:choose>
+									<c:when test="${not empty SendMessageList}">
 										<tbody style="text-align: center;">
 											<c:forEach items="${SendMessageList}" var="sVo"
 												varStatus="listStat">
 												<c:if test="${listStat.count < 6}">
-												<tr>
+													<tr>
 
-													<td><a
-														onclick="window.open('prog?command=messageSendViewForm&sendNum=${sVo.sendNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${sVo.sendSubject}</a></td>
-													<td>${sVo.sendName}<input type="hidden"
-														id="sendReceiver" value="${sVo.sendReceiver}"></td>
+														<td><a
+															onclick="window.open('prog?command=messageSendViewForm&sendNum=${sVo.sendNum}','상세보기','width=800,height=500,location=no,status=no,scrollbars=no')">${sVo.sendSubject}</a></td>
+														<td>${sVo.sendName}<input type="hidden"
+															id="sendReceiver" value="${sVo.sendReceiver}"></td>
 
-												</tr>
+													</tr>
 												</c:if>
 											</c:forEach>
-											</c:when>
-												<c:otherwise>
-													<tr>
-													<td colspan="5" class="txt_center" align="center"><b>보낸 메세지가 없습니다.</b></td>
-													</tr>
-												</c:otherwise>
-											</c:choose>
-										</tbody>
-									</table>
+									</c:when>
+									<c:otherwise>
+										<tr>
+											<td colspan="5" class="txt_center" align="center"><b>보낸
+													메세지가 없습니다.</b></td>
+										</tr>
+									</c:otherwise>
+								</c:choose>
+								</tbody>
+							</table>
 
-								</form>
-							</div>
-							<div></div>
-
-						</div>
+						</form>
 					</div>
+					<div></div>
+
 				</div>
-
-			</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		</div>
-
-		<!--End::Section-->
-
-
-
-		<!--Begin::Section-->
-		<div class="row">
-			<div class="col-xl-4">
-
-
-
-				<!--end:: Widgets/Support Tickets -->
 			</div>
 		</div>
 
-		<!--End::Section-->
-
-		<!--End::Dashboard 1-->
 	</div>
 
-	<!-- end:: Content -->
+	</div>
 
 
-	<!-- begin:: Footer -->
+
+	<div class="row">
+		<div class="col-xl-4"></div>
+	</div>
+
+	</div>
+
+	<!--Footer-->
 
 	<%@include file="include/footer.jsp"%>
 
-	<!-- end:: Footer -->
 
-	<!-- end:: Page -->
+
+
 
 	<!-- begin::Quick Panel -->
 	<div id="kt_quick_panel" class="kt-quick-panel">
@@ -742,7 +669,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- end::Scrolltop -->
 
 	<!-- begin::Sticky Toolbar -->
-<!-- 	<ul class="kt-sticky-toolbar" style="margin-top: 30px;">
+	<!-- 	<ul class="kt-sticky-toolbar" style="margin-top: 30px;">
 		<li class="kt-sticky-toolbar__item kt-sticky-toolbar__item--success"
 			id="kt_demo_panel_toggle" data-toggle="kt-tooltip"
 			title="Check out more demos" data-placement="right"><a href="#"

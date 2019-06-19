@@ -14,6 +14,8 @@ import com.mms.vo.PlVO;
 
 public class PlListFormAction implements Action{
 
+	
+	//프로그래밍언어 리스트 action
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

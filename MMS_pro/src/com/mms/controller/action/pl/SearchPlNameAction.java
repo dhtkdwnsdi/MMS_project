@@ -14,6 +14,8 @@ import com.mms.vo.PlVO;
 
 public class SearchPlNameAction implements Action {
 
+	
+	//프로그래밍언어 이름으로 검색하는 action
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

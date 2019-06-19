@@ -13,6 +13,8 @@ import com.mms.vo.PlVO;
 
 public class PlRegisterAction implements Action{
 
+	
+	//프로그래밍언어 등록 action
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

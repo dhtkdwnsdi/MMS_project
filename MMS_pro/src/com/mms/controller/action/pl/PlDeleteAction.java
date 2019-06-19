@@ -13,6 +13,8 @@ import com.mms.vo.PlVO;
 
 public class PlDeleteAction implements Action{
 
+	
+	//Admin-프로그래밍 언어 삭제 action
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
