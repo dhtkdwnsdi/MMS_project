@@ -81,12 +81,15 @@ public class ProgrammerActionFactory {
 		/**
 		 * @author LEE HAN
 		 */
+
+		// 내 정보
 		if (command.equals("memberUpdate")) {
 			action = new MemberUpdateAction();
 
 		} else if (command.equals("memberUpdateForm")) {
 			action = new MemberUpdateFormAction();
 
+		// 경력
 		} else if (command.equals("careerListForm")) {
 			action = new CareerListFormAction();
 
@@ -103,68 +106,103 @@ public class ProgrammerActionFactory {
 			action = new CareerUpdateAction();
 
 		}
+
+		// 프로필 기초정보
 		else if (command.equals("profileForm")) {
 			action = new ProfileFormAction();
+			
+		}else if (command.equals("profilePopup")) {
+			action = new ProfilePopupAction();
 
-		}else if (command.equals("portpolioReadForm")) {
+		 
+
+		//포트폴리오
+		} else if (command.equals("portpolioReadForm")) {
 			action = new PortpolioReadFormAction();
 
-		}else if (command.equals("portpolioDelete")) {
+		} else if (command.equals("portpolioDelete")) {
 			action = new PortpolioDeleteAction();
-		}else if (command.equals("portpolioRegister")) {
+
+		} else if (command.equals("portpolioRegister")) {
 			action = new PortpolioRegisterAction();
-		}else if (command.equals("portpolioUpdateForm")) {
+
+		} else if (command.equals("portpolioUpdateForm")) {
 			action = new PortpolioUpdateFormAction();
-		}else if (command.equals("portpolioUpdate")) {
+
+		} else if (command.equals("portpolioUpdate")) {
 			action = new PortpolioUpdateAction();
 		}
 
+		
 		/**
 		 * @author PJH
 		 */
 
-
-		//학력
+		// 학력
 		else if (command.equals("eduListForm")) {
 			action = new EduListFormAction();
-		}else if (command.equals("eduRegister")) {
-			action = new EduRegisterAction();
-		}else if (command.equals("eduDelete")) {
-			action = new EduDeleteAction();
-		}else if(command.equals("eduUpdateForm")) {
-			action = new EduUpdateFormAction();	
 
-		}else if(command.equals("eduUpdate")) {
+		} else if (command.equals("eduRegister")) {
+			action = new EduRegisterAction();
+
+		} else if (command.equals("eduDelete")) {
+			action = new EduDeleteAction();
+
+		} else if (command.equals("eduUpdateForm")) {
+			action = new EduUpdateFormAction();
+
+		} else if (command.equals("eduUpdate")) {
 			action = new EduUpdateAction();
-			
-		//프로그래밍언어숙련도 
-		}else if(command.equals("plsRegister")) {
-			action = new PlsRegisterAction();	
-		}else if(command.equals("plsDelete")) {
-			action = new PlsDeleteAction();	
-		}else if(command.equals("plsUpdateForm")) {
-			action = new PlsUpdateFormAction();	
+
+		// 프로그래밍언어숙련도
+		} else if (command.equals("plsRegister")) {
+			action = new PlsRegisterAction();
+
+		} else if (command.equals("plsDelete")) {
+			action = new PlsDeleteAction();
+
+		} else if (command.equals("plsUpdateForm")) {
+			action = new PlsUpdateFormAction();
+
+		} else if (command.equals("plsUpdate")) {
+			action = new PlsUpdateAction();
 		}
-		else if(command.equals("plsUpdate")) {
-			action = new PlsUpdateAction();	
-		}
+
+		// 프로그래밍언어
+		else if (command.equals("searchPlName")) {
+			action = new SearchPlNameAction();
 		
-		//프로그래밍언어
-		else if(command.equals("searchPlName")) {
-			action = new SearchPlNameAction();	
-		}
+		} else if (command.equals("plSearchForm")) {
+			action = new PlSearchFormAction();
 		
-		//자기소개서
+		} else if (command.equals("plListForm")) {
+			action = new PlListFormAction();
+
+		} else if (command.equals("plDelete")) {
+			action = new PlDeleteAction();
+
+		} else if (command.equals("plRegister")) {
+			action = new PlRegisterAction();
+
+		} else if (command.equals("plRegisterForm")) {
+			action = new PlRegisterFormAction();
+		}
+
+		// 자기소개서
 		else if (command.equals("introduceUpdateForm")) {
 			action = new IntroduceUpdateFormAction();
-		}else if (command.equals("introduceUpdate")) {
+
+		} else if (command.equals("introduceUpdate")) {
 			action = new IntroduceUpdateAction();
-		}
-		else if (command.equals("intorduceForm")) {
+
+		} else if (command.equals("intorduceForm")) {
 			action = new IntroduceFormAction();
+
+		} else if (command.equals("introducePopup")) {
+			action = new IntroducePopupAction();
 		}
-		
-		//이력서
+
+		// 이력서
 		else if (command.equals("resumeForm")) {
 			action = new ResumeFormAction();
 		}
@@ -172,44 +210,47 @@ public class ProgrammerActionFactory {
 		/**
 		 * @author OSJ
 		 */
+		
+		
 		// 자격증
 		else if (command.equals("certListForm")) {
 			action = new CertListFormAction();
-		} 
-		else if (command.equals("certRegistForm")) {
+			
+		} else if (command.equals("certRegistForm")) {
 			action = new CertRegistFormAction();
+
 		} else if (command.equals("certRegist")) {
 			action = new CertRegistAction();
+
 		} else if (command.equals("certSearchForm")) {
 			action = new CertSearchFormAction();
-		} 
-		else if (command.equals("searchCertName")) {
+			
+		} else if (command.equals("searchCertName")) {
 			action = new SearchCertNameAction();
 		}
-		
 
 		// 보유 자격증
 		else if (command.equals("myCertListForm")) {
 			action = new MyCertListFormAction();
+
 		} else if (command.equals("myCertDelete")) {
 			action = new MyCertDeleteAction();
-		}
-		else if(command.equals("myCertRegist")) {
+
+		} else if (command.equals("myCertRegist")) {
 			action = new MyCertRegistAction();
-		}
-		else if(command.equals("myCertUpdateForm")) {
+
+		} else if (command.equals("myCertUpdateForm")) {
 			action = new MyCertUpdateFormAction();
-		}
-		else if(command.equals("myCertUpdate")) {
+
+		} else if (command.equals("myCertUpdate")) {
 			action = new MyCertUpdateAction();
 		}
-		
 
 		// 포트폴리오
 		else if (command.equals("portpolioListForm")) {
 			action = new PortpolioListFormAction();
 		}
-		
+
 		else if (command.equals("portpolioRegister")) {
 			action = new PortpolioRegistFormAction();
 		}
@@ -217,53 +258,53 @@ public class ProgrammerActionFactory {
 		/**
 		 * @author LYJ
 		 */
-		else if (command.equals("plSearchForm")) {
-			action = new PlSearchFormAction();
-		}
-		
-		else if (command.equals("plListForm")) {
-			action = new PlListFormAction();
-		} else if (command.equals("plDelete")) {
-			action = new PlDeleteAction();
-		} else if (command.equals("plRegister")) {
-			action = new PlRegisterAction();
-		} else if (command.equals("plRegisterForm")) {
-			action = new PlRegisterFormAction();
-		} else if (command.equals("grantListForm")) {
+
+		// 계정
+		else if (command.equals("grantListForm")) {
 			action = new GrantListFormAction();
+
 		} else if (command.equals("grantUpdate")) {
 			action = new GrantUpdateAction();
+
 		} else if (command.equals("grantUpdateForm")) {
 			action = new GrantUpdateFormAction();
+
+		// 자격증
 		} else if (command.equals("certDelete")) {
 			action = new CertDeleteAction();
+
+		// 메세지
 		} else if (command.equals("messageListForm")) {
 			action = new MessageListFormAction();
+
 		} else if (command.equals("programmerSearchForm")) {
 			action = new ProgrammerSearchFormAction();
+
 		} else if (command.equals("messageSendViewForm")) {
 			action = new MessageSendViewFormAction();
+
 		} else if (command.equals("messageReceiveViewForm")) {
 			action = new MessageReceiveViewFormAction();
+
 		} else if (command.equals("messageRegister")) {
-			action = new MessageRegisterAction(); 
+			action = new MessageRegisterAction();
+
 		} else if (command.equals("messageRegisterForm")) {
 			action = new MessageRegisterFormAction();
+
 		} else if (command.equals("receiveMsgDelete")) {
 			action = new ReceiveMsgDeleteAction();
+
 		} else if (command.equals("sendMsgDelete")) {
 			action = new SendMsgDeleteAction();
+
 		} else if (command.equals("msgRegisterForm")) {
 			action = new MsgRegisterFormAction();
+
 		} else if (command.equals("searchProg")) {
 			action = new SearchProgAction();
-		}
-		else if(command.equals("profilePopup")) {
-			action = new ProfilePopupAction();
-		}
-		else if(command.equals("introducePopup")) {
-			action = new IntroducePopupAction();
-		}
+
+		} 
 
 		return action;
 	}
