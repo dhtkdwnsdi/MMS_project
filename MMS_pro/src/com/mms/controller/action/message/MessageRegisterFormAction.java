@@ -15,7 +15,7 @@ public class MessageRegisterFormAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String url = "profile/messageReRegisterForm.jsp";
-		
+		//메세지 등록 action - send와 receive 두개의 테이블로 보냄
 		String sendReceiver = request.getParameter("sendReceiver");
 		request.setAttribute("sendReceiver", sendReceiver);
 		

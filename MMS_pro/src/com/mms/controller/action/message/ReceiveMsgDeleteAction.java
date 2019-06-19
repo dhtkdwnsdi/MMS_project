@@ -11,7 +11,7 @@ import com.mms.dao.ReceiverMsgDAO;
 import com.mms.vo.ReceiveMsgVO;
 
 public class ReceiveMsgDeleteAction implements Action {
-
+	//전체 체크 삭제 action
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

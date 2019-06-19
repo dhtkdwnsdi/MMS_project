@@ -31,10 +31,10 @@ public class MessageListFormAction implements Action {
 		
 		ReceiverMsgDAO rDao = ReceiverMsgDAO.getInstance();
 		SenderMsgDAO sDao = SenderMsgDAO.getInstance();
-		
+		//받은 메세지 List
 		ArrayList<ReceiveMsgVO> ReceiveMessageList = rDao.ReceiveMessageList(progNum);
 		request.setAttribute("ReceiveMessageList", ReceiveMessageList);
-		
+		//보낸 메세지 List
 		ArrayList<SendMsgVO> SendMessageList = sDao.SendMessageList(progNum);
 		request.setAttribute("SendMessageList", SendMessageList);
 		
