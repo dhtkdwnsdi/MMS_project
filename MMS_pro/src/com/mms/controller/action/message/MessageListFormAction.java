@@ -41,8 +41,6 @@ public class MessageListFormAction implements Action {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 		
-		
-		
 	}
 	
 

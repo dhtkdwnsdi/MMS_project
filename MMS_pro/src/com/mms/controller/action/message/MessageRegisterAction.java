@@ -29,9 +29,6 @@ public class MessageRegisterAction implements Action {
 		new MessageListFormAction().execute(request, response);
 		
 		
-		
-		
-		
 	}
 
 }
