@@ -18,7 +18,7 @@ License: You must have a valid license purchased only from themeforest(the above
 -->
 <html lang="en">
 
-<!-- begin::Head -->
+
 <head>
 <title>Metronic | 프로그래밍 언어 등록</title>
 </head>
@@ -29,6 +29,11 @@ License: You must have a valid license purchased only from themeforest(the above
 	class="kt-header--fixed kt-header-mobile--fixed kt-subheader--fixed kt-subheader--enabled kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
 	<div class="kt-content  kt-grid__item kt-grid__item--fluid"
 		id="kt_content">
+		
+		
+		
+		
+		<!--프로그래밍 언어-->
 		<div class="row">
 			<div class="col-lg-12">
 
@@ -78,10 +83,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<div class="kt-portlet__foot">
 								<div class="kt-form__actions kt-form__actions--right">
 									<div class="row">
-										<!-- <div class="col kt-align-left">
-															<button type="reset" class="btn btn-secondary">수정</button>
-															<button type="reset" class="btn btn-danger">삭제</button>
-														</div> -->
+										
 										<div class="col kt-align-right">
 											<button type="button" class="btn btn-brand"
 												onclick="openPopUp()">등록</button>
@@ -342,6 +344,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- end::Body -->
 <script>
+//프로그래밍 언어 등록 팝업창
 	function openPopUp() {
 		// window.name = "부모창 이름"; 
 		window.name = "parentForm";
@@ -360,6 +363,8 @@ License: You must have a valid license purchased only from themeforest(the above
 		/* window.open("memberUpdateForm.jsp",
 		        "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */
 	}
+
+
 
 	function deletePl() {
 
