@@ -54,6 +54,7 @@ public class ProjectServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 			
 		} else if(command.equals("projectRegister")) {
+			// 프로젝트 등록
 			
 			ServletContext context = getServletContext();
 			System.out.println("context: " + context.getContextPath());
@@ -110,6 +111,8 @@ public class ProjectServlet extends HttpServlet {
 			
 			new ProjectRegisterAction().execute(request, response);
 		} else if(command.equals("projectUpdate")) {
+			// 프로젝트 수정
+			
 			
 			ServletContext context = getServletContext();
 			System.out.println("context: " + context.getContextPath());
@@ -183,6 +186,8 @@ public class ProjectServlet extends HttpServlet {
 			new ProjectUpdateAction().execute(request, response);
 		} 
 		else if(command.equals("download")) {
+			
+			// 프로젝트 첨부파일 다운로드
 			ServletContext context = getServletContext();
 //			System.out.println("context: " + context.getContextPath());
 			request.setCharacterEncoding("UTF-8");

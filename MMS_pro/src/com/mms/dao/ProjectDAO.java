@@ -998,6 +998,8 @@ public class ProjectDAO extends DBManager {
 		}
 	   }
 	   
+	   
+	   // 프로젝트 구성원 메소드
 	   public ArrayList<ProgrammerVO> projectMemberList(String projNum){
 		   Connection conn = null;
 		   PreparedStatement pstmt = null;

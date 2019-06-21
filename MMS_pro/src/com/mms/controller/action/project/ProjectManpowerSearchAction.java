@@ -1,5 +1,10 @@
 package com.mms.controller.action.project;
-
+/**
+ *  @author LEE HAN
+ *  
+ *  프로젝트 인력 검색 액션
+ *  
+ */
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;

@@ -1,5 +1,10 @@
 package com.mms.controller.action.project;
-
+/**
+ *  @author LEE HAN
+ *  
+ *  프로젝트 진행 상태 수정 액션
+ *  
+ */
 import java.io.IOException;
 import java.io.PrintWriter;
 

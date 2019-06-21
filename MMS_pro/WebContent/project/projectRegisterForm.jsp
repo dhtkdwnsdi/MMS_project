@@ -3,6 +3,8 @@
 <%@ include file="../include/header.jsp" %>
 <!DOCTYPE html>
 
+		<!-- 프로젝트 등록 페이지 -->
+
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
 Author: KeenThemes
@@ -308,9 +310,6 @@ License: You must have a valid license purchased only from themeforest(the above
 																	</div>
 																	<div class="d-md-none kt-margin-b-10"></div>
 																</div>
-																<!-- <div class="col-md-4">
-																<button type="button" name="delete" id="delete" class="btn btn-danger">삭제</button>
-																</div> -->
 														</div>
 													</div>
 												</div>
@@ -318,12 +317,6 @@ License: You must have a valid license purchased only from themeforest(the above
 													<label class="col-lg-2 col-form-label"></label>
 													<div class="col-lg-4">
 													<button type="button" name="add" class="btn btn-primary">추가</button>
-														<!-- <div data-repeater-create="" class="btn btn btn-sm btn-brand btn-pill">
-															<span>
-																<i class="la la-plus"></i>
-																<span id="add">추가</span>
-															</span>
-														</div> -->
 													</div>
 												</div>
 											</div>
@@ -357,8 +350,6 @@ License: You must have a valid license purchased only from themeforest(the above
 														<label id="label1">첨부파일</label>
 														<div class="custom-file">
 															<input type="file" name="projFile" id="projFile">
-															<!-- <input type="file" class="custom-file-input" name="projFile" id="projFile">
-															<label class="custom-file-label" for="customFile" style="text-align: left;"></label> -->
 														</div>
 												</div>
 											</div>
@@ -369,7 +360,6 @@ License: You must have a valid license purchased only from themeforest(the above
 														</div>
 														<div class="col-lg-6 kt-align-right">
 															<button type="button" class="btn btn-primary" id="submitBtn" onclick="registerProject()">저장</button>
-															<!-- <button type="reset" class="btn btn-danger">Delete</button> -->
 														</div>
 													</div>
 												</div>
@@ -513,6 +503,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <script>
+
+// datePicker KOREA VER.
 $.datepicker.setDefaults({
     dateFormat: 'yy-mm-dd',
     prevText: '이전 달',
@@ -526,12 +518,14 @@ $.datepicker.setDefaults({
     yearSuffix: '년'
 });
 
+// datePicker jquery
 $(function() {
     $("#startDuedate").datepicker();
     $("#endDuedate").datepicker();
     $("#deadline").datepicker();
 });
 
+// 프로젝트 등록 jquery
 function registerProject(){
 	
 	// userID 변수에 userID의 입력된 값을 가져오게 함
@@ -734,31 +728,7 @@ $(document).on("click", "button[name=delete]", function(){
 	}
 });
 
-//autocomplete
-/* $(document).ready(function(){
-	$("#autocomplete").autocomplete({
-		source : function(request, response) {
-			$.ajax({
-				url : "/proj?command=autocomplete",
-				type: "post",
-				dataType : "json",
-				data: request,
-				
-				success : function(data){
-					var result = data;
-					response(result);
-				},
-				
-				error : function(data){
-					alert("에러가 발생하였습니다.");
-				}
-			});
-		}
-	});
-	
-});
- */
-
+// 자동완성기능 jquery
 $(function(){
 	$(".autocomplete").autocomplete({
 		source : function(request, response){

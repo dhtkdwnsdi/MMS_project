@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
+		<!-- 프로젝트 전체 리스트 페이지 -->
+
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
 Author: KeenThemes
@@ -120,8 +122,6 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                          <thead style="text-align: center;">
 			                                             <tr>
 			                                                <th>#</th>
-			                                                <!-- <th style="font-weight: bold;">분류</th>
-			                                                <th style="font-weight: bold;">세분류</th> -->
 			                                                <th style="font-weight: bold;">프로젝트 명</th>
 			                                                <th style="font-weight: bold;">시작 예정일</th>
 			                                                <th style="font-weight: bold;">종료 예정일</th>
@@ -135,8 +135,6 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                          <c:forEach items="${allList}" var="aVo" varStatus="listStat">
 			                                             <tr>
 			                                                <th scope="row">${listStat.count}</th>
-			                                                <%-- <td>${aVo.projCate}</td>
-			                                                <td>${aVo.projDetailCate}</td> --%>
 			                                                <td><a href="proj?command=projectListViewForm&projNum=${aVo.projNum}">${aVo.projName}</a></td>
 			                                                <td>${aVo.startDuedate}</td>
 			                                                <td>${aVo.endDuedate}</td>
@@ -162,22 +160,8 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                          </tbody>
                                        				</table>
 												</div>
-												<!-- <div class="tab-pane" id="kt_portlet_tab_1_3">
-													Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
-												</div> -->
 											</div>
 											<div class="kt-portlet__foot">
-												<!-- <div class="kt-form__actions kt-form__actions--right">
-													<div class="row">
-														<div class="col kt-align-left">
-															<button type="reset" class="btn btn-secondary">수정</button>
-															<button type="reset" class="btn btn-danger">삭제</button>
-														</div>
-														<div class="col kt-align-right">
-															<button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button>
-														</div>
-													</div>
-												</div> -->
 											</div>
 											
 										</div>
@@ -312,26 +296,6 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- end::Body -->
 <script>
-function openPopUp()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "1030"; 
-	  var height = "700"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "/proj?command=projectRegisterForm"; 
-	  var title = "프로젝트 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
-
-      window.open(url, title, status);
-
-
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
-}
 
 function openApplyPop(projNum, progNum){
 	var projNum = projNum;

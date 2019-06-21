@@ -3,7 +3,9 @@
 <%@ include file="../include/header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-
+		
+		<!-- 프로젝트 수정 페이지 -->
+		
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
 Author: KeenThemes
@@ -123,8 +125,6 @@ font-weight: bold;
 										</div>
 
 										<!--begin::Form-->
-<!-- 										<form method="POST" enctype="multipart/form-data" id="frm" name="frm"> -->
-<%-- 										<input type="hidden" name="prevProjFile" id="prevProjFile" value="${projVo.projFile}"> --%>
 										<input type="hidden" name="projNum" id="projNum" value="${projVo.projNum}">
 											<div class="kt-portlet__body">
 												<div class="form-group row form-group-marginless kt-margin-t-20">
@@ -534,9 +534,6 @@ font-weight: bold;
 													<div></div>
 													<div class="custom-file">
 														<input type="text" readonly="readonly" name="prevProjFile" id="prevProjFile" value="${projVo.projFile}">
-<!-- 														<input type="file" class="custom-file-input" id="projFile" name="projFile"> -->
-<!-- 														<label class="custom-file-label" for="customFile" style="text-align: left;"> -->
-<!-- 														</label> -->
 													</div>	
 												</div>
 												<div class="form-group">
@@ -544,9 +541,6 @@ font-weight: bold;
 													<div></div>
 													<div class="custom-file">
 														<input type="file" name="projFile" id="projFile">
-<!-- 														<input type="file" class="custom-file-input" id="projFile" name="projFile"> -->
-<!-- 														<label class="custom-file-label" for="customFile" style="text-align: left;"> -->
-<!-- 														</label> -->
 													</div>	
 												</div>
 											</div>
@@ -562,7 +556,6 @@ font-weight: bold;
 													</div>
 												</div>
 											</div>
-<!-- 										</form> -->
 
 										<!--end::Form-->
 									</div>
@@ -607,12 +600,6 @@ font-weight: bold;
 												<div class="form-group row">
 													<div class="col-lg-12">
 													<button type="button" name="add" class="btn btn-primary">추가</button>
-														<!-- <div data-repeater-create="" class="btn btn btn-sm btn-brand btn-pill">
-															<span>
-																<i class="la la-plus"></i>
-																<span id="add">추가</span>
-															</span>
-														</div> -->
 													</div>
 												</div>
 											</div>
@@ -753,7 +740,7 @@ font-weight: bold;
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <script>
-	
+// datePicker KOREA VER
     $.datepicker.setDefaults({
         dateFormat: 'yy-mm-dd',
         prevText: '이전 달',
@@ -766,14 +753,14 @@ font-weight: bold;
         showMonthAfterYear: true,
         yearSuffix: '년'
     });
-
+// datePicker jquery
     $(function() {
         $("#startDuedate").datepicker();
         $("#endDuedate").datepicker();
         $("#deadline").datepicker();
     });
 
-    
+ // 프로젝트 수정 jquery
 function updateProject(){
 
 		
@@ -896,7 +883,8 @@ function updateProject(){
 		})
 		} 
 	}
-	
+
+ // 취소 버튼 jquery
 $(document).ready(
 		function() {
 			$('#cancel').on("click",function(event) {
@@ -965,6 +953,7 @@ $(document).on("click", "button[name=delete]", function(){
 	}
 });
 
+// 자동완성기능 jquery
 $(function(){
 	$(".autocomplete").autocomplete({
 		source : function(request, response){

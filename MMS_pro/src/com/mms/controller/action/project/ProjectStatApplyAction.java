@@ -1,5 +1,10 @@
 package com.mms.controller.action.project;
-
+/**
+ *  @author LEE HAN
+ *  
+ *  프로젝트 모집 상태 수정 액션
+ *  
+ */
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -21,7 +26,6 @@ public class ProjectStatApplyAction implements Action {
 		pDao.projStatApplyUpdate(projNum);
 		pDao.applyProgStateUpdate(projNum);
 		
-//		new MyProjectViewFormAction().execute(request, response);
 		
 		response.setContentType("text/html; charset=UTF-8");
 		 

@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
+		<!-- 프로젝트 배치 리스트 페이지 -->
+
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
 Author: KeenThemes
@@ -86,12 +88,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="kt-portlet__foot">
 												<div class="kt-form__actions kt-form__actions--right">
 													<div class="row">
-														<!-- <div class="col kt-align-left">
-															<button type="reset" class="btn btn-secondary">수정</button>
-															<button type="reset" class="btn btn-danger">삭제</button>
-														</div> -->
 														<div class="col kt-align-right">
-															<!-- <button type="button" class="btn btn-brand" onclick="openPopUp()">등록</button> -->
 														</div>
 													</div>
 												</div>
@@ -248,10 +245,6 @@ function openDeployPop(projNum)
 
       window.open(url, title, status);
 
-
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
 }
 </script>
 </html>

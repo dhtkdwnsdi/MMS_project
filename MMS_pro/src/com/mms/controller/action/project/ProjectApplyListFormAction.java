@@ -1,5 +1,10 @@
 package com.mms.controller.action.project;
-
+/**
+ *  @author LEE HAN
+ *  
+ *  프로젝트  신청 리스트 폼 액션
+ *  
+ */
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -28,9 +33,7 @@ public class ProjectApplyListFormAction implements Action{
 		list = pDao.projectApplyList(progNum);
 		request.setAttribute("Plist", list);
 		
-//		ArrayList<ProjectVO> aList = new ArrayList<ProjectVO>();
-//		aList = pDao.projectList();
-//		request.setAttribute("aList", aList);
+
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

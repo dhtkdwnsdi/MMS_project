@@ -3,6 +3,8 @@
 <%@ include file="../include/header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
+
+		<!-- 내 프로젝트 신청 내역 리스트 폼 -->
 	
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
@@ -126,11 +128,6 @@ License: You must have a valid license purchased only from themeforest(the above
 															승인대기
 														</a>
 													</li>
-													<!-- <li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab">
-															Settings
-														</a>
-													</li> -->
 												</ul>
 											</div>
 										</div>
@@ -239,9 +236,6 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                          </tbody>
                                        				</table>
 												</div>
-												<!-- <div class="tab-pane" id="kt_portlet_tab_1_3">
-													Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
-												</div> -->
 											</div>
 										</div>
 									</div>

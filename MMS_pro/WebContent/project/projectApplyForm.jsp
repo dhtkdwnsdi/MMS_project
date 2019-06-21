@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
+		<!-- 프로젝트 신청 페이지 -->
+
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
 Author: KeenThemes
@@ -283,6 +285,8 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- end::Body -->
 	
 <script>
+
+// 프로젝트 신청 JQuery
 function registerApplyStmt(){
 
 	

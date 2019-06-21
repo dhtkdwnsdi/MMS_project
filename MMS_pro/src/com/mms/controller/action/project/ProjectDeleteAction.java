@@ -1,5 +1,10 @@
 package com.mms.controller.action.project;
-
+/**
+ *  @author LEE HAN
+ *  
+ *  프로젝트  삭제 액션
+ *  
+ */
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -14,7 +19,6 @@ public class ProjectDeleteAction implements Action{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String projNum = request.getParameter("projNum");
-		System.out.println(projNum);
 		ProjectDAO pDao = ProjectDAO.getInstance();
 		pDao.deleteProject(projNum);
 		

@@ -1,5 +1,10 @@
 package com.mms.controller.action.project;
-
+/**
+ *  @author LEE HAN
+ *  
+ *  프로젝트 추천 인력배치 폼 액션
+ *  
+ */
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -31,25 +36,12 @@ public class ProjectManpowerDeployFormAction implements Action {
 		ArrayList<PlVO> plList = plDao.selectPl();
 		request.setAttribute("plList", plList);
 		
-//		UsePlDAO uDao = UsePlDAO.getInstance();
-//		ArrayList<UsePlVO> usePlList = uDao.usePlList(projNum);
-//		request.setAttribute("usePlList", usePlList);
-		
-
 		ApplyStmtDAO aDao = ApplyStmtDAO.getInstance();
 		ArrayList<ApplyStmtVO> pMemList = aDao.progressProjectMemberList(projNum);
 		request.setAttribute("pMemList", pMemList);
 		
 		ArrayList<ApplyStmtVO> recommendList = aDao.defaultRecommnedList();
 		request.setAttribute("recommendList", recommendList);
-		
-//		ProjectDAO pDao = ProjectDAO.getInstance();
-//		ProjectVO pVo = new ProjectVO();
-//		pVo = pDao.viewProject(projNum);
-//		request.setAttribute("pVo", pVo);
-		
-//		ArrayList<ProgrammerVO> progList = pDao.allProgrammer();
-//		request.setAttribute("progList", progList);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

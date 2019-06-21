@@ -1,8 +1,9 @@
 package com.mms.controller.action.project;
 /**
- * @author LEE HAN
- * 
- * 프로젝트 인력을 추천하는 액션
+ *  @author LEE HAN
+ *  
+ *  프로젝트 인력 추천 액션
+ *  
  */
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,12 +36,8 @@ public class ProjectManpowerRecommendAction implements Action{
 		
 		String[] plName = (request.getParameterValues("plName") == null) ?  new String[0] : request.getParameterValues("plName"); 
 		
-		
-		
 		String grade = request.getParameter("grade");
 		ApplyStmtDAO aDao = ApplyStmtDAO.getInstance();
-		
-		
 		
 		ArrayList<ApplyStmtVO> recommendList = aDao.recommendList(grade, plName);
 		request.setAttribute("recommendList", recommendList);

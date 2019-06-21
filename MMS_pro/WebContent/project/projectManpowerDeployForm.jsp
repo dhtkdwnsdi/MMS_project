@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
+
+		<!-- 프로젝트 추천 인력 배치 페이지 -->
+
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
 Author: KeenThemes
@@ -184,8 +187,6 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">이름</th>
 																<th style="font-weight: bold;">등급</th>
 																<th style="font-weight: bold;">관련기술</th>
-																<!-- <th style="font-weight: bold;">프로젝트 참여여부</th>
-																<th style="font-weight: bold;">종료날짜</th> -->
 															</tr>
 														</thead>
 														<tbody style="text-align: center;">
@@ -208,8 +209,6 @@ License: You must have a valid license purchased only from themeforest(the above
 																	<i class="kt-nav__link-icon flaticon2-send"></i>
 																	<span class="kt-nav__link-text">메세지</span>
 																	</a>
-																	<!-- <div class="dropdown-divider"></div>
-																	<a class="dropdown-item" href="#">Separated link</a> -->
 																	</div>
 																</td>
 																<td>${rVo.progName}</td>
@@ -281,8 +280,6 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">이름</th>
 																<th style="font-weight: bold;">등급</th>
 																<th style="font-weight: bold;">관련기술</th>
-																<!-- <th style="font-weight: bold;">프로젝트 참여여부</th>
-																<th style="font-weight: bold;">종료날짜</th> -->
 															</tr>
 														</thead>
 														<tbody style="text-align: center;">
@@ -304,8 +301,6 @@ License: You must have a valid license purchased only from themeforest(the above
 																	<i class="kt-nav__link-icon flaticon2-send"></i>
 																	<span class="kt-nav__link-text">메세지</span>
 																	</a>
-																	<!-- <div class="dropdown-divider"></div>
-																	<a class="dropdown-item" href="#">Separated link</a> -->
 																	</div>
 																</td>
 																<td>${pMemVo.progName}</td>
@@ -565,7 +560,7 @@ $("#recommend").click(function(){
 });
 
 
-
+// 배치 기능 JQuery
 $("#deploy").click(function(){
 	
 	var zeroTd = "<tr>"
@@ -620,6 +615,7 @@ $("#deploy").click(function(){
 	
 });
 
+// 배치 취소 Jquery
 $("#cancel").click(function(){
 	var zeroTd = "<tr>"
 		   + "<td colspan=\"5\">"
@@ -709,12 +705,11 @@ $("#save").click(function(){
 	
 });
 
+// 직접 배치 팝업 javascript
 function directDeploy()
 {
 	var projNum = $("#projNum").val();
-    // window.name = "부모창 이름"; 
       window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
       var width = "800"; 
 	  var height = "700"; 
 	  var top = (window.screen.height-height)/2; 
@@ -724,13 +719,10 @@ function directDeploy()
 	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
       window.open(url, title, status);
-
-
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
+ 
 }
 
+// 메세지 팝업 javascript
 function msgPopUp(progNum,progName){
 	var sendReceiver = progNum;
 	var sendName = progName;
@@ -748,12 +740,11 @@ function msgPopUp(progNum,progName){
     
 }
 
+// 이력서 javaScript
 function openProfilePopup(progNum)
 {
 	var progNum = progNum;
-    // window.name = "부모창 이름"; 
       window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
       var width = "800"; 
 	  var height = "700"; 
 	  var top = (window.screen.height-height)/2; 
@@ -765,17 +756,14 @@ function openProfilePopup(progNum)
       window.open(url, title, status);
 
 
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
 }
 
+
+// 자기소개서 팝업 javaScript
 function openIntroducePopup(progNum)
 {
 	var progNum = progNum;
-    // window.name = "부모창 이름"; 
       window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
       var width = "800"; 
 	  var height = "700"; 
 	  var top = (window.screen.height-height)/2; 
@@ -788,8 +776,6 @@ function openIntroducePopup(progNum)
 
 
   
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
 }
 
 </script>

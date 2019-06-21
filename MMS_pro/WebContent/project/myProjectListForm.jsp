@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
+		<!-- 내 프로젝트 내역 리스트 폼 -->
+
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
 Author: KeenThemes
@@ -402,6 +404,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- end::Body -->
 <script>
+
+// 신청 취소 JavaScript
 function deleteApplyStmt(applyStmtNum){
 	var applyStmtNum = applyStmtNum;
 	
@@ -415,6 +419,8 @@ function deleteApplyStmt(applyStmtNum){
 	
 }
 
+
+//메세지 팝업 JavaScript
 function msgPopUp(progNum,progName){
 	   var sendReceiver = progNum;
 	   var sendName = progName;

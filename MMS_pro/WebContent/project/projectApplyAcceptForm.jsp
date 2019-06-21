@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
+		<!-- 프로젝트 접수 승인 페이지 -->
+
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
 Author: KeenThemes
@@ -126,11 +128,6 @@ License: You must have a valid license purchased only from themeforest(the above
 															전체 리스트
 														</a>
 													</li>
-													<!-- <li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab">
-															Settings
-														</a>
-													</li> -->
 												</ul>
 											</div>
 										</div>
@@ -169,8 +166,6 @@ License: You must have a valid license purchased only from themeforest(the above
 																	<i class="kt-nav__link-icon flaticon2-send"></i>
 																	<span class="kt-nav__link-text">메세지</span>
 																	</a>
-																	<!-- <div class="dropdown-divider"></div>
-																	<a class="dropdown-item" href="#">Separated link</a> -->
 																	</div>
                                                 </td>
                                                 <td>${acVo.applyPosition}</td>
@@ -239,8 +234,6 @@ License: You must have a valid license purchased only from themeforest(the above
 																	<i class="kt-nav__link-icon flaticon2-send"></i>
 																	<span class="kt-nav__link-text">메세지</span>
 																	</a>
-																	<!-- <div class="dropdown-divider"></div>
-																	<a class="dropdown-item" href="#">Separated link</a> -->
 																	</div>
                                                 </td>
                                                 <td>${aVo.applyPosition}</td>
@@ -276,9 +269,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                        </table>
 
 												</div>
-												<!-- <div class="tab-pane" id="kt_portlet_tab_1_3">
-													Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
-												</div> -->
 											</div>
 											
 										</div>
@@ -415,6 +405,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- end::Body -->
 <script>
+
+// 프로젝트 접수 신청 승인 JavaScript
 function acceptApply(applyStmtNum){
 	var applyStmtNum = applyStmtNum;
 	
@@ -427,6 +419,8 @@ function acceptApply(applyStmtNum){
 	}
 	
 }
+
+// 프로젝트 접수 신청 거절 JavaScript
 function denyApply(applyStmtNum){
 	var applyStmtNum = applyStmtNum;
 	
@@ -440,6 +434,7 @@ function denyApply(applyStmtNum){
 	
 }
 
+// 메세지 팝업 JavaScript
 function msgPopUp(progNum,progName){
 	var sendReceiver = progNum;
 	var sendName = progName;
@@ -457,12 +452,12 @@ function msgPopUp(progNum,progName){
     
 }
 
+
+// 이력서 팝업 JavaScript
 function openProfilePopup(progNum)
 {
 	var progNum = progNum;
-    // window.name = "부모창 이름"; 
       window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
       var width = "800"; 
 	  var height = "700"; 
 	  var top = (window.screen.height-height)/2; 
@@ -472,19 +467,14 @@ function openProfilePopup(progNum)
 	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
 
       window.open(url, title, status);
-
-
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
 }
 
+
+// 자기소개서 팝업 JavaScript
 function openIntroducePopup(progNum)
 {
 	var progNum = progNum;
-    // window.name = "부모창 이름"; 
       window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
       var width = "800"; 
 	  var height = "700"; 
 	  var top = (window.screen.height-height)/2; 
@@ -495,10 +485,6 @@ function openIntroducePopup(progNum)
 
       window.open(url, title, status);
 
-
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
 }
 
 </script>

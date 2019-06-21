@@ -3,7 +3,9 @@
 <%@ include file="../include/header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-
+		
+		<!-- 내 프로젝트 내역 상세조회 페이지 -->
+		
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
 Author: KeenThemes
@@ -189,10 +191,6 @@ font-weight: bold;
 														<label id="label1">담당자 명</label>
 														<input type="text" class="form-control" readonly="readonly" value="${projVo.progName}">
 													</div>
-													<%-- <div class="col-lg-4">
-														<label id="label1">프로젝트 상태</label>
-														<input type="text" class="form-control" readonly="readonly" value="${projVo.projStat}">
-													</div> --%>
 												</div>
 												<!-- Start Divider -->
 												<br><br>
@@ -369,8 +367,6 @@ font-weight: bold;
 										</div>
 									</div>
 							
-                           <!--begin:: Widgets/New Users-->
-                           <%-- <c:if test="${projVo.projStat eq '진행' or projVo.projStat eq '종료'}"> --%>
                            <div class="kt-portlet">
                               <div class="kt-portlet__head">
                                  <div class="kt-portlet__head-label">
@@ -406,7 +402,6 @@ font-weight: bold;
 
                            <!--end:: Widgets/New Users-->
                         			</div>
-                        <%-- </c:if> --%>
                         		</div>
 							</div>
 						</div>
@@ -537,26 +532,8 @@ font-weight: bold;
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <script>
-    $.datepicker.setDefaults({
-        dateFormat: 'yy-mm-dd',
-        prevText: '이전 달',
-        nextText: '다음 달',
-        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-        showMonthAfterYear: true,
-        yearSuffix: '년'
-    });
 
-    $(function() {
-        /* $("#startDuedate").datepicker();
-        $("#endDuedate").datepicker();
-        $("#deadline").datepicker(); */
-    });
-
-    
+// 프로젝트 리스트 목록, 프로젝트 삭제 JQuery
 $(document).ready(
 		function() {
 			$('#cancel').on("click",function(event) {
@@ -576,11 +553,10 @@ $(document).ready(
 				
 			});
 			
-			$('.Message').on("click", function(event){
-				
-			});
 		});
-		
+
+
+// 메세지 팝업 JavaScript
 function msgPopUp(progNum,progName){
 	var sendReceiver = progNum;
 	var sendName = progName;

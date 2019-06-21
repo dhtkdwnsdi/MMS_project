@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
+		<!-- 프로젝트 신청 리스트 페이지 -->
+
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
 Author: KeenThemes
@@ -114,33 +116,12 @@ License: You must have a valid license purchased only from themeforest(the above
 													프로젝트 신청
 												</h3>
 											</div>
-											<!-- <div class="kt-portlet__head-toolbar">
-												<ul class="nav nav-tabs nav-tabs-bold nav-tabs-line   nav-tabs-line-right nav-tabs-line-brand" role="tablist">
-													<li class="nav-item">
-														<a class="nav-link active" data-toggle="tab" href="#kt_portlet_tab_1_1" role="tab">
-															전체 프로젝트 리스트
-														</a>
-													</li>
-													<li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_2" role="tab">
-															모집 프로젝트 리스트
-														</a>
-													</li>
-													<li class="nav-item">
-														<a class="nav-link" data-toggle="tab" href="#kt_portlet_tab_1_3" role="tab">
-															Settings
-														</a>
-													</li>
-												</ul>
-											</div> -->
 										</div>
 										<div class="kt-portlet__body">
 													<table class="table table-bordered table-hover">
 			                                          <thead style="text-align: center;">
 			                                             <tr>
 			                                                <th>#</th>
-			                                                <!-- <th style="font-weight: bold;">분류</th>
-			                                                <th style="font-weight: bold;">세분류</th> -->
 			                                                <th style="font-weight: bold;">프로젝트 명</th>
 			                                                <th style="font-weight: bold;">시작 예정일</th>
 			                                                <th style="font-weight: bold;">종료 예정일</th>
@@ -155,8 +136,6 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                          <c:forEach items="${Plist}" var="pVo" varStatus="listStat">
 			                                             <tr>
 			                                                <th scope="row">${listStat.count}</th>
-			                                                <%-- <td>${pVo.projCate}</td>
-			                                                <td>${pVo.projDetailCate}</td> --%>
 			                                                <td><a href="proj?command=projectApplyViewForm&projNum=${pVo.projNum}">${pVo.projName}</a></td>
 			                                                <td>${pVo.startDuedate}</td>
 			                                                <td>${pVo.endDuedate}</td>
@@ -193,67 +172,6 @@ License: You must have a valid license purchased only from themeforest(the above
 			                                          </tbody>
                                        				</table>
 												</div>
-												<%-- <div class="tab-pane" id="kt_portlet_tab_1_2">
-													<table class="table table-bordered table-hover">
-			                                          <thead style="text-align: center;">
-			                                             <tr>
-			                                                <th>#</th>
-			                                                <!-- <th style="font-weight: bold;">분류</th>
-			                                                <th style="font-weight: bold;">세분류</th> -->
-			                                                <th style="font-weight: bold;">프로젝트 명</th>
-			                                                <th style="font-weight: bold;">시작 예정일</th>
-			                                                <th style="font-weight: bold;">종료 예정일</th>
-			                                                <th style="font-weight: bold;">신청 마감일</th>
-			                                                <th style="font-weight: bold;">모집인원</th>
-			                                                <th style="font-weight: bold;">담당자</th>
-			                                                <th style="font-weight: bold;">상태</th>
-			                                                <th style="font-weight: bold;">접수</th>
-			                                             </tr>
-			                                          </thead>
-			                                          <tbody style="text-align: center;">
-			                                          <c:forEach items="${aList}" var="aVo" varStatus="listStat">
-			                                             <tr>
-			                                                <th scope="row">${listStat.count}</th>
-			                                                <td>${aVo.projCate}</td>
-			                                                <td>${aVo.projDetailCate}</td>
-			                                                <td><a href="proj?command=projectApplyViewForm&projNum=${aVo.projNum}">${aVo.projName}</a></td>
-			                                                <td>${aVo.startDuedate}</td>
-			                                                <td>${aVo.endDuedate}</td>
-			                                                <td>${aVo.deadline}</td>
-			                                                <td>${aVo.recruitNumber} 명</td>
-			                                                <td>${aVo.progName}</td>
-			                                                <c:if test="${aVo.projStat eq '모집' }">
-			                                                <td><span class="kt-badge kt-badge--success kt-badge--inline">모집</span></td>
-			                                                </c:if>
-			                                                <c:if test="${aVo.projStat eq '진행' }">
-			                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">진행</span></td>
-			                                                </c:if>
-			                                                <c:if test="${aVo.projStat eq '종료' }">
-			                                                <td><span class="kt-badge kt-badge--danger kt-badge--inline">종료</span></td>
-			                                                </c:if>
-			                                                <c:if test="${aVo.projStat eq '모집' }">
-			                                                <td>
-			                                                <a href="#"><span class="kt-badge kt-badge--primary kt-badge--inline" onclick="openApplyPop('${aVo.projNum}','${LoginUser.progNum}')">신청</span></a>
-			                                                </td>
-			                                                </c:if>
-			                                                <c:if test="${aVo.projStat ne '모집' }">
-			                                                <td>-</td>
-			                                                </c:if>
-			                                             </tr>
-			                                          </c:forEach>
-			                                             <c:if test="${empty aList}">
-			                                             	<tr>
-				                                             	<td colspan="10">
-				                                             	내역이 없습니다
-				                                             	</td>
-				                                            </tr>
-			                                             </c:if>
-			                                          </tbody>
-                                       				</table>
-												</div> --%>
-												<!-- <div class="tab-pane" id="kt_portlet_tab_1_3">
-													Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
-												</div> -->
 											</div>
 										</div>
 									</div>
@@ -389,27 +307,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 	<!-- end::Body -->
 <script>
-function openPopUp()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "1030"; 
-	  var height = "700"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "project/projectRegisterForm.jsp"; 
-	  var title = "프로젝트 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
-
-      window.open(url, title, status);
-
-
-  
-    /* window.open("memberUpdateForm.jsp",
-            "childForm", "width=500, height=300, resizable = no, scrollbars = no"); */    
-}
-
+// 신청 팝업 javaScript
 function openApplyPop(projNum, progNum){
 	var projNum = projNum;
 	var progNum = progNum;
@@ -426,7 +324,7 @@ function openApplyPop(projNum, progNum){
     
     
 }
-
+// 메세지 팝업 javaScript
 function msgPopUp(progNum,progName){
 	var sendReceiver = progNum;
 	var sendName = progName;

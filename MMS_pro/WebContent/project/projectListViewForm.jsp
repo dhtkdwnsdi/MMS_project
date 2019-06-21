@@ -4,6 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
+		<!-- 프로젝트 리스트 상세조회 페이지 -->
+
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
 Author: KeenThemes
@@ -118,16 +120,6 @@ font-weight: bold;
 												프로젝트 상세조회
 												</h3>
 											</div>
-											<%-- <div class="kt-portlet__head-toolbar">
-												<div class="btn-group">
-													<c:if test="${LoginUser.progNum eq projVo.progNum}">
-													<button type="button" class="btn btn-success">
-														<i class="la la-check"></i>
-														인력배치
-													</button>
-													</c:if>
-												</div>
-											</div> --%>
 										</div>
 
 										<!--begin::Form-->
@@ -279,10 +271,6 @@ font-weight: bold;
 														<div class="col-lg-6">
 														</div>
 														<div class="col-lg-6 kt-align-right">
-															<%-- <c:if test="${LoginUser.progNum eq projVo.progNum}">
-															<button type="button" class="btn btn-primary" onclick="location.href='/proj?command=projectUpdateForm&projNum=${projVo.projNum}'">수정</button>
-															<button type="button" class="btn btn-danger" id="delete">삭제</button>
-															</c:if> --%>
 															<button type="button" class="btn btn-secondary" id="cancel">목록</button>
 														</div>
 													</div>
@@ -452,26 +440,7 @@ font-weight: bold;
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <script>
-    $.datepicker.setDefaults({
-        dateFormat: 'yy-mm-dd',
-        prevText: '이전 달',
-        nextText: '다음 달',
-        monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-        monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-        dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-        showMonthAfterYear: true,
-        yearSuffix: '년'
-    });
-
-    $(function() {
-        /* $("#startDuedate").datepicker();
-        $("#endDuedate").datepicker();
-        $("#deadline").datepicker(); */
-    });
-
-    
+// 프로젝트 리스트 목록, 프로젝트 삭제 jQuery    
 $(document).ready(
 		function() {
 			$('#cancel').on("click",function(event) {
