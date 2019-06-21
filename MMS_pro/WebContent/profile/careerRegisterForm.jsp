@@ -2,18 +2,6 @@
     pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <html lang="en">
 
 	<!-- begin::Head -->
@@ -111,8 +99,6 @@ License: You must have a valid license purchased only from themeforest(the above
 														<div class="kt-section kt-section--first">
 														
 															<div class="kt-section__body">
-																<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
-																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">회사 이름</label>
 																	<div class="col-9">
@@ -134,13 +120,13 @@ License: You must have a valid license purchased only from themeforest(the above
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">입사일</label>
 																	<div class="col-9">
-																		<input type="text" class="form-control" id="kt_datepicker_1" readonly="" name="joinDate">
+																		<input type="text" class="form-control" id="kt_datepicker_1" readonly="readonly" name="joinDate">
 																	</div>
 																</div>
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">퇴사일</label>
 																	<div class="col-9">
-																		<input type="text" class="form-control" id="kt_datepicker_4_1" readonly="" name="retireDate">
+																		<input type="text" class="form-control" id="kt_datepicker_4_1" readonly="readonly" name="retireDate">
 																	</div>
 																</div>
 															</div>

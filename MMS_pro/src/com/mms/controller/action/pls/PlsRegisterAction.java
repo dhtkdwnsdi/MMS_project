@@ -17,13 +17,11 @@ public class PlsRegisterAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
 		//parameter가져오기
 		String plNum = request.getParameter("plNum");
 		String profiency = request.getParameter("profiency");
 		String experience = request.getParameter("experience");
 		String progNum	= request.getParameter("progNum");
-		
 		
 		PlsVO pVo = new PlsVO();
 		PlsDAO pDao = PlsDAO.getInstance();
@@ -34,13 +32,10 @@ public class PlsRegisterAction implements Action{
 		System.out.println("experience : " + experience);
 		System.out.println("progNum : " + progNum);
 		
-		
-		
 		pVo.setPlNum(plNum);
 		pVo.setProfiency(profiency);
 		pVo.setExperience(experience);
 		pVo.setProgNum(progNum);
-		
 		
 		pDao.insertPls(pVo);
 		

@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
-import com.mms.controller.action.ResumeFormAction;
 import com.mms.dao.PortpolioDAO;
 import com.mms.vo.PortpolioVO;
 
@@ -24,8 +23,6 @@ public class PortpolioUpdateAction implements Action {
 		
 		portDao.updatePortpolio(portVo);
 		
-		
-
 	}
 
 }

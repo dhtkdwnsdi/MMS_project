@@ -163,7 +163,7 @@ public class PlsDAO extends DBManager {
 
 	}
 
-	// update
+	//언어숙련도 업데이트 
 	public void updatePls(PlsVO pVo) {
 
 		Connection conn = null;
@@ -200,7 +200,7 @@ public class PlsDAO extends DBManager {
 		   }
 		}
 	
-	// delete
+	// 언어숙련도 삭제
 	   public void deletePls(String plsNum) {
 		   String sql = "DELETE FROM TBL_PLS"
 					+   " WHERE PLS_NUM = " + plsNum;

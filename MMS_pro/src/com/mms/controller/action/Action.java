@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
  * 
  * 모든 기능들은 execute 메소드 안에 정의되어야한다.
  * 
- * @author cho
  *
  */
 

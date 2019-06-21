@@ -23,8 +23,6 @@ public class ProgrammerDAO extends DBManager {
 	}
 	
 	
-	
-	
 	//자기 정보 띄우기
 	public ProgrammerVO readProgrammer(String progNum){
 		
@@ -74,8 +72,6 @@ public class ProgrammerDAO extends DBManager {
 		
 		return progVo;
 	}
-	
-	
 	
 	
 	
@@ -241,7 +237,6 @@ public class ProgrammerDAO extends DBManager {
 				}
 			}
 			return progList;
-			
 			
 		}
 }

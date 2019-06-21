@@ -17,7 +17,6 @@ public class CareerDeleteAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
 		
 		CareerVO cVo = new CareerVO();
 		
@@ -32,7 +31,6 @@ public class CareerDeleteAction implements Action {
 		careerDao.deleteCareer(careerNum);
 		
 		new ResumeFormAction().execute(request, response);
-		
 		
 	}
 

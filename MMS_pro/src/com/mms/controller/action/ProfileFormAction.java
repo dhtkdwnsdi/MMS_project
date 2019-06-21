@@ -32,10 +32,7 @@ public class ProfileFormAction implements Action {
 		
 		request.setAttribute("progNum", progNum);
 		
-		
 		String url = "profile/profileForm.jsp";
-		
-		
 		
 		//기초정보 띄우기
 		ProgrammerDAO progDao = ProgrammerDAO.getInstance();

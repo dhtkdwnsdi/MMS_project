@@ -1,12 +1,6 @@
 package com.mms.vo;
 
 public class EduVO {
-/**
- * 
- * @author park joo hee
- * 
- * 
- */
 	private String progNum;
 	private String eduNum;
 	private String eduCategory;

@@ -13,11 +13,6 @@ import com.mms.controller.action.Action;
 import com.mms.dao.CareerDAO;
 import com.mms.vo.CareerVO;
 import com.mms.vo.ProgrammerVO;
-/**
- * 
- * @author LEE HAN
- *
- */
 public class CareerListFormAction implements Action{
 
 	@Override
@@ -28,7 +23,6 @@ public class CareerListFormAction implements Action{
 		
 		ProgrammerVO pVo = (ProgrammerVO) session.getAttribute("LoginUser");  // 현재 세션의 ProgrammerVO 타입인 LoginUser를 pVo에 대입
 		String progNum = pVo.getProgNum();		// pVo의 셋팅된 progNum을 가져와서 progNum 변수에 대입
-		
 		
 		CareerDAO cDao = CareerDAO.getInstance();
 		

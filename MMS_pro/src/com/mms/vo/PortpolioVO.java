@@ -2,7 +2,6 @@ package com.mms.vo;
 
 public class PortpolioVO {
 
-	
 	private String portNum;
 	private String subject;
 	private String organization;

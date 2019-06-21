@@ -16,7 +16,6 @@ public class CareerUpdateAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
 		
 	String careerNum = request.getParameter("careerNum");
 	request.setAttribute("careerNum", careerNum);

@@ -15,7 +15,6 @@ public class CareerRegisterAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		
 		String progNum = request.getParameter("progNum");
 		String companyName = request.getParameter("companyName");

@@ -16,7 +16,6 @@ public class EduRegisterAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
 		String progNum = request.getParameter("progNum");
 		String eduNum = request.getParameter("eduNum");
 		String eduCategory = request.getParameter("eduCategory");

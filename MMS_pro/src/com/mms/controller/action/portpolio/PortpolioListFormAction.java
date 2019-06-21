@@ -20,7 +20,6 @@ public class PortpolioListFormAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
 		String url = "profile/portpolioList.jsp";
 		
 		HttpSession session = request.getSession();   

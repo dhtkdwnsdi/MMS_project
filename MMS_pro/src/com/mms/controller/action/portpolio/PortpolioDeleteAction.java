@@ -18,7 +18,6 @@ public class PortpolioDeleteAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
 		PortpolioVO portVo = new PortpolioVO();
 		
 		String portNum = request.getParameter("portNum");

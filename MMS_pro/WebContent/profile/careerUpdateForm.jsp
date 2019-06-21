@@ -3,18 +3,6 @@
 <%@ include file="../include/header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <html lang="en">
 
 	<!-- begin::Head -->
@@ -103,92 +91,95 @@ License: You must have a valid license purchased only from themeforest(the above
 										</h3>
 									</div>
 								</div>
-								<div class="kt-portlet__body">
-											<form class="kt-form" id="frm" name="frm" method="post" >
-											<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}">
-											<input type="hidden" name="careerNum" id="careerNum" value="${careerVo.careerNum}">
-												<div class="row">
-													<div class="col-xl-2"></div>
-													<div class="col-xl-8">
-														<div class="kt-section kt-section--first">
-														
-															<div class="kt-section__body">
-																<%-- <h3 class="kt-section__title kt-section__title-lg">${LoginUser.name} 님의 경력 정보</h3>
-																<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div> --%>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">회사 이름</label>
-																	<div class="col-9">
-																		<input class="form-control" type="text" name="companyName" id="companyName" value="${careerVo.companyName}">
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">부서</label>
-																	<div class="col-9">
-																		<input class="form-control" type="text" name="department" id="department" value="${careerVo.department}">
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">직책</label>
-																	<div class="col-9">
-																		<input class="form-control" type="text" name="position" id="position" value="${careerVo.position}">
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">입사일</label>
-																	<div class="col-9">
-																		<input type="text" class="form-control" id="kt_datepicker_1" readonly name="joinDate" value="${careerVo.joinDate}">
-																	</div>
-																</div>
-																<div class="form-group row">
-																	<label class="col-3 col-form-label">퇴사일</label>
-																	<div class="col-9">
-																		<input type="text" class="form-control" id="kt_datepicker_4_1" readonly name="retireDate" value="${careerVo.retireDate}">
-																	</div>
-																</div>
-															</div>
-														</div>
-											<div class="kt-portlet__foot">
-												<div class="kt-form__actions kt-form__actions--right">
-													<div class="row">
-														<!-- <div class="col kt-align-left">
-															<button type="reset" class="btn btn-secondary">수정</button>
-															<button type="reset" class="btn btn-danger">삭제</button>
-														</div> -->
-														<div class="col kt-align-right">
-															<button type="button" class="btn btn-brand" onclick="updateCareer()">수정</button>
-															<a class="btn btn-secondary" href="prog?command=resumeForm" >취소</a>	
-														</div>
-													</div>
-												</div>
-											</div>
-	 												</div>
-													<div class="col-xl-2"></div>
-												</div>
-											</form>
+			<div class="kt-portlet__body">
+				<form class="kt-form" id="frm" name="frm" method="post">
+					<input type="hidden" name="progNum" id="progNum"
+						value="${LoginUser.progNum}"> <input type="hidden"
+						name="careerNum" id="careerNum" value="${careerVo.careerNum}">
+					<div class="row">
+						<div class="col-xl-2"></div>
+						<div class="col-xl-8">
+							<div class="kt-section kt-section--first">
+
+								<div class="kt-section__body">
+									<div class="form-group row">
+										<label class="col-3 col-form-label">회사 이름</label>
+										<div class="col-9">
+											<input class="form-control" type="text" name="companyName" id="companyName" value="${careerVo.companyName}">
 										</div>
+									</div>
+									
+									<div class="form-group row">
+										<label class="col-3 col-form-label">부서</label>
+										<div class="col-9">
+											<input class="form-control" type="text" name="department" id="department" value="${careerVo.department}">
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<label class="col-3 col-form-label">직책</label>
+										<div class="col-9">
+											<input class="form-control" type="text" name="position" d="position" value="${careerVo.position}">
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<label class="col-3 col-form-label">입사일</label>
+										<div class="col-9">
+											<input type="text" class="form-control" id="kt_datepicker_1" readonly name="joinDate" value="${careerVo.joinDate}">
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<label class="col-3 col-form-label">퇴사일</label>
+										<div class="col-9">
+											<input type="text" class="form-control" id="kt_datepicker_4_1" readonly name="retireDate" value="${careerVo.retireDate}">
+										</div>
+									</div>
+									
+								</div>
 							</div>
+							
+							<div class="kt-portlet__foot">
+								<div class="kt-form__actions kt-form__actions--right">
+									<div class="row">
+										<div class="col kt-align-right">
+											<button type="button" class="btn btn-brand"
+												onclick="updateCareer()">수정</button>
+											<a class="btn btn-secondary" href="prog?command=resumeForm">취소</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							
 						</div>
+						<div class="col-xl-2"></div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
-						<!-- end:: Content -->
-		<!-- end:: Page -->
+	<!-- end:: Content -->
+	<!-- end:: Page -->
 
-		<!-- begin::Global Config(global config for global JS sciprts) -->
+	<!-- begin::Global Config(global config for global JS sciprts) -->
 		<script>
 			var KTAppOptions = {
-				"colors": {
-					"state": {
-						"brand": "#5d78ff",
-						"dark": "#282a3c",
-						"light": "#ffffff",
-						"primary": "#5867dd",
-						"success": "#34bfa3",
-						"info": "#36a3f7",
-						"warning": "#ffb822",
-						"danger": "#fd3995"
+				"colors" : {
+					"state" : {
+						"brand" : "#5d78ff",
+						"dark" : "#282a3c",
+						"light" : "#ffffff",
+						"primary" : "#5867dd",
+						"success" : "#34bfa3",
+						"info" : "#36a3f7",
+						"warning" : "#ffb822",
+						"danger" : "#fd3995"
 					},
-					"base": {
-						"label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
-						"shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
+					"base" : {
+						"label" : [ "#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466" ],
+						"shape" : [ "#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a" ]
 					}
 				}
 			};
@@ -314,7 +305,7 @@ function updateCareer(){
 
 			type : 'POST', // GET or POST 전송방법 
 
-			url : '/prog?command=careerUpdate', // 이쪽으로 보낸다(호출URL)
+			url : '/prog?command=careerUpdate', 
 
 			data : {
 				careerNum : careerNum,
@@ -323,9 +314,9 @@ function updateCareer(){
 				position : position,
 				joinDate : joinDate,
 				retireDate : retireDate
-			}, // userID 이름에 userID 데이터 값을 넣어서 보낸다
+			}, 
 
-			success : function(data) { // 만약 성공적으로 수행되었다면 result로 값반환
+			success : function(data) { 
 				alert("수정 되었습니다.");
 				location.href = "/prog?command=resumeForm";
 			},

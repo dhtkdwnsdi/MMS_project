@@ -3,18 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../include/header.jsp"%>
 <!DOCTYPE html>
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <html lang="en">
 
 	<!-- begin::Head -->
@@ -107,6 +95,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</h3>
 											</div>
 										</div>
+										
 										<div class="kt-portlet__body">
 											<form id="frm" name="frm">
 											<input type="hidden" id="progNum" name="progNum" value="${LoginUser.progNum}">
@@ -115,36 +104,42 @@ License: You must have a valid license purchased only from themeforest(the above
 													<div class="col-xl-8">
 														<div class="kt-section kt-section--first">
 															<div class="kt-section__body">
+															
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">아이디</label>
 																	<div class="col-9">
 																		<input class="form-control" type="text" id="id" name="id" value="${LoginUser.id}" readonly="readonly">
 																	</div>
 																</div>
+																
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">비밀번호</label>
 																	<div class="col-9">
 																		<input class="form-control" type="password" id="password" name="password" value="${LoginUser.password}">
 																	</div>
 																</div>
+																
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">이름</label>
 																	<div class="col-9">
 																		<input class="form-control" type="text" id="name" name="name" value="${LoginUser.name}">
 																	</div>
 																</div>
+																
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">주소</label>
 																	<div class="col-9">
 																		<input class="form-control" type="text" id="juso" name="juso" value="${LoginUser.juso}" onclick="postcode()">
 																	</div>
 																</div>
+																
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">상세 주소</label>
 																	<div class="col-9">
 																		<input class="form-control" type="text" id="extraJuso" name="extraJuso" value="${LoginUser.extraJuso}">
 																	</div>
 																</div>
+																
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">이메일</label>
 																	<div class="col-9">
@@ -154,6 +149,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																		</div>
 																	</div>
 																</div>
+																
 																<div class="form-group row">
 																	<label class="col-3 col-form-label">전화번호</label>
 																	<div class="col-9">
@@ -164,118 +160,110 @@ License: You must have a valid license purchased only from themeforest(the above
 																		</div>
 																	</div>
 																</div>
-											<div class="form-group row">
-												<label class="col-3 col-form-label">등급</label>
-												<div class="col-9">
-													<select name="grade" class="form-control">
-													<c:if test="${LoginUser.grade eq '1'}">
-													<option value="${LoginUser.grade }" selected>초급 기능사</option>
-													</c:if>
-													<c:if test="${LoginUser.grade eq '2'}">
-													<option value="${LoginUser.grade }" selected>중급 기능사</option>
-													</c:if>
-													<c:if test="${LoginUser.grade eq '3'}">
-													<option value="${LoginUser.grade }" selected>고급 기능사</option>
-													</c:if>
-													<c:if test="${LoginUser.grade eq '4'}">
-													<option value="${LoginUser.grade }" selected>초급 기술사</option>
-													</c:if>
-													<c:if test="${LoginUser.grade eq '5'}">
-													<option value="${LoginUser.grade }" selected>중급 기술사</option>
-													</c:if>
-													<c:if test="${LoginUser.grade eq '6'}">
-													<option value="${LoginUser.grade }" selected>고급 기술사</option>
-													</c:if>
-													<c:if test="${LoginUser.grade eq '7'}">
-													<option value="${LoginUser.grade }" selected>특급 기술사</option>
-													</c:if>
-													<c:if test="${LoginUser.grade eq '8'}">
-													<option value="${LoginUser.grade }" selected>기술사</option>
-													</c:if>
-														<option value="1">초급 기능사</option>
-														<option value="2">중급 기능사</option>
-														<option value="3">고급 기능사</option>
-														<option value="4">초급 기술자</option>
-														<option value="5">중급 기술자</option>
-														<option value="6">고급 기술자</option>
-														<option value="7">특급 기술자</option>
-														<option value="8">기술사</option>
-													</select>
-												</div>
-
-											</div>
-											<div class="form-group row">
-												<label class="col-3 col-form-label">은행</label>
-												<div class="col-9">
-													<input class="form-control" type="text" id="bank"
-														name="bank" value="${LoginUser.bank}">
-												</div>
-											</div>
+																
+															<div class="form-group row">
+																<label class="col-3 col-form-label">등급</label>
+																<div class="col-9">
+																	<select name="grade" class="form-control">
+																	<c:if test="${LoginUser.grade eq '1'}">
+																	<option value="${LoginUser.grade }" selected>초급 기능사</option>
+																	</c:if>
+																	<c:if test="${LoginUser.grade eq '2'}">
+																	<option value="${LoginUser.grade }" selected>중급 기능사</option>
+																	</c:if>
+																	<c:if test="${LoginUser.grade eq '3'}">
+																	<option value="${LoginUser.grade }" selected>고급 기능사</option>
+																	</c:if>
+																	<c:if test="${LoginUser.grade eq '4'}">
+																	<option value="${LoginUser.grade }" selected>초급 기술사</option>
+																	</c:if>
+																	<c:if test="${LoginUser.grade eq '5'}">
+																	<option value="${LoginUser.grade }" selected>중급 기술사</option>
+																	</c:if>
+																	<c:if test="${LoginUser.grade eq '6'}">
+																	<option value="${LoginUser.grade }" selected>고급 기술사</option>
+																	</c:if>
+																	<c:if test="${LoginUser.grade eq '7'}">
+																	<option value="${LoginUser.grade }" selected>특급 기술사</option>
+																	</c:if>
+																	<c:if test="${LoginUser.grade eq '8'}">
+																	<option value="${LoginUser.grade }" selected>기술사</option>
+																	</c:if>
+																	<option value="1">초급 기능사</option>
+																	<option value="2">중급 기능사</option>
+																	<option value="3">고급 기능사</option>
+																	<option value="4">초급 기술자</option>
+																	<option value="5">중급 기술자</option>
+																	<option value="6">고급 기술자</option>
+																	<option value="7">특급 기술자</option>
+																	<option value="8">기술사</option>
+																</select>
+															</div>
+														</div>
+														
+														<div class="form-group row">
+															<label class="col-3 col-form-label">은행</label>
+															<div class="col-9">
+																<input class="form-control" type="text" id="bank" name="bank" value="${LoginUser.bank}">
+															</div>
+														</div>
 											
 											
-											<div class="form-group row">
-												<label class="col-3 col-form-label">계좌번호</label>
-												<div class="col-9">
-													<input class="form-control" type="text" id="account"
-														name="account" value="${LoginUser.account}"
-														onkeydown="return onlyNumber(event)"
-														onkeyup="removeChar(event)">
-												</div>
-											</div>
+														<div class="form-group row">
+															<label class="col-3 col-form-label">계좌번호</label>
+															<div class="col-9">
+																<input class="form-control" type="text" id="account" name="account" value="${LoginUser.account}"
+																	onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)">
+															</div>
+														</div>
 											
 											
-											<div class="form-group row">
-												<label class="col-3 col-form-label">이전 첨부파일</label>
-												<div class="col-9">
-													<input class="form-control" type="text" id="prevPhoto"
-														name="prevPhoto" value="${LoginUser.photo}">
-												</div>
-											</div>
+														<div class="form-group row">
+															<label class="col-3 col-form-label">이전 첨부파일</label>
+															<div class="col-9">
+																<input class="form-control" type="text" id="prevPhoto" name="prevPhoto" value="${LoginUser.photo}">
+															</div>
+													</div>
 
-
-
-
-											<div class="form-group form-group-last row">
-												<label class="col-3 col-form-label">첨부파일</label>
-												<div class="col-9">
-													<div class="kt-input-icon kt-input-icon--right">
-														<input type="file" class="custom-file-input" name="photo" id="photo"> 
-														<label class="custom-file-label" for="customFile" style="text-align: left;"></label>
+														<div class="form-group form-group-last row">
+															<label class="col-3 col-form-label">첨부파일</label>
+															<div class="col-9">
+																<div class="kt-input-icon kt-input-icon--right">
+																<input type="file" class="custom-file-input" name="photo" id="photo"> 
+																<label class="custom-file-label" for="customFile" style="text-align: left;"></label>
+																</div>
+															</div>
+														</div>
 													</div>
 												</div>
-											</div>
-
-
-
-										</div>
-														</div>
-														<div class="kt-portlet__foot">
+												
+											<div class="kt-portlet__foot">
 												<div class="kt-form__actions kt-form__actions--right">
 													<div class="row">
-														<!-- <div class="col kt-align-left">
-															<button type="reset" class="btn btn-secondary">수정</button>
-															<button type="reset" class="btn btn-danger">삭제</button>
-														</div> -->
 														<div class="col kt-align-right">
 															<button type="button" class="btn btn-brand" onclick="updateMember()">저장</button>
 														</div>
 													</div>
 												</div>
 											</div>
-	 												</div>
-													<div class="col-xl-2"></div>
-												</div>
-											</form>
-										</div>
+	 									</div>
+										<div class="col-xl-2"></div>
 									</div>
-
-									<!--end::Portlet-->
-								</div>
+								</form>
 							</div>
 						</div>
 
-						<!-- end:: Content -->
+		<!--end::Portlet-->
+					</div>
+				</div>
+			</div>
 
+						<!-- end:: Content -->
+	<!-- begin:: Footer -->
+	
+	<%@ include file="../include/footer.jsp" %>
+
+	<!-- end:: Footer -->
 		<!-- end:: Page -->
 
 		<!-- begin::Global Config(global config for global JS sciprts) -->
@@ -384,25 +372,8 @@ License: You must have a valid license purchased only from themeforest(the above
 	
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
-// 자식창에서 부모창으로 값 전달.
- function closeChild(){
-    /* opener.document.getElementById("id").value = document.getElementById("id").value;
-    opener.document.getElementById("password").value = document.getElementById("password").value;
-    opener.document.getElementById("name").value = document.getElementById("name").value;
-    opener.document.getElementById("juso").value = document.getElementById("juso").value;
-    opener.document.getElementById("extraJuso").value = document.getElementById("extraJuso").value;
-    opener.document.getElementById("email").value = document.getElementById("email").value;
-    opener.document.getElementById("tel").value = document.getElementById("tel").value;
-    opener.document.getElementById("bank").value = document.getElementById("bank").value;
-    opener.document.getElementById("account").value = document.getElementById("account").value; */
-    
-    window.opener.location.reload();		// 부모창 새로고침
-    window.close();
-}
-
  function updateMember(){
 
-		// userID 변수에 userID의 입력된 값을 가져오게 함
 		var progNum = $('#progNum').val();
 		var id = $('#id').val();
 		var password = $('#password').val();
@@ -440,9 +411,9 @@ License: You must have a valid license purchased only from themeforest(the above
 		
 		$.ajax({
 
-			type: 'POST',  // GET or POST 전송방법 
+			type: 'POST',  
 			enctype: 'multipart/form-data',
-			url: '/prog?command=memberUpdate',  // 이쪽으로 보낸다(호출URL)
+			url: '/prog?command=memberUpdate', 
 		
 			processData: false, 
 	        contentType: false,
@@ -450,9 +421,9 @@ License: You must have a valid license purchased only from themeforest(the above
 	        
 			cache: false,
 			timeout: 600000,
-			data: data,  // userID 이름에 userID 데이터 값을 넣어서 보낸다
+			data: data,  
 
-			success: function(data){  // 만약 성공적으로 수행되었다면 result로 값반환
+			success: function(data){  
 				alert("수정 완료되었습니다.\n다시 로그인 해주세요.");
 				location.href = "/main?command=logout";
 			},
@@ -497,10 +468,7 @@ function postcode() {
                 if(data.buildingName !== '' && data.apartment === 'Y'){
                     extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
                 }
-               
-            
             }
-
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
             document.getElementById("juso").value = addr;
             // 커서를 상세주소 필드로 이동한다.

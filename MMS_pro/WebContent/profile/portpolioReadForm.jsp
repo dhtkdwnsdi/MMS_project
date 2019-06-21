@@ -3,18 +3,6 @@
 <%@ include file="../include/header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <html lang="en">
 
 <!-- begin::Head -->
@@ -26,8 +14,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!--begin::Fonts -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
 <script>
 	WebFont.load({
 		google : {
@@ -107,8 +94,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
 		<div class="row">
 			<div class="col-lg-12">
-			
-			
+
 				<div class="kt-portlet">
 					<div class="kt-portlet__head">
 						<div class="kt-portlet__head-label">
@@ -116,33 +102,33 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 					</div>
 			
-			
 			<form class="kt-form kt-form--label-right" id="kt_form">
 				<div class="kt-portlet__body">
 					<div class="form-group row form-group-marginless kt-margin-t-20">
+						
 						<div class="col-lg-4">
 							<label id="label1">제목</label>
 							<input type="hidden" name="progNum" id="progNum" value="${LoginUser.progNum}"> 
 							<input type="hidden" id="portNum" value="${portVo.portNum}">
 							<input type="text" class="form-control" value="${portVo.subject}" name="subject" id="subject" readonly="readonly">
 						</div>
+						
 						<div class="col-lg-4">
 							<label id="label1">카테고리</label>
 							<input type="text" class="form-control" readonly="readonly" value="${portVo.portCate }">
 						</div>
+						
 						<div class="col-lg-4">
 							<label id="label1">세부 카테고리</label>
 							<input type="text" class="form-control" readonly="readonly" value="${portVo.portDetailCate }">
 						</div>
 					</div>
 					
-					
 					<br><br>
 					<div class="kt-section__content kt-section__content--solid">
 						<div class="kt-divider"><span></span> </div>
 					</div>
 					<br>
-					
 					
 					<div class="form-group row form-group-marginless kt-margin-t-20">
 						<div class="col-lg-6">
@@ -153,8 +139,6 @@ License: You must have a valid license purchased only from themeforest(the above
 							</div>
 						</div>
 						
-						
-						
 						<div class="col-lg-6">
 							<label id="label1">종료일</label>
 							<div class="kt-input-icon">
@@ -164,8 +148,6 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 					</div>
 					
-					
-					
 					<div class="form-group row form-group-marginless kt-margin-t-20">
 						<div class="col-lg-6">
 							<label id="label1">참여율</label>
@@ -173,8 +155,6 @@ License: You must have a valid license purchased only from themeforest(the above
 								<input type="text" class="form-control" value="${portVo.rate} %" name="rate" id="rate" readonly="readonly">
 							</div>
 						</div>
-						
-						
 						
 						<div class="col-lg-6">
 							<label id="label1">핵심 프로그래밍 언어</label>
@@ -185,16 +165,11 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 					</div>
 					
-					
-					
-					
 					<br><br>
 						<div class="kt-section__content kt-section__content--solid">
 							<div class="kt-divider"><span></span></div>
 						</div>
 					<br>
-					
-					
 					
 					<div class="form-group row form-group-marginless kt-margin-t-20">
 						<div class="col-lg-12">
@@ -203,27 +178,21 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 					</div>
 					
-					
-					
-					
 					<br><br>
 						<div class="kt-section__content kt-section__content--solid">
 							<div class="kt-divider"><span></span></div>
 						</div>
 					<br>
 					
-					
-					
 					<div class="form-group row form-group-marginless kt-margin-t-20">
 						<div class="col-lg-12">
 							<label id="label1">첨부파일</label>
-								<div class="custom-file">
+							<div class="custom-file">
 								<label class="custom-file-label" for="customFile" style="text-align: left;">
 								<a href="/prog?command=portpolioDownload&portFile=${portVo.portFile}">${portVo.portFile}</a></label>
-								</div>
+							</div>
 						</div>
 					</div>
-					
 					
 					<div class="kt-portlet__foot">
 						<div class="kt-form__actions">
@@ -240,45 +209,20 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 					</div>
 				
-				
 				</form>
 			</div>
 		</div>
 		
-		<%-- <div class="col-lg-4">
-			<div class="kt-portlet">
-				<div class="kt-portlet__head">
-					<div class="kt-portlet__head-label">
-					<h4> 사용 프로그래밍 언어 </h4>
-					</div>
-				</div>
-				<div class="kt-portlet__body">
-					<div class="kt-widget4">
-						<c:forEach items="${plList}" var="portVo" varStatus="listStat">
-							<div class="kt-widget4__item">
-								<div class="kt-widget4__pic kt-widget4__pic--logo">
-									<img src="../assets/media/client-logos/logo5.png" alt="">
-								</div>
-									<div class="kt-widget4__info">
-										<a class="kt-widget4__title">${portVo.plName}</a>
-									</div>
-							</div>
-						</c:forEach>
-					</div>
-				</div>
-			</div>
-         </div> --%>
-		
-		
 	</div>
 	</div>
 </div>
 </div>
-<!-- begin:: Footer -->
+		<!-- begin:: Footer -->
 					
-					<%@ include file="../include/footer.jsp" %>
+		<%@ include file="../include/footer.jsp" %>
 
-					<!-- end:: Footer -->
+		<!-- end:: Footer -->
+		
 	<!-- end:: Content -->
 	<!-- end:: Page -->
 
@@ -385,43 +329,10 @@ License: You must have a valid license purchased only from themeforest(the above
 </body>
 <script>
 	
-
-	// 경력 등록 AJAX
-	function updateCareer() {
-
-		// userID 변수에 userID의 입력된 값을 가져오게 함
-		var progNum = $('#progNum').val();
-		var companyName = $('#companyName').val();
-		var department = $('#department').val();
-		var position = $('#position').val();
-		var joinDate = $('#kt_datepicker_1').val();
-		var retireDate = $('#kt_datepicker_4_1').val();
-
-		if (companyName == "") {
-			alert("회사 명을 입력해주세요.");
-			$("#companyName").focus();
-			return false;
-		}
-		if (department == "") {
-			alert("부서를 입력해주세요.");
-			$("#department").focus();
-			return false;
-		}
-		if (position == "") {
-			alert("직책을 입력해주세요.");
-			$("#position").focus();
-			return false;
-		}
-		if (progNum == "") {
-			alert("잘못된 정보입니다.");
-			return false;
-		}
-
-	}
+	
 </script>
 
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <script>

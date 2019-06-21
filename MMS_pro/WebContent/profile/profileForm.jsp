@@ -3,19 +3,6 @@
 <%@ include file="../include/header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 7
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <html lang="en">
 
 	<!-- begin::Head -->
@@ -34,12 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!-- begin:: Page -->
 
-
-
 				<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
-
-
-
 
 							<div class="kt-portlet kt-portlet--mobile">
 								<div class="kt-portlet__head kt-portlet__head--lg">
@@ -50,14 +32,15 @@ License: You must have a valid license purchased only from themeforest(the above
 										<div class="col kt-align-right"> </div>
 								</div>
 							</div>
-
-											<!--begin::Section-->
-											<!--바디  -->
+						<!--begin::Section-->
+						<!--바디  -->
+						
 							<div class="kt-portlet__body">
 								<div class="tab-content">
 									<div class="tab-pane active" id="kt_widget5_tab1_content" aria-expanded="true">
 										<div class="kt-widget5">
 											<div class="kt-widget5__item">
+												
 												<div class="kt-widget5__content">
 													<div class="kt-widget5__pic">
 													<c:if test = "${LoginUser.photo eq null}" >
@@ -69,22 +52,8 @@ License: You must have a valid license purchased only from themeforest(the above
 														
 														<br>
 													</div>
-												<!-- <div class="kt-widget5__section">
-													<a href="#" class="kt-widget5__title">
-														Awesome Mobile App
-													</a>
-													<p class="kt-widget5__desc">
-														Metronic admin themes.Lorem Ipsum Amet
-													</p>
-													<div class="kt-widget5__info">
-														<span>Author:</span>
-														<span class="kt-font-info">Fly themes</span>
-														<span>Released:</span>
-														<span class="kt-font-info">23.08.17</span>
-													</div>
-												</div> -->
 												</div>
-													<div class="kt-widget5__content">
+												<div class="kt-widget5__content">
 													<table class="table table-bordered">
 															<tr>
 																<th style="font-weight: bold;"><b>등급</b></th>
@@ -112,7 +81,6 @@ License: You must have a valid license purchased only from themeforest(the above
 																<c:if test="${profVo.grade eq '8'}">
 																<td>기술사</td>
 																</c:if>
-																
 															</tr>
 															<tr>
 																<th style="font-weight: bold;"><b>E-mail</b></th>
@@ -134,20 +102,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">${profVo.bank}</th>
 																<td>${profVo.account}</td>
 															</tr>
-														
-														
-														
-														
-															
 													</table>
-														<!-- <div class="kt-widget5__stats">
-															<span class="kt-widget5__number">210,054</span>
-															<span class="kt-widget5__sales">sales</span>
-														</div>
-														<div class="kt-widget5__stats">
-															<span class="kt-widget5__number">1103</span>
-															<span class="kt-widget5__votes">votes</span>
-														</div> -->
 													</div> 
 												</div>
 											</div>
@@ -155,14 +110,6 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</div>
 						</div>
-
-
-				
-				
-				
-					
-
-						
 
 						<div class="kt-portlet kt-portlet--mobile">
 									<div class="kt-portlet__head kt-portlet__head--lg">
@@ -174,13 +121,12 @@ License: You must have a valid license purchased only from themeforest(the above
 												</h3>
 												<div class="col kt-align-right">
 												</div>
-												
 										</div>
 									</div>
 
-											<!--begin::Section-->
-											<!--바디  -->
-											<div class="kt-portlet__body">
+								<!--begin::Section-->
+								<!--바디  -->
+										<div class="kt-portlet__body">
 										<form>
 										<input type="hidden" name="progNum" value="${LoginUser.progNum}">
 											<div class="kt-section">
@@ -195,8 +141,6 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">자격증번호</th>
 															</tr>
 														</thead>
-														
-														
 														<c:choose>
 															<c:when test="${not empty myCertList}">
 														<tbody style="text-align: center;">
@@ -220,15 +164,10 @@ License: You must have a valid license purchased only from themeforest(the above
 														</tbody>
 													</table>
 												</div>
-											
 										</div>
 									</form>
 							</div>
 						</div>
-						
-					
-					
-
 
 						<div class="kt-portlet kt-portlet--mobile">
 									<div class="kt-portlet__head kt-portlet__head--lg">
@@ -245,7 +184,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
-											<div class="kt-portlet__body">
+									<div class="kt-portlet__body">
 										<form>
 										<input type="hidden" name="progNum" value="${LoginUser.progNum}">
 											<div class="kt-section">
@@ -293,12 +232,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									</form>
 							</div>
 						</div>
-					
-					
-					
-					
-					
-					
+
 							<div class="kt-portlet kt-portlet--mobile">
 									<div class="kt-portlet__head kt-portlet__head--lg">
 										<div class="kt-portlet__head-label">
@@ -312,9 +246,9 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 
-											<!--begin::Section-->
-											<!--바디  -->
-											<div class="kt-portlet__body">
+								<!--begin::Section-->
+								<!--바디  -->
+									<div class="kt-portlet__body">
 										<form>
 										<input type="hidden" name="progNum" value="${LoginUser.progNum}">
 											<div class="kt-section">
@@ -330,8 +264,6 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">퇴사일</th>
 															</tr>
 														</thead>
-														
-														
 														<c:choose>
 															<c:when test="${not empty cList}">
 														<tbody style="text-align: center;">
@@ -359,12 +291,8 @@ License: You must have a valid license purchased only from themeforest(the above
 											<!--end::Section-->
 										</div>
 									</form>
+								</div>
 							</div>
-						</div>
-
-
-
-
 
 							<div class="kt-portlet kt-portlet--mobile">
 								<div class="kt-portlet__head kt-portlet__head--lg">
@@ -379,8 +307,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</div>
 
-											<!--begin::Section-->
-											<!--바디  -->
+								<!--begin::Section-->
+								<!--바디  -->
 									<div class="kt-portlet__body">
 										<form>
 										<input type="hidden" name="progNum" value="${LoginUser.progNum}">
@@ -395,8 +323,6 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">경험(연차)</th>
 															</tr>
 														</thead>
-														
-														
 														
 														<c:choose>
 															<c:when test="${not empty plsList}">
@@ -420,12 +346,9 @@ License: You must have a valid license purchased only from themeforest(the above
 														</tbody>
 													</table>
 												</div>
-											<!--end::Section-->
 										</div>
 									</form>
-									<!--end: Datatable -->
 							</div>
-							<!--바디  -->
 						</div>
 						
 						
@@ -441,8 +364,8 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</div>
 
-											<!--begin::Section-->
-											<!--바디  -->
+								<!--begin::Section-->
+								<!--바디  -->
 									<div class="kt-portlet__body">
 										<form>
 											<div class="kt-section">
@@ -456,8 +379,6 @@ License: You must have a valid license purchased only from themeforest(the above
 																<th style="font-weight: bold;">발주기관</th>
 															</tr>
 														</thead>
-														
-														
 														
 													<c:choose>
 														<c:when test="${not empty portpolioList}">
@@ -483,15 +404,10 @@ License: You must have a valid license purchased only from themeforest(the above
 														</tbody>
 													</table>
 												</div>
-											
-											
 										</div>
 									</form>
-									<!--end: Datatable -->
 							</div>
-							<!--바디  -->
 						</div>
-						
 				</div>
 				
 					<!-- begin:: Footer -->
@@ -505,9 +421,6 @@ License: You must have a valid license purchased only from themeforest(the above
 		</div>
 
 		<!-- end::Scrolltop -->
-
-
-
 		<script>
 			var KTAppOptions = {
 				"colors": {
@@ -617,27 +530,6 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- end::Body -->
 	
 	<script>
-function openPopUp1()
-{
-    // window.name = "부모창 이름"; 
-      window.name = "parentForm";
-    // window.open("open할 window", "자식창 이름", "팝업창 옵션");
-      var width = "800"; 
-	  var height = "500"; 
-	  var top = (window.screen.height-height)/2; 
-	  var left = (window.screen.width-width)/2; 
- 	  var url = "profile/myCertRegistForm.jsp"; 
-	  var title = "보유자격증 정보 등록"; 
-	  var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width="+width+",height="+height+",top="+top+",left="+left;
-
-      window.open(url, title, status);
-
-
-  
-}
-
-
-
 
 </script>
 </html>

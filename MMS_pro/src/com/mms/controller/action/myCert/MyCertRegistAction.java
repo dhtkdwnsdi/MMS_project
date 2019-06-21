@@ -17,7 +17,6 @@ public class MyCertRegistAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		
 		String progNum = request.getParameter("progNum");
 		String certNum = request.getParameter("certNum");
 		String issueDate = request.getParameter("issueDate");

@@ -76,6 +76,7 @@ public class EduDAO extends DBManager {
 		return list;
 	}
 
+	//학력 등록메소드
 	public void insertEdu(EduVO eduVo) {
 		String sql = "INSERT INTO tbl_edu("
 				+ "	  EDU_CATEGORY, EDU_STATE, SCHOOL_NAME, MAJOR, ENTER_DATE, GRADUATE_DATE, PROG_NUM)"

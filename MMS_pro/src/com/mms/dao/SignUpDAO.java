@@ -165,59 +165,6 @@ public class SignUpDAO extends DBManager {
 		return result;
 	}
 	
-	//관리자 로그인 인증시 사용하는 메소드
-//	public int adminCheck(AdminVO adminVo) {
-//		
-//		int result = -1;
-//		String sql = "SELECT ADMIN_ID, ADMIN_PW FROM TBL_ADMIN WHERE ID= '" + adminVo.getAdminId() + "'";
-//		
-//		System.out.println(adminVo.getAdminPw());
-//		System.out.println(adminVo.getAdminId());
-//		
-//		Connection conn = null;
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		
-//		try {
-//			
-//			conn = getConnection();
-//			pstmt = conn.prepareStatement(sql);
-//			rs = pstmt.executeQuery();
-//			
-//			if(rs.next()) {
-//				System.out.println(rs.getString("ADMIN_ID"));
-//				if(rs.getString("ADMIN_PW") != null && rs.getString("ADMIN_PW").equals(adminVo.getAdminPw())) {
-//					
-//					result = 1;			// 로그인 성공
-//					
-//				} else {
-//					
-//					result = 0;			// 로그인 실패
-//					
-//				}
-//			} else {
-//				
-//				result = -1;			
-//				
-//			}
-//			
-//		} catch (Exception e) {
-//			
-//			e.printStackTrace();
-//			
-//		} finally {
-//			try {
-//				
-//				if(rs != null) rs.close();
-//				if(pstmt != null) pstmt.close();
-//				if(conn != null) conn.close();
-//				
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		return result;
-//	}
 	
 	//프로그래머의 정보를 가져오는 메소드
 	public ProgrammerVO getProgInfo(ProgrammerVO tempVo) {
@@ -278,47 +225,6 @@ public class SignUpDAO extends DBManager {
 	}
 	
 	
-	//관리자의 정보를 가져오는 메소드
-//	public AdminVO getAdminInfo(AdminVO tempVo) {
-//		
-//		String sql = "SELECT * FROM TBL_ADMIN WHERE ID= '" + tempVo.getAdminId() +"'";
-//		Connection conn = null;
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		
-//		AdminVO adminVo = new AdminVO();
-//		
-//		try {
-//			
-//			conn = getConnection();
-//			pstmt = conn.prepareStatement(sql);
-//			rs = pstmt.executeQuery();
-//			
-//			if(rs.next()) {
-//				
-//				adminVo.setAdminId(rs.getString("ADMIN_ID"));
-//				adminVo.setAdminPw(rs.getString("ADMIN_PW"));
-//				adminVo.setGrant(rs.getString("GRANT"));
-//				
-//				
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			try {
-//				
-//				if(rs != null) rs.close();
-//				if(pstmt != null) pstmt.close();
-//				if(conn != null) conn.close();
-//				
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		
-//		return adminVo;
-//	
-//	}
 	
 	//user 수정 DAO
 	public void updateUser(ProgrammerVO progVo) {

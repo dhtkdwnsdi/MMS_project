@@ -26,9 +26,8 @@ public class PortpolioDAO extends DBManager {
 		System.out.print("PortpolioDAO.java");
 		return instance;
 	}
-
 	
-	//포토폴리오 조회
+	//포토폴리오 목록 출력
 	 public List<PortpolioVO> selectPortpolio(String progNum){
 		 
 		 String sql = "SELECT  PORT_NUM"
@@ -152,7 +151,6 @@ public class PortpolioDAO extends DBManager {
 				portVo.setPlName(rs.getString("PL_NAME"));
 				portVo.setProgNum(rs.getString("PROG_NUM"));
 				
-				
 			}
 			
 		} catch(SQLException e) {
@@ -170,35 +168,6 @@ public class PortpolioDAO extends DBManager {
 		
 		return portVo;
 	}
-	
-	
-	/*
-	 * //포트폴리오 상세조회에서 PL 출력하기 public List<PortpolioVO> readPl(String portNum){
-	 * 
-	 * List<PortpolioVO> list = new ArrayList<PortpolioVO>();
-	 * 
-	 * Connection conn = null; PreparedStatement pstmt = null; ResultSet rs = null;
-	 * String sql = "SELECT PL.PL_NAME" +
-	 * "		FROM TBL_PORTPOLIO_PL PPL, TBL_PL PL" +
-	 * "	   WHERE PL.PL_NUM = PPL.PL_NUM" + "      AND PORT_NUM = " + portNum;
-	 * 
-	 * try { conn = getConnection(); pstmt = conn.prepareStatement(sql); rs =
-	 * pstmt.executeQuery();
-	 * 
-	 * 
-	 * while(rs.next()) { PortpolioVO portpolioVo = new PortpolioVO();
-	 * 
-	 * portpolioVo.setPlName(rs.getString("PL_NAME")); list.add(portpolioVo); } }
-	 * catch (SQLException e) {
-	 * 
-	 * e.printStackTrace();
-	 * 
-	 * } finally { try { if(pstmt != null) pstmt.close(); if(conn != null)
-	 * conn.close(); } catch (Exception e) { e.printStackTrace(); } }
-	 * 
-	 * return list; }
-	 */
-
 	
 	
 	//포트폴리오 등록하는 메소드
@@ -252,47 +221,6 @@ public class PortpolioDAO extends DBManager {
 		  	}
 		}
 		 
-
-			/*
-			 * Connection conn = null; PreparedStatement pstmt = null;
-			 * 
-			 * try {
-			 * 
-			 * conn = DBManager.getConnection(); conn.setAutoCommit( false );
-			 * 
-			 * StringBuffer sql = new StringBuffer();
-			 * 
-			 * sql.append("INSERT INTO TBL_PORTPOLIO(" +
-			 * " PROG_NUM, SUBJECT, ORGANIZATION, PORT_CATE," +
-			 * " PORT_DETAIL_CATE, PORT_CONTENTS, PORT_START_DATE," +
-			 * " PORT_END_DATE, RATE, PORT_FILE, PL_NUM)");
-			 * sql.append("VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-			 * 
-			 * pstmt = conn.prepareStatement(sql.toString());
-			 * 
-			 * pstmt.setString(1, portVo.getProgNum()); pstmt.setString(2,
-			 * portVo.getSubject()); pstmt.setString(3, portVo.getOrganization());
-			 * pstmt.setString(4, portVo.getPortCate()); pstmt.setString(5,
-			 * portVo.getPortDetailCate()); pstmt.setString(6, portVo.getPortContents());
-			 * pstmt.setString(7, portVo.getPortStartDate()); pstmt.setString(8,
-			 * portVo.getPortEndDate()); pstmt.setString(9, portVo.getRate());
-			 * pstmt.setString(10, portVo.getPortFile()); pstmt.setString(11,
-			 * portVo.getPlNum());
-			 * 
-			 * int flag = pstmt.executeUpdate();
-			 * 
-			 * if(flag > 0) { result = true; conn.commit(); }
-			 * 
-			 * } catch(Exception e) { throw new RuntimeException(e.getMessage()); } finally
-			 * { try { if(pstmt != null) pstmt.close(); if(conn != null) conn.close(); }
-			 * catch (Exception e) { e.printStackTrace(); } } return result; }
-			 */
-		
-	
-
-		 
-	
-	
 	
 	//포트폴리오 수정하는 메소드
 	public void updatePortpolio(PortpolioVO portVo) {

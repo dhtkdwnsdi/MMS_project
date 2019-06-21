@@ -9,13 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
 
-
-
 public class EduRegisterFormAction implements Action {
 
-	
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		
 		String url = "/profile/eduRegisterForm.jsp";
 		

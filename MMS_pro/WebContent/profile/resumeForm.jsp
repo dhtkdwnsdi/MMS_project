@@ -689,7 +689,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		if(confirmStat == true){
 			var plsNum = $('#plsNum').val();
 			alert("삭제되었습니다.");
-			self.location = "prog?command=carrerDelete&plsNum="+plsNum;	
+			self.location = "prog?command=plsDelete&plsNum="+plsNum;	
 		} else{
 			return false;
 		}

@@ -8,11 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mms.controller.action.Action;
-/**
- * 
- * @author LEE HAN
- *
- */
+
 public class MemberUpdateFormAction implements Action {
 
 	@Override

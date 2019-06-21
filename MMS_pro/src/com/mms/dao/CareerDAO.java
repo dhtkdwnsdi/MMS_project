@@ -18,7 +18,6 @@ public class CareerDAO extends DBManager {
 		return instance;
 	}
 	
-	
 	// 경력 등록
 	public void insertCareer(CareerVO cVo) {
 		Connection conn = null;
@@ -197,7 +196,6 @@ public class CareerDAO extends DBManager {
 				careerVo.setJoinDate(rs.getString("JOIN_DATE"));
 				careerVo.setRetireDate(rs.getString("RETIRE_DATE"));
 				
-				
 			}
 			
 		} catch (SQLException e) {
@@ -215,8 +213,5 @@ public class CareerDAO extends DBManager {
 		}
 		return careerVo;
 	}
-	
-	
-	
 	
 }
