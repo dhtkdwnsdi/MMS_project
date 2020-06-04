@@ -1,6 +1,7 @@
 # MMS_project
 
 # 1. 프로젝트_추진_배경
+![정보시스템 추진배경](https://user-images.githubusercontent.com/45116112/83703421-907b1e80-a64a-11ea-8696-99f033e399bb.JPG)
 
 # 2.외·내부_환경_분석
 # 외부_환경_분석
